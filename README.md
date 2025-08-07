@@ -42,6 +42,7 @@ The framework provides the following core classes:
 
 - `CombinedEvaluationScore` - Unified scoring mechanism that combines performance and coverage metrics with configurable weights. Includes target leakage penalty detection and provides an overall assessment of agent quality.
 
+
 ## Primary Function
 
 The primary function is `evaluate()` in `evaluators.py`, which performs complete evaluation of an agent's solution against ground truth insights. This function orchestrates the entire evaluation pipeline including feature enrichment, performance measurement, coverage analysis, and target leakage detection. It returns a comprehensive `EvaluationResults` object containing all metrics needed to assess both predictive capability and semantic alignment with expert knowledge.
