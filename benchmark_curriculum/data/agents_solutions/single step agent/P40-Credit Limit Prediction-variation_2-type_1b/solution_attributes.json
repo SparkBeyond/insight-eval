@@ -1,0 +1,41 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "average_transaction_amount",
+        "frequency_of_transactions",
+        "days_since_last_login",
+        "proportion_repayment_to_balance",
+        "changes_in_credit_score"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.525369707265701": {
+            "name": "average_transaction_amount",
+            "code": "\n\ndef average_transaction_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculate the average transaction amount for a cardholder.\n    \"\"\"\n    # Extract the transaction history table from aux_data\n    transaction_history = aux_data.get('transaction_history_table.csv')\n    \n    # Ensure the transaction history table exists\n    if transaction_history is None:\n        raise ValueError(\"The 'transaction_history_table.csv' is missing from aux_data.\")\n    \n    # Get the cardholder_id from the row\n    cardholder_id = row['cardholder_id']\n    \n    # Filter transactions for the given cardholder_id\n    transactions = transaction_history[transaction_history['cardholder_id'] == cardholder_id]\n    \n    # Calculate and return the average transaction amount\n    return transactions['transaction_amount'].mean() if not transactions.empty else 0\n"
+        },
+        "0.13414495303464388": {
+            "name": "frequency_of_transactions",
+            "code": "\n\ndef frequency_of_transactions(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculate the frequency of transactions made by a cardholder.\n    \n    Parameters:\n    - row: A row from a DataFrame containing cardholder information.\n    - aux_data: A dictionary mapping filenames to DataFrames. \n                The 'transaction_history_table.csv' file is used to calculate the frequency.\n    \n    Returns:\n    - int: The number of transactions made by the cardholder.\n    \"\"\"\n    # Extract the cardholder_id from the row\n    cardholder_id = row['cardholder_id']\n    \n    # Access the transaction history table from aux_data\n    transaction_history = aux_data['transaction_history_table.csv']\n    \n    # Filter transactions for the given cardholder_id\n    transactions = transaction_history[transaction_history['cardholder_id'] == cardholder_id]\n    \n    # Return the count of transactions\n    return len(transactions)\n"
+        },
+        "0.03010201604941114": {
+            "name": "days_since_last_login",
+            "code": "import pandas as pd\nimport datetime\n\ndef days_since_last_login(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Get the number of days since the last login.\n    \"\"\"\n    from datetime import datetime\n\n    cardholder_id = row['cardholder_id']\n    # Use the correct table for login details\n    transaction_data = aux_dataframes['transaction_history_table.csv']\n    \n    # Filter the transaction data for the given cardholder_id\n    login_details = transaction_data[transaction_data['cardholder_id'] == cardholder_id]\n    \n    if not login_details.empty:\n        # Assuming 'transaction_date' is the closest equivalent to 'last_login_date'\n        last_login_date = pd.to_datetime(login_details['transaction_date'].max())\n        current_date = datetime.now()\n        delta = current_date - last_login_date\n        return delta.days\n    return -1\n"
+        },
+        "0.02048428836837375": {
+            "name": "proportion_repayment_to_balance",
+            "code": "\n\ndef proportion_repayment_to_balance(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculate the repayment-to-balance ratio for each cardholder.\n    \"\"\"\n    cardholder_id = row['cardholder_id']\n    # Access the correct dataframe for repayment data\n    repayment_data = aux_dataframes['credit_repayment_table.csv']\n    \n    # Filter the repayment data for the specific cardholder\n    repayment_details = repayment_data[repayment_data['cardholder_id'] == cardholder_id]\n    \n    if not repayment_details.empty:\n        # Calculate the total repayment amount and remaining balance\n        repayment_amount = repayment_details['repayment_amount'].sum()\n        remaining_balance = repayment_details['remaining_balance'].sum()\n        \n        # Return the repayment-to-balance ratio\n        return repayment_amount / remaining_balance if remaining_balance > 0 else 0\n    \n    # Return 0 if no repayment details are found\n    return 0\n"
+        },
+        "0": {
+            "name": "changes_in_credit_score",
+            "code": "\n\ndef changes_in_credit_score(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculate the change in credit score over time for a given cardholder.\n    \"\"\"\n    cardholder_id = row['cardholder_id']\n    \n    # Access the correct dataframe for credit scores\n    credit_data = aux_dataframes['credit_scores_table.csv']\n    \n    # Filter the credit score data for the specific cardholder\n    credit_details = credit_data[credit_data['cardholder_id'] == cardholder_id]\n    \n    # Ensure there are at least two records to calculate a change\n    if len(credit_details) > 1:\n        # Sort by score_date to ensure chronological order\n        credit_details = credit_details.sort_values(by='score_date')\n        \n        # Calculate the difference between the first and last credit scores\n        score_diff = credit_details['credit_score'].iloc[-1] - credit_details['credit_score'].iloc[0]\n        return score_diff\n    \n    # If there are not enough records, return 0\n    return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "average transaction amount",
+        "frequency of transactions",
+        "days since last login",
+        "proportion repayment to balance",
+        "changes in credit score"
+    ]
+}

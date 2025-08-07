@@ -1,0 +1,1001 @@
+customer_id,average_monthly_spend,usual_locations,transaction_frequency,last_login_date
+0,2848.930000,"['Romanstad', 'Greggside']",28,2025-03-18
+1,1803.310000,"['North Johnchester', 'Michelemouth', 'Taylorside']",50,2025-01-08
+2,2930.830000,"['East Nicole', 'West Amber']",12,2025-04-13
+3,4628.720000,['West Roberthaven'],29,2025-04-20
+4,4168.340000,"['Bowmanberg', 'Limouth']",21,2025-01-03
+5,4368.670000,"['Ashleystad', 'South Nicholastown']",45,2025-04-11
+6,4308.480000,"['North Angela', 'New Susan', 'West Calebview']",30,2025-01-23
+7,1118.940000,"['West Donna', 'Luismouth', 'New Bethview']",8,2025-02-08
+8,1129.470000,['Port Vickitown'],14,2025-02-24
+9,4472.620000,"['Thomaston', 'West Jonathan', 'Smithshire']",40,2025-03-02
+10,4108.070000,"['South Todd', 'Whiteview', 'Lake Daniel']",18,2025-01-25
+11,1989.660000,['Lindamouth'],50,2025-04-05
+12,3374.480000,"['East Saraland', 'Maryfurt']",31,2025-02-25
+13,868.390000,"['New Danabury', 'New Susan']",45,2025-03-08
+14,4983.470000,['Brandonfort'],48,2025-03-10
+15,4154.920000,"['Walkerchester', 'Jonesmouth', 'East Timothy']",26,2025-04-06
+16,580.250000,"['Carlyshire', 'Brownmouth']",41,2025-04-22
+17,732.510000,"['New Jerry', 'Michealborough', 'Ryanmouth']",27,2025-03-10
+18,726.330000,"['New Alexshire', 'South Steven']",28,2025-04-10
+19,3110.350000,['New Andrea'],30,2025-02-22
+20,1575.260000,"['Josephtown', 'Rogersmouth', 'North Joseph']",18,2025-03-02
+21,4808.260000,"['North Danielport', 'Port Corey', 'South Amandabury']",28,2025-04-11
+22,761.500000,['Port Ricardoville'],22,2025-02-19
+23,1367.360000,"['Lake Amberborough', 'Josephstad', 'Sullivantown']",40,2025-03-02
+24,2899.100000,['Christopherton'],21,2025-03-14
+25,3463.540000,"['Markville', 'Davidbury']",25,2025-04-18
+26,1268.270000,['Scottview'],41,2025-01-29
+27,3102.550000,"['Collinsborough', 'Diazborough']",26,2025-02-28
+28,543.940000,"['Port Kelly', 'Kimfurt']",6,2025-04-01
+29,2602.220000,"['Lake Anita', 'New Amanda']",35,2025-02-06
+30,3348.960000,"['Suechester', 'New Joelberg', 'South Amy']",17,2025-03-04
+31,1894.050000,['Christensenberg'],50,2025-02-03
+32,4595.190000,['South John'],44,2025-01-23
+33,3038.830000,"['Lake Davidfort', 'South Christopherhaven', 'Sanchezland']",13,2025-04-18
+34,2313.560000,"['West Matthewmouth', 'Edgarberg', 'Kylemouth']",42,2025-04-17
+35,4174.040000,['South Dalton'],17,2025-04-05
+36,4979.290000,['Joelborough'],48,2025-03-05
+37,996.840000,['Marychester'],8,2025-02-13
+38,4289.110000,"['West Richardborough', 'Alexandershire', 'West Emilyfort']",24,2025-02-16
+39,4122.210000,"['Hannahmouth', 'Port Robert']",25,2025-01-22
+40,722.490000,"['Jillianborough', 'Port Cynthia']",10,2025-02-14
+41,3610.990000,"['Hopkinsstad', 'New Todd']",21,2025-02-21
+42,3458.530000,"['East Joechester', 'Perezfurt']",35,2025-02-13
+43,837.580000,['Melissabury'],39,2025-02-07
+44,3364.260000,['Spearsburgh'],19,2025-02-27
+45,2895.270000,"['Garciafort', 'East Tylerview']",41,2025-02-24
+46,1235.340000,"['East Jonathan', 'Port Davidmouth']",8,2025-01-07
+47,3761.900000,"['Melindaview', 'Deborahhaven']",42,2025-01-31
+48,2267.460000,"['Port Deborahside', 'Amandaland']",19,2025-03-23
+49,2992.930000,"['Kellystad', 'Beanhaven', 'North Nathanfort']",45,2025-02-21
+50,2502.770000,"['Richardsonbury', 'New Lindseyville']",18,2025-02-10
+51,1530.780000,"['Port Patrick', 'North Jenniferville']",17,2025-03-20
+52,4863.920000,"['Thomasborough', 'Williamsview', 'New Danielville']",6,2025-01-17
+53,4826.950000,"['West Kristine', 'Kevinmouth', 'South Christophertown']",41,2025-03-15
+54,2837.500000,['West Amandamouth'],26,2025-03-27
+55,4839.660000,['Port Tonyside'],40,2025-03-16
+56,1539.950000,"['Catherineville', 'Port Susan']",28,2025-03-20
+57,1274.730000,['Port Ericshire'],24,2025-03-20
+58,2452.180000,"['Kaitlynland', 'Port Kathyton']",42,2025-02-26
+59,920.410000,['Gutierrezview'],38,2025-03-08
+60,547.280000,"['Guzmanbury', 'Mariahmouth', 'Edwardsborough']",50,2025-03-13
+61,2990.620000,['Port Alyssa'],33,2025-01-25
+62,2586.360000,"['Diazchester', 'East Susanbury', 'West Brettview']",13,2025-04-11
+63,2913.140000,"['Mariafurt', 'New Anitatown']",33,2025-01-03
+64,554.450000,"['Jackiemouth', 'Port Michael']",16,2025-03-12
+65,4945.130000,"['Carolview', 'Leblancville']",26,2025-01-15
+66,3883.900000,['South William'],8,2025-03-25
+67,1702.270000,"['North Glenfurt', 'Garciaborough', 'East Jennifer']",47,2025-03-12
+68,3646.830000,['Murphyfort'],12,2025-01-26
+69,2622.700000,"['Gravesview', 'Harrisonburgh']",44,2025-01-13
+70,1418.240000,['Wrightville'],6,2025-01-31
+71,2549.120000,['Marcusview'],46,2025-02-28
+72,634.690000,"['South Lindaview', 'New Jason']",12,2025-01-13
+73,2426.490000,['Danielton'],39,2025-01-22
+74,769.190000,"['Jeremyhaven', 'East Megan', 'South Sandraton']",21,2025-03-24
+75,1712.460000,"['Jenkinsmouth', 'Perkinston']",39,2025-01-04
+76,3115.750000,"['New Garyshire', 'Valdezberg']",30,2025-04-06
+77,4608.210000,"['Port Matthew', 'Lake Melissa', 'Tracyshire']",26,2025-02-23
+78,864.120000,"['Debrachester', 'East Ashley', 'Kentport']",7,2025-02-23
+79,3318.960000,"['Cynthiahaven', 'Deanmouth']",25,2025-01-05
+80,1947.400000,"['Kristiland', 'Brendahaven']",13,2025-01-25
+81,2922.710000,['Port Kariburgh'],36,2025-02-27
+82,4198.260000,"['Stewartberg', 'Careyfort']",12,2025-04-22
+83,1647.280000,['Port Samantha'],48,2025-01-04
+84,2392.180000,"['Port Angela', 'Port Alicia', 'South Bonniefort']",17,2025-02-01
+85,2672.700000,['Amandamouth'],18,2025-02-22
+86,2771.830000,"['Tamaraview', 'Calebfort', 'Rebeccafurt']",14,2025-04-03
+87,4030.970000,['New Kaylachester'],32,2025-04-25
+88,2468.870000,"['Alanton', 'Mitchellstad']",38,2025-04-16
+89,3219.900000,['Jacquelinebury'],47,2025-01-04
+90,3016.500000,['South Chadchester'],42,2025-04-06
+91,2906.560000,"['Banksstad', 'Port Sydney']",36,2025-04-15
+92,4114.250000,"['Joshuahaven', 'Ashleyside']",31,2025-04-05
+93,796.320000,['West Stephaniestad'],15,2025-01-02
+94,4559.960000,['New Lori'],20,2025-03-20
+95,2421.590000,"['Port Leroyland', 'Austinport']",39,2025-03-01
+96,3911.310000,"['Annaborough', 'West Robertview', 'Vanessaside']",13,2025-02-28
+97,1799.040000,['Weaverborough'],36,2025-03-13
+98,1627.900000,['Brianburgh'],28,2025-02-22
+99,531.560000,['Danielburgh'],26,2025-01-11
+100,2717.210000,"['East Laura', 'Adrianaport']",10,2025-02-27
+101,4503.560000,"['North Sarahside', 'Aguilarburgh']",20,2025-01-12
+102,1266.500000,"['Travishaven', 'New Rileyborough']",9,2025-03-13
+103,1798.180000,"['North Anthonymouth', 'East Faith']",25,2025-04-02
+104,1168.390000,['South Jennifer'],22,2025-04-25
+105,1887.380000,"['Maryborough', 'West Susan']",41,2025-02-12
+106,2812.980000,['New Kevin'],32,2025-01-10
+107,968.390000,"['Lesterside', 'Mcmahonmouth', 'New Jacqueline']",45,2025-01-29
+108,3982.390000,"['Josephfurt', 'Garrettfurt']",20,2025-03-15
+109,1475.220000,"['Jeffreytown', 'West Allison', 'Ericaport']",28,2025-02-23
+110,4276.610000,"['Roseview', 'East Benjamin']",29,2025-01-31
+111,1716.070000,['Cooperburgh'],24,2025-02-07
+112,2319.950000,"['Hardingbury', 'East Sonya', 'Port Cody']",18,2025-04-11
+113,4465.770000,['Edwardston'],7,2025-01-29
+114,4410.420000,"['West John', 'West Monica', 'Laneland']",8,2025-04-17
+115,2084.120000,"['Mariochester', 'Nathanborough', 'Dustinfort']",36,2025-02-20
+116,2317.660000,"['East Lisaton', 'New Carlhaven', 'Gravesshire']",21,2025-04-15
+117,3601.930000,"['Michaelton', 'South Travisburgh']",15,2025-01-03
+118,3883.910000,['Jeffreyland'],17,2025-01-20
+119,1436.230000,"['South Thomasbury', 'West Charlestown']",50,2025-01-03
+120,4742.800000,['New Douglasland'],45,2025-02-09
+121,4289.160000,['West Maria'],34,2025-03-27
+122,3465.300000,"['South Carolynberg', 'Port Douglas']",37,2025-03-31
+123,4019.270000,"['New Brianmouth', 'Port Mark', 'Nancyfort']",35,2025-03-29
+124,3819.400000,"['New Jennifer', 'South Derek', 'Bryantfort']",10,2025-02-17
+125,1090.820000,"['Lake Raymondview', 'Davidton']",30,2025-01-24
+126,1524.830000,"['New Andrew', 'Mooreburgh']",29,2025-04-10
+127,2687.140000,"['West Michael', 'West Paulview', 'Lake Josefort']",20,2025-02-04
+128,1970.110000,"['New Jean', 'New Christopher']",18,2025-01-05
+129,4360.110000,"['Pamelastad', 'Hendersonburgh']",5,2025-01-07
+130,2629.420000,"['Sawyerton', 'Bakerland']",46,2025-02-03
+131,2666.650000,['Thompsonport'],36,2025-01-07
+132,636.360000,"['Valencialand', 'Pinedamouth']",13,2025-01-02
+133,1394.560000,"['Michelleside', 'Port Michellechester']",14,2025-02-14
+134,662.010000,['Davidview'],23,2025-03-28
+135,2484.980000,['East Noah'],23,2025-02-06
+136,4317.830000,"['West Rebecca', 'North Matthewberg', 'Alexandriachester']",21,2025-03-11
+137,2891.000000,"['Lake Victoria', 'Jensenville', 'Smithfort']",29,2025-02-23
+138,2828.140000,"['Patriciafurt', 'Thomasfurt', 'Thomaston']",7,2025-04-16
+139,3995.810000,['East Deanna'],50,2025-03-17
+140,2914.100000,"['North Robertchester', 'Amandaborough', 'Raybury']",44,2025-02-20
+141,4632.160000,"['New William', 'Hernandezmouth', 'East Felicia']",8,2025-04-12
+142,1736.070000,"['South Gloriaburgh', 'Deannaport', 'Jefferymouth']",27,2025-04-17
+143,4553.000000,['East Barbaramouth'],37,2025-03-31
+144,984.090000,"['East William', 'Bondborough']",28,2025-01-02
+145,2654.150000,"['Marksport', 'South Mariaport']",36,2025-01-27
+146,2151.020000,['Melodyborough'],5,2025-01-10
+147,3204.150000,['Autumnmouth'],27,2025-02-03
+148,2833.630000,['New Robert'],29,2025-04-14
+149,1018.300000,"['Craigville', 'New Heathermouth', 'East Shawnport']",10,2025-03-10
+150,683.960000,"['Webbland', 'North Sarah']",12,2025-01-10
+151,3544.320000,"['Robertmouth', 'New Tiffanyview']",14,2025-02-24
+152,3421.960000,"['Jordanville', 'Kevinchester', 'Leslieville']",33,2025-04-21
+153,711.870000,"['Sarahhaven', 'East Stevenside']",6,2025-01-02
+154,4982.320000,['Smithburgh'],11,2025-03-02
+155,1132.100000,['West Anita'],24,2025-03-18
+156,4054.050000,"['Brittanyhaven', 'South Ryan']",24,2025-02-06
+157,3226.730000,"['Martintown', 'South Tracyview', 'Shanebury']",6,2025-02-15
+158,2468.510000,"['Caseyland', 'Port Matthew']",5,2025-01-28
+159,3354.470000,['Carolinechester'],25,2025-03-10
+160,2915.750000,"['Taraville', 'Lake Randall']",34,2025-01-07
+161,4668.540000,['New Jenniferville'],36,2025-02-16
+162,919.120000,"['West Reneemouth', 'North Jeffrey', 'Andrewfort']",34,2025-02-19
+163,1836.080000,['South Annafort'],42,2025-03-26
+164,4239.520000,['West Johnbury'],9,2025-01-01
+165,3547.630000,"['Lake Maria', 'Michaelchester', 'Robertston']",7,2025-03-20
+166,4337.520000,"['Smithbury', 'North Charles', 'North Brucefort']",48,2025-04-15
+167,1401.570000,"['Port Michelleview', 'Popeport']",31,2025-02-03
+168,4074.510000,['North Amyborough'],29,2025-04-05
+169,4103.340000,"['North Garymouth', 'East Robert']",37,2025-02-13
+170,2345.390000,"['North Margaretchester', 'New Brendaport', 'Lake Fernando']",21,2025-03-24
+171,3096.140000,"['Onealland', 'Ramseyside', 'South Christian']",37,2025-04-07
+172,3805.420000,"['East Rebecca', 'North Danielle', 'Kellyside']",13,2025-01-05
+173,3972.400000,['South Allisonland'],26,2025-01-19
+174,4239.890000,"['Gabriellefurt', 'Lake Daniel', 'Port Annamouth']",25,2025-01-29
+175,2619.020000,['East Marissaberg'],44,2025-02-23
+176,945.320000,['Port Joshua'],38,2025-02-25
+177,2605.300000,"['New Christopher', 'South Jimmy']",32,2025-04-10
+178,2143.700000,"['Terrencechester', 'Santiagoborough']",44,2025-03-27
+179,736.030000,['Port Krista'],20,2025-03-07
+180,525.780000,['Port Paul'],21,2025-04-24
+181,4407.930000,"['Swansontown', 'New Alison']",32,2025-01-13
+182,2238.520000,['Silvafurt'],39,2025-01-23
+183,3018.340000,['Port Kim'],6,2025-02-23
+184,3329.990000,"['Hutchinsonburgh', 'Coopertown']",49,2025-03-02
+185,3163.410000,"['New Sarahview', 'Alishaside', 'South Wendy']",16,2025-04-23
+186,4924.160000,"['Parkerborough', 'Boltonhaven']",42,2025-01-18
+187,3238.060000,"['Ballardberg', 'New Debra']",43,2025-01-08
+188,1574.130000,"['West Nicoleport', 'Torresfurt']",41,2025-03-23
+189,2491.450000,"['North Rhonda', 'Shawnburgh']",12,2025-02-26
+190,1077.290000,['Meganland'],34,2025-01-06
+191,2783.640000,"['Port Josephland', 'Port Scott', 'South Mitchellburgh']",33,2025-02-11
+192,4629.190000,['Hollystad'],5,2025-03-25
+193,1279.170000,"['Savannahstad', 'Port Elizabethstad']",47,2025-03-17
+194,3647.170000,['Cabreraborough'],22,2025-04-08
+195,1361.540000,['West Gina'],50,2025-04-01
+196,581.470000,"['Lake Marc', 'East Susan']",25,2025-04-20
+197,1174.980000,['Cameronborough'],32,2025-03-14
+198,3649.180000,"['Barrystad', 'New Mark']",50,2025-03-18
+199,3779.750000,"['Jamesstad', 'Travisville']",35,2025-03-13
+200,903.240000,['South Joseph'],20,2025-01-13
+201,2741.920000,"['Ashleyberg', 'Harriston']",11,2025-03-27
+202,1668.160000,"['West Joseph', 'Katherineberg', 'West Johnbury']",42,2025-02-26
+203,1659.780000,"['North Cassandramouth', 'Fosterland']",21,2025-03-28
+204,2787.980000,['Jeremyborough'],33,2025-03-24
+205,4118.690000,"['Lake Stephenborough', 'Port Danieltown']",15,2025-03-22
+206,4793.580000,['Lake Victoriaport'],18,2025-02-20
+207,970.080000,"['Buckleyhaven', 'Hernandezland']",12,2025-03-19
+208,3716.510000,['New Williamfort'],27,2025-01-23
+209,3946.870000,['East Toddmouth'],18,2025-02-11
+210,2777.800000,['Wheelertown'],41,2025-01-29
+211,4904.440000,"['New Katieview', 'East Christopherland', 'South Sarah']",5,2025-03-09
+212,2698.010000,['East Shannonbury'],50,2025-04-25
+213,3937.860000,"['Lynnville', 'Michaelport', 'Burnshaven']",34,2025-02-23
+214,2349.210000,"['Brianborough', 'North Russellchester']",38,2025-01-24
+215,2935.460000,"['Billychester', 'North Anna', 'Lake Linda']",8,2025-02-20
+216,619.170000,['East Jody'],44,2025-03-28
+217,1255.400000,"['Lake Melissaborough', 'Smithmouth', 'Davidview']",29,2025-02-22
+218,3440.930000,['North Megan'],23,2025-03-30
+219,1340.780000,"['New Emilyton', 'North Kimberly']",15,2025-04-05
+220,4613.080000,"['Lake Caleb', 'West Brianville']",25,2025-03-23
+221,2699.500000,"['Johnmouth', 'Lake Kathryn', 'Lake James']",34,2025-02-26
+222,4828.840000,"['West Lauraburgh', 'Kennedyville']",46,2025-02-05
+223,3813.460000,"['Perezbury', 'Jonesfort', 'South Jeanfurt']",31,2025-04-05
+224,1471.630000,"['West Samanthaberg', 'Nguyenhaven', 'Chaseshire']",43,2025-02-27
+225,2423.390000,"['Lake Markville', 'Hamiltonfurt']",34,2025-04-09
+226,2949.660000,"['West Bradberg', 'North Cheryl', 'West Nicholas']",8,2025-04-09
+227,3675.920000,"['Fernandezshire', 'New Kristenville', 'South Brandon']",26,2025-03-02
+228,1099.400000,"['Phillipchester', 'Port Saraport']",7,2025-01-21
+229,521.730000,"['Lake Richardview', 'New Stephanie']",11,2025-03-06
+230,882.250000,"['Hahnchester', 'East Paula', 'New Linda']",12,2025-01-23
+231,2750.640000,['West Thomas'],28,2025-04-15
+232,1205.390000,"['Joyceburgh', 'East Sherryview', 'North Jeff']",35,2025-04-07
+233,1929.390000,['Tracyport'],33,2025-01-11
+234,4225.290000,"['Eileenport', 'Milesbury']",18,2025-01-22
+235,3235.560000,"['West Christopher', 'Andrewton']",6,2025-04-11
+236,4035.580000,"['Lake Lauren', 'New Mark', 'North Paulaton']",17,2025-03-05
+237,3959.550000,"['East Rachelville', 'Lake Anitaburgh', 'South Deborah']",9,2025-03-19
+238,2358.060000,['North Connie'],35,2025-03-06
+239,1732.220000,"['Wrightstad', 'Maciasville']",39,2025-04-18
+240,1283.720000,"['North Kurt', 'Morenoside']",14,2025-01-23
+241,3454.460000,"['Port Brady', 'Port John']",22,2025-03-04
+242,789.780000,"['Snydermouth', 'Lake Brianshire', 'Gregoryfort']",35,2025-01-06
+243,1686.810000,"['West Jessicaport', 'New Marktown']",29,2025-01-13
+244,4092.840000,['East Douglas'],38,2025-03-30
+245,3964.960000,"['Port Josebury', 'North Lisabury']",48,2025-04-21
+246,2011.940000,['Stricklandton'],46,2025-01-05
+247,3849.740000,"['West Nathan', 'Port Joshuastad']",23,2025-01-25
+248,1048.860000,"['Michaelbury', 'East Jill', 'New Aprilhaven']",45,2025-01-12
+249,2127.670000,"['New Tony', 'Haleychester']",37,2025-03-12
+250,2141.960000,"['Port Chadfurt', 'Port Josephville']",49,2025-03-19
+251,1524.590000,['North Crystal'],6,2025-01-24
+252,2735.130000,"['Schultzport', 'Port Susan']",7,2025-01-03
+253,2273.010000,"['Fieldsberg', 'New Alan', 'East Corymouth']",27,2025-03-17
+254,4380.010000,"['Amandaburgh', 'Whiteville', 'West Danielburgh']",19,2025-04-06
+255,3888.440000,"['Port Christopherside', 'West Jason', 'Lake Sydneyborough']",46,2025-03-25
+256,4464.720000,"['Ramirezton', 'Bakermouth']",37,2025-01-28
+257,1785.870000,"['North Heidi', 'Lisafort', 'Ramirezmouth']",8,2025-04-04
+258,522.710000,"['Andreaside', 'Murphyfort', 'Emilyhaven']",28,2025-04-18
+259,554.390000,"['Port Jessica', 'South Evelyn', 'South Ericberg']",19,2025-03-08
+260,2988.270000,['Jamesstad'],48,2025-01-01
+261,2508.480000,"['Molinastad', 'South Lisa']",10,2025-01-31
+262,3265.840000,"['East Brianburgh', 'Catherineland', 'New Chelsea']",28,2025-02-12
+263,653.080000,"['Vargasport', 'Barnesshire']",37,2025-03-24
+264,4089.770000,"['Jameston', 'Lisastad']",40,2025-01-20
+265,3804.520000,"['Port Katherine', 'West Christy', 'Schmidtfort']",5,2025-03-10
+266,2166.370000,['East Sarah'],21,2025-01-31
+267,3960.610000,"['Fisherfort', 'Tammybury', 'New Amymouth']",47,2025-01-12
+268,4898.150000,"['West Arianaville', 'Lake Geoffrey', 'Sonyaburgh']",22,2025-03-21
+269,4946.990000,"['Port Andrewborough', 'Brianhaven', 'Williammouth']",37,2025-02-13
+270,2895.790000,"['Lake Amberport', 'Paultown', 'Robertfurt']",42,2025-04-03
+271,1478.770000,['Deniseborough'],24,2025-02-21
+272,747.730000,"['Amandaview', 'Robertland', 'Bethhaven']",15,2025-02-07
+273,2555.990000,"['Bonniehaven', 'Port Christopher', 'East Markside']",46,2025-03-26
+274,4369.020000,['Howellville'],15,2025-02-06
+275,914.830000,['Lake Jennyborough'],17,2025-04-25
+276,4075.490000,"['North Nancystad', 'West Jasonton']",38,2025-04-03
+277,4583.560000,"['South Peter', 'Dodsonville']",5,2025-01-27
+278,803.040000,"['Markville', 'North Tylerfurt']",39,2025-03-01
+279,2534.430000,"['Liutown', 'Williamshire', 'Lake Austin']",49,2025-04-23
+280,3573.030000,['Matthewport'],46,2025-03-27
+281,3899.980000,"['Stephenberg', 'Craigberg']",30,2025-03-20
+282,3623.910000,['Kathleenmouth'],38,2025-02-16
+283,2339.250000,['South Maryberg'],44,2025-03-04
+284,4670.520000,['Sampsonbury'],12,2025-01-26
+285,613.790000,"['Richardmouth', 'Ericton']",44,2025-04-02
+286,4176.660000,['North Lisaview'],16,2025-01-03
+287,3570.730000,"['Conradton', 'North Ronaldland', 'Vasquezshire']",43,2025-03-07
+288,1395.270000,"['Robbinsmouth', 'Manningmouth', 'North Brandon']",12,2025-03-03
+289,4240.200000,"['Jacksonhaven', 'Victoriaton', 'Marshallland']",18,2025-04-01
+290,1410.640000,['Wrightburgh'],28,2025-03-02
+291,2901.790000,"['Robertsbury', 'Nicholeberg', 'Turnerstad']",14,2025-02-19
+292,4632.910000,"['Hernandezport', 'Sparksmouth']",10,2025-02-27
+293,892.280000,"['Michaelfurt', 'Fernandoland']",24,2025-03-02
+294,3331.700000,"['New Daniel', 'South Joseph']",31,2025-04-06
+295,4716.070000,"['Port Benjamin', 'East Christymouth']",42,2025-01-25
+296,1409.170000,"['Bennettfurt', 'Tommybury', 'Brandonshire']",49,2025-03-10
+297,4743.950000,['Brownland'],24,2025-01-13
+298,1726.030000,"['Nolanland', 'Tinachester']",24,2025-02-19
+299,1249.040000,"['Kellyview', 'Hicksmouth', 'Jessefurt']",30,2025-03-14
+300,3366.600000,"['North Monicaborough', 'Mariefort']",19,2025-04-21
+301,1701.170000,['South Zacharyport'],17,2025-01-20
+302,2033.960000,"['South Andrew', 'Port Jodi']",48,2025-02-16
+303,4476.180000,"['Lake Scottland', 'New Davidburgh']",34,2025-03-26
+304,2170.220000,"['West Traceyhaven', 'Davidtown', 'Benjaminhaven']",30,2025-03-23
+305,1734.450000,['New Colleen'],18,2025-01-22
+306,674.840000,"['West Kristy', 'Mariabury']",41,2025-03-25
+307,3059.770000,"['East Christina', 'Jasonbury']",20,2025-03-10
+308,1233.730000,"['Brookemouth', 'South Dale', 'Marytown']",35,2025-03-29
+309,4744.660000,['Evanston'],16,2025-03-06
+310,1368.630000,"['West Patriciaton', 'Lake Jessicastad', 'West Paula']",18,2025-01-14
+311,4368.200000,['Port Phillip'],38,2025-03-03
+312,2400.310000,"['Markhaven', 'Stephenview', 'Crystalberg']",48,2025-01-30
+313,4759.830000,['Smithberg'],13,2025-02-26
+314,4812.790000,['Port Daniel'],27,2025-03-27
+315,1627.560000,['East Timothy'],27,2025-03-31
+316,4421.390000,"['Susanburgh', 'Lopezmouth']",42,2025-04-16
+317,3679.100000,['Scottchester'],21,2025-03-05
+318,1957.870000,"['Bradyland', 'Matthewmouth']",27,2025-01-05
+319,2171.310000,['Scottbury'],25,2025-04-05
+320,1158.420000,"['East Timothyville', 'Carriefort']",32,2025-02-03
+321,655.660000,['Lake Michelleburgh'],31,2025-01-23
+322,3491.420000,['Shaunstad'],41,2025-01-03
+323,797.840000,"['East Laceychester', 'Christinaburgh', 'East Jacob']",31,2025-03-22
+324,3650.660000,"['West Aaron', 'Port Jenniferchester', 'Josephberg']",43,2025-04-15
+325,4874.450000,"['Harrisborough', 'Burkeberg']",22,2025-01-19
+326,4784.340000,['East Jenniferberg'],32,2025-03-06
+327,2710.640000,"['Keithview', 'East Paulside', 'Antoniostad']",16,2025-04-05
+328,607.750000,"['Ericatown', 'Atkinsonburgh', 'South Amanda']",25,2025-03-21
+329,1513.700000,"['Ryanmouth', 'Jessicachester', 'South Carlosshire']",10,2025-01-02
+330,1272.080000,"['Lisamouth', 'Jacksonburgh', 'Lake Bryan']",8,2025-04-01
+331,2432.480000,"['South Stephenmouth', 'Lake Walterhaven', 'New Haley']",20,2025-03-25
+332,735.740000,['Jonestown'],19,2025-04-24
+333,612.340000,"['Parkside', 'West Katherineborough', 'South Michelleberg']",5,2025-02-08
+334,4588.720000,"['Beverlyberg', 'New Shaneview', 'Edwardborough']",14,2025-02-19
+335,3095.290000,"['Wagnerbury', 'Jimborough']",46,2025-01-11
+336,1423.060000,"['Colleenland', 'Brownburgh', 'Hendricksland']",6,2025-02-15
+337,4848.190000,"['South Patricia', 'Sharonburgh']",43,2025-01-19
+338,4792.060000,['Danielston'],14,2025-04-18
+339,4342.910000,"['Judithville', 'West Ericmouth']",9,2025-03-11
+340,2809.430000,"['Port Kellyborough', 'Lindsayhaven', 'Raymondland']",48,2025-04-17
+341,2012.360000,['Ortegaville'],25,2025-03-05
+342,1400.430000,"['Brendatown', 'Andreatown', 'East Janiceville']",36,2025-04-26
+343,3882.140000,"['New Stephanie', 'Vickieport', 'Candaceburgh']",47,2025-02-06
+344,3437.110000,"['Robertaville', 'Port Donaldfurt', 'South Amy']",50,2025-03-05
+345,1457.560000,"['Kristenland', 'South Lisatown']",13,2025-01-25
+346,1103.810000,"['West Claudia', 'New Courtneyfort']",36,2025-03-06
+347,2324.870000,"['Carolborough', 'South Deanna', 'South Thomasburgh']",49,2025-02-03
+348,4005.220000,"['Caldwellton', 'Brownchester', 'Port Michael']",30,2025-03-28
+349,1270.440000,"['Laurahaven', 'South Nicholas', 'Thomasville']",44,2025-01-01
+350,3560.420000,"['Brendanport', 'Port John']",23,2025-02-10
+351,1043.720000,['Alexandershire'],17,2025-02-25
+352,3631.500000,"['Andrewburgh', 'New Gregory', 'North Davidfurt']",6,2025-03-07
+353,4364.640000,['Moranview'],16,2025-01-20
+354,4344.650000,['Port Geneburgh'],28,2025-03-05
+355,2082.580000,['Port David'],24,2025-04-04
+356,2241.730000,"['Williamsport', 'Stevenshire', 'South Melissaville']",21,2025-02-12
+357,641.330000,"['West Haroldmouth', 'New Mackenzie', 'Michelletown']",21,2025-04-05
+358,3087.210000,"['Paulburgh', 'North Michaelmouth']",39,2025-04-09
+359,1314.680000,"['Castroland', 'Alisonland', 'New Annchester']",50,2025-04-05
+360,1609.370000,['Lake Jeffery'],7,2025-01-06
+361,3113.160000,"['Port Bridget', 'East Anthony', 'Lake Jamesshire']",22,2025-04-03
+362,4500.400000,"['New Lindafort', 'Port Kevinville']",46,2025-04-12
+363,2740.400000,"['Pamelamouth', 'New Lacey']",16,2025-02-11
+364,761.260000,"['West Sabrinahaven', 'Nolanhaven']",7,2025-01-03
+365,2657.280000,['Graymouth'],10,2025-01-08
+366,1793.220000,"['South Julieland', 'West Erinburgh', 'Courtneyshire']",29,2025-03-12
+367,1296.440000,"['South Barbaraton', 'Port Pamela', 'West Janetside']",24,2025-01-26
+368,769.100000,"['North Michael', 'Lake Robert', 'Lake Robert']",34,2025-03-11
+369,4372.830000,"['Kennethmouth', 'Amybury', 'Nathanielstad']",10,2025-04-22
+370,2861.450000,"['Georgeville', 'Port Gregory']",21,2025-04-25
+371,1918.510000,"['Chasemouth', 'North John']",27,2025-04-15
+372,4377.640000,"['East Haley', 'Bakerchester', 'Huangburgh']",39,2025-01-29
+373,3987.720000,['Sharonshire'],24,2025-01-17
+374,4949.250000,"['Clarkmouth', 'Lake Michael']",44,2025-02-23
+375,4143.810000,['South Susan'],15,2025-04-13
+376,1633.580000,"['West Christinashire', 'Christineview', 'Hillshire']",19,2025-02-02
+377,1522.330000,"['Salinasville', 'Jamesmouth', 'Kirkton']",25,2025-02-28
+378,1071.280000,"['North Wandatown', 'Margaretfurt']",10,2025-01-12
+379,4731.150000,['West Amberville'],26,2025-04-03
+380,1243.920000,['Masonshire'],26,2025-02-24
+381,2858.330000,"['East Debbie', 'Deanstad']",43,2025-01-13
+382,3571.770000,['Lake Jeffreyshire'],45,2025-04-04
+383,4972.540000,"['New Jennifer', 'Daltonburgh']",44,2025-04-17
+384,3945.360000,['East Wendy'],30,2025-01-24
+385,503.440000,"['Francofurt', 'North Tylerburgh']",34,2025-01-14
+386,4533.270000,"['Lopezmouth', 'Mcgrathburgh', 'Lake Daniel']",22,2025-04-08
+387,4513.060000,"['Port Michael', 'Lake Shawnberg']",36,2025-02-19
+388,1158.500000,"['Morenostad', 'Gordonland']",24,2025-03-01
+389,2643.930000,['Port Christopherview'],24,2025-01-04
+390,1618.380000,"['Gonzalezton', 'Hernandezstad', 'East Lisamouth']",46,2025-04-25
+391,2915.580000,['Lake Jacqueline'],10,2025-02-12
+392,2388.580000,"['Albertmouth', 'Meganville']",22,2025-02-05
+393,2897.300000,['Shawberg'],22,2025-04-10
+394,2287.690000,['New Justinberg'],32,2025-04-13
+395,1426.750000,['Torresside'],44,2025-03-24
+396,2805.320000,"['Port Shanebury', 'Cheyennechester', 'Wilsonshire']",31,2025-02-05
+397,1181.920000,"['Brownmouth', 'Colemanland']",17,2025-03-18
+398,1225.260000,"['Johnsonshire', 'Port Jeremy']",17,2025-03-13
+399,761.530000,"['West Christopherchester', 'West Kyle', 'South Nathaniel']",27,2025-04-06
+400,3515.710000,"['Josephville', 'Susanburgh']",46,2025-02-19
+401,4523.850000,"['Alejandraside', 'Joannabury', 'Tiffanyberg']",26,2025-02-21
+402,1483.880000,"['Josephfurt', 'Pamelachester']",47,2025-03-09
+403,663.110000,"['West Michelle', 'Arianafort', 'Taylorland']",29,2025-04-23
+404,2522.020000,"['Lake Ricky', 'Cameronhaven']",14,2025-03-27
+405,1497.530000,"['Eatonshire', 'Adamsburgh']",36,2025-04-05
+406,4345.500000,['Tinamouth'],5,2025-02-11
+407,1721.260000,"['East Richard', 'East Laurastad', 'Maxwellbury']",29,2025-04-17
+408,4430.300000,"['West Lisaland', 'East Devinfurt']",6,2025-01-17
+409,2366.060000,['Chaneyland'],23,2025-04-01
+410,1520.620000,"['Thomastown', 'Simmonsfurt']",17,2025-03-03
+411,880.590000,"['Heathberg', 'South Beverlyshire', 'Port Matthewville']",22,2025-03-15
+412,3084.960000,"['Kevinhaven', 'Stephanieton']",23,2025-02-16
+413,4268.070000,"['East Ericbury', 'West Lisaland', 'New Jennifer']",47,2025-03-05
+414,4932.000000,['Wilsonbury'],37,2025-04-07
+415,2378.940000,['Theodoreton'],45,2025-02-06
+416,1809.170000,"['Tuckerport', 'South Maryville']",11,2025-02-28
+417,571.160000,"['West Robert', 'Bennettton', 'Port Michaelmouth']",13,2025-01-19
+418,2580.650000,['Lake Douglas'],33,2025-03-13
+419,2150.070000,"['Garciaton', 'Madisonmouth', 'East Bruce']",35,2025-04-20
+420,2747.860000,['Rebeccaport'],47,2025-04-05
+421,803.360000,['Tyronefort'],10,2025-02-26
+422,910.160000,"['Lake Mary', 'Port Julia']",31,2025-03-18
+423,3988.790000,['Georgeport'],42,2025-03-02
+424,4893.550000,"['Monicaberg', 'Michellemouth']",34,2025-01-19
+425,1856.670000,"['Matthewchester', 'New Brandonside', 'Rileyfurt']",43,2025-03-03
+426,4892.480000,"['Port Autumnland', 'Hornberg']",21,2025-02-27
+427,2673.710000,['Lake Stephen'],47,2025-04-04
+428,2083.900000,"['Fitzgeraldmouth', 'South Erin']",31,2025-03-01
+429,1693.600000,['East Bethanyborough'],7,2025-03-22
+430,4135.390000,"['New Timothy', 'Colleenborough']",38,2025-01-26
+431,2768.630000,['Davidfort'],13,2025-04-12
+432,2597.570000,"['Travismouth', 'Port Christinaview', 'Port Ann']",5,2025-02-21
+433,2358.360000,['Lake Christopher'],47,2025-01-25
+434,1216.260000,['Lake Elijahport'],19,2025-02-18
+435,1996.400000,"['East Sarah', 'Tylershire']",47,2025-02-27
+436,3163.480000,"['South Patrick', 'Lake Jessica']",42,2025-03-15
+437,3983.440000,['Baileyfurt'],35,2025-01-04
+438,2446.970000,"['East Heather', 'West Stephen']",25,2025-01-31
+439,2302.690000,"['North Joshua', 'West Marisaport']",6,2025-02-02
+440,4885.730000,"['Longside', 'Jensenport', 'Blairview']",8,2025-01-14
+441,2354.700000,"['New Howardton', 'Lake Lucas', 'Arnoldstad']",50,2025-02-10
+442,4359.690000,"['New Josephton', 'West Candace']",22,2025-04-19
+443,2517.090000,['Fergusonburgh'],30,2025-02-22
+444,1646.110000,"['Davidton', 'North Hollymouth']",9,2025-02-20
+445,2415.440000,['Johnsonchester'],26,2025-03-26
+446,2903.210000,['West Melissa'],21,2025-01-15
+447,3201.470000,"['New Levi', 'Lake Cynthia']",42,2025-04-04
+448,3252.620000,['South Jerry'],38,2025-02-28
+449,4813.910000,"['Michaelstad', 'North Taylorside', 'Griffithbury']",30,2025-01-25
+450,4692.140000,"['Ericside', 'Zacharychester']",6,2025-02-20
+451,2825.910000,"['East Erin', 'South Elizabethberg', 'North Hollyfurt']",12,2025-04-02
+452,2300.570000,['East Michelle'],28,2025-02-23
+453,4596.230000,"['East Michaelfurt', 'Port Anthonyshire', 'East Melissa']",33,2025-01-28
+454,3143.150000,['Ramosside'],6,2025-01-02
+455,1487.720000,"['Ericabury', 'North Randallborough']",6,2025-01-15
+456,2364.000000,"['New Jeffstad', 'New Thomas']",42,2025-03-02
+457,3748.050000,['North Ryanmouth'],35,2025-04-24
+458,3034.970000,"['Stevensonville', 'South Richard', 'Benjaminview']",35,2025-01-04
+459,3767.460000,['West Kimville'],24,2025-01-12
+460,1599.430000,['Nelsonside'],5,2025-01-14
+461,2452.580000,"['Alvarezland', 'Lake Mariabury', 'East Brandonstad']",38,2025-01-30
+462,2134.100000,"['Glennhaven', 'Fullermouth', 'Port Bruce']",31,2025-04-02
+463,4550.530000,"['Petersonhaven', 'Port Davidmouth', 'South Cynthia']",44,2025-02-16
+464,3885.540000,"['Ricebury', 'Craigstad']",8,2025-01-25
+465,753.130000,"['Lorifurt', 'Arnoldburgh', 'Jodybury']",33,2025-02-20
+466,570.950000,['Hesterfort'],19,2025-02-04
+467,1006.140000,['Abbottland'],6,2025-01-20
+468,987.940000,"['Frankhaven', 'Gillhaven', 'North Stephaniestad']",35,2025-01-16
+469,4558.020000,['Chanbury'],29,2025-01-19
+470,4117.080000,"['Fieldstown', 'Port Lisa']",15,2025-04-21
+471,1794.010000,"['Port Justin', 'Alexanderborough', 'East Steven']",7,2025-02-19
+472,892.010000,"['South Taylorborough', 'Lopeztown', 'Hernandezberg']",18,2025-04-25
+473,4158.330000,['Herrerafort'],11,2025-04-26
+474,1255.730000,"['Royborough', 'Danielborough']",16,2025-01-19
+475,1365.100000,"['Stephenhaven', 'Chapmanchester']",29,2025-03-14
+476,2029.730000,['Lake Wendyhaven'],7,2025-02-12
+477,4219.630000,"['East Matthew', 'Ramirezberg']",44,2025-03-02
+478,3590.910000,"['East Sarah', 'Ellisview', 'Burgessland']",46,2025-04-22
+479,4245.420000,"['Swansonstad', 'South Katieville', 'Lake Josephberg']",42,2025-03-07
+480,2163.840000,"['Tamaraton', 'Port Mary', 'Robintown']",24,2025-04-06
+481,1492.970000,['North Chelseaville'],18,2025-03-31
+482,3696.800000,"['West Paul', 'Sarahside']",10,2025-04-19
+483,2692.860000,"['Johnville', 'Austinport', 'Jacobmouth']",50,2025-03-25
+484,2909.520000,['Lake Jackieview'],30,2025-04-06
+485,856.320000,['New Joelborough'],13,2025-01-02
+486,4574.560000,['Peterchester'],11,2025-01-19
+487,3385.740000,"['Johnsonland', 'Obrienchester']",23,2025-04-01
+488,3468.020000,"['Hugheshaven', 'Carrollmouth', 'West Rebeccaport']",7,2025-04-18
+489,3516.270000,['North Thomasport'],36,2025-02-10
+490,2877.640000,['Annefurt'],15,2025-04-15
+491,1827.760000,"['East Alisonland', 'Timothystad', 'Port Timothy']",34,2025-01-29
+492,2319.710000,['Robinhaven'],12,2025-03-13
+493,4004.200000,['New Sarahville'],41,2025-03-14
+494,3381.410000,['Lake James'],41,2025-02-14
+495,4839.250000,['Schultzbury'],14,2025-02-17
+496,2578.390000,"['West Stephanie', 'Graveston', 'Harpershire']",20,2025-01-08
+497,4364.750000,"['Richardton', 'Amyborough', 'Josephchester']",35,2025-03-15
+498,3322.530000,"['Benjaminton', 'West Stephen', 'South Brittany']",10,2025-02-25
+499,2034.050000,['Port Karen'],34,2025-01-01
+500,1555.440000,"['Heatherville', 'New Shawn', 'Michelleland']",39,2025-03-10
+501,1885.440000,"['Lake Caitlinburgh', 'Beckyburgh']",47,2025-04-03
+502,3517.660000,"['Raymondmouth', 'Ginaview', 'Port Julia']",39,2025-03-29
+503,1356.430000,"['North Pamelafort', 'West George', 'Charleston']",18,2025-03-18
+504,3911.690000,"['Isaacberg', 'Sarahview']",41,2025-04-26
+505,623.820000,"['North Aaronborough', 'Nunezhaven']",50,2025-01-08
+506,4898.510000,"['Lake Jessestad', 'Garciaville']",22,2025-03-13
+507,585.500000,"['Watersburgh', 'New Michael', 'Dennisshire']",38,2025-02-27
+508,1350.380000,"['South Rachel', 'New Joseph']",40,2025-02-17
+509,2978.170000,"['Port Ashleyburgh', 'West Savannahfort']",42,2025-01-25
+510,4064.900000,"['North Donna', 'Leonfurt']",17,2025-04-20
+511,4146.030000,['Chapmanshire'],15,2025-03-21
+512,2587.600000,"['Lewisside', 'Fostertown']",29,2025-04-21
+513,3914.860000,"['New Kevinville', 'Dillonfort']",27,2025-04-14
+514,1902.550000,"['New Larryside', 'Robertside', 'East Samueltown']",30,2025-03-02
+515,847.080000,['Christopherbury'],21,2025-02-27
+516,2093.100000,['Chungborough'],40,2025-01-26
+517,1125.210000,"['Garciatown', 'East Carolynshire']",31,2025-04-23
+518,1888.040000,"['Griffinmouth', 'Allenbury', 'East Cynthiamouth']",18,2025-03-11
+519,4581.920000,['West Dominiqueberg'],37,2025-03-05
+520,1191.580000,"['Silvahaven', 'Michaelhaven']",16,2025-01-02
+521,3920.260000,"['East Mary', 'Jamesborough', 'East Kevin']",13,2025-01-20
+522,2774.730000,"['New Chasestad', 'Lake Christine', 'North George']",8,2025-01-19
+523,2702.560000,"['South Robert', 'West Ashleyton']",28,2025-01-01
+524,3898.330000,"['West Michaelview', 'North Sarah', 'South Pennyland']",47,2025-03-13
+525,1862.990000,"['East Kevinfort', 'South Matthewside']",24,2025-02-13
+526,2818.400000,"['North Jacobville', 'Beckerhaven']",50,2025-02-23
+527,1296.170000,"['Pattyfort', 'Tylershire', 'Jonesview']",14,2025-01-26
+528,547.630000,"['Johnsonfort', 'Kevinton']",34,2025-02-11
+529,3499.370000,"['Taylorland', 'Andrewsborough']",31,2025-02-20
+530,3771.110000,"['Nguyenton', 'South Anaside']",10,2025-01-14
+531,702.960000,"['Doyleton', 'West Glenberg', 'Frankview']",12,2025-03-05
+532,4514.060000,"['Port Jasminechester', 'South Elizabethberg']",38,2025-02-26
+533,3366.680000,['Port Kelly'],33,2025-04-23
+534,3993.210000,"['Jacksonmouth', 'Dannytown', 'Jayland']",10,2025-02-08
+535,2247.000000,"['Connerville', 'Walkershire', 'Andrewbury']",16,2025-01-25
+536,2113.480000,"['Cooperton', 'East Larrystad']",49,2025-03-13
+537,773.630000,"['Millerchester', 'Lydiachester']",21,2025-03-14
+538,4708.960000,"['Lake Diana', 'Kevinland']",7,2025-02-08
+539,4259.540000,['Heidishire'],28,2025-04-25
+540,3435.730000,"['Leemouth', 'Millsberg']",27,2025-04-01
+541,4821.890000,['Stevensborough'],18,2025-02-08
+542,1290.110000,"['New Michael', 'Roseton', 'New Dylan']",5,2025-04-08
+543,4000.890000,"['Whiteborough', 'Joelborough', 'Port Jennifermouth']",15,2025-02-16
+544,3570.240000,['Michaelstad'],20,2025-04-13
+545,4819.960000,"['New Jacquelineberg', 'West Sandra', 'East Emily']",27,2025-03-02
+546,795.770000,['Julianville'],45,2025-03-14
+547,4320.920000,"['Jenniferfurt', 'Madisonstad']",7,2025-04-06
+548,4890.250000,"['Garnertown', 'South Samanthaborough']",19,2025-02-13
+549,3293.810000,"['Jamesview', 'South Samantha', 'Cowanbury']",47,2025-01-13
+550,4903.180000,"['North Bradleyhaven', 'Lake Joseph']",44,2025-01-26
+551,2066.720000,"['North Susan', 'Hendersonfurt', 'New Megan']",38,2025-01-08
+552,1846.590000,['South Christian'],11,2025-02-19
+553,3257.030000,"['Shawfurt', 'Glennport', 'Bennettton']",20,2025-01-19
+554,2343.400000,['West Robin'],9,2025-03-06
+555,2005.630000,['Phillipshaven'],14,2025-03-22
+556,2453.000000,"['Lake Michelle', 'Lake Travis']",8,2025-02-24
+557,3821.440000,"['Lake Paul', 'Port Elaine', 'Hesshaven']",50,2025-02-26
+558,1454.840000,"['Thompsonport', 'West Joshuamouth']",6,2025-03-30
+559,1752.640000,['South Johnbury'],14,2025-02-23
+560,537.390000,['Lawsonton'],20,2025-03-14
+561,2694.460000,['Timothychester'],5,2025-01-01
+562,3219.760000,"['Lake Denniston', 'Bairdbury', 'Brendamouth']",34,2025-02-27
+563,2943.410000,"['Bennettview', 'Reneeberg']",30,2025-04-16
+564,596.940000,"['Michelleborough', 'Batesville', 'East Cassidy']",40,2025-02-25
+565,1804.670000,"['East Claudia', 'Port Kimberly', 'Triciamouth']",17,2025-02-07
+566,3701.820000,"['Theresatown', 'Port Eric', 'Davisstad']",42,2025-01-10
+567,3223.980000,['Lake Barbaramouth'],46,2025-03-16
+568,2551.950000,"['West Robert', 'West Elizabethfort', 'Carolside']",17,2025-02-12
+569,3916.060000,"['Katietown', 'Cherylburgh', 'Johnhaven']",7,2025-02-13
+570,4388.030000,"['Wellsmouth', 'Kochview', 'Joshuaberg']",5,2025-02-19
+571,3619.150000,['East Matthewhaven'],46,2025-03-29
+572,4969.960000,"['Elizabethbury', 'North Edwin']",32,2025-02-05
+573,1639.750000,"['Lake Eugenefurt', 'South Nancy', 'Harveytown']",38,2025-01-07
+574,2407.830000,"['Thomasport', 'North Emilyhaven']",9,2025-04-15
+575,3488.610000,"['Stewartfort', 'Gonzalezport', 'Wallsport']",10,2025-03-07
+576,2982.420000,"['North Matthewtown', 'Chavezshire']",36,2025-03-18
+577,1386.110000,"['Prattfort', 'South Jose', 'Port Stephaniemouth']",49,2025-01-23
+578,569.910000,"['Port Michaelberg', 'North Calvin']",10,2025-03-12
+579,3538.870000,"['South Brittany', 'South Joelton']",45,2025-03-04
+580,2422.480000,"['Mcknightshire', 'North Keithview', 'East Jorge']",5,2025-04-21
+581,1598.100000,"['New James', 'South Alexville', 'Port Sharon']",48,2025-01-20
+582,808.130000,['Willieborough'],21,2025-04-18
+583,680.690000,['East Laurie'],45,2025-02-22
+584,3350.470000,['Lake Seanborough'],33,2025-03-24
+585,4681.720000,"['Hurleytown', 'Angelashire', 'South Melindahaven']",49,2025-02-01
+586,1016.520000,"['Warrenshire', 'Alexandrafurt']",45,2025-04-18
+587,4387.510000,['Tapialand'],23,2025-03-01
+588,4200.050000,"['Laurenstad', 'Pearsonberg', 'North Michael']",11,2025-01-18
+589,2139.210000,"['West Deannaburgh', 'Lake Natashabury', 'North Madisonmouth']",23,2025-02-07
+590,3375.200000,"['Port Peter', 'Suestad']",13,2025-02-24
+591,2869.910000,['Oliverborough'],24,2025-02-18
+592,752.800000,['Johnsonbury'],47,2025-03-27
+593,703.090000,"['South Rebeccaview', 'Lake Bryceview']",29,2025-02-19
+594,4602.260000,"['Farmerburgh', 'Laurenbury']",17,2025-02-22
+595,2905.740000,['Andersonville'],41,2025-01-19
+596,4947.710000,"['Dylanhaven', 'Williamsburgh', 'Armstrongchester']",32,2025-04-06
+597,3144.970000,['New Julieland'],40,2025-04-13
+598,4358.600000,"['Billchester', 'Nguyentown', 'South Joel']",20,2025-03-26
+599,3703.470000,['Robertshire'],32,2025-01-14
+600,4560.820000,['West Zachary'],15,2025-03-27
+601,3830.800000,"['Cochranbury', 'Taylorborough', 'Coopermouth']",18,2025-03-31
+602,4422.890000,"['Rodriguezberg', 'New Amy', 'Lake Rossfurt']",31,2025-02-07
+603,1439.450000,"['South Lindamouth', 'Jasonmouth']",5,2025-04-13
+604,3542.220000,"['Castroborough', 'Lake Susanbury', 'Breannafort']",24,2025-03-14
+605,1075.560000,"['Robertstad', 'Port Carolynville', 'South Travis']",44,2025-02-14
+606,1678.620000,"['West Stephaniefort', 'Huffmanside', 'New Jeremy']",41,2025-01-27
+607,1214.850000,"['West Stephanie', 'Port Michael', 'East Robert']",13,2025-02-10
+608,1055.270000,"['New Amber', 'Port Hannahhaven', 'Davidshire']",47,2025-02-21
+609,4281.090000,['Fowlerview'],6,2025-03-22
+610,4015.770000,"['South Rachel', 'Kevinfort', 'Julieside']",20,2025-03-26
+611,4979.460000,['Hansonton'],7,2025-01-16
+612,717.750000,['East Ashleyshire'],13,2025-03-30
+613,1056.210000,['Bensonton'],28,2025-03-09
+614,1600.980000,"['Matthewside', 'Anthonybury']",13,2025-02-27
+615,3703.730000,['North Brian'],17,2025-03-07
+616,2917.180000,"['East George', 'East Scott', 'Darlenefort']",7,2025-03-15
+617,1814.090000,['Cookfort'],15,2025-03-04
+618,4578.570000,"['New Kimberlyport', 'New Paul']",35,2025-04-25
+619,2673.310000,['North Stephaniefort'],24,2025-03-31
+620,3596.840000,['Jennifertown'],6,2025-03-02
+621,4140.420000,['Maryview'],49,2025-02-17
+622,2509.960000,"['South Emilystad', 'West Lisa', 'Brooksburgh']",35,2025-03-19
+623,566.790000,"['Danielleberg', 'West Kaylabury', 'Lindsayfurt']",39,2025-02-18
+624,3833.560000,"['Williamchester', 'East Adrian']",5,2025-03-26
+625,1776.200000,"['Olsonmouth', 'West Stephenmouth', 'Dorothyshire']",49,2025-02-10
+626,3760.800000,['Jonathanton'],36,2025-04-23
+627,1962.090000,"['Larsonview', 'Jacksonshire', 'Jonathanside']",38,2025-02-20
+628,2447.230000,"['South Traviston', 'Vegaside']",42,2025-01-08
+629,2734.480000,['East Debbie'],46,2025-02-27
+630,1972.700000,['Greeneton'],34,2025-03-25
+631,2451.630000,"['Boylehaven', 'Matthewstad']",16,2025-01-07
+632,794.370000,"['East Frances', 'Joyside']",7,2025-01-04
+633,2251.460000,"['Charlesberg', 'South Stephanieville', 'Stephanieton']",44,2025-03-16
+634,1114.060000,"['Lindseyburgh', 'North Roberthaven', 'West Jasonfurt']",39,2025-01-12
+635,4541.470000,"['Whitechester', 'Sheppardbury']",29,2025-04-14
+636,2615.900000,"['South Anthonymouth', 'Thomasfort', 'Nortonport']",31,2025-01-24
+637,2930.840000,"['South Samanthaport', 'Paulside', 'Port Rachel']",11,2025-02-17
+638,2809.780000,['Port Terrance'],16,2025-01-03
+639,2601.460000,['Brendabury'],38,2025-03-06
+640,3486.680000,"['Susanview', 'Walterland']",30,2025-04-09
+641,3520.420000,['South Alisha'],47,2025-04-09
+642,1854.770000,"['Sallytown', 'Littlechester', 'Jessicaberg']",6,2025-04-05
+643,4724.330000,"['Josephchester', 'Port Paulaland']",15,2025-03-30
+644,4641.320000,['West Jeffreyburgh'],39,2025-02-11
+645,4796.970000,"['Carmenport', 'East Nicole', 'Cooperland']",33,2025-04-12
+646,4743.150000,"['Lake Jeffreytown', 'North Christopher']",16,2025-02-05
+647,1341.690000,"['Burtonville', 'Pamelamouth']",16,2025-02-11
+648,2983.750000,['Port Samanthamouth'],7,2025-04-14
+649,1474.080000,"['Port Juliechester', 'Kristenborough']",24,2025-01-20
+650,3833.820000,['Deborahview'],47,2025-02-03
+651,742.020000,['Jeremyton'],22,2025-03-13
+652,1637.390000,['Port Pamela'],11,2025-02-11
+653,1479.430000,"['Brownborough', 'Boydmouth']",23,2025-01-18
+654,2704.360000,"['New Jimmy', 'West John']",10,2025-04-13
+655,3219.700000,"['Lake Ricky', 'Perezborough', 'Suarezfort']",24,2025-03-15
+656,3480.570000,"['Ryanstad', 'Joelfort']",29,2025-04-01
+657,3657.280000,"['Kellymouth', 'North Kyle', 'North Derrickstad']",48,2025-01-31
+658,1542.530000,"['Hansonville', 'Davidhaven', 'Mooreburgh']",50,2025-03-23
+659,3299.300000,"['North Michael', 'West Donald']",10,2025-01-27
+660,2415.990000,"['North Michael', 'East Juan']",6,2025-03-15
+661,1699.260000,['Dayview'],16,2025-03-16
+662,3785.620000,"['Paulbury', 'South Amber', 'East Christinatown']",13,2025-02-18
+663,3213.980000,"['West Megan', 'East Melissaview', 'Markshire']",8,2025-02-24
+664,513.370000,"['Olsenburgh', 'New Carol']",7,2025-03-08
+665,2971.650000,['North Justin'],17,2025-01-21
+666,4542.600000,"['Kingport', 'Lisaland', 'Port Melinda']",11,2025-03-18
+667,623.090000,"['Hermanton', 'New Eileenfurt', 'Floydburgh']",5,2025-01-03
+668,1285.440000,"['Hugheston', 'Williamston', 'Hannahbury']",20,2025-04-21
+669,4862.910000,"['Alexismouth', 'Karenburgh', 'Dustinchester']",37,2025-04-08
+670,3524.020000,['South Johnshire'],7,2025-04-10
+671,3317.420000,"['South Eric', 'Lake Ronaldville', 'Williammouth']",9,2025-02-21
+672,2669.940000,['East Tiffanyville'],27,2025-02-21
+673,2276.600000,['East Kimberly'],11,2025-03-23
+674,4652.180000,"['Kimfort', 'Randallhaven', 'Jonathanchester']",19,2025-04-09
+675,760.420000,"['Nathanmouth', 'East Jason']",38,2025-04-16
+676,4796.770000,"['Marilynfort', 'Langfurt', 'Bartonshire']",17,2025-03-27
+677,2250.140000,['Port Rachelton'],16,2025-02-27
+678,3403.020000,"['New Crystalborough', 'Port Denise', 'Kendramouth']",16,2025-01-14
+679,4297.510000,['Lake Christopherburgh'],39,2025-04-11
+680,4768.730000,"['Port Rachel', 'West Christinahaven']",39,2025-04-25
+681,1922.570000,['East Gabriel'],46,2025-03-28
+682,768.100000,"['Lake Anthony', 'New Matthew', 'Lake Catherine']",42,2025-04-01
+683,1828.300000,"['Port Monica', 'Johnbury']",36,2025-01-25
+684,728.410000,['South Jeffrey'],28,2025-04-19
+685,3779.350000,"['Aprilside', 'New Leslie']",8,2025-01-22
+686,2942.140000,['Brownland'],11,2025-01-27
+687,1789.810000,"['Markchester', 'Cookport', 'Dannystad']",50,2025-02-10
+688,1302.370000,['North Calebborough'],28,2025-04-20
+689,3948.220000,['West Melissa'],21,2025-01-17
+690,4070.390000,['Rosalesville'],8,2025-03-19
+691,4143.330000,['Leonardmouth'],29,2025-03-21
+692,3999.200000,['Sarahfort'],7,2025-02-07
+693,2588.710000,"['West Andrew', 'Meyersside', 'West Jacobborough']",13,2025-02-09
+694,1884.250000,"['South Brandonland', 'West James']",46,2025-03-01
+695,902.940000,"['New Mathewton', 'Kaylaland']",28,2025-02-19
+696,1433.650000,"['Saraville', 'Josephland']",27,2025-01-22
+697,2183.110000,['Walkerport'],16,2025-01-21
+698,3814.810000,['South Brian'],38,2025-01-20
+699,2838.380000,"['New Karina', 'New Raymondbury', 'South Laura']",11,2025-01-30
+700,3789.740000,['Carrmouth'],40,2025-02-05
+701,2691.600000,"['Lake Aaronland', 'Port Spencerville', 'Kimberlyfurt']",27,2025-04-26
+702,3600.120000,"['East Rachel', 'Lake Jessica']",43,2025-01-11
+703,4404.690000,['Lake Sean'],16,2025-03-13
+704,2219.130000,"['Hamiltonburgh', 'Graychester', 'Robinfort']",46,2025-03-23
+705,3775.240000,"['Pricetown', 'Buckbury']",22,2025-03-18
+706,3643.430000,['East Kaitlynborough'],47,2025-01-30
+707,672.620000,"['South Jeremyfort', 'Andersonborough', 'North Jacob']",49,2025-03-27
+708,2938.520000,"['Elizabethtown', 'Lake Bryantown', 'Adamsside']",17,2025-04-16
+709,519.410000,"['East Michael', 'Rowehaven']",17,2025-01-06
+710,2416.420000,"['Bakerfurt', 'New Jonathan']",45,2025-03-09
+711,1143.780000,"['Lake Alexanderchester', 'Harrisland', 'New Justinburgh']",24,2025-01-10
+712,4084.630000,['New Christopherberg'],22,2025-02-21
+713,2620.890000,['Jordanhaven'],17,2025-03-24
+714,2983.800000,['Kathrynchester'],14,2025-04-14
+715,948.290000,"['New Brooke', 'New Jonathan']",46,2025-02-19
+716,973.390000,"['East Jeff', 'East Michaelport', 'Lake Christopherburgh']",50,2025-04-18
+717,1227.700000,['Saundersmouth'],17,2025-03-31
+718,1037.520000,"['South Melissa', 'New Brooke', 'New James']",44,2025-01-11
+719,602.770000,['Murphychester'],36,2025-01-25
+720,1318.130000,"['East Jamie', 'Ritaview']",50,2025-03-20
+721,891.770000,['Port Robertport'],22,2025-02-08
+722,4725.590000,"['New Adam', 'Brendaburgh', 'Andrewton']",42,2025-01-07
+723,3043.310000,"['South Morgan', 'Port Apriltown']",18,2025-02-08
+724,758.440000,"['Jordanberg', 'New Sheena', 'Fergusonberg']",43,2025-04-13
+725,1368.630000,"['Dalebury', 'South Tiffanyport', 'East Anthonyberg']",36,2025-04-21
+726,1755.230000,['Mitchellmouth'],36,2025-02-19
+727,1680.610000,"['North Kristen', 'New Amandaland', 'New Nicolefort']",45,2025-02-14
+728,3247.330000,"['North Christopher', 'Moralesmouth', 'Port Patrickview']",33,2025-01-21
+729,1579.150000,['Lake Desiree'],12,2025-03-27
+730,3637.660000,"['West Christophermouth', 'West Maria', 'Belindaside']",24,2025-03-05
+731,4168.660000,"['Lake Rachelmouth', 'Evanview', 'Glassburgh']",36,2025-03-03
+732,2736.700000,['New Kristen'],26,2025-01-26
+733,4113.450000,"['North Jeffrey', 'East Mariahport']",40,2025-03-15
+734,2382.110000,"['Pattersonchester', 'Dudleyhaven', 'West Kimberly']",34,2025-02-07
+735,1977.480000,"['Nicholasport', 'Thorntonside']",37,2025-03-10
+736,4600.210000,"['Rosemouth', 'Ingrammouth', 'Williammouth']",15,2025-02-03
+737,4497.630000,"['Melissafort', 'Clarkeberg', 'Port Latoya']",28,2025-02-20
+738,1417.090000,"['Fullerchester', 'Laurahaven', 'North Thomas']",15,2025-02-09
+739,4659.090000,"['South Lauren', 'Barbaraport', 'Reginaldton']",26,2025-04-25
+740,4764.630000,"['East Bruceshire', 'Franciscoborough']",14,2025-04-16
+741,4569.880000,"['Farleyfort', 'Port Rubenmouth', 'Millerfurt']",24,2025-02-23
+742,3682.960000,"['New Daniel', 'Port Denisemouth']",17,2025-03-21
+743,2375.610000,"['East Bradleyfort', 'Barbarastad']",5,2025-01-29
+744,2926.080000,"['Port Saratown', 'Port Lori']",5,2025-03-02
+745,2070.860000,"['Port Tyler', 'Walkerbury']",45,2025-03-16
+746,1702.090000,"['New Melissafort', 'Jordanfort', 'Ellisbury']",7,2025-03-16
+747,1346.050000,['Ruizton'],23,2025-04-09
+748,3228.080000,['Smithchester'],20,2025-01-20
+749,3102.820000,['North Kevin'],28,2025-01-03
+750,2995.050000,"['Hamiltonburgh', 'Sawyertown', 'West Christinemouth']",33,2025-03-08
+751,3163.240000,"['Watsonville', 'Gregoryburgh', 'New Nicolefort']",24,2025-01-19
+752,2439.480000,"['South Joyhaven', 'Lake Marilyntown']",42,2025-01-18
+753,3693.920000,"['Port Robertport', 'East Leahshire']",17,2025-03-01
+754,1199.760000,"['Adamsstad', 'Lake Kyle', 'Lake Benjaminburgh']",26,2025-02-18
+755,4166.330000,"['Vancehaven', 'Lopezmouth']",15,2025-01-30
+756,2617.560000,"['Davidview', 'West Billyshire', 'Lake Danielburgh']",17,2025-01-02
+757,4246.050000,['Lake Bruce'],28,2025-01-18
+758,3298.200000,"['South Gary', 'Port Sherry']",38,2025-03-12
+759,1610.270000,"['Hayschester', 'Port Karinamouth', 'South Kellifort']",24,2025-01-29
+760,1103.590000,"['Brianstad', 'Michaelfort']",22,2025-02-28
+761,1714.480000,"['Gibsontown', 'Port Robert']",31,2025-01-19
+762,2926.310000,"['Taylorhaven', 'West Kimberlyhaven', 'Gonzalezberg']",21,2025-02-05
+763,4844.900000,"['Eugeneview', 'East Michael', 'Thompsonhaven']",19,2025-03-05
+764,3158.560000,"['Wendyland', 'Patrickhaven', 'North Kennethland']",39,2025-04-14
+765,2931.180000,['North Shelly'],6,2025-02-28
+766,1748.960000,"['South Jill', 'Simmonsmouth']",45,2025-04-12
+767,1060.680000,['South John'],48,2025-03-01
+768,1264.510000,"['Lake Aprilhaven', 'Thomasport']",39,2025-02-20
+769,4774.380000,"['Sandrabury', 'Shawnfort', 'Port Lisa']",12,2025-02-09
+770,3133.190000,['Jacksonside'],40,2025-04-12
+771,3656.630000,"['West Phillip', 'East Baileyland']",8,2025-02-07
+772,3009.390000,"['Benjaminshire', 'Port Christopher', 'New Michele']",26,2025-02-03
+773,2777.280000,"['Robertsburgh', 'Port Katie']",28,2025-01-16
+774,2407.990000,['Masseychester'],46,2025-04-15
+775,2928.750000,"['Seanchester', 'Smithbury']",25,2025-01-23
+776,2232.080000,['Lake Susan'],25,2025-02-25
+777,2353.000000,"['Haileyshire', 'Port Hollyberg']",12,2025-04-22
+778,3611.260000,"['Castromouth', 'Davisport']",46,2025-02-11
+779,1475.110000,['Sandersbury'],33,2025-04-24
+780,2096.500000,"['New Laura', 'Codyton', 'Alishafurt']",25,2025-04-18
+781,4994.130000,"['Joshuabury', 'South Matthewfurt', 'Jasonland']",22,2025-02-16
+782,2366.670000,"['Jeffreyville', 'Port Peggyborough', 'North Joshua']",10,2025-04-18
+783,1710.180000,"['South Jaime', 'Sarahview', 'New Michelle']",38,2025-04-17
+784,1972.940000,"['North Alicia', 'Huntport']",42,2025-04-20
+785,3565.320000,"['Lake Michael', 'Jennifertown', 'Fordchester']",41,2025-04-22
+786,1384.620000,['Port Josephmouth'],7,2025-03-01
+787,1474.040000,"['New Jason', 'Port Christina']",48,2025-03-25
+788,3510.660000,"['Gonzalesfurt', 'Michaelhaven', 'New Drewshire']",7,2025-01-22
+789,2246.880000,['Kellyfurt'],12,2025-02-09
+790,1924.150000,['New Heather'],47,2025-04-07
+791,3761.740000,['Hendersonborough'],16,2025-01-11
+792,4217.190000,['New Danielfurt'],27,2025-01-12
+793,3451.730000,"['South Reginald', 'New Crystal']",18,2025-04-24
+794,1366.900000,['Michaelmouth'],14,2025-02-05
+795,2728.680000,['Stevefort'],31,2025-04-08
+796,4775.090000,"['Port Richard', 'East Richard', 'Millerfort']",11,2025-02-15
+797,1511.510000,"['Lake David', 'New Davidton']",25,2025-03-01
+798,967.600000,['Port Steven'],10,2025-03-02
+799,2728.090000,"['North Jamie', 'North Karen', 'Mezastad']",48,2025-02-10
+800,4351.150000,"['Port Madisonland', 'Lake Cynthia']",37,2025-04-01
+801,4995.430000,"['North Michaelton', 'North Jenniferhaven', 'Wyatthaven']",46,2025-04-04
+802,2690.840000,['Lake Barbarabury'],27,2025-02-02
+803,2779.010000,"['East Victoriaview', 'Andrewchester', 'Juliestad']",17,2025-03-27
+804,3352.150000,"['Thompsonfurt', 'Lake Tabithaburgh', 'Jillianstad']",28,2025-02-27
+805,2009.310000,"['North Lindsey', 'North Denise']",41,2025-03-07
+806,2077.160000,['Waltonchester'],14,2025-03-05
+807,3198.710000,"['New Jocelyn', 'South Kellyville', 'South Sandra']",27,2025-02-06
+808,957.200000,['Michaelchester'],48,2025-02-13
+809,1585.940000,"['Lake Janet', 'Melindaberg']",22,2025-01-30
+810,1961.650000,['Port Stuartchester'],35,2025-03-01
+811,4271.870000,['Millerton'],39,2025-04-06
+812,3176.270000,"['North Jesse', 'North Vincentland']",19,2025-02-26
+813,1506.870000,"['North Richard', 'Fernandezside']",30,2025-01-17
+814,4984.330000,"['North Josephtown', 'Huntertown']",14,2025-04-13
+815,1025.530000,['West Patricia'],10,2025-01-16
+816,549.840000,"['Blankenshipmouth', 'Cooleyville']",46,2025-04-21
+817,1684.640000,"['Tracystad', 'Thomashaven', 'North Caitlin']",43,2025-03-12
+818,4825.220000,"['Ianborough', 'Saraberg', 'Hallville']",7,2025-04-05
+819,503.020000,"['Kylemouth', 'Lauraborough']",20,2025-02-18
+820,4025.980000,"['Kennedystad', 'Port Karen', 'Mariahport']",31,2025-01-27
+821,2713.040000,"['North James', 'South Nicholas', 'North Nancyville']",41,2025-02-17
+822,2011.420000,"['North Jodimouth', 'Portertown', 'North Jamesmouth']",33,2025-02-12
+823,3731.360000,"['Lake Jasminemouth', 'Greenfort']",34,2025-02-23
+824,3846.870000,"['Curtisside', 'Lopezport', 'East Adamshire']",26,2025-03-21
+825,1622.790000,['Port Robertburgh'],38,2025-03-05
+826,801.050000,['Brettshire'],6,2025-04-12
+827,3245.280000,"['Hayesshire', 'Mercerfort', 'Lake Courtney']",28,2025-01-16
+828,4968.020000,['Haysbury'],35,2025-03-10
+829,2591.040000,['South Adam'],23,2025-01-21
+830,4865.360000,"['Port Jeremiahburgh', 'Stewartmouth']",21,2025-02-24
+831,2671.960000,"['Lake Maria', 'Dixonport', 'East Bryanshire']",36,2025-04-07
+832,2349.120000,"['Lake Lauren', 'Lake Stephenview']",46,2025-03-25
+833,1609.120000,"['New Bianca', 'Port Jeremytown', 'West Kayla']",13,2025-02-09
+834,2944.220000,"['Port Tammytown', 'Rebeccaburgh', 'South Monicashire']",33,2025-01-25
+835,1859.580000,"['Jeremychester', 'Brianton', 'Moniqueborough']",28,2025-01-23
+836,2410.470000,"['Staffordhaven', 'Port Danielle']",14,2025-02-04
+837,1168.130000,"['East Dakota', 'South Charlesville']",35,2025-04-17
+838,4065.910000,"['Natashabury', 'Vasquezborough', 'Lake Brentchester']",33,2025-01-31
+839,2740.200000,"['Lynnview', 'East Juan']",28,2025-03-02
+840,2297.170000,"['Oliviachester', 'Smithtown']",23,2025-03-26
+841,1228.770000,['North Erinborough'],38,2025-01-13
+842,2584.250000,['Huntport'],41,2025-01-08
+843,982.070000,['Montgomerytown'],31,2025-04-23
+844,1714.570000,"['Wilsonhaven', 'Lake Kelli', 'West Philip']",18,2025-01-03
+845,4180.490000,"['Piercehaven', 'East Kristina']",48,2025-02-05
+846,714.770000,"['Nicolemouth', 'South Alex', 'New Jamesside']",34,2025-01-11
+847,1453.650000,"['Spearsfurt', 'Lake Lee', 'Joneston']",35,2025-01-13
+848,2189.230000,"['New Joseph', 'Petersenton']",22,2025-04-23
+849,2689.500000,['Michellefort'],28,2025-02-18
+850,708.960000,"['Ginafort', 'Frybury', 'Paulfort']",43,2025-02-23
+851,527.090000,['South Arthurmouth'],29,2025-01-19
+852,853.100000,['North Nicholas'],50,2025-03-17
+853,4177.770000,['North Joshuatown'],9,2025-01-05
+854,4571.290000,"['Williamsonborough', 'Lake Frederickview']",49,2025-02-04
+855,4077.030000,"['Lake Cindyland', 'South Carlosstad']",32,2025-03-31
+856,4698.430000,"['Port Edwardburgh', 'Hullland']",27,2025-01-23
+857,3489.040000,"['Jameston', 'New Jonathan', 'East Kevintown']",38,2025-02-28
+858,2424.160000,"['Mortonshire', 'South Tanya']",33,2025-02-21
+859,3553.080000,"['North Melissaside', 'Port Theresa']",19,2025-01-07
+860,4603.790000,"['South Shelbyhaven', 'Charlesbury', 'Port Keith']",27,2025-03-09
+861,2947.200000,['New Suzannechester'],18,2025-02-23
+862,3694.790000,"['South Robinland', 'New Scott', 'East Elizabeth']",24,2025-04-15
+863,4243.450000,"['South Dillon', 'Matthewburgh']",15,2025-01-20
+864,4003.960000,"['Bryanchester', 'New Nicholas']",38,2025-03-17
+865,1000.940000,['West Brandon'],7,2025-01-31
+866,2941.740000,"['Christensenburgh', 'Lake Josephton']",6,2025-01-19
+867,3822.570000,"['Carlview', 'Dustinside', 'New Patrickhaven']",18,2025-03-05
+868,4976.210000,"['Port Matthewton', 'Johnchester', 'North Samantha']",5,2025-02-04
+869,2304.490000,"['Jenniferport', 'Katherinechester', 'Port Tammy']",49,2025-04-25
+870,566.350000,"['Johnsonland', 'Perezport']",33,2025-03-22
+871,837.590000,"['South Joannview', 'East Brittney', 'South Thomasstad']",10,2025-03-11
+872,2865.320000,"['South Alanstad', 'East Roberta', 'Kimberlyton']",15,2025-01-12
+873,3776.170000,"['Pamelafurt', 'Mooreborough', 'Port Markhaven']",42,2025-04-26
+874,527.510000,"['Brightberg', 'Lake Vanessashire', 'Port Ashleyport']",38,2025-02-08
+875,3566.010000,"['Danieltown', 'East Brittany', 'New Brandon']",27,2025-02-23
+876,1043.630000,['Ortegahaven'],27,2025-02-26
+877,668.860000,"['East Allenberg', 'Jensenchester', 'Philipmouth']",37,2025-01-20
+878,3669.990000,['Skinnershire'],37,2025-01-20
+879,3311.450000,['Port Johnstad'],23,2025-03-17
+880,1545.170000,"['Jasonton', 'Colontown']",16,2025-03-20
+881,3857.510000,"['Hornebury', 'South Laurenchester', 'West Brian']",17,2025-03-18
+882,3502.230000,['South Ryanton'],15,2025-01-03
+883,3269.090000,"['Mistyport', 'Kramerstad']",18,2025-03-21
+884,3279.090000,['New Brianside'],42,2025-03-19
+885,3896.190000,"['Lake Joshua', 'East Jennyberg']",43,2025-02-17
+886,2202.070000,['Lucerofort'],34,2025-04-18
+887,967.130000,"['Sherriburgh', 'East Shaneville', 'Bonniefort']",49,2025-01-15
+888,1957.290000,['Lake Michaelfurt'],48,2025-04-22
+889,4331.780000,"['Aprilstad', 'Lake Johnnyfort']",7,2025-03-06
+890,725.750000,['Archerburgh'],45,2025-01-22
+891,4288.180000,"['Mayoton', 'Scottbury', 'North Christophershire']",12,2025-01-22
+892,2024.630000,"['Port Christina', 'Haydenville', 'South Edward']",48,2025-03-25
+893,771.900000,"['Seanberg', 'South Anamouth', 'East Garyfort']",27,2025-02-08
+894,1322.620000,['New Alexanderstad'],12,2025-03-05
+895,2279.960000,['Lambberg'],30,2025-02-08
+896,2557.950000,"['Jeffreychester', 'North Karenburgh']",21,2025-04-04
+897,1987.070000,"['West Christopher', 'Port Tammybury', 'Smithstad']",23,2025-03-25
+898,2566.070000,"['Sandrabury', 'West James', 'New Sarah']",21,2025-01-07
+899,2033.500000,['North Randy'],43,2025-04-17
+900,3213.260000,"['Lake Veronica', 'New Jeremyfurt']",42,2025-01-19
+901,2440.600000,['Danaland'],13,2025-01-29
+902,2690.730000,['Lake Ashleyland'],11,2025-01-02
+903,4332.850000,"['Charleneberg', 'Nicholsburgh', 'West Brianna']",48,2025-01-23
+904,1337.830000,['Port Jose'],35,2025-02-22
+905,2958.990000,"['West Michelleton', 'South Matthewview']",21,2025-02-12
+906,4814.550000,['South Thomasside'],31,2025-04-26
+907,1329.950000,"['Taylormouth', 'East Barbaraside']",21,2025-01-01
+908,3843.650000,"['Leahbury', 'Davidshire']",39,2025-01-15
+909,3450.820000,"['Noahville', 'Greenbury']",40,2025-04-13
+910,3998.240000,"['West Codyview', 'Lake Lisa', 'Benjaminside']",9,2025-02-25
+911,1860.370000,"['Carterchester', 'Lake Russell']",33,2025-04-25
+912,656.030000,"['Smithstad', 'Port Emily']",33,2025-01-06
+913,3751.000000,['Jenniferberg'],11,2025-01-31
+914,838.530000,"['Williamchester', 'New Monica']",43,2025-03-18
+915,4744.200000,['Danielberg'],22,2025-01-23
+916,3215.030000,"['Johnfurt', 'South Ericborough', 'North Vanessaville']",35,2025-03-30
+917,1787.390000,['Burnsbury'],38,2025-02-01
+918,3938.420000,['Lake Mark'],17,2025-03-15
+919,2843.760000,"['Port Karen', 'Port Linda', 'Jessicahaven']",24,2025-02-11
+920,2535.490000,"['North Williamtown', 'South Natalieberg']",6,2025-01-31
+921,3829.090000,['Marystad'],45,2025-02-11
+922,3199.320000,"['Haynesmouth', 'South Heatherburgh', 'Jamestown']",27,2025-01-09
+923,3273.250000,"['North Danielbury', 'Barbaratown', 'Garystad']",16,2025-03-11
+924,2992.260000,['Haroldside'],17,2025-03-03
+925,2239.200000,['Port Kristen'],16,2025-02-06
+926,1699.220000,['New Eric'],44,2025-04-17
+927,3902.350000,"['Ashleyberg', 'New Monica', 'East Angelaside']",24,2025-03-14
+928,2387.420000,"['Pearsonview', 'Port Alexis']",21,2025-01-23
+929,3822.160000,['West Codybury'],41,2025-03-10
+930,2961.560000,['West Traceystad'],29,2025-02-03
+931,3707.940000,"['Lake Heidimouth', 'Jordanfurt', 'Keithbury']",34,2025-04-05
+932,3204.210000,['East Beth'],15,2025-04-08
+933,3665.380000,['South Sarah'],50,2025-03-12
+934,4043.600000,['Davisborough'],40,2025-02-10
+935,1573.510000,"['Kingtown', 'South Gregory', 'Port Jenniferchester']",22,2025-04-20
+936,3922.790000,['West Stephen'],29,2025-01-06
+937,877.340000,"['North Angelicamouth', 'Lake Jeffery']",7,2025-04-26
+938,4374.440000,"['Lake Ashleyburgh', 'East Heather']",34,2025-03-13
+939,4774.440000,"['Peckberg', 'Amandaberg', 'New Christinashire']",6,2025-01-18
+940,2638.560000,['Armstrongview'],15,2025-02-25
+941,2746.760000,"['Rachelview', 'Port Davidbury', 'New Jamesfort']",23,2025-01-16
+942,2451.240000,"['South Barbara', 'Melodyport']",40,2025-04-17
+943,4453.070000,"['Kennedyville', 'Lake Jamesborough', 'Lake Francisco']",31,2025-04-07
+944,831.970000,['Michaelfurt'],41,2025-03-15
+945,548.590000,"['Hancockberg', 'Gregorychester', 'Jessebury']",26,2025-03-07
+946,4170.430000,"['Stonemouth', 'Loribury']",30,2025-02-28
+947,1270.980000,['Lake Stephen'],20,2025-04-02
+948,3645.760000,"['West Robertfort', 'South Brookeland']",48,2025-01-07
+949,894.490000,"['Kevinport', 'Brownstad']",34,2025-01-07
+950,3082.890000,"['Gonzalezfort', 'Cynthiahaven']",48,2025-01-01
+951,4206.800000,['Parkborough'],46,2025-01-18
+952,2755.630000,"['Johnsonburgh', 'Brandonview', 'Victoriamouth']",38,2025-02-12
+953,1524.210000,"['Port Brian', 'Lake Thomas', 'East Charlesland']",49,2025-04-09
+954,3753.250000,"['Haleyhaven', 'South Alexander', 'West Christineport']",36,2025-04-22
+955,833.940000,['West Michael'],18,2025-01-17
+956,2661.190000,['South Daniellechester'],39,2025-02-04
+957,625.250000,['East Johnathanview'],5,2025-02-05
+958,2289.520000,['New Karen'],48,2025-03-09
+959,1076.650000,"['Laurashire', 'Pricehaven']",42,2025-03-07
+960,3648.180000,['New Michellebury'],37,2025-03-30
+961,2520.230000,"['East Kimberlyfurt', 'Taylorview']",24,2025-04-15
+962,1177.160000,"['Lake Brandymouth', 'North Daniel', 'Theresaton']",44,2025-03-30
+963,4783.250000,['New Patricia'],32,2025-01-21
+964,3378.740000,"['Nicholetown', 'Lindaberg', 'Lake Christinefurt']",10,2025-01-28
+965,1590.020000,['Melissaton'],46,2025-02-02
+966,1392.460000,"['Millerfort', 'Michelleside', 'North Alexis']",24,2025-04-15
+967,3311.060000,['Cameronfort'],31,2025-02-19
+968,776.600000,"['Lake Colleenbury', 'Lake Ryan', 'West Nathanhaven']",16,2025-01-13
+969,2833.800000,"['Lake Alexandramouth', 'Haleyville']",9,2025-01-03
+970,2270.010000,['Port Angelaside'],33,2025-03-27
+971,4516.830000,"['East Christopher', 'Petersfort']",16,2025-04-20
+972,1205.580000,"['North Adrianburgh', 'New Mandyport']",39,2025-02-25
+973,4130.750000,"['Port Vanessamouth', 'Michaelburgh', 'Davidport']",22,2025-04-24
+974,3836.130000,['West Stanley'],44,2025-03-07
+975,688.570000,['Frankmouth'],30,2025-02-27
+976,2005.280000,['South Melissa'],8,2025-04-03
+977,4013.900000,['South Davidville'],44,2025-02-13
+978,3454.680000,"['East Jamesshire', 'North Catherineville', 'Kellymouth']",38,2025-01-21
+979,3872.030000,"['New Colleen', 'Port Stephanie']",9,2025-02-27
+980,4632.930000,"['Cameronport', 'South Tommytown', 'West Jeremy']",39,2025-03-13
+981,2349.520000,"['West Tammy', 'Brownhaven', 'West Marcton']",11,2025-01-07
+982,2963.420000,"['East Brendan', 'Mercadohaven']",42,2025-04-22
+983,4183.390000,"['Port James', 'West Louis', 'East Nancyview']",5,2025-02-17
+984,3275.760000,"['Mcmahonchester', 'West Stephanie', 'Shepherdhaven']",46,2025-02-14
+985,4030.940000,"['Amandaport', 'New William', 'Rodriguezland']",50,2025-03-08
+986,3412.740000,"['Freemanport', 'South Crystalshire', 'Port Johnburgh']",5,2025-04-11
+987,1507.290000,['Matthewtown'],31,2025-03-17
+988,3098.200000,['Catherinefort'],41,2025-03-03
+989,4799.910000,"['Brownstad', 'South Joshuaside']",22,2025-04-11
+990,4406.410000,"['East Margaretfurt', 'Buchananmouth']",49,2025-03-11
+991,3490.540000,"['New Ashley', 'Timothymouth']",43,2025-03-08
+992,2186.530000,['West Tammiechester'],25,2025-02-18
+993,3687.790000,"['Greenechester', 'Anthonytown']",13,2025-04-26
+994,3627.770000,['Leetown'],13,2025-04-22
+995,2685.400000,"['Fletcherstad', 'Patriciahaven', 'Harrisstad']",17,2025-04-12
+996,2484.220000,['South Sarahfort'],40,2025-03-23
+997,4588.260000,['North Nicoleburgh'],9,2025-02-08
+998,853.910000,"['North Allison', 'Francisburgh']",34,2025-04-12
+999,514.030000,"['Jenniferfort', 'West Brian', 'New Russelltown']",15,2025-04-15

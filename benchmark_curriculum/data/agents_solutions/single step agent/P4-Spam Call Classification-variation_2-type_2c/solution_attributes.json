@@ -1,0 +1,89 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "account_age",
+        "total_call_duration",
+        "max_call_duration",
+        "avg_call_duration",
+        "total_calls",
+        "weighted_spam_risk_score",
+        "frequent_recipient_ratio",
+        "spam_report_count",
+        "unique_recipients_ratio",
+        "call_duration_variance",
+        "avg_spam_severity",
+        "spam_report_rank",
+        "call_timing_entropy"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.08759842413953027": {
+            "name": "account_age",
+            "code": "import pandas as pd\n\ndef account_age(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Number of days since the user created their account.\n    \"\"\"\n    user_id = row['user_id']\n    \n    # Ensure the key exists in the aux_data dictionary\n    if 'user_profiles_table.csv' not in aux_data:\n        raise KeyError(\"The key 'user_profiles_table.csv' is missing from aux_data.\")\n    \n    user_profiles = aux_data['user_profiles_table.csv']\n    \n    # Ensure the dataframe contains the expected columns\n    if 'user_id' not in user_profiles.columns or 'registration_date' not in user_profiles.columns:\n        raise KeyError(\"The 'user_profiles_table.csv' dataframe is missing required columns: 'user_id' or 'registration_date'.\")\n    \n    # Filter the user profile for the given user_id\n    user_profile = user_profiles[user_profiles['user_id'] == user_id]\n    \n    # If no matching user profile is found, return None\n    if user_profile.empty:\n        return None\n    \n    # Extract the registration date and calculate the account age\n    registration_date = user_profile.iloc[0]['registration_date']\n    present_date = pd.Timestamp.now()\n    return (present_date - pd.to_datetime(registration_date)).days\n"
+        },
+        "0.04041642300806914": {
+            "name": "total_call_duration",
+            "code": "\n\ndef total_call_duration(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Sum of call durations for the user across all calls.\n    \"\"\"\n    user_id = row['user_id']\n    # Access the correct key in the aux_data dictionary\n    calling_patterns = aux_data['calling_patterns_table.csv']\n    \n    # Filter the dataframe for the specific user_id\n    user_calls = calling_patterns[calling_patterns['user_id'] == user_id]\n    \n    # Return the sum of 'total_call_duration' for the user, or 0 if no calls exist\n    return user_calls['total_call_duration'].sum() if not user_calls.empty else 0\n"
+        },
+        "0.03745689031419016": {
+            "name": "max_call_duration",
+            "code": "\n\ndef max_call_duration(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Maximum call duration for the user.\n    \"\"\"\n    user_id = row['user_id']\n    \n    # Ensure the correct key is used to access the calling patterns table\n    calling_patterns = aux_data['calling_patterns_table.csv']\n    \n    # Filter the calling patterns for the specific user\n    user_calls = calling_patterns[calling_patterns['user_id'] == user_id]\n    \n    # Return the maximum call duration or 0 if no calls are found\n    return user_calls['total_call_duration'].max() if not user_calls.empty else 0\n"
+        },
+        "0.03356088030090603": {
+            "name": "avg_call_duration",
+            "code": "\n\ndef avg_call_duration(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Average call duration per user in seconds.\n    \"\"\"\n    user_id = row['user_id']\n    \n    # Ensure the key exists in the aux_data dictionary\n    if 'calling_patterns_table.csv' not in aux_data:\n        raise KeyError(\"The key 'calling_patterns_table.csv' is missing from aux_data.\")\n    \n    calling_patterns = aux_data['calling_patterns_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'user_id', 'total_call_duration', 'total_calls'}\n    if not required_columns.issubset(calling_patterns.columns):\n        raise KeyError(f\"The dataframe 'calling_patterns_table.csv' is missing one or more required columns: {required_columns}\")\n    \n    # Filter the dataframe for the specific user\n    user_calls = calling_patterns[calling_patterns['user_id'] == user_id]\n    \n    # Calculate the average call duration\n    if not user_calls.empty:\n        # Avoid division by zero\n        total_calls = user_calls['total_calls'].sum()\n        total_call_duration = user_calls['total_call_duration'].sum()\n        return total_call_duration / total_calls if total_calls > 0 else 0\n    else:\n        return 0\n"
+        },
+        "0.02818451310099573": {
+            "name": "total_calls",
+            "code": "\n\ndef total_calls(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Total number of calls made by the user.\n    \"\"\"\n    user_id = row['user_id']\n    # Correcting the key to match the provided aux_dataframes structure\n    calling_patterns = aux_dataframes['calling_patterns_table.csv']\n    # Filtering the dataframe for the specific user_id\n    user_calls = calling_patterns[calling_patterns['user_id'] == user_id]\n    # Returning the total number of calls\n    return len(user_calls)\n"
+        },
+        "0.018928679759417623": {
+            "name": "weighted_spam_risk_score",
+            "code": "\n\ndef weighted_spam_risk_score(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> float:\n    \"\"\"\n    Composite score combining spam call ratio, average spam severity, and number of spam reports.\n    \"\"\"\n    # Extract the user_id from the row\n    user_id = row['user_id']\n    \n    # Retrieve the relevant auxiliary dataframes\n    calling_patterns_df = aux_data['calling_patterns_table.csv']\n    spam_reports_df = aux_data['spam_reports_table.csv']\n    \n    # Calculate spam_call_ratio for the user\n    user_calls = calling_patterns_df[calling_patterns_df['user_id'] == user_id]\n    if not user_calls.empty:\n        total_calls = user_calls['total_calls'].sum()\n        spam_calls = user_calls['spam_calls_count'].sum()\n        spam_call_ratio = spam_calls / total_calls if total_calls > 0 else 0\n    else:\n        spam_call_ratio = 0  # Default to 0 if no calls are found for the user\n    \n    # Calculate avg_spam_severity for the user\n    user_reports = spam_reports_df[spam_reports_df['user_id'] == user_id]\n    if not user_reports.empty:\n        avg_severity = user_reports['spam_severity'].mean()\n    else:\n        avg_severity = 0  # Default to 0 if no reports are found for the user\n    \n    # Calculate spam_report_count for the user\n    spam_report_count = len(user_reports)\n    \n    # Compute the weighted spam risk score\n    return spam_call_ratio * avg_severity * spam_report_count\n"
+        },
+        "0.017630855716445893": {
+            "name": "frequent_recipient_ratio",
+            "code": "\n\ndef frequent_recipient_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Ratio of calls made to the top 5% of recipients to total calls for a given user.\n    \"\"\"\n    # Ensure the key exists in aux_data\n    if 'calling_patterns_table.csv' not in aux_data:\n        raise KeyError(\"The key 'calling_patterns_table.csv' is missing in aux_data.\")\n    \n    # Extract the calling patterns table\n    calling_patterns = aux_data['calling_patterns_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'user_id', 'total_calls', 'unique_recipients'}\n    if not required_columns.issubset(calling_patterns.columns):\n        raise KeyError(f\"The calling_patterns_table.csv is missing one or more required columns: {required_columns}\")\n    \n    # Get the user_id from the row\n    user_id = row['user_id']\n    \n    # Filter the calling patterns for the specific user\n    user_calls = calling_patterns[calling_patterns['user_id'] == user_id]\n    \n    # If no calls exist for the user, return 0\n    if user_calls.empty:\n        return 0\n    \n    # Extract total calls and unique recipients for the user\n    total_calls = user_calls['total_calls'].sum()\n    unique_recipients = user_calls['unique_recipients'].sum()\n    \n    # If there are no calls or no unique recipients, return 0\n    if total_calls == 0 or unique_recipients == 0:\n        return 0\n    \n    # Calculate the top 5% of recipients\n    top_5_percent_recipients = max(1, int(unique_recipients * 0.05))\n    \n    # Calculate the ratio of calls to the top 5% of recipients to total calls\n    # Assuming that calls are evenly distributed among recipients\n    calls_to_top_5_percent = (top_5_percent_recipients / unique_recipients) * total_calls\n    ratio = calls_to_top_5_percent / total_calls\n    \n    return ratio\n"
+        },
+        "0.014803243170866799": {
+            "name": "spam_report_count",
+            "code": "\n\ndef spam_report_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Total number of spam reports filed against the user.\n    \"\"\"\n    user_id = row['user_id']\n    \n    # Ensure the correct key is used to access the spam reports table\n    spam_reports_key = 'spam_reports_table.csv'\n    \n    # Check if the key exists in aux_dataframes\n    if spam_reports_key not in aux_dataframes:\n        raise KeyError(f\"Key '{spam_reports_key}' not found in aux_dataframes.\")\n    \n    spam_reports = aux_dataframes[spam_reports_key]\n    \n    # Ensure the required column exists in the spam reports table\n    if 'user_id' not in spam_reports.columns:\n        raise KeyError(\"'user_id' column not found in the spam reports table.\")\n    \n    # Filter the spam reports for the given user_id and return the count\n    return len(spam_reports[spam_reports['user_id'] == user_id])\n"
+        },
+        "0.007226766527884932": {
+            "name": "unique_recipients_ratio",
+            "code": "\n\ndef unique_recipients_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Ratio of unique recipients to the total number of calls for a given user.\n    \"\"\"\n    user_id = row['user_id']\n    \n    # Access the correct dataframe using the key 'calling_patterns_table.csv'\n    if 'calling_patterns_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'calling_patterns_table.csv' is missing in aux_dataframes.\")\n    \n    calling_patterns = aux_dataframes['calling_patterns_table.csv']\n    \n    # Filter the dataframe for the given user_id\n    user_calls = calling_patterns[calling_patterns['user_id'] == user_id]\n    \n    # Extract the unique_recipients and total_calls for the user\n    if not user_calls.empty:\n        unique_recipients = user_calls['unique_recipients'].sum()  # Sum up unique recipients\n        total_calls = user_calls['total_calls'].sum()  # Sum up total calls\n        return unique_recipients / total_calls if total_calls > 0 else 0\n    else:\n        return 0\n"
+        },
+        "0.004302162929829345": {
+            "name": "call_duration_variance",
+            "code": "\n\ndef call_duration_variance(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Variance in call duration for a given user.\n    \"\"\"\n    user_id = row['user_id']\n    # Access the correct dataframe using the key 'calling_patterns_table.csv'\n    calling_patterns = aux_data['calling_patterns_table.csv']\n    \n    # Filter rows for the given user_id\n    user_calls = calling_patterns[calling_patterns['user_id'] == user_id]\n    \n    if user_calls.empty:\n        return 0  # Return 0 if no calls are found for the user\n    \n    # Calculate the average call duration for each row\n    user_calls['average_call_duration'] = user_calls['total_call_duration'] / user_calls['total_calls']\n    \n    # Compute and return the variance of the average call duration\n    return user_calls['average_call_duration'].var()\n"
+        },
+        "0.002063156392580438": {
+            "name": "avg_spam_severity",
+            "code": "\n\ndef avg_spam_severity(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> float:\n    \"\"\"\n    Average severity of spam reports received by the user.\n    \"\"\"\n    user_id = row['user_id']\n    \n    # Ensure the correct key is used to access the spam reports table\n    spam_reports = aux_dataframes.get('spam_reports_table.csv')\n    \n    # Check if the spam_reports table exists\n    if spam_reports is None:\n        raise KeyError(\"The key 'spam_reports_table.csv' is not found in aux_dataframes.\")\n    \n    # Filter the spam reports for the given user_id\n    user_spam_reports = spam_reports[spam_reports['user_id'] == user_id]\n    \n    # Calculate and return the average spam severity\n    return user_spam_reports['spam_severity'].mean() if not user_spam_reports.empty else 0.0\n"
+        },
+        "0.0004959272218034743": {
+            "name": "spam_report_rank",
+            "code": "\n\ndef spam_report_rank(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> float:\n    \"\"\"\n    User rank (percentile) based on the total number of spam reports across all users.\n    \n    Parameters:\n    - row: A row from the main dataframe (as a pandas Series).\n    - aux_data: A dictionary of auxiliary dataframes, where keys are filenames and values are pandas DataFrames.\n    \n    Returns:\n    - A float representing the user's rank (percentile) based on spam reports.\n    \"\"\"\n    user_id = row['user_id']\n    \n    # Ensure the key exists in aux_data\n    if 'spam_reports_table.csv' not in aux_data:\n        raise KeyError(\"The key 'spam_reports_table.csv' is missing in aux_data.\")\n    \n    # Get the spam reports table\n    spam_reports = aux_data['spam_reports_table.csv']\n    \n    # Ensure the required columns exist in the spam reports table\n    required_columns = {'user_id'}\n    if not required_columns.issubset(spam_reports.columns):\n        raise ValueError(f\"The spam reports table must contain the following columns: {required_columns}\")\n    \n    # Count spam reports per user\n    spam_reports_count = spam_reports['user_id'].value_counts()\n    \n    # If the user has no spam reports, return the lowest rank (0)\n    if user_id not in spam_reports_count:\n        return 0.0\n    \n    # Get the spam report count for the user\n    user_spam_count = spam_reports_count[user_id]\n    \n    # Calculate the rank (percentile-based)\n    rank = (spam_reports_count < user_spam_count).sum() / len(spam_reports_count)\n    \n    return rank\n"
+        },
+        "0": {
+            "name": "call_timing_entropy",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef call_timing_entropy(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> float:\n    \"\"\"\n    Entropy of call timing (hour of day) distribution.\n    \"\"\"\n    user_id = row['user_id']\n    \n    # Access the calling patterns table\n    calling_patterns = aux_dataframes['calling_patterns_table.csv']\n    \n    # Filter the calling patterns for the specific user\n    user_calls = calling_patterns[calling_patterns['user_id'] == user_id]\n    \n    # If no calls are found for the user, return 0\n    if user_calls.empty:\n        return 0.0\n    \n    # Check if the 'time_period' column exists\n    if 'time_period' not in user_calls.columns:\n        raise KeyError(\"The 'time_period' column is missing in the calling patterns table.\")\n    \n    # Attempt to convert the 'time_period' column to datetime, handling errors\n    try:\n        user_calls['hour_of_day'] = pd.to_datetime(user_calls['time_period'], errors='coerce').dt.hour\n    except Exception as e:\n        raise ValueError(f\"Error while parsing 'time_period' column: {e}\")\n    \n    # Drop rows where 'hour_of_day' could not be parsed (NaT values)\n    user_calls = user_calls.dropna(subset=['hour_of_day'])\n    \n    # If no valid 'hour_of_day' values remain, return 0\n    if user_calls.empty:\n        return 0.0\n    \n    # Calculate the normalized value counts for the hours\n    hour_counts = user_calls['hour_of_day'].value_counts(normalize=True)\n    \n    # Compute and return the entropy\n    return -sum(hour_counts * np.log(hour_counts))\n"
+        }
+    },
+    "feature_descriptions": [
+        "account age",
+        "total call duration",
+        "max call duration",
+        "avg call duration",
+        "total calls",
+        "weighted spam risk score",
+        "frequent recipient ratio",
+        "spam report count",
+        "unique recipients ratio",
+        "call duration variance",
+        "avg spam severity",
+        "spam report rank",
+        "call timing entropy"
+    ]
+}

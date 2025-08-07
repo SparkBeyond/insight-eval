@@ -1,0 +1,131 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "last_transaction_days",
+        "number_of_transactions",
+        "high_value_transactions_count",
+        "total_transaction_amount",
+        "service_diversity",
+        "spend_to_account_age_ratio",
+        "high_engagement_ratio",
+        "last_interaction_days",
+        "interaction_diversity",
+        "average_spend_per_transaction",
+        "marketing_campaigns_count",
+        "total_interactions",
+        "average_resolution_time",
+        "resolution_success_ratio",
+        "days_since_last_marketing_engagement",
+        "unresolved_issues_count",
+        "days_since_signup",
+        "failed_transaction_ratio",
+        "age_group",
+        "churned_last_month_indicator"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.39544340271699624": {
+            "name": "last_transaction_days",
+            "code": "import pandas as pd\n\ndef last_transaction_days(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'transaction_log_table' exists in aux_dataframes\n    if 'transaction_log_table.csv' not in aux_dataframes:\n        raise KeyError(\"'transaction_log_table.csv' is missing from aux_dataframes\")\n    \n    # Get the transaction log table\n    transactions = aux_dataframes['transaction_log_table.csv']\n    \n    # Ensure the required columns exist in the transaction log table\n    required_columns = {'customer_id', 'transaction_date'}\n    if not required_columns.issubset(transactions.columns):\n        raise ValueError(f\"The transaction log table is missing required columns: {required_columns - set(transactions.columns)}\")\n    \n    # Filter transactions for the specific customer\n    customer_transactions = transactions[transactions['customer_id'] == row['customer_id']]\n    \n    # If no transactions exist for the customer, return -1\n    if customer_transactions.empty:\n        return -1\n    \n    # Convert 'transaction_date' to datetime if it's not already\n    if not pd.api.types.is_datetime64_any_dtype(customer_transactions['transaction_date']):\n        customer_transactions['transaction_date'] = pd.to_datetime(customer_transactions['transaction_date'])\n    \n    # Get the most recent transaction date\n    last_date = customer_transactions['transaction_date'].max()\n    \n    # Calculate the number of days since the last transaction\n    return (pd.Timestamp.now() - last_date).days\n"
+        },
+        "0.2846261214671716": {
+            "name": "number_of_transactions",
+            "code": "\n\ndef number_of_transactions(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'transaction_log_table.csv' exists in aux_dataframes\n    if 'transaction_log_table.csv' not in aux_dataframes:\n        raise KeyError(\"'transaction_log_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the transaction log table\n    transactions = aux_dataframes['transaction_log_table.csv']\n    \n    # Ensure the required columns exist in the transaction log table\n    required_columns = {'customer_id'}\n    if not required_columns.issubset(transactions.columns):\n        raise KeyError(f\"The transaction log table is missing required columns: {required_columns - set(transactions.columns)}\")\n    \n    # Filter transactions for the given customer_id and return the count\n    return len(transactions[transactions['customer_id'] == row['customer_id']])\n"
+        },
+        "0.2629713439717207": {
+            "name": "high_value_transactions_count",
+            "code": "\n\ndef high_value_transactions_count(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'transaction_log_table' exists in aux_dataframes\n    if 'transaction_log_table.csv' not in aux_dataframes:\n        raise KeyError(\"'transaction_log_table.csv' is missing from aux_dataframes\")\n    \n    # Get the transaction log table\n    transactions = aux_dataframes['transaction_log_table.csv']\n    \n    # Ensure the required columns exist in the transaction log table\n    required_columns = {'customer_id', 'transaction_amount'}\n    if not required_columns.issubset(transactions.columns):\n        raise KeyError(f\"The transaction log table is missing one or more required columns: {required_columns}\")\n    \n    # Filter transactions for the given customer\n    customer_transactions = transactions[transactions['customer_id'] == row['customer_id']]\n    \n    # If no transactions exist for the customer, return 0\n    if customer_transactions.empty:\n        return 0\n    \n    # Calculate the 75th percentile of transaction amounts\n    percentile = customer_transactions['transaction_amount'].quantile(0.75)\n    \n    # Count transactions above the 75th percentile\n    high_value_count = len(customer_transactions[customer_transactions['transaction_amount'] > percentile])\n    \n    return high_value_count\n"
+        },
+        "0.26165549714044495": {
+            "name": "total_transaction_amount",
+            "code": "\n\ndef total_transaction_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'transaction_log_table' exists in aux_dataframes\n    if 'transaction_log_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'transaction_log_table.csv' is missing from aux_dataframes.\")\n    \n    # Get the transaction log table\n    transactions = aux_dataframes['transaction_log_table.csv']\n    \n    # Ensure the required columns exist in the transaction log table\n    required_columns = {'customer_id', 'transaction_amount'}\n    if not required_columns.issubset(transactions.columns):\n        raise ValueError(f\"The transaction log table is missing one or more required columns: {required_columns}\")\n    \n    # Filter transactions for the given customer_id\n    customer_transactions = transactions[transactions['customer_id'] == row['customer_id']]\n    \n    # Return the sum of transaction amounts for the customer\n    return customer_transactions['transaction_amount'].sum()\n"
+        },
+        "0.1995337830865317": {
+            "name": "service_diversity",
+            "code": "\n\ndef service_diversity(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'transaction_log_table.csv' exists in aux_dataframes\n    if 'transaction_log_table.csv' not in aux_dataframes:\n        raise KeyError(\"'transaction_log_table.csv' is missing from aux_dataframes\")\n    \n    # Get the transaction log table\n    transactions = aux_dataframes['transaction_log_table.csv']\n    \n    # Ensure the required columns exist in the transaction log table\n    required_columns = {'customer_id', 'service_type'}\n    if not required_columns.issubset(transactions.columns):\n        raise KeyError(f\"The transaction log table is missing one or more required columns: {required_columns}\")\n    \n    # Filter transactions for the given customer_id\n    customer_transactions = transactions[transactions['customer_id'] == row['customer_id']]\n    \n    # Return the number of unique service types\n    return customer_transactions['service_type'].nunique()\n"
+        },
+        "0.03121550948034701": {
+            "name": "spend_to_account_age_ratio",
+            "code": "import pandas as pd\n\ndef spend_to_account_age_ratio(row: pd.Series) -> float:\n    \"\"\"\n    Calculate the ratio of total spend to account age in days.\n\n    Args:\n        row (pd.Series): A row of the dataframe containing customer data.\n\n    Returns:\n        float: The spend-to-account-age ratio, or 0 if account age is 0 or negative.\n    \"\"\"\n    # Calculate account age in days\n    account_age = (pd.Timestamp.now() - pd.to_datetime(row['signup_date'])).days\n    \n    # Use the correct column name 'total_spend'\n    return row['total_spend'] / account_age if account_age > 0 else 0\n"
+        },
+        "0.029497429702932974": {
+            "name": "high_engagement_ratio",
+            "code": "\n\ndef high_engagement_ratio(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if 'marketing_campaigns_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'marketing_campaigns_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the marketing_campaigns_table dataframe\n    marketing = aux_dataframes['marketing_campaigns_table.csv']\n    \n    # Filter the marketing dataframe for the specific customer_id\n    customer_campaigns = marketing[marketing['customer_id'] == row['customer_id']]\n    \n    # If no campaigns exist for the customer, return 0\n    if customer_campaigns.empty:\n        return 0\n    \n    # Calculate the ratio of high engagement campaigns\n    high_engagement_count = len(customer_campaigns[customer_campaigns['engagement_level'] == 'High'])\n    total_campaigns = len(customer_campaigns)\n    \n    return high_engagement_count / total_campaigns\n"
+        },
+        "0.02764008137868297": {
+            "name": "last_interaction_days",
+            "code": "import pandas as pd\n\ndef last_interaction_days(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'support_interactions_table.csv' exists in aux_dataframes\n    if 'support_interactions_table.csv' not in aux_dataframes:\n        raise KeyError(\"'support_interactions_table.csv' is missing from aux_dataframes\")\n    \n    # Access the support interactions table\n    support = aux_dataframes['support_interactions_table.csv']\n    \n    # Ensure the required columns exist in the support dataframe\n    required_columns = {'customer_id', 'interaction_date'}\n    if not required_columns.issubset(support.columns):\n        raise ValueError(f\"The support_interactions_table.csv is missing required columns: {required_columns - set(support.columns)}\")\n    \n    # Filter the support interactions for the given customer_id\n    customer_support = support[support['customer_id'] == row['customer_id']]\n    \n    # If no interactions are found, return -1\n    if customer_support.empty:\n        return -1\n    \n    # Convert interaction_date to datetime if not already\n    if not pd.api.types.is_datetime64_any_dtype(customer_support['interaction_date']):\n        customer_support['interaction_date'] = pd.to_datetime(customer_support['interaction_date'])\n    \n    # Find the most recent interaction date\n    last_date = customer_support['interaction_date'].max()\n    \n    # Calculate the number of days since the last interaction\n    return (pd.Timestamp.now() - last_date).days\n"
+        },
+        "0.023011938019518747": {
+            "name": "interaction_diversity",
+            "code": "\n\ndef interaction_diversity(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the key 'support_interactions_table.csv' exists in aux_data\n    if 'support_interactions_table.csv' not in aux_data:\n        raise KeyError(\"'support_interactions_table.csv' is missing from aux_data.\")\n    \n    # Get the support interactions table\n    support = aux_data['support_interactions_table.csv']\n    \n    # Ensure the required columns exist in the support dataframe\n    required_columns = {'customer_id', 'issue_type'}\n    if not required_columns.issubset(support.columns):\n        raise ValueError(f\"The support interactions table is missing required columns: {required_columns - set(support.columns)}\")\n    \n    # Filter the table for the specific customer\n    customer_support = support[support['customer_id'] == row['customer_id']]\n    \n    # Calculate the number of unique issue types (interaction diversity)\n    return customer_support['issue_type'].nunique()\n"
+        },
+        "0.022446260825623773": {
+            "name": "average_spend_per_transaction",
+            "code": "\n\ndef average_spend_per_transaction(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'transaction_log_table.csv' exists in aux_dataframes\n    if 'transaction_log_table.csv' not in aux_dataframes:\n        raise KeyError(\"'transaction_log_table.csv' is missing from aux_dataframes\")\n    \n    # Access the transaction log table\n    transactions = aux_dataframes['transaction_log_table.csv']\n    \n    # Ensure the required columns exist in the transaction log table\n    required_columns = {'customer_id', 'transaction_amount'}\n    if not required_columns.issubset(transactions.columns):\n        raise KeyError(f\"The transaction log table is missing one or more required columns: {required_columns}\")\n    \n    # Filter transactions for the specific customer\n    customer_transactions = transactions[transactions['customer_id'] == row['customer_id']]\n    \n    # If no transactions exist for the customer, return 0\n    if customer_transactions.empty:\n        return 0.0\n    \n    # Calculate the total spend and average spend per transaction\n    total_spent = customer_transactions['transaction_amount'].sum()\n    return total_spent / len(customer_transactions)\n"
+        },
+        "0.021794148318410308": {
+            "name": "marketing_campaigns_count",
+            "code": "\n\ndef marketing_campaigns_count(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key matches the filename in aux_dataframes\n    marketing_key = 'marketing_campaigns_table.csv'\n    \n    # Check if the key exists in aux_dataframes\n    if marketing_key not in aux_dataframes:\n        raise KeyError(f\"Key '{marketing_key}' not found in aux_dataframes.\")\n    \n    # Access the marketing campaigns table\n    marketing = aux_dataframes[marketing_key]\n    \n    # Ensure the required column exists in the marketing dataframe\n    if 'customer_id' not in marketing.columns:\n        raise KeyError(\"'customer_id' column not found in the marketing campaigns table.\")\n    \n    # Count the number of marketing campaigns for the given customer_id\n    return len(marketing[marketing['customer_id'] == row['customer_id']])\n"
+        },
+        "0.02040953138358977": {
+            "name": "total_interactions",
+            "code": "\n\ndef total_interactions(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculate the total number of support interactions for a given customer.\n\n    Args:\n        row: A row from the dataframe (as a Series) containing customer data.\n        df_train: The main dataframe (not used in this function but included for compatibility).\n        aux_dataframes: A dictionary of auxiliary dataframes, where keys are filenames and values are dataframes.\n\n    Returns:\n        int: The total number of support interactions for the given customer.\n    \"\"\"\n    # Check if the key 'support_interactions_table.csv' exists in aux_dataframes\n    if 'support_interactions_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'support_interactions_table.csv' is missing from aux_dataframes.\")\n    \n    # Retrieve the support interactions table\n    support = aux_dataframes['support_interactions_table.csv']\n    \n    # Ensure the required columns exist in the support dataframe\n    required_columns = {'customer_id'}\n    if not required_columns.issubset(support.columns):\n        raise ValueError(f\"The support_interactions_table.csv is missing required columns: {required_columns - set(support.columns)}\")\n    \n    # Filter the support interactions for the given customer_id\n    customer_support = support[support['customer_id'] == row['customer_id']]\n    \n    # Return the count of interactions\n    return len(customer_support)\n"
+        },
+        "0.017668687696585986": {
+            "name": "average_resolution_time",
+            "code": "\n\ndef average_resolution_time(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if 'support_interactions_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'support_interactions_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the support interactions table\n    support = aux_dataframes['support_interactions_table.csv']\n    \n    # Filter the support interactions for the given customer_id\n    customer_support = support[support['customer_id'] == row['customer_id']]\n    \n    # If no interactions are found, return 0\n    if customer_support.empty:\n        return 0\n    \n    # Calculate and return the mean of the 'response_time' column\n    return customer_support['response_time'].mean()\n"
+        },
+        "0.011213074998246959": {
+            "name": "resolution_success_ratio",
+            "code": "\n\ndef resolution_success_ratio(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in aux_dataframes\n    if 'support_interactions_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'support_interactions_table.csv' is missing in aux_dataframes.\")\n    \n    # Get the support interactions table\n    support = aux_dataframes['support_interactions_table.csv']\n    \n    # Filter interactions for the given customer_id\n    customer_support = support[support['customer_id'] == row['customer_id']]\n    \n    # If no interactions exist for the customer, return 0\n    if len(customer_support) == 0:\n        return 0.0\n    \n    # Count resolved issues\n    resolved_count = len(customer_support[customer_support['resolution_status'] == 'Resolved'])\n    \n    # Calculate and return the resolution success ratio\n    return resolved_count / len(customer_support)\n"
+        },
+        "0.009534467871653213": {
+            "name": "days_since_last_marketing_engagement",
+            "code": "import pandas as pd\n\ndef days_since_last_marketing_engagement(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in aux_dataframes\n    if 'marketing_campaigns_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'marketing_campaigns_table.csv' is not found in aux_dataframes.\")\n    \n    # Load the marketing campaigns table\n    marketing = aux_dataframes['marketing_campaigns_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'customer_id', 'campaign_date'}\n    if not required_columns.issubset(marketing.columns):\n        raise ValueError(f\"The marketing_campaigns_table.csv is missing required columns: {required_columns - set(marketing.columns)}\")\n    \n    # Filter the marketing campaigns for the specific customer\n    customer_campaigns = marketing[marketing['customer_id'] == row['customer_id']]\n    \n    # If no campaigns exist for the customer, return -1\n    if customer_campaigns.empty:\n        return -1  # No marketing engagements for the customer\n    \n    # Convert the 'campaign_date' column to datetime if not already\n    customer_campaigns['campaign_date'] = pd.to_datetime(customer_campaigns['campaign_date'])\n    \n    # Find the most recent engagement date\n    last_engagement_date = customer_campaigns['campaign_date'].max()\n    \n    # Calculate the number of days since the last engagement\n    return (pd.Timestamp.now() - last_engagement_date).days\n"
+        },
+        "0.008004963866415391": {
+            "name": "unresolved_issues_count",
+            "code": "\n\ndef unresolved_issues_count(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in aux_dataframes\n    if 'support_interactions_table.csv' not in aux_dataframes:\n        raise KeyError(\"'support_interactions_table.csv' not found in aux_dataframes\")\n    \n    # Access the support interactions table\n    support = aux_dataframes['support_interactions_table.csv']\n    \n    # Filter the support interactions for the given customer_id\n    customer_support = support[support['customer_id'] == row['customer_id']]\n    \n    # Count the unresolved issues based on the 'resolution_status' column\n    return len(customer_support[customer_support['resolution_status'] == 'Unresolved'])\n"
+        },
+        "0.00756251497550214": {
+            "name": "days_since_signup",
+            "code": "import pandas as pd\n\ndef days_since_signup(row):\n    return (pd.Timestamp.now() - pd.to_datetime(row['signup_date'])).days\n"
+        },
+        "0.0036270484722680774": {
+            "name": "failed_transaction_ratio",
+            "code": "\n\ndef failed_transaction_ratio(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in aux_dataframes\n    if 'transaction_log_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'transaction_log_table.csv' is missing from aux_dataframes.\")\n    \n    # Get the transaction log table\n    transactions = aux_dataframes['transaction_log_table.csv']\n    \n    # Filter transactions for the specific customer\n    customer_transactions = transactions[transactions['customer_id'] == row['customer_id']]\n    \n    # If no transactions exist for the customer, return 0\n    if len(customer_transactions) == 0:\n        return 0\n    \n    # Calculate the ratio of failed transactions\n    failed_transactions = customer_transactions[customer_transactions['transaction_status'] == 'Failed']\n    return len(failed_transactions) / len(customer_transactions)\n"
+        },
+        "-0.0009193033693903896": {
+            "name": "age_group",
+            "code": "\n\ndef age_group(row):\n    if row['age'] <= 25:\n        return 'Youth'\n    elif row['age'] <= 60:\n        return 'Adult'\n    else:\n        return 'Senior'\n"
+        },
+        "0": {
+            "name": "churned_last_month_indicator",
+            "code": "import pandas as pd\n\ndef churned_last_month_indicator(row, aux_data: Dict[str, pd.DataFrame] = None):\n    # Check if the account is inactive\n    if row['account_status'] != 'Inactive':\n        return 0  # Not churned\n\n    # Assume the churn date is the current date for inactive accounts\n    # Calculate days since churn\n    days_since_churn = (pd.Timestamp.now() - pd.to_datetime(row['signup_date'])).days\n\n    # Return 1 if churned within the last 30 days, otherwise 0\n    return int(days_since_churn <= 30)\n"
+        }
+    },
+    "feature_descriptions": [
+        "last transaction days",
+        "number of transactions",
+        "high value transactions count",
+        "total transaction amount",
+        "service diversity",
+        "spend to account age ratio",
+        "high engagement ratio",
+        "last interaction days",
+        "interaction diversity",
+        "average spend per transaction",
+        "marketing campaigns count",
+        "total interactions",
+        "average resolution time",
+        "resolution success ratio",
+        "days since last marketing engagement",
+        "unresolved issues count",
+        "days since signup",
+        "failed transaction ratio",
+        "age group",
+        "churned last month indicator"
+    ]
+}

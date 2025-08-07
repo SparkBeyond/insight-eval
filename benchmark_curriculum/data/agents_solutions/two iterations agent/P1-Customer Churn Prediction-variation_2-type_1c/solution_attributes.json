@@ -1,0 +1,40 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "recency_of_last_support_ticket",
+        "unresolved_support_ratio",
+        "total_minutes_used",
+        "avg_data_usage",
+        "recency_of_last_payment",
+        "tickets_resolved_ratio",
+        "time_since_last_interaction",
+        "num_payment_methods_used",
+        "avg_payment_amount",
+        "payment_failure_ratio",
+        "median_call_duration",
+        "avg_resolution_time_revised",
+        "tenure_months",
+        "avg_resolution_time",
+        "customer_age"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "recency of last support ticket",
+        "unresolved support ratio",
+        "total minutes used",
+        "avg data usage",
+        "recency of last payment",
+        "tickets resolved ratio",
+        "time since last interaction",
+        "num payment methods used",
+        "avg payment amount",
+        "payment failure ratio",
+        "median call duration",
+        "avg resolution time revised",
+        "tenure months",
+        "avg resolution time",
+        "customer age"
+    ]
+}

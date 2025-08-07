@@ -1,0 +1,113 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "total_spend",
+        "num_transactions",
+        "tenure",
+        "max_transaction",
+        "spend_in_clothing",
+        "payment_method_count",
+        "average_spend",
+        "transaction_std_dev",
+        "signup_month_indicator",
+        "age",
+        "min_transaction",
+        "birth_dow",
+        "signup_season",
+        "life_stage",
+        "signup_dow",
+        "frequent_payment_method",
+        "category_wise_total_spend"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.3742158584448812": {
+            "name": "total_spend",
+            "code": "\n\ndef total_spend(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct key in aux_dataframes\n    transactions = aux_dataframes[\"transaction_data_table.csv\"]\n    \n    # Filter transactions for the given customer_id\n    customer_transactions = transactions[transactions[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Sum the 'amount' column to calculate total spend\n    return customer_transactions[\"amount\"].sum()\n"
+        },
+        "0.2930923476914963": {
+            "name": "num_transactions",
+            "code": "\n\ndef num_transactions(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key to access the transactions dataframe\n    transactions = aux_dataframes[\"transaction_data_table.csv\"]\n    \n    # Filter transactions for the given customer_id\n    customer_transactions = transactions[transactions[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Return the number of transactions\n    return len(customer_transactions)\n"
+        },
+        "0.24802196825157555": {
+            "name": "tenure",
+            "code": "import pandas as pd\n\ndef tenure(row):\n    signup_date = pd.to_datetime(row[\"signup_date\"])\n    today = pd.Timestamp.now()\n    return (today - signup_date).days\n"
+        },
+        "0.2345987974758691": {
+            "name": "max_transaction",
+            "code": "\n\ndef max_transaction(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the key 'transaction_data_table.csv'\n    transactions = aux_dataframes[\"transaction_data_table.csv\"]\n    \n    # Filter transactions for the given customer_id\n    customer_transactions = transactions[transactions[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Return the maximum transaction amount or 0 if no transactions exist\n    return customer_transactions[\"amount\"].max() if not customer_transactions.empty else 0\n"
+        },
+        "0.2229238010759723": {
+            "name": "spend_in_clothing",
+            "code": "\n\ndef spend_in_clothing(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the transactions dataframe using the correct key\n    transactions = aux_dataframes[\"transaction_data_table.csv\"]\n    \n    # Filter transactions for the given customer_id and product_category\n    customer_transactions = transactions[\n        (transactions[\"customer_id\"] == row[\"customer_id\"]) & \n        (transactions[\"product_category\"] == \"Clothing\")\n    ]\n    \n    # Return the sum of the 'amount' column\n    return customer_transactions[\"amount\"].sum()\n"
+        },
+        "0.21547652082060417": {
+            "name": "payment_method_count",
+            "code": "\n\ndef payment_method_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key to access the transactions dataframe\n    transactions = aux_dataframes[\"transaction_data_table.csv\"]\n    \n    # Filter transactions for the given customer_id\n    customer_transactions = transactions[transactions[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Return the number of unique payment methods\n    return customer_transactions[\"payment_method\"].nunique()\n"
+        },
+        "0.20424263517618207": {
+            "name": "average_spend",
+            "code": "\n\ndef average_spend(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the key 'transaction_data_table.csv'\n    transactions = aux_dataframes[\"transaction_data_table.csv\"]\n    \n    # Filter transactions for the specific customer_id\n    customer_transactions = transactions[transactions[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Calculate and return the average spend, or 0 if no transactions exist\n    return customer_transactions[\"amount\"].mean() if not customer_transactions.empty else 0\n"
+        },
+        "0.06396219287028335": {
+            "name": "transaction_std_dev",
+            "code": "\n\ndef transaction_std_dev(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the key 'transaction_data_table.csv'\n    transactions = aux_dataframes[\"transaction_data_table.csv\"]\n    \n    # Filter transactions for the specific customer_id\n    customer_transactions = transactions[transactions[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Calculate and return the standard deviation of the 'amount' column\n    return customer_transactions[\"amount\"].std() if len(customer_transactions) > 1 else 0\n"
+        },
+        "0.032677149530768106": {
+            "name": "signup_month_indicator",
+            "code": "import pandas as pd\n\ndef signup_month_indicator(row):\n    signup_date = pd.to_datetime(row[\"signup_date\"])\n    return signup_date.month\n"
+        },
+        "0.03257741017447663": {
+            "name": "age",
+            "code": "import pandas as pd\n\ndef age(row):\n    birth_date = pd.to_datetime(row[\"birth_date\"])\n    today = pd.Timestamp.now()\n    return (today - birth_date).days // 365\n"
+        },
+        "0.004581374636936211": {
+            "name": "min_transaction",
+            "code": "\n\ndef min_transaction(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct DataFrame using the key 'transaction_data_table.csv'\n    transactions = aux_dataframes[\"transaction_data_table.csv\"]\n    \n    # Filter transactions for the given customer_id\n    customer_transactions = transactions[transactions[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Return the minimum transaction amount or 0 if no transactions exist\n    return customer_transactions[\"amount\"].min() if not customer_transactions.empty else 0\n"
+        },
+        "-0.0024897877662639623": {
+            "name": "birth_dow",
+            "code": "import pandas as pd\n\ndef birth_dow(row):\n    birth_date = pd.to_datetime(row[\"birth_date\"])\n    return birth_date.day_name()\n"
+        },
+        "0.002487748938322598": {
+            "name": "signup_season",
+            "code": "import pandas as pd\n\ndef signup_season(row):\n    signup_date = pd.to_datetime(row[\"signup_date\"])\n    month = signup_date.month\n    if month in [12, 1, 2]:\n        return \"Winter\"\n    elif month in [3, 4, 5]:\n        return \"Spring\"\n    elif month in [6, 7, 8]:\n        return \"Summer\"\n    else:\n        return \"Fall\"\n"
+        },
+        "0.0007314787664753908": {
+            "name": "life_stage",
+            "code": "import pandas as pd\n\ndef age(row):\n    birth_date = pd.to_datetime(row[\"birth_date\"])\n    today = pd.Timestamp.now()\n    return (today - birth_date).days // 365\n\ndef life_stage(row):\n    age_value = age(row)\n    if age_value < 25:\n        return \"Youth\"\n    elif age_value <= 60:\n        return \"Adult\"\n    else:\n        return \"Senior\"\n"
+        },
+        "-0.0006447192686089842": {
+            "name": "signup_dow",
+            "code": "import pandas as pd\n\ndef signup_dow(row):\n    signup_date = pd.to_datetime(row[\"signup_date\"])\n    return signup_date.day_name()\n"
+        },
+        "-2.0231119578495438e-05": {
+            "name": "frequent_payment_method",
+            "code": "\n\ndef frequent_payment_method(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the one in aux_dataframes\n    transactions = aux_dataframes.get(\"transaction_data_table.csv\")\n    \n    # Check if the transactions dataframe exists and is not None\n    if transactions is None:\n        raise KeyError(\"The key 'transaction_data_table.csv' is not found in aux_dataframes.\")\n    \n    # Filter transactions for the given customer_id\n    customer_transactions = transactions[transactions[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # If no transactions exist for the customer, return None\n    if customer_transactions.empty:\n        return None\n    \n    # Return the most frequent payment method\n    return customer_transactions[\"payment_method\"].mode().values[0]\n"
+        },
+        "0": {
+            "name": "category_wise_total_spend",
+            "code": "\n\ndef category_wise_total_spend(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key to access the transactions dataframe\n    transactions = aux_dataframes[\"transaction_data_table.csv\"]\n    \n    # Filter transactions for the given customer_id\n    customer_transactions = transactions[transactions[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Group by product_category and sum the transaction_amount\n    return customer_transactions.groupby(\"product_category\")[\"amount\"].sum().to_dict()\n"
+        }
+    },
+    "feature_descriptions": [
+        "total spend",
+        "num transactions",
+        "tenure",
+        "max transaction",
+        "spend in clothing",
+        "payment method count",
+        "average spend",
+        "transaction std dev",
+        "signup month indicator",
+        "age",
+        "min transaction",
+        "birth dow",
+        "signup season",
+        "life stage",
+        "signup dow",
+        "frequent payment method",
+        "category wise total spend"
+    ]
+}

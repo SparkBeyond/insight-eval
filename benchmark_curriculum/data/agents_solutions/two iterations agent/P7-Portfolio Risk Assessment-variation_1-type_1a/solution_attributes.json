@@ -1,0 +1,113 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "historical_performance_mean",
+        "total_client_returns",
+        "risk_asset_concentration",
+        "low_risk_ratio",
+        "historical_volatility",
+        "portfolio_volatility",
+        "client_risk_appetite",
+        "client_net_worth",
+        "normalized_trend_impact",
+        "income_net_worth_ratio",
+        "portfolio_age_years",
+        "portfolio_age",
+        "risk_appetite_numeric",
+        "current_sector_impact",
+        "adjusted_risk_return_ratio",
+        "portfolio_older_than_5_years",
+        "recent_gdp_growth"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.44756897458159633": {
+            "name": "historical_performance_mean",
+            "code": "import numpy as np\n\ndef historical_performance_mean(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    history = aux_dataframes['portfolio_history_table.csv']\n    portfolio_history = history[history['portfolio_id'] == row['portfolio_id']]\n    return portfolio_history['return_rate'].mean() if not portfolio_history.empty else np.nan\n"
+        },
+        "0.2303313743754665": {
+            "name": "total_client_returns",
+            "code": "import numpy as np\n\ndef total_client_returns(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    history = aux_dataframes['portfolio_history_table.csv']\n    client_history = history[history['portfolio_id'].isin(df_train[df_train['client_id'] == row['client_id']]['portfolio_id'])]\n    return client_history['return_rate'].sum() if not client_history.empty else np.nan\n"
+        },
+        "0.13013484016559757": {
+            "name": "risk_asset_concentration",
+            "code": "\n\ndef risk_asset_concentration(row):\n    return row['high_risk_assets'] / (row['high_risk_assets'] + row['low_risk_assets'] + 1e-8)\n"
+        },
+        "0.13013483206564755": {
+            "name": "low_risk_ratio",
+            "code": "\n\ndef low_risk_ratio(row):\n    return row['low_risk_assets'] / (row['total_assets'] + 1e-8)\n"
+        },
+        "0.03894066468600812": {
+            "name": "historical_volatility",
+            "code": "import numpy as np\n\ndef historical_volatility(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    history = aux_dataframes['portfolio_history_table.csv']\n    portfolio_history = history[history['portfolio_id'] == row['portfolio_id']]\n    return portfolio_history['return_rate'].std() if not portfolio_history.empty else np.nan\n"
+        },
+        "0.033244374004779455": {
+            "name": "portfolio_volatility",
+            "code": "\n\ndef portfolio_volatility(row):\n    return abs(row['average_return'])  # Absolute value of average return as a proxy for volatility/variance\n"
+        },
+        "0.020691396100070432": {
+            "name": "client_risk_appetite",
+            "code": "import numpy as np\n\ndef client_risk_appetite(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    client_profiles = aux_dataframes['client_profiles_table.csv']\n    risk_appetite = client_profiles.loc[client_profiles['client_id'] == row['client_id'], 'risk_appetite']\n    mapping = {\n        \"Low\": 1,\n        \"Medium\": 2,\n        \"High\": 3\n    }\n    return mapping.get(risk_appetite.iloc[0], np.nan) if not risk_appetite.empty else np.nan\n"
+        },
+        "0.019830389581889703": {
+            "name": "client_net_worth",
+            "code": "import numpy as np\n\ndef client_net_worth(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    client_profiles = aux_dataframes['client_profiles_table.csv']\n    net_worth = client_profiles.loc[client_profiles['client_id'] == row['client_id'], 'net_worth']\n    return net_worth.iloc[0] if not net_worth.empty else np.nan\n"
+        },
+        "0.013861452154435829": {
+            "name": "normalized_trend_impact",
+            "code": "import numpy as np\nimport pandas as pd\n\ndef normalized_trend_impact(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    trends = aux_dataframes['investment_trends_table.csv']\n    sector_trends = trends[trends['sector'] == row['sector_focus']]\n    if not sector_trends.empty:\n        mean_impact = sector_trends['impact_score'].mean()\n        std_impact = sector_trends['impact_score'].std() + 1e-8\n        curr_impact = current_sector_impact(row, df_train, aux_dataframes)\n        return (curr_impact - mean_impact) / std_impact\n    return np.nan\n\ndef current_sector_impact(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    trends = aux_dataframes['investment_trends_table.csv']\n    sector_trends = trends[(trends['sector'] == row['sector_focus']) & \n                           (pd.to_datetime(trends['end_date']) >= pd.Timestamp(\"2023-10-01\")) & \n                           (pd.to_datetime(trends['start_date']) <= pd.Timestamp(\"2023-10-01\"))]\n    if not sector_trends.empty:\n        return sector_trends['impact_score'].mean()\n    return 0  # Default to no impact if no matching trend is found\n"
+        },
+        "0.011162316020603151": {
+            "name": "income_net_worth_ratio",
+            "code": "import numpy as np\n\ndef income_net_worth_ratio(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    client_profiles = aux_dataframes['client_profiles_table.csv']\n    client_info = client_profiles[client_profiles['client_id'] == row['client_id']]\n    if not client_info.empty:\n        net_worth = client_info['net_worth'].iloc[0]\n        return (row['average_return'] + 1e-8) / net_worth if net_worth > 0 else np.nan\n    return np.nan\n"
+        },
+        "0.00770011964280845": {
+            "name": "portfolio_age_years",
+            "code": "import pandas as pd\n\ndef portfolio_age(row):\n    creation_date = pd.to_datetime(row['creation_date'])\n    current_date = pd.Timestamp(\"2023-10-01\")  # Assuming analysis as of Oct 1, 2023\n    age_in_days = (current_date - creation_date).days\n    return age_in_days\n\ndef portfolio_age_years(row):\n    return portfolio_age(row) / 365.0\n"
+        },
+        "0.0077001196428084385": {
+            "name": "portfolio_age",
+            "code": "import pandas as pd\n\ndef portfolio_age(row):\n    creation_date = pd.to_datetime(row['creation_date'])\n    current_date = pd.Timestamp(\"2023-10-01\")  # Assuming analysis as of Oct 1, 2023\n    age_in_days = (current_date - creation_date).days\n    return age_in_days\n"
+        },
+        "0.0063778544789511475": {
+            "name": "risk_appetite_numeric",
+            "code": "import numpy as np\n\ndef risk_appetite_numeric(row):\n    mapping = {\n        \"Aggressive\": 3,\n        \"Moderate\": 2,\n        \"Conservative\": 1\n    }\n    return mapping.get(row['client_s_risk_appetite_and_portfolio_categorization'], np.nan)\n"
+        },
+        "0.006060885433807369": {
+            "name": "current_sector_impact",
+            "code": "import pandas as pd\n\ndef current_sector_impact(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    trends = aux_dataframes['investment_trends_table.csv']\n    sector_trends = trends[(trends['sector'] == row['sector_focus']) & \n                           (pd.to_datetime(trends['end_date']) >= pd.Timestamp(\"2023-10-01\")) & \n                           (pd.to_datetime(trends['start_date']) <= pd.Timestamp(\"2023-10-01\"))]\n    if not sector_trends.empty:\n        return sector_trends['impact_score'].mean()\n    return 0  # Default to no impact if no matching trend is found\n"
+        },
+        "0.0025522475563377694": {
+            "name": "adjusted_risk_return_ratio",
+            "code": "\n\ndef adjusted_risk_return_ratio(row):\n    return row['average_return'] / (row['high_risk_assets'] + 1e-8)\n"
+        },
+        "0.0010222734420261934": {
+            "name": "portfolio_older_than_5_years",
+            "code": "import pandas as pd\n\ndef portfolio_older_than_5_years(row):\n    return 1 if portfolio_age(row) > 365 * 5 else 0\n\ndef portfolio_age(row):\n    creation_date = pd.to_datetime(row['creation_date'])\n    current_date = pd.Timestamp(\"2023-10-01\")  # Assuming analysis as of Oct 1, 2023\n    age_in_days = (current_date - creation_date).days\n    return age_in_days\n"
+        },
+        "0": {
+            "name": "recent_gdp_growth",
+            "code": "import pandas as pd\n\ndef recent_gdp_growth(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    economic_indicators = aux_dataframes['economic_indicators_table.csv']\n    recent_gdp = economic_indicators[(economic_indicators['indicator_name'] == \"GDP Growth\") & \n                                     (pd.to_datetime(economic_indicators['date']) >= pd.Timestamp(\"2020-01-01\"))]\n    return recent_gdp['value'].mean()\n"
+        }
+    },
+    "feature_descriptions": [
+        "historical performance mean",
+        "total client returns",
+        "risk asset concentration",
+        "low risk ratio",
+        "historical volatility",
+        "portfolio volatility",
+        "client risk appetite",
+        "client net worth",
+        "normalized trend impact",
+        "income net worth ratio",
+        "portfolio age years",
+        "portfolio age",
+        "risk appetite numeric",
+        "current sector impact",
+        "adjusted risk return ratio",
+        "portfolio older than 5 years",
+        "recent gdp growth"
+    ]
+}

@@ -1,0 +1,89 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "maintenance_frequency",
+        "avg_maintenance_cost",
+        "unresolved_issues_count",
+        "days_since_last_issue",
+        "total_maintenance_cost",
+        "issue_frequency",
+        "technician_diversity",
+        "maintenance_cost_std",
+        "days_since_last_maintenance",
+        "maintenance_types_diversity",
+        "avg_battery_temperature",
+        "avg_issue_resolution_time",
+        "most_frequent_issue_description"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.14353300338960703": {
+            "name": "maintenance_frequency",
+            "code": "\n\ndef maintenance_frequency(row, df_train):\n    battery_id = row['battery_id']\n    return df_train[df_train['battery_id'] == battery_id].shape[0]\n"
+        },
+        "0.059621617954520444": {
+            "name": "avg_maintenance_cost",
+            "code": "\n\ndef avg_maintenance_cost(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the correct dataframe from aux_data\n    maintenance_records = aux_data['maintenance_records_table.csv']\n    \n    # Get the battery_id from the row\n    battery_id = row['battery_id']\n    \n    # Filter the maintenance records for the given battery_id\n    costs = maintenance_records[maintenance_records['battery_id'] == battery_id]['maintenance_cost']\n    \n    # Return the mean of the maintenance costs\n    return costs.mean()\n"
+        },
+        "0.05781160315953297": {
+            "name": "unresolved_issues_count",
+            "code": "\n\ndef unresolved_issues_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'issue_resolution_logs_table' exists in aux_dataframes\n    if 'issue_resolution_logs_table.csv' not in aux_dataframes:\n        raise KeyError(\"'issue_resolution_logs_table.csv' is missing from aux_dataframes\")\n    \n    # Access the issue resolution logs table\n    issues_df = aux_dataframes['issue_resolution_logs_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'battery_id', 'issue_resolved_date'}\n    if not required_columns.issubset(issues_df.columns):\n        raise KeyError(f\"The dataframe 'issue_resolution_logs_table.csv' is missing required columns: {required_columns - set(issues_df.columns)}\")\n    \n    # Extract the battery_id from the row\n    battery_id = row['battery_id']\n    \n    # Filter unresolved issues for the given battery_id\n    unresolved_issues = issues_df[(issues_df['battery_id'] == battery_id) & issues_df['issue_resolved_date'].isnull()]\n    \n    # Return the count of unresolved issues\n    return unresolved_issues.shape[0]\n"
+        },
+        "0.04620046485176977": {
+            "name": "days_since_last_issue",
+            "code": "import pandas as pd\n\ndef days_since_last_issue(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'issue_resolution_logs_table' exists in aux_dataframes\n    if 'issue_resolution_logs_table.csv' not in aux_dataframes:\n        raise KeyError(\"'issue_resolution_logs_table.csv' is missing from aux_dataframes\")\n    \n    # Get the issues dataframe\n    issues_df = aux_dataframes['issue_resolution_logs_table.csv']\n    \n    # Ensure the required column exists in the issues dataframe\n    if 'battery_id' not in issues_df.columns or 'issue_reported_date' not in issues_df.columns:\n        raise KeyError(\"The required columns ('battery_id', 'issue_reported_date') are missing from 'issue_resolution_logs_table.csv'\")\n    \n    # Extract the battery_id from the row\n    battery_id = row['battery_id']\n    \n    # Filter the issues dataframe for the given battery_id\n    battery_issues = issues_df[issues_df['battery_id'] == battery_id]\n    \n    # Get the most recent issue_reported_date\n    last_issue_date = pd.to_datetime(battery_issues['issue_reported_date'], errors='coerce').max()\n    \n    # Calculate the days since the last issue\n    if pd.notnull(last_issue_date):\n        return (pd.Timestamp.now() - last_issue_date).days\n    else:\n        return None\n"
+        },
+        "0.038262267116619265": {
+            "name": "total_maintenance_cost",
+            "code": "\n\ndef total_maintenance_cost(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the correct dataframe from aux_data\n    maintenance_df = aux_data['maintenance_records_table.csv']\n    \n    # Get the battery_id from the row\n    battery_id = row['battery_id']\n    \n    # Filter the maintenance dataframe for the given battery_id\n    costs = maintenance_df[maintenance_df['battery_id'] == battery_id]['maintenance_cost']\n    \n    # Return the sum of maintenance costs\n    return costs.sum()\n"
+        },
+        "0.028121859283855466": {
+            "name": "issue_frequency",
+            "code": "import pandas as pd\n\ndef issue_frequency(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'issue_resolution_logs_table.csv' exists in aux_dataframes\n    if 'issue_resolution_logs_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'issue_resolution_logs_table.csv' is missing from aux_dataframes.\")\n    \n    # Extract the relevant dataframe\n    issues_df = aux_dataframes['issue_resolution_logs_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'battery_id', 'issue_reported_date'}\n    if not required_columns.issubset(issues_df.columns):\n        raise KeyError(f\"The dataframe 'issue_resolution_logs_table.csv' is missing one or more required columns: {required_columns}\")\n    \n    # Extract the battery_id from the row\n    battery_id = row['battery_id']\n    \n    # Filter the issues dataframe for the given battery_id\n    issues = issues_df[issues_df['battery_id'] == battery_id]\n    \n    # If there are no issues, return 0 to avoid division by zero\n    if issues.empty:\n        return 0\n    \n    # Ensure 'issue_reported_date' is in datetime format\n    if not pd.api.types.is_datetime64_any_dtype(issues['issue_reported_date']):\n        issues['issue_reported_date'] = pd.to_datetime(issues['issue_reported_date'])\n    \n    # Calculate the frequency of issues\n    date_range = (issues['issue_reported_date'].max() - issues['issue_reported_date'].min()).days\n    if date_range == 0:  # Avoid division by zero if all issues occurred on the same day\n        return len(issues)\n    \n    return len(issues) / (date_range / 30)  # Convert days to months\n"
+        },
+        "0.02400585689158206": {
+            "name": "technician_diversity",
+            "code": "\n\ndef technician_diversity(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the maintenance records dataframe from aux_data\n    maintenance_records = aux_data['maintenance_records_table.csv']\n    \n    # Get the battery_id from the row\n    battery_id = row['battery_id']\n    \n    # Filter the maintenance records for the given battery_id\n    technicians = maintenance_records[maintenance_records['battery_id'] == battery_id]['technician_id']\n    \n    # Return the number of unique technicians\n    return technicians.nunique()\n"
+        },
+        "0.02239131885279843": {
+            "name": "maintenance_cost_std",
+            "code": "\n\ndef maintenance_cost_std(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe from aux_data\n    maintenance_records = aux_data['maintenance_records_table.csv']\n    \n    # Extract the battery_id from the row\n    battery_id = row['battery_id']\n    \n    # Filter the maintenance records for the given battery_id\n    costs = maintenance_records[maintenance_records['battery_id'] == battery_id]['maintenance_cost']\n    \n    # Return the standard deviation of the maintenance costs\n    return costs.std()\n"
+        },
+        "0.01749389699232185": {
+            "name": "days_since_last_maintenance",
+            "code": "import pandas as pd\n\ndef days_since_last_maintenance(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the maintenance records dataframe from aux_data\n    maintenance_df = aux_data['maintenance_records_table.csv']\n    \n    # Extract the battery_id from the current row\n    battery_id = row['battery_id']\n    \n    # Filter the maintenance records for the same battery_id\n    battery_maintenance_records = maintenance_df[maintenance_df['battery_id'] == battery_id]\n    \n    # Find the most recent maintenance date before the current row's timestamp\n    last_date = battery_maintenance_records['maintenance_date'].max()\n    \n    # Convert the current row's timestamp to a datetime object\n    current_date = pd.to_datetime(row['timestamp'])\n    \n    # Calculate the difference in days if a last maintenance date exists\n    if pd.notnull(last_date):\n        last_date = pd.to_datetime(last_date)  # Ensure last_date is a datetime object\n        return (current_date - last_date).days\n    else:\n        return None\n"
+        },
+        "0.006095685561871938": {
+            "name": "maintenance_types_diversity",
+            "code": "\n\ndef maintenance_types_diversity(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe from aux_data\n    maintenance_records = aux_data['maintenance_records_table.csv']\n    \n    # Get the battery_id from the row\n    battery_id = row['battery_id']\n    \n    # Filter the maintenance_records dataframe for the given battery_id\n    maintenance_types = maintenance_records[maintenance_records['battery_id'] == battery_id]['maintenance_type']\n    \n    # Return the number of unique maintenance types\n    return maintenance_types.nunique()\n"
+        },
+        "0.005566625371919509": {
+            "name": "avg_battery_temperature",
+            "code": "\n\ndef avg_battery_temperature(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> float:\n    battery_id = row['battery_id']\n    # Access the correct dataframe\n    environmental_conditions_df = aux_data['environmental_conditions_table.csv']\n    \n    # Filter rows where the location_id matches the battery_id (assuming a relationship exists)\n    # If there is no direct relationship, this logic may need to be adjusted\n    relevant_temperatures = environmental_conditions_df[environmental_conditions_df['condition_id'] == battery_id]['temperature']\n    \n    # Return the mean temperature, or NaN if no relevant rows are found\n    return relevant_temperatures.mean()\n"
+        },
+        "0.005221989897242727": {
+            "name": "avg_issue_resolution_time",
+            "code": "import pandas as pd\n\ndef avg_issue_resolution_time(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if 'issue_resolution_logs_table.csv' not in aux_dataframes:\n        raise KeyError(\"'issue_resolution_logs_table.csv' is missing from aux_dataframes\")\n    \n    # Extract the relevant dataframe\n    issues_df = aux_dataframes['issue_resolution_logs_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'battery_id', 'issue_reported_date', 'issue_resolved_date'}\n    if not required_columns.issubset(issues_df.columns):\n        raise KeyError(f\"The dataframe 'issue_resolution_logs_table.csv' is missing one or more required columns: {required_columns}\")\n    \n    # Extract the battery_id from the row\n    battery_id = row['battery_id']\n    \n    # Filter the issues dataframe for the given battery_id\n    issues = issues_df[issues_df['battery_id'] == battery_id]\n    \n    # Ensure the date columns are in datetime format\n    issues['issue_reported_date'] = pd.to_datetime(issues['issue_reported_date'], errors='coerce')\n    issues['issue_resolved_date'] = pd.to_datetime(issues['issue_resolved_date'], errors='coerce')\n    \n    # Calculate the resolution time in days\n    issues['resolution_time'] = (issues['issue_resolved_date'] - issues['issue_reported_date']).dt.total_seconds() / (60 * 60 * 24)\n    \n    # Return the average resolution time, or 0 if no valid resolution times exist\n    return issues['resolution_time'].mean() if not issues['resolution_time'].isnull().all() else 0\n"
+        },
+        "0.0006896226759913748": {
+            "name": "most_frequent_issue_description",
+            "code": "\n\ndef most_frequent_issue_description(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> str:\n    # Check if 'issue_resolution_logs_table.csv' exists in aux_dataframes\n    if 'issue_resolution_logs_table.csv' not in aux_dataframes:\n        raise KeyError(\"'issue_resolution_logs_table.csv' is missing from aux_dataframes\")\n    \n    # Retrieve the issue resolution logs dataframe\n    issues_df = aux_dataframes['issue_resolution_logs_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'battery_id', 'issue_description'}\n    if not required_columns.issubset(issues_df.columns):\n        raise KeyError(f\"The dataframe 'issue_resolution_logs_table.csv' is missing required columns: {required_columns - set(issues_df.columns)}\")\n    \n    # Extract the battery_id from the row\n    battery_id = row['battery_id']\n    \n    # Filter the issues dataframe for the given battery_id\n    issue_desc = issues_df[issues_df['battery_id'] == battery_id]['issue_description']\n    \n    # Return the most frequent issue description or None if no issues are found\n    return issue_desc.mode()[0] if not issue_desc.empty else None\n"
+        }
+    },
+    "feature_descriptions": [
+        "maintenance frequency",
+        "avg maintenance cost",
+        "unresolved issues count",
+        "days since last issue",
+        "total maintenance cost",
+        "issue frequency",
+        "technician diversity",
+        "maintenance cost std",
+        "days since last maintenance",
+        "maintenance types diversity",
+        "avg battery temperature",
+        "avg issue resolution time",
+        "most frequent issue description"
+    ]
+}

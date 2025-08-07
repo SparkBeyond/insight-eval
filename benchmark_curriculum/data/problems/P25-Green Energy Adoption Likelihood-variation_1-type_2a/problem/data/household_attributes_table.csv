@@ -1,0 +1,3001 @@
+household_id,customer_id,household_size,income_level,property_type,ownership_status
+1,1,1,low,detached house,owned
+2,2,2,medium,apartment,owned
+3,3,4,low,apartment,rented
+4,4,1,low,apartment,rented
+5,5,2,low,apartment,owned
+6,6,1,medium,apartment,rented
+7,7,3,high,apartment,owned
+8,8,4,medium,apartment,owned
+9,9,3,low,detached house,rented
+10,10,5,high,apartment,owned
+11,11,3,low,detached house,rented
+12,12,2,low,apartment,rented
+13,13,2,medium,apartment,owned
+14,14,5,low,apartment,rented
+15,15,1,medium,detached house,rented
+16,16,2,medium,detached house,rented
+17,17,2,medium,detached house,rented
+18,18,5,medium,apartment,rented
+19,19,2,medium,detached house,owned
+20,20,5,high,detached house,owned
+21,21,5,medium,detached house,rented
+22,22,2,high,apartment,rented
+23,23,3,high,apartment,rented
+24,24,1,medium,apartment,rented
+25,25,3,high,apartment,owned
+26,26,3,low,apartment,rented
+27,27,2,medium,apartment,rented
+28,28,1,low,apartment,rented
+29,29,3,high,detached house,rented
+30,30,3,high,apartment,owned
+31,31,2,medium,detached house,owned
+32,32,3,medium,detached house,owned
+33,33,3,medium,detached house,rented
+34,34,1,medium,apartment,rented
+35,35,2,low,apartment,rented
+36,36,4,low,apartment,rented
+37,37,3,medium,apartment,rented
+38,38,3,low,detached house,rented
+39,39,2,medium,apartment,rented
+40,40,3,high,apartment,rented
+41,41,4,medium,detached house,owned
+42,42,3,low,detached house,owned
+43,43,3,medium,apartment,rented
+44,44,3,high,apartment,owned
+45,45,3,medium,detached house,owned
+46,46,5,low,detached house,rented
+47,47,4,high,detached house,owned
+48,48,4,medium,apartment,owned
+49,49,1,medium,detached house,rented
+50,50,4,low,detached house,rented
+51,51,2,low,detached house,owned
+52,52,2,low,detached house,rented
+53,53,5,high,apartment,rented
+54,54,2,low,apartment,owned
+55,55,4,low,detached house,rented
+56,56,1,medium,detached house,owned
+57,57,1,medium,detached house,rented
+58,58,1,low,apartment,owned
+59,59,4,high,detached house,owned
+60,60,2,medium,apartment,rented
+61,61,4,high,detached house,owned
+62,62,1,medium,apartment,owned
+63,63,4,medium,detached house,owned
+64,64,3,low,apartment,owned
+65,65,4,medium,apartment,rented
+66,66,1,high,apartment,owned
+67,67,1,medium,apartment,owned
+68,68,1,medium,detached house,rented
+69,69,2,medium,detached house,rented
+70,70,5,low,apartment,rented
+71,71,4,high,detached house,owned
+72,72,2,high,detached house,owned
+73,73,2,low,apartment,owned
+74,74,5,high,detached house,rented
+75,75,4,low,apartment,owned
+76,76,5,high,apartment,rented
+77,77,4,high,detached house,owned
+78,78,5,medium,apartment,owned
+79,79,1,medium,apartment,owned
+80,80,5,high,detached house,rented
+81,81,3,medium,detached house,owned
+82,82,4,medium,apartment,owned
+83,83,5,medium,detached house,rented
+84,84,5,low,detached house,owned
+85,85,5,low,apartment,owned
+86,86,4,medium,detached house,owned
+87,87,3,medium,apartment,rented
+88,88,3,medium,detached house,owned
+89,89,2,high,detached house,owned
+90,90,4,high,apartment,owned
+91,91,2,high,detached house,owned
+92,92,1,medium,detached house,owned
+93,93,5,medium,detached house,owned
+94,94,3,low,detached house,owned
+95,95,2,medium,detached house,owned
+96,96,5,high,detached house,rented
+97,97,2,high,detached house,owned
+98,98,5,low,apartment,rented
+99,99,2,high,detached house,rented
+100,100,4,medium,apartment,owned
+101,101,5,low,detached house,rented
+102,102,4,high,apartment,rented
+103,103,5,high,detached house,rented
+104,104,5,high,apartment,owned
+105,105,1,low,apartment,rented
+106,106,1,low,apartment,owned
+107,107,4,high,apartment,rented
+108,108,5,low,apartment,owned
+109,109,5,medium,detached house,owned
+110,110,2,high,detached house,owned
+111,111,5,high,apartment,owned
+112,112,3,high,detached house,owned
+113,113,3,high,detached house,owned
+114,114,4,low,detached house,rented
+115,115,2,low,detached house,rented
+116,116,3,high,detached house,owned
+117,117,5,high,detached house,owned
+118,118,3,low,detached house,rented
+119,119,3,medium,detached house,owned
+120,120,3,high,apartment,rented
+121,121,2,low,detached house,rented
+122,122,3,low,apartment,rented
+123,123,3,low,apartment,owned
+124,124,4,high,apartment,owned
+125,125,3,low,apartment,owned
+126,126,4,medium,apartment,owned
+127,127,1,high,detached house,rented
+128,128,3,low,apartment,rented
+129,129,1,medium,detached house,owned
+130,130,3,low,detached house,rented
+131,131,5,high,detached house,rented
+132,132,4,high,detached house,owned
+133,133,4,high,detached house,rented
+134,134,2,high,apartment,owned
+135,135,1,low,detached house,rented
+136,136,3,low,detached house,owned
+137,137,4,low,detached house,owned
+138,138,4,low,detached house,owned
+139,139,4,high,apartment,owned
+140,140,1,medium,detached house,owned
+141,141,5,medium,detached house,rented
+142,142,5,medium,apartment,rented
+143,143,5,low,apartment,rented
+144,144,1,medium,detached house,rented
+145,145,5,medium,detached house,owned
+146,146,5,low,detached house,owned
+147,147,5,low,detached house,rented
+148,148,2,high,detached house,owned
+149,149,3,low,apartment,owned
+150,150,5,medium,detached house,owned
+151,151,4,high,apartment,owned
+152,152,4,medium,apartment,owned
+153,153,1,medium,detached house,owned
+154,154,4,low,apartment,rented
+155,155,4,medium,detached house,owned
+156,156,4,low,apartment,rented
+157,157,2,low,detached house,owned
+158,158,1,high,detached house,rented
+159,159,2,medium,apartment,rented
+160,160,5,high,apartment,owned
+161,161,5,medium,apartment,rented
+162,162,2,medium,apartment,owned
+163,163,5,low,detached house,rented
+164,164,4,low,detached house,rented
+165,165,4,high,apartment,rented
+166,166,1,low,apartment,owned
+167,167,2,low,detached house,owned
+168,168,3,high,detached house,rented
+169,169,1,medium,apartment,owned
+170,170,5,high,apartment,rented
+171,171,3,low,apartment,rented
+172,172,1,high,detached house,owned
+173,173,5,medium,detached house,owned
+174,174,3,high,apartment,owned
+175,175,2,high,detached house,owned
+176,176,2,medium,apartment,rented
+177,177,2,medium,detached house,rented
+178,178,3,medium,detached house,rented
+179,179,5,low,detached house,owned
+180,180,2,medium,detached house,owned
+181,181,1,high,detached house,rented
+182,182,1,medium,detached house,owned
+183,183,2,high,apartment,rented
+184,184,2,high,detached house,owned
+185,185,5,high,apartment,owned
+186,186,3,medium,apartment,rented
+187,187,5,high,detached house,rented
+188,188,2,medium,apartment,owned
+189,189,5,medium,apartment,rented
+190,190,4,low,apartment,rented
+191,191,1,low,detached house,owned
+192,192,5,high,apartment,rented
+193,193,5,low,detached house,rented
+194,194,2,high,detached house,owned
+195,195,1,medium,detached house,owned
+196,196,4,high,apartment,owned
+197,197,2,low,detached house,owned
+198,198,3,high,apartment,rented
+199,199,3,low,detached house,rented
+200,200,5,low,apartment,owned
+201,201,3,high,detached house,owned
+202,202,4,medium,apartment,rented
+203,203,4,high,detached house,rented
+204,204,2,low,detached house,rented
+205,205,1,medium,apartment,rented
+206,206,2,low,apartment,owned
+207,207,2,low,detached house,owned
+208,208,1,high,detached house,owned
+209,209,5,low,detached house,owned
+210,210,5,medium,detached house,owned
+211,211,2,medium,detached house,rented
+212,212,1,low,apartment,rented
+213,213,3,medium,detached house,rented
+214,214,5,medium,detached house,owned
+215,215,1,high,detached house,rented
+216,216,2,medium,apartment,rented
+217,217,5,low,detached house,rented
+218,218,5,medium,detached house,owned
+219,219,2,medium,detached house,rented
+220,220,3,high,detached house,rented
+221,221,5,low,apartment,rented
+222,222,2,medium,apartment,rented
+223,223,4,high,apartment,rented
+224,224,1,low,apartment,rented
+225,225,3,low,detached house,owned
+226,226,3,low,apartment,owned
+227,227,3,high,detached house,rented
+228,228,1,medium,apartment,rented
+229,229,2,high,detached house,owned
+230,230,2,low,apartment,owned
+231,231,4,high,apartment,rented
+232,232,1,high,apartment,owned
+233,233,1,medium,apartment,owned
+234,234,1,high,apartment,rented
+235,235,1,low,apartment,rented
+236,236,1,high,apartment,rented
+237,237,4,high,apartment,rented
+238,238,5,low,detached house,rented
+239,239,1,medium,apartment,owned
+240,240,3,medium,detached house,owned
+241,241,1,high,detached house,rented
+242,242,3,low,detached house,rented
+243,243,1,high,apartment,rented
+244,244,4,medium,apartment,owned
+245,245,4,medium,apartment,rented
+246,246,3,low,detached house,rented
+247,247,1,medium,apartment,owned
+248,248,3,low,detached house,rented
+249,249,3,high,detached house,rented
+250,250,5,low,apartment,rented
+251,251,1,medium,apartment,owned
+252,252,4,medium,detached house,owned
+253,253,5,high,apartment,rented
+254,254,3,medium,detached house,rented
+255,255,4,high,apartment,owned
+256,256,1,high,detached house,owned
+257,257,3,high,apartment,owned
+258,258,5,high,detached house,rented
+259,259,5,high,apartment,rented
+260,260,3,low,detached house,rented
+261,261,3,medium,apartment,rented
+262,262,2,medium,detached house,owned
+263,263,3,low,apartment,rented
+264,264,4,high,detached house,rented
+265,265,3,medium,apartment,owned
+266,266,3,high,apartment,owned
+267,267,4,high,detached house,owned
+268,268,1,low,apartment,owned
+269,269,3,low,detached house,rented
+270,270,1,low,detached house,owned
+271,271,2,high,apartment,rented
+272,272,4,high,detached house,owned
+273,273,3,medium,detached house,rented
+274,274,3,high,detached house,owned
+275,275,4,medium,detached house,owned
+276,276,1,high,apartment,owned
+277,277,5,medium,detached house,owned
+278,278,4,low,apartment,rented
+279,279,3,high,apartment,rented
+280,280,3,medium,apartment,rented
+281,281,5,medium,apartment,rented
+282,282,5,high,detached house,rented
+283,283,1,high,apartment,rented
+284,284,1,medium,detached house,owned
+285,285,2,high,detached house,rented
+286,286,1,low,detached house,owned
+287,287,2,medium,detached house,rented
+288,288,5,high,apartment,rented
+289,289,2,medium,detached house,owned
+290,290,4,low,apartment,owned
+291,291,2,low,detached house,owned
+292,292,1,medium,detached house,rented
+293,293,1,medium,apartment,rented
+294,294,1,high,detached house,rented
+295,295,4,low,detached house,owned
+296,296,2,low,apartment,owned
+297,297,2,high,detached house,owned
+298,298,5,medium,detached house,owned
+299,299,4,medium,detached house,rented
+300,300,4,high,apartment,rented
+301,301,2,low,detached house,rented
+302,302,1,medium,apartment,rented
+303,303,5,low,detached house,rented
+304,304,4,high,apartment,owned
+305,305,1,medium,detached house,owned
+306,306,1,low,apartment,owned
+307,307,5,medium,apartment,rented
+308,308,1,high,detached house,rented
+309,309,3,low,detached house,owned
+310,310,1,medium,detached house,owned
+311,311,4,medium,apartment,owned
+312,312,3,medium,detached house,rented
+313,313,3,low,detached house,owned
+314,314,1,low,detached house,owned
+315,315,3,low,detached house,rented
+316,316,5,low,apartment,owned
+317,317,4,high,apartment,owned
+318,318,4,medium,apartment,owned
+319,319,1,low,apartment,rented
+320,320,5,low,apartment,rented
+321,321,5,medium,detached house,owned
+322,322,5,low,detached house,rented
+323,323,2,high,apartment,rented
+324,324,1,high,detached house,owned
+325,325,3,medium,detached house,owned
+326,326,4,high,detached house,owned
+327,327,5,low,detached house,owned
+328,328,2,high,detached house,owned
+329,329,1,low,apartment,rented
+330,330,2,medium,apartment,owned
+331,331,5,medium,apartment,rented
+332,332,1,medium,apartment,rented
+333,333,2,medium,apartment,rented
+334,334,2,medium,detached house,owned
+335,335,5,medium,detached house,rented
+336,336,5,high,apartment,owned
+337,337,1,high,detached house,owned
+338,338,3,medium,apartment,owned
+339,339,5,high,detached house,rented
+340,340,3,low,detached house,rented
+341,341,5,medium,detached house,owned
+342,342,3,medium,apartment,owned
+343,343,4,medium,detached house,rented
+344,344,3,low,detached house,owned
+345,345,5,high,apartment,rented
+346,346,2,high,apartment,owned
+347,347,4,low,apartment,rented
+348,348,5,high,apartment,owned
+349,349,3,medium,apartment,rented
+350,350,5,high,apartment,owned
+351,351,5,low,detached house,owned
+352,352,2,high,apartment,rented
+353,353,5,low,apartment,rented
+354,354,1,high,apartment,rented
+355,355,2,low,apartment,rented
+356,356,1,medium,detached house,rented
+357,357,3,medium,apartment,owned
+358,358,5,high,apartment,rented
+359,359,5,low,detached house,owned
+360,360,5,high,apartment,rented
+361,361,2,high,detached house,owned
+362,362,3,low,detached house,rented
+363,363,5,high,detached house,rented
+364,364,5,low,detached house,owned
+365,365,5,high,apartment,owned
+366,366,2,low,apartment,owned
+367,367,1,medium,apartment,owned
+368,368,1,low,apartment,owned
+369,369,1,low,detached house,rented
+370,370,5,low,apartment,rented
+371,371,4,medium,detached house,owned
+372,372,2,low,apartment,rented
+373,373,4,low,apartment,rented
+374,374,4,low,apartment,rented
+375,375,2,low,apartment,rented
+376,376,3,high,apartment,owned
+377,377,2,low,detached house,rented
+378,378,2,low,apartment,rented
+379,379,1,low,detached house,rented
+380,380,4,high,detached house,rented
+381,381,5,medium,apartment,rented
+382,382,4,high,detached house,rented
+383,383,1,low,apartment,owned
+384,384,5,high,apartment,owned
+385,385,1,high,detached house,owned
+386,386,1,high,apartment,owned
+387,387,2,low,apartment,owned
+388,388,2,medium,apartment,rented
+389,389,2,low,detached house,rented
+390,390,2,medium,detached house,owned
+391,391,4,medium,detached house,rented
+392,392,5,high,apartment,owned
+393,393,4,low,detached house,rented
+394,394,2,low,detached house,rented
+395,395,2,low,apartment,rented
+396,396,5,low,apartment,rented
+397,397,2,low,apartment,rented
+398,398,4,medium,detached house,owned
+399,399,1,low,detached house,owned
+400,400,2,medium,apartment,rented
+401,401,2,high,apartment,owned
+402,402,5,high,apartment,rented
+403,403,1,low,detached house,owned
+404,404,2,low,detached house,owned
+405,405,3,medium,detached house,owned
+406,406,1,low,detached house,owned
+407,407,1,high,apartment,owned
+408,408,2,low,apartment,rented
+409,409,5,high,apartment,rented
+410,410,2,medium,apartment,owned
+411,411,2,low,apartment,rented
+412,412,2,medium,detached house,rented
+413,413,3,low,apartment,rented
+414,414,1,low,detached house,owned
+415,415,3,medium,apartment,owned
+416,416,5,high,apartment,rented
+417,417,5,low,detached house,rented
+418,418,5,medium,detached house,rented
+419,419,3,high,detached house,rented
+420,420,5,low,apartment,owned
+421,421,4,low,detached house,owned
+422,422,3,medium,apartment,owned
+423,423,4,low,apartment,owned
+424,424,3,medium,apartment,rented
+425,425,3,low,detached house,rented
+426,426,3,low,apartment,rented
+427,427,1,medium,apartment,rented
+428,428,2,medium,apartment,owned
+429,429,5,medium,apartment,owned
+430,430,2,low,apartment,rented
+431,431,5,low,apartment,owned
+432,432,4,low,detached house,rented
+433,433,2,low,detached house,rented
+434,434,3,low,apartment,rented
+435,435,5,low,detached house,owned
+436,436,5,medium,detached house,owned
+437,437,2,medium,detached house,owned
+438,438,5,high,apartment,owned
+439,439,2,low,detached house,rented
+440,440,3,low,detached house,rented
+441,441,1,low,detached house,rented
+442,442,2,low,apartment,owned
+443,443,2,low,detached house,rented
+444,444,4,medium,apartment,owned
+445,445,1,low,apartment,rented
+446,446,1,high,detached house,owned
+447,447,1,low,apartment,rented
+448,448,2,medium,apartment,owned
+449,449,5,low,apartment,rented
+450,450,4,medium,apartment,owned
+451,451,1,low,detached house,rented
+452,452,2,medium,detached house,owned
+453,453,3,low,apartment,owned
+454,454,3,high,detached house,rented
+455,455,1,medium,apartment,rented
+456,456,4,high,detached house,rented
+457,457,1,medium,apartment,owned
+458,458,1,high,apartment,rented
+459,459,1,low,detached house,rented
+460,460,2,high,apartment,rented
+461,461,1,low,apartment,owned
+462,462,3,low,detached house,rented
+463,463,5,high,detached house,owned
+464,464,3,low,apartment,owned
+465,465,1,medium,apartment,owned
+466,466,3,low,detached house,rented
+467,467,2,low,apartment,rented
+468,468,3,high,detached house,owned
+469,469,4,low,detached house,owned
+470,470,5,medium,detached house,owned
+471,471,2,medium,detached house,owned
+472,472,1,low,apartment,rented
+473,473,1,low,apartment,rented
+474,474,5,high,apartment,owned
+475,475,5,low,detached house,owned
+476,476,3,low,apartment,rented
+477,477,1,medium,apartment,owned
+478,478,2,low,apartment,rented
+479,479,3,medium,detached house,owned
+480,480,1,low,apartment,owned
+481,481,1,low,detached house,rented
+482,482,5,medium,apartment,owned
+483,483,5,medium,apartment,owned
+484,484,1,medium,detached house,rented
+485,485,2,low,detached house,owned
+486,486,5,high,detached house,rented
+487,487,3,medium,apartment,rented
+488,488,1,high,apartment,owned
+489,489,5,low,detached house,rented
+490,490,1,medium,apartment,owned
+491,491,3,medium,apartment,owned
+492,492,3,high,detached house,rented
+493,493,4,low,apartment,owned
+494,494,3,low,apartment,owned
+495,495,2,high,detached house,rented
+496,496,4,high,apartment,owned
+497,497,3,high,apartment,owned
+498,498,2,low,apartment,rented
+499,499,4,medium,apartment,rented
+500,500,3,medium,detached house,rented
+501,501,5,high,detached house,owned
+502,502,2,medium,apartment,owned
+503,503,3,low,detached house,rented
+504,504,3,low,detached house,owned
+505,505,5,high,detached house,owned
+506,506,2,low,apartment,rented
+507,507,5,high,detached house,owned
+508,508,3,low,detached house,owned
+509,509,3,low,detached house,rented
+510,510,2,high,detached house,owned
+511,511,2,high,detached house,owned
+512,512,1,high,detached house,rented
+513,513,5,medium,apartment,owned
+514,514,5,medium,apartment,rented
+515,515,3,high,apartment,rented
+516,516,1,medium,detached house,owned
+517,517,4,high,apartment,rented
+518,518,4,low,detached house,owned
+519,519,5,medium,apartment,rented
+520,520,4,medium,detached house,rented
+521,521,5,low,apartment,rented
+522,522,5,high,detached house,owned
+523,523,1,medium,detached house,rented
+524,524,4,medium,apartment,rented
+525,525,1,medium,detached house,rented
+526,526,5,medium,apartment,rented
+527,527,2,medium,apartment,owned
+528,528,1,low,detached house,owned
+529,529,2,high,apartment,owned
+530,530,4,high,apartment,owned
+531,531,1,low,apartment,rented
+532,532,3,high,detached house,owned
+533,533,5,medium,apartment,owned
+534,534,2,high,apartment,owned
+535,535,4,medium,apartment,owned
+536,536,4,high,detached house,rented
+537,537,2,low,detached house,rented
+538,538,3,high,detached house,rented
+539,539,1,high,detached house,rented
+540,540,3,low,detached house,owned
+541,541,4,high,apartment,rented
+542,542,1,low,apartment,rented
+543,543,1,low,apartment,rented
+544,544,5,low,detached house,owned
+545,545,1,high,detached house,owned
+546,546,1,medium,apartment,rented
+547,547,2,medium,detached house,owned
+548,548,1,medium,detached house,owned
+549,549,5,high,detached house,owned
+550,550,1,low,detached house,owned
+551,551,4,medium,apartment,rented
+552,552,3,medium,apartment,owned
+553,553,1,medium,detached house,rented
+554,554,1,low,apartment,owned
+555,555,3,high,apartment,rented
+556,556,5,high,detached house,owned
+557,557,5,low,detached house,rented
+558,558,5,high,apartment,owned
+559,559,3,high,apartment,rented
+560,560,1,low,apartment,owned
+561,561,2,low,detached house,rented
+562,562,4,low,apartment,rented
+563,563,5,low,apartment,rented
+564,564,5,medium,apartment,owned
+565,565,1,low,detached house,rented
+566,566,1,medium,apartment,rented
+567,567,1,low,apartment,owned
+568,568,1,low,detached house,rented
+569,569,4,medium,apartment,rented
+570,570,5,low,apartment,owned
+571,571,5,low,detached house,rented
+572,572,3,medium,detached house,rented
+573,573,5,high,detached house,rented
+574,574,1,medium,detached house,rented
+575,575,4,low,apartment,rented
+576,576,4,medium,apartment,rented
+577,577,4,low,apartment,owned
+578,578,3,medium,detached house,owned
+579,579,5,medium,detached house,rented
+580,580,2,medium,apartment,owned
+581,581,4,medium,detached house,owned
+582,582,1,high,apartment,rented
+583,583,1,medium,detached house,owned
+584,584,1,medium,apartment,rented
+585,585,2,low,apartment,rented
+586,586,4,high,detached house,rented
+587,587,2,medium,apartment,rented
+588,588,1,medium,detached house,rented
+589,589,1,low,detached house,owned
+590,590,3,low,apartment,rented
+591,591,2,low,detached house,owned
+592,592,2,high,apartment,owned
+593,593,4,medium,apartment,owned
+594,594,5,medium,detached house,owned
+595,595,4,high,detached house,rented
+596,596,4,low,detached house,rented
+597,597,2,low,detached house,owned
+598,598,1,medium,apartment,owned
+599,599,1,medium,detached house,owned
+600,600,1,medium,detached house,rented
+601,601,3,low,apartment,owned
+602,602,4,high,apartment,owned
+603,603,2,high,detached house,rented
+604,604,2,high,apartment,owned
+605,605,2,medium,apartment,owned
+606,606,1,low,detached house,owned
+607,607,1,medium,detached house,owned
+608,608,2,medium,apartment,rented
+609,609,2,medium,apartment,owned
+610,610,4,medium,detached house,owned
+611,611,4,low,apartment,rented
+612,612,3,high,detached house,rented
+613,613,5,medium,detached house,owned
+614,614,1,medium,apartment,rented
+615,615,5,low,detached house,owned
+616,616,2,high,detached house,owned
+617,617,5,low,apartment,owned
+618,618,2,low,detached house,owned
+619,619,3,medium,detached house,rented
+620,620,4,medium,apartment,rented
+621,621,4,low,apartment,owned
+622,622,5,low,apartment,owned
+623,623,1,medium,apartment,owned
+624,624,3,high,detached house,rented
+625,625,4,high,apartment,owned
+626,626,1,medium,detached house,rented
+627,627,2,high,detached house,rented
+628,628,2,high,detached house,rented
+629,629,4,high,detached house,rented
+630,630,5,medium,detached house,rented
+631,631,1,high,apartment,owned
+632,632,5,medium,detached house,rented
+633,633,1,high,detached house,rented
+634,634,4,high,detached house,owned
+635,635,4,high,apartment,owned
+636,636,3,medium,apartment,rented
+637,637,3,high,detached house,owned
+638,638,4,low,apartment,rented
+639,639,1,low,detached house,rented
+640,640,5,medium,detached house,rented
+641,641,2,medium,detached house,rented
+642,642,2,medium,detached house,rented
+643,643,1,low,apartment,owned
+644,644,3,high,detached house,rented
+645,645,1,low,detached house,owned
+646,646,5,high,detached house,owned
+647,647,5,low,apartment,rented
+648,648,4,low,detached house,rented
+649,649,3,medium,apartment,owned
+650,650,2,low,apartment,rented
+651,651,2,low,apartment,owned
+652,652,1,medium,apartment,owned
+653,653,3,low,detached house,rented
+654,654,1,high,detached house,owned
+655,655,2,medium,detached house,rented
+656,656,5,medium,detached house,owned
+657,657,2,high,apartment,rented
+658,658,4,low,detached house,owned
+659,659,4,medium,detached house,owned
+660,660,5,medium,apartment,owned
+661,661,3,high,detached house,owned
+662,662,2,low,apartment,owned
+663,663,1,low,apartment,rented
+664,664,2,high,apartment,rented
+665,665,3,low,apartment,rented
+666,666,4,high,detached house,owned
+667,667,1,high,apartment,rented
+668,668,2,medium,detached house,rented
+669,669,4,high,apartment,rented
+670,670,1,low,detached house,rented
+671,671,1,high,apartment,rented
+672,672,3,low,detached house,rented
+673,673,1,low,detached house,rented
+674,674,2,medium,detached house,owned
+675,675,4,medium,detached house,owned
+676,676,2,low,apartment,owned
+677,677,5,high,apartment,owned
+678,678,1,low,apartment,rented
+679,679,5,high,apartment,owned
+680,680,1,low,apartment,owned
+681,681,3,high,apartment,rented
+682,682,4,medium,detached house,owned
+683,683,5,low,apartment,owned
+684,684,2,low,apartment,owned
+685,685,3,low,detached house,rented
+686,686,2,medium,detached house,owned
+687,687,1,high,detached house,owned
+688,688,1,low,detached house,owned
+689,689,5,medium,apartment,owned
+690,690,2,high,apartment,owned
+691,691,4,low,detached house,owned
+692,692,3,low,detached house,rented
+693,693,5,low,apartment,owned
+694,694,1,medium,detached house,rented
+695,695,1,low,apartment,owned
+696,696,4,high,detached house,rented
+697,697,3,low,apartment,rented
+698,698,5,medium,detached house,owned
+699,699,4,medium,detached house,rented
+700,700,5,high,detached house,rented
+701,701,1,low,apartment,owned
+702,702,2,medium,detached house,rented
+703,703,3,high,apartment,rented
+704,704,4,high,detached house,owned
+705,705,2,high,apartment,owned
+706,706,2,high,detached house,rented
+707,707,5,high,detached house,owned
+708,708,3,high,detached house,rented
+709,709,3,medium,apartment,owned
+710,710,1,low,detached house,owned
+711,711,5,low,detached house,owned
+712,712,5,high,apartment,owned
+713,713,5,low,apartment,rented
+714,714,1,high,detached house,owned
+715,715,1,low,apartment,owned
+716,716,4,high,apartment,owned
+717,717,2,high,detached house,owned
+718,718,5,medium,detached house,rented
+719,719,5,low,detached house,rented
+720,720,3,low,detached house,rented
+721,721,1,medium,apartment,owned
+722,722,1,high,apartment,rented
+723,723,3,low,detached house,rented
+724,724,4,high,detached house,owned
+725,725,5,low,apartment,rented
+726,726,4,low,detached house,rented
+727,727,4,low,detached house,rented
+728,728,4,high,detached house,owned
+729,729,2,low,apartment,rented
+730,730,2,medium,apartment,rented
+731,731,2,medium,detached house,owned
+732,732,5,medium,apartment,rented
+733,733,2,medium,detached house,owned
+734,734,5,low,apartment,rented
+735,735,5,medium,detached house,rented
+736,736,2,high,apartment,rented
+737,737,3,low,detached house,owned
+738,738,1,low,detached house,rented
+739,739,4,high,apartment,rented
+740,740,3,medium,detached house,rented
+741,741,4,low,detached house,owned
+742,742,5,medium,detached house,rented
+743,743,4,high,apartment,owned
+744,744,5,low,apartment,rented
+745,745,2,medium,detached house,rented
+746,746,3,high,detached house,owned
+747,747,1,medium,detached house,owned
+748,748,3,medium,apartment,rented
+749,749,5,high,apartment,owned
+750,750,5,high,apartment,rented
+751,751,3,low,apartment,rented
+752,752,1,high,detached house,rented
+753,753,3,high,detached house,rented
+754,754,1,high,apartment,rented
+755,755,2,medium,detached house,rented
+756,756,4,high,apartment,owned
+757,757,4,high,detached house,rented
+758,758,4,high,detached house,rented
+759,759,5,low,detached house,rented
+760,760,1,low,apartment,rented
+761,761,2,high,apartment,owned
+762,762,2,low,detached house,rented
+763,763,5,high,detached house,owned
+764,764,4,low,detached house,rented
+765,765,5,medium,detached house,owned
+766,766,5,low,detached house,rented
+767,767,3,low,detached house,owned
+768,768,3,low,apartment,owned
+769,769,4,low,apartment,owned
+770,770,4,low,apartment,rented
+771,771,4,medium,detached house,rented
+772,772,3,low,apartment,owned
+773,773,2,low,detached house,owned
+774,774,1,high,apartment,rented
+775,775,4,high,detached house,rented
+776,776,1,high,apartment,rented
+777,777,2,low,apartment,rented
+778,778,2,low,detached house,rented
+779,779,1,low,detached house,rented
+780,780,4,medium,detached house,owned
+781,781,5,low,detached house,rented
+782,782,4,high,apartment,owned
+783,783,4,high,apartment,rented
+784,784,4,low,detached house,owned
+785,785,1,medium,detached house,rented
+786,786,4,high,detached house,owned
+787,787,5,medium,detached house,owned
+788,788,2,medium,detached house,owned
+789,789,2,low,apartment,rented
+790,790,4,low,apartment,rented
+791,791,5,high,detached house,owned
+792,792,3,low,apartment,owned
+793,793,2,high,detached house,owned
+794,794,5,low,apartment,owned
+795,795,1,low,detached house,owned
+796,796,5,medium,detached house,owned
+797,797,2,high,detached house,rented
+798,798,5,low,apartment,rented
+799,799,2,low,detached house,rented
+800,800,5,high,detached house,rented
+801,801,2,high,apartment,rented
+802,802,4,medium,apartment,owned
+803,803,1,high,apartment,rented
+804,804,1,medium,detached house,rented
+805,805,2,medium,apartment,rented
+806,806,3,low,detached house,rented
+807,807,4,medium,detached house,rented
+808,808,4,low,apartment,rented
+809,809,5,medium,detached house,owned
+810,810,3,medium,detached house,owned
+811,811,4,low,detached house,owned
+812,812,2,low,detached house,owned
+813,813,3,low,detached house,owned
+814,814,1,high,apartment,owned
+815,815,3,medium,apartment,owned
+816,816,2,low,detached house,owned
+817,817,1,medium,apartment,rented
+818,818,5,medium,detached house,rented
+819,819,4,medium,detached house,owned
+820,820,1,high,detached house,rented
+821,821,5,medium,detached house,owned
+822,822,3,medium,detached house,rented
+823,823,4,high,detached house,owned
+824,824,2,low,detached house,rented
+825,825,2,medium,detached house,owned
+826,826,3,high,apartment,owned
+827,827,1,high,apartment,rented
+828,828,2,high,apartment,rented
+829,829,3,high,apartment,rented
+830,830,4,medium,apartment,rented
+831,831,4,low,apartment,rented
+832,832,1,low,detached house,owned
+833,833,3,high,detached house,rented
+834,834,2,high,detached house,rented
+835,835,3,high,detached house,owned
+836,836,4,low,apartment,owned
+837,837,5,low,detached house,owned
+838,838,1,medium,detached house,rented
+839,839,5,high,detached house,rented
+840,840,2,high,detached house,owned
+841,841,3,high,detached house,owned
+842,842,4,medium,detached house,rented
+843,843,2,low,detached house,rented
+844,844,5,high,detached house,owned
+845,845,3,high,detached house,owned
+846,846,4,medium,detached house,rented
+847,847,4,high,detached house,owned
+848,848,2,low,apartment,rented
+849,849,5,high,apartment,rented
+850,850,5,medium,detached house,owned
+851,851,5,medium,detached house,rented
+852,852,4,medium,apartment,owned
+853,853,4,low,detached house,rented
+854,854,2,low,detached house,owned
+855,855,3,medium,detached house,rented
+856,856,1,high,detached house,owned
+857,857,4,low,detached house,owned
+858,858,1,low,detached house,owned
+859,859,1,low,detached house,rented
+860,860,3,high,detached house,rented
+861,861,3,high,apartment,rented
+862,862,5,medium,apartment,rented
+863,863,3,low,apartment,owned
+864,864,2,high,detached house,owned
+865,865,5,low,detached house,owned
+866,866,4,low,detached house,owned
+867,867,5,low,detached house,owned
+868,868,3,high,detached house,owned
+869,869,1,high,apartment,owned
+870,870,2,medium,detached house,rented
+871,871,1,high,apartment,rented
+872,872,3,high,detached house,rented
+873,873,3,low,detached house,rented
+874,874,5,medium,apartment,owned
+875,875,5,high,detached house,rented
+876,876,4,low,detached house,rented
+877,877,4,low,detached house,owned
+878,878,5,high,apartment,owned
+879,879,1,high,detached house,rented
+880,880,3,low,apartment,owned
+881,881,2,low,detached house,owned
+882,882,1,medium,detached house,owned
+883,883,4,high,detached house,rented
+884,884,1,low,detached house,rented
+885,885,2,high,apartment,owned
+886,886,2,high,detached house,owned
+887,887,4,low,apartment,rented
+888,888,3,low,apartment,owned
+889,889,3,medium,detached house,owned
+890,890,5,medium,apartment,rented
+891,891,2,high,detached house,rented
+892,892,2,low,detached house,rented
+893,893,4,high,apartment,rented
+894,894,4,medium,apartment,rented
+895,895,5,low,apartment,owned
+896,896,1,medium,apartment,rented
+897,897,2,high,detached house,owned
+898,898,4,high,detached house,owned
+899,899,2,medium,detached house,owned
+900,900,1,high,detached house,owned
+901,901,4,medium,apartment,rented
+902,902,1,high,detached house,owned
+903,903,4,low,apartment,rented
+904,904,5,low,detached house,rented
+905,905,1,medium,apartment,owned
+906,906,1,low,apartment,owned
+907,907,1,low,detached house,owned
+908,908,4,medium,detached house,rented
+909,909,4,low,apartment,rented
+910,910,4,low,apartment,rented
+911,911,3,high,detached house,rented
+912,912,4,low,apartment,rented
+913,913,4,low,detached house,rented
+914,914,4,low,detached house,owned
+915,915,4,low,detached house,rented
+916,916,1,high,apartment,owned
+917,917,4,medium,apartment,rented
+918,918,3,high,apartment,owned
+919,919,3,low,detached house,rented
+920,920,3,high,apartment,rented
+921,921,3,medium,apartment,rented
+922,922,4,medium,detached house,rented
+923,923,2,low,detached house,owned
+924,924,5,high,apartment,rented
+925,925,3,high,apartment,owned
+926,926,5,low,detached house,rented
+927,927,3,low,apartment,rented
+928,928,3,high,detached house,owned
+929,929,4,low,apartment,owned
+930,930,2,high,apartment,owned
+931,931,3,medium,detached house,rented
+932,932,3,high,detached house,owned
+933,933,1,medium,apartment,owned
+934,934,5,low,apartment,rented
+935,935,3,medium,detached house,owned
+936,936,1,high,detached house,owned
+937,937,2,low,apartment,owned
+938,938,1,low,apartment,rented
+939,939,5,high,apartment,owned
+940,940,4,low,detached house,owned
+941,941,1,low,detached house,owned
+942,942,3,medium,detached house,owned
+943,943,5,medium,apartment,rented
+944,944,2,high,apartment,owned
+945,945,1,low,apartment,rented
+946,946,2,high,detached house,rented
+947,947,2,high,detached house,owned
+948,948,5,medium,detached house,rented
+949,949,4,low,apartment,owned
+950,950,4,medium,detached house,owned
+951,951,1,medium,detached house,owned
+952,952,1,high,apartment,owned
+953,953,2,low,detached house,rented
+954,954,5,medium,apartment,owned
+955,955,5,high,apartment,owned
+956,956,2,low,apartment,owned
+957,957,5,low,detached house,rented
+958,958,5,high,apartment,rented
+959,959,2,medium,apartment,rented
+960,960,1,medium,detached house,owned
+961,961,5,medium,detached house,rented
+962,962,5,low,apartment,owned
+963,963,5,medium,detached house,owned
+964,964,1,medium,detached house,rented
+965,965,4,high,detached house,owned
+966,966,2,low,detached house,rented
+967,967,4,high,detached house,owned
+968,968,1,low,apartment,owned
+969,969,3,medium,apartment,owned
+970,970,5,high,apartment,owned
+971,971,4,medium,detached house,rented
+972,972,5,high,apartment,owned
+973,973,5,high,detached house,rented
+974,974,2,high,detached house,owned
+975,975,1,low,apartment,owned
+976,976,2,low,detached house,rented
+977,977,1,medium,detached house,rented
+978,978,5,medium,apartment,rented
+979,979,5,medium,detached house,owned
+980,980,1,medium,detached house,owned
+981,981,1,medium,detached house,rented
+982,982,3,low,apartment,owned
+983,983,3,medium,detached house,rented
+984,984,5,low,detached house,rented
+985,985,2,high,apartment,rented
+986,986,1,high,detached house,owned
+987,987,3,high,detached house,owned
+988,988,3,medium,detached house,owned
+989,989,2,high,detached house,rented
+990,990,1,high,detached house,rented
+991,991,3,high,apartment,owned
+992,992,2,low,detached house,owned
+993,993,4,high,detached house,rented
+994,994,3,low,detached house,rented
+995,995,3,low,detached house,rented
+996,996,1,high,apartment,owned
+997,997,4,high,detached house,owned
+998,998,1,medium,detached house,rented
+999,999,5,low,detached house,owned
+1000,1000,1,low,detached house,rented
+1001,1001,2,medium,apartment,rented
+1002,1002,3,low,apartment,owned
+1003,1003,3,high,apartment,rented
+1004,1004,3,low,apartment,owned
+1005,1005,3,high,detached house,owned
+1006,1006,1,low,apartment,rented
+1007,1007,4,medium,apartment,rented
+1008,1008,5,medium,apartment,owned
+1009,1009,2,low,detached house,owned
+1010,1010,1,low,apartment,rented
+1011,1011,5,medium,apartment,rented
+1012,1012,1,high,detached house,rented
+1013,1013,5,low,apartment,owned
+1014,1014,4,high,detached house,rented
+1015,1015,3,low,apartment,rented
+1016,1016,2,low,detached house,rented
+1017,1017,1,medium,detached house,owned
+1018,1018,1,medium,apartment,owned
+1019,1019,5,medium,apartment,rented
+1020,1020,2,low,detached house,rented
+1021,1021,3,low,detached house,rented
+1022,1022,1,high,apartment,rented
+1023,1023,1,high,detached house,owned
+1024,1024,2,medium,detached house,rented
+1025,1025,4,low,detached house,owned
+1026,1026,2,medium,apartment,owned
+1027,1027,5,low,detached house,owned
+1028,1028,4,medium,apartment,owned
+1029,1029,3,medium,detached house,rented
+1030,1030,5,low,apartment,rented
+1031,1031,2,low,apartment,owned
+1032,1032,4,medium,apartment,rented
+1033,1033,5,medium,detached house,rented
+1034,1034,2,medium,apartment,rented
+1035,1035,5,medium,detached house,owned
+1036,1036,2,high,apartment,owned
+1037,1037,2,medium,apartment,rented
+1038,1038,4,high,apartment,owned
+1039,1039,1,high,apartment,rented
+1040,1040,5,high,detached house,rented
+1041,1041,3,medium,apartment,rented
+1042,1042,4,low,detached house,rented
+1043,1043,4,medium,apartment,owned
+1044,1044,1,medium,apartment,owned
+1045,1045,2,medium,detached house,rented
+1046,1046,5,low,apartment,rented
+1047,1047,5,high,detached house,owned
+1048,1048,4,medium,apartment,owned
+1049,1049,4,medium,apartment,owned
+1050,1050,3,high,apartment,owned
+1051,1051,4,medium,apartment,rented
+1052,1052,5,high,apartment,owned
+1053,1053,3,high,detached house,owned
+1054,1054,2,medium,apartment,rented
+1055,1055,4,low,detached house,owned
+1056,1056,2,high,detached house,rented
+1057,1057,3,medium,detached house,rented
+1058,1058,4,high,apartment,owned
+1059,1059,1,high,detached house,owned
+1060,1060,2,high,apartment,rented
+1061,1061,3,medium,detached house,owned
+1062,1062,3,high,apartment,rented
+1063,1063,1,low,detached house,owned
+1064,1064,1,high,apartment,rented
+1065,1065,4,medium,apartment,rented
+1066,1066,2,medium,apartment,owned
+1067,1067,3,medium,apartment,rented
+1068,1068,5,high,apartment,rented
+1069,1069,4,high,detached house,rented
+1070,1070,2,high,apartment,rented
+1071,1071,4,low,detached house,owned
+1072,1072,1,high,detached house,rented
+1073,1073,3,low,detached house,owned
+1074,1074,4,medium,detached house,owned
+1075,1075,1,low,detached house,owned
+1076,1076,5,medium,detached house,owned
+1077,1077,2,low,detached house,owned
+1078,1078,1,medium,apartment,rented
+1079,1079,2,medium,apartment,rented
+1080,1080,2,medium,detached house,rented
+1081,1081,1,medium,detached house,owned
+1082,1082,3,medium,detached house,owned
+1083,1083,3,medium,apartment,owned
+1084,1084,5,medium,apartment,owned
+1085,1085,3,high,apartment,rented
+1086,1086,2,low,detached house,owned
+1087,1087,1,medium,apartment,owned
+1088,1088,3,high,apartment,rented
+1089,1089,2,high,apartment,owned
+1090,1090,5,low,detached house,rented
+1091,1091,5,low,apartment,rented
+1092,1092,1,high,detached house,owned
+1093,1093,5,low,detached house,rented
+1094,1094,2,medium,apartment,owned
+1095,1095,1,low,apartment,rented
+1096,1096,4,low,detached house,owned
+1097,1097,3,medium,apartment,rented
+1098,1098,3,high,detached house,rented
+1099,1099,2,medium,detached house,rented
+1100,1100,1,low,apartment,rented
+1101,1101,1,low,apartment,owned
+1102,1102,2,high,detached house,owned
+1103,1103,2,high,apartment,rented
+1104,1104,1,medium,apartment,owned
+1105,1105,1,high,apartment,owned
+1106,1106,1,high,apartment,owned
+1107,1107,5,high,apartment,owned
+1108,1108,5,low,detached house,rented
+1109,1109,1,low,detached house,owned
+1110,1110,4,high,detached house,owned
+1111,1111,2,low,detached house,rented
+1112,1112,1,low,detached house,owned
+1113,1113,5,medium,detached house,rented
+1114,1114,2,low,apartment,rented
+1115,1115,2,high,detached house,rented
+1116,1116,4,low,apartment,owned
+1117,1117,2,high,detached house,owned
+1118,1118,2,low,apartment,owned
+1119,1119,2,high,detached house,rented
+1120,1120,4,high,apartment,owned
+1121,1121,4,medium,apartment,rented
+1122,1122,4,medium,detached house,owned
+1123,1123,3,low,apartment,rented
+1124,1124,3,high,detached house,owned
+1125,1125,1,low,detached house,rented
+1126,1126,1,low,detached house,rented
+1127,1127,1,medium,detached house,owned
+1128,1128,3,low,detached house,rented
+1129,1129,4,medium,detached house,owned
+1130,1130,5,medium,detached house,owned
+1131,1131,5,low,apartment,rented
+1132,1132,3,high,apartment,owned
+1133,1133,4,medium,apartment,rented
+1134,1134,2,high,apartment,rented
+1135,1135,2,low,detached house,rented
+1136,1136,3,medium,apartment,rented
+1137,1137,1,high,apartment,rented
+1138,1138,5,low,apartment,rented
+1139,1139,4,medium,detached house,rented
+1140,1140,3,medium,apartment,rented
+1141,1141,4,high,detached house,rented
+1142,1142,1,high,detached house,owned
+1143,1143,5,high,detached house,owned
+1144,1144,2,low,apartment,owned
+1145,1145,2,low,detached house,owned
+1146,1146,3,low,detached house,rented
+1147,1147,5,low,detached house,owned
+1148,1148,2,medium,detached house,owned
+1149,1149,2,medium,apartment,owned
+1150,1150,4,high,apartment,rented
+1151,1151,4,medium,detached house,owned
+1152,1152,1,high,apartment,rented
+1153,1153,4,high,detached house,rented
+1154,1154,3,medium,apartment,owned
+1155,1155,3,medium,apartment,rented
+1156,1156,3,medium,detached house,owned
+1157,1157,3,medium,apartment,rented
+1158,1158,1,low,detached house,owned
+1159,1159,2,medium,apartment,rented
+1160,1160,3,medium,detached house,owned
+1161,1161,1,high,detached house,owned
+1162,1162,4,medium,detached house,rented
+1163,1163,1,medium,apartment,owned
+1164,1164,1,low,apartment,owned
+1165,1165,5,medium,apartment,rented
+1166,1166,1,medium,apartment,rented
+1167,1167,3,medium,apartment,rented
+1168,1168,3,low,apartment,rented
+1169,1169,4,high,detached house,owned
+1170,1170,4,high,apartment,owned
+1171,1171,4,high,detached house,owned
+1172,1172,2,low,detached house,owned
+1173,1173,4,medium,apartment,rented
+1174,1174,4,medium,apartment,rented
+1175,1175,5,high,detached house,owned
+1176,1176,2,low,detached house,rented
+1177,1177,1,high,detached house,rented
+1178,1178,4,low,apartment,rented
+1179,1179,1,low,apartment,rented
+1180,1180,1,low,apartment,owned
+1181,1181,1,high,apartment,owned
+1182,1182,5,low,detached house,rented
+1183,1183,1,high,apartment,rented
+1184,1184,1,low,apartment,rented
+1185,1185,2,low,detached house,owned
+1186,1186,2,medium,detached house,rented
+1187,1187,3,medium,apartment,rented
+1188,1188,4,low,detached house,rented
+1189,1189,3,high,detached house,owned
+1190,1190,4,medium,detached house,owned
+1191,1191,4,high,detached house,owned
+1192,1192,2,low,apartment,rented
+1193,1193,1,low,apartment,rented
+1194,1194,5,low,detached house,owned
+1195,1195,3,high,detached house,rented
+1196,1196,4,low,apartment,owned
+1197,1197,5,medium,apartment,owned
+1198,1198,4,high,detached house,rented
+1199,1199,5,high,detached house,owned
+1200,1200,4,medium,apartment,rented
+1201,1201,5,low,apartment,rented
+1202,1202,4,low,detached house,rented
+1203,1203,1,low,detached house,rented
+1204,1204,2,low,apartment,rented
+1205,1205,2,high,detached house,rented
+1206,1206,4,low,detached house,owned
+1207,1207,2,low,detached house,rented
+1208,1208,2,high,detached house,rented
+1209,1209,1,low,detached house,rented
+1210,1210,2,high,detached house,rented
+1211,1211,1,low,detached house,owned
+1212,1212,3,medium,apartment,owned
+1213,1213,5,low,detached house,owned
+1214,1214,5,low,detached house,owned
+1215,1215,5,high,apartment,rented
+1216,1216,1,high,apartment,owned
+1217,1217,3,medium,detached house,rented
+1218,1218,2,medium,detached house,rented
+1219,1219,5,low,detached house,owned
+1220,1220,5,low,apartment,owned
+1221,1221,3,low,apartment,rented
+1222,1222,5,low,detached house,owned
+1223,1223,2,high,apartment,owned
+1224,1224,2,medium,detached house,rented
+1225,1225,3,high,detached house,owned
+1226,1226,3,medium,detached house,rented
+1227,1227,2,high,detached house,owned
+1228,1228,3,high,detached house,rented
+1229,1229,5,low,apartment,owned
+1230,1230,4,medium,apartment,rented
+1231,1231,1,high,apartment,rented
+1232,1232,2,medium,apartment,rented
+1233,1233,2,low,apartment,owned
+1234,1234,4,high,detached house,rented
+1235,1235,5,medium,apartment,rented
+1236,1236,5,medium,apartment,owned
+1237,1237,1,medium,apartment,rented
+1238,1238,2,low,apartment,owned
+1239,1239,2,high,detached house,owned
+1240,1240,4,low,apartment,owned
+1241,1241,5,high,detached house,rented
+1242,1242,4,medium,apartment,owned
+1243,1243,2,low,apartment,rented
+1244,1244,3,low,detached house,rented
+1245,1245,1,high,detached house,owned
+1246,1246,1,low,apartment,rented
+1247,1247,1,medium,apartment,owned
+1248,1248,5,medium,detached house,owned
+1249,1249,4,low,detached house,rented
+1250,1250,3,high,detached house,owned
+1251,1251,1,high,detached house,rented
+1252,1252,5,medium,detached house,rented
+1253,1253,4,low,apartment,rented
+1254,1254,4,medium,detached house,rented
+1255,1255,5,low,detached house,rented
+1256,1256,3,high,apartment,owned
+1257,1257,4,medium,apartment,rented
+1258,1258,1,medium,apartment,rented
+1259,1259,2,medium,detached house,rented
+1260,1260,5,medium,apartment,owned
+1261,1261,2,medium,detached house,rented
+1262,1262,4,low,apartment,rented
+1263,1263,1,high,detached house,rented
+1264,1264,1,high,apartment,rented
+1265,1265,3,low,apartment,rented
+1266,1266,1,medium,detached house,rented
+1267,1267,4,high,apartment,owned
+1268,1268,1,high,detached house,rented
+1269,1269,3,low,detached house,rented
+1270,1270,3,low,apartment,rented
+1271,1271,3,low,detached house,rented
+1272,1272,5,medium,detached house,rented
+1273,1273,2,high,detached house,owned
+1274,1274,4,medium,detached house,owned
+1275,1275,5,medium,apartment,owned
+1276,1276,3,medium,detached house,rented
+1277,1277,2,high,apartment,rented
+1278,1278,5,low,apartment,rented
+1279,1279,3,high,apartment,rented
+1280,1280,1,high,apartment,rented
+1281,1281,1,low,detached house,rented
+1282,1282,5,low,apartment,rented
+1283,1283,4,medium,apartment,owned
+1284,1284,4,high,detached house,rented
+1285,1285,3,high,apartment,rented
+1286,1286,2,low,apartment,owned
+1287,1287,1,medium,detached house,owned
+1288,1288,4,high,apartment,owned
+1289,1289,4,medium,apartment,owned
+1290,1290,1,medium,apartment,owned
+1291,1291,2,low,detached house,owned
+1292,1292,3,low,detached house,owned
+1293,1293,2,high,apartment,owned
+1294,1294,5,high,detached house,owned
+1295,1295,3,high,detached house,owned
+1296,1296,3,medium,apartment,rented
+1297,1297,5,medium,apartment,rented
+1298,1298,2,low,detached house,rented
+1299,1299,2,medium,detached house,rented
+1300,1300,3,medium,apartment,owned
+1301,1301,3,low,detached house,owned
+1302,1302,5,medium,detached house,owned
+1303,1303,1,medium,apartment,owned
+1304,1304,4,medium,apartment,owned
+1305,1305,1,medium,apartment,owned
+1306,1306,4,low,apartment,rented
+1307,1307,4,low,apartment,owned
+1308,1308,4,medium,detached house,owned
+1309,1309,4,high,detached house,rented
+1310,1310,2,high,detached house,rented
+1311,1311,1,medium,apartment,rented
+1312,1312,1,medium,apartment,owned
+1313,1313,4,medium,apartment,owned
+1314,1314,2,medium,apartment,rented
+1315,1315,1,low,apartment,owned
+1316,1316,2,high,detached house,owned
+1317,1317,2,medium,detached house,rented
+1318,1318,2,low,apartment,owned
+1319,1319,1,medium,detached house,owned
+1320,1320,3,high,detached house,owned
+1321,1321,1,high,apartment,rented
+1322,1322,3,medium,apartment,owned
+1323,1323,4,medium,detached house,owned
+1324,1324,1,medium,detached house,rented
+1325,1325,3,medium,apartment,owned
+1326,1326,4,high,detached house,rented
+1327,1327,4,high,detached house,rented
+1328,1328,5,low,detached house,owned
+1329,1329,1,high,apartment,owned
+1330,1330,3,medium,detached house,rented
+1331,1331,4,low,apartment,owned
+1332,1332,5,low,apartment,rented
+1333,1333,1,low,detached house,rented
+1334,1334,1,low,apartment,rented
+1335,1335,2,high,apartment,rented
+1336,1336,2,medium,detached house,owned
+1337,1337,3,medium,apartment,owned
+1338,1338,4,medium,apartment,owned
+1339,1339,3,low,detached house,owned
+1340,1340,2,medium,detached house,owned
+1341,1341,4,high,detached house,owned
+1342,1342,4,low,detached house,rented
+1343,1343,1,medium,detached house,owned
+1344,1344,5,high,apartment,rented
+1345,1345,1,medium,detached house,owned
+1346,1346,1,high,detached house,rented
+1347,1347,2,medium,apartment,rented
+1348,1348,2,low,apartment,owned
+1349,1349,4,low,apartment,rented
+1350,1350,3,high,detached house,owned
+1351,1351,4,low,apartment,rented
+1352,1352,3,medium,apartment,rented
+1353,1353,2,high,apartment,owned
+1354,1354,5,low,apartment,rented
+1355,1355,2,high,apartment,rented
+1356,1356,1,medium,detached house,owned
+1357,1357,4,medium,detached house,owned
+1358,1358,4,low,apartment,rented
+1359,1359,3,medium,apartment,owned
+1360,1360,5,medium,apartment,rented
+1361,1361,2,low,detached house,owned
+1362,1362,5,low,apartment,rented
+1363,1363,4,low,apartment,owned
+1364,1364,1,medium,detached house,rented
+1365,1365,5,low,detached house,owned
+1366,1366,1,medium,apartment,rented
+1367,1367,5,medium,detached house,owned
+1368,1368,5,high,apartment,owned
+1369,1369,2,medium,apartment,owned
+1370,1370,5,medium,detached house,rented
+1371,1371,1,low,detached house,rented
+1372,1372,4,high,detached house,owned
+1373,1373,5,high,detached house,rented
+1374,1374,2,low,detached house,owned
+1375,1375,3,medium,apartment,owned
+1376,1376,4,medium,apartment,owned
+1377,1377,4,low,apartment,owned
+1378,1378,2,low,detached house,owned
+1379,1379,1,low,detached house,owned
+1380,1380,2,low,apartment,owned
+1381,1381,2,medium,detached house,owned
+1382,1382,4,high,detached house,rented
+1383,1383,3,high,detached house,owned
+1384,1384,2,medium,detached house,owned
+1385,1385,1,medium,detached house,owned
+1386,1386,2,medium,detached house,rented
+1387,1387,4,high,detached house,rented
+1388,1388,5,low,apartment,owned
+1389,1389,2,low,detached house,rented
+1390,1390,2,high,detached house,rented
+1391,1391,4,high,apartment,rented
+1392,1392,5,low,apartment,owned
+1393,1393,5,medium,detached house,rented
+1394,1394,5,medium,detached house,rented
+1395,1395,3,low,detached house,owned
+1396,1396,5,high,detached house,rented
+1397,1397,1,low,apartment,owned
+1398,1398,4,high,detached house,rented
+1399,1399,2,high,apartment,rented
+1400,1400,1,low,detached house,rented
+1401,1401,2,high,detached house,rented
+1402,1402,3,medium,detached house,owned
+1403,1403,1,low,detached house,owned
+1404,1404,4,high,detached house,rented
+1405,1405,5,high,detached house,rented
+1406,1406,1,low,detached house,owned
+1407,1407,4,low,detached house,rented
+1408,1408,1,high,detached house,rented
+1409,1409,4,high,detached house,rented
+1410,1410,5,high,detached house,rented
+1411,1411,2,low,detached house,owned
+1412,1412,5,high,apartment,owned
+1413,1413,3,medium,detached house,owned
+1414,1414,2,medium,apartment,rented
+1415,1415,1,low,detached house,rented
+1416,1416,2,low,detached house,owned
+1417,1417,3,medium,detached house,rented
+1418,1418,1,medium,apartment,rented
+1419,1419,2,medium,apartment,owned
+1420,1420,5,high,apartment,rented
+1421,1421,3,low,detached house,owned
+1422,1422,2,low,detached house,rented
+1423,1423,4,low,apartment,rented
+1424,1424,3,low,detached house,owned
+1425,1425,3,low,detached house,owned
+1426,1426,3,low,detached house,rented
+1427,1427,1,medium,detached house,owned
+1428,1428,2,high,apartment,owned
+1429,1429,4,medium,apartment,owned
+1430,1430,1,high,apartment,rented
+1431,1431,4,high,apartment,owned
+1432,1432,3,medium,detached house,rented
+1433,1433,3,medium,apartment,owned
+1434,1434,1,low,detached house,owned
+1435,1435,1,medium,detached house,owned
+1436,1436,3,medium,apartment,rented
+1437,1437,1,medium,detached house,owned
+1438,1438,3,low,apartment,owned
+1439,1439,4,medium,apartment,rented
+1440,1440,2,medium,detached house,rented
+1441,1441,1,low,apartment,rented
+1442,1442,2,high,detached house,rented
+1443,1443,1,low,apartment,owned
+1444,1444,5,medium,apartment,owned
+1445,1445,1,high,apartment,owned
+1446,1446,1,medium,apartment,owned
+1447,1447,1,medium,detached house,rented
+1448,1448,2,medium,detached house,owned
+1449,1449,4,low,apartment,rented
+1450,1450,2,high,detached house,owned
+1451,1451,2,high,apartment,owned
+1452,1452,5,high,apartment,rented
+1453,1453,5,low,detached house,rented
+1454,1454,2,medium,detached house,rented
+1455,1455,3,low,apartment,owned
+1456,1456,1,high,detached house,rented
+1457,1457,5,medium,detached house,owned
+1458,1458,2,medium,apartment,rented
+1459,1459,3,high,detached house,owned
+1460,1460,5,medium,detached house,owned
+1461,1461,3,low,detached house,owned
+1462,1462,4,medium,apartment,owned
+1463,1463,5,medium,detached house,owned
+1464,1464,3,low,apartment,owned
+1465,1465,4,medium,detached house,owned
+1466,1466,4,high,detached house,rented
+1467,1467,1,low,apartment,rented
+1468,1468,5,medium,detached house,owned
+1469,1469,5,high,detached house,owned
+1470,1470,2,low,detached house,rented
+1471,1471,2,medium,apartment,owned
+1472,1472,3,medium,apartment,owned
+1473,1473,5,high,apartment,rented
+1474,1474,3,high,apartment,rented
+1475,1475,1,low,apartment,rented
+1476,1476,4,low,apartment,rented
+1477,1477,4,high,detached house,owned
+1478,1478,2,medium,detached house,rented
+1479,1479,5,low,apartment,owned
+1480,1480,3,medium,apartment,rented
+1481,1481,4,high,apartment,owned
+1482,1482,2,high,detached house,owned
+1483,1483,1,medium,detached house,rented
+1484,1484,3,low,apartment,rented
+1485,1485,4,low,detached house,rented
+1486,1486,3,high,apartment,rented
+1487,1487,3,high,detached house,rented
+1488,1488,2,medium,apartment,rented
+1489,1489,4,high,detached house,owned
+1490,1490,1,medium,apartment,owned
+1491,1491,5,low,apartment,rented
+1492,1492,3,medium,detached house,owned
+1493,1493,2,low,apartment,owned
+1494,1494,3,low,detached house,owned
+1495,1495,1,high,apartment,rented
+1496,1496,2,medium,detached house,owned
+1497,1497,1,high,apartment,rented
+1498,1498,2,low,apartment,rented
+1499,1499,5,high,detached house,owned
+1500,1500,4,high,apartment,owned
+1501,1501,5,low,apartment,rented
+1502,1502,1,low,detached house,owned
+1503,1503,4,high,detached house,rented
+1504,1504,1,high,detached house,rented
+1505,1505,1,high,apartment,rented
+1506,1506,5,medium,apartment,owned
+1507,1507,5,medium,apartment,owned
+1508,1508,4,high,apartment,rented
+1509,1509,3,medium,apartment,owned
+1510,1510,3,high,apartment,rented
+1511,1511,3,medium,detached house,rented
+1512,1512,3,high,apartment,rented
+1513,1513,3,high,apartment,rented
+1514,1514,5,medium,detached house,owned
+1515,1515,3,low,apartment,owned
+1516,1516,4,medium,apartment,rented
+1517,1517,5,medium,apartment,owned
+1518,1518,1,medium,detached house,rented
+1519,1519,4,medium,apartment,rented
+1520,1520,2,medium,apartment,owned
+1521,1521,2,low,detached house,owned
+1522,1522,5,medium,detached house,rented
+1523,1523,4,high,detached house,rented
+1524,1524,2,low,detached house,owned
+1525,1525,2,low,apartment,owned
+1526,1526,5,low,detached house,owned
+1527,1527,4,high,apartment,rented
+1528,1528,5,high,apartment,owned
+1529,1529,5,high,apartment,owned
+1530,1530,2,high,detached house,rented
+1531,1531,5,low,detached house,owned
+1532,1532,3,low,detached house,owned
+1533,1533,3,high,apartment,owned
+1534,1534,4,high,detached house,owned
+1535,1535,2,medium,detached house,rented
+1536,1536,2,medium,apartment,owned
+1537,1537,5,low,apartment,owned
+1538,1538,4,medium,detached house,rented
+1539,1539,2,high,apartment,owned
+1540,1540,5,high,apartment,rented
+1541,1541,5,medium,apartment,rented
+1542,1542,1,medium,detached house,rented
+1543,1543,1,high,detached house,owned
+1544,1544,3,high,detached house,owned
+1545,1545,3,low,detached house,owned
+1546,1546,4,high,apartment,rented
+1547,1547,1,high,apartment,rented
+1548,1548,5,low,apartment,rented
+1549,1549,5,high,detached house,owned
+1550,1550,1,low,apartment,owned
+1551,1551,5,low,apartment,rented
+1552,1552,2,high,apartment,owned
+1553,1553,2,low,detached house,rented
+1554,1554,1,low,apartment,owned
+1555,1555,3,low,apartment,rented
+1556,1556,3,medium,apartment,rented
+1557,1557,1,medium,detached house,owned
+1558,1558,5,medium,apartment,owned
+1559,1559,5,medium,detached house,rented
+1560,1560,5,low,detached house,owned
+1561,1561,1,high,apartment,rented
+1562,1562,1,low,detached house,owned
+1563,1563,2,low,detached house,rented
+1564,1564,4,medium,apartment,owned
+1565,1565,5,low,apartment,owned
+1566,1566,3,low,apartment,owned
+1567,1567,5,medium,detached house,owned
+1568,1568,2,medium,apartment,rented
+1569,1569,5,high,detached house,rented
+1570,1570,5,medium,detached house,rented
+1571,1571,3,low,apartment,rented
+1572,1572,1,high,detached house,owned
+1573,1573,1,high,detached house,rented
+1574,1574,4,medium,apartment,owned
+1575,1575,3,low,detached house,rented
+1576,1576,2,high,detached house,owned
+1577,1577,2,high,detached house,rented
+1578,1578,5,high,detached house,owned
+1579,1579,3,medium,apartment,owned
+1580,1580,4,medium,detached house,rented
+1581,1581,5,high,detached house,rented
+1582,1582,3,high,detached house,rented
+1583,1583,1,low,detached house,owned
+1584,1584,2,medium,detached house,rented
+1585,1585,2,high,apartment,owned
+1586,1586,3,high,detached house,owned
+1587,1587,2,high,detached house,rented
+1588,1588,5,medium,detached house,owned
+1589,1589,2,low,detached house,owned
+1590,1590,1,medium,apartment,owned
+1591,1591,5,high,detached house,rented
+1592,1592,5,low,apartment,rented
+1593,1593,2,low,detached house,owned
+1594,1594,3,low,detached house,rented
+1595,1595,3,high,apartment,rented
+1596,1596,4,high,apartment,owned
+1597,1597,3,low,detached house,rented
+1598,1598,3,medium,apartment,owned
+1599,1599,5,high,apartment,owned
+1600,1600,4,high,apartment,rented
+1601,1601,2,high,apartment,rented
+1602,1602,5,high,detached house,rented
+1603,1603,1,low,apartment,rented
+1604,1604,2,medium,detached house,owned
+1605,1605,4,high,detached house,owned
+1606,1606,4,low,apartment,owned
+1607,1607,1,medium,detached house,rented
+1608,1608,5,medium,apartment,rented
+1609,1609,5,low,detached house,owned
+1610,1610,1,low,apartment,rented
+1611,1611,2,medium,apartment,rented
+1612,1612,5,high,apartment,rented
+1613,1613,3,high,apartment,owned
+1614,1614,1,high,apartment,owned
+1615,1615,3,high,detached house,owned
+1616,1616,1,low,apartment,rented
+1617,1617,2,high,detached house,rented
+1618,1618,2,low,detached house,owned
+1619,1619,5,high,detached house,owned
+1620,1620,5,low,apartment,owned
+1621,1621,1,medium,detached house,owned
+1622,1622,2,high,apartment,rented
+1623,1623,2,low,apartment,rented
+1624,1624,5,medium,apartment,owned
+1625,1625,3,high,detached house,owned
+1626,1626,3,low,detached house,owned
+1627,1627,3,medium,apartment,rented
+1628,1628,3,medium,apartment,rented
+1629,1629,4,low,apartment,rented
+1630,1630,5,high,apartment,owned
+1631,1631,3,low,detached house,owned
+1632,1632,3,medium,detached house,owned
+1633,1633,5,high,apartment,rented
+1634,1634,1,medium,apartment,owned
+1635,1635,2,medium,apartment,owned
+1636,1636,5,low,detached house,owned
+1637,1637,3,high,detached house,rented
+1638,1638,1,medium,apartment,owned
+1639,1639,2,low,detached house,owned
+1640,1640,3,high,detached house,rented
+1641,1641,4,low,apartment,owned
+1642,1642,5,medium,apartment,owned
+1643,1643,1,medium,apartment,rented
+1644,1644,3,low,detached house,rented
+1645,1645,2,high,detached house,rented
+1646,1646,2,medium,detached house,owned
+1647,1647,5,high,detached house,owned
+1648,1648,4,high,detached house,owned
+1649,1649,5,high,apartment,owned
+1650,1650,4,medium,apartment,rented
+1651,1651,4,medium,detached house,rented
+1652,1652,2,high,detached house,rented
+1653,1653,1,high,apartment,rented
+1654,1654,4,low,apartment,owned
+1655,1655,1,low,detached house,owned
+1656,1656,5,low,apartment,owned
+1657,1657,2,low,apartment,owned
+1658,1658,5,high,apartment,owned
+1659,1659,2,medium,apartment,owned
+1660,1660,4,low,apartment,owned
+1661,1661,1,medium,apartment,owned
+1662,1662,2,low,apartment,owned
+1663,1663,2,medium,detached house,owned
+1664,1664,4,low,apartment,rented
+1665,1665,3,medium,apartment,owned
+1666,1666,5,low,apartment,rented
+1667,1667,3,high,detached house,owned
+1668,1668,5,medium,detached house,owned
+1669,1669,2,high,apartment,rented
+1670,1670,5,high,detached house,owned
+1671,1671,5,high,apartment,owned
+1672,1672,4,low,detached house,rented
+1673,1673,1,medium,apartment,owned
+1674,1674,1,low,detached house,owned
+1675,1675,3,medium,detached house,rented
+1676,1676,5,low,apartment,rented
+1677,1677,3,medium,detached house,owned
+1678,1678,3,high,detached house,rented
+1679,1679,2,high,detached house,rented
+1680,1680,5,medium,detached house,rented
+1681,1681,4,high,apartment,rented
+1682,1682,5,medium,detached house,owned
+1683,1683,1,medium,detached house,rented
+1684,1684,3,low,detached house,rented
+1685,1685,1,medium,detached house,owned
+1686,1686,4,medium,apartment,rented
+1687,1687,4,high,detached house,owned
+1688,1688,2,high,detached house,owned
+1689,1689,2,low,detached house,owned
+1690,1690,1,medium,apartment,owned
+1691,1691,1,high,detached house,owned
+1692,1692,3,low,apartment,rented
+1693,1693,4,medium,apartment,owned
+1694,1694,2,high,detached house,rented
+1695,1695,4,medium,apartment,rented
+1696,1696,5,high,detached house,owned
+1697,1697,4,medium,apartment,owned
+1698,1698,4,medium,detached house,owned
+1699,1699,1,low,detached house,owned
+1700,1700,1,high,apartment,owned
+1701,1701,2,low,detached house,rented
+1702,1702,1,high,detached house,owned
+1703,1703,4,high,apartment,rented
+1704,1704,1,medium,apartment,owned
+1705,1705,2,low,detached house,rented
+1706,1706,3,medium,apartment,owned
+1707,1707,1,medium,apartment,owned
+1708,1708,5,high,detached house,rented
+1709,1709,4,high,detached house,rented
+1710,1710,4,medium,apartment,rented
+1711,1711,3,medium,detached house,rented
+1712,1712,3,medium,apartment,owned
+1713,1713,4,high,detached house,rented
+1714,1714,5,medium,apartment,rented
+1715,1715,5,low,apartment,owned
+1716,1716,4,low,detached house,rented
+1717,1717,3,low,apartment,owned
+1718,1718,5,low,apartment,rented
+1719,1719,1,medium,detached house,rented
+1720,1720,4,high,detached house,rented
+1721,1721,3,high,apartment,rented
+1722,1722,3,low,apartment,rented
+1723,1723,2,medium,detached house,rented
+1724,1724,5,medium,apartment,owned
+1725,1725,4,medium,apartment,rented
+1726,1726,1,low,apartment,rented
+1727,1727,5,high,detached house,owned
+1728,1728,1,high,detached house,rented
+1729,1729,1,medium,apartment,owned
+1730,1730,1,high,detached house,owned
+1731,1731,2,medium,detached house,rented
+1732,1732,5,low,detached house,owned
+1733,1733,4,low,detached house,rented
+1734,1734,1,medium,detached house,owned
+1735,1735,1,low,detached house,owned
+1736,1736,3,high,detached house,owned
+1737,1737,5,medium,apartment,rented
+1738,1738,5,medium,detached house,rented
+1739,1739,3,low,detached house,owned
+1740,1740,3,high,detached house,owned
+1741,1741,2,high,apartment,owned
+1742,1742,5,low,detached house,rented
+1743,1743,2,low,apartment,rented
+1744,1744,1,medium,apartment,owned
+1745,1745,1,low,apartment,rented
+1746,1746,4,low,detached house,rented
+1747,1747,3,medium,apartment,rented
+1748,1748,4,low,detached house,owned
+1749,1749,5,medium,detached house,owned
+1750,1750,5,low,apartment,owned
+1751,1751,5,medium,detached house,owned
+1752,1752,1,high,detached house,owned
+1753,1753,1,medium,detached house,owned
+1754,1754,2,low,apartment,owned
+1755,1755,1,high,detached house,owned
+1756,1756,5,medium,apartment,owned
+1757,1757,2,high,detached house,owned
+1758,1758,4,medium,apartment,owned
+1759,1759,5,medium,apartment,rented
+1760,1760,1,medium,detached house,rented
+1761,1761,2,medium,apartment,rented
+1762,1762,2,medium,detached house,owned
+1763,1763,1,low,apartment,owned
+1764,1764,2,low,apartment,rented
+1765,1765,2,medium,detached house,rented
+1766,1766,3,high,apartment,owned
+1767,1767,5,low,apartment,rented
+1768,1768,2,high,apartment,rented
+1769,1769,1,medium,detached house,owned
+1770,1770,3,medium,detached house,owned
+1771,1771,3,medium,detached house,owned
+1772,1772,2,low,detached house,rented
+1773,1773,2,medium,detached house,owned
+1774,1774,5,medium,detached house,owned
+1775,1775,5,high,detached house,owned
+1776,1776,4,high,apartment,rented
+1777,1777,2,medium,apartment,owned
+1778,1778,1,high,apartment,owned
+1779,1779,5,medium,detached house,rented
+1780,1780,4,low,apartment,rented
+1781,1781,5,medium,apartment,owned
+1782,1782,3,high,apartment,owned
+1783,1783,1,high,detached house,rented
+1784,1784,4,high,detached house,rented
+1785,1785,1,low,apartment,rented
+1786,1786,4,low,apartment,rented
+1787,1787,4,low,apartment,rented
+1788,1788,1,high,apartment,owned
+1789,1789,1,high,apartment,rented
+1790,1790,2,medium,apartment,owned
+1791,1791,5,medium,detached house,rented
+1792,1792,5,medium,apartment,owned
+1793,1793,1,high,detached house,owned
+1794,1794,2,medium,apartment,owned
+1795,1795,1,high,apartment,owned
+1796,1796,1,high,detached house,owned
+1797,1797,3,high,apartment,rented
+1798,1798,4,medium,apartment,owned
+1799,1799,4,high,apartment,rented
+1800,1800,1,low,apartment,owned
+1801,1801,3,medium,detached house,owned
+1802,1802,2,low,apartment,owned
+1803,1803,2,high,detached house,rented
+1804,1804,4,high,apartment,rented
+1805,1805,5,high,apartment,rented
+1806,1806,4,medium,detached house,owned
+1807,1807,5,medium,apartment,owned
+1808,1808,3,low,detached house,rented
+1809,1809,2,low,detached house,owned
+1810,1810,4,medium,detached house,owned
+1811,1811,3,high,apartment,owned
+1812,1812,4,high,detached house,rented
+1813,1813,5,high,detached house,rented
+1814,1814,2,high,apartment,owned
+1815,1815,1,low,apartment,rented
+1816,1816,1,high,detached house,rented
+1817,1817,4,medium,apartment,rented
+1818,1818,1,low,detached house,owned
+1819,1819,5,high,detached house,owned
+1820,1820,2,medium,apartment,owned
+1821,1821,5,medium,apartment,owned
+1822,1822,2,low,apartment,rented
+1823,1823,4,high,apartment,owned
+1824,1824,1,medium,apartment,owned
+1825,1825,5,medium,detached house,rented
+1826,1826,4,medium,detached house,owned
+1827,1827,5,high,apartment,owned
+1828,1828,2,medium,detached house,rented
+1829,1829,5,high,detached house,owned
+1830,1830,3,low,detached house,owned
+1831,1831,2,medium,detached house,rented
+1832,1832,5,low,apartment,owned
+1833,1833,3,low,apartment,rented
+1834,1834,5,low,apartment,rented
+1835,1835,2,medium,detached house,owned
+1836,1836,1,high,apartment,owned
+1837,1837,4,low,apartment,owned
+1838,1838,1,medium,detached house,rented
+1839,1839,1,medium,detached house,owned
+1840,1840,1,medium,apartment,rented
+1841,1841,1,low,detached house,rented
+1842,1842,4,high,apartment,rented
+1843,1843,4,high,detached house,rented
+1844,1844,1,low,detached house,owned
+1845,1845,2,high,apartment,owned
+1846,1846,4,high,detached house,owned
+1847,1847,4,high,detached house,rented
+1848,1848,1,low,apartment,owned
+1849,1849,4,high,apartment,rented
+1850,1850,4,low,apartment,rented
+1851,1851,4,high,detached house,owned
+1852,1852,4,high,detached house,owned
+1853,1853,3,medium,detached house,rented
+1854,1854,2,low,detached house,owned
+1855,1855,2,low,apartment,owned
+1856,1856,5,high,apartment,rented
+1857,1857,1,high,detached house,owned
+1858,1858,1,low,detached house,rented
+1859,1859,3,medium,apartment,owned
+1860,1860,1,high,apartment,owned
+1861,1861,5,low,detached house,rented
+1862,1862,5,low,detached house,owned
+1863,1863,3,high,apartment,owned
+1864,1864,3,high,apartment,rented
+1865,1865,4,high,detached house,rented
+1866,1866,3,medium,apartment,rented
+1867,1867,1,high,detached house,rented
+1868,1868,5,medium,detached house,rented
+1869,1869,5,high,detached house,rented
+1870,1870,3,high,detached house,rented
+1871,1871,2,high,detached house,owned
+1872,1872,2,high,detached house,rented
+1873,1873,2,medium,detached house,rented
+1874,1874,1,low,detached house,owned
+1875,1875,4,low,detached house,rented
+1876,1876,5,medium,detached house,owned
+1877,1877,3,high,detached house,rented
+1878,1878,3,high,detached house,owned
+1879,1879,1,low,apartment,rented
+1880,1880,2,low,apartment,owned
+1881,1881,4,high,detached house,owned
+1882,1882,5,medium,detached house,rented
+1883,1883,1,medium,detached house,rented
+1884,1884,5,medium,detached house,rented
+1885,1885,4,low,apartment,owned
+1886,1886,4,medium,apartment,owned
+1887,1887,2,high,detached house,rented
+1888,1888,2,low,detached house,rented
+1889,1889,5,medium,detached house,owned
+1890,1890,3,high,detached house,owned
+1891,1891,5,high,detached house,owned
+1892,1892,4,low,detached house,rented
+1893,1893,2,medium,detached house,rented
+1894,1894,1,high,detached house,rented
+1895,1895,1,medium,apartment,owned
+1896,1896,5,medium,apartment,owned
+1897,1897,3,medium,apartment,rented
+1898,1898,2,high,apartment,rented
+1899,1899,4,low,detached house,rented
+1900,1900,4,medium,apartment,owned
+1901,1901,3,low,detached house,owned
+1902,1902,1,medium,apartment,rented
+1903,1903,4,high,detached house,owned
+1904,1904,3,medium,detached house,owned
+1905,1905,3,low,apartment,owned
+1906,1906,5,low,detached house,rented
+1907,1907,1,low,detached house,rented
+1908,1908,2,medium,detached house,owned
+1909,1909,4,medium,detached house,owned
+1910,1910,2,medium,detached house,owned
+1911,1911,3,high,apartment,rented
+1912,1912,1,medium,apartment,owned
+1913,1913,4,high,apartment,owned
+1914,1914,4,low,apartment,rented
+1915,1915,3,low,apartment,owned
+1916,1916,3,high,detached house,rented
+1917,1917,1,medium,detached house,rented
+1918,1918,4,high,apartment,rented
+1919,1919,2,high,detached house,rented
+1920,1920,3,high,detached house,rented
+1921,1921,5,medium,detached house,owned
+1922,1922,5,medium,apartment,owned
+1923,1923,5,medium,detached house,owned
+1924,1924,5,low,detached house,owned
+1925,1925,2,low,detached house,rented
+1926,1926,5,medium,apartment,rented
+1927,1927,4,low,detached house,owned
+1928,1928,4,low,apartment,rented
+1929,1929,3,medium,detached house,owned
+1930,1930,3,low,apartment,rented
+1931,1931,4,high,detached house,owned
+1932,1932,4,low,apartment,owned
+1933,1933,1,high,detached house,owned
+1934,1934,5,medium,detached house,owned
+1935,1935,5,medium,detached house,owned
+1936,1936,5,high,apartment,owned
+1937,1937,2,medium,apartment,owned
+1938,1938,1,low,detached house,rented
+1939,1939,4,low,detached house,rented
+1940,1940,2,low,detached house,owned
+1941,1941,4,medium,apartment,rented
+1942,1942,5,medium,apartment,owned
+1943,1943,3,medium,apartment,owned
+1944,1944,3,high,apartment,owned
+1945,1945,2,low,detached house,rented
+1946,1946,4,high,detached house,rented
+1947,1947,5,high,apartment,rented
+1948,1948,2,high,detached house,rented
+1949,1949,5,high,apartment,rented
+1950,1950,1,high,apartment,owned
+1951,1951,5,medium,apartment,owned
+1952,1952,3,high,detached house,rented
+1953,1953,1,medium,detached house,rented
+1954,1954,2,low,detached house,rented
+1955,1955,2,high,apartment,rented
+1956,1956,3,low,detached house,rented
+1957,1957,2,high,detached house,owned
+1958,1958,3,high,detached house,rented
+1959,1959,4,low,apartment,owned
+1960,1960,3,medium,detached house,owned
+1961,1961,5,high,detached house,rented
+1962,1962,4,low,detached house,rented
+1963,1963,5,high,detached house,rented
+1964,1964,5,high,detached house,owned
+1965,1965,4,medium,detached house,owned
+1966,1966,2,low,apartment,rented
+1967,1967,1,medium,detached house,owned
+1968,1968,2,high,detached house,rented
+1969,1969,1,high,apartment,rented
+1970,1970,3,low,detached house,rented
+1971,1971,3,medium,apartment,owned
+1972,1972,1,medium,detached house,owned
+1973,1973,5,low,detached house,rented
+1974,1974,3,medium,detached house,rented
+1975,1975,4,high,apartment,owned
+1976,1976,2,low,detached house,rented
+1977,1977,5,medium,apartment,rented
+1978,1978,5,high,apartment,rented
+1979,1979,3,medium,apartment,owned
+1980,1980,2,medium,detached house,owned
+1981,1981,2,medium,detached house,owned
+1982,1982,3,high,detached house,owned
+1983,1983,2,high,apartment,owned
+1984,1984,3,high,apartment,owned
+1985,1985,4,medium,apartment,owned
+1986,1986,2,low,apartment,rented
+1987,1987,3,high,detached house,owned
+1988,1988,4,low,apartment,owned
+1989,1989,4,high,detached house,rented
+1990,1990,3,medium,detached house,rented
+1991,1991,5,high,detached house,rented
+1992,1992,3,medium,detached house,rented
+1993,1993,3,medium,apartment,owned
+1994,1994,3,high,apartment,rented
+1995,1995,5,low,apartment,rented
+1996,1996,4,medium,detached house,rented
+1997,1997,5,medium,apartment,owned
+1998,1998,2,low,detached house,owned
+1999,1999,2,high,detached house,owned
+2000,2000,3,low,apartment,rented
+2001,2001,1,low,apartment,owned
+2002,2002,5,high,apartment,rented
+2003,2003,1,low,apartment,rented
+2004,2004,1,medium,apartment,owned
+2005,2005,3,high,apartment,owned
+2006,2006,4,high,apartment,rented
+2007,2007,1,high,detached house,owned
+2008,2008,2,medium,detached house,owned
+2009,2009,2,low,detached house,owned
+2010,2010,2,medium,detached house,rented
+2011,2011,5,medium,detached house,owned
+2012,2012,2,medium,detached house,rented
+2013,2013,4,medium,detached house,rented
+2014,2014,5,high,apartment,owned
+2015,2015,4,low,apartment,owned
+2016,2016,4,medium,detached house,rented
+2017,2017,1,high,apartment,owned
+2018,2018,4,high,detached house,rented
+2019,2019,4,medium,apartment,rented
+2020,2020,2,medium,detached house,owned
+2021,2021,2,low,detached house,owned
+2022,2022,5,high,detached house,rented
+2023,2023,2,high,apartment,owned
+2024,2024,1,high,detached house,rented
+2025,2025,5,low,apartment,owned
+2026,2026,1,medium,apartment,owned
+2027,2027,5,high,apartment,rented
+2028,2028,5,high,apartment,rented
+2029,2029,3,medium,detached house,owned
+2030,2030,5,medium,apartment,owned
+2031,2031,3,low,apartment,owned
+2032,2032,2,medium,detached house,owned
+2033,2033,4,low,apartment,owned
+2034,2034,3,medium,detached house,rented
+2035,2035,4,medium,apartment,rented
+2036,2036,5,low,detached house,owned
+2037,2037,3,high,apartment,rented
+2038,2038,2,medium,detached house,owned
+2039,2039,2,medium,detached house,rented
+2040,2040,2,medium,detached house,owned
+2041,2041,5,high,apartment,rented
+2042,2042,1,high,apartment,rented
+2043,2043,2,medium,detached house,owned
+2044,2044,3,low,detached house,owned
+2045,2045,4,medium,detached house,owned
+2046,2046,2,medium,detached house,owned
+2047,2047,1,medium,detached house,rented
+2048,2048,4,high,detached house,rented
+2049,2049,3,medium,apartment,rented
+2050,2050,4,medium,apartment,rented
+2051,2051,5,low,detached house,owned
+2052,2052,1,high,apartment,owned
+2053,2053,5,medium,detached house,owned
+2054,2054,4,high,apartment,owned
+2055,2055,2,low,detached house,owned
+2056,2056,5,low,apartment,rented
+2057,2057,4,medium,apartment,rented
+2058,2058,5,medium,detached house,rented
+2059,2059,5,high,detached house,owned
+2060,2060,1,high,apartment,rented
+2061,2061,2,medium,detached house,rented
+2062,2062,2,low,apartment,owned
+2063,2063,1,low,detached house,rented
+2064,2064,4,high,detached house,owned
+2065,2065,4,medium,apartment,rented
+2066,2066,5,low,apartment,owned
+2067,2067,3,high,detached house,rented
+2068,2068,5,low,detached house,rented
+2069,2069,1,high,detached house,rented
+2070,2070,3,low,detached house,rented
+2071,2071,5,low,detached house,rented
+2072,2072,5,high,apartment,rented
+2073,2073,5,high,detached house,rented
+2074,2074,5,high,apartment,rented
+2075,2075,3,low,apartment,owned
+2076,2076,3,medium,apartment,rented
+2077,2077,2,high,apartment,owned
+2078,2078,4,low,apartment,owned
+2079,2079,2,medium,apartment,owned
+2080,2080,5,high,detached house,owned
+2081,2081,1,medium,detached house,owned
+2082,2082,5,high,apartment,rented
+2083,2083,5,low,detached house,rented
+2084,2084,3,medium,apartment,owned
+2085,2085,2,low,apartment,owned
+2086,2086,3,high,detached house,rented
+2087,2087,3,low,apartment,owned
+2088,2088,1,low,apartment,rented
+2089,2089,4,low,apartment,rented
+2090,2090,4,high,detached house,rented
+2091,2091,2,medium,detached house,rented
+2092,2092,5,medium,detached house,owned
+2093,2093,3,high,detached house,owned
+2094,2094,5,low,detached house,owned
+2095,2095,1,low,detached house,owned
+2096,2096,2,medium,apartment,owned
+2097,2097,3,low,apartment,rented
+2098,2098,3,low,apartment,owned
+2099,2099,2,high,apartment,rented
+2100,2100,4,low,apartment,rented
+2101,2101,4,low,detached house,rented
+2102,2102,5,medium,apartment,owned
+2103,2103,3,high,apartment,owned
+2104,2104,5,medium,detached house,rented
+2105,2105,2,low,apartment,owned
+2106,2106,1,low,apartment,rented
+2107,2107,5,low,apartment,owned
+2108,2108,1,medium,apartment,rented
+2109,2109,2,medium,detached house,rented
+2110,2110,3,low,apartment,rented
+2111,2111,5,low,apartment,rented
+2112,2112,2,low,detached house,rented
+2113,2113,1,medium,detached house,owned
+2114,2114,4,high,apartment,owned
+2115,2115,2,medium,apartment,rented
+2116,2116,4,high,apartment,owned
+2117,2117,1,high,apartment,rented
+2118,2118,3,high,apartment,rented
+2119,2119,4,low,apartment,rented
+2120,2120,3,high,detached house,owned
+2121,2121,3,medium,detached house,owned
+2122,2122,2,high,apartment,rented
+2123,2123,1,medium,detached house,rented
+2124,2124,4,medium,detached house,owned
+2125,2125,5,low,apartment,rented
+2126,2126,4,medium,apartment,owned
+2127,2127,2,low,detached house,rented
+2128,2128,5,low,detached house,owned
+2129,2129,5,medium,apartment,rented
+2130,2130,4,medium,detached house,owned
+2131,2131,5,low,apartment,rented
+2132,2132,1,high,apartment,owned
+2133,2133,4,medium,detached house,owned
+2134,2134,1,high,detached house,owned
+2135,2135,1,high,apartment,rented
+2136,2136,3,high,detached house,rented
+2137,2137,2,medium,apartment,owned
+2138,2138,1,high,detached house,owned
+2139,2139,4,medium,detached house,rented
+2140,2140,2,low,apartment,rented
+2141,2141,3,medium,detached house,owned
+2142,2142,3,high,apartment,owned
+2143,2143,1,high,detached house,owned
+2144,2144,2,low,apartment,rented
+2145,2145,1,high,apartment,rented
+2146,2146,1,low,apartment,rented
+2147,2147,3,medium,apartment,owned
+2148,2148,1,low,detached house,rented
+2149,2149,5,medium,apartment,owned
+2150,2150,5,medium,apartment,rented
+2151,2151,2,high,apartment,owned
+2152,2152,3,high,detached house,rented
+2153,2153,1,high,detached house,rented
+2154,2154,3,medium,detached house,rented
+2155,2155,5,high,apartment,owned
+2156,2156,1,low,apartment,rented
+2157,2157,3,medium,apartment,rented
+2158,2158,3,medium,apartment,rented
+2159,2159,4,medium,apartment,owned
+2160,2160,3,high,apartment,rented
+2161,2161,3,low,apartment,owned
+2162,2162,4,high,detached house,owned
+2163,2163,1,low,detached house,rented
+2164,2164,4,medium,apartment,rented
+2165,2165,1,low,detached house,owned
+2166,2166,3,high,detached house,rented
+2167,2167,4,medium,detached house,rented
+2168,2168,2,medium,apartment,owned
+2169,2169,2,medium,apartment,rented
+2170,2170,4,medium,detached house,rented
+2171,2171,2,low,detached house,owned
+2172,2172,4,medium,detached house,owned
+2173,2173,3,high,detached house,rented
+2174,2174,3,medium,detached house,rented
+2175,2175,5,medium,apartment,rented
+2176,2176,2,low,detached house,owned
+2177,2177,2,high,apartment,rented
+2178,2178,1,medium,detached house,owned
+2179,2179,2,medium,detached house,rented
+2180,2180,3,medium,detached house,rented
+2181,2181,1,medium,detached house,owned
+2182,2182,1,high,apartment,rented
+2183,2183,2,high,apartment,owned
+2184,2184,1,high,apartment,owned
+2185,2185,3,low,detached house,owned
+2186,2186,5,high,detached house,rented
+2187,2187,2,medium,apartment,owned
+2188,2188,2,medium,detached house,rented
+2189,2189,1,high,apartment,owned
+2190,2190,1,medium,detached house,rented
+2191,2191,4,low,apartment,owned
+2192,2192,5,low,detached house,owned
+2193,2193,2,low,detached house,rented
+2194,2194,2,high,apartment,owned
+2195,2195,5,medium,apartment,rented
+2196,2196,5,medium,apartment,rented
+2197,2197,3,low,detached house,rented
+2198,2198,5,medium,apartment,rented
+2199,2199,2,high,detached house,owned
+2200,2200,1,high,detached house,rented
+2201,2201,4,high,detached house,owned
+2202,2202,2,low,detached house,rented
+2203,2203,1,low,apartment,owned
+2204,2204,1,medium,detached house,owned
+2205,2205,1,low,detached house,owned
+2206,2206,5,low,detached house,owned
+2207,2207,4,low,apartment,rented
+2208,2208,1,high,detached house,owned
+2209,2209,1,low,detached house,rented
+2210,2210,4,low,detached house,owned
+2211,2211,1,medium,detached house,rented
+2212,2212,2,high,detached house,owned
+2213,2213,4,high,apartment,rented
+2214,2214,4,high,detached house,rented
+2215,2215,1,low,detached house,rented
+2216,2216,3,medium,detached house,owned
+2217,2217,1,high,apartment,owned
+2218,2218,4,medium,detached house,rented
+2219,2219,4,high,detached house,owned
+2220,2220,2,low,detached house,rented
+2221,2221,3,high,apartment,owned
+2222,2222,2,low,detached house,owned
+2223,2223,5,medium,detached house,rented
+2224,2224,1,high,apartment,owned
+2225,2225,1,high,detached house,rented
+2226,2226,2,medium,apartment,rented
+2227,2227,2,high,apartment,rented
+2228,2228,4,high,apartment,owned
+2229,2229,3,high,detached house,rented
+2230,2230,3,high,apartment,rented
+2231,2231,1,low,detached house,owned
+2232,2232,2,low,apartment,owned
+2233,2233,5,high,detached house,owned
+2234,2234,2,high,apartment,owned
+2235,2235,3,medium,detached house,owned
+2236,2236,1,high,detached house,owned
+2237,2237,2,high,apartment,rented
+2238,2238,3,medium,apartment,rented
+2239,2239,4,low,apartment,rented
+2240,2240,4,medium,detached house,rented
+2241,2241,5,medium,apartment,rented
+2242,2242,1,high,detached house,owned
+2243,2243,2,low,apartment,rented
+2244,2244,1,medium,apartment,owned
+2245,2245,1,medium,apartment,owned
+2246,2246,3,medium,apartment,rented
+2247,2247,3,medium,apartment,rented
+2248,2248,3,high,apartment,owned
+2249,2249,4,medium,apartment,rented
+2250,2250,2,high,apartment,owned
+2251,2251,3,high,apartment,rented
+2252,2252,3,high,detached house,rented
+2253,2253,3,high,apartment,owned
+2254,2254,2,low,detached house,rented
+2255,2255,2,high,detached house,owned
+2256,2256,4,low,apartment,rented
+2257,2257,2,high,detached house,owned
+2258,2258,1,medium,detached house,rented
+2259,2259,2,high,apartment,owned
+2260,2260,2,high,apartment,rented
+2261,2261,4,low,apartment,rented
+2262,2262,4,high,apartment,owned
+2263,2263,1,high,apartment,rented
+2264,2264,1,high,apartment,owned
+2265,2265,5,high,apartment,rented
+2266,2266,2,low,detached house,rented
+2267,2267,1,medium,apartment,rented
+2268,2268,5,medium,apartment,owned
+2269,2269,2,low,detached house,rented
+2270,2270,2,low,detached house,rented
+2271,2271,2,medium,detached house,owned
+2272,2272,4,medium,apartment,owned
+2273,2273,4,high,apartment,rented
+2274,2274,1,high,detached house,owned
+2275,2275,1,low,detached house,owned
+2276,2276,1,high,detached house,owned
+2277,2277,5,medium,apartment,owned
+2278,2278,1,high,detached house,owned
+2279,2279,2,high,apartment,owned
+2280,2280,5,medium,apartment,rented
+2281,2281,5,high,apartment,rented
+2282,2282,4,medium,apartment,rented
+2283,2283,5,medium,apartment,rented
+2284,2284,5,low,apartment,rented
+2285,2285,3,low,apartment,owned
+2286,2286,3,medium,apartment,rented
+2287,2287,3,high,detached house,owned
+2288,2288,3,medium,detached house,rented
+2289,2289,2,medium,detached house,owned
+2290,2290,3,medium,detached house,rented
+2291,2291,3,low,detached house,owned
+2292,2292,1,medium,apartment,rented
+2293,2293,3,high,apartment,owned
+2294,2294,4,low,detached house,owned
+2295,2295,1,medium,apartment,owned
+2296,2296,5,medium,detached house,owned
+2297,2297,2,low,detached house,owned
+2298,2298,3,high,apartment,owned
+2299,2299,2,low,detached house,rented
+2300,2300,2,high,detached house,rented
+2301,2301,5,high,apartment,rented
+2302,2302,1,medium,detached house,rented
+2303,2303,4,low,detached house,owned
+2304,2304,5,low,detached house,owned
+2305,2305,5,high,apartment,rented
+2306,2306,3,high,detached house,rented
+2307,2307,5,low,apartment,rented
+2308,2308,2,medium,apartment,rented
+2309,2309,4,high,detached house,rented
+2310,2310,4,high,detached house,rented
+2311,2311,3,medium,apartment,owned
+2312,2312,2,low,apartment,owned
+2313,2313,2,medium,detached house,rented
+2314,2314,3,medium,detached house,owned
+2315,2315,2,high,detached house,rented
+2316,2316,1,high,detached house,owned
+2317,2317,3,high,detached house,rented
+2318,2318,5,low,apartment,rented
+2319,2319,1,medium,apartment,owned
+2320,2320,5,high,apartment,rented
+2321,2321,5,low,detached house,rented
+2322,2322,2,high,apartment,owned
+2323,2323,2,low,apartment,rented
+2324,2324,1,medium,apartment,owned
+2325,2325,4,medium,detached house,owned
+2326,2326,2,medium,apartment,owned
+2327,2327,5,low,apartment,owned
+2328,2328,3,low,detached house,owned
+2329,2329,1,medium,apartment,rented
+2330,2330,3,high,apartment,owned
+2331,2331,4,high,detached house,rented
+2332,2332,2,high,detached house,rented
+2333,2333,3,medium,detached house,owned
+2334,2334,3,medium,detached house,rented
+2335,2335,3,high,apartment,rented
+2336,2336,3,low,apartment,owned
+2337,2337,5,medium,apartment,rented
+2338,2338,1,medium,detached house,rented
+2339,2339,5,high,apartment,rented
+2340,2340,2,high,apartment,rented
+2341,2341,4,high,apartment,owned
+2342,2342,1,medium,detached house,owned
+2343,2343,4,low,apartment,rented
+2344,2344,1,high,detached house,rented
+2345,2345,2,high,detached house,rented
+2346,2346,5,low,apartment,owned
+2347,2347,1,medium,detached house,owned
+2348,2348,5,medium,detached house,rented
+2349,2349,2,medium,apartment,owned
+2350,2350,3,medium,detached house,owned
+2351,2351,2,medium,detached house,owned
+2352,2352,3,high,apartment,owned
+2353,2353,3,low,apartment,rented
+2354,2354,3,high,detached house,rented
+2355,2355,3,medium,detached house,owned
+2356,2356,4,low,apartment,owned
+2357,2357,3,high,detached house,owned
+2358,2358,4,medium,detached house,owned
+2359,2359,1,low,detached house,rented
+2360,2360,5,high,apartment,rented
+2361,2361,4,high,apartment,owned
+2362,2362,2,medium,apartment,rented
+2363,2363,1,medium,apartment,rented
+2364,2364,3,low,apartment,rented
+2365,2365,4,medium,apartment,owned
+2366,2366,3,low,apartment,rented
+2367,2367,5,high,detached house,rented
+2368,2368,3,medium,detached house,rented
+2369,2369,1,medium,detached house,owned
+2370,2370,1,medium,detached house,rented
+2371,2371,5,high,apartment,owned
+2372,2372,1,medium,apartment,owned
+2373,2373,1,medium,detached house,rented
+2374,2374,5,low,detached house,owned
+2375,2375,2,low,apartment,rented
+2376,2376,3,low,detached house,rented
+2377,2377,3,high,detached house,rented
+2378,2378,3,medium,detached house,owned
+2379,2379,1,low,apartment,rented
+2380,2380,5,high,apartment,owned
+2381,2381,1,high,detached house,rented
+2382,2382,1,low,detached house,rented
+2383,2383,2,low,apartment,rented
+2384,2384,5,medium,apartment,owned
+2385,2385,5,low,detached house,owned
+2386,2386,4,low,detached house,owned
+2387,2387,5,high,detached house,owned
+2388,2388,1,medium,apartment,owned
+2389,2389,1,medium,detached house,rented
+2390,2390,5,medium,apartment,owned
+2391,2391,5,low,apartment,owned
+2392,2392,2,low,apartment,rented
+2393,2393,2,high,apartment,owned
+2394,2394,3,medium,detached house,owned
+2395,2395,3,high,apartment,rented
+2396,2396,3,high,detached house,rented
+2397,2397,5,high,apartment,rented
+2398,2398,1,high,detached house,owned
+2399,2399,2,medium,apartment,owned
+2400,2400,5,medium,apartment,owned
+2401,2401,5,low,detached house,owned
+2402,2402,4,high,detached house,rented
+2403,2403,5,high,apartment,owned
+2404,2404,2,low,detached house,owned
+2405,2405,1,low,apartment,rented
+2406,2406,2,medium,detached house,rented
+2407,2407,1,high,apartment,owned
+2408,2408,3,medium,apartment,rented
+2409,2409,2,low,apartment,owned
+2410,2410,2,high,detached house,rented
+2411,2411,4,low,detached house,rented
+2412,2412,2,low,apartment,owned
+2413,2413,3,high,detached house,rented
+2414,2414,5,medium,detached house,rented
+2415,2415,4,high,detached house,owned
+2416,2416,3,low,detached house,owned
+2417,2417,1,low,detached house,rented
+2418,2418,3,medium,detached house,rented
+2419,2419,4,medium,apartment,rented
+2420,2420,5,high,apartment,rented
+2421,2421,1,high,apartment,owned
+2422,2422,4,medium,detached house,owned
+2423,2423,5,low,apartment,rented
+2424,2424,5,low,apartment,owned
+2425,2425,3,low,apartment,owned
+2426,2426,3,low,apartment,rented
+2427,2427,3,medium,apartment,owned
+2428,2428,5,medium,apartment,rented
+2429,2429,1,low,apartment,rented
+2430,2430,4,medium,apartment,rented
+2431,2431,1,high,detached house,rented
+2432,2432,5,medium,apartment,rented
+2433,2433,1,high,detached house,rented
+2434,2434,4,low,apartment,rented
+2435,2435,1,medium,detached house,owned
+2436,2436,3,medium,apartment,rented
+2437,2437,2,medium,apartment,rented
+2438,2438,5,high,apartment,owned
+2439,2439,1,low,detached house,rented
+2440,2440,5,high,apartment,rented
+2441,2441,2,high,apartment,rented
+2442,2442,4,high,detached house,rented
+2443,2443,2,high,apartment,rented
+2444,2444,3,low,detached house,owned
+2445,2445,5,low,detached house,rented
+2446,2446,2,low,detached house,rented
+2447,2447,4,low,detached house,owned
+2448,2448,1,low,apartment,owned
+2449,2449,3,medium,detached house,owned
+2450,2450,1,medium,detached house,owned
+2451,2451,4,high,detached house,owned
+2452,2452,4,high,detached house,owned
+2453,2453,5,high,apartment,owned
+2454,2454,4,low,apartment,rented
+2455,2455,4,medium,apartment,owned
+2456,2456,2,high,apartment,owned
+2457,2457,1,low,detached house,rented
+2458,2458,1,medium,detached house,owned
+2459,2459,1,high,apartment,owned
+2460,2460,5,high,detached house,rented
+2461,2461,1,high,apartment,rented
+2462,2462,4,medium,apartment,owned
+2463,2463,4,high,detached house,owned
+2464,2464,3,high,detached house,owned
+2465,2465,4,medium,detached house,rented
+2466,2466,5,low,detached house,owned
+2467,2467,4,low,apartment,owned
+2468,2468,3,low,apartment,owned
+2469,2469,1,high,detached house,owned
+2470,2470,1,medium,apartment,rented
+2471,2471,4,medium,detached house,rented
+2472,2472,4,low,detached house,owned
+2473,2473,3,high,apartment,owned
+2474,2474,1,low,detached house,rented
+2475,2475,2,medium,apartment,rented
+2476,2476,4,low,detached house,rented
+2477,2477,4,high,detached house,owned
+2478,2478,2,low,apartment,owned
+2479,2479,3,medium,detached house,owned
+2480,2480,4,low,apartment,rented
+2481,2481,3,low,detached house,rented
+2482,2482,4,high,detached house,rented
+2483,2483,4,medium,detached house,rented
+2484,2484,3,medium,detached house,owned
+2485,2485,3,low,detached house,rented
+2486,2486,2,high,detached house,owned
+2487,2487,4,low,apartment,rented
+2488,2488,5,medium,detached house,rented
+2489,2489,2,low,apartment,owned
+2490,2490,5,medium,apartment,owned
+2491,2491,3,medium,detached house,owned
+2492,2492,3,high,apartment,owned
+2493,2493,4,high,apartment,owned
+2494,2494,2,low,apartment,owned
+2495,2495,5,low,detached house,owned
+2496,2496,5,low,apartment,owned
+2497,2497,4,low,apartment,rented
+2498,2498,2,high,apartment,rented
+2499,2499,4,medium,apartment,owned
+2500,2500,2,medium,apartment,owned
+2501,2501,4,high,apartment,rented
+2502,2502,1,high,apartment,rented
+2503,2503,4,low,detached house,owned
+2504,2504,1,low,detached house,owned
+2505,2505,3,medium,detached house,owned
+2506,2506,3,low,detached house,owned
+2507,2507,3,medium,detached house,rented
+2508,2508,3,high,apartment,rented
+2509,2509,1,low,apartment,owned
+2510,2510,5,low,apartment,rented
+2511,2511,4,low,apartment,owned
+2512,2512,1,high,detached house,owned
+2513,2513,3,high,apartment,rented
+2514,2514,5,low,detached house,owned
+2515,2515,4,high,apartment,owned
+2516,2516,3,high,detached house,owned
+2517,2517,1,high,detached house,rented
+2518,2518,3,high,detached house,rented
+2519,2519,1,low,detached house,owned
+2520,2520,4,low,detached house,rented
+2521,2521,2,low,detached house,owned
+2522,2522,2,medium,apartment,rented
+2523,2523,3,low,apartment,rented
+2524,2524,1,high,apartment,owned
+2525,2525,2,medium,detached house,rented
+2526,2526,5,medium,detached house,owned
+2527,2527,5,medium,detached house,owned
+2528,2528,3,medium,detached house,rented
+2529,2529,3,medium,detached house,owned
+2530,2530,3,medium,detached house,rented
+2531,2531,2,medium,detached house,rented
+2532,2532,4,medium,detached house,owned
+2533,2533,4,high,detached house,rented
+2534,2534,5,medium,detached house,owned
+2535,2535,5,high,detached house,rented
+2536,2536,1,medium,detached house,rented
+2537,2537,2,medium,apartment,rented
+2538,2538,4,high,detached house,rented
+2539,2539,1,medium,detached house,rented
+2540,2540,5,medium,detached house,owned
+2541,2541,3,low,apartment,rented
+2542,2542,4,low,detached house,owned
+2543,2543,1,high,detached house,rented
+2544,2544,2,high,detached house,rented
+2545,2545,3,low,apartment,rented
+2546,2546,4,medium,apartment,rented
+2547,2547,4,high,detached house,owned
+2548,2548,4,low,apartment,owned
+2549,2549,5,high,apartment,rented
+2550,2550,2,high,apartment,owned
+2551,2551,4,medium,apartment,owned
+2552,2552,2,high,detached house,rented
+2553,2553,4,low,apartment,owned
+2554,2554,3,low,detached house,rented
+2555,2555,5,high,apartment,rented
+2556,2556,1,high,apartment,owned
+2557,2557,1,high,apartment,owned
+2558,2558,2,high,apartment,owned
+2559,2559,4,medium,detached house,owned
+2560,2560,5,low,apartment,rented
+2561,2561,1,low,detached house,rented
+2562,2562,2,high,apartment,owned
+2563,2563,3,high,apartment,rented
+2564,2564,2,low,detached house,rented
+2565,2565,4,low,apartment,rented
+2566,2566,2,high,detached house,owned
+2567,2567,2,low,apartment,rented
+2568,2568,5,medium,detached house,owned
+2569,2569,2,high,apartment,rented
+2570,2570,2,low,apartment,rented
+2571,2571,3,high,apartment,rented
+2572,2572,1,medium,detached house,rented
+2573,2573,4,low,detached house,owned
+2574,2574,1,low,apartment,owned
+2575,2575,3,high,apartment,owned
+2576,2576,1,low,apartment,owned
+2577,2577,3,low,apartment,owned
+2578,2578,4,medium,detached house,owned
+2579,2579,5,high,apartment,owned
+2580,2580,4,low,detached house,rented
+2581,2581,3,low,detached house,rented
+2582,2582,3,high,apartment,owned
+2583,2583,2,high,detached house,owned
+2584,2584,3,high,detached house,owned
+2585,2585,5,high,detached house,owned
+2586,2586,4,high,detached house,owned
+2587,2587,5,medium,apartment,owned
+2588,2588,3,high,detached house,owned
+2589,2589,1,medium,apartment,rented
+2590,2590,2,low,detached house,owned
+2591,2591,2,high,apartment,owned
+2592,2592,1,high,detached house,owned
+2593,2593,5,medium,apartment,owned
+2594,2594,1,low,detached house,owned
+2595,2595,2,medium,detached house,rented
+2596,2596,2,high,apartment,owned
+2597,2597,4,low,apartment,rented
+2598,2598,2,high,detached house,owned
+2599,2599,3,high,apartment,rented
+2600,2600,3,low,detached house,owned
+2601,2601,2,medium,apartment,rented
+2602,2602,5,high,detached house,owned
+2603,2603,3,low,apartment,owned
+2604,2604,3,low,detached house,rented
+2605,2605,4,low,apartment,owned
+2606,2606,2,low,detached house,rented
+2607,2607,5,low,apartment,rented
+2608,2608,5,medium,detached house,rented
+2609,2609,4,high,apartment,owned
+2610,2610,4,medium,detached house,owned
+2611,2611,2,high,detached house,rented
+2612,2612,3,medium,detached house,rented
+2613,2613,3,medium,apartment,owned
+2614,2614,2,high,detached house,owned
+2615,2615,1,high,detached house,owned
+2616,2616,4,high,detached house,rented
+2617,2617,5,high,detached house,owned
+2618,2618,1,high,apartment,rented
+2619,2619,4,medium,detached house,rented
+2620,2620,3,medium,apartment,owned
+2621,2621,1,low,apartment,rented
+2622,2622,1,low,apartment,rented
+2623,2623,5,low,apartment,owned
+2624,2624,5,medium,apartment,owned
+2625,2625,3,medium,detached house,rented
+2626,2626,2,low,apartment,rented
+2627,2627,3,medium,detached house,owned
+2628,2628,5,low,detached house,owned
+2629,2629,4,high,apartment,owned
+2630,2630,4,medium,detached house,owned
+2631,2631,1,medium,apartment,rented
+2632,2632,3,low,detached house,rented
+2633,2633,3,medium,apartment,rented
+2634,2634,3,medium,apartment,owned
+2635,2635,4,high,detached house,owned
+2636,2636,3,high,detached house,rented
+2637,2637,1,low,detached house,rented
+2638,2638,3,low,detached house,owned
+2639,2639,2,low,detached house,owned
+2640,2640,5,low,apartment,rented
+2641,2641,2,low,detached house,rented
+2642,2642,3,low,apartment,owned
+2643,2643,2,medium,detached house,rented
+2644,2644,1,high,detached house,owned
+2645,2645,3,medium,apartment,rented
+2646,2646,1,high,apartment,rented
+2647,2647,5,low,apartment,owned
+2648,2648,3,low,apartment,rented
+2649,2649,1,low,detached house,owned
+2650,2650,3,high,detached house,owned
+2651,2651,5,high,apartment,rented
+2652,2652,1,medium,apartment,rented
+2653,2653,1,medium,detached house,rented
+2654,2654,4,high,detached house,owned
+2655,2655,1,medium,apartment,rented
+2656,2656,3,low,apartment,rented
+2657,2657,4,high,detached house,owned
+2658,2658,4,low,apartment,owned
+2659,2659,1,low,detached house,rented
+2660,2660,2,medium,detached house,rented
+2661,2661,3,high,detached house,owned
+2662,2662,1,low,apartment,rented
+2663,2663,5,low,apartment,owned
+2664,2664,1,high,apartment,rented
+2665,2665,4,medium,apartment,owned
+2666,2666,1,low,apartment,rented
+2667,2667,1,low,apartment,rented
+2668,2668,4,low,apartment,rented
+2669,2669,3,medium,apartment,owned
+2670,2670,2,medium,apartment,owned
+2671,2671,3,low,apartment,rented
+2672,2672,3,medium,detached house,rented
+2673,2673,5,medium,detached house,owned
+2674,2674,5,high,apartment,rented
+2675,2675,5,low,detached house,owned
+2676,2676,2,low,apartment,owned
+2677,2677,1,low,apartment,rented
+2678,2678,1,low,detached house,rented
+2679,2679,4,medium,detached house,rented
+2680,2680,5,low,apartment,owned
+2681,2681,1,medium,detached house,owned
+2682,2682,2,high,detached house,owned
+2683,2683,5,low,detached house,rented
+2684,2684,5,low,detached house,owned
+2685,2685,4,high,apartment,rented
+2686,2686,5,medium,apartment,rented
+2687,2687,4,low,detached house,rented
+2688,2688,1,medium,detached house,rented
+2689,2689,2,low,apartment,rented
+2690,2690,4,medium,detached house,owned
+2691,2691,1,high,detached house,rented
+2692,2692,3,medium,apartment,rented
+2693,2693,3,high,detached house,owned
+2694,2694,4,high,detached house,owned
+2695,2695,5,medium,apartment,owned
+2696,2696,3,high,apartment,rented
+2697,2697,3,high,apartment,owned
+2698,2698,2,low,detached house,owned
+2699,2699,1,high,detached house,rented
+2700,2700,5,medium,apartment,rented
+2701,2701,2,medium,detached house,owned
+2702,2702,3,high,apartment,owned
+2703,2703,1,medium,apartment,owned
+2704,2704,5,medium,apartment,owned
+2705,2705,5,medium,apartment,rented
+2706,2706,3,low,detached house,owned
+2707,2707,4,low,detached house,rented
+2708,2708,5,low,detached house,owned
+2709,2709,3,medium,apartment,rented
+2710,2710,5,medium,detached house,owned
+2711,2711,5,high,apartment,rented
+2712,2712,2,high,detached house,rented
+2713,2713,2,low,detached house,owned
+2714,2714,2,high,detached house,owned
+2715,2715,2,low,apartment,rented
+2716,2716,4,high,apartment,owned
+2717,2717,2,high,detached house,rented
+2718,2718,2,medium,apartment,rented
+2719,2719,1,medium,apartment,owned
+2720,2720,3,medium,apartment,owned
+2721,2721,4,high,detached house,rented
+2722,2722,2,medium,apartment,rented
+2723,2723,2,low,apartment,rented
+2724,2724,5,low,detached house,rented
+2725,2725,1,medium,apartment,owned
+2726,2726,4,medium,detached house,rented
+2727,2727,2,high,detached house,rented
+2728,2728,4,low,detached house,rented
+2729,2729,2,low,apartment,rented
+2730,2730,4,medium,detached house,rented
+2731,2731,5,medium,apartment,owned
+2732,2732,5,medium,apartment,owned
+2733,2733,3,high,apartment,owned
+2734,2734,3,low,apartment,rented
+2735,2735,5,low,detached house,owned
+2736,2736,4,high,detached house,rented
+2737,2737,2,low,detached house,rented
+2738,2738,5,low,apartment,owned
+2739,2739,5,medium,apartment,owned
+2740,2740,5,low,detached house,owned
+2741,2741,3,medium,apartment,owned
+2742,2742,4,low,apartment,owned
+2743,2743,2,high,detached house,owned
+2744,2744,2,high,detached house,owned
+2745,2745,5,high,apartment,rented
+2746,2746,5,medium,detached house,rented
+2747,2747,5,high,apartment,owned
+2748,2748,3,low,apartment,rented
+2749,2749,3,low,detached house,owned
+2750,2750,4,low,apartment,owned
+2751,2751,5,low,apartment,owned
+2752,2752,4,medium,apartment,owned
+2753,2753,4,high,apartment,rented
+2754,2754,5,medium,detached house,rented
+2755,2755,1,low,detached house,owned
+2756,2756,1,medium,detached house,rented
+2757,2757,1,low,detached house,owned
+2758,2758,2,low,apartment,rented
+2759,2759,2,medium,detached house,rented
+2760,2760,5,high,detached house,rented
+2761,2761,5,medium,apartment,owned
+2762,2762,1,low,detached house,owned
+2763,2763,5,medium,detached house,rented
+2764,2764,1,medium,apartment,rented
+2765,2765,1,high,detached house,rented
+2766,2766,4,low,detached house,rented
+2767,2767,1,low,detached house,owned
+2768,2768,1,medium,detached house,rented
+2769,2769,1,medium,apartment,rented
+2770,2770,2,high,apartment,owned
+2771,2771,2,low,apartment,rented
+2772,2772,4,low,detached house,rented
+2773,2773,5,low,apartment,owned
+2774,2774,3,high,apartment,rented
+2775,2775,3,high,apartment,rented
+2776,2776,1,low,detached house,rented
+2777,2777,4,high,apartment,rented
+2778,2778,1,high,apartment,rented
+2779,2779,3,medium,detached house,owned
+2780,2780,4,medium,detached house,rented
+2781,2781,5,low,detached house,rented
+2782,2782,1,medium,apartment,owned
+2783,2783,2,low,apartment,rented
+2784,2784,2,low,detached house,owned
+2785,2785,2,low,apartment,rented
+2786,2786,1,high,detached house,owned
+2787,2787,2,medium,detached house,owned
+2788,2788,1,low,detached house,owned
+2789,2789,5,high,apartment,owned
+2790,2790,1,medium,detached house,rented
+2791,2791,2,high,detached house,rented
+2792,2792,4,medium,apartment,owned
+2793,2793,5,high,apartment,rented
+2794,2794,3,medium,detached house,rented
+2795,2795,2,low,detached house,owned
+2796,2796,1,medium,detached house,rented
+2797,2797,5,medium,apartment,owned
+2798,2798,3,low,apartment,owned
+2799,2799,5,low,apartment,owned
+2800,2800,3,high,apartment,rented
+2801,2801,4,medium,detached house,owned
+2802,2802,5,low,apartment,rented
+2803,2803,3,low,detached house,owned
+2804,2804,4,high,detached house,rented
+2805,2805,2,low,detached house,rented
+2806,2806,4,low,detached house,rented
+2807,2807,3,medium,apartment,owned
+2808,2808,5,medium,detached house,owned
+2809,2809,1,medium,detached house,rented
+2810,2810,5,low,apartment,owned
+2811,2811,1,high,apartment,rented
+2812,2812,2,high,detached house,owned
+2813,2813,2,low,apartment,owned
+2814,2814,2,medium,detached house,owned
+2815,2815,3,low,apartment,rented
+2816,2816,3,high,detached house,rented
+2817,2817,5,medium,apartment,rented
+2818,2818,5,low,detached house,owned
+2819,2819,1,high,apartment,rented
+2820,2820,4,medium,apartment,rented
+2821,2821,1,low,apartment,owned
+2822,2822,1,low,detached house,rented
+2823,2823,4,medium,detached house,rented
+2824,2824,1,medium,apartment,owned
+2825,2825,3,medium,apartment,owned
+2826,2826,3,medium,detached house,rented
+2827,2827,2,high,apartment,rented
+2828,2828,3,high,apartment,rented
+2829,2829,1,low,apartment,owned
+2830,2830,2,high,apartment,owned
+2831,2831,5,low,detached house,rented
+2832,2832,4,medium,apartment,rented
+2833,2833,1,low,apartment,owned
+2834,2834,4,low,detached house,rented
+2835,2835,3,low,apartment,rented
+2836,2836,4,high,apartment,rented
+2837,2837,4,low,apartment,rented
+2838,2838,4,low,detached house,rented
+2839,2839,3,low,apartment,owned
+2840,2840,3,medium,detached house,owned
+2841,2841,3,medium,apartment,rented
+2842,2842,3,low,apartment,rented
+2843,2843,1,medium,apartment,rented
+2844,2844,2,high,detached house,rented
+2845,2845,1,medium,apartment,rented
+2846,2846,1,low,apartment,rented
+2847,2847,2,low,detached house,owned
+2848,2848,1,low,detached house,owned
+2849,2849,2,high,apartment,owned
+2850,2850,4,high,detached house,rented
+2851,2851,2,high,detached house,rented
+2852,2852,3,high,detached house,owned
+2853,2853,5,low,detached house,owned
+2854,2854,3,medium,apartment,owned
+2855,2855,2,low,apartment,rented
+2856,2856,3,high,detached house,owned
+2857,2857,5,medium,detached house,rented
+2858,2858,3,high,apartment,owned
+2859,2859,2,high,apartment,owned
+2860,2860,2,medium,detached house,owned
+2861,2861,4,high,apartment,owned
+2862,2862,4,low,apartment,owned
+2863,2863,1,medium,detached house,rented
+2864,2864,1,high,detached house,rented
+2865,2865,5,low,detached house,owned
+2866,2866,4,medium,apartment,owned
+2867,2867,5,medium,apartment,rented
+2868,2868,1,high,apartment,owned
+2869,2869,1,medium,apartment,rented
+2870,2870,3,high,apartment,rented
+2871,2871,5,low,detached house,owned
+2872,2872,5,low,apartment,rented
+2873,2873,1,medium,apartment,rented
+2874,2874,5,medium,detached house,owned
+2875,2875,3,medium,apartment,rented
+2876,2876,2,medium,apartment,rented
+2877,2877,1,high,detached house,rented
+2878,2878,4,high,apartment,owned
+2879,2879,4,high,apartment,owned
+2880,2880,3,high,detached house,rented
+2881,2881,1,high,detached house,owned
+2882,2882,5,high,detached house,rented
+2883,2883,4,low,apartment,rented
+2884,2884,3,medium,apartment,rented
+2885,2885,1,medium,apartment,rented
+2886,2886,2,low,detached house,rented
+2887,2887,4,high,detached house,rented
+2888,2888,1,high,detached house,owned
+2889,2889,5,low,detached house,rented
+2890,2890,3,low,apartment,owned
+2891,2891,5,low,detached house,rented
+2892,2892,2,low,detached house,rented
+2893,2893,3,low,apartment,owned
+2894,2894,4,high,detached house,owned
+2895,2895,1,low,detached house,rented
+2896,2896,5,high,apartment,owned
+2897,2897,2,high,detached house,owned
+2898,2898,2,medium,apartment,owned
+2899,2899,5,low,apartment,rented
+2900,2900,4,high,apartment,owned
+2901,2901,3,low,detached house,owned
+2902,2902,5,low,detached house,rented
+2903,2903,3,medium,detached house,owned
+2904,2904,3,medium,apartment,owned
+2905,2905,4,high,detached house,owned
+2906,2906,2,low,detached house,owned
+2907,2907,4,high,detached house,rented
+2908,2908,5,high,apartment,owned
+2909,2909,2,low,detached house,owned
+2910,2910,1,high,apartment,owned
+2911,2911,3,high,apartment,owned
+2912,2912,2,high,apartment,owned
+2913,2913,4,low,apartment,rented
+2914,2914,2,low,apartment,owned
+2915,2915,4,high,apartment,rented
+2916,2916,5,high,apartment,rented
+2917,2917,1,low,detached house,owned
+2918,2918,3,medium,apartment,rented
+2919,2919,5,low,apartment,rented
+2920,2920,4,medium,apartment,rented
+2921,2921,2,low,apartment,rented
+2922,2922,3,low,detached house,owned
+2923,2923,2,medium,detached house,rented
+2924,2924,4,high,apartment,rented
+2925,2925,3,high,apartment,owned
+2926,2926,1,high,detached house,rented
+2927,2927,2,low,apartment,owned
+2928,2928,2,low,detached house,owned
+2929,2929,3,high,detached house,owned
+2930,2930,3,high,detached house,owned
+2931,2931,5,high,apartment,owned
+2932,2932,5,low,detached house,owned
+2933,2933,5,medium,detached house,rented
+2934,2934,2,high,detached house,owned
+2935,2935,4,high,detached house,rented
+2936,2936,4,medium,detached house,owned
+2937,2937,3,low,apartment,rented
+2938,2938,1,medium,detached house,rented
+2939,2939,1,medium,detached house,rented
+2940,2940,4,high,detached house,rented
+2941,2941,4,high,apartment,rented
+2942,2942,4,high,apartment,rented
+2943,2943,1,medium,detached house,rented
+2944,2944,4,low,apartment,owned
+2945,2945,2,medium,detached house,rented
+2946,2946,3,high,apartment,owned
+2947,2947,5,low,detached house,owned
+2948,2948,2,medium,detached house,rented
+2949,2949,5,low,apartment,rented
+2950,2950,5,high,apartment,owned
+2951,2951,5,low,apartment,owned
+2952,2952,5,low,apartment,owned
+2953,2953,5,high,apartment,rented
+2954,2954,2,low,apartment,owned
+2955,2955,4,medium,apartment,rented
+2956,2956,4,low,apartment,owned
+2957,2957,2,high,apartment,rented
+2958,2958,5,high,apartment,rented
+2959,2959,1,medium,apartment,rented
+2960,2960,3,medium,detached house,rented
+2961,2961,2,medium,apartment,rented
+2962,2962,3,low,detached house,rented
+2963,2963,2,high,detached house,rented
+2964,2964,2,medium,detached house,rented
+2965,2965,4,medium,detached house,owned
+2966,2966,1,medium,detached house,owned
+2967,2967,4,low,detached house,rented
+2968,2968,5,medium,detached house,owned
+2969,2969,5,high,apartment,rented
+2970,2970,5,low,apartment,owned
+2971,2971,5,medium,apartment,owned
+2972,2972,3,high,apartment,rented
+2973,2973,5,high,apartment,owned
+2974,2974,3,low,detached house,owned
+2975,2975,4,medium,apartment,rented
+2976,2976,2,low,detached house,rented
+2977,2977,1,low,detached house,owned
+2978,2978,2,high,detached house,rented
+2979,2979,3,high,apartment,rented
+2980,2980,2,low,detached house,rented
+2981,2981,5,medium,apartment,owned
+2982,2982,1,high,apartment,rented
+2983,2983,3,low,apartment,rented
+2984,2984,1,medium,apartment,owned
+2985,2985,4,low,detached house,rented
+2986,2986,2,medium,apartment,rented
+2987,2987,1,high,detached house,owned
+2988,2988,4,high,apartment,owned
+2989,2989,4,low,detached house,owned
+2990,2990,1,high,apartment,rented
+2991,2991,2,low,apartment,owned
+2992,2992,1,high,apartment,rented
+2993,2993,5,medium,apartment,rented
+2994,2994,3,low,apartment,rented
+2995,2995,2,low,apartment,owned
+2996,2996,3,high,detached house,rented
+2997,2997,5,high,apartment,rented
+2998,2998,5,low,apartment,rented
+2999,2999,5,high,apartment,rented
+3000,3000,4,high,detached house,owned

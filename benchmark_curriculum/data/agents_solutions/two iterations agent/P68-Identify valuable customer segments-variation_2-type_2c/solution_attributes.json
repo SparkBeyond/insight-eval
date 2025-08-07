@@ -1,0 +1,22 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "spending_consistency",
+        "total_transaction_amount",
+        "total_sale_amount",
+        "transaction_income_ratio",
+        "preferred_product",
+        "average_sale_amount"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "spending consistency",
+        "total transaction amount",
+        "total sale amount",
+        "transaction income ratio",
+        "preferred product",
+        "average sale amount"
+    ]
+}

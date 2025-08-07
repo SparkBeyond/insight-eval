@@ -1,0 +1,125 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "total_data_usage",
+        "engagement_frequency",
+        "active_months_count",
+        "total_amount_spent",
+        "count_failed_payments",
+        "account_status_encoding",
+        "average_payment_amount",
+        "minutes_to_data_ratio",
+        "average_resolution_time",
+        "avg_payment_delay_failed",
+        "days_since_signup",
+        "average_daily_minutes",
+        "churn_rate_in_demographic",
+        "data_usage_variance",
+        "most_common_payment_method",
+        "most_frequent_service_type",
+        "most_common_issue_type",
+        "age_group",
+        "proportion_resolved_issues"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.13031223286928525": {
+            "name": "total_data_usage",
+            "code": "\n\ndef total_data_usage(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'service_usage_data_table' exists in aux_dataframes\n    if \"service_usage_data_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'service_usage_data_table.csv' is missing in aux_dataframes.\")\n    \n    # Access the service usage data table\n    data_usage_table = aux_dataframes[\"service_usage_data_table.csv\"]\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Calculate the total data usage for the given customer_id\n    total_usage = data_usage_table[data_usage_table['customer_id'] == customer_id]['data_used_gb'].sum()\n    \n    return total_usage\n"
+        },
+        "0.10666203973767367": {
+            "name": "engagement_frequency",
+            "code": "\n\ndef engagement_frequency(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if \"service_usage_data_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'service_usage_data_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the service usage data table\n    service_usage_table = aux_dataframes[\"service_usage_data_table.csv\"]\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Ensure the column names match the expected ones\n    if 'customer_id' not in service_usage_table.columns or 'date' not in service_usage_table.columns:\n        raise KeyError(\"The required columns 'customer_id' and 'date' are missing from the service_usage_data_table.\")\n    \n    # Calculate the number of unique engagement days for the customer\n    unique_days = service_usage_table[service_usage_table['customer_id'] == customer_id]['date'].nunique()\n    \n    return unique_days\n"
+        },
+        "0.04776461769904849": {
+            "name": "active_months_count",
+            "code": "import pandas as pd\n\ndef active_months_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if \"payment_history_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'payment_history_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the payment history table\n    payment_history = aux_dataframes[\"payment_history_table.csv\"]\n    \n    # Ensure the required columns exist in the payment history table\n    required_columns = {'customer_id', 'payment_date'}\n    if not required_columns.issubset(payment_history.columns):\n        raise KeyError(f\"The payment history table is missing one or more required columns: {required_columns}\")\n    \n    # Convert the 'payment_date' column to datetime if it is not already\n    if not pd.api.types.is_datetime64_any_dtype(payment_history['payment_date']):\n        payment_history['payment_date'] = pd.to_datetime(payment_history['payment_date'], errors='coerce')\n    \n    # Check for any invalid dates (NaT) after conversion\n    if payment_history['payment_date'].isna().any():\n        raise ValueError(\"The 'payment_date' column contains invalid or unparseable dates.\")\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the payment history for the given customer_id and count unique months\n    unique_months = payment_history[payment_history['customer_id'] == customer_id]['payment_date'].dt.to_period('M').nunique()\n    \n    return unique_months\n"
+        },
+        "0.0397501197489041": {
+            "name": "total_amount_spent",
+            "code": "\n\ndef total_amount_spent(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> float:\n    # Ensure the key exists in the aux_dataframes dictionary\n    if \"payment_history_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'payment_history_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the payment history dataframe\n    payment_history = aux_dataframes[\"payment_history_table.csv\"]\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the payment history for the given customer_id and sum the 'amount' column\n    total_spent = payment_history[payment_history['customer_id'] == customer_id]['amount'].sum()\n    \n    return total_spent\n"
+        },
+        "0.039075454993928005": {
+            "name": "count_failed_payments",
+            "code": "\n\ndef count_failed_payments(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the correct key is used to access the payment history table\n    payment_history = aux_dataframes.get(\"payment_history_table.csv\")\n    \n    # Check if the payment_history dataframe exists\n    if payment_history is None:\n        raise KeyError(\"The key 'payment_history_table.csv' is not found in aux_dataframes.\")\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the payment history for the given customer_id and failed payments\n    failed_payments = payment_history[\n        (payment_history['customer_id'] == customer_id) & \n        (payment_history['payment_status'] == 'Failed')\n    ].shape[0]\n    \n    return failed_payments\n"
+        },
+        "0.034237267930187054": {
+            "name": "account_status_encoding",
+            "code": "\n\ndef account_status_encoding(row):\n    status_mapping = {'Active': 1, 'Inactive': 0, 'Suspended': -1}\n    status_encoded = status_mapping.get(row['account_status'], 0)\n    return status_encoded\n"
+        },
+        "0.030179096721563294": {
+            "name": "average_payment_amount",
+            "code": "\n\ndef average_payment_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if \"payment_history_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'payment_history_table.csv' is missing from aux_dataframes.\")\n    \n    # Get the payment history dataframe\n    payment_history = aux_dataframes[\"payment_history_table.csv\"]\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the payment history for the given customer_id and calculate the mean of the 'amount' column\n    average_amount = payment_history[payment_history['customer_id'] == customer_id]['amount'].mean()\n    \n    return average_amount\n"
+        },
+        "0.02782144522452294": {
+            "name": "minutes_to_data_ratio",
+            "code": "\n\ndef minutes_to_data_ratio(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> float:\n    \"\"\"\n    Calculates the ratio of total minutes used to total data used for a given customer.\n    \n    Parameters:\n        row: pd.Series - A row of the dataframe with customer details.\n        aux_dataframes: Dict[str, pd.DataFrame] - Auxiliary dataframes including service usage information.\n    \n    Returns:\n        float: Ratio of total minutes used to total data used.\n    \"\"\"\n    # Ensure the key 'service_usage_data_table.csv' exists in aux_dataframes\n    if \"service_usage_data_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'service_usage_data_table.csv' is missing from aux_dataframes.\")\n    \n    # Retrieve the service usage data table\n    service_usage_table = aux_dataframes[\"service_usage_data_table.csv\"]\n    \n    # Ensure the required columns exist in the service usage table\n    required_columns = {'customer_id', 'data_used_gb', 'minutes_used'}\n    if not required_columns.issubset(service_usage_table.columns):\n        raise ValueError(f\"The service usage table is missing one or more required columns: {required_columns}\")\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the service usage table for the specific customer\n    customer_data = service_usage_table[service_usage_table['customer_id'] == customer_id]\n    \n    # Calculate the total minutes and total data used\n    total_minutes = customer_data['minutes_used'].sum()\n    total_data = customer_data['data_used_gb'].sum()\n    \n    # Calculate and return the ratio (handling division by zero)\n    ratio = total_minutes / total_data if total_data > 0 else 0\n    return ratio\n"
+        },
+        "0.024240017160049195": {
+            "name": "average_resolution_time",
+            "code": "\n\ndef average_resolution_time(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if \"customer_support_records_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'customer_support_records_table.csv' is missing from aux_dataframes.\")\n    \n    # Get the customer support records dataframe\n    support_records = aux_dataframes[\"customer_support_records_table.csv\"]\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the support records for the given customer_id and calculate the mean resolution time\n    avg_time = support_records[support_records['customer_id'] == customer_id]['resolution_time_hours'].mean()\n    \n    return avg_time\n"
+        },
+        "0.021270426846089673": {
+            "name": "avg_payment_delay_failed",
+            "code": "\n\ndef avg_payment_delay_failed(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the correct key is used to access the payment history table\n    payment_history = aux_dataframes.get(\"payment_history_table.csv\")\n    \n    # Check if the payment_history dataframe exists\n    if payment_history is None:\n        raise KeyError(\"The key 'payment_history_table.csv' is not found in aux_dataframes.\")\n    \n    customer_id = row['customer_id']\n    \n    # Filter for failed payments for the given customer\n    failed_payments = payment_history[\n        (payment_history['customer_id'] == customer_id) & \n        (payment_history['payment_status'] == 'Failed')\n    ].sort_values(by='payment_date')\n    \n    # Check if there are multiple failed payments to calculate delays\n    if len(failed_payments) > 1:\n        # Calculate the difference in days between consecutive failed payments\n        delays = failed_payments['payment_date'].diff().dt.days\n        return delays.mean()  # Return the average delay\n    \n    # Return 0 if there are no or only one failed payment\n    return 0\n"
+        },
+        "0.02020904901205812": {
+            "name": "days_since_signup",
+            "code": "import pandas as pd\nimport datetime\n\ndef days_since_signup(row: pd.Series, aux_data: Dict[str, pd.DataFrame] = None) -> int:\n    # Parse the signup_date from the row\n    signup_date = pd.to_datetime(row['signup_date'])\n    \n    # Get the current date\n    current_date = datetime.now()\n    \n    # Calculate the number of days since signup\n    days_since = (current_date - signup_date).days\n    \n    return days_since\n"
+        },
+        "0.01642695083500961": {
+            "name": "average_daily_minutes",
+            "code": "\n\ndef average_daily_minutes(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if the key 'service_usage_data_table' exists in aux_dataframes\n    if \"service_usage_data_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'service_usage_data_table.csv' is missing from aux_dataframes.\")\n    \n    # Retrieve the service usage table\n    service_usage_table = aux_dataframes[\"service_usage_data_table.csv\"]\n    \n    # Ensure the required columns exist in the service usage table\n    required_columns = {'customer_id', 'minutes_used'}\n    if not required_columns.issubset(service_usage_table.columns):\n        raise ValueError(f\"The service usage table is missing one or more required columns: {required_columns}\")\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the service usage table for the given customer_id and calculate the average minutes used\n    customer_data = service_usage_table[service_usage_table['customer_id'] == customer_id]\n    avg_minutes = customer_data['minutes_used'].mean()\n    \n    return avg_minutes\n"
+        },
+        "0.010263813671685577": {
+            "name": "churn_rate_in_demographic",
+            "code": "import pandas as pd\n\ndef churn_rate_in_demographic(row, df_train):\n    # Filter out the current row to prevent target leakage\n    df_filtered = df_train[df_train['customer_id'] != row['customer_id']]\n    \n    # Ensure no data from the future is used\n    df_filtered = df_filtered[df_filtered['signup_date'] <= row['signup_date']]\n    \n    # Calculate the churn rate for the demographic group\n    demographic_group = row['gender']\n    churn_rate = df_filtered[df_filtered['gender'] == demographic_group]['churn_flag'].mean()\n    \n    # Handle cases where the demographic group has no data (to avoid NaN)\n    if pd.isna(churn_rate):\n        churn_rate = 0.0  # Default value, can be adjusted based on domain knowledge\n    \n    return churn_rate\n"
+        },
+        "0.0011803179253409345": {
+            "name": "data_usage_variance",
+            "code": "\n\ndef data_usage_variance(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'service_usage_data_table.csv' exists in aux_dataframes\n    if \"service_usage_data_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'service_usage_data_table.csv' is missing from aux_dataframes.\")\n    \n    # Retrieve the service usage table\n    service_usage_table = aux_dataframes[\"service_usage_data_table.csv\"]\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the service usage table for the given customer_id\n    customer_usage = service_usage_table[service_usage_table['customer_id'] == customer_id]\n    \n    # Calculate the variance of the 'data_used_gb' column\n    variance = customer_usage['data_used_gb'].var()\n    \n    return variance\n"
+        },
+        "0.0005489889995917707": {
+            "name": "most_common_payment_method",
+            "code": "\n\ndef most_common_payment_method(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if \"payment_history_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'payment_history_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the payment history table\n    payment_history = aux_dataframes[\"payment_history_table.csv\"]\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the payment history for the given customer_id\n    customer_payments = payment_history[payment_history['customer_id'] == customer_id]\n    \n    # Check if there are any payments for the customer\n    if customer_payments.empty:\n        return None  # Return None if no payment history exists for the customer\n    \n    # Get the most common payment method\n    payment_method = customer_payments['payment_method'].mode()\n    \n    # Check if mode() returned a value\n    if payment_method.empty:\n        return None  # Return None if no mode could be determined\n    \n    return payment_method.values[0]\n"
+        },
+        "-0.0003350895893845518": {
+            "name": "most_frequent_service_type",
+            "code": "\n\ndef most_frequent_service_type(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if \"service_usage_data_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'service_usage_data_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the service usage data table\n    service_usage_table = aux_dataframes[\"service_usage_data_table.csv\"]\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the service usage table for the given customer_id\n    customer_service_data = service_usage_table[service_usage_table['customer_id'] == customer_id]\n    \n    # Check if there are any rows for the given customer_id\n    if customer_service_data.empty:\n        return None  # Return None if no data is available for the customer\n    \n    # Get the most frequent service type using mode()\n    service_type_mode = customer_service_data['service_type'].mode()\n    \n    # Check if mode() returned a result\n    if service_type_mode.empty:\n        return None  # Return None if no mode is found\n    \n    # Return the most frequent service type\n    return service_type_mode.values[0]\n"
+        },
+        "0.0003284581873638226": {
+            "name": "most_common_issue_type",
+            "code": "\n\ndef most_common_issue_type(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if \"customer_support_records_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'customer_support_records_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the customer support records table\n    support_records = aux_dataframes[\"customer_support_records_table.csv\"]\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the support records for the given customer_id\n    customer_records = support_records[support_records['customer_id'] == customer_id]\n    \n    # Check if there are any records for the customer\n    if customer_records.empty:\n        return None  # Return None if no records are found\n    \n    # Get the most common issue type using mode()\n    issue_type_mode = customer_records['issue_type'].mode()\n    \n    # Check if mode() returned a value\n    if issue_type_mode.empty:\n        return None  # Return None if no mode is found\n    \n    # Return the most common issue type\n    return issue_type_mode.values[0]\n"
+        },
+        "-0.00013982145509161548": {
+            "name": "age_group",
+            "code": "\n\ndef age_group(row):\n    age = row['age']\n    if age <= 30:\n        return 'Young'\n    elif 31 <= age <= 60:\n        return 'Middle-aged'\n    else:\n        return 'Senior'\n"
+        },
+        "0": {
+            "name": "proportion_resolved_issues",
+            "code": "\n\ndef proportion_resolved_issues(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the correct key is used to access the customer support records table\n    support_records = aux_dataframes.get(\"customer_support_records_table.csv\")\n    \n    # Check if the support_records dataframe exists\n    if support_records is None:\n        raise KeyError(\"The key 'customer_support_records_table.csv' is not found in aux_dataframes.\")\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the support records for the given customer_id\n    customer_support_records = support_records[support_records['customer_id'] == customer_id]\n    \n    # Calculate the total number of issues\n    total_issues = customer_support_records.shape[0]\n    \n    # Calculate the number of resolved issues (assuming 'resolved' column is a boolean or contains 'Yes'/'No')\n    resolved_issues = customer_support_records[customer_support_records['resolved'] == 'Yes'].shape[0]\n    \n    # Calculate the proportion of resolved issues\n    proportion = resolved_issues / total_issues if total_issues > 0 else 0\n    \n    return proportion\n"
+        }
+    },
+    "feature_descriptions": [
+        "total data usage",
+        "engagement frequency",
+        "active months count",
+        "total amount spent",
+        "count failed payments",
+        "account status encoding",
+        "average payment amount",
+        "minutes to data ratio",
+        "average resolution time",
+        "avg payment delay failed",
+        "days since signup",
+        "average daily minutes",
+        "churn rate in demographic",
+        "data usage variance",
+        "most common payment method",
+        "most frequent service type",
+        "most common issue type",
+        "age group",
+        "proportion resolved issues"
+    ]
+}

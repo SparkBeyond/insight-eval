@@ -1,0 +1,28 @@
+{
+    "enriched_column_names": [
+        "mean_precipitation_level_during_operation_days_this_year",
+        "average_usage_hours_per_month_over_the_last_year",
+        "age_of_the_vehicle_in_operation",
+        "mean_temperature_during_operation_this_quarter",
+        "fuel_efficiency_trends_over_the_past_year",
+        "number_of_maintenance_logs_in_the_last_6_months",
+        "average_gap_between_successive_maintenance_tasks",
+        "instances_of_driver_complaints_per_vehicle",
+        "instances_of_overloading_beyond_recommended_capacity_recent_quarter",
+        "average_daily_operating_time_in_peak_seasons",
+        "number_of_completed_preventive_maintenance_actions"
+    ],
+    "features_descriptions": [
+        "mean precipitation level during operation days this year",
+        "average usage hours per month over the last year",
+        "age of the vehicle in operation",
+        "mean temperature during operation this quarter",
+        "fuel efficiency trends over the past year",
+        "number of maintenance logs in the last 6 months",
+        "average gap between successive maintenance tasks",
+        "instances of driver complaints per vehicle",
+        "instances of overloading beyond recommended capacity recent quarter",
+        "average daily operating time in peak seasons",
+        "number of completed preventive maintenance actions"
+    ]
+}

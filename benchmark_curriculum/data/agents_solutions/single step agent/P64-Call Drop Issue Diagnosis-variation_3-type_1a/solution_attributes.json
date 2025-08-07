@@ -1,0 +1,65 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "std_env_condition",
+        "total_user_feedback",
+        "major_signal_issue",
+        "avg_user_feedback_sentiment",
+        "avg_env_condition",
+        "env_condition_anomalies_count",
+        "network_outage_flag",
+        "signal_strength_gradient",
+        "avg_signal_strength"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.12855162048989616": {
+            "name": "std_env_condition",
+            "code": "import pandas as pd\n\ndef std_env_condition(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the environmental conditions table\n    env_conditions = aux_dataframes['environmental_conditions_table.csv']\n    \n    # Use the correct timestamp column from the row (assuming 'start_time' is the intended column)\n    event_time = pd.to_datetime(row['start_time'])\n    \n    # Ensure the 'record_time' column in the environmental conditions table is in datetime format\n    env_conditions['record_time'] = pd.to_datetime(env_conditions['record_time'])\n    \n    # Filter environmental conditions within the 30-minute window before the event time\n    nearby_conditions = env_conditions[\n        (env_conditions['record_time'] >= event_time - pd.Timedelta(minutes=30)) &\n        (env_conditions['record_time'] <= event_time)\n    ]\n    \n    # Return the standard deviation of the 'temperature' column\n    return nearby_conditions['temperature'].std()\n"
+        },
+        "0.08159425253691424": {
+            "name": "total_user_feedback",
+            "code": "import pandas as pd\n\ndef total_user_feedback(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    user_feedback = aux_dataframes['user_feedback_table.csv']\n    \n    # Use 'start_time' as the timestamp for the row\n    event_time = pd.to_datetime(row['start_time'])\n    \n    # Filter user feedback within the last 1 day relative to the event_time\n    recent_feedback = user_feedback[\n        (pd.to_datetime(user_feedback['feedback_time']) >= event_time - pd.Timedelta(days=1)) &\n        (pd.to_datetime(user_feedback['feedback_time']) <= event_time)\n    ]\n    \n    # Return the count of recent feedback\n    return len(recent_feedback)\n"
+        },
+        "0.028498225445074434": {
+            "name": "major_signal_issue",
+            "code": "import pandas as pd\n\ndef major_signal_issue(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the signal strength data\n    signal_data = aux_dataframes['signal_strength_table.csv']\n    \n    # Use the 'start_time' column from the row as the event time\n    event_time = pd.to_datetime(row['start_time'])\n    \n    # Filter the signal data for records within 1 hour before the event time\n    nearby_signals = signal_data[\n        (pd.to_datetime(signal_data['record_time']) >= event_time - pd.Timedelta(hours=1)) & \n        (pd.to_datetime(signal_data['record_time']) <= event_time)\n    ]\n    \n    # Check if any signal strength is below -110 and return 1 if true, otherwise 0\n    return int((nearby_signals['signal_strength'] < -110).any())\n"
+        },
+        "0.026290876131706095": {
+            "name": "avg_user_feedback_sentiment",
+            "code": "import pandas as pd\n\ndef avg_user_feedback_sentiment(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the user feedback table from the auxiliary dataframes\n    user_feedback = aux_dataframes['user_feedback_table.csv']\n    \n    # Use the 'start_time' column as the timestamp for the event\n    event_time = pd.to_datetime(row['start_time'])\n    \n    # Filter feedback data for the last 1 day relative to the event time\n    recent_feedback = user_feedback[\n        (pd.to_datetime(user_feedback['feedback_time']) >= event_time - pd.Timedelta(days=1)) &\n        (pd.to_datetime(user_feedback['feedback_time']) <= event_time)\n    ]\n    \n    # Return the average feedback rating\n    return recent_feedback['rating'].mean()\n"
+        },
+        "0.018850445969401754": {
+            "name": "avg_env_condition",
+            "code": "import pandas as pd\n\ndef avg_env_condition(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the environmental conditions dataframe\n    env_conditions = aux_dataframes['environmental_conditions_table.csv']\n    \n    # Use the 'start_time' column from the row as the event timestamp\n    event_time = pd.to_datetime(row['start_time'])\n    \n    # Filter the environmental conditions to find records within 30 minutes before the event time\n    nearby_conditions = env_conditions[\n        (pd.to_datetime(env_conditions['record_time']) >= event_time - pd.Timedelta(minutes=30)) &\n        (pd.to_datetime(env_conditions['record_time']) <= event_time)\n    ]\n    \n    # Return the average temperature from the filtered conditions\n    return nearby_conditions['temperature'].mean()\n"
+        },
+        "0.011135243137557501": {
+            "name": "env_condition_anomalies_count",
+            "code": "import pandas as pd\n\ndef env_condition_anomalies_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the environmental conditions dataframe\n    env_conditions = aux_dataframes['environmental_conditions_table.csv']\n    \n    # Use the 'start_time' column from the row as the event time\n    event_time = pd.to_datetime(row['start_time'])\n    \n    # Define thresholds for anomaly detection (e.g., unusually high or low temperature)\n    temperature_low = 0  # Example: threshold for low temperature anomaly\n    temperature_high = 35  # Example: threshold for high temperature anomaly\n    \n    # Filter conditions within 24 hours of the event\n    recent_conditions = env_conditions[\n        (pd.to_datetime(env_conditions['record_time']) >= event_time - pd.Timedelta(days=1)) &\n        (pd.to_datetime(env_conditions['record_time']) <= event_time)\n    ]\n    \n    # Count anomalies (temperature outside the defined range)\n    anomaly_count = recent_conditions[\n        (recent_conditions['temperature'] < temperature_low) |\n        (recent_conditions['temperature'] > temperature_high)\n    ].shape[0]\n    \n    return anomaly_count\n"
+        },
+        "0.0105742581165763": {
+            "name": "network_outage_flag",
+            "code": "import pandas as pd\n\ndef network_outage_flag(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the network outages table\n    network_data = aux_dataframes['network_outages_table.csv']\n    \n    # Parse the event time from the row's 'start_time' column\n    event_time = pd.to_datetime(row['start_time'])\n    \n    # Filter the network outages that overlap with the event time\n    nearby_outages = network_data[\n        (pd.to_datetime(network_data['start_time']) <= event_time) &\n        (pd.to_datetime(network_data['end_time']) >= event_time)\n    ]\n    \n    # Return 1 if there are any overlapping outages, otherwise 0\n    return int(len(nearby_outages) > 0)\n"
+        },
+        "0.006530211109115118": {
+            "name": "signal_strength_gradient",
+            "code": "import pandas as pd\n\ndef signal_strength_gradient(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct column name for the timestamp\n    event_time = pd.to_datetime(row['start_time'])  # Changed from 'timestamp' to 'start_time'\n    \n    # Access the signal strength data\n    signal_data = aux_dataframes['signal_strength_table.csv']\n    \n    # Filter signal data for the last 30 minutes relative to the event time\n    recent_signals = signal_data[\n        (pd.to_datetime(signal_data['record_time']) >= event_time - pd.Timedelta(minutes=30)) &\n        (pd.to_datetime(signal_data['record_time']) <= event_time)\n    ]\n    \n    # If there are fewer than 2 signals, return 0 (not enough data for gradient calculation)\n    if len(recent_signals) < 2:\n        return 0\n    \n    # Sort the signals by time\n    recent_signals = recent_signals.sort_values(by='record_time')\n    \n    # Calculate the gradient of signal strength over 30 minutes\n    return (recent_signals.iloc[-1]['signal_strength'] - recent_signals.iloc[0]['signal_strength']) / 30\n"
+        },
+        "0.005083885617605281": {
+            "name": "avg_signal_strength",
+            "code": "import pandas as pd\n\ndef avg_signal_strength(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use 'start_time' as the timestamp for the calculation\n    event_time = pd.to_datetime(row['start_time'])\n    \n    # Access the signal strength table from the auxiliary dataframes\n    signal_data = aux_dataframes['signal_strength_table.csv']\n    \n    # Ensure the 'record_time' column in the signal data is in datetime format\n    signal_data['record_time'] = pd.to_datetime(signal_data['record_time'])\n    \n    # Filter signals within the 1-hour window before the event time\n    nearby_signals = signal_data[\n        (signal_data['record_time'] >= event_time - pd.Timedelta(hours=1)) & \n        (signal_data['record_time'] <= event_time)\n    ]\n    \n    # Return the average signal strength\n    return nearby_signals['signal_strength'].mean()\n"
+        }
+    },
+    "feature_descriptions": [
+        "std env condition",
+        "total user feedback",
+        "major signal issue",
+        "avg user feedback sentiment",
+        "avg env condition",
+        "env condition anomalies count",
+        "network outage flag",
+        "signal strength gradient",
+        "avg signal strength"
+    ]
+}

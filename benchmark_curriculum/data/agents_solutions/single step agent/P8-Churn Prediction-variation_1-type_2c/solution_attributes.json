@@ -1,0 +1,59 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "days_since_last_feedback",
+        "sentiment_score",
+        "total_interactions_count",
+        "recency_of_last_interaction",
+        "total_amount_spent",
+        "marketing_interaction_frequency",
+        "average_transaction_value",
+        "support_case_resolution_rate"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.27441921783757284": {
+            "name": "days_since_last_feedback",
+            "code": "import pandas as pd\n\ndef days_since_last_feedback(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Feature: Days elapsed since the last feedback.\"\"\"\n    customer_id = row['customer_id']\n    \n    # Use the correct key for the customer feedback dataframe\n    feedback_df_key = 'customer_feedback_table.csv'\n    \n    if feedback_df_key not in aux_dataframes:\n        raise KeyError(f\"'{feedback_df_key}' not found in aux_dataframes.\")\n    \n    feedback_df = aux_dataframes[feedback_df_key]\n    \n    # Ensure the 'feedback_date' column is parsed as datetime\n    if 'feedback_date' not in feedback_df.columns:\n        raise KeyError(\"'feedback_date' column not found in the feedback dataframe.\")\n    \n    feedback_df['feedback_date'] = pd.to_datetime(feedback_df['feedback_date'], errors='coerce')\n    \n    # Filter for the specific customer and get the most recent feedback date\n    last_feedback_date = feedback_df.query('customer_id == @customer_id')['feedback_date'].max()\n    \n    if pd.notnull(last_feedback_date):\n        current_date = pd.Timestamp.now()\n        return (current_date - last_feedback_date).days\n    \n    return None\n"
+        },
+        "0.25403769179544217": {
+            "name": "sentiment_score",
+            "code": "\n\ndef sentiment_score(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Feature: Average customer feedback rating as a sentiment score.\"\"\"\n    customer_id = row['customer_id']\n    \n    # Use the correct key for the customer feedback dataframe\n    feedback_df = aux_dataframes.get('customer_feedback_table.csv')\n    \n    # Check if the feedback dataframe exists and is not None\n    if feedback_df is not None:\n        # Filter feedback ratings for the given customer_id\n        feedback_ratings = feedback_df.query('customer_id == @customer_id')['feedback_rating']\n        # Return the mean of feedback ratings if not empty, otherwise return None\n        return feedback_ratings.mean() if not feedback_ratings.empty else None\n    else:\n        # If the feedback dataframe is missing, return None\n        return None\n"
+        },
+        "0.18578112373680838": {
+            "name": "total_interactions_count",
+            "code": "\n\ndef total_interactions_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Feature: Total count of all customer interactions.\n    \n    Combines transactions, marketing interactions, customer feedbacks, and support records\n    to give a unified measure of customer engagement.\n    \"\"\"\n    customer_id = row['customer_id']\n    \n    # Transactions count\n    transaction_count = aux_dataframes['customer_transactions_table.csv'] \\\n        .query('customer_id == @customer_id').shape[0]\n    \n    # Marketing interactions count\n    marketing_count = aux_dataframes['marketing_interactions_table.csv'] \\\n        .query('customer_id == @customer_id').shape[0]\n    \n    # Customer feedback count\n    feedback_count = aux_dataframes['customer_feedback_table.csv'] \\\n        .query('customer_id == @customer_id').shape[0]\n    \n    # Support cases count\n    support_count = aux_dataframes['customer_support_table.csv'] \\\n        .query('customer_id == @customer_id').shape[0]\n    \n    # Summing all interaction counts\n    total_count = transaction_count + marketing_count + feedback_count + support_count\n    return total_count\n"
+        },
+        "0.1310750886220033": {
+            "name": "recency_of_last_interaction",
+            "code": "import pandas as pd\n\ndef recency_of_last_interaction(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Feature: Recency of the last transaction, feedback, or support interaction.\"\"\"\n    customer_id = row['customer_id']\n    \n    # Correctly access the dataframes using the provided keys\n    recent_transaction = aux_dataframes['customer_transactions_table.csv'] \\\n        .query('customer_id == @customer_id')['transaction_date'].max()\n    recent_feedback = aux_dataframes['customer_feedback_table.csv'] \\\n        .query('customer_id == @customer_id')['feedback_date'].max()\n    recent_support = aux_dataframes['customer_support_table.csv'] \\\n        .query('customer_id == @customer_id')['issue_date'].max()\n    \n    # Compute the most recent interaction date\n    recent_dates = [recent_transaction, recent_feedback, recent_support]\n    recent_dates = [pd.to_datetime(date, errors='coerce') for date in recent_dates if date is not None]\n    most_recent = max(recent_dates) if recent_dates else None\n    current_date = pd.Timestamp.now()\n    \n    return (current_date - most_recent).days if pd.notnull(most_recent) else None\n"
+        },
+        "0.10283363819343933": {
+            "name": "total_amount_spent",
+            "code": "import pandas as pd\n\ndef total_amount_spent(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Feature: Total monetary spending across all transactions.\"\"\"\n    customer_id = row['customer_id']\n    \n    # Ensure the correct key is used to access the transactions dataframe\n    transactions_df = aux_dataframes.get('customer_transactions_table.csv')\n    \n    # If the transactions dataframe is not provided, return 0\n    if transactions_df is None:\n        return 0\n    \n    # Filter transactions for the given customer_id and calculate the total spending\n    total_spent = transactions_df.query('customer_id == @customer_id')['transaction_amount'].sum()\n    \n    # Return the total spending, or 0 if no transactions are found\n    return total_spent if not pd.isna(total_spent) else 0\n"
+        },
+        "0.09397372325558348": {
+            "name": "marketing_interaction_frequency",
+            "code": "\n\ndef marketing_interaction_frequency(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Feature: Frequency of marketing interactions for this customer.\"\"\"\n    customer_id = row['customer_id']\n    \n    # Use the correct key for the marketing interactions dataframe\n    marketing_interactions_df = aux_dataframes.get('marketing_interactions_table.csv')\n    \n    # Check if the dataframe exists in the aux_dataframes dictionary\n    if marketing_interactions_df is None:\n        raise KeyError(\"The key 'marketing_interactions_table.csv' is not found in aux_dataframes.\")\n    \n    # Filter the dataframe for the given customer_id and count the interactions\n    interactions = marketing_interactions_df.query('customer_id == @customer_id').shape[0]\n    \n    return interactions\n"
+        },
+        "0.033170183260998715": {
+            "name": "average_transaction_value",
+            "code": "\n\ndef average_transaction_value(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Feature: Average transaction value for a customer.\"\"\"\n    customer_id = row['customer_id']\n    \n    # Correct key for the transactions dataframe\n    transactions_df = aux_dataframes.get('customer_transactions_table.csv')\n    \n    # Check if the transactions dataframe exists and is not None\n    if transactions_df is not None:\n        # Filter transactions for the given customer_id\n        transactions = transactions_df.query('customer_id == @customer_id')['transaction_amount']\n        \n        # Return the mean transaction amount or 0 if no transactions exist\n        return transactions.mean() if not transactions.empty else 0\n    else:\n        # If the transactions dataframe is missing, return 0\n        return 0\n"
+        },
+        "0.027039617233406452": {
+            "name": "support_case_resolution_rate",
+            "code": "\n\ndef support_case_resolution_rate(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Feature: Proportion of resolved support cases for this customer.\"\"\"\n    customer_id = row['customer_id']\n    \n    # Correct key for the support cases dataframe\n    support_cases_df = aux_dataframes.get('customer_support_table.csv')\n    \n    # Check if the dataframe exists and is not None\n    if support_cases_df is None:\n        raise KeyError(\"The key 'customer_support_table.csv' is missing in aux_dataframes.\")\n    \n    # Filter support cases for the given customer_id\n    support_cases = support_cases_df.query('customer_id == @customer_id')\n    \n    # If no support cases exist for the customer, return 0\n    if support_cases.empty:\n        return 0\n    \n    # Calculate the number of resolved cases\n    resolved = support_cases['issue_status'].str.lower().eq('resolved').sum()\n    \n    # Return the proportion of resolved cases\n    return resolved / len(support_cases)\n"
+        }
+    },
+    "feature_descriptions": [
+        "days since last feedback",
+        "sentiment score",
+        "total interactions count",
+        "recency of last interaction",
+        "total amount spent",
+        "marketing interaction frequency",
+        "average transaction value",
+        "support case resolution rate"
+    ]
+}

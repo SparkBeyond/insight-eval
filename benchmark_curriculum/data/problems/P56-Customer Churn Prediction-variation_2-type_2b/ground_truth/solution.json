@@ -1,0 +1,18 @@
+{
+    "enriched_column_names": [
+        "standard_deviation_of_monthly_usage_in_past_12_months",
+        "monthly_trend_in_usage_minutes_over_the_past_6_months",
+        "total_usage_minutes_in_the_last_30_days_as_a_percentage_of_the_average_usage_minutes_over_the_past_year",
+        "average_call_duration_with_support_in_the_last_3_months",
+        "percentage_of_unresolved_issues_among_support_calls_in_the_past_year",
+        "number_of_support_calls_made_in_the_last_3_months"
+    ],
+    "features_descriptions": [
+        "standard deviation of monthly usage in past 12 months",
+        "monthly trend in usage minutes over the past 6 months",
+        "total usage minutes in the last 30 days as a percentage of the average usage minutes over the past year",
+        "average call duration with support in the last 3 months",
+        "percentage of unresolved issues among support calls in the past year",
+        "number of support calls made in the last 3 months"
+    ]
+}

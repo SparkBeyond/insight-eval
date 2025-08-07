@@ -1,0 +1,18 @@
+{
+    "enriched_column_names": [
+        "fluctuation_degree_in_daily_inventory_levels_during_the_previous_month",
+        "rate_of_negative_customer_feedback_exceeding_delay_threshold_in_last_3_months",
+        "average_feedback_score_of_deliveries_in_the_last_30_days",
+        "inventory_availability_rate_in_warehouses_for_orders_in_the_last_7_days",
+        "seasonal_effect_index_based_on_historical_delays_from_matching_period_of_last_3_years",
+        "average_logistics_provider_rating_for_shipments_made_in_this_year"
+    ],
+    "features_descriptions": [
+        "fluctuation degree in daily inventory levels during the previous month",
+        "rate of negative customer feedback exceeding delay threshold in last 3 months",
+        "average feedback score of deliveries in the last 30 days",
+        "inventory availability rate in warehouses for orders in the last 7 days",
+        "seasonal effect index based on historical delays from matching period of last 3 years",
+        "average logistics provider rating for shipments made in this year"
+    ]
+}

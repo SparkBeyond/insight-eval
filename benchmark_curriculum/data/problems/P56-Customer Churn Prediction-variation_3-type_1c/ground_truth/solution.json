@@ -1,0 +1,20 @@
+{
+    "enriched_column_names": [
+        "time_since_the_last_support_call",
+        "total_usage_minutes_in_the_last_30_days_as_a_percentage_of_the_average_usage_minutes_over_the_past_year",
+        "monthly_trend_in_usage_minutes_over_the_past_6_months",
+        "percentage_of_unresolved_issues_among_support_calls_in_the_past_year",
+        "standard_deviation_of_monthly_usage_in_past_12_months",
+        "peak_hour_usage_variance_over_the_past_6_months",
+        "number_of_months_with_falling_usage_in_the_past_6_months"
+    ],
+    "features_descriptions": [
+        "time since the last support call",
+        "total usage minutes in the last 30 days as a percentage of the average usage minutes over the past year",
+        "monthly trend in usage minutes over the past 6 months",
+        "percentage of unresolved issues among support calls in the past year",
+        "standard deviation of monthly usage in past 12 months",
+        "peak hour usage variance over the past 6 months",
+        "number of months with falling usage in the past 6 months"
+    ]
+}

@@ -1,0 +1,83 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "transactions_last_3_months",
+        "average_transaction_amount",
+        "total_transaction_amount",
+        "total_interactions_count",
+        "high_value_transactions_count",
+        "days_since_last_payment",
+        "average_payment_amount",
+        "days_since_last_transaction",
+        "days_since_account_opening",
+        "account_tenure_in_years",
+        "count_transactions_by_category",
+        "owns_property"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.09838131357682985": {
+            "name": "transactions_last_3_months",
+            "code": "import pandas as pd\n\ndef transactions_last_3_months(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the transaction history table\n    transaction_data = aux_dataframes['transaction_history_table.csv']\n    \n    # Ensure the 'transaction_date' column is in datetime format\n    transaction_data['transaction_date'] = pd.to_datetime(transaction_data['transaction_date'], errors='coerce')\n    \n    # Filter transactions for the given account_id (not customer_id)\n    transactions = transaction_data[transaction_data['account_id'] == row['account_id']]\n    \n    # Calculate the date three months ago\n    three_months_ago = pd.Timestamp.now() - pd.DateOffset(months=3)\n    \n    # Filter transactions that occurred in the last 3 months\n    recent_transactions = transactions[transactions['transaction_date'] >= three_months_ago]\n    \n    # Return the count of recent transactions\n    return len(recent_transactions)\n"
+        },
+        "0.07819008596121639": {
+            "name": "average_transaction_amount",
+            "code": "\n\ndef average_transaction_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the transaction history DataFrame\n    transaction_data = aux_dataframes['transaction_history_table.csv']\n    \n    # Filter transactions based on the account_id (not customer_id)\n    transactions = transaction_data[transaction_data['account_id'] == row['account_id']]\n    \n    # Calculate and return the mean transaction amount\n    return transactions['transaction_amount'].mean()\n"
+        },
+        "0.07400382020752323": {
+            "name": "total_transaction_amount",
+            "code": "\n\ndef total_transaction_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the transaction history DataFrame\n    transaction_data = aux_dataframes['transaction_history_table.csv']\n    \n    # Filter transactions based on the account_id (not customer_id)\n    transactions = transaction_data[transaction_data['account_id'] == row['account_id']]\n    \n    # Sum the transaction amounts for the filtered transactions\n    return transactions['transaction_amount'].sum()\n"
+        },
+        "0.05079711930784312": {
+            "name": "total_interactions_count",
+            "code": "\n\ndef total_interactions_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    service_data = aux_dataframes['customer_service_interactions_table.csv']\n    interactions = service_data[service_data['customer_id'] == row['customer_id']]\n    return len(interactions)\n"
+        },
+        "0.04833593132811306": {
+            "name": "high_value_transactions_count",
+            "code": "\n\ndef high_value_transactions_count(row, aux_dataframes: Dict[str, pd.DataFrame], threshold=1000):\n    # Access the transaction history DataFrame\n    transaction_data = aux_dataframes['transaction_history_table.csv']\n    \n    # Filter transactions based on the account_id and the threshold\n    transactions = transaction_data[\n        (transaction_data['account_id'] == row['account_id']) & \n        (transaction_data['transaction_amount'] > threshold)\n    ]\n    \n    # Return the count of high-value transactions\n    return len(transactions)\n"
+        },
+        "0.0460967950811378": {
+            "name": "days_since_last_payment",
+            "code": "import datetime\nimport pandas as pd\n\ndef days_since_last_payment(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the payment history dataframe from aux_data\n    payment_history = aux_data['payment_history_table.csv']\n    \n    # Filter the payment history for the given account_id\n    account_id = row['account_id']\n    account_payments = payment_history[payment_history['account_id'] == account_id]\n    \n    # Check if there are any payments for the account\n    if account_payments.empty:\n        # If no payments exist, return a large number (e.g., 9999) to indicate no payment history\n        return 9999\n    \n    # Find the most recent payment date\n    last_payment_date = pd.to_datetime(account_payments['payment_date']).max()\n    \n    # Calculate the number of days since the last payment\n    days_since = (datetime.datetime.now() - last_payment_date).days\n    \n    return days_since\n"
+        },
+        "0.02704287660443695": {
+            "name": "average_payment_amount",
+            "code": "\n\ndef average_payment_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the payment history dataframe\n    payment_data = aux_dataframes['payment_history_table.csv']\n    \n    # Filter the payment records using the account_id from the row\n    payment_records = payment_data[payment_data['account_id'] == row['account_id']]\n    \n    # Calculate and return the mean payment amount, handling cases with no records\n    if not payment_records.empty:\n        return payment_records['payment_amount'].mean()\n    else:\n        return 0  # Return 0 if no payment records are found\n"
+        },
+        "0.004293406375530961": {
+            "name": "days_since_last_transaction",
+            "code": "import datetime\nimport pandas as pd\n\ndef days_since_last_transaction(row):\n    last_transaction_date = pd.to_datetime(row['last_transaction_date'])\n    return (datetime.now() - last_transaction_date).days\n"
+        },
+        "0.0017420339708103044": {
+            "name": "days_since_account_opening",
+            "code": "import datetime\nimport pandas as pd\n\ndef days_since_account_opening(row):\n    account_open_date = pd.to_datetime(row['account_open_date'])\n    return (datetime.now() - account_open_date).days\n"
+        },
+        "0.0017420339708102933": {
+            "name": "account_tenure_in_years",
+            "code": "import datetime\nimport pandas as pd\n\ndef account_tenure_in_years(row):\n    account_open_date = pd.to_datetime(row['account_open_date'])\n    return (datetime.now() - account_open_date).days / 365\n"
+        },
+        "-0.00029564299106921155": {
+            "name": "count_transactions_by_category",
+            "code": "\n\ndef count_transactions_by_category(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the transaction history table\n    transaction_data = aux_dataframes['transaction_history_table.csv']\n    \n    # Filter transactions based on the account_id (not customer_id, as per the schema)\n    transactions = transaction_data[transaction_data['account_id'] == row['account_id']]\n    \n    # Group by merchant_category and count the number of transactions in each category\n    categories_count = transactions.groupby('merchant_category').size()\n    \n    # Find the most common category (if there are any transactions)\n    most_common_category = categories_count.idxmax() if len(categories_count) > 0 else None\n    \n    return most_common_category\n"
+        },
+        "0": {
+            "name": "owns_property",
+            "code": "\n\ndef owns_property(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the customer demographics data\n    demographics_data = aux_dataframes['customer_demographics_table.csv']\n    \n    # Check if the 'owns_property' column exists in the dataframe\n    if 'owns_property' not in demographics_data.columns:\n        # If the column does not exist, return a default value (e.g., 0)\n        return 0\n    \n    # Filter the demographics data for the given customer_id\n    customer_data = demographics_data[demographics_data['customer_id'] == row['customer_id']]\n    \n    # If customer data exists, return the 'owns_property' value; otherwise, return 0\n    if len(customer_data) > 0:\n        return int(customer_data.iloc[0]['owns_property'])\n    return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "transactions last 3 months",
+        "average transaction amount",
+        "total transaction amount",
+        "total interactions count",
+        "high value transactions count",
+        "days since last payment",
+        "average payment amount",
+        "days since last transaction",
+        "days since account opening",
+        "account tenure in years",
+        "count transactions by category",
+        "owns property"
+    ]
+}

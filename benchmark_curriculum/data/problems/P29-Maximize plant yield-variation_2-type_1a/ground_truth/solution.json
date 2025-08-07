@@ -1,0 +1,14 @@
+{
+    "enriched_column_names": [
+        "harvest_timing",
+        "growth_rate_trends",
+        "soil_quality",
+        "fertilizer_usage_efficiency"
+    ],
+    "features_descriptions": [
+        "harvest timing",
+        "growth rate trends",
+        "soil quality",
+        "fertilizer usage efficiency"
+    ]
+}

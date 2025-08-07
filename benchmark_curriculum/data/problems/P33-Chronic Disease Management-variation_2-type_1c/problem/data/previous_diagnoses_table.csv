@@ -1,0 +1,3501 @@
+diagnosis_id,patient_id,diagnosis_date,condition_diagnosed,treatment_plan
+1,518,2021-02-22,Heart Disease,Surgery
+2,1317,2022-07-16,Hypertension,Surgery
+3,294,2022-04-18,Diabetes,Lifestyle Changes
+4,2438,2024-08-16,Hypertension,Lifestyle Changes
+5,2144,2022-05-27,Heart Disease,Surgery
+6,2090,2025-02-14,Diabetes,Lifestyle Changes
+7,755,2025-04-14,Diabetes,Medication
+8,2251,2020-07-09,Hypertension,Lifestyle Changes
+9,2638,2021-02-17,Hypertension,Surgery
+10,2724,2024-07-25,Heart Disease,Surgery
+11,1945,2023-01-25,Heart Disease,Lifestyle Changes
+12,1242,2021-08-17,Asthma,Medication
+13,2247,2020-05-01,Asthma,Medication
+14,562,2025-03-01,Asthma,Medication
+15,1120,2024-06-22,Diabetes,Medication
+16,737,2024-04-28,Diabetes,Surgery
+17,1638,2023-12-06,Diabetes,Surgery
+18,2085,2023-09-19,Hypertension,Surgery
+19,2807,2022-08-24,Asthma,Lifestyle Changes
+20,692,2022-03-29,Asthma,Lifestyle Changes
+21,824,2022-09-14,Hypertension,Surgery
+22,362,2024-04-01,Hypertension,Surgery
+23,234,2021-02-10,Hypertension,Medication
+24,664,2021-07-14,Diabetes,Medication
+25,2735,2020-04-11,Hypertension,Lifestyle Changes
+26,1493,2023-10-11,Heart Disease,Surgery
+27,2738,2024-02-11,Diabetes,Surgery
+28,2708,2023-03-20,Asthma,Lifestyle Changes
+29,2417,2021-07-23,Diabetes,Lifestyle Changes
+30,683,2022-12-30,Asthma,Lifestyle Changes
+31,169,2024-12-13,Heart Disease,Medication
+32,685,2021-11-17,Heart Disease,Surgery
+33,1998,2022-12-08,Diabetes,Medication
+34,2175,2023-02-17,Diabetes,Medication
+35,1332,2024-06-13,Asthma,Medication
+36,1833,2024-03-11,Asthma,Surgery
+37,48,2024-11-24,Hypertension,Lifestyle Changes
+38,247,2020-09-21,Heart Disease,Lifestyle Changes
+39,81,2021-01-29,Diabetes,Surgery
+40,2970,2021-04-14,Asthma,Lifestyle Changes
+41,1094,2024-07-13,Heart Disease,Surgery
+42,926,2023-10-03,Hypertension,Surgery
+43,2929,2021-11-09,Hypertension,Medication
+44,2705,2024-10-28,Heart Disease,Lifestyle Changes
+45,2009,2022-05-05,Asthma,Lifestyle Changes
+46,95,2021-03-29,Diabetes,Medication
+47,1570,2024-04-28,Asthma,Lifestyle Changes
+48,2822,2023-08-08,Asthma,Lifestyle Changes
+49,1455,2024-11-27,Hypertension,Surgery
+50,1031,2020-11-05,Hypertension,Medication
+51,2882,2021-06-22,Diabetes,Surgery
+52,525,2021-12-21,Diabetes,Surgery
+53,2856,2021-09-02,Heart Disease,Lifestyle Changes
+54,1714,2021-01-19,Diabetes,Surgery
+55,1230,2023-06-03,Heart Disease,Lifestyle Changes
+56,424,2025-01-19,Asthma,Surgery
+57,2272,2023-11-23,Heart Disease,Medication
+58,268,2021-01-22,Hypertension,Surgery
+59,342,2021-04-21,Hypertension,Medication
+60,308,2024-12-31,Hypertension,Medication
+61,2402,2024-01-21,Hypertension,Medication
+62,958,2024-09-22,Hypertension,Surgery
+63,1616,2020-04-01,Diabetes,Surgery
+64,1888,2023-12-06,Asthma,Lifestyle Changes
+65,2868,2022-05-11,Hypertension,Surgery
+66,1784,2022-09-11,Heart Disease,Medication
+67,2110,2020-04-07,Heart Disease,Surgery
+68,884,2022-11-25,Heart Disease,Surgery
+69,3,2024-03-23,Asthma,Surgery
+70,2484,2020-08-15,Asthma,Lifestyle Changes
+71,18,2020-05-12,Diabetes,Medication
+72,1918,2021-11-02,Hypertension,Medication
+73,1153,2023-03-14,Hypertension,Surgery
+74,363,2023-04-01,Heart Disease,Medication
+75,1455,2024-02-07,Heart Disease,Medication
+76,1396,2023-11-04,Diabetes,Lifestyle Changes
+77,68,2023-01-15,Hypertension,Lifestyle Changes
+78,175,2020-04-02,Heart Disease,Medication
+79,1370,2024-10-28,Hypertension,Lifestyle Changes
+80,2912,2021-08-31,Heart Disease,Surgery
+81,2566,2021-09-27,Heart Disease,Surgery
+82,1880,2025-02-14,Asthma,Medication
+83,2069,2022-09-22,Heart Disease,Medication
+84,2371,2020-06-29,Heart Disease,Medication
+85,1558,2022-07-09,Heart Disease,Medication
+86,1326,2020-08-16,Asthma,Medication
+87,2090,2022-02-23,Asthma,Lifestyle Changes
+88,2862,2020-09-29,Asthma,Medication
+89,2133,2020-01-11,Hypertension,Medication
+90,2238,2024-01-05,Asthma,Surgery
+91,2270,2021-10-21,Heart Disease,Surgery
+92,840,2020-04-19,Hypertension,Medication
+93,2445,2021-03-23,Asthma,Medication
+94,1119,2020-11-25,Hypertension,Medication
+95,1185,2020-04-12,Heart Disease,Medication
+96,51,2020-02-22,Diabetes,Medication
+97,2802,2021-01-31,Heart Disease,Surgery
+98,736,2023-05-04,Asthma,Lifestyle Changes
+99,2226,2024-11-10,Heart Disease,Medication
+100,300,2022-01-16,Hypertension,Surgery
+101,944,2023-10-17,Diabetes,Medication
+102,178,2022-06-19,Asthma,Surgery
+103,128,2025-04-14,Hypertension,Surgery
+104,450,2023-03-20,Heart Disease,Lifestyle Changes
+105,1802,2023-06-25,Hypertension,Medication
+106,499,2024-12-08,Asthma,Medication
+107,1420,2020-06-24,Asthma,Surgery
+108,2965,2023-04-06,Hypertension,Lifestyle Changes
+109,569,2020-09-09,Heart Disease,Lifestyle Changes
+110,1566,2022-11-15,Diabetes,Medication
+111,581,2023-04-16,Diabetes,Lifestyle Changes
+112,746,2023-01-12,Diabetes,Lifestyle Changes
+113,1716,2021-09-07,Asthma,Lifestyle Changes
+114,2372,2024-08-03,Hypertension,Lifestyle Changes
+115,1137,2022-01-23,Diabetes,Medication
+116,2866,2022-01-12,Hypertension,Medication
+117,2806,2023-06-30,Heart Disease,Surgery
+118,2781,2023-11-28,Hypertension,Lifestyle Changes
+119,345,2020-07-12,Asthma,Lifestyle Changes
+120,2581,2021-03-03,Diabetes,Surgery
+121,671,2022-02-04,Hypertension,Lifestyle Changes
+122,1860,2020-12-31,Diabetes,Surgery
+123,194,2020-10-05,Heart Disease,Lifestyle Changes
+124,220,2023-05-29,Asthma,Surgery
+125,2810,2024-02-06,Asthma,Lifestyle Changes
+126,720,2021-05-02,Diabetes,Lifestyle Changes
+127,2317,2023-11-13,Asthma,Medication
+128,2093,2021-09-15,Hypertension,Lifestyle Changes
+129,2028,2020-09-01,Asthma,Medication
+130,2330,2023-10-05,Diabetes,Surgery
+131,1141,2024-12-23,Diabetes,Surgery
+132,2922,2024-07-23,Heart Disease,Medication
+133,573,2020-10-27,Asthma,Medication
+134,1118,2024-01-30,Diabetes,Surgery
+135,2270,2021-12-28,Asthma,Surgery
+136,1665,2024-01-30,Hypertension,Lifestyle Changes
+137,2414,2023-09-15,Heart Disease,Medication
+138,2122,2020-01-06,Asthma,Medication
+139,1036,2024-11-06,Heart Disease,Medication
+140,2532,2020-02-09,Hypertension,Medication
+141,1182,2020-01-26,Asthma,Medication
+142,2708,2024-11-03,Diabetes,Surgery
+143,26,2023-08-25,Diabetes,Lifestyle Changes
+144,1179,2024-02-09,Diabetes,Medication
+145,1859,2021-06-16,Hypertension,Medication
+146,2346,2024-02-05,Diabetes,Surgery
+147,559,2022-12-29,Heart Disease,Surgery
+148,2683,2025-04-23,Diabetes,Lifestyle Changes
+149,2544,2023-07-24,Diabetes,Medication
+150,22,2021-01-03,Heart Disease,Lifestyle Changes
+151,1606,2023-10-05,Heart Disease,Surgery
+152,2374,2024-02-27,Asthma,Surgery
+153,457,2024-09-14,Asthma,Medication
+154,1953,2022-04-01,Diabetes,Surgery
+155,833,2020-01-28,Asthma,Surgery
+156,757,2021-09-14,Hypertension,Lifestyle Changes
+157,2534,2021-01-09,Hypertension,Surgery
+158,1009,2021-03-11,Asthma,Medication
+159,745,2023-12-03,Hypertension,Surgery
+160,2885,2021-02-17,Heart Disease,Surgery
+161,2609,2021-04-20,Hypertension,Medication
+162,2560,2022-06-10,Hypertension,Surgery
+163,65,2022-03-28,Heart Disease,Surgery
+164,1340,2022-06-11,Asthma,Medication
+165,2873,2025-01-22,Diabetes,Surgery
+166,2510,2020-07-21,Diabetes,Lifestyle Changes
+167,149,2022-08-30,Heart Disease,Surgery
+168,215,2024-08-31,Heart Disease,Medication
+169,1931,2023-10-16,Hypertension,Surgery
+170,2859,2023-01-24,Heart Disease,Medication
+171,2682,2023-12-26,Heart Disease,Lifestyle Changes
+172,2738,2020-05-14,Diabetes,Lifestyle Changes
+173,2625,2022-01-12,Hypertension,Surgery
+174,1740,2020-12-31,Hypertension,Lifestyle Changes
+175,1191,2022-01-02,Heart Disease,Surgery
+176,1582,2020-04-27,Asthma,Lifestyle Changes
+177,2911,2024-10-28,Diabetes,Medication
+178,683,2021-09-05,Hypertension,Lifestyle Changes
+179,1098,2024-12-25,Asthma,Medication
+180,1391,2023-10-12,Diabetes,Surgery
+181,2398,2024-09-16,Hypertension,Surgery
+182,1877,2024-09-16,Diabetes,Lifestyle Changes
+183,2038,2025-03-09,Asthma,Surgery
+184,2602,2024-04-06,Hypertension,Medication
+185,1264,2022-07-12,Diabetes,Surgery
+186,687,2021-05-29,Diabetes,Lifestyle Changes
+187,2857,2023-01-03,Heart Disease,Surgery
+188,1821,2023-11-27,Diabetes,Surgery
+189,1594,2023-12-14,Heart Disease,Surgery
+190,2381,2023-02-04,Heart Disease,Surgery
+191,1916,2021-09-07,Heart Disease,Medication
+192,2787,2024-08-21,Diabetes,Medication
+193,1725,2021-10-27,Diabetes,Surgery
+194,790,2023-01-07,Asthma,Medication
+195,358,2025-02-02,Hypertension,Lifestyle Changes
+196,1566,2021-07-22,Asthma,Surgery
+197,1800,2020-04-21,Asthma,Lifestyle Changes
+198,2262,2022-04-18,Asthma,Lifestyle Changes
+199,2006,2021-09-05,Heart Disease,Lifestyle Changes
+200,2754,2021-10-20,Asthma,Medication
+201,1325,2022-04-24,Heart Disease,Medication
+202,871,2024-01-22,Diabetes,Medication
+203,1859,2021-08-31,Diabetes,Medication
+204,2597,2025-03-10,Asthma,Lifestyle Changes
+205,1063,2022-01-08,Diabetes,Medication
+206,1613,2020-10-11,Asthma,Lifestyle Changes
+207,596,2023-11-18,Asthma,Surgery
+208,455,2024-07-04,Heart Disease,Lifestyle Changes
+209,681,2021-03-31,Asthma,Medication
+210,491,2024-04-19,Hypertension,Lifestyle Changes
+211,1087,2021-01-31,Diabetes,Lifestyle Changes
+212,469,2023-12-27,Heart Disease,Medication
+213,1074,2023-11-30,Diabetes,Surgery
+214,2235,2023-10-08,Diabetes,Lifestyle Changes
+215,2567,2020-05-20,Asthma,Lifestyle Changes
+216,750,2024-09-24,Heart Disease,Medication
+217,1739,2021-04-13,Asthma,Surgery
+218,2874,2023-01-31,Hypertension,Surgery
+219,2387,2021-04-03,Diabetes,Surgery
+220,1751,2023-03-04,Asthma,Lifestyle Changes
+221,130,2021-04-29,Heart Disease,Surgery
+222,122,2024-05-16,Hypertension,Medication
+223,697,2021-09-19,Diabetes,Lifestyle Changes
+224,1097,2021-08-28,Hypertension,Surgery
+225,677,2022-04-14,Diabetes,Medication
+226,2176,2021-02-01,Diabetes,Lifestyle Changes
+227,2114,2022-12-16,Asthma,Lifestyle Changes
+228,2713,2022-06-03,Asthma,Medication
+229,2389,2020-06-09,Diabetes,Medication
+230,1760,2020-06-24,Asthma,Surgery
+231,2493,2022-04-29,Heart Disease,Surgery
+232,1069,2021-02-17,Hypertension,Medication
+233,2500,2022-02-07,Asthma,Lifestyle Changes
+234,2630,2023-09-12,Diabetes,Lifestyle Changes
+235,315,2023-06-17,Diabetes,Surgery
+236,124,2023-09-06,Diabetes,Medication
+237,2951,2023-05-26,Hypertension,Lifestyle Changes
+238,2133,2020-11-15,Heart Disease,Lifestyle Changes
+239,1940,2024-03-25,Asthma,Lifestyle Changes
+240,594,2024-01-25,Hypertension,Lifestyle Changes
+241,1985,2021-02-09,Diabetes,Medication
+242,2280,2024-01-20,Asthma,Surgery
+243,1682,2025-02-14,Hypertension,Lifestyle Changes
+244,2200,2023-05-24,Heart Disease,Lifestyle Changes
+245,1098,2020-12-03,Asthma,Lifestyle Changes
+246,941,2023-06-24,Diabetes,Surgery
+247,1480,2024-12-03,Heart Disease,Lifestyle Changes
+248,1994,2021-10-20,Heart Disease,Surgery
+249,909,2020-06-06,Asthma,Surgery
+250,2904,2022-04-15,Diabetes,Lifestyle Changes
+251,85,2020-06-24,Diabetes,Medication
+252,1482,2020-11-07,Asthma,Medication
+253,1116,2024-03-31,Heart Disease,Medication
+254,2920,2022-11-27,Asthma,Lifestyle Changes
+255,2925,2025-03-19,Heart Disease,Lifestyle Changes
+256,2507,2020-09-07,Diabetes,Medication
+257,2113,2023-12-13,Heart Disease,Lifestyle Changes
+258,847,2022-12-20,Heart Disease,Lifestyle Changes
+259,1451,2024-02-23,Heart Disease,Lifestyle Changes
+260,831,2023-04-01,Heart Disease,Lifestyle Changes
+261,766,2024-01-24,Diabetes,Medication
+262,635,2020-10-29,Asthma,Surgery
+263,1497,2024-09-10,Heart Disease,Surgery
+264,2159,2024-10-27,Diabetes,Medication
+265,1912,2020-05-16,Diabetes,Medication
+266,1054,2024-03-01,Hypertension,Medication
+267,1918,2023-11-17,Hypertension,Surgery
+268,2375,2022-11-12,Asthma,Surgery
+269,405,2020-03-18,Diabetes,Lifestyle Changes
+270,2231,2025-04-07,Diabetes,Lifestyle Changes
+271,2937,2023-09-26,Asthma,Medication
+272,2353,2023-08-18,Diabetes,Surgery
+273,1645,2022-12-08,Asthma,Lifestyle Changes
+274,890,2021-04-05,Asthma,Surgery
+275,8,2023-04-30,Asthma,Surgery
+276,280,2023-01-11,Asthma,Medication
+277,2417,2022-12-20,Hypertension,Lifestyle Changes
+278,12,2020-08-12,Heart Disease,Lifestyle Changes
+279,1819,2024-01-27,Asthma,Lifestyle Changes
+280,123,2023-10-04,Diabetes,Medication
+281,2264,2021-02-26,Heart Disease,Lifestyle Changes
+282,1079,2021-06-24,Asthma,Surgery
+283,410,2023-08-29,Heart Disease,Lifestyle Changes
+284,650,2023-09-07,Hypertension,Medication
+285,226,2021-04-10,Diabetes,Surgery
+286,1828,2022-06-16,Heart Disease,Lifestyle Changes
+287,2983,2022-07-06,Diabetes,Surgery
+288,820,2020-12-01,Heart Disease,Medication
+289,964,2023-07-24,Heart Disease,Surgery
+290,1557,2020-09-21,Hypertension,Surgery
+291,2483,2021-12-27,Asthma,Lifestyle Changes
+292,2819,2024-02-07,Diabetes,Medication
+293,2840,2020-06-14,Diabetes,Medication
+294,385,2022-11-07,Diabetes,Lifestyle Changes
+295,159,2021-12-07,Diabetes,Lifestyle Changes
+296,1697,2025-03-31,Hypertension,Medication
+297,614,2021-10-27,Hypertension,Medication
+298,1244,2020-09-09,Hypertension,Surgery
+299,2341,2020-03-26,Heart Disease,Surgery
+300,105,2021-11-20,Hypertension,Lifestyle Changes
+301,791,2021-05-16,Hypertension,Surgery
+302,2696,2022-11-04,Asthma,Lifestyle Changes
+303,172,2021-11-28,Hypertension,Lifestyle Changes
+304,844,2022-12-30,Diabetes,Medication
+305,1497,2025-03-01,Heart Disease,Surgery
+306,963,2021-07-02,Hypertension,Surgery
+307,2612,2022-08-05,Asthma,Surgery
+308,2215,2023-04-23,Heart Disease,Lifestyle Changes
+309,1400,2023-02-26,Diabetes,Lifestyle Changes
+310,660,2024-01-26,Heart Disease,Surgery
+311,2119,2022-05-15,Hypertension,Medication
+312,2756,2023-09-22,Asthma,Medication
+313,1639,2021-04-28,Hypertension,Surgery
+314,1051,2023-06-15,Heart Disease,Medication
+315,1720,2021-05-26,Diabetes,Surgery
+316,2583,2021-10-10,Heart Disease,Lifestyle Changes
+317,1367,2023-03-14,Heart Disease,Surgery
+318,190,2022-10-28,Diabetes,Medication
+319,995,2022-10-19,Hypertension,Surgery
+320,638,2021-11-22,Heart Disease,Medication
+321,1094,2023-04-07,Asthma,Surgery
+322,1136,2021-12-19,Hypertension,Medication
+323,2500,2021-02-10,Diabetes,Lifestyle Changes
+324,1112,2021-06-18,Asthma,Lifestyle Changes
+325,917,2024-05-24,Asthma,Surgery
+326,2415,2024-06-06,Diabetes,Surgery
+327,355,2024-11-02,Heart Disease,Lifestyle Changes
+328,271,2020-07-19,Diabetes,Medication
+329,1476,2020-10-17,Hypertension,Surgery
+330,2365,2022-06-26,Diabetes,Surgery
+331,1837,2021-09-05,Hypertension,Medication
+332,1244,2020-09-14,Hypertension,Medication
+333,2692,2025-01-08,Hypertension,Surgery
+334,2189,2023-06-28,Heart Disease,Lifestyle Changes
+335,969,2024-11-16,Diabetes,Lifestyle Changes
+336,124,2023-12-13,Hypertension,Lifestyle Changes
+337,1801,2021-06-10,Heart Disease,Medication
+338,720,2024-02-14,Asthma,Surgery
+339,2922,2023-12-26,Asthma,Lifestyle Changes
+340,2406,2022-12-12,Heart Disease,Medication
+341,762,2025-02-14,Diabetes,Surgery
+342,1175,2020-10-06,Heart Disease,Lifestyle Changes
+343,11,2021-07-19,Diabetes,Surgery
+344,2709,2023-02-02,Asthma,Lifestyle Changes
+345,1322,2022-09-15,Heart Disease,Medication
+346,2908,2024-09-17,Asthma,Surgery
+347,308,2024-08-25,Hypertension,Medication
+348,2227,2022-02-02,Asthma,Lifestyle Changes
+349,2011,2020-06-13,Asthma,Surgery
+350,1442,2022-01-29,Hypertension,Surgery
+351,2717,2021-09-19,Diabetes,Surgery
+352,2196,2021-03-13,Hypertension,Surgery
+353,667,2023-05-22,Asthma,Lifestyle Changes
+354,686,2024-05-26,Diabetes,Medication
+355,562,2021-06-05,Asthma,Medication
+356,2367,2020-07-13,Asthma,Surgery
+357,1033,2020-08-13,Diabetes,Lifestyle Changes
+358,2959,2023-06-25,Hypertension,Surgery
+359,2776,2020-11-02,Hypertension,Medication
+360,275,2021-03-12,Diabetes,Medication
+361,1956,2020-06-01,Heart Disease,Surgery
+362,2747,2025-04-15,Diabetes,Surgery
+363,2827,2021-03-19,Asthma,Surgery
+364,1366,2023-01-26,Hypertension,Medication
+365,1451,2023-07-30,Asthma,Lifestyle Changes
+366,2206,2024-12-13,Hypertension,Surgery
+367,1891,2023-08-05,Asthma,Lifestyle Changes
+368,2811,2020-06-08,Hypertension,Surgery
+369,228,2020-10-07,Asthma,Surgery
+370,672,2020-09-07,Asthma,Surgery
+371,2764,2021-07-06,Hypertension,Surgery
+372,2331,2021-11-28,Diabetes,Medication
+373,835,2022-10-01,Diabetes,Lifestyle Changes
+374,211,2022-02-09,Hypertension,Medication
+375,2426,2024-06-28,Hypertension,Surgery
+376,913,2020-03-18,Hypertension,Surgery
+377,1476,2021-09-27,Heart Disease,Surgery
+378,479,2022-11-22,Asthma,Surgery
+379,1948,2021-03-26,Hypertension,Surgery
+380,2467,2021-11-09,Diabetes,Medication
+381,1697,2022-02-01,Asthma,Surgery
+382,675,2024-04-18,Diabetes,Lifestyle Changes
+383,960,2023-07-05,Hypertension,Lifestyle Changes
+384,1095,2020-11-22,Diabetes,Medication
+385,1874,2025-03-31,Asthma,Medication
+386,796,2023-03-01,Diabetes,Lifestyle Changes
+387,2732,2021-12-25,Hypertension,Lifestyle Changes
+388,1035,2024-06-26,Asthma,Medication
+389,2578,2023-08-28,Hypertension,Surgery
+390,2813,2024-10-25,Heart Disease,Lifestyle Changes
+391,1118,2022-10-30,Hypertension,Surgery
+392,2290,2021-05-14,Hypertension,Surgery
+393,395,2025-02-24,Heart Disease,Lifestyle Changes
+394,2986,2021-07-28,Heart Disease,Medication
+395,706,2020-07-18,Hypertension,Lifestyle Changes
+396,960,2023-05-01,Diabetes,Surgery
+397,1711,2025-02-20,Heart Disease,Surgery
+398,978,2023-08-28,Diabetes,Lifestyle Changes
+399,2971,2022-03-22,Asthma,Medication
+400,723,2022-04-03,Asthma,Medication
+401,2694,2020-05-03,Diabetes,Lifestyle Changes
+402,1957,2025-03-24,Hypertension,Surgery
+403,286,2023-09-06,Hypertension,Medication
+404,1057,2020-07-03,Heart Disease,Medication
+405,925,2024-08-22,Diabetes,Lifestyle Changes
+406,1477,2021-04-08,Heart Disease,Surgery
+407,156,2024-12-20,Diabetes,Lifestyle Changes
+408,1058,2023-08-07,Diabetes,Surgery
+409,2351,2024-12-28,Asthma,Medication
+410,508,2024-03-25,Hypertension,Lifestyle Changes
+411,547,2024-02-21,Diabetes,Medication
+412,1340,2024-12-18,Hypertension,Surgery
+413,537,2023-05-09,Heart Disease,Lifestyle Changes
+414,807,2024-03-25,Heart Disease,Surgery
+415,350,2024-04-25,Diabetes,Medication
+416,2703,2021-04-03,Heart Disease,Surgery
+417,2212,2023-05-22,Heart Disease,Surgery
+418,2753,2024-12-29,Hypertension,Lifestyle Changes
+419,2970,2023-01-04,Hypertension,Medication
+420,1680,2024-08-22,Hypertension,Medication
+421,2421,2021-06-16,Heart Disease,Surgery
+422,1340,2022-11-25,Hypertension,Medication
+423,2298,2021-11-27,Diabetes,Surgery
+424,2375,2023-01-15,Heart Disease,Surgery
+425,115,2023-02-10,Asthma,Lifestyle Changes
+426,2328,2020-12-24,Asthma,Medication
+427,121,2022-07-25,Hypertension,Medication
+428,2646,2023-06-29,Hypertension,Surgery
+429,235,2021-05-15,Heart Disease,Medication
+430,1075,2020-12-09,Heart Disease,Surgery
+431,1207,2021-02-18,Diabetes,Surgery
+432,698,2023-03-05,Heart Disease,Medication
+433,92,2022-06-01,Asthma,Surgery
+434,251,2020-09-28,Asthma,Lifestyle Changes
+435,1281,2021-04-17,Diabetes,Surgery
+436,502,2022-11-27,Hypertension,Medication
+437,1928,2020-11-10,Heart Disease,Lifestyle Changes
+438,2690,2025-01-28,Diabetes,Lifestyle Changes
+439,2666,2020-02-22,Diabetes,Surgery
+440,2188,2023-08-01,Heart Disease,Surgery
+441,2673,2023-11-10,Hypertension,Lifestyle Changes
+442,2465,2023-01-28,Asthma,Medication
+443,879,2023-09-03,Asthma,Surgery
+444,488,2021-09-02,Hypertension,Lifestyle Changes
+445,489,2025-01-17,Diabetes,Lifestyle Changes
+446,832,2021-07-22,Diabetes,Surgery
+447,684,2025-04-21,Heart Disease,Surgery
+448,2532,2020-07-03,Heart Disease,Lifestyle Changes
+449,1832,2021-06-17,Asthma,Lifestyle Changes
+450,1180,2021-04-24,Hypertension,Surgery
+451,854,2022-04-04,Asthma,Medication
+452,1524,2023-10-28,Diabetes,Surgery
+453,1967,2024-10-11,Hypertension,Lifestyle Changes
+454,990,2025-03-13,Heart Disease,Lifestyle Changes
+455,378,2024-01-16,Diabetes,Medication
+456,96,2020-08-16,Hypertension,Medication
+457,2425,2024-10-25,Hypertension,Lifestyle Changes
+458,1327,2020-02-15,Hypertension,Lifestyle Changes
+459,1696,2023-05-25,Hypertension,Surgery
+460,96,2023-03-28,Hypertension,Surgery
+461,1646,2024-10-27,Asthma,Lifestyle Changes
+462,2624,2021-12-04,Diabetes,Medication
+463,751,2021-04-30,Diabetes,Lifestyle Changes
+464,1454,2021-02-13,Hypertension,Medication
+465,1787,2021-01-02,Heart Disease,Medication
+466,124,2020-02-13,Heart Disease,Surgery
+467,164,2024-03-23,Hypertension,Medication
+468,1617,2024-07-27,Diabetes,Lifestyle Changes
+469,1477,2024-10-10,Asthma,Lifestyle Changes
+470,1334,2022-11-16,Heart Disease,Surgery
+471,617,2023-12-04,Diabetes,Surgery
+472,117,2021-05-04,Asthma,Lifestyle Changes
+473,1238,2022-11-30,Hypertension,Medication
+474,2881,2021-11-11,Diabetes,Medication
+475,571,2021-05-31,Hypertension,Surgery
+476,1560,2024-04-11,Hypertension,Surgery
+477,1410,2023-09-17,Diabetes,Lifestyle Changes
+478,2793,2023-04-16,Heart Disease,Lifestyle Changes
+479,728,2021-08-25,Asthma,Lifestyle Changes
+480,1470,2024-05-26,Heart Disease,Lifestyle Changes
+481,1181,2022-11-14,Hypertension,Medication
+482,2108,2024-03-01,Hypertension,Surgery
+483,1616,2023-01-19,Hypertension,Lifestyle Changes
+484,1287,2022-08-10,Asthma,Lifestyle Changes
+485,1514,2024-01-27,Heart Disease,Lifestyle Changes
+486,1105,2023-10-13,Heart Disease,Lifestyle Changes
+487,2429,2025-04-06,Hypertension,Surgery
+488,2247,2024-05-08,Heart Disease,Lifestyle Changes
+489,2145,2024-02-24,Diabetes,Surgery
+490,1743,2022-11-24,Asthma,Surgery
+491,1936,2021-10-19,Heart Disease,Surgery
+492,533,2023-02-22,Asthma,Medication
+493,646,2020-01-30,Hypertension,Medication
+494,1776,2021-11-01,Asthma,Lifestyle Changes
+495,1180,2020-05-13,Diabetes,Lifestyle Changes
+496,326,2024-02-23,Heart Disease,Lifestyle Changes
+497,2899,2023-12-01,Heart Disease,Lifestyle Changes
+498,2715,2022-09-20,Diabetes,Lifestyle Changes
+499,944,2021-02-03,Asthma,Medication
+500,827,2020-04-20,Hypertension,Surgery
+501,12,2023-02-11,Diabetes,Surgery
+502,2541,2022-01-05,Heart Disease,Medication
+503,1967,2021-05-07,Diabetes,Surgery
+504,1688,2024-11-27,Hypertension,Surgery
+505,1297,2024-11-16,Asthma,Medication
+506,1405,2021-01-04,Heart Disease,Medication
+507,2390,2022-04-28,Diabetes,Medication
+508,263,2022-12-21,Heart Disease,Medication
+509,2671,2024-11-15,Hypertension,Medication
+510,653,2021-07-03,Diabetes,Surgery
+511,815,2021-05-16,Asthma,Medication
+512,457,2020-09-23,Asthma,Lifestyle Changes
+513,1736,2024-03-13,Asthma,Surgery
+514,177,2020-10-31,Asthma,Medication
+515,1347,2023-05-08,Asthma,Surgery
+516,228,2024-01-02,Hypertension,Lifestyle Changes
+517,847,2023-09-13,Diabetes,Lifestyle Changes
+518,1009,2021-11-05,Heart Disease,Surgery
+519,2988,2023-06-14,Diabetes,Surgery
+520,2629,2023-05-12,Heart Disease,Lifestyle Changes
+521,430,2020-12-02,Hypertension,Surgery
+522,2804,2023-01-03,Asthma,Lifestyle Changes
+523,1763,2020-01-23,Diabetes,Surgery
+524,790,2023-05-26,Heart Disease,Surgery
+525,691,2025-01-05,Heart Disease,Lifestyle Changes
+526,1178,2023-04-08,Heart Disease,Medication
+527,306,2024-07-12,Hypertension,Lifestyle Changes
+528,62,2022-09-16,Heart Disease,Lifestyle Changes
+529,253,2025-02-01,Asthma,Medication
+530,2234,2020-02-05,Heart Disease,Lifestyle Changes
+531,2653,2022-02-13,Heart Disease,Lifestyle Changes
+532,2179,2020-03-31,Heart Disease,Lifestyle Changes
+533,394,2024-04-10,Diabetes,Surgery
+534,2017,2021-03-15,Heart Disease,Medication
+535,575,2020-12-14,Heart Disease,Medication
+536,1254,2023-10-11,Diabetes,Lifestyle Changes
+537,2645,2022-10-11,Hypertension,Lifestyle Changes
+538,2474,2021-09-15,Heart Disease,Surgery
+539,630,2020-06-07,Diabetes,Surgery
+540,2290,2021-03-22,Hypertension,Medication
+541,1484,2022-04-08,Asthma,Lifestyle Changes
+542,452,2020-09-14,Heart Disease,Surgery
+543,697,2022-11-04,Diabetes,Surgery
+544,1537,2020-05-12,Heart Disease,Lifestyle Changes
+545,1865,2022-08-31,Diabetes,Surgery
+546,1886,2021-01-17,Hypertension,Surgery
+547,2115,2023-12-14,Heart Disease,Surgery
+548,2279,2021-01-05,Asthma,Medication
+549,1390,2025-01-29,Hypertension,Medication
+550,1451,2024-10-04,Diabetes,Surgery
+551,2289,2022-10-16,Asthma,Lifestyle Changes
+552,1303,2024-05-15,Heart Disease,Medication
+553,100,2021-09-11,Hypertension,Lifestyle Changes
+554,2301,2020-07-06,Asthma,Medication
+555,1136,2022-10-15,Diabetes,Surgery
+556,2039,2020-11-29,Asthma,Medication
+557,2216,2020-02-22,Diabetes,Surgery
+558,615,2024-09-05,Heart Disease,Surgery
+559,1467,2023-08-30,Diabetes,Surgery
+560,2797,2022-06-06,Heart Disease,Surgery
+561,2443,2024-01-01,Diabetes,Medication
+562,1030,2024-12-07,Asthma,Surgery
+563,3,2023-07-25,Heart Disease,Medication
+564,2223,2020-09-27,Hypertension,Surgery
+565,2321,2024-09-13,Heart Disease,Surgery
+566,484,2023-08-10,Heart Disease,Lifestyle Changes
+567,835,2023-03-26,Diabetes,Lifestyle Changes
+568,30,2021-08-20,Diabetes,Lifestyle Changes
+569,1116,2024-10-26,Hypertension,Medication
+570,2192,2024-05-25,Asthma,Medication
+571,1868,2024-06-25,Asthma,Medication
+572,1963,2024-10-03,Asthma,Lifestyle Changes
+573,2020,2021-06-03,Hypertension,Surgery
+574,234,2020-12-16,Diabetes,Medication
+575,360,2022-05-12,Heart Disease,Surgery
+576,717,2021-09-04,Hypertension,Medication
+577,1546,2021-10-29,Heart Disease,Lifestyle Changes
+578,1974,2021-08-17,Hypertension,Medication
+579,1648,2021-12-30,Heart Disease,Lifestyle Changes
+580,1099,2022-08-03,Heart Disease,Surgery
+581,1925,2020-10-05,Asthma,Medication
+582,479,2020-08-01,Heart Disease,Surgery
+583,1127,2022-07-22,Diabetes,Medication
+584,2814,2021-08-21,Hypertension,Surgery
+585,2466,2023-09-04,Heart Disease,Medication
+586,2225,2022-07-20,Hypertension,Medication
+587,905,2023-03-23,Heart Disease,Surgery
+588,2490,2022-08-11,Heart Disease,Medication
+589,562,2020-10-09,Diabetes,Surgery
+590,251,2022-05-26,Diabetes,Surgery
+591,1395,2022-04-16,Heart Disease,Medication
+592,2431,2020-05-05,Diabetes,Lifestyle Changes
+593,2216,2024-06-01,Asthma,Surgery
+594,881,2021-11-07,Hypertension,Lifestyle Changes
+595,1650,2023-10-04,Asthma,Lifestyle Changes
+596,1514,2020-06-29,Diabetes,Medication
+597,2814,2024-07-03,Heart Disease,Surgery
+598,2570,2021-04-21,Diabetes,Surgery
+599,2635,2021-07-23,Asthma,Lifestyle Changes
+600,1673,2024-03-11,Heart Disease,Lifestyle Changes
+601,1821,2020-05-23,Asthma,Surgery
+602,2594,2023-03-01,Asthma,Medication
+603,2147,2021-02-19,Asthma,Lifestyle Changes
+604,863,2023-05-12,Hypertension,Surgery
+605,1615,2023-03-13,Diabetes,Medication
+606,1503,2021-03-31,Heart Disease,Lifestyle Changes
+607,146,2020-09-09,Asthma,Medication
+608,1473,2020-01-15,Diabetes,Surgery
+609,719,2024-04-04,Diabetes,Medication
+610,2506,2021-06-21,Asthma,Medication
+611,2713,2022-10-02,Asthma,Surgery
+612,18,2024-06-20,Asthma,Medication
+613,575,2020-10-15,Heart Disease,Lifestyle Changes
+614,1162,2021-07-29,Hypertension,Lifestyle Changes
+615,1353,2024-04-15,Asthma,Medication
+616,715,2021-01-12,Hypertension,Medication
+617,2683,2020-09-22,Asthma,Medication
+618,2833,2024-09-25,Asthma,Medication
+619,2523,2020-09-01,Heart Disease,Lifestyle Changes
+620,2032,2023-07-16,Hypertension,Surgery
+621,1937,2025-01-02,Heart Disease,Lifestyle Changes
+622,2429,2022-10-31,Diabetes,Surgery
+623,480,2020-01-20,Diabetes,Medication
+624,2482,2024-11-01,Heart Disease,Surgery
+625,198,2024-06-25,Hypertension,Medication
+626,876,2024-09-24,Asthma,Surgery
+627,2590,2020-02-22,Asthma,Lifestyle Changes
+628,1464,2024-05-29,Hypertension,Medication
+629,217,2022-07-25,Diabetes,Lifestyle Changes
+630,2477,2023-07-29,Asthma,Medication
+631,1595,2025-01-30,Hypertension,Lifestyle Changes
+632,2739,2023-10-08,Hypertension,Medication
+633,714,2024-02-13,Hypertension,Lifestyle Changes
+634,2639,2023-07-31,Asthma,Medication
+635,563,2023-01-24,Heart Disease,Medication
+636,1348,2020-09-22,Asthma,Medication
+637,1195,2025-01-28,Hypertension,Surgery
+638,1437,2024-03-11,Heart Disease,Lifestyle Changes
+639,341,2021-11-11,Hypertension,Lifestyle Changes
+640,787,2022-03-16,Heart Disease,Lifestyle Changes
+641,2960,2021-06-10,Heart Disease,Lifestyle Changes
+642,1884,2020-03-04,Diabetes,Medication
+643,478,2024-04-08,Diabetes,Lifestyle Changes
+644,2756,2022-07-07,Hypertension,Surgery
+645,973,2020-08-23,Asthma,Lifestyle Changes
+646,504,2024-09-04,Hypertension,Medication
+647,2350,2025-01-15,Heart Disease,Lifestyle Changes
+648,1301,2020-01-23,Heart Disease,Lifestyle Changes
+649,1432,2024-03-23,Hypertension,Surgery
+650,851,2024-11-04,Asthma,Lifestyle Changes
+651,39,2023-02-08,Hypertension,Medication
+652,1507,2023-10-14,Heart Disease,Surgery
+653,824,2020-03-05,Diabetes,Surgery
+654,437,2024-10-22,Hypertension,Medication
+655,989,2024-12-20,Asthma,Surgery
+656,2204,2021-03-14,Heart Disease,Surgery
+657,1045,2023-08-03,Hypertension,Surgery
+658,2961,2023-09-24,Hypertension,Lifestyle Changes
+659,1365,2022-06-17,Asthma,Lifestyle Changes
+660,86,2024-02-04,Diabetes,Medication
+661,29,2021-01-06,Heart Disease,Surgery
+662,2953,2024-10-14,Asthma,Medication
+663,2924,2020-06-24,Diabetes,Lifestyle Changes
+664,2583,2025-04-17,Asthma,Lifestyle Changes
+665,2495,2020-04-08,Heart Disease,Medication
+666,1375,2022-01-07,Asthma,Lifestyle Changes
+667,1147,2024-11-10,Asthma,Lifestyle Changes
+668,1444,2023-07-06,Hypertension,Lifestyle Changes
+669,1267,2020-12-07,Asthma,Medication
+670,2594,2022-05-26,Hypertension,Surgery
+671,2462,2021-08-22,Hypertension,Surgery
+672,2325,2020-03-09,Hypertension,Surgery
+673,753,2022-02-16,Asthma,Medication
+674,2207,2023-09-22,Hypertension,Lifestyle Changes
+675,1884,2025-02-05,Asthma,Lifestyle Changes
+676,2207,2023-05-28,Hypertension,Surgery
+677,2396,2020-06-21,Asthma,Lifestyle Changes
+678,1534,2020-12-01,Diabetes,Lifestyle Changes
+679,2697,2023-05-10,Diabetes,Lifestyle Changes
+680,2806,2020-12-03,Asthma,Medication
+681,2248,2020-02-06,Asthma,Medication
+682,2250,2024-05-09,Hypertension,Lifestyle Changes
+683,2611,2023-08-04,Heart Disease,Surgery
+684,1980,2023-09-24,Heart Disease,Surgery
+685,1408,2022-07-25,Diabetes,Lifestyle Changes
+686,1005,2020-11-07,Asthma,Lifestyle Changes
+687,1865,2023-12-10,Asthma,Lifestyle Changes
+688,2787,2022-07-11,Hypertension,Medication
+689,594,2022-01-21,Asthma,Lifestyle Changes
+690,1190,2022-10-03,Asthma,Surgery
+691,2596,2023-03-14,Hypertension,Lifestyle Changes
+692,2116,2025-02-28,Hypertension,Lifestyle Changes
+693,1448,2024-03-29,Hypertension,Lifestyle Changes
+694,1742,2021-11-22,Diabetes,Lifestyle Changes
+695,1171,2020-09-13,Hypertension,Surgery
+696,1637,2021-07-27,Hypertension,Medication
+697,435,2024-05-28,Heart Disease,Surgery
+698,83,2022-06-16,Hypertension,Lifestyle Changes
+699,2960,2020-07-09,Asthma,Lifestyle Changes
+700,413,2020-12-26,Hypertension,Lifestyle Changes
+701,567,2021-04-07,Heart Disease,Medication
+702,463,2020-06-22,Heart Disease,Surgery
+703,1315,2023-01-31,Hypertension,Medication
+704,1199,2022-11-06,Heart Disease,Lifestyle Changes
+705,1301,2021-02-05,Hypertension,Medication
+706,856,2025-01-30,Diabetes,Surgery
+707,707,2024-09-25,Diabetes,Lifestyle Changes
+708,323,2024-03-19,Hypertension,Medication
+709,766,2023-05-12,Hypertension,Surgery
+710,451,2022-09-06,Heart Disease,Medication
+711,1255,2020-09-16,Hypertension,Surgery
+712,1076,2023-01-26,Diabetes,Lifestyle Changes
+713,360,2020-08-13,Asthma,Medication
+714,1105,2020-07-30,Asthma,Lifestyle Changes
+715,1300,2022-08-20,Diabetes,Medication
+716,1070,2023-03-11,Heart Disease,Surgery
+717,255,2021-09-29,Asthma,Lifestyle Changes
+718,520,2023-12-29,Hypertension,Medication
+719,1031,2024-06-01,Heart Disease,Lifestyle Changes
+720,1492,2025-01-28,Hypertension,Surgery
+721,2378,2023-11-26,Hypertension,Surgery
+722,2216,2021-06-13,Hypertension,Surgery
+723,1065,2024-11-24,Diabetes,Medication
+724,1844,2020-04-13,Heart Disease,Medication
+725,703,2021-06-30,Diabetes,Surgery
+726,1746,2023-07-22,Asthma,Lifestyle Changes
+727,2145,2023-11-20,Asthma,Lifestyle Changes
+728,873,2024-10-18,Hypertension,Surgery
+729,1638,2022-02-15,Heart Disease,Medication
+730,412,2023-05-14,Heart Disease,Medication
+731,2586,2021-10-14,Hypertension,Surgery
+732,2771,2024-08-23,Hypertension,Lifestyle Changes
+733,2454,2020-08-21,Diabetes,Surgery
+734,1912,2023-06-01,Diabetes,Lifestyle Changes
+735,1339,2021-11-20,Heart Disease,Medication
+736,905,2020-12-05,Asthma,Lifestyle Changes
+737,45,2024-12-31,Hypertension,Medication
+738,1284,2021-04-30,Diabetes,Surgery
+739,2453,2020-01-15,Heart Disease,Surgery
+740,2913,2025-02-19,Heart Disease,Medication
+741,607,2023-02-21,Diabetes,Medication
+742,2728,2022-05-11,Heart Disease,Medication
+743,439,2022-06-09,Diabetes,Medication
+744,325,2022-02-19,Hypertension,Medication
+745,2114,2021-07-20,Asthma,Surgery
+746,1666,2022-09-13,Hypertension,Medication
+747,1193,2022-08-27,Diabetes,Lifestyle Changes
+748,1258,2021-12-29,Asthma,Lifestyle Changes
+749,153,2024-05-06,Asthma,Lifestyle Changes
+750,1571,2022-11-12,Heart Disease,Surgery
+751,2677,2020-12-05,Heart Disease,Surgery
+752,1419,2022-09-22,Diabetes,Surgery
+753,1933,2021-10-23,Hypertension,Medication
+754,1023,2024-10-04,Heart Disease,Lifestyle Changes
+755,1191,2020-08-28,Hypertension,Lifestyle Changes
+756,2419,2020-03-11,Diabetes,Medication
+757,208,2022-10-08,Diabetes,Surgery
+758,1249,2025-01-17,Hypertension,Surgery
+759,1776,2022-02-12,Asthma,Lifestyle Changes
+760,2253,2023-10-29,Asthma,Medication
+761,1961,2020-06-24,Hypertension,Medication
+762,977,2022-03-16,Heart Disease,Medication
+763,2934,2021-08-21,Asthma,Lifestyle Changes
+764,893,2024-08-11,Heart Disease,Lifestyle Changes
+765,1705,2022-05-12,Asthma,Lifestyle Changes
+766,434,2023-10-19,Asthma,Lifestyle Changes
+767,1935,2025-04-09,Hypertension,Surgery
+768,2252,2022-08-11,Hypertension,Medication
+769,883,2024-02-27,Hypertension,Medication
+770,1719,2022-07-16,Diabetes,Medication
+771,1041,2023-07-11,Hypertension,Lifestyle Changes
+772,176,2023-02-07,Diabetes,Medication
+773,200,2023-05-21,Asthma,Medication
+774,2207,2020-06-21,Heart Disease,Surgery
+775,2601,2023-03-25,Asthma,Surgery
+776,752,2022-04-02,Asthma,Surgery
+777,2237,2023-09-07,Diabetes,Surgery
+778,476,2022-04-06,Hypertension,Lifestyle Changes
+779,1470,2022-02-19,Heart Disease,Medication
+780,1765,2022-12-12,Diabetes,Medication
+781,562,2024-01-10,Heart Disease,Medication
+782,422,2020-01-14,Diabetes,Surgery
+783,608,2020-07-09,Asthma,Medication
+784,1580,2020-03-08,Diabetes,Surgery
+785,2794,2024-08-16,Hypertension,Lifestyle Changes
+786,673,2024-02-06,Heart Disease,Lifestyle Changes
+787,2540,2023-07-20,Diabetes,Surgery
+788,2661,2020-06-13,Asthma,Lifestyle Changes
+789,2731,2020-10-20,Diabetes,Surgery
+790,2473,2021-10-17,Heart Disease,Surgery
+791,1393,2022-05-08,Asthma,Surgery
+792,1448,2024-01-10,Hypertension,Lifestyle Changes
+793,1023,2020-10-18,Heart Disease,Lifestyle Changes
+794,192,2024-12-24,Heart Disease,Medication
+795,1159,2020-12-25,Diabetes,Lifestyle Changes
+796,891,2024-05-24,Asthma,Lifestyle Changes
+797,2836,2024-06-24,Heart Disease,Lifestyle Changes
+798,2853,2020-03-25,Diabetes,Surgery
+799,587,2021-03-09,Diabetes,Surgery
+800,1086,2024-01-10,Heart Disease,Lifestyle Changes
+801,944,2021-11-25,Asthma,Medication
+802,2549,2023-08-23,Hypertension,Surgery
+803,1351,2023-01-07,Asthma,Surgery
+804,2191,2021-10-04,Heart Disease,Medication
+805,191,2023-02-17,Hypertension,Surgery
+806,2900,2021-10-15,Diabetes,Medication
+807,1446,2022-06-17,Asthma,Medication
+808,1624,2023-01-04,Asthma,Surgery
+809,129,2024-01-22,Hypertension,Lifestyle Changes
+810,1289,2024-08-15,Hypertension,Lifestyle Changes
+811,1502,2022-08-05,Heart Disease,Surgery
+812,1473,2023-05-13,Diabetes,Surgery
+813,1503,2024-07-12,Asthma,Lifestyle Changes
+814,993,2021-05-30,Hypertension,Medication
+815,735,2021-07-08,Diabetes,Surgery
+816,39,2022-10-29,Diabetes,Medication
+817,1354,2023-07-05,Diabetes,Lifestyle Changes
+818,636,2024-02-28,Diabetes,Medication
+819,961,2023-08-05,Heart Disease,Lifestyle Changes
+820,556,2025-03-25,Hypertension,Medication
+821,1141,2022-08-16,Heart Disease,Medication
+822,2940,2021-06-18,Hypertension,Lifestyle Changes
+823,777,2021-11-17,Diabetes,Medication
+824,1195,2022-11-05,Hypertension,Surgery
+825,2939,2023-04-02,Hypertension,Medication
+826,2164,2023-01-21,Asthma,Lifestyle Changes
+827,702,2021-10-03,Heart Disease,Medication
+828,29,2021-10-31,Hypertension,Medication
+829,22,2020-12-07,Hypertension,Lifestyle Changes
+830,1477,2024-03-15,Asthma,Medication
+831,2777,2024-04-28,Asthma,Medication
+832,255,2022-02-04,Heart Disease,Medication
+833,2335,2020-02-19,Heart Disease,Surgery
+834,278,2021-05-22,Diabetes,Medication
+835,1395,2023-05-18,Asthma,Medication
+836,2168,2025-01-20,Diabetes,Medication
+837,2533,2021-12-25,Hypertension,Lifestyle Changes
+838,1886,2022-10-26,Asthma,Lifestyle Changes
+839,2268,2023-08-11,Asthma,Medication
+840,1158,2024-12-07,Hypertension,Surgery
+841,448,2025-03-15,Asthma,Medication
+842,248,2020-06-16,Asthma,Medication
+843,2761,2022-08-11,Diabetes,Surgery
+844,591,2023-04-23,Hypertension,Medication
+845,1007,2023-01-03,Asthma,Lifestyle Changes
+846,2242,2020-09-12,Heart Disease,Surgery
+847,2864,2024-09-10,Heart Disease,Surgery
+848,2407,2024-08-21,Heart Disease,Lifestyle Changes
+849,2430,2023-05-05,Asthma,Medication
+850,1085,2022-07-12,Asthma,Surgery
+851,48,2022-04-11,Diabetes,Surgery
+852,906,2022-10-04,Hypertension,Medication
+853,2015,2023-01-08,Heart Disease,Medication
+854,2871,2023-06-04,Asthma,Surgery
+855,1751,2023-12-15,Heart Disease,Medication
+856,1349,2023-11-12,Hypertension,Surgery
+857,2901,2022-06-03,Hypertension,Surgery
+858,469,2025-01-17,Diabetes,Medication
+859,681,2024-09-29,Diabetes,Lifestyle Changes
+860,990,2024-12-08,Asthma,Surgery
+861,412,2023-09-24,Asthma,Surgery
+862,1382,2023-03-23,Hypertension,Surgery
+863,2818,2022-10-17,Hypertension,Surgery
+864,2556,2023-02-10,Hypertension,Lifestyle Changes
+865,222,2021-04-27,Hypertension,Surgery
+866,2004,2020-08-30,Asthma,Lifestyle Changes
+867,1426,2022-01-09,Diabetes,Surgery
+868,227,2024-05-16,Diabetes,Lifestyle Changes
+869,1783,2020-07-09,Diabetes,Medication
+870,1290,2021-10-29,Hypertension,Lifestyle Changes
+871,599,2022-03-08,Asthma,Lifestyle Changes
+872,2884,2021-04-24,Diabetes,Lifestyle Changes
+873,1481,2022-09-10,Asthma,Surgery
+874,2741,2020-11-18,Diabetes,Medication
+875,83,2024-04-05,Diabetes,Lifestyle Changes
+876,1009,2020-10-24,Heart Disease,Lifestyle Changes
+877,1876,2023-05-22,Hypertension,Surgery
+878,2362,2023-09-05,Hypertension,Surgery
+879,2882,2021-06-16,Hypertension,Lifestyle Changes
+880,516,2023-10-23,Asthma,Surgery
+881,1804,2023-11-26,Diabetes,Lifestyle Changes
+882,2458,2020-08-23,Heart Disease,Lifestyle Changes
+883,1360,2021-08-18,Diabetes,Medication
+884,101,2020-10-22,Asthma,Medication
+885,1525,2023-12-22,Hypertension,Lifestyle Changes
+886,143,2021-04-27,Diabetes,Medication
+887,2315,2023-02-14,Heart Disease,Medication
+888,2622,2025-03-22,Diabetes,Surgery
+889,2117,2024-01-18,Heart Disease,Medication
+890,972,2022-03-21,Hypertension,Surgery
+891,2369,2025-02-02,Diabetes,Medication
+892,755,2024-03-25,Heart Disease,Surgery
+893,2785,2025-03-05,Diabetes,Lifestyle Changes
+894,924,2022-10-22,Hypertension,Medication
+895,1493,2025-04-26,Asthma,Lifestyle Changes
+896,2713,2023-11-29,Hypertension,Surgery
+897,2179,2020-10-18,Heart Disease,Surgery
+898,2273,2022-07-24,Heart Disease,Lifestyle Changes
+899,2556,2020-02-14,Asthma,Lifestyle Changes
+900,2144,2021-01-04,Hypertension,Surgery
+901,1420,2022-05-10,Diabetes,Lifestyle Changes
+902,1390,2020-10-17,Diabetes,Medication
+903,2895,2023-01-27,Hypertension,Medication
+904,1270,2022-01-12,Asthma,Surgery
+905,777,2020-02-09,Hypertension,Medication
+906,2985,2021-03-07,Asthma,Surgery
+907,2575,2023-03-14,Diabetes,Lifestyle Changes
+908,551,2020-06-02,Heart Disease,Lifestyle Changes
+909,1335,2022-10-02,Hypertension,Lifestyle Changes
+910,2870,2024-02-04,Asthma,Medication
+911,2428,2021-10-04,Heart Disease,Surgery
+912,2228,2024-10-08,Diabetes,Surgery
+913,7,2024-02-14,Hypertension,Lifestyle Changes
+914,1745,2022-09-13,Hypertension,Surgery
+915,1433,2024-10-22,Diabetes,Medication
+916,2724,2020-04-11,Diabetes,Surgery
+917,575,2021-07-26,Diabetes,Medication
+918,846,2023-09-21,Heart Disease,Surgery
+919,1259,2021-05-18,Asthma,Lifestyle Changes
+920,1594,2020-11-04,Hypertension,Lifestyle Changes
+921,2754,2021-09-21,Diabetes,Lifestyle Changes
+922,2181,2020-02-27,Diabetes,Medication
+923,419,2021-11-09,Hypertension,Medication
+924,501,2020-02-10,Hypertension,Surgery
+925,705,2023-06-06,Asthma,Lifestyle Changes
+926,662,2023-08-02,Asthma,Medication
+927,1329,2024-10-25,Heart Disease,Medication
+928,2019,2025-04-15,Diabetes,Lifestyle Changes
+929,2867,2024-01-07,Asthma,Lifestyle Changes
+930,2670,2020-05-27,Asthma,Surgery
+931,102,2025-04-02,Heart Disease,Medication
+932,2426,2024-02-12,Asthma,Medication
+933,706,2022-01-04,Hypertension,Surgery
+934,1572,2022-12-18,Diabetes,Surgery
+935,684,2021-05-01,Diabetes,Lifestyle Changes
+936,581,2021-01-22,Hypertension,Medication
+937,2563,2020-01-03,Hypertension,Medication
+938,243,2020-07-04,Heart Disease,Lifestyle Changes
+939,273,2024-05-18,Hypertension,Lifestyle Changes
+940,606,2020-04-10,Asthma,Lifestyle Changes
+941,161,2025-03-23,Heart Disease,Surgery
+942,2399,2021-04-18,Hypertension,Medication
+943,2563,2024-03-07,Hypertension,Lifestyle Changes
+944,1960,2022-04-30,Heart Disease,Lifestyle Changes
+945,1616,2023-10-11,Hypertension,Medication
+946,1533,2022-07-17,Heart Disease,Lifestyle Changes
+947,367,2023-11-23,Heart Disease,Lifestyle Changes
+948,1737,2023-05-13,Hypertension,Surgery
+949,2639,2023-08-02,Heart Disease,Lifestyle Changes
+950,258,2022-06-25,Heart Disease,Surgery
+951,1613,2020-10-02,Hypertension,Lifestyle Changes
+952,914,2020-09-06,Hypertension,Medication
+953,2372,2023-12-16,Heart Disease,Lifestyle Changes
+954,2994,2021-02-07,Diabetes,Surgery
+955,948,2020-12-22,Heart Disease,Lifestyle Changes
+956,157,2022-03-22,Hypertension,Lifestyle Changes
+957,1305,2025-03-24,Asthma,Surgery
+958,336,2020-10-04,Hypertension,Medication
+959,716,2021-08-20,Hypertension,Medication
+960,2834,2023-12-06,Heart Disease,Lifestyle Changes
+961,1674,2022-05-29,Heart Disease,Medication
+962,2356,2024-08-11,Asthma,Medication
+963,1684,2023-03-01,Heart Disease,Surgery
+964,2821,2022-08-23,Diabetes,Lifestyle Changes
+965,687,2020-12-19,Diabetes,Surgery
+966,1835,2024-05-11,Heart Disease,Medication
+967,1035,2020-11-21,Hypertension,Lifestyle Changes
+968,900,2024-09-06,Diabetes,Surgery
+969,829,2025-02-23,Asthma,Medication
+970,972,2020-10-09,Diabetes,Lifestyle Changes
+971,1127,2020-05-19,Diabetes,Lifestyle Changes
+972,869,2024-05-15,Hypertension,Lifestyle Changes
+973,2102,2025-01-29,Asthma,Lifestyle Changes
+974,1487,2023-08-01,Hypertension,Surgery
+975,1690,2021-04-20,Hypertension,Lifestyle Changes
+976,1928,2020-07-22,Asthma,Lifestyle Changes
+977,807,2024-12-10,Asthma,Medication
+978,2503,2024-09-16,Heart Disease,Lifestyle Changes
+979,780,2020-11-10,Diabetes,Surgery
+980,851,2022-12-11,Heart Disease,Lifestyle Changes
+981,228,2020-04-28,Hypertension,Medication
+982,2429,2024-10-23,Heart Disease,Surgery
+983,151,2022-04-25,Hypertension,Lifestyle Changes
+984,1770,2024-12-21,Asthma,Lifestyle Changes
+985,2808,2021-06-04,Asthma,Lifestyle Changes
+986,931,2021-05-18,Diabetes,Medication
+987,1671,2024-10-18,Hypertension,Medication
+988,1819,2024-12-12,Hypertension,Surgery
+989,148,2024-01-17,Asthma,Medication
+990,1979,2022-05-22,Asthma,Surgery
+991,1051,2024-11-15,Asthma,Lifestyle Changes
+992,116,2024-12-19,Hypertension,Lifestyle Changes
+993,1731,2024-04-21,Asthma,Medication
+994,2191,2022-03-11,Hypertension,Medication
+995,149,2024-12-23,Hypertension,Lifestyle Changes
+996,78,2024-07-31,Diabetes,Medication
+997,11,2023-11-07,Heart Disease,Medication
+998,1685,2020-11-29,Hypertension,Medication
+999,1123,2021-09-26,Asthma,Lifestyle Changes
+1000,1649,2024-03-30,Asthma,Lifestyle Changes
+1001,1399,2023-05-31,Diabetes,Lifestyle Changes
+1002,678,2023-04-19,Heart Disease,Surgery
+1003,2413,2020-03-15,Diabetes,Lifestyle Changes
+1004,689,2022-03-29,Diabetes,Surgery
+1005,589,2022-11-05,Asthma,Lifestyle Changes
+1006,37,2021-12-23,Hypertension,Surgery
+1007,2976,2021-04-06,Hypertension,Lifestyle Changes
+1008,2212,2022-02-09,Heart Disease,Surgery
+1009,1479,2020-08-02,Diabetes,Surgery
+1010,199,2023-01-22,Heart Disease,Surgery
+1011,2465,2020-03-20,Hypertension,Medication
+1012,2805,2024-08-22,Hypertension,Medication
+1013,169,2022-11-13,Hypertension,Medication
+1014,1787,2025-01-09,Diabetes,Surgery
+1015,1475,2020-03-09,Asthma,Surgery
+1016,1861,2021-08-30,Hypertension,Lifestyle Changes
+1017,2034,2020-07-25,Heart Disease,Lifestyle Changes
+1018,2406,2020-03-17,Heart Disease,Lifestyle Changes
+1019,1363,2022-10-15,Hypertension,Surgery
+1020,1685,2023-07-31,Hypertension,Lifestyle Changes
+1021,2732,2020-07-12,Diabetes,Surgery
+1022,2715,2023-04-06,Asthma,Medication
+1023,1663,2020-01-08,Heart Disease,Medication
+1024,2336,2020-12-16,Diabetes,Medication
+1025,1535,2020-12-05,Diabetes,Lifestyle Changes
+1026,2590,2020-07-13,Hypertension,Lifestyle Changes
+1027,2578,2023-10-15,Diabetes,Lifestyle Changes
+1028,2884,2020-09-30,Asthma,Surgery
+1029,2442,2022-12-23,Diabetes,Lifestyle Changes
+1030,819,2022-02-17,Asthma,Lifestyle Changes
+1031,2452,2024-02-29,Hypertension,Lifestyle Changes
+1032,1581,2020-05-10,Asthma,Medication
+1033,2122,2024-10-06,Asthma,Medication
+1034,2662,2025-04-20,Asthma,Lifestyle Changes
+1035,1331,2024-12-21,Heart Disease,Medication
+1036,475,2020-01-05,Hypertension,Medication
+1037,2117,2020-11-13,Asthma,Lifestyle Changes
+1038,2422,2024-02-06,Hypertension,Surgery
+1039,339,2025-03-20,Heart Disease,Surgery
+1040,2081,2024-07-11,Diabetes,Surgery
+1041,84,2021-05-06,Heart Disease,Surgery
+1042,2366,2022-12-07,Asthma,Surgery
+1043,273,2024-02-29,Diabetes,Surgery
+1044,2638,2024-07-25,Hypertension,Lifestyle Changes
+1045,1617,2022-02-10,Diabetes,Lifestyle Changes
+1046,2028,2022-11-11,Asthma,Lifestyle Changes
+1047,2540,2022-02-09,Asthma,Lifestyle Changes
+1048,1763,2024-03-05,Hypertension,Surgery
+1049,1206,2020-12-03,Hypertension,Lifestyle Changes
+1050,2758,2021-04-04,Hypertension,Medication
+1051,2973,2023-10-11,Heart Disease,Medication
+1052,2917,2020-09-27,Heart Disease,Surgery
+1053,2045,2023-10-09,Diabetes,Medication
+1054,1392,2023-08-11,Heart Disease,Lifestyle Changes
+1055,475,2021-04-06,Diabetes,Surgery
+1056,1444,2022-03-04,Diabetes,Surgery
+1057,788,2020-03-29,Diabetes,Lifestyle Changes
+1058,2894,2020-05-15,Asthma,Surgery
+1059,2395,2021-01-17,Asthma,Lifestyle Changes
+1060,2558,2023-10-06,Hypertension,Surgery
+1061,216,2021-04-01,Heart Disease,Surgery
+1062,1364,2024-06-06,Heart Disease,Lifestyle Changes
+1063,176,2021-02-01,Asthma,Medication
+1064,2692,2021-12-19,Heart Disease,Surgery
+1065,2891,2020-12-27,Heart Disease,Surgery
+1066,138,2023-07-29,Heart Disease,Lifestyle Changes
+1067,2369,2020-10-29,Asthma,Lifestyle Changes
+1068,271,2024-08-17,Heart Disease,Surgery
+1069,2815,2025-02-12,Heart Disease,Surgery
+1070,326,2022-10-14,Diabetes,Medication
+1071,2800,2024-05-05,Heart Disease,Surgery
+1072,1759,2021-10-21,Hypertension,Lifestyle Changes
+1073,1487,2021-07-08,Asthma,Medication
+1074,2813,2022-12-12,Asthma,Lifestyle Changes
+1075,195,2022-04-19,Heart Disease,Lifestyle Changes
+1076,773,2021-06-10,Hypertension,Lifestyle Changes
+1077,1577,2020-09-09,Asthma,Surgery
+1078,1110,2024-02-13,Heart Disease,Medication
+1079,181,2023-10-29,Diabetes,Lifestyle Changes
+1080,1238,2023-11-09,Heart Disease,Lifestyle Changes
+1081,847,2023-10-15,Asthma,Medication
+1082,348,2020-04-26,Diabetes,Medication
+1083,1969,2024-10-17,Hypertension,Medication
+1084,2301,2021-03-04,Hypertension,Lifestyle Changes
+1085,1013,2021-05-17,Diabetes,Medication
+1086,2173,2022-09-12,Heart Disease,Lifestyle Changes
+1087,2558,2021-12-16,Hypertension,Medication
+1088,2758,2021-10-13,Diabetes,Surgery
+1089,1685,2020-05-22,Hypertension,Medication
+1090,333,2023-04-12,Diabetes,Lifestyle Changes
+1091,707,2021-09-12,Diabetes,Surgery
+1092,2891,2021-03-15,Hypertension,Medication
+1093,2160,2024-10-28,Hypertension,Medication
+1094,1647,2022-05-15,Heart Disease,Medication
+1095,601,2024-08-02,Diabetes,Lifestyle Changes
+1096,496,2023-05-27,Hypertension,Medication
+1097,2914,2022-05-15,Heart Disease,Lifestyle Changes
+1098,1371,2020-02-06,Hypertension,Lifestyle Changes
+1099,983,2020-05-07,Hypertension,Surgery
+1100,938,2023-01-01,Hypertension,Lifestyle Changes
+1101,35,2024-06-08,Diabetes,Medication
+1102,2269,2021-06-16,Heart Disease,Lifestyle Changes
+1103,2984,2020-07-05,Hypertension,Lifestyle Changes
+1104,2399,2023-05-24,Asthma,Lifestyle Changes
+1105,1885,2021-10-25,Hypertension,Medication
+1106,554,2021-07-31,Heart Disease,Medication
+1107,1994,2021-05-09,Hypertension,Medication
+1108,1406,2021-08-30,Asthma,Medication
+1109,1313,2021-02-18,Asthma,Medication
+1110,1578,2021-05-09,Asthma,Medication
+1111,1593,2020-03-17,Asthma,Lifestyle Changes
+1112,2319,2023-03-08,Heart Disease,Lifestyle Changes
+1113,603,2021-02-19,Heart Disease,Surgery
+1114,1144,2025-02-09,Diabetes,Medication
+1115,1735,2023-07-09,Diabetes,Medication
+1116,701,2024-01-18,Hypertension,Medication
+1117,346,2020-04-16,Asthma,Lifestyle Changes
+1118,2708,2021-03-18,Diabetes,Medication
+1119,1,2024-06-24,Diabetes,Medication
+1120,1341,2023-03-03,Diabetes,Surgery
+1121,78,2021-05-07,Heart Disease,Surgery
+1122,2980,2021-09-06,Diabetes,Medication
+1123,2441,2024-08-18,Diabetes,Medication
+1124,1513,2024-01-19,Diabetes,Medication
+1125,810,2024-09-19,Heart Disease,Medication
+1126,2627,2022-01-21,Heart Disease,Surgery
+1127,2198,2025-01-17,Asthma,Lifestyle Changes
+1128,2276,2022-07-01,Diabetes,Medication
+1129,2312,2022-01-21,Diabetes,Lifestyle Changes
+1130,137,2023-07-21,Heart Disease,Lifestyle Changes
+1131,497,2020-03-21,Diabetes,Medication
+1132,821,2020-11-20,Asthma,Medication
+1133,2804,2022-08-10,Hypertension,Lifestyle Changes
+1134,188,2025-04-01,Hypertension,Medication
+1135,2065,2025-04-02,Hypertension,Surgery
+1136,2965,2020-03-16,Asthma,Lifestyle Changes
+1137,1423,2020-10-15,Diabetes,Surgery
+1138,2810,2020-07-15,Hypertension,Medication
+1139,1901,2022-05-11,Diabetes,Lifestyle Changes
+1140,2791,2025-04-07,Heart Disease,Lifestyle Changes
+1141,1345,2021-09-10,Asthma,Surgery
+1142,1025,2020-11-28,Diabetes,Lifestyle Changes
+1143,163,2020-08-01,Asthma,Lifestyle Changes
+1144,796,2024-10-19,Heart Disease,Medication
+1145,1869,2021-08-08,Hypertension,Lifestyle Changes
+1146,2642,2021-09-25,Heart Disease,Medication
+1147,1646,2021-09-10,Asthma,Lifestyle Changes
+1148,74,2025-04-22,Hypertension,Medication
+1149,642,2021-04-16,Hypertension,Medication
+1150,116,2022-05-22,Diabetes,Medication
+1151,27,2022-01-31,Diabetes,Lifestyle Changes
+1152,2953,2020-11-13,Hypertension,Medication
+1153,1811,2024-10-29,Diabetes,Lifestyle Changes
+1154,2646,2024-12-03,Asthma,Lifestyle Changes
+1155,2682,2020-11-24,Diabetes,Lifestyle Changes
+1156,984,2025-01-28,Diabetes,Surgery
+1157,42,2024-02-14,Heart Disease,Lifestyle Changes
+1158,1565,2024-12-17,Hypertension,Medication
+1159,2074,2024-07-19,Asthma,Medication
+1160,187,2024-11-30,Hypertension,Lifestyle Changes
+1161,500,2023-04-25,Diabetes,Medication
+1162,2771,2022-12-09,Heart Disease,Lifestyle Changes
+1163,1086,2022-08-27,Heart Disease,Surgery
+1164,1275,2021-10-10,Hypertension,Medication
+1165,975,2022-06-12,Hypertension,Lifestyle Changes
+1166,2185,2024-01-28,Diabetes,Surgery
+1167,916,2024-06-24,Hypertension,Surgery
+1168,2294,2021-02-17,Asthma,Surgery
+1169,2971,2020-07-31,Diabetes,Medication
+1170,2198,2023-12-17,Diabetes,Lifestyle Changes
+1171,2931,2021-07-14,Heart Disease,Lifestyle Changes
+1172,756,2020-04-04,Diabetes,Surgery
+1173,1273,2021-06-29,Heart Disease,Surgery
+1174,360,2023-06-27,Asthma,Medication
+1175,1866,2023-10-30,Diabetes,Lifestyle Changes
+1176,1654,2023-04-07,Hypertension,Medication
+1177,2530,2024-07-01,Heart Disease,Medication
+1178,465,2020-10-17,Asthma,Surgery
+1179,2142,2021-08-29,Heart Disease,Surgery
+1180,1624,2021-03-07,Heart Disease,Surgery
+1181,1676,2021-01-19,Diabetes,Medication
+1182,2285,2022-04-11,Asthma,Lifestyle Changes
+1183,2260,2024-08-08,Heart Disease,Surgery
+1184,1066,2021-02-11,Asthma,Medication
+1185,1318,2022-07-20,Hypertension,Medication
+1186,794,2021-04-30,Diabetes,Lifestyle Changes
+1187,297,2023-01-02,Heart Disease,Lifestyle Changes
+1188,1131,2023-06-11,Diabetes,Medication
+1189,2899,2022-06-07,Heart Disease,Lifestyle Changes
+1190,1712,2025-02-04,Asthma,Surgery
+1191,167,2023-02-05,Asthma,Medication
+1192,1585,2024-06-03,Asthma,Surgery
+1193,2165,2021-05-24,Asthma,Surgery
+1194,750,2022-09-09,Hypertension,Lifestyle Changes
+1195,1684,2022-07-04,Heart Disease,Lifestyle Changes
+1196,1166,2022-06-19,Diabetes,Surgery
+1197,534,2022-03-07,Diabetes,Medication
+1198,374,2020-03-30,Asthma,Surgery
+1199,2588,2021-09-21,Heart Disease,Medication
+1200,488,2021-06-20,Hypertension,Surgery
+1201,1258,2023-10-22,Asthma,Surgery
+1202,2262,2023-12-29,Asthma,Medication
+1203,2396,2023-04-12,Hypertension,Medication
+1204,897,2025-04-13,Heart Disease,Lifestyle Changes
+1205,1296,2024-03-19,Asthma,Surgery
+1206,1841,2021-03-05,Asthma,Medication
+1207,2200,2023-03-17,Heart Disease,Medication
+1208,2131,2024-02-01,Hypertension,Surgery
+1209,2746,2024-09-01,Diabetes,Surgery
+1210,1525,2021-03-11,Asthma,Medication
+1211,2297,2021-03-05,Heart Disease,Surgery
+1212,1239,2020-12-02,Asthma,Medication
+1213,2997,2021-08-06,Hypertension,Surgery
+1214,674,2022-07-24,Diabetes,Lifestyle Changes
+1215,956,2022-03-09,Diabetes,Lifestyle Changes
+1216,599,2022-09-17,Heart Disease,Lifestyle Changes
+1217,1794,2022-09-07,Hypertension,Medication
+1218,202,2022-11-18,Diabetes,Lifestyle Changes
+1219,1197,2020-07-11,Hypertension,Lifestyle Changes
+1220,1885,2021-01-29,Hypertension,Medication
+1221,1197,2024-09-22,Diabetes,Medication
+1222,1357,2024-04-01,Asthma,Surgery
+1223,1770,2021-12-08,Asthma,Lifestyle Changes
+1224,2550,2025-02-11,Hypertension,Medication
+1225,2864,2020-04-18,Asthma,Medication
+1226,1115,2022-01-19,Diabetes,Lifestyle Changes
+1227,1042,2020-10-15,Hypertension,Surgery
+1228,2260,2020-06-24,Hypertension,Lifestyle Changes
+1229,2478,2022-09-26,Hypertension,Lifestyle Changes
+1230,2658,2022-08-07,Asthma,Lifestyle Changes
+1231,1427,2024-03-29,Asthma,Surgery
+1232,884,2020-03-21,Hypertension,Surgery
+1233,2712,2022-04-02,Asthma,Lifestyle Changes
+1234,710,2024-09-28,Diabetes,Lifestyle Changes
+1235,1823,2021-02-22,Heart Disease,Surgery
+1236,1239,2020-08-05,Hypertension,Medication
+1237,1680,2022-07-26,Hypertension,Lifestyle Changes
+1238,2752,2021-11-23,Asthma,Surgery
+1239,2840,2023-08-04,Heart Disease,Medication
+1240,422,2023-05-28,Asthma,Surgery
+1241,656,2023-02-20,Asthma,Lifestyle Changes
+1242,1883,2023-01-04,Heart Disease,Lifestyle Changes
+1243,2021,2021-09-27,Heart Disease,Medication
+1244,920,2021-01-05,Diabetes,Medication
+1245,255,2023-10-20,Diabetes,Lifestyle Changes
+1246,15,2024-10-11,Heart Disease,Surgery
+1247,2677,2023-04-13,Hypertension,Lifestyle Changes
+1248,1071,2021-05-18,Asthma,Lifestyle Changes
+1249,110,2022-09-28,Heart Disease,Medication
+1250,1273,2023-10-30,Asthma,Medication
+1251,642,2020-06-05,Hypertension,Medication
+1252,512,2025-02-20,Diabetes,Lifestyle Changes
+1253,596,2024-08-04,Asthma,Surgery
+1254,546,2023-10-29,Asthma,Lifestyle Changes
+1255,2484,2020-04-17,Diabetes,Medication
+1256,734,2020-11-21,Heart Disease,Medication
+1257,1543,2023-01-28,Heart Disease,Surgery
+1258,1051,2022-07-15,Diabetes,Medication
+1259,1124,2024-10-28,Diabetes,Surgery
+1260,1527,2024-02-22,Asthma,Medication
+1261,741,2022-08-26,Asthma,Surgery
+1262,1341,2024-07-14,Hypertension,Medication
+1263,2521,2023-05-25,Diabetes,Surgery
+1264,2699,2024-04-08,Hypertension,Surgery
+1265,4,2023-04-18,Heart Disease,Lifestyle Changes
+1266,486,2023-05-13,Asthma,Medication
+1267,2110,2024-10-12,Asthma,Surgery
+1268,2474,2024-02-13,Heart Disease,Lifestyle Changes
+1269,2326,2020-02-01,Heart Disease,Surgery
+1270,2231,2025-03-07,Hypertension,Surgery
+1271,178,2020-09-28,Diabetes,Medication
+1272,1741,2021-04-13,Asthma,Medication
+1273,958,2023-06-15,Diabetes,Lifestyle Changes
+1274,521,2020-09-27,Asthma,Medication
+1275,2334,2024-09-04,Heart Disease,Lifestyle Changes
+1276,1963,2021-07-22,Asthma,Lifestyle Changes
+1277,980,2021-12-10,Hypertension,Medication
+1278,1698,2021-02-23,Asthma,Lifestyle Changes
+1279,2151,2020-11-03,Diabetes,Medication
+1280,1734,2021-06-05,Hypertension,Surgery
+1281,1759,2021-09-16,Heart Disease,Lifestyle Changes
+1282,475,2021-12-07,Hypertension,Surgery
+1283,99,2021-06-01,Heart Disease,Lifestyle Changes
+1284,2898,2021-02-20,Diabetes,Medication
+1285,2776,2021-01-16,Asthma,Medication
+1286,95,2023-12-29,Hypertension,Lifestyle Changes
+1287,450,2023-05-29,Heart Disease,Lifestyle Changes
+1288,2954,2021-03-23,Diabetes,Surgery
+1289,2591,2024-02-13,Hypertension,Lifestyle Changes
+1290,41,2021-07-24,Hypertension,Surgery
+1291,2661,2022-11-03,Diabetes,Medication
+1292,2912,2023-12-07,Hypertension,Medication
+1293,361,2021-01-07,Heart Disease,Lifestyle Changes
+1294,1098,2020-05-21,Diabetes,Surgery
+1295,2540,2022-04-10,Hypertension,Lifestyle Changes
+1296,904,2022-06-16,Hypertension,Surgery
+1297,2275,2023-06-06,Asthma,Medication
+1298,1497,2024-01-01,Hypertension,Surgery
+1299,679,2021-04-18,Hypertension,Medication
+1300,927,2021-09-18,Hypertension,Lifestyle Changes
+1301,2945,2020-04-17,Asthma,Medication
+1302,1734,2023-08-13,Diabetes,Surgery
+1303,2552,2023-02-11,Hypertension,Surgery
+1304,1162,2024-06-30,Heart Disease,Surgery
+1305,1260,2020-05-16,Hypertension,Lifestyle Changes
+1306,2280,2020-05-06,Asthma,Surgery
+1307,61,2024-12-10,Asthma,Medication
+1308,805,2020-09-21,Hypertension,Surgery
+1309,737,2024-01-19,Diabetes,Surgery
+1310,2918,2020-11-11,Hypertension,Lifestyle Changes
+1311,835,2024-07-26,Asthma,Medication
+1312,126,2023-04-16,Heart Disease,Lifestyle Changes
+1313,1206,2025-02-11,Diabetes,Medication
+1314,991,2023-08-30,Heart Disease,Medication
+1315,1952,2023-03-17,Asthma,Medication
+1316,2357,2020-07-09,Hypertension,Lifestyle Changes
+1317,2381,2022-08-25,Hypertension,Medication
+1318,1691,2022-08-21,Heart Disease,Lifestyle Changes
+1319,17,2020-03-21,Diabetes,Lifestyle Changes
+1320,85,2023-04-12,Diabetes,Medication
+1321,711,2021-12-04,Heart Disease,Surgery
+1322,1572,2020-11-07,Heart Disease,Lifestyle Changes
+1323,383,2025-01-18,Heart Disease,Surgery
+1324,1901,2022-08-24,Diabetes,Lifestyle Changes
+1325,63,2023-04-04,Hypertension,Medication
+1326,2500,2023-02-19,Asthma,Surgery
+1327,877,2020-01-26,Hypertension,Surgery
+1328,603,2023-01-02,Hypertension,Medication
+1329,1627,2025-01-11,Asthma,Lifestyle Changes
+1330,1856,2022-08-27,Heart Disease,Surgery
+1331,2718,2023-01-30,Hypertension,Lifestyle Changes
+1332,457,2021-03-08,Diabetes,Medication
+1333,2259,2020-08-09,Heart Disease,Medication
+1334,2534,2024-10-09,Diabetes,Medication
+1335,1613,2022-08-16,Asthma,Surgery
+1336,1584,2024-12-16,Asthma,Lifestyle Changes
+1337,1814,2023-12-25,Heart Disease,Surgery
+1338,1771,2024-10-02,Heart Disease,Lifestyle Changes
+1339,139,2023-01-19,Asthma,Lifestyle Changes
+1340,2261,2024-10-09,Asthma,Surgery
+1341,2496,2024-02-03,Heart Disease,Medication
+1342,2499,2024-01-06,Hypertension,Medication
+1343,1941,2024-05-30,Asthma,Surgery
+1344,2651,2024-02-07,Diabetes,Lifestyle Changes
+1345,755,2021-08-19,Asthma,Lifestyle Changes
+1346,254,2020-12-18,Hypertension,Lifestyle Changes
+1347,2866,2022-05-13,Asthma,Lifestyle Changes
+1348,2867,2023-12-06,Asthma,Medication
+1349,371,2023-05-20,Heart Disease,Medication
+1350,615,2022-06-19,Asthma,Surgery
+1351,1258,2021-02-16,Asthma,Lifestyle Changes
+1352,1850,2024-05-03,Diabetes,Surgery
+1353,345,2022-06-10,Hypertension,Surgery
+1354,792,2024-02-29,Hypertension,Surgery
+1355,2806,2023-08-15,Hypertension,Medication
+1356,2762,2024-02-11,Hypertension,Lifestyle Changes
+1357,2676,2025-01-17,Heart Disease,Medication
+1358,309,2021-04-19,Diabetes,Lifestyle Changes
+1359,1092,2020-01-09,Heart Disease,Lifestyle Changes
+1360,277,2022-03-04,Heart Disease,Surgery
+1361,1071,2024-03-10,Asthma,Lifestyle Changes
+1362,99,2021-11-17,Hypertension,Medication
+1363,1766,2020-03-23,Hypertension,Medication
+1364,1699,2022-07-26,Diabetes,Lifestyle Changes
+1365,659,2022-09-05,Asthma,Surgery
+1366,1348,2022-02-26,Asthma,Surgery
+1367,1238,2022-01-24,Diabetes,Lifestyle Changes
+1368,3,2024-11-26,Diabetes,Lifestyle Changes
+1369,1957,2023-12-25,Diabetes,Lifestyle Changes
+1370,103,2023-05-01,Asthma,Lifestyle Changes
+1371,305,2024-05-23,Hypertension,Surgery
+1372,1071,2022-02-11,Diabetes,Lifestyle Changes
+1373,645,2022-04-19,Asthma,Lifestyle Changes
+1374,1569,2021-06-06,Diabetes,Surgery
+1375,1562,2024-08-22,Heart Disease,Lifestyle Changes
+1376,895,2022-09-24,Hypertension,Surgery
+1377,157,2023-03-20,Asthma,Lifestyle Changes
+1378,2247,2022-03-24,Heart Disease,Surgery
+1379,256,2020-09-25,Heart Disease,Lifestyle Changes
+1380,560,2021-12-28,Heart Disease,Surgery
+1381,1601,2024-06-10,Asthma,Surgery
+1382,2206,2025-03-03,Asthma,Surgery
+1383,182,2024-07-10,Hypertension,Lifestyle Changes
+1384,1068,2022-04-09,Hypertension,Lifestyle Changes
+1385,711,2022-09-18,Heart Disease,Medication
+1386,2247,2020-07-14,Diabetes,Medication
+1387,641,2023-01-21,Diabetes,Surgery
+1388,105,2020-10-08,Asthma,Lifestyle Changes
+1389,2761,2023-02-23,Diabetes,Surgery
+1390,319,2021-08-07,Heart Disease,Lifestyle Changes
+1391,1512,2021-12-05,Hypertension,Medication
+1392,832,2020-09-14,Hypertension,Lifestyle Changes
+1393,352,2022-01-11,Heart Disease,Surgery
+1394,1136,2020-04-11,Asthma,Surgery
+1395,501,2025-03-24,Diabetes,Medication
+1396,183,2022-04-10,Diabetes,Surgery
+1397,801,2020-07-17,Diabetes,Medication
+1398,2411,2022-05-07,Heart Disease,Surgery
+1399,783,2023-05-22,Diabetes,Medication
+1400,2687,2025-01-20,Diabetes,Surgery
+1401,2997,2021-01-19,Diabetes,Surgery
+1402,1367,2022-07-28,Asthma,Medication
+1403,2185,2023-11-27,Diabetes,Medication
+1404,2716,2022-04-10,Asthma,Surgery
+1405,1235,2021-03-29,Diabetes,Lifestyle Changes
+1406,2063,2023-10-11,Heart Disease,Surgery
+1407,1241,2024-10-23,Asthma,Medication
+1408,788,2022-12-19,Heart Disease,Medication
+1409,74,2022-09-17,Asthma,Lifestyle Changes
+1410,1053,2021-03-09,Heart Disease,Medication
+1411,2985,2021-09-24,Asthma,Surgery
+1412,1119,2022-03-05,Hypertension,Surgery
+1413,543,2023-06-27,Heart Disease,Lifestyle Changes
+1414,2066,2021-01-19,Diabetes,Medication
+1415,1956,2024-10-07,Asthma,Lifestyle Changes
+1416,2329,2024-10-30,Heart Disease,Lifestyle Changes
+1417,1361,2022-05-13,Asthma,Surgery
+1418,2465,2023-06-11,Heart Disease,Lifestyle Changes
+1419,1751,2023-03-08,Asthma,Surgery
+1420,1877,2020-07-25,Hypertension,Lifestyle Changes
+1421,492,2023-05-06,Diabetes,Lifestyle Changes
+1422,2812,2022-02-10,Hypertension,Medication
+1423,536,2023-03-04,Heart Disease,Lifestyle Changes
+1424,1842,2021-03-18,Hypertension,Surgery
+1425,735,2024-07-08,Asthma,Lifestyle Changes
+1426,2912,2023-11-01,Diabetes,Surgery
+1427,1011,2023-07-06,Diabetes,Surgery
+1428,2848,2021-10-31,Hypertension,Medication
+1429,2412,2024-10-05,Diabetes,Surgery
+1430,19,2025-03-21,Hypertension,Surgery
+1431,822,2021-10-19,Asthma,Surgery
+1432,1539,2022-02-17,Diabetes,Surgery
+1433,1614,2024-02-20,Asthma,Surgery
+1434,1706,2024-08-29,Heart Disease,Lifestyle Changes
+1435,2762,2021-05-17,Asthma,Surgery
+1436,875,2023-05-14,Heart Disease,Medication
+1437,726,2022-06-23,Heart Disease,Surgery
+1438,2500,2022-08-30,Diabetes,Surgery
+1439,242,2024-09-03,Diabetes,Surgery
+1440,1045,2021-12-02,Diabetes,Lifestyle Changes
+1441,2395,2023-04-19,Asthma,Surgery
+1442,2365,2025-03-26,Hypertension,Medication
+1443,2397,2024-12-20,Heart Disease,Surgery
+1444,376,2022-12-21,Heart Disease,Medication
+1445,2544,2021-02-21,Hypertension,Surgery
+1446,222,2020-02-12,Diabetes,Surgery
+1447,397,2021-11-27,Hypertension,Surgery
+1448,2358,2022-01-06,Diabetes,Medication
+1449,2371,2021-11-23,Diabetes,Surgery
+1450,2127,2021-06-29,Heart Disease,Lifestyle Changes
+1451,2544,2022-01-19,Asthma,Lifestyle Changes
+1452,1432,2021-09-29,Heart Disease,Lifestyle Changes
+1453,1342,2023-08-09,Hypertension,Medication
+1454,1290,2021-03-01,Diabetes,Medication
+1455,1742,2023-02-15,Asthma,Surgery
+1456,467,2024-04-25,Diabetes,Medication
+1457,1705,2020-12-11,Hypertension,Lifestyle Changes
+1458,599,2024-12-22,Asthma,Surgery
+1459,1266,2024-01-16,Heart Disease,Lifestyle Changes
+1460,2604,2022-05-30,Heart Disease,Lifestyle Changes
+1461,2156,2023-06-14,Hypertension,Lifestyle Changes
+1462,1281,2020-04-11,Heart Disease,Surgery
+1463,1359,2025-01-12,Hypertension,Lifestyle Changes
+1464,1735,2025-01-27,Diabetes,Lifestyle Changes
+1465,2585,2023-04-06,Heart Disease,Medication
+1466,1794,2022-09-10,Heart Disease,Medication
+1467,1432,2024-02-11,Heart Disease,Surgery
+1468,2897,2022-03-06,Hypertension,Surgery
+1469,2003,2024-09-14,Asthma,Lifestyle Changes
+1470,522,2022-11-19,Asthma,Medication
+1471,1060,2022-12-15,Diabetes,Surgery
+1472,2836,2020-12-03,Heart Disease,Medication
+1473,1381,2020-05-08,Hypertension,Medication
+1474,513,2020-12-10,Diabetes,Lifestyle Changes
+1475,2193,2021-09-02,Diabetes,Lifestyle Changes
+1476,1358,2023-03-26,Asthma,Medication
+1477,120,2024-07-15,Asthma,Surgery
+1478,881,2021-04-28,Hypertension,Lifestyle Changes
+1479,195,2023-08-22,Hypertension,Lifestyle Changes
+1480,600,2020-03-19,Heart Disease,Surgery
+1481,772,2020-06-25,Diabetes,Lifestyle Changes
+1482,2081,2024-05-03,Asthma,Lifestyle Changes
+1483,2732,2023-02-25,Heart Disease,Surgery
+1484,1930,2022-09-02,Heart Disease,Lifestyle Changes
+1485,1551,2024-01-11,Hypertension,Lifestyle Changes
+1486,1901,2022-07-25,Hypertension,Medication
+1487,484,2023-08-16,Diabetes,Lifestyle Changes
+1488,1767,2020-12-19,Heart Disease,Medication
+1489,828,2020-06-01,Hypertension,Surgery
+1490,2308,2022-11-12,Hypertension,Medication
+1491,918,2023-06-03,Hypertension,Lifestyle Changes
+1492,2868,2025-04-03,Diabetes,Lifestyle Changes
+1493,1452,2022-11-20,Diabetes,Lifestyle Changes
+1494,1710,2020-11-17,Hypertension,Surgery
+1495,2299,2025-02-28,Diabetes,Surgery
+1496,104,2023-04-11,Hypertension,Medication
+1497,280,2020-10-26,Asthma,Lifestyle Changes
+1498,1915,2023-08-27,Asthma,Medication
+1499,603,2020-11-10,Asthma,Surgery
+1500,908,2021-08-06,Hypertension,Medication
+1501,1410,2023-05-15,Heart Disease,Surgery
+1502,2923,2021-11-26,Hypertension,Lifestyle Changes
+1503,1413,2023-04-26,Asthma,Medication
+1504,979,2021-01-07,Heart Disease,Lifestyle Changes
+1505,962,2023-03-04,Hypertension,Surgery
+1506,1356,2025-01-06,Heart Disease,Lifestyle Changes
+1507,2711,2024-07-25,Heart Disease,Lifestyle Changes
+1508,969,2020-01-09,Hypertension,Lifestyle Changes
+1509,419,2023-08-22,Hypertension,Surgery
+1510,2082,2021-10-16,Heart Disease,Lifestyle Changes
+1511,1596,2023-03-01,Diabetes,Lifestyle Changes
+1512,862,2024-11-20,Heart Disease,Surgery
+1513,628,2021-08-15,Hypertension,Lifestyle Changes
+1514,1013,2023-01-21,Hypertension,Lifestyle Changes
+1515,2017,2020-10-08,Asthma,Lifestyle Changes
+1516,2123,2020-02-03,Heart Disease,Surgery
+1517,1950,2024-12-19,Hypertension,Lifestyle Changes
+1518,2734,2025-04-07,Diabetes,Surgery
+1519,1439,2022-09-15,Heart Disease,Lifestyle Changes
+1520,611,2024-07-23,Asthma,Surgery
+1521,1587,2021-10-12,Hypertension,Medication
+1522,906,2021-12-04,Heart Disease,Medication
+1523,2651,2025-02-12,Hypertension,Surgery
+1524,567,2024-02-20,Heart Disease,Surgery
+1525,2695,2024-02-01,Hypertension,Surgery
+1526,2340,2023-06-13,Hypertension,Surgery
+1527,2649,2021-05-23,Diabetes,Medication
+1528,2494,2021-10-06,Asthma,Lifestyle Changes
+1529,517,2022-03-13,Hypertension,Medication
+1530,822,2022-06-25,Hypertension,Medication
+1531,1036,2021-01-31,Hypertension,Surgery
+1532,1597,2023-08-02,Asthma,Lifestyle Changes
+1533,1463,2021-10-04,Asthma,Medication
+1534,2398,2021-11-20,Heart Disease,Surgery
+1535,512,2022-10-21,Heart Disease,Surgery
+1536,959,2025-01-22,Hypertension,Lifestyle Changes
+1537,2400,2025-01-19,Asthma,Surgery
+1538,834,2021-08-06,Asthma,Surgery
+1539,998,2020-01-17,Asthma,Lifestyle Changes
+1540,2272,2024-12-06,Hypertension,Lifestyle Changes
+1541,1949,2024-11-29,Diabetes,Medication
+1542,2110,2020-08-26,Asthma,Surgery
+1543,985,2021-05-03,Diabetes,Lifestyle Changes
+1544,556,2020-10-28,Asthma,Surgery
+1545,2,2025-01-09,Asthma,Surgery
+1546,2163,2025-02-27,Diabetes,Medication
+1547,1511,2023-06-25,Asthma,Lifestyle Changes
+1548,1008,2021-08-04,Hypertension,Medication
+1549,295,2023-10-09,Heart Disease,Lifestyle Changes
+1550,987,2020-11-17,Hypertension,Medication
+1551,2986,2020-08-31,Diabetes,Surgery
+1552,93,2024-09-19,Hypertension,Surgery
+1553,1936,2021-07-25,Heart Disease,Medication
+1554,1240,2024-05-21,Heart Disease,Surgery
+1555,325,2023-09-23,Heart Disease,Medication
+1556,2595,2023-11-18,Hypertension,Medication
+1557,2943,2023-07-24,Diabetes,Medication
+1558,565,2020-04-11,Heart Disease,Medication
+1559,1783,2024-02-08,Heart Disease,Surgery
+1560,534,2020-05-22,Diabetes,Surgery
+1561,2440,2020-01-08,Heart Disease,Medication
+1562,1524,2021-11-26,Asthma,Lifestyle Changes
+1563,1210,2021-12-10,Asthma,Lifestyle Changes
+1564,1167,2022-06-27,Hypertension,Medication
+1565,1699,2020-03-06,Diabetes,Surgery
+1566,2088,2022-08-29,Hypertension,Medication
+1567,365,2020-09-22,Diabetes,Surgery
+1568,1459,2024-01-27,Diabetes,Lifestyle Changes
+1569,1711,2024-04-08,Diabetes,Medication
+1570,1001,2025-01-15,Diabetes,Lifestyle Changes
+1571,2279,2024-08-11,Heart Disease,Lifestyle Changes
+1572,703,2024-01-30,Heart Disease,Medication
+1573,1099,2020-10-02,Asthma,Medication
+1574,330,2020-08-27,Asthma,Medication
+1575,676,2022-12-16,Hypertension,Surgery
+1576,2579,2024-05-12,Asthma,Surgery
+1577,878,2021-06-13,Hypertension,Surgery
+1578,2263,2020-02-13,Hypertension,Lifestyle Changes
+1579,1439,2020-06-11,Hypertension,Lifestyle Changes
+1580,1623,2021-04-06,Hypertension,Medication
+1581,895,2024-09-23,Hypertension,Surgery
+1582,2120,2022-12-05,Asthma,Medication
+1583,343,2022-12-10,Asthma,Lifestyle Changes
+1584,821,2022-03-19,Asthma,Lifestyle Changes
+1585,285,2023-11-18,Hypertension,Surgery
+1586,2688,2022-10-23,Heart Disease,Surgery
+1587,1402,2023-05-06,Asthma,Lifestyle Changes
+1588,2003,2022-01-16,Heart Disease,Medication
+1589,2602,2020-07-26,Hypertension,Lifestyle Changes
+1590,2553,2024-11-01,Heart Disease,Lifestyle Changes
+1591,1881,2025-04-12,Asthma,Surgery
+1592,2690,2022-08-08,Hypertension,Surgery
+1593,551,2020-07-08,Diabetes,Medication
+1594,2974,2023-06-05,Hypertension,Lifestyle Changes
+1595,2127,2021-05-14,Asthma,Medication
+1596,671,2024-11-19,Asthma,Lifestyle Changes
+1597,1786,2024-12-01,Hypertension,Lifestyle Changes
+1598,458,2023-07-27,Heart Disease,Lifestyle Changes
+1599,1887,2021-07-16,Hypertension,Medication
+1600,2482,2021-11-14,Hypertension,Lifestyle Changes
+1601,722,2022-02-28,Asthma,Medication
+1602,805,2022-09-24,Diabetes,Surgery
+1603,54,2024-10-27,Heart Disease,Surgery
+1604,1331,2025-03-18,Asthma,Surgery
+1605,1750,2023-12-23,Asthma,Surgery
+1606,2165,2020-09-15,Heart Disease,Surgery
+1607,2544,2021-12-11,Diabetes,Lifestyle Changes
+1608,146,2020-06-02,Heart Disease,Medication
+1609,2539,2022-05-28,Asthma,Surgery
+1610,2418,2021-04-02,Diabetes,Lifestyle Changes
+1611,1666,2020-04-17,Heart Disease,Surgery
+1612,1716,2025-04-26,Diabetes,Medication
+1613,2196,2025-04-14,Heart Disease,Medication
+1614,170,2024-01-11,Hypertension,Surgery
+1615,1551,2022-06-16,Diabetes,Medication
+1616,2079,2020-12-25,Diabetes,Surgery
+1617,2744,2022-03-18,Heart Disease,Medication
+1618,285,2022-01-04,Hypertension,Medication
+1619,305,2020-03-06,Diabetes,Medication
+1620,1307,2022-01-02,Asthma,Medication
+1621,2149,2021-06-09,Asthma,Surgery
+1622,262,2023-09-05,Diabetes,Surgery
+1623,2259,2021-02-02,Asthma,Surgery
+1624,1768,2020-07-05,Asthma,Surgery
+1625,901,2024-01-19,Hypertension,Surgery
+1626,1531,2023-05-24,Hypertension,Surgery
+1627,277,2020-11-14,Hypertension,Lifestyle Changes
+1628,1387,2022-02-14,Heart Disease,Surgery
+1629,2774,2025-01-18,Heart Disease,Surgery
+1630,1489,2024-03-02,Diabetes,Lifestyle Changes
+1631,1193,2021-11-12,Diabetes,Lifestyle Changes
+1632,454,2022-04-15,Diabetes,Medication
+1633,2358,2023-01-10,Hypertension,Lifestyle Changes
+1634,2380,2024-06-03,Asthma,Surgery
+1635,550,2024-09-06,Asthma,Surgery
+1636,249,2024-04-26,Diabetes,Surgery
+1637,1607,2020-04-22,Asthma,Surgery
+1638,90,2025-02-23,Diabetes,Medication
+1639,1890,2023-11-12,Diabetes,Surgery
+1640,1736,2020-06-26,Heart Disease,Surgery
+1641,38,2023-03-14,Heart Disease,Lifestyle Changes
+1642,2360,2023-11-12,Hypertension,Medication
+1643,2067,2022-11-25,Asthma,Medication
+1644,364,2021-11-05,Hypertension,Lifestyle Changes
+1645,1523,2023-01-26,Heart Disease,Medication
+1646,301,2025-03-04,Diabetes,Lifestyle Changes
+1647,365,2021-09-02,Asthma,Lifestyle Changes
+1648,845,2025-04-03,Diabetes,Surgery
+1649,2832,2022-09-04,Diabetes,Medication
+1650,946,2024-05-08,Heart Disease,Lifestyle Changes
+1651,1428,2020-09-05,Asthma,Surgery
+1652,1529,2022-01-25,Hypertension,Surgery
+1653,1694,2022-05-23,Hypertension,Lifestyle Changes
+1654,1101,2020-09-27,Diabetes,Lifestyle Changes
+1655,2774,2020-02-10,Diabetes,Surgery
+1656,1109,2020-11-24,Heart Disease,Lifestyle Changes
+1657,1336,2021-10-28,Asthma,Medication
+1658,691,2021-01-14,Asthma,Medication
+1659,247,2024-11-12,Heart Disease,Medication
+1660,1623,2020-12-19,Asthma,Surgery
+1661,2290,2020-01-23,Diabetes,Surgery
+1662,1009,2023-11-30,Heart Disease,Medication
+1663,733,2021-04-06,Hypertension,Surgery
+1664,2345,2022-06-29,Heart Disease,Lifestyle Changes
+1665,1373,2020-08-29,Hypertension,Lifestyle Changes
+1666,1988,2022-12-03,Diabetes,Surgery
+1667,2875,2021-12-14,Diabetes,Lifestyle Changes
+1668,931,2024-08-09,Heart Disease,Medication
+1669,2849,2025-02-17,Hypertension,Lifestyle Changes
+1670,224,2020-05-08,Hypertension,Lifestyle Changes
+1671,411,2021-05-28,Heart Disease,Lifestyle Changes
+1672,1304,2021-09-21,Heart Disease,Lifestyle Changes
+1673,1143,2024-02-08,Hypertension,Lifestyle Changes
+1674,1738,2020-12-14,Asthma,Lifestyle Changes
+1675,1293,2020-12-02,Heart Disease,Lifestyle Changes
+1676,74,2025-03-12,Asthma,Surgery
+1677,83,2025-02-18,Heart Disease,Surgery
+1678,1743,2022-01-14,Hypertension,Lifestyle Changes
+1679,887,2023-12-31,Diabetes,Medication
+1680,1212,2024-04-27,Diabetes,Lifestyle Changes
+1681,1496,2022-01-29,Heart Disease,Medication
+1682,1854,2023-12-28,Diabetes,Surgery
+1683,2186,2022-08-09,Hypertension,Medication
+1684,2266,2021-09-08,Asthma,Surgery
+1685,2058,2024-10-17,Diabetes,Lifestyle Changes
+1686,2839,2020-04-01,Diabetes,Lifestyle Changes
+1687,447,2023-12-14,Asthma,Surgery
+1688,1210,2021-09-30,Asthma,Medication
+1689,776,2024-07-03,Diabetes,Surgery
+1690,2939,2020-11-15,Diabetes,Surgery
+1691,481,2024-12-15,Heart Disease,Lifestyle Changes
+1692,693,2020-08-21,Asthma,Surgery
+1693,1998,2021-01-26,Heart Disease,Lifestyle Changes
+1694,2237,2022-09-23,Asthma,Lifestyle Changes
+1695,1965,2021-05-29,Asthma,Surgery
+1696,1367,2024-12-30,Heart Disease,Surgery
+1697,2380,2020-02-19,Diabetes,Lifestyle Changes
+1698,1802,2020-04-08,Hypertension,Surgery
+1699,172,2021-09-20,Diabetes,Surgery
+1700,215,2025-02-14,Asthma,Lifestyle Changes
+1701,52,2025-03-17,Diabetes,Lifestyle Changes
+1702,515,2022-03-27,Asthma,Lifestyle Changes
+1703,2746,2020-05-18,Heart Disease,Medication
+1704,1445,2020-11-24,Hypertension,Medication
+1705,769,2022-12-26,Hypertension,Lifestyle Changes
+1706,2528,2022-12-07,Heart Disease,Surgery
+1707,2286,2025-04-25,Diabetes,Medication
+1708,461,2022-06-03,Hypertension,Medication
+1709,1309,2022-09-02,Diabetes,Medication
+1710,2595,2022-10-13,Hypertension,Lifestyle Changes
+1711,1223,2024-09-08,Hypertension,Surgery
+1712,1683,2024-11-12,Hypertension,Medication
+1713,7,2022-11-22,Heart Disease,Surgery
+1714,2123,2022-05-23,Diabetes,Surgery
+1715,2357,2021-05-17,Heart Disease,Lifestyle Changes
+1716,2537,2024-03-19,Hypertension,Lifestyle Changes
+1717,2240,2024-12-07,Asthma,Surgery
+1718,2785,2025-04-10,Heart Disease,Medication
+1719,325,2024-09-18,Diabetes,Lifestyle Changes
+1720,2473,2024-10-23,Heart Disease,Lifestyle Changes
+1721,2273,2021-01-21,Diabetes,Surgery
+1722,282,2024-11-10,Heart Disease,Lifestyle Changes
+1723,1353,2022-09-18,Hypertension,Lifestyle Changes
+1724,1266,2021-09-05,Diabetes,Surgery
+1725,2247,2023-06-22,Hypertension,Medication
+1726,281,2022-07-20,Asthma,Lifestyle Changes
+1727,2010,2022-07-18,Heart Disease,Lifestyle Changes
+1728,1922,2022-01-15,Heart Disease,Surgery
+1729,1331,2020-08-16,Hypertension,Lifestyle Changes
+1730,1532,2020-01-19,Heart Disease,Lifestyle Changes
+1731,2902,2024-05-14,Hypertension,Medication
+1732,175,2025-01-01,Hypertension,Medication
+1733,2100,2021-11-28,Heart Disease,Surgery
+1734,1760,2024-05-26,Diabetes,Lifestyle Changes
+1735,1311,2025-02-19,Asthma,Lifestyle Changes
+1736,1157,2023-07-27,Asthma,Medication
+1737,1414,2024-12-21,Diabetes,Medication
+1738,1431,2021-07-03,Diabetes,Medication
+1739,197,2020-12-23,Diabetes,Surgery
+1740,1455,2024-10-24,Hypertension,Medication
+1741,1130,2023-04-30,Asthma,Surgery
+1742,869,2021-07-23,Diabetes,Surgery
+1743,250,2024-11-05,Hypertension,Surgery
+1744,2899,2024-08-13,Heart Disease,Medication
+1745,822,2023-05-03,Diabetes,Surgery
+1746,1075,2021-06-08,Asthma,Surgery
+1747,2010,2025-03-29,Heart Disease,Medication
+1748,2578,2020-03-07,Heart Disease,Surgery
+1749,335,2024-11-08,Hypertension,Surgery
+1750,1542,2023-02-13,Asthma,Medication
+1751,1519,2022-07-14,Asthma,Medication
+1752,534,2024-02-05,Heart Disease,Surgery
+1753,1714,2025-03-27,Heart Disease,Lifestyle Changes
+1754,2062,2021-06-23,Diabetes,Lifestyle Changes
+1755,2040,2021-07-29,Heart Disease,Lifestyle Changes
+1756,1374,2024-09-09,Asthma,Surgery
+1757,862,2023-06-17,Asthma,Lifestyle Changes
+1758,2292,2020-06-29,Heart Disease,Surgery
+1759,416,2021-05-15,Hypertension,Lifestyle Changes
+1760,2888,2023-01-26,Diabetes,Medication
+1761,604,2021-06-15,Asthma,Lifestyle Changes
+1762,779,2023-09-04,Diabetes,Lifestyle Changes
+1763,1438,2020-06-25,Hypertension,Lifestyle Changes
+1764,2411,2021-05-12,Asthma,Surgery
+1765,2423,2020-09-15,Hypertension,Lifestyle Changes
+1766,2579,2020-07-23,Asthma,Lifestyle Changes
+1767,172,2023-06-06,Heart Disease,Lifestyle Changes
+1768,763,2023-05-04,Asthma,Surgery
+1769,1046,2020-06-24,Diabetes,Lifestyle Changes
+1770,71,2021-10-19,Diabetes,Lifestyle Changes
+1771,1488,2023-02-26,Hypertension,Lifestyle Changes
+1772,1512,2022-07-27,Asthma,Lifestyle Changes
+1773,2867,2021-12-15,Hypertension,Surgery
+1774,2628,2022-06-09,Asthma,Lifestyle Changes
+1775,1416,2024-04-05,Hypertension,Medication
+1776,2305,2020-05-08,Heart Disease,Lifestyle Changes
+1777,1212,2024-05-31,Diabetes,Lifestyle Changes
+1778,312,2021-12-14,Diabetes,Lifestyle Changes
+1779,2385,2020-04-06,Heart Disease,Surgery
+1780,186,2020-11-10,Diabetes,Lifestyle Changes
+1781,1810,2022-08-11,Asthma,Medication
+1782,592,2022-07-06,Heart Disease,Lifestyle Changes
+1783,1258,2023-03-01,Diabetes,Surgery
+1784,952,2020-07-20,Asthma,Medication
+1785,2344,2020-06-10,Heart Disease,Lifestyle Changes
+1786,1828,2020-01-10,Heart Disease,Medication
+1787,812,2025-03-24,Hypertension,Lifestyle Changes
+1788,1579,2023-03-27,Heart Disease,Surgery
+1789,1002,2021-04-27,Hypertension,Medication
+1790,1475,2025-01-08,Diabetes,Lifestyle Changes
+1791,1161,2020-06-02,Hypertension,Surgery
+1792,367,2021-02-14,Diabetes,Medication
+1793,1965,2020-04-01,Diabetes,Medication
+1794,876,2022-06-03,Diabetes,Medication
+1795,2605,2020-11-08,Heart Disease,Medication
+1796,2390,2024-06-19,Diabetes,Surgery
+1797,1487,2023-08-19,Heart Disease,Medication
+1798,198,2024-02-05,Asthma,Surgery
+1799,1211,2022-06-24,Heart Disease,Surgery
+1800,486,2024-05-03,Hypertension,Surgery
+1801,233,2022-07-11,Asthma,Surgery
+1802,869,2020-09-22,Hypertension,Lifestyle Changes
+1803,2159,2020-04-18,Asthma,Medication
+1804,482,2025-01-28,Heart Disease,Lifestyle Changes
+1805,2972,2022-06-14,Asthma,Medication
+1806,1196,2024-08-18,Asthma,Medication
+1807,992,2021-12-03,Heart Disease,Lifestyle Changes
+1808,929,2020-11-06,Asthma,Lifestyle Changes
+1809,2408,2023-11-08,Asthma,Medication
+1810,1055,2022-06-19,Hypertension,Lifestyle Changes
+1811,361,2020-02-28,Diabetes,Surgery
+1812,2556,2024-05-16,Asthma,Lifestyle Changes
+1813,1296,2022-12-21,Diabetes,Medication
+1814,2304,2023-12-30,Asthma,Lifestyle Changes
+1815,624,2021-09-01,Hypertension,Medication
+1816,443,2022-08-21,Diabetes,Lifestyle Changes
+1817,335,2024-11-23,Heart Disease,Surgery
+1818,1746,2023-11-06,Diabetes,Lifestyle Changes
+1819,2147,2022-11-27,Heart Disease,Lifestyle Changes
+1820,1442,2022-03-10,Asthma,Lifestyle Changes
+1821,316,2022-01-26,Asthma,Surgery
+1822,941,2023-05-23,Asthma,Medication
+1823,117,2020-09-13,Diabetes,Surgery
+1824,673,2022-07-13,Hypertension,Medication
+1825,2855,2022-03-17,Hypertension,Surgery
+1826,1391,2021-11-12,Hypertension,Medication
+1827,199,2020-09-11,Heart Disease,Lifestyle Changes
+1828,2197,2022-07-20,Hypertension,Lifestyle Changes
+1829,2359,2020-11-28,Hypertension,Medication
+1830,278,2021-06-24,Diabetes,Medication
+1831,1716,2023-12-07,Heart Disease,Surgery
+1832,2761,2022-12-13,Hypertension,Medication
+1833,646,2020-11-17,Heart Disease,Surgery
+1834,1418,2023-02-03,Heart Disease,Medication
+1835,493,2020-02-18,Heart Disease,Medication
+1836,281,2020-05-06,Asthma,Medication
+1837,1370,2023-09-16,Diabetes,Medication
+1838,2550,2021-10-18,Asthma,Lifestyle Changes
+1839,399,2022-09-05,Heart Disease,Medication
+1840,1739,2024-06-07,Diabetes,Surgery
+1841,174,2022-12-05,Diabetes,Medication
+1842,1369,2020-08-28,Asthma,Lifestyle Changes
+1843,644,2024-01-27,Hypertension,Surgery
+1844,2035,2024-02-17,Diabetes,Lifestyle Changes
+1845,1873,2023-12-13,Heart Disease,Medication
+1846,1425,2020-01-26,Hypertension,Surgery
+1847,2701,2020-04-09,Asthma,Medication
+1848,260,2023-02-19,Asthma,Lifestyle Changes
+1849,1419,2020-11-03,Diabetes,Surgery
+1850,1035,2023-08-01,Heart Disease,Medication
+1851,2346,2020-11-14,Heart Disease,Lifestyle Changes
+1852,1894,2022-06-30,Diabetes,Medication
+1853,45,2023-04-09,Diabetes,Surgery
+1854,2672,2023-05-07,Hypertension,Surgery
+1855,1077,2022-03-02,Heart Disease,Surgery
+1856,1412,2022-06-27,Diabetes,Surgery
+1857,2678,2020-07-08,Diabetes,Lifestyle Changes
+1858,2570,2023-02-11,Heart Disease,Surgery
+1859,911,2022-12-07,Asthma,Lifestyle Changes
+1860,799,2020-03-02,Diabetes,Medication
+1861,1631,2024-09-03,Heart Disease,Medication
+1862,776,2024-07-08,Diabetes,Medication
+1863,2163,2024-12-24,Hypertension,Lifestyle Changes
+1864,1884,2022-10-09,Hypertension,Surgery
+1865,2119,2020-09-02,Diabetes,Medication
+1866,2298,2021-09-22,Heart Disease,Lifestyle Changes
+1867,808,2020-11-14,Heart Disease,Medication
+1868,2251,2023-01-12,Hypertension,Lifestyle Changes
+1869,582,2024-05-20,Heart Disease,Lifestyle Changes
+1870,1376,2022-03-11,Hypertension,Lifestyle Changes
+1871,2103,2021-07-17,Diabetes,Surgery
+1872,138,2022-09-08,Hypertension,Surgery
+1873,1385,2024-05-12,Heart Disease,Medication
+1874,305,2024-08-05,Heart Disease,Surgery
+1875,770,2024-03-17,Asthma,Medication
+1876,2346,2024-07-26,Heart Disease,Lifestyle Changes
+1877,470,2024-07-13,Heart Disease,Lifestyle Changes
+1878,747,2023-09-09,Hypertension,Lifestyle Changes
+1879,1264,2020-01-21,Diabetes,Surgery
+1880,666,2021-10-23,Hypertension,Lifestyle Changes
+1881,1831,2024-06-07,Heart Disease,Medication
+1882,407,2023-07-07,Diabetes,Medication
+1883,1832,2022-07-18,Diabetes,Lifestyle Changes
+1884,639,2023-11-01,Asthma,Medication
+1885,1890,2023-06-03,Diabetes,Medication
+1886,970,2023-07-15,Diabetes,Surgery
+1887,2415,2022-02-05,Hypertension,Lifestyle Changes
+1888,875,2025-01-14,Hypertension,Surgery
+1889,1595,2024-02-07,Heart Disease,Lifestyle Changes
+1890,361,2025-03-10,Heart Disease,Surgery
+1891,810,2025-03-09,Asthma,Surgery
+1892,1798,2022-05-27,Heart Disease,Surgery
+1893,2553,2021-06-06,Asthma,Lifestyle Changes
+1894,554,2021-06-07,Asthma,Lifestyle Changes
+1895,2541,2020-01-17,Heart Disease,Medication
+1896,1942,2021-01-30,Heart Disease,Medication
+1897,358,2024-03-24,Asthma,Medication
+1898,970,2023-06-13,Heart Disease,Lifestyle Changes
+1899,1321,2020-07-07,Asthma,Surgery
+1900,2881,2023-07-08,Diabetes,Medication
+1901,2407,2021-10-06,Asthma,Medication
+1902,1604,2021-02-25,Asthma,Surgery
+1903,1765,2022-02-14,Diabetes,Medication
+1904,46,2021-07-31,Hypertension,Medication
+1905,143,2020-09-03,Diabetes,Lifestyle Changes
+1906,2177,2024-10-12,Hypertension,Lifestyle Changes
+1907,278,2020-01-17,Hypertension,Medication
+1908,1876,2024-10-08,Hypertension,Medication
+1909,394,2021-03-07,Hypertension,Medication
+1910,2332,2023-01-03,Hypertension,Surgery
+1911,2012,2021-10-28,Diabetes,Surgery
+1912,697,2024-10-07,Heart Disease,Surgery
+1913,2239,2024-12-02,Heart Disease,Lifestyle Changes
+1914,781,2022-08-06,Heart Disease,Surgery
+1915,218,2021-07-07,Hypertension,Lifestyle Changes
+1916,2790,2023-09-20,Heart Disease,Medication
+1917,1444,2020-11-06,Hypertension,Medication
+1918,2463,2021-05-15,Hypertension,Surgery
+1919,721,2023-07-04,Asthma,Surgery
+1920,2893,2021-12-08,Asthma,Surgery
+1921,2882,2023-11-16,Heart Disease,Medication
+1922,1519,2020-09-26,Asthma,Medication
+1923,68,2025-02-17,Asthma,Lifestyle Changes
+1924,179,2025-02-13,Hypertension,Surgery
+1925,2741,2024-12-30,Diabetes,Lifestyle Changes
+1926,364,2022-03-01,Hypertension,Lifestyle Changes
+1927,1943,2022-05-06,Heart Disease,Medication
+1928,595,2023-06-02,Diabetes,Lifestyle Changes
+1929,79,2020-10-27,Heart Disease,Medication
+1930,2352,2022-01-07,Asthma,Surgery
+1931,888,2022-11-23,Hypertension,Medication
+1932,1217,2021-10-04,Asthma,Lifestyle Changes
+1933,1530,2022-06-13,Hypertension,Medication
+1934,1563,2024-06-01,Hypertension,Surgery
+1935,1286,2024-07-16,Asthma,Medication
+1936,1634,2022-01-30,Hypertension,Medication
+1937,1252,2021-07-09,Diabetes,Surgery
+1938,1017,2021-03-25,Asthma,Lifestyle Changes
+1939,1542,2021-05-30,Asthma,Surgery
+1940,1812,2025-04-18,Hypertension,Lifestyle Changes
+1941,1120,2022-02-05,Diabetes,Lifestyle Changes
+1942,658,2024-06-18,Heart Disease,Medication
+1943,2887,2022-07-30,Diabetes,Lifestyle Changes
+1944,2204,2022-01-31,Diabetes,Lifestyle Changes
+1945,2540,2022-09-15,Asthma,Medication
+1946,3000,2020-11-26,Asthma,Surgery
+1947,369,2023-02-23,Diabetes,Medication
+1948,1429,2020-12-25,Diabetes,Lifestyle Changes
+1949,1663,2024-09-26,Diabetes,Lifestyle Changes
+1950,1657,2024-11-07,Diabetes,Lifestyle Changes
+1951,1978,2020-04-23,Asthma,Lifestyle Changes
+1952,1271,2023-08-25,Diabetes,Lifestyle Changes
+1953,2109,2025-03-26,Diabetes,Medication
+1954,27,2020-10-21,Hypertension,Lifestyle Changes
+1955,1904,2023-08-01,Heart Disease,Surgery
+1956,2672,2022-03-08,Heart Disease,Surgery
+1957,286,2022-07-31,Diabetes,Medication
+1958,1513,2020-10-21,Hypertension,Lifestyle Changes
+1959,2316,2020-09-01,Diabetes,Surgery
+1960,796,2021-12-04,Hypertension,Lifestyle Changes
+1961,859,2024-05-27,Heart Disease,Medication
+1962,1666,2023-02-10,Hypertension,Surgery
+1963,1468,2021-02-16,Diabetes,Lifestyle Changes
+1964,2055,2021-04-24,Diabetes,Lifestyle Changes
+1965,1493,2022-02-14,Asthma,Surgery
+1966,1942,2022-03-29,Hypertension,Surgery
+1967,1095,2021-11-24,Heart Disease,Medication
+1968,2588,2022-09-18,Heart Disease,Surgery
+1969,991,2025-01-05,Asthma,Surgery
+1970,1193,2021-05-22,Hypertension,Lifestyle Changes
+1971,1436,2020-05-26,Heart Disease,Lifestyle Changes
+1972,2679,2024-12-25,Asthma,Lifestyle Changes
+1973,181,2023-04-25,Heart Disease,Surgery
+1974,2415,2024-04-03,Heart Disease,Lifestyle Changes
+1975,518,2022-07-12,Hypertension,Lifestyle Changes
+1976,2669,2020-11-12,Hypertension,Lifestyle Changes
+1977,507,2024-10-15,Diabetes,Lifestyle Changes
+1978,699,2022-02-27,Asthma,Lifestyle Changes
+1979,2068,2022-02-06,Heart Disease,Lifestyle Changes
+1980,2239,2024-08-14,Heart Disease,Surgery
+1981,2218,2024-09-23,Asthma,Medication
+1982,1254,2021-03-18,Hypertension,Surgery
+1983,46,2020-05-26,Hypertension,Medication
+1984,1536,2023-10-15,Hypertension,Lifestyle Changes
+1985,474,2022-12-22,Asthma,Surgery
+1986,1073,2024-06-30,Hypertension,Surgery
+1987,141,2023-09-03,Heart Disease,Surgery
+1988,664,2024-04-03,Asthma,Medication
+1989,1026,2021-03-22,Asthma,Lifestyle Changes
+1990,475,2020-12-29,Heart Disease,Surgery
+1991,1133,2022-03-01,Hypertension,Surgery
+1992,1909,2023-10-24,Diabetes,Medication
+1993,640,2022-04-28,Heart Disease,Medication
+1994,819,2024-06-25,Diabetes,Lifestyle Changes
+1995,1882,2021-02-13,Diabetes,Lifestyle Changes
+1996,477,2020-06-05,Hypertension,Medication
+1997,991,2022-11-13,Hypertension,Surgery
+1998,2964,2022-05-27,Asthma,Lifestyle Changes
+1999,2167,2024-12-10,Asthma,Surgery
+2000,2637,2024-06-18,Diabetes,Lifestyle Changes
+2001,1303,2020-12-24,Heart Disease,Lifestyle Changes
+2002,2745,2024-10-19,Asthma,Lifestyle Changes
+2003,684,2025-03-27,Asthma,Lifestyle Changes
+2004,989,2020-03-22,Diabetes,Lifestyle Changes
+2005,2285,2025-04-26,Hypertension,Lifestyle Changes
+2006,281,2023-12-12,Diabetes,Lifestyle Changes
+2007,267,2023-09-02,Diabetes,Surgery
+2008,1447,2020-10-11,Heart Disease,Surgery
+2009,365,2021-11-23,Heart Disease,Medication
+2010,1794,2023-06-23,Heart Disease,Lifestyle Changes
+2011,962,2023-12-06,Heart Disease,Surgery
+2012,2341,2024-04-25,Asthma,Medication
+2013,1877,2021-05-08,Diabetes,Surgery
+2014,2713,2021-11-16,Hypertension,Surgery
+2015,2618,2025-04-26,Diabetes,Medication
+2016,2768,2024-12-17,Heart Disease,Lifestyle Changes
+2017,814,2020-12-13,Diabetes,Lifestyle Changes
+2018,2175,2024-08-01,Heart Disease,Surgery
+2019,2352,2020-02-02,Heart Disease,Medication
+2020,1773,2022-10-27,Asthma,Medication
+2021,1596,2023-11-23,Asthma,Surgery
+2022,21,2024-04-01,Heart Disease,Surgery
+2023,2445,2022-02-06,Heart Disease,Surgery
+2024,2389,2023-03-24,Asthma,Medication
+2025,2070,2022-01-22,Asthma,Medication
+2026,1960,2022-09-15,Diabetes,Lifestyle Changes
+2027,51,2023-05-13,Asthma,Medication
+2028,2818,2023-02-20,Heart Disease,Surgery
+2029,2680,2023-09-16,Diabetes,Medication
+2030,463,2024-09-03,Asthma,Medication
+2031,2780,2025-01-17,Asthma,Lifestyle Changes
+2032,1223,2020-11-05,Asthma,Surgery
+2033,1064,2024-01-29,Asthma,Lifestyle Changes
+2034,1765,2023-07-08,Hypertension,Surgery
+2035,1081,2020-07-03,Diabetes,Lifestyle Changes
+2036,2742,2025-03-28,Hypertension,Medication
+2037,2554,2020-07-08,Hypertension,Surgery
+2038,1112,2022-11-14,Heart Disease,Lifestyle Changes
+2039,1155,2023-12-02,Asthma,Surgery
+2040,2629,2020-09-02,Heart Disease,Lifestyle Changes
+2041,2654,2024-11-06,Diabetes,Medication
+2042,1745,2021-01-28,Asthma,Surgery
+2043,2069,2021-09-18,Asthma,Medication
+2044,2236,2024-01-10,Hypertension,Lifestyle Changes
+2045,2911,2023-08-19,Diabetes,Medication
+2046,325,2022-08-14,Hypertension,Medication
+2047,1900,2024-08-31,Asthma,Surgery
+2048,1280,2023-04-26,Hypertension,Medication
+2049,174,2022-04-27,Heart Disease,Medication
+2050,2749,2020-04-25,Heart Disease,Medication
+2051,1945,2024-09-19,Hypertension,Medication
+2052,278,2024-08-24,Diabetes,Surgery
+2053,1874,2023-10-05,Diabetes,Surgery
+2054,1115,2023-08-17,Heart Disease,Surgery
+2055,2596,2022-02-19,Asthma,Medication
+2056,1570,2023-12-26,Heart Disease,Medication
+2057,169,2024-02-18,Diabetes,Surgery
+2058,1802,2022-01-31,Heart Disease,Medication
+2059,1402,2023-01-15,Heart Disease,Surgery
+2060,2727,2024-12-24,Heart Disease,Lifestyle Changes
+2061,1355,2020-12-08,Hypertension,Medication
+2062,1467,2020-02-16,Asthma,Lifestyle Changes
+2063,600,2022-02-18,Asthma,Lifestyle Changes
+2064,1661,2022-02-07,Hypertension,Surgery
+2065,1313,2024-10-30,Heart Disease,Medication
+2066,2219,2022-06-26,Heart Disease,Lifestyle Changes
+2067,1480,2020-03-26,Asthma,Medication
+2068,1037,2023-10-06,Heart Disease,Surgery
+2069,696,2020-07-18,Asthma,Medication
+2070,1749,2020-02-05,Diabetes,Lifestyle Changes
+2071,1164,2023-09-21,Diabetes,Medication
+2072,1952,2020-10-26,Heart Disease,Surgery
+2073,1233,2021-02-09,Hypertension,Surgery
+2074,2948,2020-06-07,Diabetes,Medication
+2075,1447,2025-03-10,Asthma,Medication
+2076,989,2023-09-09,Heart Disease,Lifestyle Changes
+2077,454,2024-10-03,Asthma,Lifestyle Changes
+2078,1388,2021-10-30,Asthma,Medication
+2079,892,2023-06-19,Asthma,Surgery
+2080,102,2020-03-31,Asthma,Lifestyle Changes
+2081,1546,2023-10-01,Hypertension,Lifestyle Changes
+2082,2332,2024-06-14,Asthma,Medication
+2083,2727,2020-10-04,Asthma,Medication
+2084,2834,2021-09-10,Asthma,Medication
+2085,1322,2024-05-09,Hypertension,Surgery
+2086,1332,2022-05-27,Asthma,Medication
+2087,2176,2020-03-25,Hypertension,Surgery
+2088,1078,2024-11-04,Asthma,Surgery
+2089,2087,2020-03-01,Hypertension,Lifestyle Changes
+2090,2332,2023-11-17,Asthma,Medication
+2091,2326,2022-07-03,Heart Disease,Medication
+2092,1719,2020-07-28,Hypertension,Lifestyle Changes
+2093,275,2023-03-19,Asthma,Surgery
+2094,6,2022-04-12,Asthma,Surgery
+2095,2802,2022-08-25,Heart Disease,Medication
+2096,2578,2021-11-29,Hypertension,Medication
+2097,207,2022-09-12,Hypertension,Lifestyle Changes
+2098,2432,2024-03-20,Diabetes,Lifestyle Changes
+2099,2548,2024-05-12,Hypertension,Medication
+2100,2203,2023-01-01,Hypertension,Medication
+2101,1328,2024-12-23,Heart Disease,Medication
+2102,2990,2024-06-14,Asthma,Surgery
+2103,2441,2021-08-16,Diabetes,Lifestyle Changes
+2104,1849,2020-12-16,Heart Disease,Surgery
+2105,1813,2020-05-05,Asthma,Lifestyle Changes
+2106,2886,2021-06-22,Hypertension,Medication
+2107,2571,2022-03-14,Hypertension,Lifestyle Changes
+2108,2858,2022-08-25,Asthma,Medication
+2109,1395,2025-02-09,Diabetes,Medication
+2110,261,2023-09-29,Hypertension,Medication
+2111,2841,2021-12-23,Hypertension,Medication
+2112,2562,2021-11-26,Heart Disease,Lifestyle Changes
+2113,329,2021-11-29,Asthma,Surgery
+2114,2145,2021-09-23,Heart Disease,Medication
+2115,909,2020-08-08,Diabetes,Lifestyle Changes
+2116,526,2024-10-17,Hypertension,Surgery
+2117,420,2023-09-01,Diabetes,Medication
+2118,386,2025-01-21,Asthma,Surgery
+2119,1992,2020-01-16,Diabetes,Surgery
+2120,2457,2022-07-01,Hypertension,Lifestyle Changes
+2121,1010,2024-01-22,Diabetes,Medication
+2122,825,2021-10-20,Hypertension,Surgery
+2123,2819,2025-04-25,Diabetes,Lifestyle Changes
+2124,1858,2021-08-31,Asthma,Surgery
+2125,1316,2023-08-08,Heart Disease,Lifestyle Changes
+2126,2617,2025-01-24,Heart Disease,Surgery
+2127,1210,2021-11-05,Hypertension,Medication
+2128,1479,2022-04-29,Heart Disease,Surgery
+2129,809,2025-02-04,Asthma,Medication
+2130,2606,2024-03-08,Hypertension,Surgery
+2131,1012,2022-09-11,Asthma,Lifestyle Changes
+2132,2679,2021-09-23,Heart Disease,Lifestyle Changes
+2133,1160,2024-05-08,Hypertension,Medication
+2134,2910,2021-06-27,Heart Disease,Medication
+2135,918,2023-11-09,Asthma,Surgery
+2136,835,2025-01-18,Diabetes,Lifestyle Changes
+2137,648,2024-01-09,Heart Disease,Lifestyle Changes
+2138,1850,2024-08-22,Diabetes,Surgery
+2139,1455,2022-02-01,Diabetes,Lifestyle Changes
+2140,2892,2023-02-14,Asthma,Medication
+2141,1932,2024-12-28,Asthma,Surgery
+2142,773,2022-04-12,Heart Disease,Lifestyle Changes
+2143,2302,2023-08-09,Diabetes,Lifestyle Changes
+2144,1407,2023-11-10,Heart Disease,Surgery
+2145,3000,2024-08-13,Asthma,Lifestyle Changes
+2146,1410,2021-01-15,Asthma,Surgery
+2147,113,2020-12-31,Hypertension,Medication
+2148,1719,2021-10-01,Heart Disease,Medication
+2149,2582,2023-10-15,Heart Disease,Surgery
+2150,2491,2025-01-13,Heart Disease,Lifestyle Changes
+2151,314,2023-03-03,Asthma,Surgery
+2152,2544,2022-12-01,Diabetes,Lifestyle Changes
+2153,1263,2022-03-09,Hypertension,Medication
+2154,56,2020-10-15,Diabetes,Medication
+2155,151,2023-08-12,Hypertension,Surgery
+2156,1401,2022-08-25,Hypertension,Medication
+2157,1577,2024-02-03,Asthma,Lifestyle Changes
+2158,1798,2024-06-13,Heart Disease,Lifestyle Changes
+2159,747,2020-03-28,Asthma,Medication
+2160,2253,2024-10-04,Heart Disease,Lifestyle Changes
+2161,2790,2024-07-26,Diabetes,Medication
+2162,2570,2021-06-26,Hypertension,Surgery
+2163,1116,2020-12-25,Asthma,Medication
+2164,1106,2021-01-05,Hypertension,Lifestyle Changes
+2165,2575,2022-12-28,Diabetes,Lifestyle Changes
+2166,405,2020-01-16,Hypertension,Medication
+2167,1927,2023-09-15,Asthma,Medication
+2168,75,2022-12-12,Asthma,Surgery
+2169,2689,2023-10-05,Hypertension,Lifestyle Changes
+2170,1889,2025-03-04,Heart Disease,Medication
+2171,641,2024-04-14,Asthma,Lifestyle Changes
+2172,2757,2023-03-29,Heart Disease,Surgery
+2173,1967,2023-12-09,Hypertension,Medication
+2174,263,2020-02-16,Diabetes,Lifestyle Changes
+2175,2866,2020-06-23,Diabetes,Lifestyle Changes
+2176,477,2024-12-09,Hypertension,Lifestyle Changes
+2177,156,2023-09-26,Heart Disease,Lifestyle Changes
+2178,2314,2020-02-02,Asthma,Surgery
+2179,2581,2024-04-14,Diabetes,Medication
+2180,1615,2023-02-05,Heart Disease,Surgery
+2181,746,2021-11-07,Hypertension,Medication
+2182,864,2020-12-29,Diabetes,Medication
+2183,2355,2022-10-03,Asthma,Medication
+2184,2629,2021-12-12,Hypertension,Medication
+2185,695,2020-10-02,Hypertension,Lifestyle Changes
+2186,1309,2023-08-01,Diabetes,Lifestyle Changes
+2187,1443,2021-04-12,Hypertension,Lifestyle Changes
+2188,808,2021-05-24,Diabetes,Medication
+2189,1580,2021-02-19,Asthma,Lifestyle Changes
+2190,1996,2020-02-25,Asthma,Lifestyle Changes
+2191,805,2021-02-09,Asthma,Lifestyle Changes
+2192,1863,2020-06-11,Hypertension,Surgery
+2193,1259,2022-08-29,Diabetes,Medication
+2194,2490,2022-10-24,Heart Disease,Surgery
+2195,262,2021-07-28,Diabetes,Medication
+2196,2983,2021-01-05,Heart Disease,Surgery
+2197,2655,2024-08-23,Diabetes,Medication
+2198,1556,2020-10-24,Hypertension,Surgery
+2199,507,2020-03-28,Asthma,Surgery
+2200,813,2025-03-03,Hypertension,Lifestyle Changes
+2201,381,2024-09-11,Heart Disease,Medication
+2202,2112,2021-11-21,Heart Disease,Surgery
+2203,723,2023-09-29,Asthma,Surgery
+2204,1497,2021-04-22,Heart Disease,Surgery
+2205,553,2024-07-29,Asthma,Medication
+2206,1602,2025-01-07,Heart Disease,Surgery
+2207,1330,2023-06-27,Asthma,Surgery
+2208,626,2020-01-28,Heart Disease,Surgery
+2209,1021,2021-01-26,Asthma,Lifestyle Changes
+2210,1204,2025-04-25,Diabetes,Medication
+2211,1574,2020-11-17,Diabetes,Surgery
+2212,174,2022-02-26,Asthma,Surgery
+2213,1764,2023-12-11,Diabetes,Surgery
+2214,2032,2021-04-11,Hypertension,Lifestyle Changes
+2215,2011,2022-02-14,Asthma,Medication
+2216,2903,2021-09-19,Hypertension,Medication
+2217,590,2024-06-19,Diabetes,Medication
+2218,1923,2021-10-12,Heart Disease,Surgery
+2219,548,2021-12-31,Diabetes,Lifestyle Changes
+2220,1793,2020-08-21,Diabetes,Surgery
+2221,1694,2020-04-06,Hypertension,Surgery
+2222,802,2022-01-17,Diabetes,Surgery
+2223,668,2022-06-22,Hypertension,Surgery
+2224,2429,2022-04-22,Hypertension,Lifestyle Changes
+2225,1490,2023-11-02,Heart Disease,Lifestyle Changes
+2226,439,2022-06-20,Diabetes,Medication
+2227,2819,2024-10-20,Hypertension,Medication
+2228,2510,2023-01-20,Diabetes,Surgery
+2229,2905,2024-04-25,Asthma,Medication
+2230,1255,2022-09-06,Diabetes,Surgery
+2231,1976,2021-07-10,Asthma,Lifestyle Changes
+2232,490,2021-08-15,Asthma,Medication
+2233,1376,2020-11-11,Heart Disease,Lifestyle Changes
+2234,807,2021-05-10,Hypertension,Medication
+2235,278,2022-11-09,Heart Disease,Lifestyle Changes
+2236,24,2022-04-23,Hypertension,Lifestyle Changes
+2237,720,2021-11-22,Hypertension,Lifestyle Changes
+2238,2869,2024-11-16,Asthma,Medication
+2239,2893,2022-06-11,Diabetes,Surgery
+2240,1733,2020-03-23,Diabetes,Lifestyle Changes
+2241,700,2022-04-08,Hypertension,Lifestyle Changes
+2242,1692,2021-08-05,Heart Disease,Surgery
+2243,2693,2023-04-20,Asthma,Medication
+2244,1010,2024-10-20,Heart Disease,Surgery
+2245,456,2021-08-10,Hypertension,Lifestyle Changes
+2246,2122,2020-01-25,Heart Disease,Lifestyle Changes
+2247,706,2022-12-26,Heart Disease,Medication
+2248,1375,2022-02-19,Asthma,Medication
+2249,2372,2022-07-26,Hypertension,Medication
+2250,1166,2022-01-23,Diabetes,Surgery
+2251,1312,2021-03-03,Diabetes,Medication
+2252,2492,2020-03-03,Diabetes,Lifestyle Changes
+2253,614,2024-07-23,Diabetes,Medication
+2254,341,2021-12-19,Asthma,Surgery
+2255,665,2023-11-11,Hypertension,Lifestyle Changes
+2256,2892,2025-01-21,Diabetes,Medication
+2257,2162,2022-07-28,Diabetes,Lifestyle Changes
+2258,1906,2023-05-16,Asthma,Medication
+2259,1011,2020-09-05,Heart Disease,Surgery
+2260,2858,2021-07-22,Heart Disease,Surgery
+2261,1500,2021-03-03,Heart Disease,Surgery
+2262,1893,2020-12-31,Asthma,Surgery
+2263,951,2021-10-01,Heart Disease,Lifestyle Changes
+2264,2230,2022-07-15,Asthma,Medication
+2265,603,2020-07-25,Diabetes,Lifestyle Changes
+2266,567,2024-10-03,Hypertension,Medication
+2267,61,2020-04-26,Heart Disease,Lifestyle Changes
+2268,1885,2023-07-23,Asthma,Surgery
+2269,1463,2020-12-29,Hypertension,Surgery
+2270,2195,2020-11-20,Heart Disease,Surgery
+2271,1168,2023-01-01,Hypertension,Surgery
+2272,2913,2020-12-06,Diabetes,Lifestyle Changes
+2273,1421,2020-06-14,Heart Disease,Surgery
+2274,2390,2022-05-21,Heart Disease,Lifestyle Changes
+2275,2524,2021-08-15,Asthma,Medication
+2276,2680,2021-09-12,Diabetes,Medication
+2277,1453,2023-12-31,Hypertension,Surgery
+2278,1851,2024-03-23,Asthma,Medication
+2279,1544,2024-04-29,Hypertension,Lifestyle Changes
+2280,2680,2025-03-22,Heart Disease,Surgery
+2281,792,2020-02-06,Heart Disease,Lifestyle Changes
+2282,1575,2021-07-30,Asthma,Surgery
+2283,2647,2020-05-21,Heart Disease,Lifestyle Changes
+2284,202,2022-08-09,Asthma,Lifestyle Changes
+2285,1015,2023-07-25,Heart Disease,Lifestyle Changes
+2286,842,2022-09-16,Asthma,Medication
+2287,1800,2024-06-15,Hypertension,Surgery
+2288,1941,2025-01-10,Hypertension,Surgery
+2289,1891,2024-06-15,Hypertension,Surgery
+2290,2344,2021-12-14,Asthma,Surgery
+2291,1962,2024-07-06,Hypertension,Medication
+2292,1364,2022-12-16,Asthma,Surgery
+2293,1638,2025-01-16,Hypertension,Medication
+2294,1107,2021-06-19,Asthma,Lifestyle Changes
+2295,2545,2020-01-09,Hypertension,Surgery
+2296,2902,2020-03-10,Asthma,Lifestyle Changes
+2297,2492,2022-05-13,Asthma,Surgery
+2298,1778,2022-06-13,Hypertension,Lifestyle Changes
+2299,1260,2022-12-07,Diabetes,Lifestyle Changes
+2300,2437,2025-04-26,Diabetes,Surgery
+2301,1415,2021-11-22,Hypertension,Lifestyle Changes
+2302,163,2022-09-26,Heart Disease,Medication
+2303,1502,2021-01-17,Hypertension,Surgery
+2304,299,2020-11-14,Asthma,Medication
+2305,2607,2020-01-25,Hypertension,Lifestyle Changes
+2306,2200,2024-05-14,Asthma,Surgery
+2307,1505,2023-04-12,Asthma,Medication
+2308,1930,2023-12-18,Diabetes,Medication
+2309,1512,2024-12-24,Hypertension,Medication
+2310,590,2023-05-14,Heart Disease,Lifestyle Changes
+2311,1640,2021-05-15,Hypertension,Medication
+2312,2765,2021-06-12,Asthma,Medication
+2313,222,2025-02-22,Heart Disease,Lifestyle Changes
+2314,2968,2022-09-04,Hypertension,Surgery
+2315,118,2021-03-21,Heart Disease,Lifestyle Changes
+2316,2790,2023-03-23,Asthma,Medication
+2317,923,2022-10-12,Heart Disease,Medication
+2318,1008,2020-02-02,Asthma,Medication
+2319,2848,2021-04-02,Diabetes,Medication
+2320,2406,2020-04-27,Diabetes,Medication
+2321,2767,2023-12-05,Heart Disease,Medication
+2322,163,2021-12-09,Hypertension,Lifestyle Changes
+2323,359,2021-02-20,Hypertension,Medication
+2324,226,2024-05-12,Heart Disease,Lifestyle Changes
+2325,1070,2023-09-08,Diabetes,Surgery
+2326,275,2021-05-07,Diabetes,Lifestyle Changes
+2327,2083,2023-12-23,Hypertension,Surgery
+2328,1305,2024-01-22,Diabetes,Lifestyle Changes
+2329,618,2023-07-24,Asthma,Lifestyle Changes
+2330,2575,2023-10-03,Diabetes,Lifestyle Changes
+2331,1608,2020-05-22,Hypertension,Lifestyle Changes
+2332,1533,2021-01-20,Asthma,Lifestyle Changes
+2333,2389,2021-07-08,Heart Disease,Medication
+2334,1728,2021-01-13,Asthma,Lifestyle Changes
+2335,2340,2023-12-20,Asthma,Surgery
+2336,168,2020-10-28,Asthma,Medication
+2337,2334,2021-10-06,Hypertension,Medication
+2338,1698,2025-01-29,Heart Disease,Medication
+2339,197,2021-12-20,Hypertension,Lifestyle Changes
+2340,1147,2023-12-01,Heart Disease,Lifestyle Changes
+2341,2606,2022-11-14,Hypertension,Lifestyle Changes
+2342,2651,2025-02-15,Hypertension,Medication
+2343,1640,2024-05-01,Hypertension,Medication
+2344,2624,2022-10-21,Heart Disease,Lifestyle Changes
+2345,1572,2021-02-04,Hypertension,Lifestyle Changes
+2346,1666,2023-02-13,Hypertension,Surgery
+2347,1648,2023-08-08,Heart Disease,Surgery
+2348,1605,2023-02-10,Heart Disease,Lifestyle Changes
+2349,1146,2023-06-08,Asthma,Medication
+2350,794,2022-12-17,Diabetes,Lifestyle Changes
+2351,901,2024-12-31,Asthma,Medication
+2352,838,2020-12-07,Heart Disease,Lifestyle Changes
+2353,41,2024-11-01,Asthma,Lifestyle Changes
+2354,1375,2021-03-21,Asthma,Medication
+2355,584,2023-07-04,Diabetes,Medication
+2356,1553,2020-06-29,Hypertension,Surgery
+2357,195,2021-06-02,Hypertension,Lifestyle Changes
+2358,1126,2024-08-05,Hypertension,Medication
+2359,296,2022-01-09,Asthma,Medication
+2360,2191,2020-05-21,Asthma,Medication
+2361,1275,2021-01-01,Diabetes,Lifestyle Changes
+2362,365,2020-12-26,Asthma,Surgery
+2363,1348,2021-10-28,Hypertension,Medication
+2364,586,2025-04-24,Hypertension,Surgery
+2365,1848,2022-04-25,Heart Disease,Surgery
+2366,2596,2020-07-12,Diabetes,Lifestyle Changes
+2367,1523,2021-07-26,Asthma,Surgery
+2368,1986,2020-12-14,Heart Disease,Surgery
+2369,2727,2020-12-26,Asthma,Medication
+2370,1621,2025-02-01,Heart Disease,Surgery
+2371,430,2020-10-10,Hypertension,Lifestyle Changes
+2372,2152,2020-09-14,Asthma,Surgery
+2373,2917,2020-09-24,Hypertension,Medication
+2374,431,2024-08-21,Asthma,Medication
+2375,2496,2024-05-22,Heart Disease,Medication
+2376,2440,2022-12-17,Asthma,Medication
+2377,1465,2022-11-19,Hypertension,Lifestyle Changes
+2378,321,2023-11-04,Heart Disease,Medication
+2379,632,2021-07-23,Hypertension,Medication
+2380,2303,2024-03-24,Hypertension,Lifestyle Changes
+2381,1921,2024-10-17,Heart Disease,Surgery
+2382,2151,2022-04-14,Asthma,Medication
+2383,2048,2022-06-20,Diabetes,Medication
+2384,2650,2025-03-31,Hypertension,Medication
+2385,959,2024-11-10,Diabetes,Surgery
+2386,2318,2024-09-17,Asthma,Surgery
+2387,1721,2024-11-05,Hypertension,Surgery
+2388,1775,2021-09-27,Hypertension,Surgery
+2389,279,2022-06-14,Asthma,Medication
+2390,1772,2020-07-03,Heart Disease,Lifestyle Changes
+2391,1173,2021-01-09,Diabetes,Surgery
+2392,2403,2024-10-28,Heart Disease,Lifestyle Changes
+2393,493,2023-01-09,Diabetes,Surgery
+2394,1578,2020-10-29,Diabetes,Medication
+2395,1311,2020-10-18,Hypertension,Lifestyle Changes
+2396,2079,2023-03-24,Heart Disease,Medication
+2397,201,2022-10-11,Asthma,Lifestyle Changes
+2398,245,2024-04-20,Hypertension,Medication
+2399,2665,2020-02-19,Hypertension,Medication
+2400,2102,2024-03-28,Asthma,Medication
+2401,179,2021-10-18,Hypertension,Lifestyle Changes
+2402,1189,2024-07-30,Hypertension,Surgery
+2403,458,2024-05-31,Diabetes,Lifestyle Changes
+2404,1224,2023-04-29,Asthma,Lifestyle Changes
+2405,2392,2021-11-11,Heart Disease,Surgery
+2406,1275,2022-02-17,Diabetes,Lifestyle Changes
+2407,2999,2020-11-26,Heart Disease,Lifestyle Changes
+2408,2690,2023-12-13,Hypertension,Surgery
+2409,2662,2020-02-03,Hypertension,Lifestyle Changes
+2410,1417,2023-03-13,Diabetes,Surgery
+2411,1189,2022-07-28,Heart Disease,Medication
+2412,2452,2022-02-09,Hypertension,Medication
+2413,195,2022-08-07,Diabetes,Medication
+2414,2064,2022-02-24,Asthma,Lifestyle Changes
+2415,1525,2021-12-23,Heart Disease,Surgery
+2416,1839,2020-06-19,Diabetes,Medication
+2417,1785,2022-01-20,Heart Disease,Lifestyle Changes
+2418,1988,2023-01-29,Heart Disease,Surgery
+2419,1267,2022-04-30,Hypertension,Medication
+2420,2559,2023-03-25,Diabetes,Lifestyle Changes
+2421,2221,2020-10-06,Asthma,Lifestyle Changes
+2422,2308,2020-03-27,Hypertension,Medication
+2423,145,2023-08-02,Asthma,Lifestyle Changes
+2424,2481,2024-11-09,Asthma,Medication
+2425,2316,2022-10-01,Hypertension,Lifestyle Changes
+2426,553,2020-10-09,Asthma,Medication
+2427,2316,2023-06-12,Diabetes,Surgery
+2428,789,2022-03-03,Heart Disease,Lifestyle Changes
+2429,468,2022-10-07,Asthma,Surgery
+2430,2166,2022-04-26,Diabetes,Medication
+2431,228,2021-09-03,Asthma,Medication
+2432,1552,2024-08-23,Heart Disease,Lifestyle Changes
+2433,1376,2020-09-03,Diabetes,Surgery
+2434,2417,2024-06-08,Heart Disease,Lifestyle Changes
+2435,2781,2020-10-01,Asthma,Lifestyle Changes
+2436,690,2022-09-10,Heart Disease,Lifestyle Changes
+2437,888,2022-05-29,Hypertension,Lifestyle Changes
+2438,1270,2025-03-21,Heart Disease,Surgery
+2439,2496,2021-12-11,Asthma,Medication
+2440,415,2023-04-13,Hypertension,Lifestyle Changes
+2441,2072,2022-03-09,Asthma,Surgery
+2442,996,2024-07-28,Diabetes,Lifestyle Changes
+2443,2644,2021-08-02,Asthma,Medication
+2444,1728,2021-02-10,Heart Disease,Surgery
+2445,2119,2021-10-03,Asthma,Surgery
+2446,1377,2023-08-12,Diabetes,Medication
+2447,165,2020-04-23,Heart Disease,Lifestyle Changes
+2448,2987,2024-03-11,Diabetes,Lifestyle Changes
+2449,330,2023-08-29,Hypertension,Medication
+2450,30,2024-02-12,Diabetes,Medication
+2451,663,2024-05-13,Asthma,Medication
+2452,1042,2020-02-16,Heart Disease,Lifestyle Changes
+2453,1873,2021-02-09,Diabetes,Medication
+2454,163,2020-12-20,Heart Disease,Lifestyle Changes
+2455,1244,2020-12-26,Heart Disease,Medication
+2456,2689,2020-10-30,Diabetes,Lifestyle Changes
+2457,1663,2021-12-16,Hypertension,Lifestyle Changes
+2458,2063,2022-03-25,Diabetes,Surgery
+2459,2682,2023-01-15,Asthma,Surgery
+2460,1084,2024-10-31,Asthma,Medication
+2461,2469,2020-12-24,Hypertension,Medication
+2462,2054,2021-04-27,Diabetes,Medication
+2463,2556,2024-05-28,Hypertension,Surgery
+2464,694,2024-10-16,Asthma,Lifestyle Changes
+2465,2801,2023-01-24,Hypertension,Lifestyle Changes
+2466,2044,2020-02-19,Asthma,Surgery
+2467,1389,2020-01-20,Heart Disease,Surgery
+2468,1104,2022-04-17,Asthma,Medication
+2469,957,2020-04-26,Hypertension,Surgery
+2470,1483,2023-12-26,Heart Disease,Lifestyle Changes
+2471,1099,2023-01-27,Hypertension,Medication
+2472,1513,2022-03-19,Heart Disease,Medication
+2473,2680,2021-12-01,Hypertension,Lifestyle Changes
+2474,2223,2022-04-13,Diabetes,Lifestyle Changes
+2475,2115,2023-11-26,Diabetes,Medication
+2476,2369,2022-07-15,Asthma,Lifestyle Changes
+2477,2462,2025-03-31,Heart Disease,Surgery
+2478,2382,2024-02-18,Heart Disease,Lifestyle Changes
+2479,645,2023-11-29,Heart Disease,Lifestyle Changes
+2480,1537,2025-01-17,Heart Disease,Medication
+2481,1060,2024-04-19,Asthma,Surgery
+2482,2712,2023-05-10,Heart Disease,Medication
+2483,2223,2024-07-07,Hypertension,Lifestyle Changes
+2484,1883,2025-04-20,Heart Disease,Surgery
+2485,2971,2023-02-15,Heart Disease,Lifestyle Changes
+2486,469,2021-03-04,Asthma,Medication
+2487,1327,2020-09-16,Hypertension,Medication
+2488,95,2021-07-11,Diabetes,Lifestyle Changes
+2489,2345,2023-06-09,Heart Disease,Medication
+2490,2832,2021-04-15,Heart Disease,Medication
+2491,727,2020-09-29,Hypertension,Surgery
+2492,902,2024-12-18,Asthma,Surgery
+2493,1925,2020-04-07,Asthma,Medication
+2494,1327,2021-08-23,Heart Disease,Medication
+2495,1562,2024-04-16,Hypertension,Surgery
+2496,2572,2024-06-04,Hypertension,Medication
+2497,537,2021-05-05,Asthma,Surgery
+2498,369,2021-02-06,Asthma,Lifestyle Changes
+2499,2820,2022-07-25,Hypertension,Surgery
+2500,1141,2020-08-08,Hypertension,Surgery
+2501,840,2022-11-15,Heart Disease,Lifestyle Changes
+2502,1853,2020-01-18,Asthma,Lifestyle Changes
+2503,2371,2021-03-28,Hypertension,Medication
+2504,1025,2021-03-08,Asthma,Surgery
+2505,88,2023-02-27,Hypertension,Lifestyle Changes
+2506,1691,2020-06-24,Hypertension,Medication
+2507,1249,2020-10-23,Heart Disease,Medication
+2508,2679,2020-05-03,Heart Disease,Medication
+2509,2730,2024-02-06,Hypertension,Lifestyle Changes
+2510,2396,2023-10-03,Heart Disease,Lifestyle Changes
+2511,405,2022-05-25,Hypertension,Lifestyle Changes
+2512,1916,2020-04-15,Diabetes,Lifestyle Changes
+2513,1447,2021-03-22,Hypertension,Surgery
+2514,816,2023-10-20,Hypertension,Lifestyle Changes
+2515,1589,2023-04-23,Heart Disease,Medication
+2516,281,2020-11-22,Heart Disease,Lifestyle Changes
+2517,62,2020-06-13,Heart Disease,Lifestyle Changes
+2518,1172,2020-06-15,Diabetes,Lifestyle Changes
+2519,842,2023-05-17,Heart Disease,Lifestyle Changes
+2520,547,2022-04-17,Asthma,Lifestyle Changes
+2521,91,2024-01-04,Asthma,Medication
+2522,926,2024-06-15,Asthma,Medication
+2523,675,2023-08-24,Hypertension,Surgery
+2524,1082,2020-12-19,Diabetes,Lifestyle Changes
+2525,2129,2020-11-30,Asthma,Surgery
+2526,2726,2021-12-26,Diabetes,Surgery
+2527,394,2024-11-28,Heart Disease,Surgery
+2528,609,2020-06-25,Hypertension,Medication
+2529,625,2024-01-19,Asthma,Medication
+2530,1774,2021-02-04,Heart Disease,Surgery
+2531,2181,2024-04-22,Heart Disease,Medication
+2532,1156,2024-01-27,Diabetes,Surgery
+2533,2923,2025-03-30,Diabetes,Lifestyle Changes
+2534,2581,2021-03-16,Diabetes,Medication
+2535,303,2020-05-24,Asthma,Surgery
+2536,2319,2021-11-21,Heart Disease,Surgery
+2537,1449,2025-04-05,Heart Disease,Medication
+2538,715,2021-12-26,Hypertension,Medication
+2539,575,2020-11-10,Diabetes,Lifestyle Changes
+2540,984,2023-07-03,Asthma,Medication
+2541,698,2020-03-05,Hypertension,Surgery
+2542,380,2024-08-03,Hypertension,Medication
+2543,2095,2023-01-27,Heart Disease,Surgery
+2544,591,2023-06-05,Asthma,Lifestyle Changes
+2545,930,2021-03-11,Heart Disease,Lifestyle Changes
+2546,1976,2020-02-05,Diabetes,Medication
+2547,765,2022-04-05,Diabetes,Medication
+2548,858,2023-05-07,Heart Disease,Lifestyle Changes
+2549,1052,2022-06-30,Asthma,Medication
+2550,2227,2022-03-22,Diabetes,Lifestyle Changes
+2551,1200,2024-05-09,Diabetes,Lifestyle Changes
+2552,1058,2023-08-02,Hypertension,Surgery
+2553,2697,2020-12-14,Heart Disease,Medication
+2554,1778,2021-08-16,Hypertension,Surgery
+2555,376,2024-09-03,Diabetes,Medication
+2556,600,2023-06-11,Heart Disease,Lifestyle Changes
+2557,2995,2025-01-18,Asthma,Medication
+2558,336,2020-04-18,Heart Disease,Surgery
+2559,2905,2022-05-21,Asthma,Lifestyle Changes
+2560,2867,2024-08-11,Hypertension,Lifestyle Changes
+2561,2090,2022-10-30,Hypertension,Surgery
+2562,2211,2022-03-08,Asthma,Surgery
+2563,2446,2021-01-11,Heart Disease,Surgery
+2564,1292,2024-02-17,Diabetes,Lifestyle Changes
+2565,1242,2022-02-18,Hypertension,Lifestyle Changes
+2566,2705,2023-04-03,Diabetes,Medication
+2567,737,2025-03-14,Heart Disease,Surgery
+2568,2431,2020-05-06,Hypertension,Lifestyle Changes
+2569,1494,2024-03-22,Hypertension,Surgery
+2570,2361,2022-11-01,Heart Disease,Lifestyle Changes
+2571,1340,2023-10-18,Diabetes,Surgery
+2572,868,2024-11-20,Heart Disease,Surgery
+2573,2012,2021-10-26,Diabetes,Surgery
+2574,929,2021-03-15,Heart Disease,Surgery
+2575,2896,2023-07-31,Heart Disease,Lifestyle Changes
+2576,2169,2021-12-27,Hypertension,Medication
+2577,2079,2025-01-20,Heart Disease,Lifestyle Changes
+2578,542,2021-11-22,Heart Disease,Lifestyle Changes
+2579,1741,2024-12-31,Diabetes,Lifestyle Changes
+2580,1844,2022-04-25,Asthma,Medication
+2581,900,2025-01-20,Hypertension,Medication
+2582,2340,2025-04-22,Hypertension,Lifestyle Changes
+2583,2454,2025-02-04,Asthma,Lifestyle Changes
+2584,2767,2020-02-13,Heart Disease,Surgery
+2585,1754,2020-10-25,Hypertension,Surgery
+2586,2250,2022-10-12,Hypertension,Medication
+2587,1060,2022-07-23,Hypertension,Surgery
+2588,459,2023-10-13,Hypertension,Lifestyle Changes
+2589,2371,2022-06-10,Asthma,Lifestyle Changes
+2590,2678,2022-11-05,Asthma,Surgery
+2591,2416,2020-09-30,Diabetes,Medication
+2592,2695,2021-06-29,Hypertension,Surgery
+2593,790,2021-04-19,Hypertension,Lifestyle Changes
+2594,2278,2024-05-10,Heart Disease,Medication
+2595,1571,2024-01-18,Diabetes,Lifestyle Changes
+2596,462,2024-12-25,Diabetes,Medication
+2597,2596,2020-04-01,Asthma,Lifestyle Changes
+2598,65,2021-07-07,Diabetes,Lifestyle Changes
+2599,2551,2023-10-14,Hypertension,Lifestyle Changes
+2600,1741,2021-11-29,Heart Disease,Surgery
+2601,1744,2020-08-08,Asthma,Lifestyle Changes
+2602,2700,2020-05-18,Diabetes,Lifestyle Changes
+2603,2805,2020-04-22,Heart Disease,Medication
+2604,1141,2022-01-26,Hypertension,Medication
+2605,2547,2020-04-15,Heart Disease,Medication
+2606,2856,2022-08-09,Heart Disease,Lifestyle Changes
+2607,2227,2021-06-26,Heart Disease,Surgery
+2608,1141,2023-07-04,Hypertension,Medication
+2609,2949,2021-01-15,Hypertension,Medication
+2610,230,2021-11-04,Diabetes,Surgery
+2611,1526,2020-04-04,Asthma,Medication
+2612,182,2021-08-10,Asthma,Lifestyle Changes
+2613,234,2023-09-22,Heart Disease,Medication
+2614,123,2021-02-14,Asthma,Medication
+2615,1920,2022-05-09,Diabetes,Surgery
+2616,2715,2021-07-30,Diabetes,Surgery
+2617,1971,2024-01-25,Diabetes,Lifestyle Changes
+2618,660,2020-09-12,Heart Disease,Surgery
+2619,1491,2024-10-05,Hypertension,Lifestyle Changes
+2620,304,2023-06-06,Diabetes,Lifestyle Changes
+2621,565,2021-11-27,Hypertension,Lifestyle Changes
+2622,2327,2021-09-22,Hypertension,Medication
+2623,2696,2020-01-21,Diabetes,Medication
+2624,2597,2021-12-17,Asthma,Surgery
+2625,2143,2020-03-06,Diabetes,Lifestyle Changes
+2626,249,2022-03-20,Hypertension,Lifestyle Changes
+2627,2230,2021-03-05,Diabetes,Lifestyle Changes
+2628,1553,2022-05-06,Heart Disease,Lifestyle Changes
+2629,1735,2021-08-19,Hypertension,Medication
+2630,60,2021-10-09,Diabetes,Surgery
+2631,1610,2024-09-13,Hypertension,Medication
+2632,1520,2024-08-30,Heart Disease,Lifestyle Changes
+2633,2017,2024-04-26,Diabetes,Lifestyle Changes
+2634,236,2023-06-08,Diabetes,Medication
+2635,257,2023-04-13,Asthma,Surgery
+2636,1400,2021-04-04,Diabetes,Surgery
+2637,2392,2023-06-07,Diabetes,Medication
+2638,1165,2024-06-22,Asthma,Lifestyle Changes
+2639,1299,2021-09-11,Hypertension,Medication
+2640,1356,2020-08-21,Heart Disease,Surgery
+2641,734,2020-05-15,Diabetes,Surgery
+2642,2906,2023-01-15,Hypertension,Lifestyle Changes
+2643,2680,2021-08-05,Asthma,Surgery
+2644,720,2021-05-24,Diabetes,Surgery
+2645,68,2020-01-28,Asthma,Lifestyle Changes
+2646,2437,2021-01-26,Asthma,Lifestyle Changes
+2647,2869,2023-11-02,Hypertension,Surgery
+2648,1299,2024-09-14,Diabetes,Lifestyle Changes
+2649,1645,2024-02-26,Hypertension,Medication
+2650,110,2022-12-09,Heart Disease,Lifestyle Changes
+2651,439,2023-07-21,Hypertension,Medication
+2652,800,2022-07-06,Diabetes,Lifestyle Changes
+2653,2971,2023-01-12,Diabetes,Surgery
+2654,1956,2022-06-21,Hypertension,Medication
+2655,1067,2024-05-05,Diabetes,Medication
+2656,1857,2020-10-08,Asthma,Surgery
+2657,2007,2023-07-17,Heart Disease,Medication
+2658,119,2020-05-09,Hypertension,Medication
+2659,849,2022-03-09,Asthma,Medication
+2660,646,2024-04-09,Heart Disease,Lifestyle Changes
+2661,1328,2022-07-20,Asthma,Lifestyle Changes
+2662,322,2021-12-13,Heart Disease,Surgery
+2663,2554,2022-02-01,Hypertension,Medication
+2664,2207,2022-01-11,Diabetes,Lifestyle Changes
+2665,248,2024-07-20,Hypertension,Surgery
+2666,1830,2025-01-25,Heart Disease,Medication
+2667,289,2020-10-03,Asthma,Lifestyle Changes
+2668,1611,2025-02-03,Hypertension,Medication
+2669,2897,2024-05-17,Asthma,Surgery
+2670,385,2024-11-28,Asthma,Medication
+2671,1237,2021-12-28,Hypertension,Lifestyle Changes
+2672,2709,2023-02-25,Diabetes,Medication
+2673,1399,2022-12-03,Hypertension,Medication
+2674,9,2021-01-19,Hypertension,Surgery
+2675,2394,2023-01-31,Heart Disease,Medication
+2676,1335,2023-11-29,Asthma,Medication
+2677,133,2024-09-08,Heart Disease,Surgery
+2678,1254,2025-02-01,Heart Disease,Medication
+2679,1530,2024-01-02,Asthma,Lifestyle Changes
+2680,1454,2024-07-17,Heart Disease,Lifestyle Changes
+2681,1646,2024-05-29,Asthma,Surgery
+2682,106,2024-09-15,Hypertension,Lifestyle Changes
+2683,1994,2020-10-27,Diabetes,Surgery
+2684,2186,2024-01-17,Hypertension,Surgery
+2685,472,2020-05-27,Diabetes,Medication
+2686,750,2020-08-19,Hypertension,Surgery
+2687,1650,2020-06-25,Heart Disease,Surgery
+2688,1510,2021-07-18,Diabetes,Lifestyle Changes
+2689,2644,2024-05-17,Heart Disease,Medication
+2690,2671,2023-12-02,Heart Disease,Surgery
+2691,2408,2024-11-03,Diabetes,Surgery
+2692,2092,2023-06-17,Asthma,Lifestyle Changes
+2693,2381,2023-10-09,Heart Disease,Lifestyle Changes
+2694,1338,2025-01-08,Asthma,Surgery
+2695,207,2024-05-01,Diabetes,Medication
+2696,477,2023-09-10,Diabetes,Surgery
+2697,2934,2022-08-18,Heart Disease,Surgery
+2698,2910,2021-02-19,Heart Disease,Surgery
+2699,656,2024-08-13,Asthma,Surgery
+2700,1657,2023-12-09,Diabetes,Lifestyle Changes
+2701,1370,2022-05-20,Diabetes,Medication
+2702,123,2023-07-05,Hypertension,Medication
+2703,2111,2020-12-28,Hypertension,Lifestyle Changes
+2704,537,2022-08-10,Hypertension,Lifestyle Changes
+2705,651,2021-06-19,Heart Disease,Lifestyle Changes
+2706,1982,2020-10-24,Diabetes,Surgery
+2707,1316,2024-09-26,Hypertension,Surgery
+2708,1072,2022-09-12,Diabetes,Surgery
+2709,1212,2021-03-15,Asthma,Lifestyle Changes
+2710,2486,2024-07-30,Heart Disease,Medication
+2711,1314,2021-08-23,Asthma,Surgery
+2712,1500,2023-08-10,Diabetes,Medication
+2713,1122,2023-01-27,Heart Disease,Lifestyle Changes
+2714,2246,2023-10-16,Heart Disease,Medication
+2715,1618,2023-01-28,Diabetes,Lifestyle Changes
+2716,1337,2020-01-30,Hypertension,Surgery
+2717,1319,2020-10-17,Diabetes,Surgery
+2718,2222,2021-02-26,Heart Disease,Lifestyle Changes
+2719,1585,2022-11-07,Diabetes,Lifestyle Changes
+2720,902,2022-04-19,Heart Disease,Lifestyle Changes
+2721,791,2023-10-02,Asthma,Lifestyle Changes
+2722,1288,2025-01-22,Hypertension,Lifestyle Changes
+2723,1281,2024-04-13,Diabetes,Lifestyle Changes
+2724,2259,2022-10-09,Asthma,Lifestyle Changes
+2725,583,2023-05-31,Hypertension,Lifestyle Changes
+2726,156,2023-05-11,Asthma,Lifestyle Changes
+2727,2067,2022-03-01,Heart Disease,Lifestyle Changes
+2728,1931,2023-08-19,Diabetes,Surgery
+2729,1772,2022-08-07,Heart Disease,Medication
+2730,564,2022-12-03,Asthma,Surgery
+2731,1514,2021-05-15,Asthma,Medication
+2732,101,2020-10-08,Diabetes,Surgery
+2733,2793,2023-10-18,Heart Disease,Medication
+2734,202,2024-01-11,Hypertension,Lifestyle Changes
+2735,2866,2024-01-12,Heart Disease,Surgery
+2736,1798,2022-10-01,Hypertension,Medication
+2737,1483,2023-12-20,Asthma,Lifestyle Changes
+2738,2424,2022-09-18,Hypertension,Surgery
+2739,57,2023-03-09,Diabetes,Lifestyle Changes
+2740,940,2024-10-03,Diabetes,Medication
+2741,1607,2022-01-19,Diabetes,Lifestyle Changes
+2742,2932,2024-12-30,Diabetes,Lifestyle Changes
+2743,1624,2020-03-12,Hypertension,Surgery
+2744,987,2021-06-17,Diabetes,Surgery
+2745,1918,2022-01-22,Diabetes,Surgery
+2746,2546,2022-02-21,Heart Disease,Surgery
+2747,2220,2025-04-23,Hypertension,Medication
+2748,597,2021-01-14,Heart Disease,Lifestyle Changes
+2749,2343,2024-01-20,Hypertension,Lifestyle Changes
+2750,2425,2022-03-05,Asthma,Medication
+2751,1978,2022-10-17,Hypertension,Medication
+2752,1819,2024-09-27,Asthma,Lifestyle Changes
+2753,1104,2023-12-10,Hypertension,Lifestyle Changes
+2754,1629,2020-01-14,Diabetes,Surgery
+2755,1993,2022-08-23,Asthma,Lifestyle Changes
+2756,943,2024-01-09,Heart Disease,Medication
+2757,695,2021-02-22,Diabetes,Surgery
+2758,692,2020-06-01,Hypertension,Lifestyle Changes
+2759,2638,2021-03-24,Heart Disease,Medication
+2760,2292,2023-12-03,Diabetes,Medication
+2761,1556,2022-09-21,Asthma,Medication
+2762,577,2022-03-29,Diabetes,Surgery
+2763,978,2024-01-16,Heart Disease,Medication
+2764,1648,2023-04-13,Asthma,Lifestyle Changes
+2765,2456,2022-08-10,Heart Disease,Medication
+2766,1608,2024-11-03,Diabetes,Lifestyle Changes
+2767,2332,2021-09-04,Diabetes,Surgery
+2768,1576,2020-01-21,Diabetes,Medication
+2769,2709,2023-07-18,Asthma,Medication
+2770,2915,2022-09-28,Diabetes,Medication
+2771,1638,2022-03-15,Asthma,Surgery
+2772,1650,2024-09-07,Heart Disease,Lifestyle Changes
+2773,1112,2022-04-26,Heart Disease,Lifestyle Changes
+2774,1907,2021-01-11,Asthma,Surgery
+2775,2776,2020-12-31,Hypertension,Lifestyle Changes
+2776,2699,2022-11-03,Asthma,Lifestyle Changes
+2777,1701,2020-02-01,Diabetes,Surgery
+2778,1410,2020-06-28,Heart Disease,Surgery
+2779,1029,2024-03-06,Diabetes,Medication
+2780,2583,2022-11-11,Asthma,Lifestyle Changes
+2781,1616,2025-02-12,Diabetes,Medication
+2782,2566,2023-12-30,Hypertension,Medication
+2783,2337,2022-05-10,Hypertension,Surgery
+2784,502,2022-08-14,Hypertension,Lifestyle Changes
+2785,47,2023-06-12,Asthma,Lifestyle Changes
+2786,1710,2021-02-07,Asthma,Lifestyle Changes
+2787,2077,2024-06-23,Asthma,Surgery
+2788,2599,2023-06-06,Heart Disease,Lifestyle Changes
+2789,2342,2022-12-13,Asthma,Medication
+2790,2401,2022-09-29,Diabetes,Lifestyle Changes
+2791,2659,2020-09-16,Asthma,Surgery
+2792,1713,2021-09-14,Diabetes,Lifestyle Changes
+2793,2477,2025-03-22,Asthma,Surgery
+2794,426,2023-12-30,Diabetes,Medication
+2795,1667,2023-04-06,Hypertension,Medication
+2796,1069,2024-04-08,Asthma,Medication
+2797,1974,2021-09-06,Heart Disease,Medication
+2798,2012,2020-07-19,Heart Disease,Medication
+2799,2759,2024-01-20,Heart Disease,Medication
+2800,1949,2024-05-30,Diabetes,Surgery
+2801,1947,2024-06-19,Diabetes,Surgery
+2802,2842,2025-03-28,Asthma,Surgery
+2803,2845,2021-07-03,Asthma,Medication
+2804,2516,2021-04-26,Asthma,Medication
+2805,2255,2024-06-22,Asthma,Lifestyle Changes
+2806,2665,2023-07-23,Heart Disease,Lifestyle Changes
+2807,1502,2023-09-27,Hypertension,Lifestyle Changes
+2808,349,2025-02-07,Asthma,Medication
+2809,274,2020-07-22,Hypertension,Medication
+2810,194,2020-12-28,Asthma,Medication
+2811,2166,2022-02-21,Asthma,Surgery
+2812,677,2023-09-09,Hypertension,Surgery
+2813,2696,2023-12-21,Hypertension,Medication
+2814,686,2022-02-02,Heart Disease,Surgery
+2815,922,2021-05-31,Heart Disease,Surgery
+2816,1299,2021-09-15,Heart Disease,Medication
+2817,1685,2020-07-27,Heart Disease,Lifestyle Changes
+2818,1784,2024-03-15,Hypertension,Medication
+2819,188,2020-03-16,Diabetes,Surgery
+2820,1590,2023-07-10,Asthma,Medication
+2821,1539,2020-09-21,Hypertension,Lifestyle Changes
+2822,1386,2022-05-21,Diabetes,Lifestyle Changes
+2823,994,2024-03-13,Hypertension,Medication
+2824,1316,2022-10-24,Asthma,Surgery
+2825,1791,2022-09-01,Heart Disease,Surgery
+2826,2079,2023-03-28,Heart Disease,Lifestyle Changes
+2827,847,2023-01-18,Asthma,Medication
+2828,2887,2023-11-13,Asthma,Medication
+2829,2809,2022-05-25,Diabetes,Medication
+2830,85,2024-11-21,Heart Disease,Medication
+2831,2106,2021-03-21,Heart Disease,Lifestyle Changes
+2832,2353,2024-03-12,Diabetes,Medication
+2833,2107,2020-04-06,Hypertension,Medication
+2834,1308,2021-01-06,Heart Disease,Lifestyle Changes
+2835,452,2021-03-24,Hypertension,Medication
+2836,2408,2022-06-11,Diabetes,Medication
+2837,2346,2023-08-17,Asthma,Lifestyle Changes
+2838,1054,2021-12-15,Diabetes,Lifestyle Changes
+2839,927,2024-01-31,Heart Disease,Medication
+2840,1078,2020-09-09,Hypertension,Surgery
+2841,629,2020-01-17,Hypertension,Medication
+2842,1871,2021-11-29,Asthma,Lifestyle Changes
+2843,1641,2021-10-09,Heart Disease,Lifestyle Changes
+2844,2378,2021-06-04,Heart Disease,Surgery
+2845,1871,2021-10-15,Heart Disease,Lifestyle Changes
+2846,2952,2020-08-16,Asthma,Lifestyle Changes
+2847,948,2021-10-11,Asthma,Surgery
+2848,2802,2020-08-04,Hypertension,Surgery
+2849,2533,2023-04-30,Hypertension,Surgery
+2850,2547,2022-01-01,Asthma,Lifestyle Changes
+2851,2198,2023-06-11,Asthma,Medication
+2852,2210,2022-04-18,Asthma,Surgery
+2853,1526,2022-03-15,Heart Disease,Surgery
+2854,414,2025-03-26,Diabetes,Lifestyle Changes
+2855,1461,2022-03-14,Heart Disease,Surgery
+2856,159,2025-02-22,Asthma,Lifestyle Changes
+2857,1068,2021-12-12,Hypertension,Lifestyle Changes
+2858,2147,2022-10-30,Diabetes,Medication
+2859,648,2022-07-19,Hypertension,Surgery
+2860,2898,2025-02-27,Diabetes,Lifestyle Changes
+2861,190,2024-11-11,Asthma,Surgery
+2862,1377,2023-05-18,Hypertension,Surgery
+2863,2869,2023-08-27,Heart Disease,Lifestyle Changes
+2864,713,2021-06-01,Heart Disease,Medication
+2865,798,2020-11-22,Hypertension,Medication
+2866,1432,2022-07-16,Asthma,Lifestyle Changes
+2867,1140,2020-01-08,Heart Disease,Surgery
+2868,685,2024-06-01,Asthma,Lifestyle Changes
+2869,735,2023-08-04,Hypertension,Medication
+2870,1295,2020-12-25,Heart Disease,Surgery
+2871,461,2025-04-25,Diabetes,Medication
+2872,813,2021-04-18,Heart Disease,Surgery
+2873,1938,2021-10-13,Heart Disease,Lifestyle Changes
+2874,2022,2024-06-04,Heart Disease,Surgery
+2875,1420,2024-05-12,Diabetes,Lifestyle Changes
+2876,693,2020-03-29,Heart Disease,Lifestyle Changes
+2877,240,2022-07-10,Heart Disease,Lifestyle Changes
+2878,2821,2025-03-29,Heart Disease,Lifestyle Changes
+2879,2796,2024-07-23,Asthma,Surgery
+2880,1749,2020-02-04,Hypertension,Surgery
+2881,1877,2024-10-24,Diabetes,Surgery
+2882,1616,2020-11-13,Hypertension,Surgery
+2883,2976,2024-07-10,Hypertension,Surgery
+2884,163,2021-04-29,Heart Disease,Medication
+2885,1815,2020-02-02,Hypertension,Lifestyle Changes
+2886,1924,2024-09-03,Diabetes,Lifestyle Changes
+2887,647,2022-03-31,Diabetes,Lifestyle Changes
+2888,2395,2023-03-31,Diabetes,Lifestyle Changes
+2889,766,2024-01-19,Hypertension,Medication
+2890,1341,2024-01-12,Diabetes,Surgery
+2891,1508,2021-03-30,Heart Disease,Medication
+2892,2686,2021-10-13,Hypertension,Lifestyle Changes
+2893,2644,2023-11-06,Diabetes,Medication
+2894,681,2020-01-30,Asthma,Medication
+2895,2133,2025-02-11,Heart Disease,Lifestyle Changes
+2896,475,2020-10-18,Asthma,Lifestyle Changes
+2897,1429,2020-11-17,Asthma,Lifestyle Changes
+2898,1854,2021-04-09,Diabetes,Medication
+2899,1503,2022-08-25,Asthma,Medication
+2900,2900,2020-04-25,Asthma,Surgery
+2901,2275,2025-04-10,Hypertension,Surgery
+2902,2957,2023-01-07,Asthma,Lifestyle Changes
+2903,1051,2024-05-25,Diabetes,Lifestyle Changes
+2904,1272,2020-10-07,Hypertension,Medication
+2905,2196,2024-10-15,Diabetes,Lifestyle Changes
+2906,1401,2020-12-31,Heart Disease,Medication
+2907,541,2025-01-17,Diabetes,Lifestyle Changes
+2908,1576,2020-10-22,Asthma,Surgery
+2909,824,2024-08-21,Heart Disease,Lifestyle Changes
+2910,1043,2024-12-02,Asthma,Lifestyle Changes
+2911,326,2020-01-06,Heart Disease,Medication
+2912,320,2023-06-18,Asthma,Surgery
+2913,324,2024-05-29,Hypertension,Medication
+2914,1676,2024-06-18,Hypertension,Lifestyle Changes
+2915,488,2024-06-27,Diabetes,Surgery
+2916,1818,2024-09-01,Hypertension,Medication
+2917,2748,2023-06-03,Heart Disease,Lifestyle Changes
+2918,669,2023-03-11,Hypertension,Medication
+2919,782,2022-10-28,Heart Disease,Surgery
+2920,1352,2020-02-18,Hypertension,Lifestyle Changes
+2921,423,2022-01-04,Diabetes,Medication
+2922,887,2021-04-30,Diabetes,Medication
+2923,1233,2020-03-13,Heart Disease,Lifestyle Changes
+2924,1205,2020-10-27,Diabetes,Surgery
+2925,2495,2022-06-05,Heart Disease,Medication
+2926,1140,2024-09-30,Heart Disease,Medication
+2927,2954,2024-04-03,Asthma,Medication
+2928,1215,2020-12-28,Asthma,Lifestyle Changes
+2929,313,2021-09-08,Hypertension,Surgery
+2930,2116,2020-08-06,Asthma,Surgery
+2931,843,2024-09-11,Heart Disease,Surgery
+2932,537,2020-10-18,Asthma,Medication
+2933,898,2024-07-16,Heart Disease,Medication
+2934,302,2021-11-09,Heart Disease,Surgery
+2935,913,2025-04-24,Hypertension,Medication
+2936,2268,2021-10-31,Diabetes,Lifestyle Changes
+2937,1638,2023-09-17,Hypertension,Lifestyle Changes
+2938,2323,2020-04-04,Hypertension,Surgery
+2939,676,2023-01-14,Hypertension,Surgery
+2940,2908,2022-12-22,Asthma,Lifestyle Changes
+2941,462,2020-07-05,Asthma,Surgery
+2942,2351,2022-05-31,Diabetes,Surgery
+2943,1296,2023-11-14,Diabetes,Surgery
+2944,691,2020-12-07,Asthma,Lifestyle Changes
+2945,2383,2024-09-27,Diabetes,Medication
+2946,1551,2021-08-25,Diabetes,Medication
+2947,268,2022-01-26,Asthma,Medication
+2948,2517,2020-06-28,Asthma,Surgery
+2949,769,2020-04-04,Hypertension,Surgery
+2950,532,2022-06-07,Asthma,Medication
+2951,1959,2023-02-06,Heart Disease,Surgery
+2952,562,2023-09-19,Heart Disease,Lifestyle Changes
+2953,1893,2022-07-03,Hypertension,Medication
+2954,130,2021-06-19,Diabetes,Lifestyle Changes
+2955,14,2020-01-02,Diabetes,Surgery
+2956,527,2021-05-14,Heart Disease,Surgery
+2957,488,2022-11-30,Diabetes,Medication
+2958,1992,2020-06-25,Diabetes,Surgery
+2959,2867,2023-05-26,Asthma,Surgery
+2960,1220,2021-02-19,Hypertension,Lifestyle Changes
+2961,518,2020-11-25,Asthma,Medication
+2962,1116,2020-04-17,Hypertension,Surgery
+2963,1275,2023-11-06,Diabetes,Surgery
+2964,745,2024-11-08,Asthma,Medication
+2965,1372,2025-02-17,Hypertension,Lifestyle Changes
+2966,2429,2023-05-02,Heart Disease,Medication
+2967,1940,2024-01-01,Hypertension,Surgery
+2968,2434,2023-07-03,Hypertension,Medication
+2969,1248,2022-02-28,Diabetes,Lifestyle Changes
+2970,1584,2020-02-15,Diabetes,Surgery
+2971,852,2020-03-22,Asthma,Surgery
+2972,1990,2021-07-21,Hypertension,Medication
+2973,848,2021-09-25,Asthma,Medication
+2974,999,2024-05-14,Asthma,Surgery
+2975,1237,2021-11-15,Heart Disease,Surgery
+2976,1715,2022-10-20,Diabetes,Surgery
+2977,533,2022-05-14,Asthma,Lifestyle Changes
+2978,1371,2024-05-19,Hypertension,Surgery
+2979,1107,2024-06-18,Heart Disease,Medication
+2980,2881,2024-09-24,Diabetes,Lifestyle Changes
+2981,2822,2023-11-03,Asthma,Medication
+2982,2327,2022-03-09,Diabetes,Surgery
+2983,1119,2024-06-20,Hypertension,Medication
+2984,2768,2024-12-15,Asthma,Surgery
+2985,656,2021-10-05,Asthma,Medication
+2986,807,2023-11-03,Diabetes,Medication
+2987,419,2024-12-13,Heart Disease,Lifestyle Changes
+2988,2204,2021-11-19,Heart Disease,Surgery
+2989,145,2021-07-14,Heart Disease,Surgery
+2990,2242,2025-01-30,Heart Disease,Surgery
+2991,2727,2023-10-26,Asthma,Surgery
+2992,1099,2020-05-16,Diabetes,Medication
+2993,1043,2020-11-11,Heart Disease,Lifestyle Changes
+2994,203,2023-01-21,Diabetes,Surgery
+2995,125,2021-02-23,Asthma,Lifestyle Changes
+2996,2608,2020-12-18,Asthma,Medication
+2997,630,2021-02-20,Hypertension,Medication
+2998,2965,2024-05-21,Asthma,Surgery
+2999,2459,2023-01-01,Heart Disease,Lifestyle Changes
+3000,1897,2021-08-28,Heart Disease,Medication
+3001,1465,2022-07-02,Diabetes,Surgery
+3002,254,2021-02-05,Diabetes,Lifestyle Changes
+3003,2078,2024-11-22,Diabetes,Medication
+3004,2822,2020-08-06,Asthma,Surgery
+3005,1785,2023-08-25,Asthma,Lifestyle Changes
+3006,2541,2023-09-23,Asthma,Lifestyle Changes
+3007,1775,2021-06-02,Heart Disease,Lifestyle Changes
+3008,2819,2020-01-20,Hypertension,Surgery
+3009,2872,2025-03-04,Diabetes,Lifestyle Changes
+3010,813,2022-06-18,Asthma,Surgery
+3011,2913,2022-06-03,Diabetes,Surgery
+3012,501,2022-08-22,Diabetes,Medication
+3013,2320,2021-12-26,Asthma,Surgery
+3014,859,2024-10-09,Heart Disease,Lifestyle Changes
+3015,2970,2020-06-14,Asthma,Lifestyle Changes
+3016,2716,2020-01-11,Diabetes,Surgery
+3017,2279,2021-01-05,Diabetes,Lifestyle Changes
+3018,685,2020-08-02,Hypertension,Medication
+3019,1812,2020-12-25,Asthma,Lifestyle Changes
+3020,109,2020-03-25,Hypertension,Surgery
+3021,866,2024-04-09,Heart Disease,Surgery
+3022,2567,2020-09-03,Asthma,Lifestyle Changes
+3023,2898,2025-02-07,Diabetes,Surgery
+3024,1637,2025-03-31,Asthma,Medication
+3025,1286,2023-01-17,Asthma,Surgery
+3026,335,2024-09-11,Hypertension,Surgery
+3027,455,2023-09-18,Diabetes,Surgery
+3028,1347,2021-03-17,Diabetes,Surgery
+3029,971,2022-05-11,Diabetes,Lifestyle Changes
+3030,660,2024-09-11,Heart Disease,Medication
+3031,687,2025-04-20,Diabetes,Surgery
+3032,1545,2023-12-14,Hypertension,Medication
+3033,394,2024-01-20,Hypertension,Surgery
+3034,2848,2025-01-17,Diabetes,Surgery
+3035,2494,2022-11-10,Heart Disease,Surgery
+3036,1214,2022-04-05,Asthma,Medication
+3037,2454,2024-07-10,Diabetes,Lifestyle Changes
+3038,2828,2021-06-15,Asthma,Surgery
+3039,2717,2023-01-05,Hypertension,Lifestyle Changes
+3040,1785,2022-10-16,Hypertension,Surgery
+3041,783,2020-07-30,Asthma,Lifestyle Changes
+3042,356,2023-11-02,Asthma,Surgery
+3043,799,2022-02-15,Asthma,Medication
+3044,2102,2021-05-16,Asthma,Medication
+3045,2218,2022-06-27,Diabetes,Surgery
+3046,2472,2021-10-01,Asthma,Surgery
+3047,53,2023-05-03,Asthma,Surgery
+3048,1907,2020-10-29,Diabetes,Lifestyle Changes
+3049,2223,2021-12-28,Asthma,Surgery
+3050,1938,2023-07-14,Asthma,Surgery
+3051,2417,2023-07-03,Asthma,Medication
+3052,2177,2021-07-28,Diabetes,Medication
+3053,1563,2020-06-20,Heart Disease,Lifestyle Changes
+3054,1877,2021-09-17,Diabetes,Surgery
+3055,376,2025-03-08,Diabetes,Surgery
+3056,1291,2023-05-26,Heart Disease,Medication
+3057,2955,2024-09-07,Diabetes,Surgery
+3058,77,2023-09-25,Diabetes,Surgery
+3059,1049,2020-05-22,Heart Disease,Surgery
+3060,495,2023-11-19,Hypertension,Lifestyle Changes
+3061,1302,2024-12-05,Heart Disease,Surgery
+3062,209,2020-03-04,Diabetes,Surgery
+3063,1765,2023-03-22,Hypertension,Medication
+3064,826,2020-09-06,Asthma,Medication
+3065,2935,2022-01-27,Heart Disease,Lifestyle Changes
+3066,268,2020-10-17,Asthma,Surgery
+3067,752,2020-01-30,Heart Disease,Surgery
+3068,945,2021-11-14,Asthma,Surgery
+3069,2580,2020-06-13,Hypertension,Lifestyle Changes
+3070,1430,2021-08-03,Diabetes,Medication
+3071,1552,2020-01-31,Diabetes,Medication
+3072,2821,2024-05-07,Hypertension,Lifestyle Changes
+3073,2152,2023-08-04,Asthma,Medication
+3074,1801,2020-06-21,Hypertension,Lifestyle Changes
+3075,2275,2023-11-06,Asthma,Medication
+3076,573,2023-12-30,Hypertension,Surgery
+3077,160,2021-08-17,Hypertension,Medication
+3078,1731,2020-04-24,Diabetes,Lifestyle Changes
+3079,1741,2023-07-09,Hypertension,Surgery
+3080,1777,2023-06-17,Diabetes,Lifestyle Changes
+3081,1003,2022-02-27,Asthma,Surgery
+3082,1415,2020-03-30,Asthma,Lifestyle Changes
+3083,2345,2023-08-08,Heart Disease,Medication
+3084,2315,2023-08-14,Heart Disease,Surgery
+3085,1633,2023-01-14,Heart Disease,Medication
+3086,2965,2025-02-13,Heart Disease,Surgery
+3087,1549,2022-05-31,Heart Disease,Medication
+3088,365,2020-12-28,Heart Disease,Medication
+3089,1417,2021-01-21,Diabetes,Medication
+3090,769,2022-09-25,Asthma,Surgery
+3091,1553,2023-07-10,Hypertension,Medication
+3092,1300,2024-08-31,Asthma,Lifestyle Changes
+3093,1222,2020-05-13,Diabetes,Lifestyle Changes
+3094,1890,2022-12-08,Asthma,Lifestyle Changes
+3095,2968,2023-07-08,Hypertension,Medication
+3096,655,2024-10-11,Heart Disease,Surgery
+3097,2499,2022-07-08,Heart Disease,Medication
+3098,1129,2024-10-14,Heart Disease,Lifestyle Changes
+3099,2083,2021-03-18,Diabetes,Medication
+3100,1649,2021-04-14,Hypertension,Medication
+3101,558,2021-04-20,Diabetes,Surgery
+3102,2218,2022-12-11,Hypertension,Surgery
+3103,1203,2023-08-21,Diabetes,Surgery
+3104,2938,2022-06-18,Heart Disease,Lifestyle Changes
+3105,1124,2025-02-01,Heart Disease,Surgery
+3106,1153,2023-10-08,Diabetes,Surgery
+3107,1994,2024-12-10,Asthma,Lifestyle Changes
+3108,2860,2024-07-29,Asthma,Medication
+3109,2252,2021-08-24,Asthma,Surgery
+3110,1055,2023-10-22,Hypertension,Medication
+3111,2575,2024-06-21,Diabetes,Lifestyle Changes
+3112,2299,2021-03-19,Heart Disease,Surgery
+3113,41,2023-02-01,Hypertension,Surgery
+3114,2927,2023-12-24,Heart Disease,Lifestyle Changes
+3115,607,2023-02-26,Heart Disease,Surgery
+3116,180,2020-08-17,Diabetes,Surgery
+3117,676,2020-06-17,Asthma,Surgery
+3118,881,2022-10-04,Diabetes,Lifestyle Changes
+3119,828,2022-11-11,Heart Disease,Lifestyle Changes
+3120,24,2023-05-14,Asthma,Medication
+3121,1893,2021-07-02,Diabetes,Medication
+3122,1225,2024-06-15,Diabetes,Lifestyle Changes
+3123,1642,2023-04-29,Diabetes,Lifestyle Changes
+3124,905,2024-08-22,Heart Disease,Medication
+3125,1318,2023-12-10,Asthma,Lifestyle Changes
+3126,62,2024-07-20,Diabetes,Surgery
+3127,2740,2025-04-12,Diabetes,Medication
+3128,1788,2020-07-01,Diabetes,Surgery
+3129,313,2024-01-04,Asthma,Medication
+3130,2744,2021-03-16,Asthma,Surgery
+3131,1093,2023-06-07,Heart Disease,Lifestyle Changes
+3132,1984,2021-10-17,Diabetes,Surgery
+3133,2125,2020-12-05,Hypertension,Lifestyle Changes
+3134,190,2023-10-19,Asthma,Surgery
+3135,78,2020-06-23,Diabetes,Lifestyle Changes
+3136,685,2024-03-17,Diabetes,Medication
+3137,2312,2022-01-29,Hypertension,Surgery
+3138,186,2020-06-20,Heart Disease,Lifestyle Changes
+3139,1977,2023-03-21,Hypertension,Lifestyle Changes
+3140,955,2024-11-07,Diabetes,Medication
+3141,633,2021-01-08,Heart Disease,Surgery
+3142,2711,2020-07-07,Heart Disease,Lifestyle Changes
+3143,1304,2023-04-17,Heart Disease,Medication
+3144,2038,2021-10-05,Hypertension,Medication
+3145,2218,2022-04-01,Heart Disease,Medication
+3146,503,2022-08-05,Diabetes,Medication
+3147,761,2024-12-31,Asthma,Lifestyle Changes
+3148,664,2020-09-11,Heart Disease,Lifestyle Changes
+3149,1957,2021-06-24,Asthma,Medication
+3150,1128,2023-07-26,Diabetes,Lifestyle Changes
+3151,2571,2022-02-08,Heart Disease,Medication
+3152,1974,2020-03-19,Diabetes,Lifestyle Changes
+3153,1437,2020-09-17,Hypertension,Medication
+3154,1422,2021-01-29,Heart Disease,Medication
+3155,565,2024-10-15,Hypertension,Medication
+3156,1382,2024-11-21,Diabetes,Surgery
+3157,488,2021-07-11,Heart Disease,Medication
+3158,310,2024-01-08,Heart Disease,Medication
+3159,1016,2024-12-11,Hypertension,Surgery
+3160,1745,2020-05-04,Hypertension,Medication
+3161,2090,2021-10-02,Asthma,Medication
+3162,1355,2020-11-06,Asthma,Medication
+3163,2335,2025-03-09,Asthma,Surgery
+3164,1573,2025-02-05,Heart Disease,Lifestyle Changes
+3165,169,2024-12-20,Heart Disease,Medication
+3166,447,2021-03-14,Diabetes,Medication
+3167,927,2023-09-27,Asthma,Surgery
+3168,2246,2023-11-05,Diabetes,Medication
+3169,2310,2022-09-28,Diabetes,Surgery
+3170,1798,2021-10-26,Hypertension,Medication
+3171,895,2020-11-29,Hypertension,Surgery
+3172,2243,2021-03-05,Asthma,Lifestyle Changes
+3173,47,2021-09-02,Hypertension,Lifestyle Changes
+3174,1170,2024-06-30,Asthma,Surgery
+3175,1125,2021-04-11,Heart Disease,Medication
+3176,2574,2022-08-03,Diabetes,Surgery
+3177,1951,2021-03-01,Diabetes,Surgery
+3178,2206,2021-09-19,Asthma,Lifestyle Changes
+3179,2856,2021-10-26,Heart Disease,Lifestyle Changes
+3180,2336,2023-05-20,Asthma,Lifestyle Changes
+3181,165,2023-11-07,Diabetes,Medication
+3182,310,2022-09-07,Asthma,Surgery
+3183,1595,2022-11-10,Asthma,Medication
+3184,136,2024-09-15,Asthma,Lifestyle Changes
+3185,2863,2021-03-19,Asthma,Surgery
+3186,679,2021-04-11,Diabetes,Medication
+3187,633,2021-06-02,Diabetes,Lifestyle Changes
+3188,1080,2020-05-20,Diabetes,Medication
+3189,2274,2024-12-02,Hypertension,Lifestyle Changes
+3190,435,2024-12-20,Diabetes,Surgery
+3191,1401,2021-08-15,Diabetes,Medication
+3192,188,2022-05-30,Heart Disease,Surgery
+3193,480,2023-05-11,Diabetes,Lifestyle Changes
+3194,1970,2023-01-20,Asthma,Lifestyle Changes
+3195,1490,2021-06-09,Hypertension,Surgery
+3196,2317,2021-07-14,Asthma,Medication
+3197,2526,2023-06-07,Heart Disease,Surgery
+3198,743,2024-07-11,Heart Disease,Lifestyle Changes
+3199,1764,2022-12-04,Diabetes,Lifestyle Changes
+3200,2748,2024-08-07,Diabetes,Surgery
+3201,814,2020-10-19,Diabetes,Lifestyle Changes
+3202,2628,2021-12-21,Diabetes,Surgery
+3203,804,2022-11-17,Diabetes,Lifestyle Changes
+3204,1209,2021-03-10,Heart Disease,Lifestyle Changes
+3205,322,2021-06-25,Diabetes,Lifestyle Changes
+3206,1117,2020-07-06,Diabetes,Lifestyle Changes
+3207,450,2021-02-08,Heart Disease,Surgery
+3208,2599,2024-11-17,Heart Disease,Lifestyle Changes
+3209,2697,2020-01-19,Asthma,Surgery
+3210,830,2021-05-19,Asthma,Medication
+3211,1731,2022-09-10,Heart Disease,Medication
+3212,2181,2023-11-13,Asthma,Lifestyle Changes
+3213,171,2022-04-24,Asthma,Lifestyle Changes
+3214,1561,2024-12-22,Heart Disease,Lifestyle Changes
+3215,2752,2020-05-29,Diabetes,Lifestyle Changes
+3216,1894,2023-01-13,Heart Disease,Medication
+3217,896,2022-03-31,Hypertension,Lifestyle Changes
+3218,2301,2021-01-09,Asthma,Surgery
+3219,2088,2021-01-01,Asthma,Lifestyle Changes
+3220,822,2023-01-31,Asthma,Surgery
+3221,2002,2020-12-08,Asthma,Surgery
+3222,2589,2022-12-17,Hypertension,Medication
+3223,1304,2020-01-16,Asthma,Medication
+3224,1966,2024-05-08,Diabetes,Surgery
+3225,945,2024-07-17,Diabetes,Medication
+3226,1174,2020-11-26,Asthma,Medication
+3227,164,2022-12-13,Heart Disease,Lifestyle Changes
+3228,1198,2023-09-06,Diabetes,Lifestyle Changes
+3229,2458,2020-07-23,Asthma,Medication
+3230,1107,2021-08-01,Asthma,Surgery
+3231,1049,2020-05-07,Asthma,Lifestyle Changes
+3232,2120,2021-12-19,Hypertension,Lifestyle Changes
+3233,440,2022-01-14,Hypertension,Medication
+3234,2022,2023-09-28,Diabetes,Surgery
+3235,372,2023-03-10,Heart Disease,Lifestyle Changes
+3236,334,2022-12-09,Hypertension,Surgery
+3237,1744,2024-01-23,Heart Disease,Medication
+3238,2389,2020-09-10,Asthma,Surgery
+3239,1401,2022-01-28,Heart Disease,Lifestyle Changes
+3240,1025,2021-09-15,Heart Disease,Surgery
+3241,709,2020-05-29,Hypertension,Medication
+3242,2696,2023-07-04,Heart Disease,Surgery
+3243,1950,2023-05-01,Asthma,Lifestyle Changes
+3244,175,2023-10-02,Asthma,Medication
+3245,2621,2020-03-31,Heart Disease,Surgery
+3246,1920,2020-11-01,Hypertension,Medication
+3247,2761,2023-12-30,Heart Disease,Surgery
+3248,93,2020-07-05,Heart Disease,Medication
+3249,418,2022-04-09,Diabetes,Medication
+3250,957,2025-03-07,Heart Disease,Medication
+3251,2782,2023-01-15,Hypertension,Medication
+3252,1878,2023-11-03,Heart Disease,Surgery
+3253,2522,2023-10-26,Asthma,Lifestyle Changes
+3254,2667,2020-04-20,Hypertension,Surgery
+3255,2204,2024-07-22,Heart Disease,Lifestyle Changes
+3256,843,2022-06-28,Asthma,Lifestyle Changes
+3257,502,2020-01-27,Heart Disease,Surgery
+3258,711,2024-06-01,Asthma,Lifestyle Changes
+3259,1225,2023-09-18,Asthma,Surgery
+3260,43,2025-03-16,Asthma,Surgery
+3261,1950,2020-07-02,Heart Disease,Medication
+3262,456,2023-01-10,Hypertension,Surgery
+3263,2552,2020-03-09,Heart Disease,Surgery
+3264,801,2024-01-24,Heart Disease,Lifestyle Changes
+3265,2131,2022-12-25,Heart Disease,Surgery
+3266,2838,2021-07-16,Diabetes,Lifestyle Changes
+3267,2524,2025-03-29,Asthma,Surgery
+3268,2154,2024-02-15,Heart Disease,Medication
+3269,603,2022-12-15,Asthma,Lifestyle Changes
+3270,2603,2025-02-11,Heart Disease,Lifestyle Changes
+3271,2748,2020-11-03,Diabetes,Surgery
+3272,1854,2021-05-09,Hypertension,Lifestyle Changes
+3273,935,2022-12-27,Hypertension,Lifestyle Changes
+3274,1278,2021-11-28,Asthma,Surgery
+3275,2063,2023-02-14,Asthma,Medication
+3276,2800,2022-02-18,Diabetes,Lifestyle Changes
+3277,297,2020-12-09,Diabetes,Medication
+3278,1432,2023-12-27,Diabetes,Medication
+3279,1758,2024-06-01,Hypertension,Medication
+3280,2615,2022-12-13,Hypertension,Medication
+3281,1965,2023-10-13,Hypertension,Lifestyle Changes
+3282,1725,2022-09-28,Asthma,Medication
+3283,1611,2022-06-30,Hypertension,Medication
+3284,38,2024-04-10,Hypertension,Lifestyle Changes
+3285,2673,2023-05-24,Hypertension,Lifestyle Changes
+3286,2680,2021-09-01,Diabetes,Medication
+3287,1580,2020-12-11,Hypertension,Lifestyle Changes
+3288,1185,2022-01-24,Asthma,Medication
+3289,1477,2024-12-16,Hypertension,Lifestyle Changes
+3290,277,2020-03-15,Heart Disease,Lifestyle Changes
+3291,1350,2023-03-23,Heart Disease,Lifestyle Changes
+3292,1649,2021-09-11,Diabetes,Surgery
+3293,716,2020-06-09,Heart Disease,Surgery
+3294,706,2023-04-18,Heart Disease,Surgery
+3295,944,2020-06-29,Hypertension,Surgery
+3296,510,2023-02-03,Asthma,Medication
+3297,179,2020-05-09,Hypertension,Lifestyle Changes
+3298,2189,2023-08-31,Asthma,Medication
+3299,1603,2022-09-22,Diabetes,Surgery
+3300,1171,2020-09-16,Heart Disease,Surgery
+3301,453,2021-05-13,Diabetes,Surgery
+3302,1519,2020-12-07,Heart Disease,Lifestyle Changes
+3303,1689,2021-04-22,Hypertension,Lifestyle Changes
+3304,512,2024-08-27,Diabetes,Medication
+3305,2960,2020-09-17,Asthma,Medication
+3306,2943,2022-07-30,Heart Disease,Surgery
+3307,2844,2022-11-15,Hypertension,Medication
+3308,981,2025-02-08,Diabetes,Lifestyle Changes
+3309,1048,2022-05-03,Asthma,Lifestyle Changes
+3310,1017,2020-03-31,Hypertension,Medication
+3311,1267,2020-06-22,Diabetes,Surgery
+3312,2364,2021-01-10,Heart Disease,Surgery
+3313,1633,2020-04-29,Heart Disease,Medication
+3314,2306,2023-04-09,Asthma,Medication
+3315,2598,2023-11-24,Hypertension,Lifestyle Changes
+3316,2087,2024-08-03,Asthma,Medication
+3317,258,2023-08-19,Diabetes,Surgery
+3318,2837,2024-05-05,Hypertension,Medication
+3319,2385,2021-11-07,Hypertension,Lifestyle Changes
+3320,1791,2020-07-29,Asthma,Lifestyle Changes
+3321,2196,2020-01-29,Heart Disease,Surgery
+3322,2722,2021-09-10,Heart Disease,Lifestyle Changes
+3323,921,2022-03-17,Hypertension,Lifestyle Changes
+3324,653,2024-03-26,Asthma,Surgery
+3325,1770,2022-10-06,Diabetes,Surgery
+3326,75,2020-04-16,Heart Disease,Surgery
+3327,939,2021-03-17,Hypertension,Medication
+3328,2559,2021-11-05,Heart Disease,Lifestyle Changes
+3329,2050,2023-01-01,Diabetes,Medication
+3330,190,2025-02-28,Hypertension,Medication
+3331,2322,2020-07-31,Diabetes,Lifestyle Changes
+3332,1152,2023-09-20,Asthma,Medication
+3333,1332,2024-07-13,Heart Disease,Medication
+3334,1955,2020-01-07,Asthma,Medication
+3335,1181,2023-12-04,Asthma,Medication
+3336,705,2024-12-04,Diabetes,Medication
+3337,2607,2022-10-01,Diabetes,Lifestyle Changes
+3338,2205,2022-06-04,Heart Disease,Medication
+3339,617,2021-08-31,Hypertension,Lifestyle Changes
+3340,1010,2021-04-22,Asthma,Medication
+3341,70,2020-10-23,Asthma,Medication
+3342,955,2020-02-04,Heart Disease,Surgery
+3343,972,2023-11-10,Hypertension,Lifestyle Changes
+3344,65,2024-02-23,Asthma,Surgery
+3345,2179,2020-08-09,Diabetes,Medication
+3346,162,2023-04-07,Diabetes,Lifestyle Changes
+3347,1165,2024-03-15,Hypertension,Surgery
+3348,2767,2021-09-29,Heart Disease,Surgery
+3349,147,2024-01-28,Heart Disease,Lifestyle Changes
+3350,2555,2023-07-23,Heart Disease,Lifestyle Changes
+3351,2476,2021-12-31,Heart Disease,Medication
+3352,1195,2024-10-05,Asthma,Surgery
+3353,1474,2024-09-25,Asthma,Lifestyle Changes
+3354,1362,2020-09-06,Hypertension,Lifestyle Changes
+3355,785,2020-03-31,Heart Disease,Surgery
+3356,2588,2022-03-13,Hypertension,Lifestyle Changes
+3357,2621,2025-02-14,Asthma,Surgery
+3358,682,2023-06-04,Asthma,Medication
+3359,2077,2020-10-20,Heart Disease,Medication
+3360,1869,2025-03-21,Asthma,Medication
+3361,2632,2021-07-09,Heart Disease,Medication
+3362,1449,2021-02-14,Hypertension,Lifestyle Changes
+3363,1158,2022-07-28,Asthma,Surgery
+3364,295,2023-12-24,Hypertension,Lifestyle Changes
+3365,697,2020-04-29,Diabetes,Surgery
+3366,2678,2020-06-18,Diabetes,Lifestyle Changes
+3367,2157,2020-05-15,Hypertension,Lifestyle Changes
+3368,2480,2024-10-26,Heart Disease,Surgery
+3369,654,2025-04-08,Asthma,Lifestyle Changes
+3370,2606,2020-02-23,Hypertension,Lifestyle Changes
+3371,956,2022-01-31,Hypertension,Medication
+3372,1266,2024-07-10,Asthma,Medication
+3373,1659,2020-10-04,Heart Disease,Lifestyle Changes
+3374,1379,2024-12-03,Asthma,Lifestyle Changes
+3375,2641,2024-07-29,Heart Disease,Medication
+3376,1149,2021-02-19,Diabetes,Medication
+3377,765,2020-05-01,Asthma,Medication
+3378,438,2023-09-12,Asthma,Surgery
+3379,95,2023-02-21,Diabetes,Medication
+3380,2042,2025-02-20,Hypertension,Medication
+3381,1709,2022-10-23,Asthma,Medication
+3382,2748,2024-12-12,Diabetes,Medication
+3383,2380,2020-01-27,Heart Disease,Medication
+3384,2559,2021-08-25,Asthma,Medication
+3385,1798,2020-07-07,Heart Disease,Surgery
+3386,2698,2021-04-02,Diabetes,Medication
+3387,1952,2021-11-24,Diabetes,Medication
+3388,2093,2023-10-08,Asthma,Surgery
+3389,953,2022-12-03,Hypertension,Lifestyle Changes
+3390,1629,2023-05-28,Asthma,Surgery
+3391,2924,2023-06-24,Hypertension,Medication
+3392,703,2021-04-02,Hypertension,Lifestyle Changes
+3393,1327,2024-03-05,Hypertension,Lifestyle Changes
+3394,1433,2021-09-14,Asthma,Medication
+3395,1133,2021-05-13,Asthma,Medication
+3396,1382,2023-02-23,Asthma,Surgery
+3397,1212,2020-08-18,Diabetes,Lifestyle Changes
+3398,481,2024-03-29,Heart Disease,Lifestyle Changes
+3399,1685,2020-03-13,Diabetes,Lifestyle Changes
+3400,2686,2020-02-22,Asthma,Medication
+3401,943,2023-06-09,Hypertension,Medication
+3402,1744,2024-11-25,Diabetes,Lifestyle Changes
+3403,2280,2024-02-15,Diabetes,Lifestyle Changes
+3404,2299,2020-09-23,Diabetes,Surgery
+3405,2260,2022-11-23,Heart Disease,Medication
+3406,1321,2021-12-23,Diabetes,Lifestyle Changes
+3407,1782,2024-08-06,Asthma,Medication
+3408,2368,2024-05-30,Heart Disease,Surgery
+3409,371,2022-10-18,Diabetes,Lifestyle Changes
+3410,2852,2021-10-21,Heart Disease,Lifestyle Changes
+3411,2971,2021-09-24,Hypertension,Medication
+3412,576,2024-09-04,Heart Disease,Surgery
+3413,1534,2024-12-01,Hypertension,Lifestyle Changes
+3414,2581,2023-01-25,Diabetes,Surgery
+3415,1227,2023-05-22,Heart Disease,Lifestyle Changes
+3416,628,2022-11-01,Heart Disease,Medication
+3417,1141,2023-05-18,Heart Disease,Lifestyle Changes
+3418,348,2024-06-29,Heart Disease,Lifestyle Changes
+3419,624,2021-10-04,Asthma,Surgery
+3420,1124,2025-01-20,Asthma,Lifestyle Changes
+3421,2754,2021-08-31,Hypertension,Medication
+3422,656,2024-05-11,Diabetes,Surgery
+3423,2701,2020-08-14,Asthma,Surgery
+3424,303,2024-07-18,Hypertension,Lifestyle Changes
+3425,1798,2020-10-28,Diabetes,Medication
+3426,916,2024-11-04,Asthma,Medication
+3427,993,2021-02-02,Asthma,Lifestyle Changes
+3428,1139,2025-04-23,Heart Disease,Lifestyle Changes
+3429,520,2024-02-07,Diabetes,Lifestyle Changes
+3430,698,2022-04-14,Diabetes,Surgery
+3431,1560,2023-04-11,Hypertension,Lifestyle Changes
+3432,1764,2025-03-09,Hypertension,Medication
+3433,1168,2023-01-12,Heart Disease,Medication
+3434,472,2022-08-16,Asthma,Lifestyle Changes
+3435,1726,2021-01-17,Diabetes,Surgery
+3436,1229,2020-02-27,Asthma,Medication
+3437,2479,2021-06-16,Heart Disease,Lifestyle Changes
+3438,716,2022-10-28,Heart Disease,Lifestyle Changes
+3439,2858,2024-07-17,Hypertension,Surgery
+3440,2123,2024-01-15,Heart Disease,Surgery
+3441,1696,2025-02-14,Heart Disease,Medication
+3442,2764,2024-06-29,Asthma,Surgery
+3443,2741,2020-03-29,Diabetes,Surgery
+3444,524,2020-02-26,Hypertension,Lifestyle Changes
+3445,2575,2022-11-08,Diabetes,Surgery
+3446,1526,2024-06-21,Heart Disease,Medication
+3447,317,2023-12-12,Diabetes,Surgery
+3448,2744,2022-05-01,Diabetes,Surgery
+3449,2800,2020-09-27,Diabetes,Medication
+3450,1447,2020-01-21,Hypertension,Surgery
+3451,2798,2022-05-20,Asthma,Lifestyle Changes
+3452,1612,2025-02-08,Heart Disease,Surgery
+3453,148,2024-11-26,Asthma,Surgery
+3454,1450,2023-04-28,Asthma,Medication
+3455,779,2021-02-12,Heart Disease,Medication
+3456,1970,2023-10-30,Diabetes,Medication
+3457,722,2024-08-14,Hypertension,Surgery
+3458,1205,2020-07-09,Heart Disease,Lifestyle Changes
+3459,1043,2023-11-27,Asthma,Lifestyle Changes
+3460,2021,2024-09-25,Heart Disease,Lifestyle Changes
+3461,2037,2024-03-15,Hypertension,Medication
+3462,2649,2021-02-26,Asthma,Lifestyle Changes
+3463,281,2024-12-01,Hypertension,Lifestyle Changes
+3464,98,2025-04-02,Hypertension,Medication
+3465,1376,2023-08-09,Hypertension,Medication
+3466,123,2024-10-02,Asthma,Lifestyle Changes
+3467,1263,2023-05-27,Diabetes,Surgery
+3468,1888,2024-05-22,Heart Disease,Surgery
+3469,1778,2022-10-28,Hypertension,Surgery
+3470,2935,2023-06-24,Heart Disease,Medication
+3471,2517,2022-09-10,Heart Disease,Surgery
+3472,243,2021-06-25,Heart Disease,Surgery
+3473,2048,2021-12-27,Heart Disease,Surgery
+3474,367,2025-02-26,Hypertension,Medication
+3475,2848,2022-12-04,Asthma,Surgery
+3476,153,2023-10-31,Diabetes,Medication
+3477,912,2021-03-03,Diabetes,Surgery
+3478,2051,2020-12-24,Hypertension,Medication
+3479,687,2020-01-14,Hypertension,Surgery
+3480,2464,2020-03-14,Heart Disease,Medication
+3481,2379,2023-08-27,Asthma,Lifestyle Changes
+3482,1651,2020-04-19,Heart Disease,Medication
+3483,1083,2020-11-07,Heart Disease,Medication
+3484,1365,2023-04-29,Hypertension,Surgery
+3485,929,2022-05-14,Asthma,Surgery
+3486,464,2023-11-22,Heart Disease,Surgery
+3487,799,2025-04-05,Asthma,Medication
+3488,936,2024-01-17,Heart Disease,Lifestyle Changes
+3489,1010,2021-11-24,Asthma,Surgery
+3490,593,2020-12-28,Heart Disease,Lifestyle Changes
+3491,2123,2024-04-27,Asthma,Surgery
+3492,1046,2021-03-22,Diabetes,Medication
+3493,2397,2024-07-24,Asthma,Lifestyle Changes
+3494,1732,2024-11-03,Diabetes,Medication
+3495,1129,2022-11-20,Diabetes,Lifestyle Changes
+3496,1640,2020-03-12,Hypertension,Surgery
+3497,663,2021-05-01,Hypertension,Lifestyle Changes
+3498,2859,2022-02-12,Hypertension,Lifestyle Changes
+3499,834,2022-08-10,Heart Disease,Surgery
+3500,400,2021-02-01,Hypertension,Medication

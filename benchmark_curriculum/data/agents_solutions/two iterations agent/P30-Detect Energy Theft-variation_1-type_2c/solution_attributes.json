@@ -1,0 +1,40 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "total_late_payments",
+        "payment_status_index",
+        "reading_anomalies_count",
+        "avg_late_payment_fee",
+        "reading_anomalies_fraction",
+        "billing_overdue_flag",
+        "account_status_encoded",
+        "estimated_reading_ratio",
+        "billing_overload_flag",
+        "late_payment_fee_sum",
+        "sudden_increase_flag",
+        "energy_usage_variance",
+        "account_tenure",
+        "avg_energy_last_week",
+        "energy_usage_trend"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "total late payments",
+        "payment status index",
+        "reading anomalies count",
+        "avg late payment fee",
+        "reading anomalies fraction",
+        "billing overdue flag",
+        "account status encoded",
+        "estimated reading ratio",
+        "billing overload flag",
+        "late payment fee sum",
+        "sudden increase flag",
+        "energy usage variance",
+        "account tenure",
+        "avg energy last week",
+        "energy usage trend"
+    ]
+}

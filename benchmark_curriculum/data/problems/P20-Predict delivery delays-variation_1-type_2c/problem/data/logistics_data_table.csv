@@ -1,0 +1,3001 @@
+logistics_provider_id,provider_name,customer_rating
+1,Francis and Sons,3.900000
+2,"Smith, Li and Stephens",4.100000
+3,Brown-Rivera,3.700000
+4,Carroll Ltd,4.200000
+5,"Grant, Harrison and Chavez",1.700000
+6,Cooper-Pacheco,2.400000
+7,Hall-Williams,1.800000
+8,Zimmerman-Wagner,2.300000
+9,Campbell LLC,1.600000
+10,Clark-Mahoney,2.600000
+11,Williams-Carlson,2.500000
+12,Boyle-Roberts,2.400000
+13,Carpenter Ltd,1.300000
+14,Young-Perry,1.800000
+15,Mercer-Gordon,4.300000
+16,Randall and Sons,3.500000
+17,"Bauer, Berry and Hamilton",4.200000
+18,"Peck, Harris and Tucker",3.300000
+19,Weber PLC,1.700000
+20,Erickson Inc,1.300000
+21,Watkins-Brown,2.900000
+22,"Salazar, Miller and Ryan",3.100000
+23,Sullivan-Osborn,2.200000
+24,Gutierrez LLC,3.300000
+25,Stokes-Castillo,2.800000
+26,Rivera Ltd,1.300000
+27,Cherry PLC,3.000000
+28,Bird PLC,3.300000
+29,Peterson-Green,1.300000
+30,Mcclure LLC,2.700000
+31,"Thomas, Kim and Conner",2.300000
+32,Bowman-White,2.700000
+33,Peterson Group,3.400000
+34,Johnson-Terry,2.700000
+35,Coleman Group,4.300000
+36,Sanchez-Hernandez,4.800000
+37,"Hall, Rhodes and Patel",4.600000
+38,Martinez Group,4.400000
+39,Miller-Simpson,3.900000
+40,Morgan and Sons,2.200000
+41,"Harris, Rodriguez and Barton",4.500000
+42,Craig-Garcia,2.700000
+43,Duarte Inc,3.200000
+44,"Daugherty, Anderson and Johnson",4.000000
+45,Mendez-White,3.700000
+46,"Miller, Taylor and Salazar",3.200000
+47,"Evans, Nelson and Dixon",2.300000
+48,Scott-Wilson,1.400000
+49,Morgan Group,1.100000
+50,Dean and Sons,2.100000
+51,Rogers-Maxwell,4.200000
+52,"Watkins, Alvarez and Downs",3.500000
+53,Martin Ltd,3.900000
+54,Cabrera Group,3.600000
+55,Wilson-Gonzales,4.400000
+56,Rhodes-Aguilar,3.700000
+57,"Beltran, Vincent and Braun",1.600000
+58,Walton Group,1.200000
+59,Wilson Inc,4.300000
+60,"Hart, Brown and Webb",3.600000
+61,Butler Ltd,1.100000
+62,Knight Group,1.400000
+63,Morris Ltd,1.600000
+64,"Nichols, Simmons and Ho",4.400000
+65,Harris PLC,2.000000
+66,Moore PLC,1.300000
+67,Jones-Trevino,4.800000
+68,Cross PLC,1.400000
+69,"Knapp, Sweeney and Murray",4.300000
+70,White PLC,1.700000
+71,Bell-Jones,4.100000
+72,Russell-Stephenson,2.800000
+73,"Owens, Neal and Riley",2.900000
+74,Owens-Kane,4.900000
+75,Lopez PLC,1.900000
+76,"Herrera, Serrano and Moore",2.100000
+77,"Miller, Clarke and Parks",2.200000
+78,Lee PLC,3.700000
+79,Johnson Group,4.900000
+80,Parker PLC,1.100000
+81,Nelson-Cook,4.200000
+82,Gonzalez-Lang,1.500000
+83,Ward-Rivera,1.100000
+84,Morgan and Sons,1.900000
+85,Torres PLC,4.100000
+86,Cook-Reyes,2.700000
+87,Hale PLC,2.800000
+88,Flores and Sons,3.200000
+89,Ramirez LLC,3.900000
+90,Jackson-Guerrero,1.500000
+91,Nelson-Evans,4.600000
+92,Lozano Group,1.400000
+93,Marshall-Scott,1.600000
+94,Hoover and Sons,2.000000
+95,"Miller, Williams and Davis",4.800000
+96,"Rich, Ford and Martin",1.400000
+97,"Waters, Sullivan and Finley",3.300000
+98,Fleming Group,2.200000
+99,"Marshall, Jones and Carr",2.700000
+100,Simpson-Jennings,4.600000
+101,Banks Inc,3.100000
+102,Johnson-Meyer,4.200000
+103,Thompson Group,4.600000
+104,"Robinson, Greene and Rogers",4.700000
+105,Mckinney-Graves,4.700000
+106,Dalton-Blankenship,2.200000
+107,"Harper, Ryan and Mason",1.600000
+108,Wilson-Evans,4.800000
+109,Brown PLC,1.500000
+110,Aguilar LLC,2.200000
+111,Taylor-Chan,2.800000
+112,Mcdonald-Gibson,4.400000
+113,"Thompson, Hess and Hayes",4.000000
+114,Henry LLC,4.300000
+115,Jones-Meyer,3.600000
+116,"Brown, Levine and Brooks",3.200000
+117,Ramos-Sellers,3.800000
+118,Johnson-Kelly,1.400000
+119,"Willis, Watts and Patterson",4.900000
+120,King-Tapia,2.600000
+121,Miller-Coleman,3.400000
+122,"Harrison, Grimes and Bailey",3.400000
+123,Fox-Allen,3.400000
+124,"Jacobson, Taylor and Martin",1.900000
+125,Ayala and Sons,1.500000
+126,Miller Ltd,2.100000
+127,"Mcbride, Jackson and Zamora",4.200000
+128,"Smith, Espinoza and Mendoza",1.900000
+129,Ramirez-Henry,2.500000
+130,"Clark, Reynolds and Mcclure",4.100000
+131,"Johnson, Bentley and Sloan",3.800000
+132,Wright PLC,3.400000
+133,"King, Fisher and Hawkins",4.000000
+134,Williams-Brooks,1.300000
+135,Hudson-Moore,2.200000
+136,"Thomas, Singh and Young",3.400000
+137,"Lopez, Brown and Harrington",2.700000
+138,Cummings-Rodriguez,1.800000
+139,Hardy and Sons,3.600000
+140,"Ross, Wright and Brown",4.100000
+141,"Sanchez, Maldonado and Jackson",4.200000
+142,"Bell, Good and Knight",2.600000
+143,Robinson PLC,2.000000
+144,"Torres, Quinn and Hughes",2.200000
+145,Galvan PLC,3.700000
+146,"Gonzalez, Shepherd and Santiago",2.400000
+147,"Dickson, Elliott and Nguyen",4.100000
+148,Short-Crane,3.900000
+149,Tucker-Olson,1.500000
+150,Martin-Chase,3.000000
+151,Hart LLC,4.400000
+152,"Christian, Flores and Ray",1.600000
+153,Campos Group,1.500000
+154,"Pratt, Fox and Martin",4.800000
+155,"Anderson, Richmond and Fernandez",4.800000
+156,Curry-Ford,4.600000
+157,Carlson-Bartlett,3.700000
+158,"Scott, Johnson and Hill",5.000000
+159,Howard and Sons,1.200000
+160,Morris Ltd,1.700000
+161,"Arnold, Brown and Mejia",4.800000
+162,Montgomery-Gibbs,2.800000
+163,Woodward-Soto,1.800000
+164,"Oconnor, Alvarado and Smith",4.700000
+165,Joseph PLC,1.800000
+166,Newman LLC,2.400000
+167,"Jefferson, Evans and Daniels",1.800000
+168,"Lewis, Wheeler and Gonzalez",3.300000
+169,Garza PLC,2.700000
+170,"Anderson, Joseph and Morgan",4.600000
+171,Flores PLC,3.800000
+172,Allen LLC,2.900000
+173,"Davis, Reyes and Gibbs",4.300000
+174,Thompson LLC,2.200000
+175,"Evans, Brandt and Winters",3.700000
+176,Chase Inc,2.000000
+177,Kirk Group,3.500000
+178,Baldwin Ltd,1.600000
+179,Turner and Sons,1.100000
+180,Diaz-Garrett,4.700000
+181,Martin-Murphy,4.100000
+182,Jenkins-Pierce,2.600000
+183,"Robinson, Jensen and Strong",4.200000
+184,Powell and Sons,4.900000
+185,"Mcconnell, Smith and Barrett",2.300000
+186,"Hart, Merritt and Rich",1.900000
+187,"Barnes, Davis and Harris",4.500000
+188,Sullivan and Sons,1.600000
+189,Barker-Cox,4.300000
+190,"Gordon, Smith and Strong",1.000000
+191,"Wilson, Smith and Wu",4.400000
+192,"Bush, Allen and Brown",2.700000
+193,Davis Inc,4.900000
+194,Wallace-Singh,3.500000
+195,Wood-Jensen,2.600000
+196,Becker-Martinez,2.800000
+197,"Hardy, Payne and Adams",4.200000
+198,Taylor-Campbell,3.600000
+199,Dean-Valdez,4.800000
+200,"Lewis, Romero and Ashley",1.900000
+201,"Barron, Evans and Garrett",4.300000
+202,Spencer-Cunningham,1.100000
+203,Meyers-Fernandez,1.200000
+204,"Peterson, Payne and Moreno",4.000000
+205,"Long, Meyer and Curry",2.800000
+206,"Austin, Rodriguez and Brown",2.300000
+207,"Scott, Porter and Hurley",2.500000
+208,"Stewart, Allen and Stevens",2.400000
+209,"Garcia, Buck and Donovan",4.100000
+210,Boyer and Sons,1.800000
+211,Gutierrez PLC,3.900000
+212,Mcclain-Zavala,1.300000
+213,"Smith, White and Price",1.600000
+214,"Dawson, Carter and Johnson",1.200000
+215,Glover Inc,3.100000
+216,Walton PLC,4.800000
+217,Chang-Evans,4.300000
+218,Gordon PLC,4.900000
+219,"Cain, Brown and Sanders",1.900000
+220,Wu PLC,3.800000
+221,Blake-Olson,2.800000
+222,"Zimmerman, Fisher and Guerrero",4.000000
+223,"Stafford, Flores and Clayton",2.900000
+224,Gentry Group,3.700000
+225,Christensen LLC,2.800000
+226,"Howard, Davenport and Norris",4.800000
+227,"Obrien, Bishop and Marshall",4.600000
+228,Lawson PLC,4.800000
+229,Johnson LLC,2.100000
+230,Lane-Jacobs,3.800000
+231,Holden-Cooke,4.300000
+232,"Perez, Barry and Harris",3.900000
+233,Mckay and Sons,1.800000
+234,Mcdonald-Chandler,3.800000
+235,"Barnett, Hurley and Flores",2.200000
+236,Leonard-Clark,2.800000
+237,Kelly Ltd,4.700000
+238,Camacho Ltd,2.200000
+239,"Pierce, Schroeder and Zhang",3.800000
+240,Collins PLC,3.000000
+241,Powers-Travis,1.900000
+242,Stephens-Gonzalez,4.600000
+243,"Michael, Serrano and Estrada",1.400000
+244,"Kerr, Reynolds and Cook",1.500000
+245,"Gonzalez, Cooper and Ortiz",2.000000
+246,Wagner-Quinn,4.900000
+247,"Bennett, Rush and Morgan",1.700000
+248,"Norris, Black and Reed",2.200000
+249,Mejia-Taylor,2.600000
+250,Johnson and Sons,1.500000
+251,Mendoza and Sons,2.600000
+252,Dorsey Inc,1.300000
+253,Hill LLC,3.100000
+254,Whitney-Ruiz,1.200000
+255,"Rodriguez, Townsend and Martinez",4.200000
+256,Fritz LLC,4.300000
+257,Johnson-Rodriguez,3.200000
+258,"Martin, Copeland and Stewart",2.500000
+259,Murray Group,3.500000
+260,"Schneider, Williams and Hamilton",3.100000
+261,"Jones, Sanchez and Lyons",1.700000
+262,"Smith, Martinez and Holmes",5.000000
+263,Cooper and Sons,4.600000
+264,Allen-Finley,4.200000
+265,"Jones, Castro and Bradley",2.000000
+266,Gutierrez Group,2.600000
+267,Robinson-Hoffman,3.700000
+268,Neal-Velasquez,1.900000
+269,Bowman Group,4.300000
+270,Wallace Group,4.900000
+271,Ramos-Moore,1.500000
+272,Peterson LLC,3.300000
+273,"Villanueva, Short and Cox",3.800000
+274,Howard Inc,1.100000
+275,"Berry, Lopez and Chang",2.000000
+276,Brown Group,3.200000
+277,Nguyen Group,1.200000
+278,Clark-Ball,3.700000
+279,Johnson-Henry,1.500000
+280,"Leonard, Jordan and Delgado",2.900000
+281,Howe-Watson,4.400000
+282,Lee-Smith,5.000000
+283,Norris PLC,1.900000
+284,Gonzalez-Avery,1.100000
+285,Phillips-Anderson,3.400000
+286,"Thornton, Taylor and Fletcher",4.100000
+287,Cooper-Stuart,4.900000
+288,"Sullivan, Jones and Smith",1.100000
+289,Rogers Ltd,3.500000
+290,"Schroeder, Coleman and Taylor",2.100000
+291,Bates and Sons,1.600000
+292,Ballard-Green,3.600000
+293,Black LLC,2.300000
+294,Larson-Smith,2.500000
+295,"Zamora, Berg and Castillo",1.400000
+296,"Wood, Thompson and Calhoun",1.900000
+297,"Torres, Rhodes and Stewart",4.900000
+298,Barrera Ltd,3.600000
+299,Campbell-Saunders,3.900000
+300,Cooke Inc,1.200000
+301,Davis-Moreno,2.300000
+302,Parrish PLC,2.900000
+303,"Larsen, King and Gamble",1.700000
+304,"Anderson, Bailey and Kennedy",2.600000
+305,Coleman-Pace,3.400000
+306,Brown LLC,1.200000
+307,Jordan PLC,2.700000
+308,"Snow, Anderson and Johnson",4.600000
+309,"Romero, Martinez and Kirk",1.500000
+310,Willis Inc,2.700000
+311,Leblanc-Castro,4.200000
+312,Ayers-Cohen,1.600000
+313,"Jenkins, Miller and Farmer",2.000000
+314,Mueller LLC,3.400000
+315,Wang-Garcia,1.900000
+316,"Edwards, Murillo and Curry",2.500000
+317,Grant-Jones,2.200000
+318,Dean Group,1.700000
+319,"Shea, Robertson and Bell",2.600000
+320,Cole LLC,3.600000
+321,Brown-Mendez,1.400000
+322,Sosa PLC,2.900000
+323,Hernandez-Santiago,1.800000
+324,Thompson LLC,2.200000
+325,Davis-Perez,1.600000
+326,Taylor PLC,3.900000
+327,Cox-Montgomery,2.400000
+328,Thompson-Barrett,2.700000
+329,"Bentley, Graham and Williams",2.500000
+330,"Donovan, Payne and Chung",1.400000
+331,Torres-Williams,4.500000
+332,Sanders Group,1.800000
+333,Gonzalez Ltd,4.600000
+334,"Hernandez, Stevens and Miller",2.900000
+335,Eaton-Weaver,2.300000
+336,Carr LLC,3.100000
+337,Kim-Moore,2.800000
+338,Doyle-Ramsey,3.100000
+339,"Riggs, Davis and Burns",3.200000
+340,Townsend-Sanchez,2.600000
+341,Wheeler and Sons,2.600000
+342,"Clark, Weaver and Bradley",3.000000
+343,Farley-Butler,4.600000
+344,"Alexander, Brady and Blackburn",2.600000
+345,Thomas LLC,4.200000
+346,Harris-Frederick,4.100000
+347,Davis and Sons,3.500000
+348,Payne Ltd,2.100000
+349,Ward Group,1.500000
+350,"Gay, James and Cunningham",3.700000
+351,Johnson-Robertson,3.400000
+352,Stone LLC,1.900000
+353,Foster Inc,3.500000
+354,Middleton PLC,1.300000
+355,Collier and Sons,2.200000
+356,Webster Inc,4.900000
+357,Combs-Martinez,4.700000
+358,Rodriguez-Townsend,1.000000
+359,"Johnson, Thompson and Vance",3.800000
+360,May-Nelson,2.200000
+361,Lynn Inc,2.900000
+362,"Roth, Ward and Fields",4.900000
+363,Robertson Ltd,2.200000
+364,Stone and Sons,2.900000
+365,Moran-Porter,1.000000
+366,"Lopez, Aguilar and Hart",1.600000
+367,"Reed, Anderson and Perry",2.900000
+368,"Williams, Green and Cuevas",1.400000
+369,Fitzgerald PLC,2.400000
+370,Gonzalez PLC,2.000000
+371,Sellers PLC,2.200000
+372,"Calhoun, Foster and Bowers",1.200000
+373,Rosales-Chang,5.000000
+374,"Davis, Butler and Wheeler",4.100000
+375,"Robinson, Gentry and Wyatt",4.800000
+376,Davis PLC,1.200000
+377,"Mercer, Robinson and Holt",1.000000
+378,Skinner Group,1.100000
+379,Scott Ltd,1.300000
+380,"Poole, Guzman and Heath",4.200000
+381,Vang and Sons,2.000000
+382,Barber-Petersen,1.600000
+383,James PLC,2.200000
+384,Chase-Chavez,2.300000
+385,Santiago-Faulkner,2.300000
+386,Roberts Ltd,2.000000
+387,Gallagher-Williams,2.900000
+388,Chang-Wilson,4.100000
+389,Finley and Sons,4.700000
+390,Randall LLC,3.700000
+391,Diaz Inc,4.200000
+392,Matthews-Vega,4.300000
+393,Williams and Sons,3.600000
+394,"Dickson, Mann and Lewis",4.600000
+395,"Martinez, Fernandez and King",1.700000
+396,"Sims, Day and Cooper",1.500000
+397,Lewis-Ball,3.900000
+398,Stout Inc,1.800000
+399,Hoffman and Sons,1.800000
+400,Armstrong PLC,4.200000
+401,Owen-Gonzalez,4.000000
+402,Sheppard and Sons,1.400000
+403,Stevenson Ltd,3.000000
+404,Young-Simpson,2.300000
+405,Barnes-Garza,3.900000
+406,Anderson Ltd,1.600000
+407,Estrada-Barnes,1.600000
+408,"Norris, Hunt and Gutierrez",3.100000
+409,Beltran PLC,1.600000
+410,Skinner-Glover,3.200000
+411,Hernandez and Sons,4.300000
+412,Anderson and Sons,1.100000
+413,"Dominguez, Daniel and Martin",1.400000
+414,Guerrero PLC,4.600000
+415,Glover Inc,1.500000
+416,Floyd-Adams,2.900000
+417,Bird and Sons,1.200000
+418,Barker-Rice,3.400000
+419,"Acevedo, Fitzgerald and Collins",3.900000
+420,Wright Ltd,1.900000
+421,"Johnson, Trevino and Villarreal",4.200000
+422,Bowman-Adams,1.500000
+423,Gray PLC,2.700000
+424,Ponce Group,3.600000
+425,Hall Group,2.500000
+426,Shaffer and Sons,3.100000
+427,"Pruitt, Matthews and Tran",4.800000
+428,Jacobson LLC,1.800000
+429,Davis-Ford,3.900000
+430,"Kirk, Flores and Warren",4.600000
+431,Raymond Group,3.000000
+432,Flores-Brown,3.700000
+433,Montgomery PLC,2.300000
+434,Graves-Harrison,2.600000
+435,Winters Inc,4.500000
+436,Alvarez Ltd,1.300000
+437,Jacobs Ltd,4.700000
+438,Lopez and Sons,2.300000
+439,Bates-Jimenez,2.100000
+440,Marsh LLC,1.300000
+441,Case-Walter,4.300000
+442,"Warren, Sharp and Thomas",3.400000
+443,Walker-Williams,1.900000
+444,Ray-Larson,1.300000
+445,"Miranda, Singh and Mccullough",2.000000
+446,Wolfe-Nielsen,1.800000
+447,Young-Walter,3.700000
+448,"Davis, Cunningham and Turner",3.100000
+449,"Logan, Flores and Jenkins",3.100000
+450,"Horn, Hardy and Bond",3.000000
+451,Torres-Harrington,1.100000
+452,Austin-Rogers,3.800000
+453,Wilson Ltd,4.600000
+454,Robinson-Davis,3.600000
+455,Hebert-Pierce,3.600000
+456,Bailey-Peters,1.600000
+457,Hunt Ltd,1.800000
+458,Novak-Crosby,3.800000
+459,Jenkins-Garcia,4.900000
+460,Case Inc,2.400000
+461,Parker-Henry,1.100000
+462,Goodwin-Martinez,4.000000
+463,Miller and Sons,4.200000
+464,White Group,3.300000
+465,"Nunez, Lewis and Young",3.200000
+466,Lowe-Smith,1.200000
+467,"Rivera, Gregory and Green",3.700000
+468,Moore and Sons,3.200000
+469,"Wallace, Hicks and Zamora",4.600000
+470,"Cook, Hernandez and Jones",4.400000
+471,Hernandez-Chase,3.300000
+472,"Barnes, Velasquez and Simon",2.800000
+473,King-Murray,2.300000
+474,Coleman Ltd,4.200000
+475,Young-Jackson,4.800000
+476,Hunt-Smith,1.300000
+477,Baker-Thomas,3.600000
+478,Woods PLC,3.700000
+479,Miller LLC,2.900000
+480,Avila Ltd,4.900000
+481,Holland-Alvarez,3.700000
+482,Reid LLC,2.900000
+483,Collins-Ingram,4.500000
+484,Robbins-Brown,1.000000
+485,"Rivera, Guzman and Kennedy",3.700000
+486,Best-Chavez,3.400000
+487,Hunt Inc,3.700000
+488,Trevino Inc,1.200000
+489,Powers-Valencia,4.000000
+490,Hopkins and Sons,4.700000
+491,"Jordan, Cook and Owens",2.100000
+492,Roy-Strickland,4.700000
+493,"Rhodes, Roman and Burgess",1.800000
+494,Conner-Wu,4.200000
+495,Dunlap-Franklin,4.500000
+496,Smith PLC,4.800000
+497,Moreno-Ellis,2.800000
+498,"Duncan, Pacheco and White",3.000000
+499,"Perez, Daniel and Black",2.200000
+500,Cabrera LLC,4.900000
+501,"Hodge, Hayes and Kelly",1.000000
+502,"Jenkins, Welch and Gonzalez",4.200000
+503,Thomas-Mitchell,4.000000
+504,"Shelton, Sutton and Hess",2.300000
+505,Lyons-Martinez,3.900000
+506,"Sanchez, Ayala and Taylor",4.500000
+507,"Jones, Parsons and Munoz",1.100000
+508,"Robinson, Johnson and Schroeder",1.800000
+509,Evans Group,2.100000
+510,Edwards Ltd,3.200000
+511,Murray PLC,3.100000
+512,"Nixon, Wallace and Berg",2.300000
+513,Cole-Johnson,3.300000
+514,Thomas-Harper,1.400000
+515,Wright Group,2.500000
+516,Munoz LLC,2.600000
+517,"Roy, Casey and Morris",3.800000
+518,"Jones, Guerra and Palmer",4.800000
+519,Simpson PLC,1.200000
+520,Morris-Galloway,3.400000
+521,Armstrong-Harrell,1.600000
+522,"Phillips, Mccoy and Browning",3.100000
+523,"Carter, Cohen and Gomez",1.200000
+524,White-Jackson,1.000000
+525,"Mccormick, Harper and Merritt",1.900000
+526,"Saunders, Torres and Collier",1.700000
+527,Jones-Graves,2.800000
+528,Johnson-Jackson,4.400000
+529,"Weaver, Carpenter and Hale",3.300000
+530,Edwards Group,1.900000
+531,Russell-Sawyer,4.800000
+532,Cook and Sons,4.800000
+533,Bell Inc,3.400000
+534,Schmidt and Sons,4.800000
+535,Clayton-Hernandez,1.100000
+536,Henry and Sons,3.200000
+537,Robertson-Gilbert,2.500000
+538,Torres Inc,1.900000
+539,"Moore, Jackson and Williams",2.700000
+540,Richardson Inc,2.600000
+541,Williams Ltd,1.200000
+542,Mendez-Crawford,4.900000
+543,"Khan, Brown and Taylor",4.000000
+544,"Rivera, Thomas and Taylor",1.200000
+545,Black Inc,1.900000
+546,Barnes-Rios,3.500000
+547,"Cole, Torres and Ortiz",3.600000
+548,Richardson LLC,4.900000
+549,"Warren, Lee and Rice",3.100000
+550,Anderson-Myers,4.800000
+551,Jefferson LLC,2.800000
+552,Mcguire-Valenzuela,4.500000
+553,Perez Group,4.400000
+554,"Morris, Harris and Medina",2.100000
+555,"Hernandez, Foster and Carroll",1.200000
+556,"Rivers, Villa and Garcia",3.500000
+557,"Smith, Benton and Graham",2.600000
+558,Sharp-Sharp,4.900000
+559,Alexander Group,4.500000
+560,Johnson and Sons,2.200000
+561,Fox and Sons,2.700000
+562,Scott LLC,2.400000
+563,Burgess-Ford,4.400000
+564,"Powers, Smith and Hughes",4.100000
+565,Moss-Johnson,4.900000
+566,"Glenn, Owens and Patterson",2.900000
+567,"Jackson, Mann and Palmer",4.800000
+568,"Snow, Harrison and Wood",3.400000
+569,Porter Inc,1.900000
+570,"Brown, Rogers and Ramirez",2.400000
+571,Young and Sons,4.500000
+572,Owens-Reyes,2.600000
+573,Sweeney Group,2.000000
+574,Moody-Wilson,1.500000
+575,Jones-Horn,3.500000
+576,Salinas PLC,2.000000
+577,"Snyder, Alvarez and Robinson",2.200000
+578,Baird LLC,4.200000
+579,Hernandez-Moore,1.700000
+580,Murphy and Sons,3.300000
+581,Wilson-Burnett,4.900000
+582,"Koch, Griffin and Spears",2.100000
+583,Garza-Khan,3.300000
+584,"Terry, Quinn and Lewis",1.400000
+585,Hughes-Leon,2.800000
+586,"Bowman, Hanna and Wolfe",2.400000
+587,Guzman Group,3.900000
+588,Jones-Harris,1.500000
+589,Robinson PLC,1.500000
+590,"Coleman, Boone and Lee",3.400000
+591,Garza-Parrish,4.600000
+592,Murphy-Flynn,1.300000
+593,Bates-Wright,3.100000
+594,Myers-Wilson,2.800000
+595,"Pratt, York and Evans",1.200000
+596,"Lewis, Haynes and Gomez",3.500000
+597,"Green, Brooks and Mercado",3.400000
+598,Tran LLC,3.600000
+599,Leonard-Doyle,3.700000
+600,"Leach, Coleman and Crane",2.000000
+601,"Cox, Hall and Ramirez",3.400000
+602,"Ray, Holloway and Lopez",5.000000
+603,"Johns, Richardson and Ramirez",1.900000
+604,Kennedy-Tyler,1.500000
+605,Ware-Arroyo,3.900000
+606,Mckay-Pruitt,4.500000
+607,Banks-Pruitt,4.400000
+608,"Hamilton, Dixon and Rodriguez",2.700000
+609,Harris-Curry,3.700000
+610,Hayes-Chandler,4.500000
+611,Hill Group,2.500000
+612,Harris-Paul,3.200000
+613,"Rose, Murray and Boyd",3.300000
+614,"Luna, Lawrence and Medina",2.700000
+615,Simmons-Wilson,4.900000
+616,"Woods, Bush and Griffin",3.300000
+617,"Garcia, Thomas and Castro",3.300000
+618,Landry-Jones,4.100000
+619,"Bullock, Frederick and Ballard",2.900000
+620,Day-Dominguez,1.900000
+621,Dean-Schultz,3.600000
+622,Soto-Silva,1.400000
+623,"Mendez, Cummings and Smith",4.100000
+624,Duran and Sons,2.900000
+625,"Holloway, Bush and Gonzalez",3.200000
+626,"Ware, Carpenter and Chavez",2.100000
+627,Harris-Reilly,2.300000
+628,Woods PLC,1.300000
+629,"Espinoza, King and Sanders",2.200000
+630,Garcia-Logan,1.000000
+631,Andrews-Mcconnell,2.100000
+632,Blair-Smith,1.800000
+633,Richards-Moon,3.600000
+634,Chan-Duran,1.900000
+635,Cuevas LLC,4.700000
+636,Davis-Bell,4.300000
+637,Brooks-Haynes,2.900000
+638,Sims-Lowe,4.000000
+639,Mccormick-Wilson,3.500000
+640,Richmond-Thomas,1.100000
+641,"Ford, Wright and Robinson",1.300000
+642,"Buchanan, Hernandez and Banks",2.700000
+643,Perez-Larson,1.500000
+644,Shaw Group,2.900000
+645,Love Ltd,1.400000
+646,"Harrison, Gilbert and Perez",1.500000
+647,Reynolds-Bright,2.200000
+648,"Meyer, Chapman and Sullivan",3.900000
+649,Harris Inc,1.800000
+650,Simpson Inc,2.100000
+651,Johnston Group,2.300000
+652,"Wright, Barnes and Schroeder",3.100000
+653,Bowman-Pope,4.700000
+654,Rogers-Smith,3.700000
+655,"Valencia, Graham and Waters",2.500000
+656,Baker-Zuniga,4.700000
+657,"Scott, Prince and Mahoney",4.300000
+658,Massey and Sons,3.100000
+659,Gray PLC,3.300000
+660,Carroll-Cameron,3.200000
+661,"Lynch, Vaughn and Wheeler",4.400000
+662,Spence-Cole,2.400000
+663,Price-Ayala,3.900000
+664,Jackson LLC,2.100000
+665,Owen-Lindsey,4.100000
+666,Watson-Barrett,3.600000
+667,"Blanchard, Lucas and Kelly",1.200000
+668,Brown Inc,2.000000
+669,Barnes-Williams,2.500000
+670,"Stone, Oconnor and Chan",4.900000
+671,Barnett-Henderson,1.600000
+672,Gonzalez Ltd,1.100000
+673,"Sanchez, Powell and Fernandez",3.200000
+674,"Miller, Garcia and Soto",1.100000
+675,"Turner, Moore and Curtis",3.800000
+676,Wilson LLC,4.200000
+677,Smith Group,3.500000
+678,Murphy PLC,4.000000
+679,"Knapp, Campbell and Ingram",4.000000
+680,"Higgins, Conrad and Frederick",1.600000
+681,Matthews-Turner,3.300000
+682,Johnson LLC,2.100000
+683,Brown-Burke,4.200000
+684,Davis Inc,1.000000
+685,Dominguez and Sons,1.100000
+686,Strong Inc,3.600000
+687,Stephens-Shaw,4.700000
+688,Lewis Inc,4.400000
+689,"Jones, Smith and Thornton",3.200000
+690,"Smith, Davis and Hendrix",1.500000
+691,Chapman Ltd,4.100000
+692,Mcdowell-Mann,2.000000
+693,Strong-Cannon,2.000000
+694,Snyder LLC,3.200000
+695,Williams-Mason,4.900000
+696,Robinson-Greer,1.700000
+697,Carlson-Morrow,4.100000
+698,Turner Ltd,1.700000
+699,Michael Group,1.900000
+700,"Barnes, Fisher and Hunt",4.700000
+701,"Ewing, Ross and Jones",2.900000
+702,Marshall LLC,2.400000
+703,Warner-Garner,3.000000
+704,Golden-Luna,4.700000
+705,Wyatt-Thompson,3.400000
+706,Turner-Nguyen,1.200000
+707,Andrews-Medina,1.400000
+708,Griffin PLC,4.900000
+709,"Bradford, Gonzalez and Frederick",1.900000
+710,Morgan-Bryan,1.600000
+711,Manning-Green,3.200000
+712,Nixon Inc,4.600000
+713,"Cook, Kim and Hicks",2.500000
+714,Parrish Inc,4.600000
+715,Wheeler-Brandt,2.500000
+716,Hill-Doyle,3.800000
+717,"Anderson, Ross and Watts",4.000000
+718,"Morgan, Sims and Norris",1.300000
+719,Lee LLC,1.800000
+720,Hill-Glass,2.400000
+721,"Smith, Diaz and Jenkins",1.400000
+722,Richardson-Mcgee,3.500000
+723,Martinez-Wu,2.300000
+724,Butler PLC,3.500000
+725,Strickland Ltd,3.100000
+726,Walsh-Smith,2.000000
+727,Roberts-Rodriguez,1.000000
+728,Anderson Group,2.400000
+729,Baker-Hawkins,2.500000
+730,"Kelley, Adkins and Lopez",1.500000
+731,"Bowers, Alexander and Allen",1.600000
+732,"Mejia, Moore and Moore",1.500000
+733,"Villarreal, Williams and Jones",1.300000
+734,"Robbins, Browning and Baker",1.600000
+735,"Haynes, Brown and Lewis",3.600000
+736,Williams-Anthony,3.100000
+737,"Escobar, Morgan and Brown",4.900000
+738,Montoya-Armstrong,1.800000
+739,"Burton, Benjamin and Long",1.500000
+740,"Smith, West and Jordan",1.100000
+741,"Lee, Chavez and Pollard",3.900000
+742,"Ramirez, Smith and Kidd",1.900000
+743,Jones-Campbell,4.000000
+744,Wilson-Romero,1.800000
+745,Olson-Torres,2.900000
+746,Cooper-Jackson,3.300000
+747,Knight-Tate,4.300000
+748,Bowen-Carroll,1.800000
+749,"Allen, Mcbride and Smith",3.300000
+750,Adams and Sons,1.300000
+751,Edwards-Spears,4.100000
+752,Hart-Oliver,3.300000
+753,Collins Ltd,2.900000
+754,Morrow-Shepherd,2.400000
+755,Hernandez PLC,1.100000
+756,"Stafford, Larson and Nelson",1.700000
+757,Cunningham-Thompson,1.200000
+758,Arnold LLC,2.600000
+759,Blair-Richards,1.900000
+760,Taylor LLC,3.500000
+761,"Estrada, Aguilar and Long",2.600000
+762,Cooper Group,4.300000
+763,"Wilson, Winters and Brown",3.200000
+764,"Gillespie, Johnson and Espinoza",1.800000
+765,Johnson-Moore,4.400000
+766,Robinson Ltd,3.600000
+767,Monroe-Turner,1.800000
+768,Mason Inc,4.000000
+769,"Ross, Mills and George",1.600000
+770,Hall-Orozco,3.000000
+771,Lewis Group,1.200000
+772,Moody-Smith,2.600000
+773,Clark Group,2.500000
+774,"Williams, Stafford and Anthony",2.700000
+775,Stephens Inc,1.800000
+776,"Murphy, Gonzalez and Rice",1.600000
+777,Garcia PLC,1.000000
+778,"Davis, King and Levy",5.000000
+779,Williams-Navarro,4.500000
+780,"Mills, Pacheco and Cook",3.500000
+781,Wilcox PLC,4.800000
+782,Wright and Sons,2.000000
+783,Ryan-Ayers,4.500000
+784,Allen-Rodriguez,2.800000
+785,"Sims, Smith and Robertson",2.300000
+786,Sherman and Sons,4.600000
+787,Martinez-Martinez,3.100000
+788,Davis PLC,4.600000
+789,"Ramirez, Price and Marquez",4.100000
+790,"Porter, Baker and Mills",3.100000
+791,"Schmidt, Hayes and Larsen",2.500000
+792,Campbell-Rodriguez,3.200000
+793,Shah-Mccarthy,4.800000
+794,Buchanan-Carroll,4.400000
+795,Houston LLC,2.600000
+796,Rodriguez-Anderson,1.700000
+797,Cortez-Carroll,4.600000
+798,"Santos, Smith and Levine",2.500000
+799,Brooks Inc,3.600000
+800,Jefferson-Fischer,1.300000
+801,Williams PLC,1.800000
+802,Allen-Brown,1.000000
+803,Johnson-Garcia,4.400000
+804,"Barnett, Allen and Hale",1.600000
+805,Sanchez-Tate,2.000000
+806,Martinez Inc,3.900000
+807,"Burke, Powers and Stein",3.000000
+808,Wright Inc,1.000000
+809,Clark-Smith,3.000000
+810,Robinson-Mcdaniel,1.700000
+811,Andrews Ltd,1.800000
+812,Porter PLC,2.700000
+813,Rojas Inc,3.900000
+814,Miller and Sons,3.300000
+815,Williams-Jackson,2.300000
+816,Schultz-Wilson,1.800000
+817,Martinez-Gray,1.500000
+818,Rhodes-Rowland,3.200000
+819,Miller-Miller,4.500000
+820,Rivera PLC,2.200000
+821,"Martin, Harrison and Harding",1.900000
+822,Lawson Group,4.100000
+823,Snyder Group,2.200000
+824,Hayes-Fernandez,2.700000
+825,"Forbes, Jordan and Chavez",1.500000
+826,"Lawson, Chambers and Simon",5.000000
+827,Jones-Wilson,2.900000
+828,Smith PLC,1.600000
+829,"Munoz, Rich and Campbell",1.900000
+830,Bridges-Frost,2.700000
+831,Krueger-Anderson,3.200000
+832,Palmer LLC,1.400000
+833,Vasquez-Weiss,3.400000
+834,"Rodriguez, Bryan and Hernandez",3.200000
+835,Garza PLC,3.400000
+836,Frank-Arellano,2.600000
+837,Griffith-Frye,3.700000
+838,"Jensen, Hanson and Sanchez",2.200000
+839,Moyer-Higgins,3.700000
+840,Snyder-Jackson,3.000000
+841,"Grimes, Fox and Solis",1.100000
+842,Ramirez-Harrell,3.800000
+843,Hall PLC,4.000000
+844,"Owen, Cox and Barry",3.200000
+845,"Salazar, Levine and Davila",1.200000
+846,Wolfe-Hayes,3.900000
+847,Payne PLC,1.500000
+848,"Robinson, Duarte and Spears",2.900000
+849,Joseph-Gross,1.600000
+850,Brown Group,2.100000
+851,Wilson and Sons,2.700000
+852,Clark-Robertson,3.900000
+853,Atkinson Group,3.900000
+854,"Wise, Brown and Stewart",2.300000
+855,Graves LLC,3.700000
+856,Quinn-Schwartz,3.400000
+857,Davis Ltd,4.100000
+858,Boyd-Guerrero,4.800000
+859,"Martin, Guzman and Brock",2.900000
+860,"Burgess, Schaefer and Anderson",1.800000
+861,Montes and Sons,2.200000
+862,Holden Ltd,3.200000
+863,Sullivan-Hess,1.800000
+864,Young-Lawson,2.800000
+865,Smith-Powell,4.300000
+866,Brown Ltd,2.500000
+867,Walsh-Hall,3.700000
+868,Mata PLC,4.900000
+869,Garrison PLC,1.900000
+870,Pineda-Chapman,3.200000
+871,"Kidd, Daniel and Owens",1.900000
+872,Christian Inc,3.100000
+873,"Johnson, Curry and Ward",2.500000
+874,Randall-Morris,3.300000
+875,Anthony and Sons,2.900000
+876,Levine Inc,4.600000
+877,Colon-Ho,4.300000
+878,Brown Group,2.400000
+879,Thornton-Joseph,1.100000
+880,Gray Group,2.100000
+881,Murphy-Chambers,1.200000
+882,Mitchell-Ortiz,4.400000
+883,"Blackburn, Peters and Powell",1.800000
+884,Murphy Ltd,4.600000
+885,Coleman-Galloway,2.200000
+886,Turner-Pruitt,2.800000
+887,"Gonzalez, Nelson and Allen",4.300000
+888,Garrett Group,2.600000
+889,Fitzgerald-Gentry,4.700000
+890,Molina PLC,1.200000
+891,"Griffith, Adams and Jennings",4.500000
+892,Roach Inc,2.300000
+893,Lewis-Williams,4.200000
+894,Lewis PLC,4.200000
+895,Walls Ltd,3.600000
+896,"Roth, Atkinson and Barr",3.300000
+897,"Brown, Parker and Davis",2.800000
+898,"Owen, Edwards and Adams",4.500000
+899,"Smith, Hurst and Adams",1.700000
+900,Kelley-Martin,3.200000
+901,"Peterson, Moreno and Silva",3.700000
+902,Arias-Snow,3.000000
+903,Tapia-Smith,2.800000
+904,Brown Inc,2.500000
+905,Conley PLC,4.100000
+906,"Clay, Cobb and Martin",4.300000
+907,"Grimes, Perry and Brown",1.100000
+908,Peterson-Miller,3.100000
+909,Wright-Higgins,1.600000
+910,Ingram Inc,1.500000
+911,Ross Inc,3.600000
+912,Brown-Hill,4.700000
+913,"Ruiz, Adams and Green",1.800000
+914,"Wright, Lloyd and Cox",3.800000
+915,Delacruz and Sons,2.600000
+916,"Hall, Duarte and Grant",2.100000
+917,"Freeman, Robinson and Baird",3.000000
+918,"Gallegos, Ayala and Nguyen",1.300000
+919,"Lopez, Nguyen and Gray",3.400000
+920,Dillon LLC,1.400000
+921,Rasmussen and Sons,3.600000
+922,Daugherty-Brown,1.600000
+923,Harris-Graham,2.800000
+924,Young-Henry,2.000000
+925,"Foster, Adams and Wilson",1.900000
+926,Moran-Wolf,4.000000
+927,Oliver-Rojas,4.300000
+928,"Davis, Alexander and Anderson",4.600000
+929,Flores-Roman,3.500000
+930,"Ross, Murphy and Wong",4.300000
+931,"Baker, Jefferson and Chen",4.000000
+932,Santana Inc,2.800000
+933,Flores PLC,3.800000
+934,"Stevens, Walker and Levy",1.300000
+935,Stevens and Sons,2.800000
+936,Moore Group,2.900000
+937,Perez-Herrera,4.400000
+938,"Mckenzie, Bennett and Franklin",1.300000
+939,Farmer LLC,4.300000
+940,Miller Ltd,2.600000
+941,"Horton, Williams and Mcdonald",3.400000
+942,Martin Inc,3.000000
+943,Walker-Miller,3.900000
+944,Hudson PLC,2.900000
+945,Thompson LLC,1.900000
+946,Schmidt Group,1.100000
+947,Romero-Gibson,1.600000
+948,Huang-Garcia,2.600000
+949,Alvarez-Calderon,2.500000
+950,Walker-Warren,1.200000
+951,"Kennedy, Patterson and Francis",3.400000
+952,Torres-Thomas,2.100000
+953,Jones Ltd,3.700000
+954,Wood Ltd,2.700000
+955,"Gonzalez, Lewis and White",4.800000
+956,"Thomas, Johnson and Williams",2.200000
+957,Rogers and Sons,3.800000
+958,Jordan LLC,4.200000
+959,Pratt-Stevens,3.500000
+960,Green Ltd,2.500000
+961,"Green, Richard and Jackson",1.200000
+962,"Hunt, Burns and Perez",4.600000
+963,Hill LLC,3.400000
+964,Lawson-Rice,1.400000
+965,"Richard, Stark and Ramirez",2.800000
+966,Stout Ltd,2.300000
+967,Cohen-Hardin,1.800000
+968,Harris-Howard,3.100000
+969,Hurst-Curtis,1.500000
+970,Murphy-Williams,2.200000
+971,"Martinez, Edwards and Silva",3.900000
+972,Johnson Group,2.500000
+973,Stephens PLC,1.400000
+974,Taylor-Jimenez,2.600000
+975,Lane LLC,1.900000
+976,"Best, Leblanc and Brock",1.800000
+977,Evans-Wolfe,3.500000
+978,Gonzalez-Smith,1.100000
+979,"Acosta, Bailey and Hunt",3.900000
+980,Robertson-Smith,4.700000
+981,Cain-Levy,5.000000
+982,Hendricks-Schwartz,1.400000
+983,Zimmerman Group,4.200000
+984,Hurst-Morris,4.400000
+985,Calderon-Guerrero,4.900000
+986,Thomas Ltd,3.800000
+987,Pacheco PLC,2.900000
+988,Martinez and Sons,3.000000
+989,Garcia-Alvarado,1.100000
+990,Grant PLC,4.400000
+991,"Klein, Bender and Peterson",3.500000
+992,"Woods, Smith and Vaughn",2.900000
+993,Hernandez-Mcpherson,1.100000
+994,"Shelton, Parker and Peters",2.200000
+995,Fletcher PLC,3.400000
+996,Baker Inc,2.600000
+997,Townsend Group,1.700000
+998,"Moore, Garner and Allen",2.100000
+999,"Holder, Williams and Robinson",3.000000
+1000,"Whitaker, Meyers and Lucero",2.700000
+1001,Simon-Nelson,3.900000
+1002,Jones and Sons,2.500000
+1003,"Price, Perez and West",4.100000
+1004,Reese-Nguyen,2.100000
+1005,Harper-Hamilton,2.800000
+1006,Medina Inc,3.000000
+1007,Gomez PLC,3.000000
+1008,"Watson, Horn and Johnson",2.000000
+1009,Smith-Anderson,1.200000
+1010,Roman-Tran,3.400000
+1011,Lopez LLC,4.200000
+1012,Mccormick-Thompson,2.500000
+1013,"Lang, Mercer and Franklin",5.000000
+1014,Gill PLC,3.000000
+1015,"Anderson, Kelly and Taylor",1.900000
+1016,"Torres, Hall and Taylor",1.700000
+1017,Lyons LLC,2.200000
+1018,"Williams, Payne and Thompson",3.600000
+1019,"Kirby, Pope and Jones",2.300000
+1020,Monroe Group,2.200000
+1021,Kerr Ltd,1.900000
+1022,Gibbs LLC,1.400000
+1023,"Marshall, Hensley and West",4.000000
+1024,Spence-Pierce,2.900000
+1025,"Martin, Barrett and Hogan",4.300000
+1026,"Dalton, Horton and Adams",1.100000
+1027,"Campos, Brown and Griffith",2.500000
+1028,"Norris, Terry and Valenzuela",3.500000
+1029,"Delacruz, Lewis and Cruz",4.900000
+1030,"Johnson, Hamilton and Lewis",2.900000
+1031,Harris Ltd,2.800000
+1032,"Wells, Gonzalez and Miller",1.500000
+1033,"Ruiz, Wood and Pena",4.600000
+1034,"Zavala, Black and Gordon",3.700000
+1035,"Morris, Franklin and Cameron",1.800000
+1036,Turner-Maldonado,2.300000
+1037,Simmons-Anderson,4.300000
+1038,Daugherty and Sons,4.300000
+1039,"Aguirre, Hernandez and Wagner",1.700000
+1040,Johnson-Banks,4.300000
+1041,Davis-Harper,1.800000
+1042,Morgan-Pacheco,3.300000
+1043,Stone and Sons,4.500000
+1044,Mccormick-Anderson,1.900000
+1045,Brown and Sons,3.300000
+1046,"Curry, Davis and Gilbert",1.600000
+1047,Pierce-Taylor,4.700000
+1048,"Lucas, Hayes and Sanchez",2.100000
+1049,"Brown, Taylor and Turner",4.300000
+1050,"Blackburn, Barnett and Garcia",1.600000
+1051,Harris-Lloyd,2.400000
+1052,Stevenson Group,3.800000
+1053,Collins PLC,2.800000
+1054,Huffman PLC,1.500000
+1055,Chavez-Jones,1.200000
+1056,"Woods, Kline and Russell",3.100000
+1057,"Pollard, Miller and Daniel",1.600000
+1058,King-Wheeler,3.000000
+1059,"Allen, Torres and Pratt",1.700000
+1060,Warren Inc,1.300000
+1061,Gilbert-Valdez,2.500000
+1062,Warren-Walsh,4.700000
+1063,"Perez, Koch and Davis",1.500000
+1064,Page Inc,3.200000
+1065,Herring PLC,3.400000
+1066,Walters-Douglas,3.300000
+1067,Evans Group,2.700000
+1068,Foster-Ramirez,1.800000
+1069,"Allen, Harmon and Harper",1.700000
+1070,Bowers and Sons,4.700000
+1071,Wolf PLC,2.600000
+1072,"Young, Davis and Moore",4.300000
+1073,Ruiz-Poole,2.000000
+1074,Carpenter-Myers,2.000000
+1075,"Flowers, Gonzalez and Jones",4.000000
+1076,Fox LLC,2.200000
+1077,Butler Group,2.300000
+1078,Davis-Thomas,4.400000
+1079,"Copeland, Martin and Jackson",3.200000
+1080,Rosario-Rodriguez,1.500000
+1081,Miller-Johnson,3.400000
+1082,"Martin, Cox and Gordon",2.600000
+1083,Williams PLC,4.200000
+1084,Vasquez-Barton,4.900000
+1085,Pineda Ltd,2.300000
+1086,Davis-Brown,3.700000
+1087,Lindsey Group,2.300000
+1088,"Henderson, Anderson and Brown",4.300000
+1089,Shepherd-Mclean,1.200000
+1090,Mccoy-Burton,4.300000
+1091,Wall-Ward,2.000000
+1092,"Abbott, Allen and Clark",2.400000
+1093,Wilkins-Potter,3.100000
+1094,Hoffman Group,4.200000
+1095,Duncan-Clark,4.000000
+1096,"Levy, Tran and Young",4.400000
+1097,Adams-Wagner,4.900000
+1098,Stevenson and Sons,2.000000
+1099,Sanders Group,3.800000
+1100,Blackburn-Chambers,3.400000
+1101,Clark Inc,3.800000
+1102,Walker-James,2.000000
+1103,Berry-Crawford,1.100000
+1104,Hampton-Poole,4.600000
+1105,Riley-Powell,1.000000
+1106,"Reese, Quinn and Johnson",3.600000
+1107,Larson-Walsh,3.900000
+1108,"Anderson, Madden and Mcgee",2.000000
+1109,Warren-Baker,1.300000
+1110,Riley-Rodriguez,2.800000
+1111,Sanchez-Rivera,4.200000
+1112,Davis and Sons,2.000000
+1113,"Diaz, Schroeder and Jacobson",2.800000
+1114,Jones Ltd,1.900000
+1115,"Campbell, Johnson and Smith",2.200000
+1116,Johnson-Smith,1.700000
+1117,Orr LLC,3.200000
+1118,Taylor Group,3.000000
+1119,Gardner LLC,4.000000
+1120,Hawkins-Villa,3.900000
+1121,Taylor-Hernandez,2.600000
+1122,King-Lopez,4.300000
+1123,"Davis, Hatfield and Collins",1.000000
+1124,"Smith, Long and Stephenson",4.700000
+1125,"Smith, Strickland and Cruz",2.300000
+1126,White Ltd,4.300000
+1127,Perry LLC,4.600000
+1128,Parker-Craig,3.700000
+1129,Anderson and Sons,2.200000
+1130,Smith-Thornton,1.800000
+1131,Smith-Barnes,2.700000
+1132,Chang-Knight,3.500000
+1133,Kennedy Ltd,2.500000
+1134,"Lambert, Bailey and Mejia",2.800000
+1135,Mahoney-Rocha,4.100000
+1136,"Madden, Hart and Williams",3.900000
+1137,Buchanan-Rodriguez,4.800000
+1138,Tran and Sons,3.300000
+1139,Taylor-Fisher,4.100000
+1140,Terry-Dennis,4.900000
+1141,Gamble PLC,2.800000
+1142,"Walker, Smith and Ali",1.400000
+1143,Haynes Ltd,2.000000
+1144,Kerr Group,2.600000
+1145,"Matthews, Hubbard and Barnes",2.300000
+1146,Reid-Rojas,3.100000
+1147,Nguyen Group,4.400000
+1148,Wong Ltd,1.100000
+1149,Harris Group,4.100000
+1150,Hunter-Roy,4.500000
+1151,West-Vazquez,2.800000
+1152,Pham Group,3.000000
+1153,Fox-Martinez,1.600000
+1154,Medina Group,4.100000
+1155,Smith Inc,2.300000
+1156,"Gonzales, Clark and Hale",4.000000
+1157,Jackson-Lucas,2.600000
+1158,Ramirez PLC,5.000000
+1159,"Long, Ramos and Johnson",4.600000
+1160,Rodriguez-Thomas,1.800000
+1161,"Salinas, Bass and Donaldson",1.500000
+1162,York-Liu,1.100000
+1163,Smith Inc,3.500000
+1164,Dalton-Turner,2.400000
+1165,"Gardner, Johnson and Nelson",4.200000
+1166,Williams Inc,1.300000
+1167,Mckenzie Group,4.800000
+1168,Sanders and Sons,2.400000
+1169,Smith Ltd,3.900000
+1170,Chung Ltd,1.400000
+1171,Murray-Jones,5.000000
+1172,Martinez Ltd,1.500000
+1173,"Johnson, Preston and Hughes",2.400000
+1174,Rogers-Cameron,3.000000
+1175,"Howard, Wood and Snyder",2.200000
+1176,"Morris, Brooks and Perez",2.200000
+1177,Mitchell-Ashley,4.900000
+1178,Duncan Ltd,1.100000
+1179,Welch-Lopez,3.200000
+1180,"Smith, Reese and Alvarez",2.300000
+1181,Rodriguez-Perez,1.800000
+1182,Solis-Sanchez,2.900000
+1183,Solomon and Sons,4.800000
+1184,"Ramirez, Lewis and Hall",3.700000
+1185,"Ramirez, Mccoy and Mccall",2.300000
+1186,Gonzales PLC,1.900000
+1187,Brewer-Hood,3.900000
+1188,Olson PLC,1.100000
+1189,Hunter Inc,4.000000
+1190,"Sanders, Fletcher and Miller",1.400000
+1191,Garcia-Haynes,2.300000
+1192,Taylor Group,1.900000
+1193,"Nelson, Espinoza and Oneill",1.900000
+1194,"Harvey, Jackson and Franklin",1.400000
+1195,"Hays, Williams and Estes",4.700000
+1196,Jones Ltd,2.400000
+1197,"Wilson, Wyatt and Robinson",3.800000
+1198,"Jackson, Rodriguez and Dixon",4.200000
+1199,"Brown, David and Graham",2.900000
+1200,"Diaz, Fletcher and Brown",3.200000
+1201,Martin LLC,4.000000
+1202,"Ward, Torres and Nielsen",4.600000
+1203,"Adams, Snyder and Bonilla",4.500000
+1204,Bentley-Conner,1.700000
+1205,Morales-Holmes,4.000000
+1206,Curtis Ltd,4.900000
+1207,Bell PLC,3.400000
+1208,Clark Group,3.800000
+1209,Williams Group,2.700000
+1210,Medina-Weaver,4.700000
+1211,Martinez Inc,3.300000
+1212,Davis Group,4.900000
+1213,"Ortiz, Olson and Mckee",2.700000
+1214,Moreno-Ramos,4.000000
+1215,Taylor-Wright,1.300000
+1216,"Webb, Trevino and Moses",4.300000
+1217,"Cruz, Travis and Stout",2.600000
+1218,Perez-Griffith,4.600000
+1219,Garner-Holder,2.400000
+1220,"Bowman, Davis and Ward",1.700000
+1221,Soto-Wilson,1.600000
+1222,Ryan LLC,3.300000
+1223,Clay Ltd,1.100000
+1224,"Schneider, Hall and Carroll",2.800000
+1225,Glass LLC,1.300000
+1226,"Lewis, Skinner and Morris",1.000000
+1227,"Ramsey, Phillips and Owens",4.400000
+1228,Adams LLC,4.800000
+1229,"Hamilton, Phillips and Johns",3.000000
+1230,Jones-Williams,4.500000
+1231,Chapman Group,3.700000
+1232,Evans Group,1.400000
+1233,"Williams, Warren and Brown",3.900000
+1234,"Olson, Wheeler and Davis",1.400000
+1235,"Johnson, Russell and Orozco",4.900000
+1236,Wilkerson LLC,1.800000
+1237,Cooley-Krause,1.700000
+1238,"Stewart, Wilkerson and Ramsey",3.500000
+1239,Spencer-Edwards,1.700000
+1240,Phillips-Parker,3.200000
+1241,Carpenter-Collins,1.400000
+1242,"Gutierrez, Coleman and Walters",3.200000
+1243,York and Sons,1.100000
+1244,Saunders-Rodriguez,1.300000
+1245,Berry-Martin,1.400000
+1246,"Smith, Cook and Williams",1.100000
+1247,"Brown, Robbins and Clements",2.600000
+1248,Hoffman-Johnson,1.400000
+1249,"Glenn, Simon and Villarreal",4.700000
+1250,Watson-Garner,2.800000
+1251,Anderson-Howell,2.300000
+1252,Cole Inc,1.300000
+1253,Montes LLC,3.700000
+1254,Rivera Inc,3.700000
+1255,Mack LLC,2.000000
+1256,"Schmidt, Burgess and Ortiz",2.700000
+1257,Hernandez-Buchanan,3.600000
+1258,"Garrett, Quinn and Simpson",4.400000
+1259,Romero-Jones,3.600000
+1260,Robinson Group,2.800000
+1261,"Lane, Contreras and Harris",3.600000
+1262,Baker Group,4.500000
+1263,"Meadows, West and Hawkins",3.200000
+1264,Weaver Group,2.300000
+1265,Cook-Johnson,3.400000
+1266,Valdez-Thomas,4.100000
+1267,"Herrera, Lopez and Parker",4.000000
+1268,Curtis-Johnson,1.100000
+1269,Meyer-Williamson,1.300000
+1270,Thomas-Allen,3.700000
+1271,Harrison-Smith,3.500000
+1272,Brooks Ltd,4.100000
+1273,Whitney-Sanders,3.200000
+1274,"Anderson, Mason and Jennings",2.900000
+1275,Wong-Vasquez,1.500000
+1276,Jones Ltd,1.600000
+1277,Strickland PLC,4.900000
+1278,Gardner-Coleman,1.000000
+1279,Lane LLC,2.300000
+1280,"Whitaker, Martinez and Miles",3.600000
+1281,"Frank, Thomas and Gardner",1.100000
+1282,Burnett Inc,5.000000
+1283,"Kelly, Brown and Durham",3.700000
+1284,Harper PLC,2.100000
+1285,"Hall, Rivas and Yates",4.200000
+1286,"Harrison, Beard and Lee",3.300000
+1287,Henderson LLC,2.900000
+1288,"Wood, Mcdonald and Fisher",1.200000
+1289,Newman Ltd,4.100000
+1290,Harvey-Hawkins,3.100000
+1291,Scott Ltd,1.000000
+1292,Gamble Inc,1.200000
+1293,Gilbert and Sons,4.600000
+1294,Robertson-Wilson,1.200000
+1295,Harrington LLC,3.000000
+1296,"Collier, Hayes and Rodriguez",2.200000
+1297,"Brown, Lee and Johnson",4.800000
+1298,Norris Group,1.300000
+1299,"West, Fernandez and Miller",4.300000
+1300,"Jenkins, Hall and Ward",4.300000
+1301,"Oconnell, George and Armstrong",4.600000
+1302,Gonzalez-Hill,1.000000
+1303,Brock-Davis,4.600000
+1304,Wheeler Inc,1.600000
+1305,Graham-Marshall,3.100000
+1306,Jensen LLC,1.600000
+1307,"Jones, Olsen and Kim",4.400000
+1308,Smith LLC,4.400000
+1309,Davis Ltd,1.500000
+1310,"Dunn, Lee and Luna",4.700000
+1311,"Rodriguez, Robinson and Wilson",3.600000
+1312,Johnson-Cooper,1.800000
+1313,"Clayton, Wilcox and Phillips",2.000000
+1314,Gilbert-Barber,1.800000
+1315,"Santiago, Woods and Fernandez",1.800000
+1316,"Valdez, Bray and Reed",1.400000
+1317,Black-Gordon,3.200000
+1318,"Grant, Lopez and Glenn",3.700000
+1319,"Gallagher, Johnson and Miller",4.800000
+1320,Walsh and Sons,4.100000
+1321,Hamilton PLC,3.500000
+1322,"Roberts, Shea and Edwards",2.800000
+1323,King-Gordon,2.800000
+1324,Powell LLC,3.400000
+1325,Taylor Ltd,2.500000
+1326,Brown-Flores,3.400000
+1327,Smith-Crawford,3.100000
+1328,"Ryan, Jones and Thompson",4.900000
+1329,Mathis Group,2.100000
+1330,Kennedy-Nichols,3.000000
+1331,"Robinson, Bryant and Williamson",1.600000
+1332,"Sloan, Boyd and Smith",4.500000
+1333,Huffman-Burton,4.500000
+1334,"James, George and Boone",3.700000
+1335,Wilcox-Webb,2.700000
+1336,James-Johnson,3.200000
+1337,Cervantes-Flowers,2.100000
+1338,"Yang, Curtis and Long",2.200000
+1339,Anderson Inc,2.000000
+1340,Gonzalez and Sons,3.100000
+1341,Hester-Phelps,4.600000
+1342,"Sanchez, Pierce and Johnson",1.600000
+1343,"Williams, Bishop and Guzman",1.200000
+1344,Braun-Cooper,4.100000
+1345,Perez Group,1.400000
+1346,Rose PLC,3.200000
+1347,Bell and Sons,4.500000
+1348,Olson-Perry,2.900000
+1349,"Sanchez, Ruiz and Hernandez",2.900000
+1350,Nichols LLC,4.700000
+1351,"Cuevas, Cole and Mcdonald",1.900000
+1352,Moreno and Sons,1.900000
+1353,Ward-Luna,3.200000
+1354,"Smith, Hansen and Thompson",2.800000
+1355,"Garrett, Adams and Flores",1.500000
+1356,Wilson Group,2.100000
+1357,Riley-Lin,4.100000
+1358,Adams-Garcia,4.100000
+1359,Cameron Group,2.500000
+1360,Roth-Meyer,2.900000
+1361,Todd PLC,4.700000
+1362,"Vasquez, Stewart and Gray",2.200000
+1363,Barrera Inc,2.900000
+1364,Freeman-Hoover,1.600000
+1365,Curry-Garza,3.500000
+1366,Chapman Ltd,3.000000
+1367,Wade-Griffin,4.900000
+1368,Rivera-Williams,1.000000
+1369,"Guerrero, Beck and Lindsey",4.500000
+1370,Jones PLC,2.600000
+1371,Perez LLC,3.900000
+1372,Ballard-Johnson,2.200000
+1373,Drake Inc,1.400000
+1374,Perez-Rowland,4.300000
+1375,Thompson and Sons,1.800000
+1376,"Luna, Herrera and Sanchez",2.000000
+1377,"Rivas, Moore and Ward",4.200000
+1378,Bradford and Sons,2.100000
+1379,Robinson-Paul,4.300000
+1380,Gonzalez-Rivera,2.600000
+1381,"Simpson, Palmer and Diaz",4.500000
+1382,Gomez-Harrington,3.400000
+1383,"Murray, Reese and Zamora",4.800000
+1384,Norton Group,4.500000
+1385,Allison LLC,1.100000
+1386,Bolton-Marks,2.700000
+1387,Johnston PLC,4.900000
+1388,"Clark, Pennington and Jones",1.300000
+1389,Tran and Sons,4.800000
+1390,Roberson-Gilbert,2.100000
+1391,Krueger LLC,4.700000
+1392,Quinn Inc,1.300000
+1393,"Cole, Keller and Wagner",1.700000
+1394,"Lee, Vasquez and Woods",2.900000
+1395,Ortiz LLC,2.200000
+1396,Mcknight-Long,2.400000
+1397,Payne and Sons,4.900000
+1398,Jarvis-Gallagher,2.700000
+1399,Harrington PLC,1.400000
+1400,Morales LLC,1.000000
+1401,Rodriguez-Sims,2.100000
+1402,Brooks-Vazquez,4.800000
+1403,Lyons Ltd,1.800000
+1404,"Jones, Bentley and Eaton",3.900000
+1405,Whitehead and Sons,2.100000
+1406,Avila Inc,2.000000
+1407,Johnson-Carroll,2.500000
+1408,Flores Inc,1.300000
+1409,Gregory-Spence,4.200000
+1410,Bennett-Meyer,4.300000
+1411,Barker-Beard,4.500000
+1412,"Ryan, Singh and Sweeney",1.100000
+1413,Moore and Sons,1.300000
+1414,Morales-West,3.400000
+1415,Scott-King,4.400000
+1416,Knight-Brown,1.100000
+1417,Holloway-Long,2.200000
+1418,Oconnell-Garcia,2.400000
+1419,Garcia-Collins,2.400000
+1420,Perry-Armstrong,4.100000
+1421,"Salazar, Hughes and Oneill",4.500000
+1422,Shah Inc,1.400000
+1423,"Murray, Owens and Holland",2.900000
+1424,"Carr, Carr and Nguyen",1.100000
+1425,Brown-Key,2.100000
+1426,"Zimmerman, Hughes and Herman",1.800000
+1427,Gonzalez-Lee,1.900000
+1428,Levine Group,2.500000
+1429,Hubbard-Rodriguez,2.600000
+1430,"Compton, Watkins and Reese",2.900000
+1431,Ramirez Inc,3.100000
+1432,Wood-Murray,3.900000
+1433,Oliver-Peterson,1.900000
+1434,"Chapman, Davis and Hodges",4.400000
+1435,Allen-Greer,3.100000
+1436,"Johnson, Buck and Ingram",3.600000
+1437,"Maldonado, Sutton and Dunlap",4.500000
+1438,Beck-Owens,2.900000
+1439,"Williams, Ray and Mcneil",4.200000
+1440,Moore PLC,2.400000
+1441,"Mcdonald, Cain and Schroeder",3.400000
+1442,Mendoza-Brewer,3.500000
+1443,Ingram PLC,1.000000
+1444,"Mckinney, Odom and Thompson",1.500000
+1445,Anderson-Nicholson,2.900000
+1446,Bender-Fields,4.000000
+1447,Burns-Mason,2.100000
+1448,"Gonzalez, Chavez and Nguyen",3.900000
+1449,"Ortiz, Hughes and Wright",4.000000
+1450,Thomas PLC,4.500000
+1451,"Norton, Thomas and Carson",1.900000
+1452,Green PLC,4.000000
+1453,Stafford LLC,4.000000
+1454,Ray-Zavala,4.900000
+1455,Shepard PLC,2.300000
+1456,"Kemp, Richardson and Pearson",3.500000
+1457,Dennis-Burke,3.900000
+1458,Hunt LLC,2.700000
+1459,"Martinez, Williams and Bryant",4.000000
+1460,"Boyd, Romero and Williams",1.600000
+1461,Becker and Sons,4.800000
+1462,"Mclaughlin, Tucker and Rivas",4.400000
+1463,James-Vasquez,2.100000
+1464,"Everett, Hartman and Johnson",4.200000
+1465,Campbell Inc,1.200000
+1466,Morrow Group,2.500000
+1467,Boyd Inc,2.900000
+1468,Rogers and Sons,1.300000
+1469,Williamson-Woods,3.000000
+1470,Miller-Woods,4.800000
+1471,"Foster, Patton and Fisher",3.000000
+1472,Swanson-Mcclure,2.200000
+1473,Castillo Group,2.800000
+1474,Ellis-Orozco,3.100000
+1475,Sherman-Garza,4.000000
+1476,Morris-Brock,4.200000
+1477,"Young, Johnson and Poole",2.400000
+1478,Simmons LLC,4.400000
+1479,Ryan-Lara,2.200000
+1480,Tucker Inc,1.600000
+1481,"Garcia, Woodward and Erickson",3.300000
+1482,Santos-Miller,1.200000
+1483,"Henson, Wheeler and Allen",4.800000
+1484,Collins-Pollard,2.300000
+1485,"Downs, Harris and Snyder",2.600000
+1486,"Booth, Johnson and Hancock",1.900000
+1487,"Hoover, Brown and Moyer",4.300000
+1488,Welch Inc,4.500000
+1489,Young-Snyder,1.300000
+1490,"May, Nichols and Williams",3.300000
+1491,"Henry, Green and Hamilton",2.000000
+1492,Rhodes-Williams,4.300000
+1493,Hines-Phillips,3.500000
+1494,"Miller, Montes and Kim",4.100000
+1495,"Smith, Thomas and Hobbs",2.500000
+1496,"Baker, Morales and Bright",3.000000
+1497,"Fleming, Anderson and Mercer",3.500000
+1498,"Nielsen, Murphy and Davis",1.400000
+1499,Butler LLC,4.200000
+1500,Mendoza-Thompson,1.700000
+1501,Massey LLC,4.500000
+1502,Humphrey and Sons,1.700000
+1503,Campbell PLC,2.200000
+1504,"Crawford, Freeman and Wilson",1.800000
+1505,Downs PLC,3.300000
+1506,"Fischer, Lewis and Miller",4.000000
+1507,"Newman, Morse and Garcia",1.800000
+1508,Moore Inc,2.000000
+1509,Collins Ltd,2.000000
+1510,"Davis, Merritt and Hampton",1.100000
+1511,Robinson Inc,2.100000
+1512,Simpson and Sons,1.800000
+1513,Rice-Riley,2.100000
+1514,Rivera and Sons,2.300000
+1515,Edwards LLC,4.800000
+1516,Moyer-Ramos,2.800000
+1517,Kelly-Johnston,2.200000
+1518,"Brown, Norman and Rosales",1.400000
+1519,Davis Inc,1.600000
+1520,"Mays, Martin and Wiley",4.700000
+1521,Tate Group,3.600000
+1522,Hanson PLC,4.700000
+1523,Wagner Ltd,3.600000
+1524,"Gordon, Jones and Edwards",1.300000
+1525,Cortez-Spears,3.900000
+1526,Wallace and Sons,4.400000
+1527,Foster-Rivers,1.300000
+1528,"Salazar, Wu and Ellison",1.600000
+1529,Anderson-Miller,1.400000
+1530,Sutton PLC,2.500000
+1531,Robertson Inc,3.200000
+1532,Andrews-Bennett,3.800000
+1533,"Fox, Mercado and Trevino",1.300000
+1534,Miller Inc,4.500000
+1535,Medina PLC,4.900000
+1536,Morales-Frazier,4.300000
+1537,Dixon PLC,1.100000
+1538,Hall-Martinez,4.000000
+1539,"Villegas, Alvarez and Griffin",2.300000
+1540,Ayala and Sons,3.400000
+1541,Snyder-Elliott,4.100000
+1542,"House, Castillo and Benson",3.500000
+1543,Tanner-Smith,1.300000
+1544,Holder and Sons,3.400000
+1545,Ho PLC,4.200000
+1546,Fisher Ltd,4.900000
+1547,Wallace-Peterson,2.500000
+1548,Hernandez-Holland,3.900000
+1549,Gallagher-Johnson,3.700000
+1550,"Brewer, Cardenas and Smith",4.100000
+1551,"Morgan, Herrera and Moore",1.400000
+1552,Rivera-Adkins,2.400000
+1553,Carlson PLC,4.600000
+1554,Foster-Lucas,2.400000
+1555,Pearson Ltd,3.200000
+1556,"Lee, Walton and Petty",3.500000
+1557,"Chan, Herman and Williams",4.300000
+1558,"Thompson, Perkins and Jordan",1.700000
+1559,Aguirre Ltd,3.900000
+1560,Cox Group,2.000000
+1561,Douglas-Tran,1.200000
+1562,Cardenas Group,3.300000
+1563,"Thomas, Thomas and Martin",3.400000
+1564,Carr PLC,3.800000
+1565,Scott-Harris,2.000000
+1566,Williams-Johnston,2.400000
+1567,"Taylor, Case and Miranda",1.400000
+1568,Rivera-Foley,3.600000
+1569,Mitchell-Washington,1.100000
+1570,Turner-Hall,4.700000
+1571,Griffin-Bailey,4.900000
+1572,Ruiz-Collins,2.300000
+1573,"Wilson, Patel and Blackwell",1.200000
+1574,Scott Ltd,2.400000
+1575,"Lamb, Jenkins and Stout",4.000000
+1576,Lee Inc,4.600000
+1577,"Smith, Reyes and Rivera",1.100000
+1578,Gonzalez-Harvey,2.900000
+1579,"Cannon, Thomas and Martin",2.500000
+1580,Allen LLC,2.900000
+1581,"Phillips, Ali and Williams",4.000000
+1582,Knox-Gilbert,5.000000
+1583,Crawford-Jones,4.800000
+1584,"Graham, Lee and Lara",3.000000
+1585,Nguyen Ltd,1.200000
+1586,Cruz and Sons,4.000000
+1587,Davis LLC,4.500000
+1588,"Jensen, Jones and Shepherd",2.800000
+1589,"Robertson, Kane and Johnson",4.200000
+1590,Gilbert Ltd,4.400000
+1591,Nelson-Washington,1.300000
+1592,Thompson and Sons,2.400000
+1593,Allen-Wallace,2.000000
+1594,"Campbell, Green and Frazier",2.700000
+1595,Mcdaniel-Cox,3.900000
+1596,Schroeder LLC,4.800000
+1597,Goodwin and Sons,1.700000
+1598,Montes-Fischer,2.400000
+1599,French-Stewart,2.800000
+1600,Banks-Sanchez,2.300000
+1601,"Brady, Parsons and Washington",1.100000
+1602,"Ayala, Davis and Morales",4.100000
+1603,Thompson-Lawson,3.400000
+1604,"Dunlap, Hoffman and Smith",1.600000
+1605,"Hays, Burgess and Pearson",1.600000
+1606,Irwin Inc,2.400000
+1607,Griffith PLC,3.200000
+1608,Wilson Inc,4.600000
+1609,Mcclain PLC,5.000000
+1610,"Harper, Wolf and Powers",4.700000
+1611,Foster and Sons,1.300000
+1612,Martin-Cox,3.000000
+1613,Howell-Blair,2.500000
+1614,Allen and Sons,1.100000
+1615,Long-Morris,1.500000
+1616,Marquez-Page,4.600000
+1617,Johnson Group,3.800000
+1618,Shaw Group,1.000000
+1619,Singleton-Clark,4.300000
+1620,"Duran, Sloan and Smith",1.900000
+1621,Thompson Ltd,4.300000
+1622,Perez-Burgess,3.800000
+1623,Sanchez-Kennedy,2.200000
+1624,"Collins, Case and Burns",2.400000
+1625,Chang and Sons,2.700000
+1626,Schwartz-Nunez,4.500000
+1627,"Fisher, Manning and Wilson",1.800000
+1628,Hansen-Pope,1.300000
+1629,Benson Ltd,4.800000
+1630,Cordova Group,1.700000
+1631,Logan and Sons,4.800000
+1632,Gomez and Sons,2.200000
+1633,White-Simmons,3.100000
+1634,Clark-Watkins,2.400000
+1635,"Gardner, Jimenez and Lee",3.600000
+1636,Smith-Jackson,4.100000
+1637,"Vincent, Scott and Huff",3.300000
+1638,Howard-Brown,4.000000
+1639,Snow-Crosby,1.400000
+1640,"Ellis, Reyes and Spencer",3.200000
+1641,Davis Ltd,2.600000
+1642,"Torres, Mccarthy and Santana",1.400000
+1643,Hahn Ltd,1.200000
+1644,"Riley, Castillo and Robinson",3.600000
+1645,Williams-Wilson,3.900000
+1646,Johnson-Knox,3.000000
+1647,"Anderson, Stewart and Callahan",3.500000
+1648,Jimenez Inc,1.700000
+1649,"Baldwin, Diaz and Barrett",4.300000
+1650,Williams-Ballard,3.200000
+1651,"Olson, Snyder and Harrell",1.700000
+1652,Pacheco LLC,1.300000
+1653,Jones-Alvarez,2.800000
+1654,"Torres, Durham and Welch",3.600000
+1655,Rodriguez LLC,1.900000
+1656,"Medina, Hurst and Stephens",3.800000
+1657,"Soto, Miller and Williamson",2.400000
+1658,"Stephens, Anderson and Simmons",1.200000
+1659,Mathews-Webster,3.600000
+1660,"Jackson, Patterson and Baker",1.600000
+1661,Giles LLC,4.400000
+1662,"Simpson, Griffin and Blackwell",4.600000
+1663,Rodriguez-Gonzalez,1.300000
+1664,Martinez Inc,4.600000
+1665,Barton-Perez,4.800000
+1666,White-Harris,1.500000
+1667,"Williams, Hunter and Garcia",4.400000
+1668,Mitchell-Salinas,3.300000
+1669,Nguyen PLC,4.500000
+1670,Manning LLC,1.800000
+1671,"Anderson, Ramirez and Martin",1.800000
+1672,Bailey-Lynch,4.100000
+1673,Farmer-Lewis,4.300000
+1674,Holmes Inc,2.700000
+1675,"Mcgrath, Woodard and Miller",3.000000
+1676,"Hobbs, Shaw and Wright",2.200000
+1677,Mccormick-Miller,4.600000
+1678,"Parks, Cooper and Mcconnell",3.700000
+1679,Martinez PLC,3.700000
+1680,"Floyd, Johnson and Powell",2.300000
+1681,Clark PLC,2.600000
+1682,Spencer-West,2.500000
+1683,"Kim, Morton and Lindsey",2.900000
+1684,Reilly-Cooper,2.400000
+1685,"Maldonado, Gardner and Montgomery",2.100000
+1686,Alexander-Bryant,1.800000
+1687,"Bradshaw, Elliott and Sullivan",3.500000
+1688,Thompson-Chapman,2.500000
+1689,Cantu LLC,4.200000
+1690,"Cooley, Murillo and Smith",4.700000
+1691,Washington Ltd,3.000000
+1692,Mcneil-Porter,3.900000
+1693,"Roberts, Walker and Johnson",1.900000
+1694,Nelson-Pena,1.300000
+1695,Garcia Ltd,2.600000
+1696,Jenkins-Tucker,2.200000
+1697,Smith-Evans,3.000000
+1698,Moreno PLC,3.500000
+1699,"Robinson, Molina and Oconnell",1.200000
+1700,Henderson Ltd,3.400000
+1701,Mercado-White,4.500000
+1702,"Bartlett, Simpson and Gonzales",1.300000
+1703,Garcia-Garcia,3.400000
+1704,Estes-Bennett,3.600000
+1705,Davidson Inc,4.400000
+1706,Alvarez-Lee,4.900000
+1707,Dominguez Ltd,3.600000
+1708,Keith Group,4.700000
+1709,Miller PLC,2.700000
+1710,Bond-Lopez,2.500000
+1711,Rogers Inc,1.900000
+1712,Yates LLC,2.300000
+1713,Paul and Sons,2.900000
+1714,Vincent-Cooper,4.200000
+1715,"Rose, Green and Clayton",1.200000
+1716,Huber-Odonnell,3.600000
+1717,Rivera-Fisher,3.200000
+1718,Roberts-Knight,3.000000
+1719,Williams LLC,2.500000
+1720,Chen Ltd,3.200000
+1721,Young and Sons,1.300000
+1722,Hunt Inc,2.800000
+1723,Clarke Group,1.200000
+1724,Ewing Inc,2.400000
+1725,Snyder LLC,2.700000
+1726,Pruitt-Wong,4.400000
+1727,Bailey-Cruz,3.600000
+1728,Howard-Walker,2.800000
+1729,"Thornton, Martinez and Greene",3.600000
+1730,"Oconnell, Kirk and Brown",2.200000
+1731,Mccarthy Inc,1.800000
+1732,"Velasquez, Williams and Rogers",3.700000
+1733,Chavez-French,4.500000
+1734,"Watson, Curry and Wood",3.400000
+1735,Merritt-Lee,3.900000
+1736,Clark PLC,2.400000
+1737,Salas-Howe,3.400000
+1738,Christian-Moreno,2.700000
+1739,Brown Group,4.900000
+1740,Camacho-Jimenez,3.900000
+1741,Morrow-Mitchell,4.900000
+1742,Figueroa-Hodge,1.300000
+1743,Anderson-Chase,2.000000
+1744,Jimenez PLC,3.300000
+1745,Rhodes-Farmer,1.200000
+1746,Davis-Good,1.800000
+1747,Moore Group,1.200000
+1748,Wilson PLC,4.400000
+1749,Miller-Delgado,2.300000
+1750,Mejia LLC,2.900000
+1751,"Schneider, Burke and Paul",3.900000
+1752,Mills LLC,3.700000
+1753,Rodriguez-Johnson,2.700000
+1754,Houston-Bailey,4.200000
+1755,Patton Group,1.700000
+1756,Reyes-Kelley,1.200000
+1757,West Inc,4.500000
+1758,Brennan-Zuniga,3.000000
+1759,"Ramirez, Strickland and Buchanan",3.500000
+1760,Martin and Sons,3.800000
+1761,Davenport and Sons,1.800000
+1762,"Garcia, Taylor and Peck",4.300000
+1763,"Ibarra, Smith and Hale",1.200000
+1764,Duncan-Forbes,3.600000
+1765,Nelson-Parrish,2.700000
+1766,"Carr, Roberson and Henderson",2.100000
+1767,Carter Group,2.700000
+1768,Caldwell-Henderson,2.600000
+1769,"Lewis, Harris and Hampton",1.900000
+1770,"Ross, Foster and Ewing",3.500000
+1771,Wright PLC,3.200000
+1772,Bowers-Martinez,3.700000
+1773,Barajas Inc,4.900000
+1774,"Calderon, Dunn and Cline",1.400000
+1775,Hoffman Ltd,1.700000
+1776,Huber and Sons,4.600000
+1777,Morse and Sons,3.500000
+1778,Boyd-Bass,4.600000
+1779,"Martinez, Reed and Baker",2.700000
+1780,Becker Inc,2.800000
+1781,Payne-Reyes,4.700000
+1782,Le Group,1.600000
+1783,Oliver-Graves,2.500000
+1784,Holmes-Riley,3.000000
+1785,Jackson and Sons,3.200000
+1786,"Dawson, Smith and Ross",3.000000
+1787,"Allen, Schmidt and Long",3.800000
+1788,Wright-Carrillo,3.100000
+1789,Marshall Group,2.000000
+1790,Mcintyre-Macias,3.600000
+1791,Mueller-Dunn,2.800000
+1792,Jordan and Sons,2.100000
+1793,Mendez-Andersen,2.200000
+1794,Koch-Johnson,1.900000
+1795,Dyer-Martinez,1.600000
+1796,Stanley Group,2.400000
+1797,Smith Ltd,3.400000
+1798,Caldwell-Mitchell,4.300000
+1799,Valencia Group,3.100000
+1800,Smith-Matthews,3.200000
+1801,Gibson Ltd,1.700000
+1802,"Smith, Esparza and Coleman",2.600000
+1803,Hernandez-Garcia,3.300000
+1804,"Murray, Potts and Keith",3.900000
+1805,"Campbell, Carr and Brown",1.900000
+1806,Arias-Anderson,2.000000
+1807,"Tyler, Smith and Clark",1.300000
+1808,Zhang PLC,4.600000
+1809,Allen-Miller,2.300000
+1810,Austin PLC,1.700000
+1811,"Strickland, Mosley and Scott",3.600000
+1812,Carr and Sons,4.400000
+1813,Anderson-Dunn,2.200000
+1814,Kim-Smith,4.300000
+1815,Lee LLC,2.000000
+1816,Perez-Ayala,1.200000
+1817,"Johnson, Brewer and Williamson",3.900000
+1818,Schultz LLC,3.500000
+1819,Davis Group,2.300000
+1820,"Nguyen, Norton and West",2.800000
+1821,Cox Inc,1.600000
+1822,Jefferson-Odom,1.100000
+1823,Powell-Williams,3.500000
+1824,Lewis Inc,2.900000
+1825,"Kirk, Scott and Reese",3.800000
+1826,Barron Group,4.400000
+1827,"Cruz, Clark and Smith",1.900000
+1828,Cunningham-Brown,1.200000
+1829,Pacheco LLC,3.800000
+1830,Martinez-Davis,2.600000
+1831,"Ramsey, Moreno and Dunn",2.000000
+1832,Perry Ltd,4.700000
+1833,Taylor Ltd,1.600000
+1834,"Hood, Walker and Bowen",3.400000
+1835,Barrett-Rhodes,2.500000
+1836,Brown Group,4.400000
+1837,"Brown, Lewis and Wright",5.000000
+1838,Adams PLC,3.300000
+1839,Brooks Inc,2.700000
+1840,"Mendoza, Williams and Green",2.800000
+1841,Hart-Thomas,2.800000
+1842,"Parks, Black and Fernandez",4.500000
+1843,"Burton, Potter and Bennett",2.200000
+1844,Dorsey Inc,1.600000
+1845,Smith-Mitchell,1.400000
+1846,Cummings-Matthews,2.800000
+1847,Robertson and Sons,4.600000
+1848,Chen Group,4.900000
+1849,King LLC,4.500000
+1850,Bates-Robertson,2.100000
+1851,Sawyer-Ford,2.000000
+1852,Murphy Ltd,3.600000
+1853,"Moreno, Thornton and Knox",1.400000
+1854,"Foster, Monroe and Lloyd",2.400000
+1855,Martinez-Shaffer,1.200000
+1856,"Francis, Aguilar and Wilson",4.900000
+1857,"Mercado, Bowman and Wallace",4.400000
+1858,Flores PLC,2.300000
+1859,"Collins, Smith and Mills",3.900000
+1860,"Robertson, Larson and Brown",4.200000
+1861,Ward PLC,4.900000
+1862,Stone and Sons,1.100000
+1863,Nguyen-Carter,2.500000
+1864,"Castro, Johnson and Patterson",2.000000
+1865,Chan PLC,4.100000
+1866,White-Pennington,4.100000
+1867,Bass-Aguilar,1.100000
+1868,"Hernandez, Brown and Garza",3.600000
+1869,"Obrien, Rasmussen and Guzman",2.100000
+1870,Morrison-Bowman,2.700000
+1871,Edwards-Martinez,2.000000
+1872,Lopez-Clark,1.300000
+1873,"Johnston, Montgomery and Daniels",1.600000
+1874,"Jones, Henderson and Thomas",3.700000
+1875,Wood and Sons,2.400000
+1876,Gomez Inc,3.400000
+1877,"Garcia, Howard and Walker",1.700000
+1878,Richardson-Collins,4.200000
+1879,Peters and Sons,2.100000
+1880,"Vasquez, Lopez and Gonzales",3.700000
+1881,"Hart, Livingston and Garcia",4.200000
+1882,Stewart Inc,2.600000
+1883,Smith Inc,2.400000
+1884,Perez LLC,2.500000
+1885,Phelps-Vaughn,2.300000
+1886,"Cantrell, Smith and Conrad",3.700000
+1887,Lester LLC,4.000000
+1888,Vargas PLC,1.500000
+1889,"Liu, Ramirez and Green",3.500000
+1890,Jackson LLC,4.300000
+1891,Palmer-Juarez,2.800000
+1892,Garcia LLC,4.900000
+1893,Munoz Group,2.600000
+1894,Dixon Inc,4.600000
+1895,"Miller, Thomas and Baker",4.900000
+1896,"James, Johnson and Hooper",2.500000
+1897,Pena PLC,2.200000
+1898,Lee Ltd,1.900000
+1899,Duran and Sons,4.400000
+1900,"Madden, House and Clark",3.000000
+1901,Gonzalez-Ryan,1.700000
+1902,Murray-Strickland,3.300000
+1903,Meyer PLC,4.100000
+1904,"Wilson, Castillo and Hernandez",2.400000
+1905,"George, Scott and Crosby",4.000000
+1906,Grant-Ferguson,3.300000
+1907,"Schmidt, Mckenzie and Smith",2.700000
+1908,Day Group,4.500000
+1909,"Day, Patterson and Freeman",4.400000
+1910,"Smith, Miranda and Herrera",1.800000
+1911,Evans Ltd,1.100000
+1912,Martinez-Strickland,1.700000
+1913,Turner Ltd,3.400000
+1914,Sims PLC,3.700000
+1915,Morrison and Sons,3.400000
+1916,Carrillo Ltd,1.200000
+1917,"James, Schultz and Kelly",1.100000
+1918,Klein PLC,1.800000
+1919,Robinson-Perez,3.200000
+1920,Dunn-Mckenzie,2.400000
+1921,"Young, Anthony and Williams",4.600000
+1922,Macias LLC,4.500000
+1923,Farmer-Acosta,1.200000
+1924,Lee Group,4.900000
+1925,Beck LLC,4.600000
+1926,"Page, Romero and Brown",4.700000
+1927,Pitts-Garza,2.400000
+1928,Davis-Brown,2.800000
+1929,Marsh LLC,1.400000
+1930,Christensen Inc,3.500000
+1931,Wilson Group,3.400000
+1932,Miller-Rodriguez,1.800000
+1933,James-Fox,4.900000
+1934,"Underwood, Gonzalez and Daniels",2.900000
+1935,"Conner, Harris and Castillo",4.400000
+1936,"Jacobs, Perez and Mayer",2.400000
+1937,Rice LLC,1.400000
+1938,"Wade, Sims and Sherman",2.200000
+1939,Park-Olsen,4.600000
+1940,Rogers-Simmons,3.800000
+1941,Lopez-Castillo,3.000000
+1942,Fletcher Ltd,1.300000
+1943,Daniel-Morgan,1.400000
+1944,"Lane, Munoz and Leonard",3.100000
+1945,"Wu, Hall and Myers",1.900000
+1946,"Perkins, Higgins and Robinson",1.900000
+1947,Dean-Reynolds,1.200000
+1948,"James, Tate and Young",2.000000
+1949,"Morrow, Ellis and Peters",1.600000
+1950,Park Ltd,4.700000
+1951,"Pugh, Bradley and Atkins",1.600000
+1952,Robinson-Townsend,4.800000
+1953,"Beck, Mcconnell and Robinson",2.500000
+1954,Evans-Carpenter,2.900000
+1955,"Reyes, Miller and Martinez",1.800000
+1956,"Mccarty, Perkins and Rice",1.700000
+1957,Bishop PLC,3.800000
+1958,Stewart-Edwards,4.600000
+1959,"Lane, Thompson and Watts",4.000000
+1960,Howell-Phillips,4.400000
+1961,Lane-Huffman,2.700000
+1962,"Ross, Rogers and Pace",1.700000
+1963,"Martinez, Perkins and Smith",3.800000
+1964,Anderson-Garcia,1.200000
+1965,"Carney, Johnson and Owens",4.500000
+1966,"Gonzalez, Burke and Baker",2.300000
+1967,"Rogers, Martin and Turner",3.600000
+1968,Burch Group,3.200000
+1969,"Miller, Trujillo and Reynolds",3.600000
+1970,Kelley-Guerra,2.600000
+1971,"Ali, Hardy and Rowland",1.300000
+1972,Allen Inc,4.200000
+1973,Meyer Group,1.900000
+1974,"Morales, Hamilton and Long",2.200000
+1975,Steele-Lopez,4.300000
+1976,Case-Alexander,3.300000
+1977,Wilson-Lee,4.300000
+1978,"Mcgrath, Glover and Bryant",3.600000
+1979,"Stephens, Richards and Santos",4.300000
+1980,Hunter LLC,4.800000
+1981,Santiago-Edwards,4.700000
+1982,"Hayden, Evans and Marsh",3.900000
+1983,Hughes Ltd,3.400000
+1984,"Cruz, Wise and Collins",3.600000
+1985,"Ellis, Spencer and Walters",1.600000
+1986,"Daniel, Nelson and Andrade",2.300000
+1987,Swanson-Edwards,1.200000
+1988,Evans-Callahan,4.400000
+1989,Johnson-Kent,1.600000
+1990,Wilson LLC,2.300000
+1991,Gibson-Smith,1.700000
+1992,Gonzalez PLC,4.400000
+1993,Stevens Inc,2.200000
+1994,"Abbott, Martinez and Moore",2.300000
+1995,"Johnson, King and Baker",1.200000
+1996,"Hill, Nunez and Rodriguez",4.400000
+1997,Smith Group,4.800000
+1998,Chen and Sons,4.000000
+1999,"Humphrey, Rogers and Ingram",2.800000
+2000,Alexander-Payne,1.800000
+2001,Joyce LLC,3.400000
+2002,Rose-Smith,1.300000
+2003,"Swanson, Morton and Townsend",3.300000
+2004,Stephens-Luna,2.100000
+2005,"Terry, Swanson and Ruiz",3.900000
+2006,"Lamb, Reynolds and Dodson",3.400000
+2007,Chavez-Fox,1.000000
+2008,Butler-Rogers,3.900000
+2009,"Jackson, Ho and Reynolds",4.600000
+2010,"Newton, Norman and Walters",3.500000
+2011,Brown and Sons,4.800000
+2012,Reed Ltd,1.300000
+2013,"Coleman, Jones and Nixon",4.200000
+2014,"Ruiz, Lopez and Mills",1.400000
+2015,"Long, Taylor and Wilson",4.900000
+2016,Smith-Morrison,3.300000
+2017,Jensen-Walker,1.500000
+2018,"Johnston, Lee and Howell",2.100000
+2019,Cervantes LLC,3.500000
+2020,"Bailey, Aguilar and Jackson",4.300000
+2021,Parker Ltd,4.500000
+2022,"Moore, Gibson and Martinez",2.500000
+2023,Ward Ltd,2.600000
+2024,Riley Ltd,2.200000
+2025,Stewart LLC,3.100000
+2026,Taylor Inc,4.800000
+2027,"Johnston, Raymond and Lamb",3.300000
+2028,Williams-Strong,2.400000
+2029,Lyons and Sons,4.900000
+2030,Alexander Group,2.400000
+2031,Collins PLC,1.100000
+2032,"Mckay, Barnes and Green",4.800000
+2033,Keith-Andrade,4.900000
+2034,Carney-Perez,4.000000
+2035,"Raymond, White and Patton",3.400000
+2036,Webster Ltd,4.400000
+2037,Escobar-Moore,4.700000
+2038,Andrews-Callahan,2.800000
+2039,"Collins, Guerrero and Acosta",4.600000
+2040,"Patrick, Kidd and Hanna",1.400000
+2041,Watson-Tran,2.300000
+2042,Townsend-Thomas,4.400000
+2043,Gonzales and Sons,1.800000
+2044,French PLC,3.500000
+2045,"Murphy, Miller and Foster",4.800000
+2046,Sanders-Moore,1.500000
+2047,"Mora, Mahoney and Farmer",4.800000
+2048,Bradford-Carroll,2.300000
+2049,Stewart Inc,4.700000
+2050,Blackwell-Jones,1.300000
+2051,Mendoza Group,3.600000
+2052,"Martinez, Brown and Kennedy",1.300000
+2053,Buchanan-Gallegos,3.600000
+2054,"Conway, Nguyen and Doyle",2.900000
+2055,Jones-Brown,1.700000
+2056,Alexander Ltd,3.100000
+2057,"Walton, Floyd and Russell",3.400000
+2058,Johnson-Fisher,3.000000
+2059,Christensen and Sons,3.400000
+2060,"Kaiser, Glenn and Martinez",2.900000
+2061,Scott-Morales,3.700000
+2062,Lopez Inc,4.300000
+2063,Johnson-Bates,2.400000
+2064,Valenzuela-Johnson,4.900000
+2065,Lloyd-Rodriguez,3.000000
+2066,Zamora and Sons,2.900000
+2067,Boyd-Green,2.000000
+2068,Dixon Inc,2.700000
+2069,Velasquez Inc,4.300000
+2070,Harrison-Mendoza,1.500000
+2071,Odom LLC,4.100000
+2072,Lambert Ltd,2.400000
+2073,"Kennedy, Gonzalez and Cunningham",4.900000
+2074,Clark-Hunt,4.000000
+2075,"Graham, Wilson and Graham",1.700000
+2076,"Rhodes, May and Lucas",2.800000
+2077,Leach Group,2.700000
+2078,Martinez-Burton,4.100000
+2079,Gonzalez Group,3.400000
+2080,"Wilson, Thompson and Miller",1.200000
+2081,"Ayala, Morrison and Carlson",1.700000
+2082,"Ross, Vega and Moore",1.900000
+2083,"Haney, Jordan and Graham",2.100000
+2084,"Stewart, Walker and Lewis",4.200000
+2085,"Hogan, Kelly and Scott",2.400000
+2086,Miller-Blake,1.600000
+2087,"Swanson, Zamora and Combs",3.600000
+2088,"Ritter, Gibson and Cain",2.200000
+2089,French Group,4.600000
+2090,Schwartz Group,3.700000
+2091,Wiley and Sons,2.100000
+2092,Burnett Ltd,2.000000
+2093,Smith-Williams,2.500000
+2094,Davis Inc,2.100000
+2095,Santiago-Anderson,4.000000
+2096,"Jones, Smith and Lamb",2.700000
+2097,Jennings PLC,3.900000
+2098,Warner Group,1.500000
+2099,Lewis-Thompson,2.000000
+2100,"Johnson, Lowe and Reed",3.400000
+2101,Reynolds-Gray,1.300000
+2102,Bryan and Sons,1.800000
+2103,Rodriguez-Jones,1.800000
+2104,"Lopez, Stewart and Robinson",4.100000
+2105,"Kane, Taylor and Brown",2.400000
+2106,Hill and Sons,2.000000
+2107,Price and Sons,2.900000
+2108,"Howard, Williams and Dixon",1.400000
+2109,Bailey-Spencer,1.500000
+2110,Sullivan-Luna,2.100000
+2111,Cross Inc,3.400000
+2112,"Williams, Hopkins and Fletcher",1.100000
+2113,"Byrd, Wells and Parker",2.600000
+2114,Kim Ltd,2.400000
+2115,"Thomas, Williams and Payne",4.800000
+2116,Robinson Ltd,1.100000
+2117,Garcia-Brown,3.200000
+2118,Lee Inc,1.600000
+2119,Peterson and Sons,2.000000
+2120,Cordova Inc,4.100000
+2121,"Thomas, Daniels and Hernandez",3.500000
+2122,Levy-Perez,3.600000
+2123,Johnson-Perez,1.800000
+2124,Wells and Sons,4.700000
+2125,"Thomas, Fox and Arellano",3.000000
+2126,Black Ltd,2.500000
+2127,Stewart-Johnson,3.400000
+2128,"Oneal, Cameron and Hodges",1.900000
+2129,Flores-Henry,3.700000
+2130,Morgan Ltd,1.500000
+2131,"Ward, Parker and Hernandez",1.700000
+2132,"Tapia, Haynes and Williams",4.500000
+2133,Allen-Brown,1.800000
+2134,Cantu Inc,1.000000
+2135,Gomez PLC,3.600000
+2136,West-Murray,3.400000
+2137,"Patel, Mcintyre and Henry",4.200000
+2138,Jennings PLC,3.200000
+2139,"Trujillo, Young and Smith",2.900000
+2140,"Mora, Fletcher and Jackson",4.100000
+2141,"Cox, Miller and Gomez",2.200000
+2142,"Rodriguez, Patel and Myers",2.300000
+2143,Cuevas Ltd,1.500000
+2144,"Le, Wilson and King",1.300000
+2145,Holloway Inc,4.700000
+2146,Miller-Baker,4.500000
+2147,"Miller, Salinas and Thompson",2.300000
+2148,Silva Ltd,1.500000
+2149,Cross-Long,4.900000
+2150,Gould PLC,3.000000
+2151,May-Anthony,4.500000
+2152,Garcia Ltd,4.400000
+2153,"Weiss, Thompson and Rangel",2.600000
+2154,"Bryant, Howard and Peterson",3.300000
+2155,Smith-Robinson,4.400000
+2156,Murphy Group,1.900000
+2157,Richard-Carter,2.700000
+2158,Ellis Inc,4.800000
+2159,"Johnson, Wang and Campos",2.300000
+2160,Pruitt-King,3.200000
+2161,"Smith, Smith and Haas",4.800000
+2162,Richardson-Nelson,2.500000
+2163,Rivera-Roberts,4.100000
+2164,"Adams, Kane and Rice",2.700000
+2165,Poole and Sons,4.800000
+2166,Jones Ltd,4.600000
+2167,Tate and Sons,2.200000
+2168,Beasley LLC,2.400000
+2169,"Harper, Long and Stewart",2.800000
+2170,Rowland-Powell,2.000000
+2171,Johnson-Warner,4.300000
+2172,Stephens Group,3.100000
+2173,Mccarthy-Kennedy,2.400000
+2174,Hansen-Stafford,3.900000
+2175,Smith Inc,2.700000
+2176,Wallace Inc,5.000000
+2177,Tran-Rhodes,3.700000
+2178,Brown-Cox,2.000000
+2179,"White, Crawford and Rogers",3.400000
+2180,"Morris, Bailey and Brown",3.100000
+2181,Cowan Group,3.300000
+2182,Young Group,1.600000
+2183,"Williams, Jackson and Jensen",4.200000
+2184,Morris and Sons,3.200000
+2185,"Collins, Stevens and Krueger",2.200000
+2186,Gonzalez-Carter,1.200000
+2187,Oliver-Frank,3.000000
+2188,Bell PLC,4.700000
+2189,Davis-Martin,3.800000
+2190,Smith-Ross,2.800000
+2191,Murray PLC,2.100000
+2192,"Nguyen, Caldwell and Joseph",3.800000
+2193,Allen-Howard,3.000000
+2194,Martinez Group,2.800000
+2195,"Smith, Hunt and Harris",3.600000
+2196,Walker Ltd,1.400000
+2197,"Lyons, Castillo and Jones",3.800000
+2198,Wade Ltd,1.500000
+2199,"Vargas, Leblanc and Garcia",4.100000
+2200,"Logan, Jones and Allen",2.200000
+2201,"Webster, Peterson and Johnson",1.400000
+2202,"Patel, Woodward and Morgan",3.300000
+2203,Solomon-House,1.800000
+2204,"Edwards, Taylor and Bowen",5.000000
+2205,Zhang Group,3.200000
+2206,"Garcia, Pham and Barton",1.000000
+2207,Craig-Adams,3.200000
+2208,Price-Brock,1.000000
+2209,Garcia-Kim,5.000000
+2210,"Fisher, Salazar and Paul",3.200000
+2211,Castaneda Inc,1.100000
+2212,"Joseph, Clark and Baker",4.300000
+2213,"Pugh, Williams and Burgess",2.100000
+2214,"Walters, Thomas and West",4.900000
+2215,"Garza, Clark and Hughes",2.700000
+2216,Flores PLC,3.500000
+2217,Wall-Macdonald,3.800000
+2218,Stewart and Sons,3.400000
+2219,Little-Cross,1.700000
+2220,"Richardson, Mcdonald and Webb",2.900000
+2221,Williams-Strong,1.800000
+2222,"Jones, Lyons and Terry",2.500000
+2223,Randall LLC,3.400000
+2224,Delacruz-Cruz,2.200000
+2225,Hawkins-Mcconnell,1.300000
+2226,Miller Group,4.600000
+2227,Davis-Nichols,3.200000
+2228,"Savage, Johnson and Payne",1.700000
+2229,Lewis-Roberts,3.600000
+2230,Parker PLC,2.700000
+2231,Gomez-Reyes,4.800000
+2232,Mcgee-Martinez,1.100000
+2233,"Davis, Wilson and Hayden",1.500000
+2234,"Myers, Jacobs and Pierce",2.500000
+2235,Bryan Ltd,3.300000
+2236,Carter Inc,3.000000
+2237,Medina-Casey,4.600000
+2238,Robertson-Jimenez,4.000000
+2239,Johnson-Lee,3.700000
+2240,Edwards-Thompson,3.600000
+2241,"Fischer, Barnes and Zamora",3.600000
+2242,Zhang LLC,4.600000
+2243,Middleton Ltd,4.300000
+2244,"Bowman, Woodward and Sanchez",3.900000
+2245,Mercer Inc,2.300000
+2246,Smith-Meadows,2.500000
+2247,Walter PLC,2.600000
+2248,Floyd-Garcia,2.600000
+2249,"Peters, Flores and Davis",2.500000
+2250,"Cole, Johnson and Duarte",3.200000
+2251,"Reynolds, Harris and Le",2.500000
+2252,Crosby Inc,3.700000
+2253,White Group,5.000000
+2254,Lopez-Curry,3.100000
+2255,Serrano Ltd,1.800000
+2256,Hines-Cohen,4.900000
+2257,Hunt LLC,2.600000
+2258,Green Ltd,2.400000
+2259,Braun-Higgins,2.300000
+2260,Heath Group,1.200000
+2261,"Morton, Moore and Padilla",2.800000
+2262,Farmer Group,2.300000
+2263,"Clark, Lam and Miller",2.500000
+2264,Green-Moss,1.700000
+2265,Conner Ltd,1.900000
+2266,"Hamilton, Richards and Conley",3.300000
+2267,Davenport and Sons,2.000000
+2268,Jones-Ortiz,3.700000
+2269,Ford-May,2.000000
+2270,Taylor-Scott,1.000000
+2271,"Stevens, Garza and Rivas",1.200000
+2272,"Terry, Dudley and Boyd",3.900000
+2273,"Wells, Moore and Forbes",3.000000
+2274,Rodriguez-Hill,1.500000
+2275,"Barber, Ward and Williams",2.000000
+2276,Cunningham-Lopez,1.600000
+2277,King-Baker,1.100000
+2278,Woodard and Sons,2.200000
+2279,Simpson Group,1.900000
+2280,Brown LLC,2.400000
+2281,Harrington and Sons,2.400000
+2282,"Robinson, Bowman and Woodard",4.000000
+2283,Torres LLC,1.400000
+2284,"Odonnell, Stevenson and Jackson",1.100000
+2285,"Terrell, Contreras and Gibson",3.500000
+2286,"Ward, Cook and Thomas",2.200000
+2287,Patel-Moore,1.400000
+2288,Anderson and Sons,4.400000
+2289,Valdez Group,4.300000
+2290,"Stone, Cobb and Huber",3.300000
+2291,Edwards-Bright,4.900000
+2292,"Mack, Salazar and Roberts",4.800000
+2293,Shelton-Morrison,2.500000
+2294,"Contreras, Flores and Smith",5.000000
+2295,"Harris, Arellano and Gomez",4.500000
+2296,"Chavez, Cordova and Nelson",3.200000
+2297,"Greene, Richard and Matthews",3.200000
+2298,Thompson and Sons,2.400000
+2299,"Wilson, Gonzalez and Smith",4.000000
+2300,Ford-Dalton,1.700000
+2301,"Haynes, Wilson and Warren",4.000000
+2302,Shaw-Jones,1.700000
+2303,Wilson-Thomas,2.100000
+2304,"Smith, Snyder and Carey",2.400000
+2305,"Lopez, Foley and Alexander",1.200000
+2306,"Martinez, Taylor and Kelly",3.100000
+2307,Villarreal-Carrillo,4.700000
+2308,"Morales, Moore and Herman",4.200000
+2309,Cuevas-Johnson,1.800000
+2310,"Hodges, White and Dixon",3.200000
+2311,Rush-Williams,3.000000
+2312,Powell Group,2.800000
+2313,Gross Inc,1.100000
+2314,"Beard, Perry and Newman",2.900000
+2315,"Lewis, Rivera and White",4.300000
+2316,Jenkins Inc,2.400000
+2317,Medina Inc,4.300000
+2318,Saunders Inc,4.900000
+2319,"Jackson, Sullivan and Hernandez",2.600000
+2320,"Chase, Gomez and Marquez",3.900000
+2321,Delgado PLC,3.300000
+2322,Thomas-Bowers,2.200000
+2323,Anderson-Burch,3.000000
+2324,"Moore, Coleman and Smith",1.900000
+2325,Davis-Stephenson,3.600000
+2326,Anderson PLC,1.600000
+2327,Parker-Taylor,1.200000
+2328,Kennedy-Kelly,2.000000
+2329,Camacho Group,1.900000
+2330,Cole LLC,1.400000
+2331,Coleman Group,1.200000
+2332,Stanley-Miles,4.800000
+2333,"Solomon, Taylor and Taylor",4.800000
+2334,Warren LLC,2.200000
+2335,Griffin-Anderson,1.700000
+2336,"Patel, Ashley and Gomez",3.500000
+2337,Norton-Dennis,1.400000
+2338,"Santos, Camacho and Randall",2.100000
+2339,Abbott LLC,2.700000
+2340,"Stafford, Davis and Garcia",3.100000
+2341,Camacho-Hart,3.700000
+2342,"Washington, Ortega and Robinson",1.500000
+2343,Miller PLC,2.600000
+2344,Williams-Coffey,4.200000
+2345,Williams PLC,4.000000
+2346,"Griffin, Anthony and Hernandez",2.000000
+2347,"Vazquez, Ramsey and Henry",4.900000
+2348,Ellis and Sons,4.300000
+2349,Dyer-Wilkinson,1.500000
+2350,"Stewart, Cuevas and Tran",2.300000
+2351,Ali-Fields,4.600000
+2352,Dominguez-Nelson,2.800000
+2353,"Ward, Palmer and Bartlett",2.700000
+2354,Webster and Sons,1.600000
+2355,"Mclean, Whitaker and Anderson",4.400000
+2356,"Anderson, Perez and Dixon",2.100000
+2357,Fitzgerald PLC,1.300000
+2358,Herman Group,3.100000
+2359,Lyons-Martin,1.700000
+2360,"Hart, Ortega and Santiago",2.000000
+2361,"Contreras, Patterson and Thompson",3.500000
+2362,"Hendricks, Anderson and Brown",2.200000
+2363,"Bennett, Parker and Welch",1.300000
+2364,Dean PLC,1.600000
+2365,Porter-Jackson,3.300000
+2366,Greene-Fowler,1.300000
+2367,Baker-Brooks,3.800000
+2368,"Perry, Graham and Gibson",3.400000
+2369,"Frost, Bishop and Moore",2.700000
+2370,Barrera-Anderson,4.300000
+2371,Burnett-Williams,1.900000
+2372,"Jenkins, Todd and Martinez",2.600000
+2373,Garcia-Murphy,4.800000
+2374,Williams PLC,1.700000
+2375,"Adams, Harmon and Peterson",1.700000
+2376,Gamble-Black,3.800000
+2377,Terrell-Berg,3.500000
+2378,Clark LLC,4.400000
+2379,Bryan Group,2.500000
+2380,"Maldonado, Romero and Singleton",2.500000
+2381,Nixon PLC,1.800000
+2382,Hurst-Griffin,4.600000
+2383,Ewing-Hayes,1.100000
+2384,Morales Group,2.800000
+2385,Costa Inc,2.300000
+2386,Collins PLC,1.700000
+2387,Bennett Inc,4.900000
+2388,Hammond-Wells,1.700000
+2389,"Stokes, Medina and Jones",1.200000
+2390,"Ray, Deleon and Thompson",2.900000
+2391,Farley-Jones,3.800000
+2392,"Parks, Li and Garza",4.300000
+2393,Vazquez-Brown,1.200000
+2394,Nelson Ltd,4.800000
+2395,Malone-Campbell,1.200000
+2396,Powell-Avila,1.200000
+2397,Rush-Walker,2.100000
+2398,Lane-Martin,1.500000
+2399,"Ryan, Barker and Stein",1.200000
+2400,Wallace Group,4.000000
+2401,Anderson-Fox,4.600000
+2402,Cooke-Campbell,1.300000
+2403,Johnson-Dickerson,2.500000
+2404,Wilcox-Haney,3.600000
+2405,Andrade Ltd,3.300000
+2406,Johnson LLC,2.700000
+2407,"Perez, Marshall and Cox",1.800000
+2408,"Allen, Sanchez and Caldwell",3.600000
+2409,Warner Ltd,3.100000
+2410,"Christensen, Trujillo and Simmons",1.900000
+2411,Hammond LLC,1.800000
+2412,Harris and Sons,2.000000
+2413,"Jenkins, Wise and Lee",1.800000
+2414,Garza-Hanson,3.800000
+2415,Holmes-Webster,4.400000
+2416,Johnson-Powers,3.300000
+2417,"Thomas, Baird and Gonzalez",1.600000
+2418,Haynes PLC,3.300000
+2419,Flores-Andrews,1.700000
+2420,Marshall LLC,4.000000
+2421,"Donovan, Barker and Thompson",4.000000
+2422,Coleman Inc,3.100000
+2423,"Jones, Howell and Thomas",4.300000
+2424,Conway-Hernandez,2.400000
+2425,Flores PLC,2.100000
+2426,"Turner, Harris and Mack",4.000000
+2427,"Flowers, Schultz and Lee",3.100000
+2428,Rivera-Lambert,4.200000
+2429,"Frazier, Ramirez and Vasquez",1.400000
+2430,Contreras-Green,2.100000
+2431,"Blair, Castillo and Knight",2.900000
+2432,"Stephens, Rogers and Rogers",1.200000
+2433,Velazquez-Williams,2.800000
+2434,Rojas-Barrera,2.800000
+2435,Smith PLC,1.200000
+2436,Nguyen and Sons,1.000000
+2437,"Douglas, Dunn and Romero",3.400000
+2438,"Roberts, Mckinney and Smith",3.100000
+2439,"Cummings, Smith and Ewing",2.600000
+2440,Evans Group,3.600000
+2441,Keller Group,3.800000
+2442,"Odom, Weaver and Stuart",3.900000
+2443,"Brooks, Johnson and Dominguez",4.600000
+2444,Wong-Donovan,1.900000
+2445,Mills-Daniels,1.700000
+2446,Marshall Group,3.300000
+2447,Simpson PLC,4.600000
+2448,"Anderson, Johnson and Jones",2.600000
+2449,"Weaver, Sanchez and Watson",3.100000
+2450,"Stanley, Morton and Greene",2.700000
+2451,Jordan-Smith,4.400000
+2452,"Romero, Sims and Macdonald",2.900000
+2453,Fisher and Sons,3.900000
+2454,Schultz-Mcintyre,3.200000
+2455,Walker-Erickson,2.100000
+2456,"Padilla, Weber and Ortiz",3.700000
+2457,Brown-Jarvis,1.300000
+2458,Turner PLC,4.600000
+2459,"Fisher, Lewis and James",3.800000
+2460,King-Kelly,4.400000
+2461,Green and Sons,2.800000
+2462,Moran-Hobbs,1.300000
+2463,"Bailey, Flores and Evans",2.600000
+2464,Calderon Group,2.100000
+2465,Smith PLC,2.100000
+2466,Ortiz and Sons,3.400000
+2467,Allen-Smith,3.300000
+2468,Franklin-Snyder,3.000000
+2469,Martinez-Lara,4.500000
+2470,Mckinney Ltd,3.600000
+2471,"Sanders, Franklin and Taylor",1.100000
+2472,"Hutchinson, Barr and Farmer",1.200000
+2473,Lee-Daugherty,3.500000
+2474,"Wolfe, Burgess and Smith",4.300000
+2475,"Ibarra, Martinez and Horton",1.400000
+2476,"Hill, Ortiz and Oneal",2.100000
+2477,"Woodward, Ball and Nichols",1.100000
+2478,"Chan, Wilson and Martin",2.700000
+2479,Cross Ltd,2.700000
+2480,Barajas-Moore,4.200000
+2481,"Fisher, Shah and Roy",1.300000
+2482,"Miller, Lopez and Garcia",4.100000
+2483,Huang LLC,4.400000
+2484,Mcdaniel-Page,2.000000
+2485,Palmer-Wall,3.100000
+2486,"Cruz, Sawyer and Stewart",4.600000
+2487,"Ellison, Jordan and Campbell",1.100000
+2488,Garcia-Barker,1.800000
+2489,Anderson Inc,1.100000
+2490,Johnson Group,4.100000
+2491,"Ayers, Allen and Rivera",3.700000
+2492,"Hebert, Miles and Gonzalez",4.200000
+2493,Hernandez Ltd,3.000000
+2494,Hurley Inc,3.900000
+2495,"Jones, Mosley and Wilson",4.300000
+2496,Hunter-Simmons,4.200000
+2497,Rivera-Adkins,4.300000
+2498,Mathews Group,2.800000
+2499,Fox Inc,4.100000
+2500,"Vega, Krause and Peters",2.000000
+2501,"Estrada, White and Sanders",4.700000
+2502,Grant-Buchanan,4.300000
+2503,Arnold-Fleming,2.300000
+2504,"Ballard, Brown and Henson",3.900000
+2505,Dominguez Inc,4.700000
+2506,Mendoza-Barker,3.600000
+2507,"Walker, Parrish and Jones",2.600000
+2508,Duncan LLC,4.400000
+2509,Thompson LLC,3.700000
+2510,Johnson-Stewart,4.100000
+2511,Ward and Sons,2.300000
+2512,Green Ltd,3.600000
+2513,Hamilton Ltd,3.600000
+2514,Cox LLC,3.400000
+2515,Wilson-Luna,3.400000
+2516,Fernandez LLC,2.400000
+2517,Smith Group,1.700000
+2518,Parrish Inc,2.700000
+2519,Washington Ltd,4.700000
+2520,"Simmons, Roberts and Mills",2.100000
+2521,Anderson Group,1.200000
+2522,"Turner, Thornton and Morgan",2.500000
+2523,Grimes-Thomas,3.600000
+2524,Salazar and Sons,3.500000
+2525,"Griffin, Baxter and Graves",1.500000
+2526,Bell-Gilbert,4.500000
+2527,Mitchell Ltd,5.000000
+2528,Garner LLC,3.500000
+2529,"Smith, Harris and Garcia",3.600000
+2530,"Schroeder, Hughes and Mclaughlin",3.300000
+2531,Sampson LLC,1.000000
+2532,"Hoover, Moore and Peterson",3.300000
+2533,Smith PLC,3.200000
+2534,Woods-Miller,1.100000
+2535,Miller-Kemp,2.300000
+2536,Rogers Ltd,4.200000
+2537,Rodriguez Ltd,3.400000
+2538,Davis Group,3.200000
+2539,Potter-Hudson,1.100000
+2540,"Liu, Huffman and Ortiz",2.900000
+2541,Castaneda-Nelson,4.500000
+2542,Young-Mendoza,1.800000
+2543,Young Inc,4.300000
+2544,"Hudson, James and Alexander",4.200000
+2545,Soto-Watson,1.800000
+2546,Reeves PLC,2.500000
+2547,Guzman Ltd,4.600000
+2548,"Hernandez, Phillips and Henry",3.300000
+2549,Kirby LLC,2.700000
+2550,"Morrison, Harding and Wheeler",4.700000
+2551,Chandler and Sons,2.500000
+2552,Rivas-Collins,2.500000
+2553,"Lang, Hart and Brown",1.200000
+2554,"Sanchez, Thompson and Jones",1.400000
+2555,Warner-Rodriguez,3.400000
+2556,Walker-Singleton,1.300000
+2557,"Martin, Myers and Davis",2.900000
+2558,"Duncan, Booker and Fernandez",1.000000
+2559,Miller and Sons,1.400000
+2560,Nunez PLC,1.800000
+2561,Horton-Rodriguez,4.400000
+2562,Barrett-Armstrong,4.200000
+2563,"Taylor, Kelly and Mcguire",2.500000
+2564,Oliver and Sons,3.100000
+2565,"Delgado, Howard and Knight",3.700000
+2566,Myers-Tucker,3.300000
+2567,Patterson-Conner,1.200000
+2568,"Guzman, Morales and Walton",4.200000
+2569,Boyer and Sons,2.800000
+2570,"Fowler, Hall and Benson",4.700000
+2571,Johnson and Sons,2.100000
+2572,Stevens Group,3.300000
+2573,"Johnson, Day and Owens",1.200000
+2574,"Ballard, Long and Cain",3.200000
+2575,"Erickson, Rodriguez and Lawson",4.900000
+2576,"Rojas, Knight and Boyd",4.400000
+2577,Davis Ltd,3.500000
+2578,"Green, Reynolds and Clark",2.900000
+2579,Scott Group,2.700000
+2580,Craig LLC,4.400000
+2581,"Robinson, Ryan and Henderson",4.700000
+2582,Wolfe PLC,2.600000
+2583,Gonzalez-Johnson,4.000000
+2584,"Lopez, Rivera and Griffin",1.800000
+2585,Schmidt LLC,3.300000
+2586,Walker LLC,3.200000
+2587,Becker Inc,3.200000
+2588,"Andrews, Mora and Murray",4.800000
+2589,"Thompson, Miller and Fields",3.000000
+2590,Adams Group,1.100000
+2591,Baldwin and Sons,3.300000
+2592,Valdez LLC,4.800000
+2593,"Shaffer, Gregory and Travis",2.900000
+2594,Mcgrath PLC,1.100000
+2595,"Murphy, Henry and Wagner",4.600000
+2596,Young-Richards,1.500000
+2597,Patterson-Guerrero,3.500000
+2598,Johnson PLC,3.400000
+2599,"Ellis, Valdez and Bruce",3.000000
+2600,"Dougherty, Bell and Ruiz",1.700000
+2601,Williams-Thornton,3.900000
+2602,Gomez LLC,3.700000
+2603,Cochran Group,3.600000
+2604,Peters-King,3.900000
+2605,Lee-Alvarez,1.200000
+2606,"Duarte, Lynch and Swanson",3.700000
+2607,Montes Group,1.200000
+2608,"Stout, Avery and Campos",2.200000
+2609,"Ortiz, Graves and Ramirez",3.400000
+2610,Bailey Inc,2.800000
+2611,Cantu-Mitchell,2.400000
+2612,Moore-Wright,2.300000
+2613,"Cervantes, Wallace and Sanchez",2.300000
+2614,Potter Ltd,3.500000
+2615,"Moreno, Li and Garcia",4.100000
+2616,Mcbride and Sons,1.400000
+2617,Becker-Pratt,2.700000
+2618,Marshall-Smith,1.500000
+2619,"Burns, Gibson and Hays",1.200000
+2620,"Le, Neal and Woods",3.100000
+2621,Watson and Sons,4.200000
+2622,Holt-Taylor,4.800000
+2623,"Morgan, Young and Cross",3.900000
+2624,"Guzman, Rollins and Taylor",1.200000
+2625,"Rios, Jarvis and Ramos",4.300000
+2626,Moore and Sons,2.800000
+2627,"Gonzales, Pierce and Sutton",5.000000
+2628,Miller Group,1.500000
+2629,"Williams, Moore and Walker",1.400000
+2630,"Schmitt, Wu and Griffith",3.300000
+2631,Goodwin-Owens,1.500000
+2632,"Williams, Wilson and Barron",3.200000
+2633,"Snyder, Austin and Quinn",3.200000
+2634,Anderson and Sons,1.200000
+2635,Sullivan-Moreno,2.900000
+2636,Lynch PLC,2.300000
+2637,Francis-Parker,2.500000
+2638,"Porter, Ramos and Abbott",2.300000
+2639,Burns-Levy,2.800000
+2640,Roach Ltd,3.500000
+2641,Ramirez Ltd,1.400000
+2642,Moreno Inc,3.800000
+2643,Gardner Group,1.700000
+2644,Glass-Rodriguez,4.700000
+2645,"Chavez, Mccoy and Cannon",4.700000
+2646,Keith and Sons,4.700000
+2647,Chang-Graham,4.300000
+2648,"Roberson, Alexander and Johnson",3.700000
+2649,Lloyd Ltd,4.600000
+2650,"Sherman, Stokes and Rojas",2.200000
+2651,Johnson-Carr,1.800000
+2652,Lewis and Sons,4.800000
+2653,"Howell, Garcia and Jimenez",2.300000
+2654,"Woods, Hamilton and Lopez",3.800000
+2655,"Bailey, Williams and Brown",1.800000
+2656,"Williams, Mcguire and Daniels",2.900000
+2657,Tran-Chandler,3.600000
+2658,"Collins, Campbell and Gonzalez",4.400000
+2659,Smith-Reed,3.700000
+2660,Chavez LLC,4.000000
+2661,Smith PLC,3.600000
+2662,Burns Group,1.800000
+2663,Wallace-Hernandez,3.100000
+2664,Wheeler and Sons,4.000000
+2665,Adams-Sanchez,4.400000
+2666,Rodriguez-Turner,4.100000
+2667,Patrick-Gonzalez,4.700000
+2668,Marshall Group,1.700000
+2669,Davis-Harris,2.900000
+2670,Reid-Smith,3.400000
+2671,Mcdowell and Sons,2.600000
+2672,Mcgee-Martin,1.400000
+2673,"Mcdaniel, Benton and Love",4.200000
+2674,Guerrero-Lang,3.700000
+2675,"Snyder, Wolfe and Smith",4.100000
+2676,Watson PLC,2.500000
+2677,"Hines, Wiley and Nunez",3.600000
+2678,Johnson-Bauer,4.300000
+2679,Alvarez-Cannon,3.300000
+2680,"Cruz, Burns and Rodriguez",3.900000
+2681,Stein Inc,2.200000
+2682,Ramirez Ltd,3.800000
+2683,"Barron, Grant and Graham",1.900000
+2684,Love-Archer,4.900000
+2685,King-Peterson,4.700000
+2686,Moran-Smith,2.600000
+2687,Evans Group,3.800000
+2688,"Bennett, Mcbride and Hunter",2.100000
+2689,Lopez-Higgins,4.100000
+2690,Powers Ltd,2.600000
+2691,Campbell LLC,4.200000
+2692,Ellison LLC,2.600000
+2693,"Miller, Pitts and Reeves",2.000000
+2694,Lee-Patton,3.400000
+2695,"Lara, Barr and Reynolds",3.800000
+2696,Villegas-Cooper,2.500000
+2697,Perez Ltd,1.700000
+2698,"Diaz, Kemp and Hawkins",2.500000
+2699,Austin-Nash,3.100000
+2700,"Vance, Chambers and Brock",2.200000
+2701,Johnson PLC,5.000000
+2702,"Jones, Stark and Pace",2.400000
+2703,"Hall, Mcdonald and Brown",3.300000
+2704,Thompson Group,4.700000
+2705,Gray LLC,2.400000
+2706,"Joseph, Hayes and Liu",1.500000
+2707,"Moore, Patel and Brown",1.200000
+2708,Lee Group,3.600000
+2709,Clark Inc,2.200000
+2710,"Black, Collins and Arnold",1.300000
+2711,Robinson Inc,1.400000
+2712,Nash-Wallace,4.400000
+2713,Huffman Group,1.300000
+2714,"Bowers, Mendez and Weiss",2.200000
+2715,Duran-Parker,2.700000
+2716,Bates PLC,4.000000
+2717,Aguilar-Nunez,3.100000
+2718,Allen-Morgan,2.200000
+2719,Fisher-Moore,1.400000
+2720,Rogers-Long,1.900000
+2721,Carroll-Miller,4.500000
+2722,Maddox-Rivera,3.400000
+2723,Payne-Rogers,4.000000
+2724,Fisher Group,1.400000
+2725,"Baker, Johnson and Mcmillan",4.200000
+2726,"Fleming, Dunlap and Miller",2.800000
+2727,Hughes and Sons,4.200000
+2728,Wells-Wiggins,2.400000
+2729,Castro Group,4.500000
+2730,"Martinez, Thomas and Everett",5.000000
+2731,"Miller, Davis and Robinson",2.900000
+2732,Davidson and Sons,3.400000
+2733,Jones Inc,4.200000
+2734,Williams-Schwartz,4.600000
+2735,Evans-Harrison,3.200000
+2736,Nolan-Horn,2.600000
+2737,"Fuller, Hall and Huynh",1.100000
+2738,"Smith, Allen and Mosley",3.400000
+2739,Ayala Inc,3.600000
+2740,Harris and Sons,2.300000
+2741,Rodriguez Ltd,5.000000
+2742,Williams-Smith,1.700000
+2743,Maldonado-Lopez,3.500000
+2744,Hayes-Mason,1.600000
+2745,Chambers-Brown,1.300000
+2746,"Wilson, Hood and Park",4.700000
+2747,"Mills, Carey and Jones",4.600000
+2748,Olson Ltd,3.900000
+2749,"Hudson, Frye and Riddle",2.000000
+2750,Lambert-Roberts,2.800000
+2751,Wade-Browning,4.000000
+2752,"Johnson, Stephens and Clay",2.000000
+2753,Koch-Porter,2.700000
+2754,"Casey, Guzman and Aguilar",2.400000
+2755,Lara Ltd,4.600000
+2756,Martin-Bates,3.600000
+2757,Phillips Ltd,1.200000
+2758,Baird-Hill,1.200000
+2759,"Wilkinson, Miller and Gordon",1.800000
+2760,Bell-Davis,3.700000
+2761,"Zamora, Brock and Young",1.500000
+2762,Lucero Ltd,2.200000
+2763,Tate Group,2.600000
+2764,Brown and Sons,5.000000
+2765,Scott-Sawyer,3.000000
+2766,"Barnes, Castro and Smith",2.500000
+2767,Patel-Jones,2.200000
+2768,Myers Inc,2.800000
+2769,Copeland Group,4.100000
+2770,Soto LLC,3.600000
+2771,Martinez-Griffin,4.600000
+2772,Smith-Boone,1.400000
+2773,Wood-Padilla,4.300000
+2774,Kelly-Estrada,2.500000
+2775,Chan-Wilson,1.200000
+2776,Lawrence-Hobbs,3.500000
+2777,Allen-Martinez,4.200000
+2778,Griffin-Martin,4.500000
+2779,"Nguyen, Bridges and Gutierrez",2.100000
+2780,Torres LLC,2.000000
+2781,Shaffer-Perez,2.200000
+2782,Davis-Moreno,2.500000
+2783,"Esparza, Roy and Jimenez",1.300000
+2784,Shea-Lin,3.600000
+2785,Dickerson-Smith,1.400000
+2786,"Carey, Fernandez and Bowen",3.000000
+2787,"Johnson, Marshall and Garcia",2.200000
+2788,Gordon-Schneider,3.900000
+2789,Haas-Wilson,2.900000
+2790,Ray Group,1.300000
+2791,Brooks PLC,4.200000
+2792,Gill-Thomas,2.000000
+2793,Mayo-Baldwin,2.300000
+2794,"Sanders, Tucker and Byrd",4.900000
+2795,"Diaz, Lee and Donaldson",4.400000
+2796,"Clark, Nash and Patterson",2.800000
+2797,Hicks PLC,2.200000
+2798,Whitaker PLC,1.400000
+2799,Douglas-Jones,4.400000
+2800,Snyder Group,3.400000
+2801,Ramirez Inc,3.700000
+2802,Rice-Tate,1.800000
+2803,Lang Ltd,2.500000
+2804,Watson and Sons,1.400000
+2805,"Johnson, Mcintosh and Webb",2.600000
+2806,"Andrews, Callahan and Glover",1.100000
+2807,Holmes Ltd,3.600000
+2808,Curry-Brown,3.200000
+2809,Schultz-Blackwell,3.900000
+2810,Williams-Holloway,2.600000
+2811,Graves LLC,1.200000
+2812,Rubio-Parrish,5.000000
+2813,"Martin, Osborne and Mcconnell",2.900000
+2814,Kelly-Ingram,4.900000
+2815,"Curtis, Roy and Bailey",2.600000
+2816,Wheeler-Johnson,2.300000
+2817,Wilkerson and Sons,1.000000
+2818,"Webb, King and Reed",1.600000
+2819,"Sandoval, Brown and Reed",2.100000
+2820,"Mitchell, Nguyen and Bass",5.000000
+2821,Webster-Wilson,2.700000
+2822,"Ayers, Klein and Lopez",4.400000
+2823,Bartlett and Sons,3.300000
+2824,Jacobs and Sons,3.600000
+2825,Tyler LLC,1.400000
+2826,King PLC,1.800000
+2827,Wright-Vazquez,2.100000
+2828,Barnett and Sons,2.700000
+2829,Scott Ltd,1.800000
+2830,"Butler, Church and Burnett",4.000000
+2831,"Pruitt, Mcguire and Wheeler",3.300000
+2832,"Myers, Ruiz and Johnson",1.700000
+2833,Smith-Brown,4.700000
+2834,Young-Ellis,4.500000
+2835,Porter Ltd,3.800000
+2836,Daniels-Jenkins,3.000000
+2837,Reeves Ltd,3.000000
+2838,Young-Griffith,2.000000
+2839,"Rubio, Castaneda and Mathews",4.500000
+2840,"Whitaker, Delacruz and Stein",4.400000
+2841,Boyd and Sons,3.800000
+2842,Beard-Rodriguez,2.500000
+2843,"Perez, Jones and Scott",2.500000
+2844,Crawford-Martinez,1.500000
+2845,Nelson and Sons,4.100000
+2846,"Rodriguez, Chan and Cantu",4.400000
+2847,Bennett-Morales,4.800000
+2848,"Mooney, Gray and Turner",2.200000
+2849,Dunn-Jones,1.300000
+2850,Mccoy-Kim,4.300000
+2851,Fisher Inc,2.100000
+2852,Sandoval-Woods,4.900000
+2853,Fitzgerald-Payne,2.700000
+2854,Williams Group,2.900000
+2855,Vasquez-Wagner,4.800000
+2856,"Taylor, Henderson and Vasquez",3.200000
+2857,Thomas Group,4.000000
+2858,"Boyer, Dennis and Graham",2.400000
+2859,Woods-Black,3.000000
+2860,Small-Griffin,1.600000
+2861,Johnson Group,2.600000
+2862,"Lawson, Vasquez and Brown",4.400000
+2863,Robinson Ltd,3.800000
+2864,"Snyder, Campos and Farmer",3.100000
+2865,"Baker, Harvey and Taylor",3.300000
+2866,Campbell Inc,3.500000
+2867,Ward-Pitts,4.300000
+2868,Hayes-Young,2.200000
+2869,Green-Wilson,3.700000
+2870,"Carter, Lawson and Vaughn",4.100000
+2871,Phillips-Ayala,4.900000
+2872,"Ramirez, Holmes and Gordon",1.800000
+2873,"Gill, Garcia and Hanna",3.800000
+2874,Lloyd-Thompson,2.400000
+2875,Lewis and Sons,1.800000
+2876,"Mclean, Parker and Hurley",3.400000
+2877,Jenkins PLC,2.100000
+2878,Payne PLC,5.000000
+2879,Williams Group,2.500000
+2880,"Sheppard, White and Ellis",3.600000
+2881,Page-Graves,1.600000
+2882,"Gonzalez, Hodge and Freeman",1.300000
+2883,"Smith, Watson and Boyd",4.700000
+2884,Pierce Inc,3.600000
+2885,Martinez Ltd,4.200000
+2886,"Sanchez, Marshall and Williams",4.900000
+2887,Scott-Rodriguez,4.700000
+2888,Little LLC,2.200000
+2889,Frederick PLC,2.300000
+2890,Cruz Inc,1.600000
+2891,Reid-Johnson,4.600000
+2892,Kennedy-Miller,4.600000
+2893,Ramirez-Rogers,4.600000
+2894,Clark Inc,1.900000
+2895,Cooper Ltd,4.900000
+2896,Hernandez Ltd,4.200000
+2897,Marshall PLC,2.200000
+2898,"Cooper, Moore and Gonzalez",4.600000
+2899,Martin Group,1.600000
+2900,Clark-Williams,2.900000
+2901,"Lucas, Garcia and Cooper",2.900000
+2902,White Inc,1.000000
+2903,Parker-Griffith,4.600000
+2904,"Ross, Thomas and Williams",2.200000
+2905,"Vazquez, Holloway and Fox",2.600000
+2906,"Wright, Parker and Bauer",4.600000
+2907,Wallace-Whitaker,4.600000
+2908,"Thomas, Obrien and Thompson",1.100000
+2909,"Cox, Owens and Shepherd",1.900000
+2910,"Brown, Taylor and Howard",1.800000
+2911,Matthews Inc,2.800000
+2912,"Rhodes, Whitaker and Dixon",3.300000
+2913,"Montgomery, Wagner and Phillips",1.700000
+2914,Moody-Melendez,2.000000
+2915,Adams Inc,3.000000
+2916,Bullock-Riddle,1.100000
+2917,Mathis and Sons,1.200000
+2918,Patterson-Johnson,4.100000
+2919,"Pena, Richardson and Barnes",1.500000
+2920,"Stevens, Johnson and Wilson",1.700000
+2921,Green PLC,3.000000
+2922,"Haynes, Rodriguez and Stewart",3.700000
+2923,Dixon LLC,1.200000
+2924,"Williams, Hansen and Moon",3.000000
+2925,Abbott-Haley,3.900000
+2926,Robinson-Hogan,2.000000
+2927,"Adkins, Robertson and Brown",3.300000
+2928,Kennedy-Caldwell,3.600000
+2929,Lara-Little,2.700000
+2930,"Weber, Jones and Serrano",4.500000
+2931,Brown Inc,2.100000
+2932,Smith LLC,3.900000
+2933,Byrd-Miller,2.500000
+2934,Jennings and Sons,2.200000
+2935,"Cummings, Webb and Wade",1.900000
+2936,Richardson-Cruz,2.400000
+2937,"Reynolds, Rivera and Jackson",3.000000
+2938,Marshall-Wright,3.700000
+2939,Bridges-Sparks,2.700000
+2940,"Payne, Faulkner and Smith",2.300000
+2941,Martinez-Reed,4.900000
+2942,"Strickland, Johnson and Carter",3.800000
+2943,Houston PLC,3.100000
+2944,Navarro and Sons,4.800000
+2945,Smith-Robinson,2.300000
+2946,Davis-Alvarez,2.800000
+2947,Carr-Velazquez,2.300000
+2948,Little PLC,5.000000
+2949,"Ferguson, Mccormick and Lee",1.000000
+2950,Rhodes-Stephens,3.600000
+2951,Mckenzie-Thompson,2.300000
+2952,Miller-Trevino,3.500000
+2953,"Reyes, Lee and Hood",4.800000
+2954,Collins-Strickland,2.600000
+2955,"Williams, Adkins and Baker",2.900000
+2956,Robbins-Martin,4.000000
+2957,"Johnson, Anderson and Jones",4.600000
+2958,Ibarra Ltd,1.400000
+2959,"King, Clark and Jackson",4.600000
+2960,Carroll Ltd,4.700000
+2961,"Burns, Castaneda and Cruz",3.500000
+2962,"Figueroa, Bryant and Morrison",4.800000
+2963,"Dean, Smith and Fields",3.800000
+2964,"Sullivan, Sellers and Johnson",1.600000
+2965,"Martinez, Holt and Miller",3.600000
+2966,Collins Inc,3.400000
+2967,Gates LLC,2.600000
+2968,"Gomez, Banks and Vazquez",2.800000
+2969,"Stewart, Merritt and Frederick",2.300000
+2970,"Riley, Avila and Lozano",1.200000
+2971,"Atkinson, Shaw and Crawford",1.500000
+2972,"Combs, Walker and Johnson",1.100000
+2973,Montgomery-Brown,4.000000
+2974,Gray-Arellano,3.400000
+2975,"Lamb, Doyle and Molina",3.300000
+2976,"Harrison, Thompson and Young",1.300000
+2977,Medina-Simpson,4.100000
+2978,Blackwell PLC,4.300000
+2979,Gutierrez-Johnson,2.200000
+2980,Garcia LLC,4.300000
+2981,Cole LLC,2.600000
+2982,Harrison PLC,2.500000
+2983,Cain Ltd,4.700000
+2984,Martin-Sanders,3.000000
+2985,"Johnston, Castro and Collins",3.600000
+2986,Walls and Sons,3.900000
+2987,Hayes-Brown,4.000000
+2988,Alexander-Thornton,1.100000
+2989,Jordan Group,1.900000
+2990,Patterson-Chavez,3.700000
+2991,Glenn PLC,2.900000
+2992,Martinez Ltd,1.500000
+2993,"Green, Woods and Palmer",2.400000
+2994,"Sawyer, Bishop and Salazar",1.900000
+2995,Ramirez and Sons,2.100000
+2996,Petersen-Smith,2.700000
+2997,Martinez and Sons,3.600000
+2998,"Hull, Knight and Saunders",2.600000
+2999,"Booth, Barrett and Horn",2.900000
+3000,Miller-Harper,4.000000

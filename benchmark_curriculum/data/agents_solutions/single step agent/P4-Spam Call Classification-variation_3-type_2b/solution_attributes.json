@@ -1,0 +1,77 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "most_frequent_call_partner",
+        "total_outgoing_call_duration",
+        "average_call_cost",
+        "total_calls_received",
+        "average_call_duration",
+        "total_spam_reports",
+        "total_unique_call_partners",
+        "unique_to_total_calls_ratio",
+        "spam_reports_to_total_calls_ratio",
+        "most_active_call_hour",
+        "spam_call_duration"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.05935550972390257": {
+            "name": "most_frequent_call_partner",
+            "code": "\n\ndef most_frequent_call_partner(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    aux2_data = aux_dataframes['calling_patterns_table.csv']\n    \n    # Check if the required column exists in the dataframe\n    if 'unique_recipients' not in aux2_data.columns:\n        raise KeyError(\"The column 'unique_recipients' is missing from the calling_patterns_table.csv dataframe.\")\n    \n    # Filter the dataframe for the specific user\n    user_calls = aux2_data[aux2_data['user_id'] == row['user_id']]\n    \n    # If there are calls for the user, return the most frequent unique recipient\n    if not user_calls.empty:\n        # Assuming 'unique_recipients' contains a list of recipient numbers\n        # Explode the list into individual rows if necessary\n        if user_calls['unique_recipients'].apply(lambda x: isinstance(x, list)).any():\n            user_calls = user_calls.explode('unique_recipients')\n        \n        # Return the most frequent recipient\n        return user_calls['unique_recipients'].mode()[0]\n    else:\n        return None\n"
+        },
+        "0.043842484807118436": {
+            "name": "total_outgoing_call_duration",
+            "code": "\n\ndef total_outgoing_call_duration(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the calling patterns table\n    aux2_data = aux_dataframes['calling_patterns_table.csv']\n    \n    # Filter the data for the specific user_id\n    user_calls = aux2_data[aux2_data['user_id'] == row['user_id']]\n    \n    # Sum the total_call_duration for the user\n    total_duration = user_calls['total_call_duration'].sum()\n    \n    return total_duration\n"
+        },
+        "0.04247257925222502": {
+            "name": "average_call_cost",
+            "code": "\n\ndef average_call_cost(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    aux2_data = aux_dataframes['calling_patterns_table.csv']\n    user_calls = aux2_data[aux2_data['user_id'] == row['user_id']]\n    \n    # Ensure 'total_calls' is not zero to avoid division by zero\n    if not user_calls.empty and user_calls['total_calls'].sum() > 0:\n        # Calculate average call cost as total_call_duration / total_calls\n        return (user_calls['total_call_duration'].sum() / user_calls['total_calls'].sum())\n    else:\n        return 0\n"
+        },
+        "0.029782759990899695": {
+            "name": "total_calls_received",
+            "code": "\n\ndef total_calls_received(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    aux2_data = aux_dataframes['calling_patterns_table.csv']\n    # Filter the dataframe where 'user_id' matches the 'user_id' in the row\n    user_calls = aux2_data[aux2_data['user_id'] == row['user_id']]\n    return len(user_calls)\n"
+        },
+        "0.021392231480537906": {
+            "name": "average_call_duration",
+            "code": "\n\ndef average_call_duration(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    aux2_data = aux_dataframes['calling_patterns_table.csv']\n    \n    # Filter the data for the specific user\n    user_calls = aux2_data[aux2_data['user_id'] == row['user_id']]\n    \n    # Check if the user has any call data\n    if user_calls.empty:\n        return None  # Return None if no data is available for the user\n    \n    # Calculate the average call duration\n    avg_duration = (user_calls['total_call_duration'] / user_calls['total_calls']).mean()\n    \n    return avg_duration\n"
+        },
+        "0.02077401252817403": {
+            "name": "total_spam_reports",
+            "code": "\n\ndef total_spam_reports(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    aux3_data = aux_dataframes['spam_reports_table.csv']\n    user_spam_reports = aux3_data[aux3_data['user_id'] == row['user_id']]\n    return len(user_spam_reports)\n"
+        },
+        "0.013610772820311152": {
+            "name": "total_unique_call_partners",
+            "code": "\n\ndef total_unique_call_partners(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    aux2_data = aux_dataframes['calling_patterns_table.csv']\n    # Filter the dataframe for the specific user_id\n    user_calls = aux2_data[aux2_data['user_id'] == row['user_id']]\n    # Return the value from the 'unique_recipients' column\n    return user_calls['unique_recipients'].sum()\n"
+        },
+        "0.01323196856819688": {
+            "name": "unique_to_total_calls_ratio",
+            "code": "\n\ndef unique_to_total_calls_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the calling patterns table\n    aux2_data = aux_dataframes['calling_patterns_table.csv']\n    \n    # Filter the data for the specific user_id\n    user_calls = aux2_data[aux2_data['user_id'] == row['user_id']]\n    \n    # Calculate the total number of calls for the user\n    total_calls = user_calls['total_calls'].sum()\n    \n    # Calculate the total number of unique recipients for the user\n    unique_calls = user_calls['unique_recipients'].sum()\n    \n    # Return the ratio of unique calls to total calls, handling division by zero\n    return unique_calls / total_calls if total_calls > 0 else 0\n"
+        },
+        "0.005771390943679985": {
+            "name": "spam_reports_to_total_calls_ratio",
+            "code": "\n\ndef spam_reports_to_total_calls_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    aux2_data = aux_dataframes['calling_patterns_table.csv']  # Calling patterns\n    aux3_data = aux_dataframes['spam_reports_table.csv']    # Spam reports\n    user_calls = aux2_data[aux2_data['user_id'] == row['user_id']]\n    user_spam_reports = aux3_data[aux3_data['user_id'] == row['user_id']]\n    total_calls = len(user_calls)\n    total_spam_reports = len(user_spam_reports)\n    return total_spam_reports / total_calls if total_calls > 0 else 0\n"
+        },
+        "0.001368966701966734": {
+            "name": "most_active_call_hour",
+            "code": "\n\ndef most_active_call_hour(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    aux2_data = aux_dataframes['calling_patterns_table.csv']\n    user_calls = aux2_data[aux2_data['user_id'] == row['user_id']]\n    if not user_calls.empty:\n        # Assuming 'peak_calling_hours' contains the most active hour(s) for the user\n        # If it's a single value, return it directly; otherwise, handle appropriately\n        peak_hours = user_calls['peak_calling_hours'].iloc[0]\n        return peak_hours\n    else:\n        return None\n"
+        },
+        "0": {
+            "name": "spam_call_duration",
+            "code": "import pandas as pd\n\ndef spam_call_duration(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframes\n    aux2_data = aux_dataframes['calling_patterns_table.csv']\n    aux3_data = aux_dataframes['spam_reports_table.csv']\n    \n    # Ensure the column names match and adjust the merge keys\n    user_calls = aux2_data.merge(aux3_data, left_on=['user_id'], right_on=['user_id'])\n    \n    # Filter for the specific user_id in the row\n    spam_calls = user_calls[user_calls['user_id'] == row['user_id']]\n    \n    # Convert call_start_time and call_end_time to datetime if not already\n    if not isinstance(row['call_start_time'], pd.Timestamp):\n        row['call_start_time'] = pd.to_datetime(row['call_start_time'])\n    if not isinstance(row['call_end_time'], pd.Timestamp):\n        row['call_end_time'] = pd.to_datetime(row['call_end_time'])\n    \n    # Ensure spam_calls has datetime columns for call_start_time and call_end_time\n    if 'call_start_time' in spam_calls.columns and not pd.api.types.is_datetime64_any_dtype(spam_calls['call_start_time']):\n        spam_calls['call_start_time'] = pd.to_datetime(spam_calls['call_start_time'])\n    if 'call_end_time' in spam_calls.columns and not pd.api.types.is_datetime64_any_dtype(spam_calls['call_end_time']):\n        spam_calls['call_end_time'] = pd.to_datetime(spam_calls['call_end_time'])\n    \n    # Calculate the total duration of spam calls\n    if 'call_start_time' in spam_calls.columns and 'call_end_time' in spam_calls.columns:\n        duration = (spam_calls['call_end_time'] - spam_calls['call_start_time']).dt.total_seconds().sum()\n    else:\n        duration = 0  # If the necessary columns are missing, return 0 duration\n    \n    return duration\n"
+        }
+    },
+    "feature_descriptions": [
+        "most frequent call partner",
+        "total outgoing call duration",
+        "average call cost",
+        "total calls received",
+        "average call duration",
+        "total spam reports",
+        "total unique call partners",
+        "unique to total calls ratio",
+        "spam reports to total calls ratio",
+        "most active call hour",
+        "spam call duration"
+    ]
+}

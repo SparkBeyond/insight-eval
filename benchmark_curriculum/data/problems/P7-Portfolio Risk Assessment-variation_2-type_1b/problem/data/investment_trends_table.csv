@@ -1,0 +1,501 @@
+trend_id,sector,trend_description,start_date,impact_score,end_date
+1,Energy,On production nation enjoy air sell.,2022-06-18 18:10:14.390152,0.975694,2022-10-22 21:17:30.843843
+2,Finance,Rule of young professional.,2020-07-05 08:27:08.500374,0.292931,2022-11-14 05:00:30.356185
+3,Energy,Indicate pull not him.,2021-12-18 05:29:22.493291,0.111509,2022-11-21 03:39:53.035770
+4,Finance,Put just song daughter pay citizen mother.,2020-09-18 16:21:44.730686,0.222149,2022-01-04 14:57:06.586886
+5,Consumer Goods,Room then road everyone.,2021-02-24 09:18:00.279992,0.285710,2024-01-15 02:53:49.996020
+6,Consumer Goods,Budget citizen step goal back.,2025-04-08 17:01:44.335328,0.762096,2025-05-03 21:35:43.162215
+7,Finance,Trade site letter reason often think.,2022-09-07 02:39:47.973582,0.286209,2022-12-07 19:07:37.268051
+8,Healthcare,Could name movie step.,2021-02-23 14:26:02.213026,0.269068,2022-01-27 11:40:34.460947
+9,Energy,Democratic task hope course.,2024-03-31 07:26:45.647441,0.805282,2024-08-26 09:04:41.407263
+10,Technology,All management finally.,2024-10-03 15:14:25.506360,0.663363,2024-12-27 01:17:51.178722
+11,Healthcare,Even forward information entire run guess.,2022-01-05 05:35:08.786277,0.242383,2023-04-16 22:54:04.627826
+12,Healthcare,Full seem collection share.,2023-04-12 05:56:46.814000,0.343783,2024-01-12 06:07:09.554983
+13,Healthcare,Of increase recognize no five very.,2021-04-02 19:27:04.755179,0.110738,2024-07-16 02:10:03.879701
+14,Healthcare,Effect color produce maintain avoid.,2023-04-10 02:26:04.228798,0.441219,2025-03-15 18:33:37.109473
+15,Finance,Travel system figure.,2023-02-17 00:17:02.448560,0.014188,2023-03-18 05:54:34.740387
+16,Technology,Behind coach room carry friend western.,2024-09-28 03:29:07.922512,0.591845,2025-03-14 20:09:29.591033
+17,Energy,Resource sea since identify west class actually.,2022-08-10 17:55:43.609206,0.227549,2023-04-20 17:50:03.039268
+18,Energy,Drop clear democratic manager rate along politics.,2024-08-12 09:22:36.699796,0.441396,2024-08-31 20:38:04.243493
+19,Consumer Goods,Fire political community.,2024-03-09 06:27:14.730080,0.658864,2025-02-19 20:19:30.706703
+20,Technology,Possible paper hour staff report red.,2022-03-05 01:22:56.037358,0.667389,2023-07-26 03:54:28.137815
+21,Consumer Goods,Travel only film majority teach get staff.,2023-10-21 09:11:21.394398,0.617606,2024-02-25 23:05:22.455650
+22,Consumer Goods,Vote despite happen feeling.,2021-01-11 00:29:34.300132,0.575762,2021-08-31 09:37:17.084556
+23,Healthcare,Those light lawyer through onto ability option.,2022-03-13 19:00:07.000809,0.255443,2024-11-26 13:36:02.660812
+24,Technology,Send enjoy close guy art within hear.,2022-03-27 04:42:39.452732,0.364906,2022-07-07 06:24:53.714221
+25,Healthcare,Including shake affect news minute.,2023-04-22 13:11:50.236050,0.033896,2024-09-02 21:19:07.385741
+26,Energy,Education week story voice matter.,2020-09-03 08:09:17.982640,0.492064,2023-03-31 16:38:42.645921
+27,Finance,Power identify and down.,2022-12-25 14:59:09.106442,0.350906,2023-06-10 13:11:28.954706
+28,Healthcare,Democratic time catch clearly break.,2024-02-16 07:15:37.098869,0.381909,2025-01-07 16:52:57.072848
+29,Energy,Back ability support son commercial.,2024-10-22 05:21:04.323729,0.585158,2025-05-08 13:24:40.991514
+30,Healthcare,Produce close join.,2021-10-04 05:55:09.518775,0.085676,2022-02-24 23:50:47.065740
+31,Energy,Cold politics sister challenge throw modern meeting.,2021-02-05 00:09:50.502772,0.531952,2022-01-11 17:05:11.607665
+32,Energy,Data firm possible room thought join main far.,2021-01-07 21:59:35.540984,0.594662,2021-07-12 16:36:45.932306
+33,Technology,Political wear century science door need especially.,2022-06-12 21:39:24.381203,0.340982,2023-07-21 01:54:26.670323
+34,Consumer Goods,Less yes language right do right.,2023-11-18 12:17:36.868251,0.848361,2025-04-18 05:53:05.935640
+35,Finance,Artist save employee entire early piece.,2021-09-28 06:51:30.976659,0.874650,2024-12-02 00:00:28.158470
+36,Finance,Note certainly economic yourself fill run hit.,2020-05-11 06:26:33.818248,0.256844,2024-06-30 15:12:03.757030
+37,Energy,Occur them head hot project certainly successful.,2024-03-31 21:34:11.586682,0.554122,2025-03-01 06:21:56.136460
+38,Energy,Weight first despite step guy control or.,2023-03-02 21:36:49.004634,0.664669,2023-10-23 22:46:06.449913
+39,Technology,Possible PM week marriage sense.,2022-10-25 14:22:52.738476,0.518861,2023-08-31 13:42:27.057302
+40,Technology,Moment clear practice yet.,2022-12-24 05:51:23.943509,0.612081,2025-03-21 10:29:05.834961
+41,Technology,See left energy area door realize.,2021-05-24 04:20:57.418879,0.675823,2022-12-18 08:30:55.386450
+42,Consumer Goods,Rise grow thousand among treatment.,2022-12-07 03:46:35.264460,0.358398,2024-07-22 08:29:42.778958
+43,Energy,Around significant his key.,2023-04-06 17:09:51.859549,0.709167,2024-04-04 23:35:49.931586
+44,Energy,Which picture moment ask read.,2022-07-04 04:38:26.392285,0.234135,2024-01-18 03:42:27.388695
+45,Consumer Goods,Statement to population food sure.,2021-11-07 13:36:50.512270,0.325714,2024-02-12 15:36:52.791491
+46,Consumer Goods,Sit degree order current drop want offer.,2023-07-26 08:22:08.593053,0.559606,2024-12-04 04:56:51.371139
+47,Finance,Republican full cold national become feel raise.,2024-04-06 09:42:51.294701,0.182366,2025-03-09 10:40:11.319136
+48,Technology,So TV company enough paper age.,2021-12-02 18:14:27.783005,0.672795,2024-01-27 15:39:18.544318
+49,Energy,Cut answer crime control choose enough again.,2025-02-23 10:13:15.636415,0.834995,2025-04-03 10:44:46.138021
+50,Technology,Half personal many management throw improve nearly.,2022-11-25 05:41:00.983195,0.807782,2024-02-19 23:14:10.819379
+51,Energy,Make sing idea commercial very above probably reach.,2024-11-25 17:59:33.002401,0.585099,2025-05-01 03:15:05.255015
+52,Healthcare,There whether information believe deal teach if.,2021-03-29 17:32:17.142352,0.557493,2023-07-15 18:47:05.218820
+53,Finance,Read guy move between until personal.,2020-12-12 18:35:48.581673,0.929059,2021-10-07 03:49:54.975834
+54,Energy,Main practice relate.,2021-07-19 14:57:08.547497,0.544947,2024-11-04 12:44:43.751050
+55,Finance,Smile behind task.,2022-09-07 18:32:02.836409,0.109935,2025-03-22 13:17:26.838797
+56,Finance,Very hard pay that voice quite.,2020-12-16 07:36:00.415237,0.167188,2024-04-25 15:44:01.910930
+57,Consumer Goods,National environmental important process finally performance president.,2025-01-22 14:51:22.655643,0.339166,2025-01-25 08:17:05.948221
+58,Technology,Go itself citizen thousand fear.,2023-06-26 15:01:27.775472,0.310782,2023-08-22 21:29:55.159184
+59,Healthcare,Never north ever human black.,2022-01-22 17:07:57.195995,0.146530,2022-09-01 08:04:09.007460
+60,Technology,Say range hour minute see remember find.,2020-11-06 19:43:47.611266,0.876922,2024-02-11 14:24:02.418433
+61,Consumer Goods,Way remain yard east operation fish drive least.,2024-06-25 18:07:50.131795,0.077208,2024-07-26 22:40:44.394272
+62,Healthcare,Five nice article we.,2020-07-09 19:48:27.355959,0.795658,2020-10-15 10:58:50.978223
+63,Finance,Throughout doctor everybody heavy site choose picture.,2023-01-14 13:32:37.467965,0.266526,2024-08-30 16:47:00.083508
+64,Energy,Home region until probably still size.,2020-05-30 02:07:51.490899,0.774094,2024-01-21 02:47:55.470930
+65,Healthcare,Near serve father career create system speech.,2020-08-17 22:35:01.501625,0.762395,2022-02-01 12:00:24.783413
+66,Healthcare,Painting three million serve loss now.,2021-12-21 20:30:57.414986,0.558293,2023-05-05 22:12:44.737204
+67,Energy,Owner store although among.,2021-01-02 19:00:46.836250,0.043254,2022-02-08 15:41:41.589384
+68,Finance,Information seek food grow strong ready remember.,2022-07-21 23:54:43.028009,0.604989,2023-12-19 23:44:22.459349
+69,Finance,Research account certainly true social use ago.,2024-06-26 21:51:07.596761,0.332944,2024-08-16 20:20:00.491505
+70,Technology,Executive painting through word yourself.,2023-02-13 01:14:52.183282,0.043816,2024-09-12 16:54:09.112679
+71,Healthcare,Throw daughter clear leave growth.,2025-01-21 11:13:35.755314,0.975608,2025-01-30 08:52:59.163386
+72,Healthcare,Option spring finish always.,2022-06-12 17:36:16.483913,0.820609,2024-02-15 20:56:53.590053
+73,Finance,Decision voice green sea term say.,2023-02-07 23:58:28.625753,0.745927,2023-09-23 20:39:19.912011
+74,Consumer Goods,Writer cell get measure public write figure.,2022-09-22 13:18:35.005387,0.026442,2023-07-26 13:33:38.469228
+75,Technology,Natural hope player finish training.,2022-07-08 09:50:07.394229,0.110658,2023-04-07 03:47:49.616061
+76,Finance,Consider customer general important major charge.,2021-06-02 11:57:57.656331,0.120643,2021-06-19 19:54:24.289228
+77,Technology,Stand serious religious ready middle get.,2024-09-08 01:01:12.133823,0.411106,2025-01-07 01:35:51.941065
+78,Energy,Cell weight area animal analysis buy.,2020-12-16 21:12:12.388888,0.401982,2024-07-05 20:54:28.368365
+79,Finance,Specific everybody four task.,2025-04-03 09:49:55.038388,0.524166,2025-04-23 08:32:17.650481
+80,Technology,Phone body side camera card rate interest.,2021-07-04 23:57:24.010839,0.875696,2021-08-14 07:52:14.379175
+81,Finance,Your clear student first become building.,2024-03-24 18:23:17.775399,0.401281,2024-12-17 03:40:45.908668
+82,Energy,Anyone item talk technology baby each.,2023-11-07 17:33:51.702850,0.127118,2024-01-06 07:34:07.622496
+83,Energy,Attorney mean eight.,2021-02-16 19:51:49.069498,0.483819,2024-09-14 11:58:35.815786
+84,Consumer Goods,Exist prevent third attention.,2023-02-27 09:23:37.147175,0.858793,2025-05-04 18:23:59.107361
+85,Technology,Pm include yeah else task part term.,2023-10-30 17:54:24.531240,0.565818,2025-04-10 06:05:14.908919
+86,Technology,Woman policy identify.,2022-07-30 01:10:04.169412,0.630185,2023-11-21 12:32:40.968466
+87,Consumer Goods,Health story common ability order myself sing.,2023-10-01 23:33:24.477638,0.882796,2024-08-10 16:11:19.134857
+88,Consumer Goods,Around life only simply for side.,2020-08-25 07:43:07.480541,0.030776,2025-03-23 22:03:38.480264
+89,Finance,Available watch factor its old allow majority.,2023-06-12 09:38:03.340119,0.174616,2023-11-11 14:57:31.031429
+90,Energy,Involve present half piece enjoy couple.,2020-06-11 03:28:18.775859,0.877281,2022-09-07 01:05:02.702715
+91,Healthcare,Ready modern culture we whatever.,2021-10-29 10:10:26.703463,0.832408,2024-01-03 19:51:31.137488
+92,Technology,Talk road street development.,2024-07-21 21:49:46.224247,0.952612,2025-04-28 21:28:14.511553
+93,Healthcare,Soon south if attention adult choose.,2020-05-26 12:05:36.323457,0.661237,2024-12-05 04:18:21.054532
+94,Consumer Goods,Painting raise product cold source energy.,2025-04-26 06:55:48.871349,0.303501,2025-05-03 10:51:05.684961
+95,Energy,Game indicate common end three thank lose.,2023-11-09 21:24:18.881336,0.776852,2023-11-11 22:13:24.183076
+96,Energy,Professional early fill quality.,2021-12-06 18:25:03.935110,0.051499,2022-10-19 04:29:02.861116
+97,Technology,Total social pull.,2021-10-10 00:48:17.143768,0.487797,2022-03-07 03:05:12.757947
+98,Energy,Yourself building best morning development.,2021-02-04 19:31:07.499135,0.873572,2024-12-23 18:55:34.510046
+99,Healthcare,Effect yes person task some.,2021-06-14 09:32:39.860752,0.947661,2022-12-09 18:34:41.186494
+100,Energy,Usually offer as feel involve open.,2024-10-24 06:20:04.953056,0.027297,2025-02-19 17:16:26.045538
+101,Healthcare,Side son reality relationship.,2021-02-03 15:43:40.057940,0.336114,2024-09-14 05:41:28.692863
+102,Finance,Bar rise such type.,2023-02-26 06:39:08.566638,0.993547,2025-05-06 03:10:21.447797
+103,Healthcare,Vote rate myself central former do.,2024-04-11 17:05:46.049980,0.739986,2024-08-26 11:23:30.340364
+104,Technology,Life candidate group outside suffer.,2023-03-28 09:59:25.084376,0.195931,2025-02-01 15:13:44.267474
+105,Finance,Finish character bed performance later you middle.,2022-02-08 01:53:39.259117,0.721943,2022-06-06 05:52:25.656827
+106,Healthcare,Large free article.,2023-06-05 19:39:02.800890,0.894274,2024-02-29 15:16:35.166753
+107,Finance,Western night chance provide take.,2021-03-23 01:13:31.442301,0.952356,2021-05-16 02:42:58.334737
+108,Consumer Goods,Know address individual carry mission.,2022-03-03 09:01:21.271226,0.496660,2023-03-15 03:12:45.426338
+109,Healthcare,Later company probably pay seem foot difficult when.,2025-01-11 07:22:30.528446,0.814628,2025-01-22 14:25:12.126966
+110,Energy,Place push fight another actually join ago.,2020-07-29 00:17:17.450068,0.103660,2024-06-30 05:38:23.591105
+111,Technology,Physical threat perform thought.,2023-01-23 08:26:59.368705,0.216411,2024-10-04 22:34:25.560424
+112,Consumer Goods,Particularly significant garden.,2023-09-05 00:28:55.990310,0.198446,2024-10-08 07:47:23.984447
+113,Healthcare,Individual human matter worker bed majority technology serve.,2024-10-28 04:50:59.143580,0.465921,2025-01-12 09:18:17.173403
+114,Energy,Side during door political whether deal.,2023-01-24 22:09:58.186936,0.491095,2023-02-13 02:50:58.252476
+115,Finance,Indeed weight indicate professor call soon prepare.,2021-01-27 21:53:57.382385,0.841254,2021-02-28 17:44:50.336808
+116,Finance,Group community possible carry serious.,2020-08-10 18:10:32.247303,0.746994,2021-08-16 13:06:11.925663
+117,Consumer Goods,Guess house yeah.,2022-04-05 15:55:37.855797,0.319770,2023-09-17 01:47:45.570498
+118,Consumer Goods,Think simple air middle above really even.,2022-05-02 18:17:13.411653,0.014604,2022-11-23 03:42:24.329678
+119,Healthcare,Age cup thousand.,2024-07-07 04:16:01.362872,0.108990,2025-05-02 11:23:29.255763
+120,Finance,Describe beat individual race.,2021-04-01 17:11:16.395332,0.452935,2024-09-30 16:55:16.801713
+121,Technology,Evidence simply air compare.,2024-10-23 17:20:53.570608,0.797060,2025-04-18 11:04:05.238357
+122,Healthcare,Political even develop write society stage.,2022-02-27 20:21:44.965488,0.751608,2022-12-10 04:04:34.084124
+123,Finance,Democrat almost she million chair respond material.,2022-12-06 07:58:31.192824,0.348464,2024-04-07 06:48:09.139426
+124,Finance,Ahead course official outside administration foot answer else.,2025-05-05 20:09:09.446463,0.564207,2025-05-05 23:33:37.863969
+125,Healthcare,Save only cultural middle.,2021-02-21 19:04:35.219334,0.996582,2024-02-29 11:53:29.098032
+126,Healthcare,May vote apply where surface serve onto foreign.,2020-09-11 22:16:39.575461,0.766413,2023-06-19 00:46:35.043935
+127,Energy,Despite tree talk street color interest official.,2023-01-05 11:41:19.877137,0.470555,2023-04-08 12:10:42.435558
+128,Technology,Reality deep knowledge Democrat.,2025-03-08 09:11:29.248938,0.630469,2025-04-25 10:29:11.776359
+129,Consumer Goods,Stock own teacher cost word evening health can.,2022-04-04 14:34:43.948238,0.737662,2023-08-23 20:11:30.703483
+130,Energy,Forward work hot prove whose dark country else.,2023-03-22 12:33:26.437316,0.395399,2023-08-25 10:32:22.068569
+131,Finance,Four reason range west capital subject word.,2025-03-15 20:01:08.895048,0.185722,2025-05-03 16:54:11.806171
+132,Technology,Half ahead onto raise beat.,2024-10-22 00:06:43.570839,0.231000,2024-11-06 06:37:47.804511
+133,Energy,Stage others late debate.,2022-02-01 23:18:44.607474,0.227083,2024-11-02 07:37:05.564982
+134,Consumer Goods,Available into about phone.,2023-07-27 08:40:51.032730,0.481542,2025-05-02 05:30:07.540330
+135,Energy,Suggest defense rest strategy training task.,2020-08-17 14:31:58.916032,0.686182,2023-02-14 17:44:33.339486
+136,Healthcare,Hot up occur per song customer business.,2022-11-06 07:25:58.243606,0.463482,2024-04-15 10:06:04.022217
+137,Healthcare,Situation school phone doctor many.,2022-07-23 15:18:58.868952,0.778314,2023-07-18 06:06:42.548740
+138,Energy,Opportunity too can question project industry.,2023-07-17 03:45:01.506259,0.659200,2023-11-30 18:18:42.839352
+139,Finance,Line teacher wind moment success size seven.,2021-02-11 13:01:28.109474,0.806859,2023-02-27 10:53:59.921188
+140,Technology,Carry expect develop receive.,2023-12-31 18:11:01.139088,0.909765,2024-07-24 05:17:31.116003
+141,Healthcare,Difference produce occur size.,2020-09-23 02:09:54.689553,0.908159,2024-03-17 07:14:41.860335
+142,Healthcare,Environmental ball court stock.,2023-10-19 09:19:31.824742,0.253083,2024-08-03 22:31:58.513678
+143,Consumer Goods,About particularly ago red magazine benefit suggest.,2023-12-04 20:54:48.226121,0.557243,2025-05-06 17:42:57.318993
+144,Healthcare,Teacher life down PM help traditional.,2023-05-10 19:05:08.226219,0.884656,2024-12-25 18:19:22.492277
+145,Healthcare,Whose weight culture without.,2021-03-31 15:28:18.897463,0.933374,2023-01-27 21:55:46.147803
+146,Consumer Goods,Until political politics training.,2023-03-09 18:19:33.327123,0.943800,2023-09-08 04:52:21.011491
+147,Technology,Through explain require rich suddenly five model before.,2021-06-04 00:04:07.670447,0.341394,2022-09-29 11:23:30.432856
+148,Finance,Treat like character pick peace three.,2025-01-21 15:27:23.332343,0.412025,2025-05-04 23:24:56.867893
+149,Finance,Red like sometimes top bring to.,2022-09-24 07:46:58.293637,0.269468,2025-05-08 01:13:39.737991
+150,Consumer Goods,Painting science cost cut.,2023-09-01 19:40:11.566702,0.430877,2024-06-05 00:56:48.649716
+151,Finance,Ground son them economy three force modern.,2023-12-20 09:33:52.578218,0.214291,2024-08-13 13:58:46.810371
+152,Consumer Goods,As development although true.,2023-03-30 00:46:13.758864,0.878297,2023-04-10 03:52:53.308958
+153,Technology,Mission short science too its mean black hard.,2021-12-31 11:59:51.362627,0.902697,2024-08-04 13:31:05.188873
+154,Healthcare,North wonder family involve situation.,2021-12-12 03:26:50.827630,0.283878,2023-06-24 06:26:10.636091
+155,Finance,Section sure right take federal medical.,2021-07-24 20:29:18.703415,0.890317,2021-12-01 07:10:35.947174
+156,Healthcare,Business name build win room design become him.,2024-11-19 01:56:53.771522,0.865018,2025-04-19 00:44:56.662122
+157,Technology,Guess western student mention player forget.,2021-10-09 13:09:46.700453,0.084195,2021-11-03 11:56:24.794333
+158,Energy,Himself account vote vote authority.,2021-11-24 09:48:57.871943,0.409489,2023-10-31 20:48:48.947125
+159,Consumer Goods,Special law hour begin bag draw condition.,2022-05-25 14:02:37.238877,0.706104,2022-11-30 17:00:58.392908
+160,Finance,Defense dog take push.,2020-05-18 02:35:41.361983,0.469930,2024-02-01 19:21:26.442946
+161,Healthcare,Form question employee Democrat ahead situation know.,2022-11-26 17:39:40.335093,0.864504,2023-04-24 19:01:53.856667
+162,Technology,Pay lead entire whole.,2021-02-13 16:43:08.044159,0.039859,2021-08-27 16:48:48.467107
+163,Consumer Goods,Medical pay heavy thousand edge leave upon interest.,2023-09-04 09:46:01.103940,0.589726,2024-07-24 10:51:52.920664
+164,Consumer Goods,Look Mr those mention administration.,2021-11-21 06:46:38.274194,0.774153,2022-04-13 10:12:47.690696
+165,Healthcare,Record live our choice.,2025-01-23 01:27:58.102332,0.650175,2025-03-07 06:30:25.749805
+166,Technology,Series rise few free.,2023-08-24 23:55:15.012277,0.785233,2024-08-20 05:48:55.782472
+167,Healthcare,He even everyone.,2020-11-24 09:11:29.139892,0.417159,2024-10-01 12:57:27.678344
+168,Consumer Goods,Artist ready make conference.,2022-12-02 01:36:08.384087,0.612996,2023-07-22 20:02:56.575439
+169,Healthcare,Laugh collection sport size teach.,2024-09-07 15:50:55.733524,0.057038,2024-09-26 07:16:11.026258
+170,Consumer Goods,Public team sit probably today catch.,2022-07-03 01:57:30.582654,0.574000,2024-10-05 07:32:03.988250
+171,Finance,Good medical television sing process responsibility.,2021-01-03 05:29:40.408578,0.456094,2024-09-02 19:06:50.796095
+172,Consumer Goods,Hit civil cup wall.,2023-05-25 11:03:56.656817,0.292277,2024-02-25 13:56:25.568258
+173,Healthcare,Action particularly morning.,2022-08-24 14:58:33.255506,0.036362,2024-11-10 08:52:14.586715
+174,Consumer Goods,American include because difficult role might business.,2022-12-02 18:59:53.649248,0.456596,2024-03-09 19:41:07.517787
+175,Healthcare,Later green trial include place current.,2022-03-29 01:18:09.255624,0.035944,2022-05-04 10:27:13.148153
+176,Healthcare,Show quickly raise spend serve.,2023-11-07 23:49:21.344787,0.528077,2023-11-23 10:39:39.757811
+177,Energy,Human each similar cause.,2025-02-04 01:57:36.341535,0.406609,2025-04-07 05:20:25.503556
+178,Technology,Generation recognize power describe.,2020-07-02 09:35:59.244645,0.747587,2021-06-05 19:32:08.130473
+179,Energy,Feel whatever throughout church.,2022-08-30 03:21:21.129221,0.068931,2025-02-13 10:28:36.300992
+180,Consumer Goods,Leave my which know.,2024-09-15 00:27:34.586213,0.791185,2024-10-06 03:17:30.688547
+181,Finance,Late agent their federal involve thing.,2021-08-07 15:37:11.733550,0.475004,2024-12-26 20:07:16.581310
+182,Finance,Door time the tell site follow.,2023-05-03 10:13:56.746687,0.899249,2023-05-08 08:25:09.845636
+183,Consumer Goods,Store method drive list like.,2022-11-13 13:13:31.454424,0.970902,2024-01-30 17:49:09.311673
+184,Energy,If defense realize fast.,2023-07-06 01:19:55.159448,0.315046,2025-01-09 03:04:25.152648
+185,Consumer Goods,Fall rate good from put themselves small.,2023-05-06 16:14:05.346980,0.665264,2023-12-15 05:10:35.344329
+186,Finance,Nothing hope close.,2024-10-31 17:16:58.801278,0.361334,2025-01-26 09:45:30.367816
+187,Technology,Everyone maybe garden none.,2023-08-13 04:08:44.972483,0.853734,2025-03-27 06:58:49.560496
+188,Technology,Race exactly behavior some fine local impact.,2024-09-21 23:45:19.376687,0.271686,2025-02-04 07:39:13.221800
+189,Healthcare,Free cup goal.,2024-02-23 00:43:17.942479,0.023569,2025-01-06 06:12:41.196487
+190,Finance,Cultural and simple.,2024-08-31 10:10:25.439014,0.682176,2025-02-14 20:35:21.783692
+191,Technology,Stock check ago meeting hope player.,2021-09-04 11:20:23.765673,0.628098,2023-04-27 16:37:04.493094
+192,Energy,Hotel officer population key choose.,2022-03-11 04:07:59.064488,0.517541,2023-01-05 13:01:48.176774
+193,Energy,She apply teach reduce.,2023-06-06 21:20:37.600744,0.374926,2024-11-28 01:43:51.052641
+194,Technology,Perhaps think as carry risk two must.,2022-04-12 12:30:08.355576,0.440292,2025-02-16 14:06:56.284916
+195,Healthcare,Peace job still hot science else head.,2023-01-29 21:36:09.708705,0.507410,2025-01-07 13:07:10.879648
+196,Consumer Goods,Happen someone peace set.,2020-05-23 01:29:21.423554,0.987693,2023-09-02 07:40:35.943007
+197,Consumer Goods,Card hospital beat thank work society.,2024-11-10 20:34:21.923403,0.262884,2025-03-10 13:14:43.337833
+198,Technology,Direction human reveal.,2023-05-16 07:28:10.024730,0.847497,2024-12-15 01:44:13.648240
+199,Finance,Mrs sing check house nothing raise mention then.,2023-06-24 21:42:27.367452,0.926287,2023-08-24 00:07:23.797668
+200,Consumer Goods,More think newspaper.,2023-12-20 16:23:51.238096,0.957606,2024-09-09 14:29:10.905207
+201,Energy,Collection Congress seek.,2020-06-22 08:04:27.573081,0.583970,2020-10-02 01:53:20.724089
+202,Energy,Agent whole suffer each.,2024-10-28 16:36:40.478332,0.971546,2025-03-01 20:12:38.056719
+203,Technology,Section leg pass run radio compare.,2024-01-12 00:10:35.930222,0.203742,2024-07-21 16:48:37.652407
+204,Healthcare,Leg site tend.,2022-09-09 18:10:13.221607,0.803379,2024-06-12 18:02:13.428052
+205,Energy,Goal color religious method seek near.,2022-11-14 21:06:28.486946,0.534840,2024-01-13 19:06:09.890254
+206,Consumer Goods,Matter ago apply.,2022-01-14 05:43:41.530586,0.900832,2024-09-17 07:31:09.124007
+207,Consumer Goods,Sport dog continue letter him.,2021-07-22 14:36:21.644372,0.240173,2021-07-23 23:36:21.302482
+208,Healthcare,Listen share social break issue image try.,2020-10-10 18:40:32.691186,0.777027,2021-10-28 20:55:58.060631
+209,Technology,Read baby situation tend woman firm character.,2021-02-17 07:24:57.983562,0.595187,2025-04-04 21:52:06.427914
+210,Finance,Foreign class break.,2024-05-31 23:26:27.374559,0.157272,2025-02-28 02:55:43.499975
+211,Finance,These knowledge upon election property community recent.,2024-01-08 08:29:28.694931,0.541141,2024-04-01 22:11:44.088792
+212,Energy,Camera form lose carry policy.,2025-03-07 07:05:34.657338,0.118293,2025-03-15 08:31:39.598493
+213,Finance,All tough less at dark daughter mind.,2022-12-30 06:12:34.834991,0.004130,2024-07-19 04:27:37.824235
+214,Consumer Goods,Us opportunity test treatment forget.,2024-05-02 06:11:22.896337,0.744277,2025-05-02 21:41:57.834554
+215,Consumer Goods,Production east enjoy nice forward toward.,2024-05-15 09:32:47.389736,0.676838,2025-04-14 18:09:52.861543
+216,Technology,Member our general deal boy.,2023-02-17 20:19:52.485925,0.451822,2023-12-24 23:57:20.778954
+217,Healthcare,Himself measure network generation it choose.,2020-12-06 06:03:57.678409,0.761843,2024-08-09 13:18:47.089706
+218,Finance,Total interesting weight Mrs most task side.,2024-01-23 04:46:02.620373,0.277609,2024-04-06 21:34:31.419526
+219,Finance,Notice these happy everyone whom.,2022-09-21 02:12:56.343523,0.170130,2023-09-02 18:10:09.302504
+220,Healthcare,Staff third water hand.,2022-01-07 14:06:12.198621,0.350401,2024-08-23 09:27:56.578087
+221,Healthcare,Four organization lose rest travel weight.,2022-06-01 12:36:11.979386,0.638962,2024-11-30 07:58:06.088780
+222,Technology,Whether here field life fact.,2024-09-19 04:30:33.951703,0.572066,2025-04-04 09:01:22.750584
+223,Energy,Every like data sea.,2023-09-14 16:18:11.264294,0.633091,2023-12-02 18:47:51.888033
+224,Energy,Left miss open dinner nothing fine.,2022-05-12 08:38:19.083998,0.614824,2023-01-05 06:32:39.828985
+225,Consumer Goods,Decide live relate land.,2025-01-07 18:25:42.058822,0.648744,2025-04-08 14:35:45.800647
+226,Consumer Goods,Human ago push gun.,2020-12-02 14:42:39.553413,0.441660,2022-04-01 01:14:25.027941
+227,Finance,Mission light social his poor receive.,2021-09-27 15:48:19.845439,0.656083,2024-02-01 23:45:26.296455
+228,Finance,Plan let four call past.,2023-12-21 15:07:35.671875,0.893063,2024-12-09 23:56:55.374458
+229,Technology,Sense share each.,2024-06-23 08:38:20.957748,0.884306,2024-11-28 23:53:17.263354
+230,Healthcare,Too pressure reach thank center.,2021-05-13 20:49:50.925937,0.348982,2023-06-01 17:05:34.446211
+231,Consumer Goods,Live offer money two.,2021-07-08 03:49:29.204538,0.236869,2022-12-01 14:11:21.871502
+232,Technology,Bill situation hair less civil.,2024-01-02 08:29:50.667269,0.947002,2024-08-27 04:00:05.989662
+233,Finance,Natural fact financial.,2021-02-27 20:11:59.462813,0.610366,2023-11-21 03:14:33.545757
+234,Technology,Sister share Democrat level enjoy.,2020-10-20 20:52:37.872127,0.450712,2022-02-28 20:23:51.596499
+235,Consumer Goods,Season hear red find likely play.,2024-04-19 10:35:40.961640,0.040758,2024-10-14 06:35:36.071068
+236,Consumer Goods,Field white certainly participant.,2023-06-27 05:53:17.148779,0.870594,2024-11-17 13:28:10.532888
+237,Technology,Form skill character power effect.,2020-12-10 04:20:11.895782,0.743102,2024-11-14 07:39:57.849377
+238,Consumer Goods,Dog listen computer smile practice light.,2023-06-07 03:14:56.720439,0.224507,2023-07-11 23:46:17.634264
+239,Consumer Goods,Specific issue young push west.,2020-09-30 06:54:17.679893,0.945603,2025-01-25 18:45:11.891948
+240,Consumer Goods,Bit song can try argue remain.,2024-05-16 02:27:35.425082,0.141224,2024-06-03 06:44:27.683288
+241,Energy,Eat information similar foreign loss nice friend after.,2023-07-15 19:41:22.085530,0.718076,2023-09-07 19:00:50.377420
+242,Finance,Indicate focus truth enough view painting.,2024-03-20 19:56:09.657902,0.891601,2024-08-18 06:13:58.146445
+243,Healthcare,Value something study community her off.,2023-03-14 19:37:42.274993,0.806693,2024-11-08 11:50:40.983622
+244,Healthcare,Speak particular real order hair speak.,2021-06-06 04:09:44.002729,0.040394,2023-10-29 17:56:26.188987
+245,Finance,Now hospital college feeling song sometimes.,2022-08-08 07:19:50.998711,0.277265,2023-04-06 10:51:22.858909
+246,Energy,Price something what.,2023-08-03 06:20:58.051337,0.651705,2023-12-10 11:42:39.720229
+247,Consumer Goods,Find assume American information appear picture.,2020-06-20 22:21:26.199066,0.360828,2023-07-11 10:37:03.174540
+248,Healthcare,Single manager relationship half culture program each.,2022-05-18 02:18:10.016994,0.487465,2023-03-03 20:00:20.682135
+249,Finance,Itself bank billion picture rock major figure.,2024-05-21 11:50:28.147460,0.492525,2024-09-14 15:47:48.586595
+250,Technology,Sign decade eight your.,2021-12-27 16:05:04.266519,0.837795,2025-03-06 14:05:08.760764
+251,Consumer Goods,What turn exist sign tree responsibility us.,2025-01-06 00:11:40.627913,0.021715,2025-01-18 17:12:32.751681
+252,Finance,Onto few color happy store art.,2023-05-11 21:44:45.211994,0.100505,2024-04-01 13:24:06.361158
+253,Finance,Benefit break brother.,2022-05-25 07:18:42.194794,0.042578,2023-09-30 11:31:02.643461
+254,Finance,Tough bed name me.,2021-08-07 00:07:11.983493,0.638803,2024-07-09 21:05:35.037447
+255,Technology,Amount pattern drug throw activity.,2020-06-05 20:09:25.070252,0.959169,2024-10-18 01:26:48.607356
+256,Healthcare,Sport treat baby else.,2022-04-07 05:39:17.412500,0.339532,2025-03-22 13:56:04.093957
+257,Healthcare,Hour peace can management.,2021-08-22 22:06:20.403170,0.427936,2022-09-15 20:44:03.287805
+258,Consumer Goods,Anyone matter generation else list other.,2024-06-20 16:35:08.695332,0.898342,2025-02-12 17:46:00.508917
+259,Technology,Few purpose various individual.,2023-06-05 18:30:47.580802,0.875024,2023-07-15 05:14:27.893806
+260,Consumer Goods,Someone room wrong human avoid service.,2022-09-04 05:09:31.766894,0.325269,2023-11-18 17:32:55.999546
+261,Finance,Individual lawyer return forward low.,2021-10-13 06:29:07.227978,0.965051,2024-02-20 21:55:58.739306
+262,Technology,Compare thing few foot home.,2021-07-30 12:24:51.869590,0.351651,2023-06-26 18:52:26.177864
+263,Healthcare,Land offer suggest customer.,2025-01-05 23:14:08.408291,0.720658,2025-03-19 08:43:08.572448
+264,Finance,Future stay ten season employee author plan.,2023-04-22 11:54:12.477656,0.584835,2024-07-07 00:23:02.445486
+265,Healthcare,Out of test vote arrive order.,2025-03-05 15:27:48.894928,0.669751,2025-03-16 17:35:07.777642
+266,Healthcare,Ever say third campaign hundred read.,2025-02-26 16:55:48.511065,0.708972,2025-03-18 10:52:14.938478
+267,Consumer Goods,Game experience act court with executive.,2022-10-25 22:19:09.003868,0.029586,2023-11-09 03:00:20.881353
+268,Healthcare,Point use community stock happy seat group.,2021-11-05 20:55:18.264559,0.872769,2024-10-31 07:49:06.659462
+269,Energy,Television indicate people cost both responsibility.,2023-07-18 02:40:40.381864,0.398762,2024-03-20 17:32:24.776177
+270,Energy,Option explain blue.,2024-06-15 08:28:02.011712,0.114451,2025-05-07 03:37:13.484468
+271,Technology,Language in try enjoy.,2023-02-19 02:14:38.443531,0.449688,2025-03-11 18:23:27.008423
+272,Technology,Today center administration six kid dream prevent.,2022-07-23 09:39:33.988952,0.416467,2025-03-13 19:23:01.863959
+273,Energy,Civil Mr receive because.,2022-12-07 12:21:55.691129,0.548514,2023-04-09 18:48:05.241664
+274,Finance,Response travel entire that red around democratic interest.,2020-11-26 11:58:31.220737,0.538186,2022-07-22 10:49:37.465953
+275,Energy,Town full argue help hear interest physical.,2025-02-23 19:44:47.763107,0.054367,2025-03-26 03:19:06.775935
+276,Consumer Goods,Point admit large involve rule five.,2025-03-04 18:39:36.185259,0.415058,2025-03-31 08:51:57.158694
+277,Healthcare,Police good voice real special statement.,2020-09-09 22:02:15.240003,0.189895,2022-08-19 16:24:30.290779
+278,Technology,Indicate less return remain late.,2023-07-18 08:55:48.535708,0.867291,2024-12-16 12:25:20.723226
+279,Energy,General commercial example ready economy reveal.,2023-03-15 02:31:43.286435,0.344831,2024-04-17 17:22:38.919211
+280,Technology,Draw song account common friend here institution every.,2023-03-04 05:42:24.484305,0.635669,2024-01-17 21:50:25.049933
+281,Healthcare,Message finally result statement specific degree moment music.,2024-10-26 00:55:05.067421,0.379170,2025-04-21 11:20:35.247586
+282,Consumer Goods,Follow institution north compare answer describe trouble role.,2023-04-13 16:56:04.603688,0.510368,2025-01-04 19:48:12.650100
+283,Healthcare,Cell focus project on hotel.,2020-12-21 17:57:23.889180,0.106634,2022-06-01 14:43:50.000560
+284,Healthcare,Look budget top art participant since.,2023-08-11 20:32:10.033956,0.172594,2024-06-24 16:16:36.222696
+285,Finance,Field source best detail.,2023-08-25 23:14:11.250433,0.862609,2023-08-30 01:57:21.491454
+286,Healthcare,Study field discover positive rock.,2023-03-05 17:12:11.731530,0.985568,2023-12-29 01:06:46.032723
+287,Energy,Our happen finally tend defense make social admit.,2020-11-30 13:32:38.505105,0.315218,2023-12-25 11:18:05.936512
+288,Energy,Information anyone throughout such.,2021-07-01 12:09:16.591114,0.016937,2024-07-17 17:10:21.707752
+289,Consumer Goods,Say daughter specific.,2023-01-15 11:21:15.171304,0.058425,2024-08-28 22:28:46.229058
+290,Energy,Bill now best effect.,2025-03-10 04:14:11.450382,0.146611,2025-04-21 13:55:17.885057
+291,Healthcare,Another same price space along tax.,2021-05-06 16:27:11.719549,0.319599,2021-08-27 08:55:02.721512
+292,Energy,Wear eat conference much vote test drug.,2020-11-22 01:45:16.153916,0.616340,2025-02-01 17:18:55.447087
+293,Energy,Mr sense realize serious store travel his size.,2023-09-10 16:57:23.751149,0.475314,2025-03-02 08:47:44.966939
+294,Technology,System see benefit area.,2020-05-18 03:13:01.707009,0.310630,2021-01-03 19:39:52.530405
+295,Finance,Hair food whose mother laugh style employee.,2023-10-10 20:36:06.691591,0.605738,2025-04-16 15:50:38.198178
+296,Technology,Look traditional show guy cup.,2020-05-13 10:14:05.360338,0.398096,2020-12-29 05:31:15.362377
+297,Finance,Structure effort example.,2024-04-22 00:43:10.643747,0.832609,2024-10-04 17:10:15.103806
+298,Healthcare,Result nothing sport practice add.,2025-03-30 08:37:22.669500,0.839220,2025-04-13 20:34:44.275548
+299,Healthcare,Health bad manage price.,2020-11-11 07:23:48.045315,0.258340,2023-03-26 12:40:10.712818
+300,Healthcare,View most dream.,2020-08-14 08:01:31.520613,0.024886,2024-11-08 19:34:24.286476
+301,Technology,Ago bill quite all child discuss.,2024-12-03 21:28:59.352130,0.989018,2025-01-23 06:44:48.326126
+302,Energy,Role difference agreement western but.,2023-05-11 01:16:43.969967,0.626453,2023-08-05 21:45:33.635695
+303,Consumer Goods,Toward American its someone debate affect.,2021-12-30 00:05:48.496719,0.751337,2022-11-25 08:57:43.664131
+304,Technology,Reach soldier off scene material offer.,2024-01-16 23:56:38.800507,0.087384,2024-09-07 04:17:03.319946
+305,Consumer Goods,Authority pattern center.,2020-07-30 07:50:29.202368,0.975476,2023-01-29 07:45:57.075734
+306,Energy,Yet plan break gun.,2025-01-22 04:58:55.157238,0.665747,2025-03-03 20:01:18.935626
+307,Healthcare,Put with if describe pretty.,2022-01-02 23:08:51.742938,0.255658,2023-10-02 01:11:13.186306
+308,Consumer Goods,Tough reduce practice father already parent loss.,2022-10-29 03:30:56.448102,0.602015,2023-06-21 06:53:12.110002
+309,Finance,Way two later music very yet.,2022-07-05 23:37:46.606421,0.135886,2023-09-23 01:13:53.844121
+310,Energy,Per parent public room few speak figure.,2020-05-22 02:57:02.283893,0.301624,2024-10-19 11:36:42.645191
+311,Finance,Moment page there executive every team.,2024-07-04 00:40:24.838339,0.909740,2024-12-17 23:20:27.751462
+312,Healthcare,Six message exist man.,2024-06-14 17:35:47.494493,0.525802,2025-02-13 09:12:06.857060
+313,Technology,Blood stay chance data change old since wife.,2021-09-06 07:24:51.467252,0.097977,2024-10-19 08:39:40.341753
+314,Energy,What may field factor hair where responsibility.,2022-04-09 19:35:39.805654,0.749757,2022-04-18 06:49:42.557832
+315,Energy,Play memory organization reason.,2023-03-03 22:31:29.837047,0.778548,2024-06-19 09:15:39.067434
+316,Healthcare,Exactly that a talk mean physical.,2024-01-20 04:25:40.275485,0.672924,2024-04-04 01:16:31.806127
+317,Energy,Word partner within with hand address control natural.,2023-02-24 15:07:35.943528,0.413108,2024-01-13 07:11:36.706490
+318,Energy,Become position foot Republican safe.,2020-12-26 09:03:08.804999,0.505135,2022-12-11 00:01:19.271605
+319,Energy,Local brother cut decade method class goal practice.,2021-11-10 23:55:58.281913,0.064763,2023-06-08 09:09:04.462604
+320,Finance,Pressure traditional record general run realize.,2024-02-20 13:46:50.634742,0.093387,2025-03-21 07:12:56.427609
+321,Finance,Him require gas still.,2022-04-17 19:10:33.822952,0.274826,2025-01-02 06:12:28.804221
+322,Healthcare,Mrs happen adult section.,2024-12-24 13:49:33.285151,0.822777,2025-03-11 20:07:40.248740
+323,Technology,Bank body someone take.,2025-04-06 14:55:39.620586,0.965397,2025-04-08 15:52:18.306223
+324,Consumer Goods,If spend strong down parent.,2022-07-08 12:57:38.373380,0.452859,2024-12-21 20:30:32.071868
+325,Technology,Idea certainly identify.,2024-01-28 00:51:49.313261,0.479648,2025-02-16 15:38:14.010733
+326,Technology,Do east different couple current gun.,2020-07-25 20:00:03.970243,0.986831,2022-06-15 01:56:27.552494
+327,Technology,Response wife court expect.,2024-08-12 23:01:47.965751,0.638409,2024-10-30 03:38:38.288058
+328,Energy,Move head hard.,2023-05-26 01:22:01.815760,0.683650,2024-11-24 11:06:05.834147
+329,Technology,Focus cost truth.,2021-02-21 23:12:37.026627,0.233124,2024-11-15 11:41:55.616842
+330,Finance,Step kitchen institution simply as hotel relate.,2023-12-01 20:27:12.852707,0.239436,2024-01-23 08:31:52.685329
+331,Energy,Her wonder institution deal.,2021-04-12 10:55:30.769288,0.312614,2022-07-18 15:04:10.386400
+332,Energy,Expect important war war new.,2022-05-15 23:40:31.175748,0.676433,2023-08-17 02:43:29.236670
+333,Consumer Goods,Force teach sing guy.,2024-03-24 00:55:10.401240,0.111115,2025-04-25 05:25:54.321590
+334,Consumer Goods,Feeling treat you culture evening drop.,2021-07-08 11:39:59.850566,0.873869,2023-03-16 21:32:14.824453
+335,Healthcare,Even him side send offer return.,2021-09-13 16:15:59.091315,0.165217,2023-12-10 02:48:11.663372
+336,Technology,Case product whose true democratic amount.,2021-07-01 20:44:18.677221,0.086019,2022-12-27 19:13:52.778389
+337,Consumer Goods,Budget throw season little occur state as.,2021-11-20 17:17:20.401059,0.971126,2024-11-24 15:12:59.616150
+338,Energy,Everybody song fine environment.,2024-01-15 05:57:19.991426,0.110551,2024-04-08 09:37:28.055909
+339,Energy,Today especially hair staff church.,2023-10-04 06:46:39.737304,0.849024,2025-02-27 10:57:57.694691
+340,Finance,Most on individual discussion.,2024-02-20 02:23:12.734445,0.885003,2024-10-09 02:12:34.148973
+341,Energy,Accept east compare early team upon rise.,2022-04-04 21:20:40.287923,0.229526,2023-03-11 05:34:44.371543
+342,Technology,Business tend increase argue.,2021-11-18 17:26:50.329537,0.564142,2022-05-10 23:49:46.105078
+343,Finance,Ball evidence radio within sign such.,2021-06-18 12:31:33.350042,0.570656,2025-01-28 16:44:41.086366
+344,Healthcare,Again around every reveal them other final.,2021-08-09 20:19:15.493049,0.194194,2024-04-09 13:54:42.275489
+345,Energy,Guy describe police responsibility.,2023-04-02 11:40:29.991794,0.350334,2024-07-05 19:28:21.020099
+346,Consumer Goods,Newspaper production sit toward who stop similar.,2021-12-25 01:37:26.961175,0.671992,2023-03-18 03:07:41.993592
+347,Healthcare,Finish throughout send test group.,2025-03-10 08:32:36.787839,0.273340,2025-03-21 18:26:24.318887
+348,Finance,Home long make data.,2022-07-12 19:56:28.899976,0.438355,2022-09-11 08:26:34.757777
+349,Energy,Door make program finish their require respond.,2024-02-26 11:18:56.478925,0.491812,2025-05-09 19:30:16.218178
+350,Finance,Per scene plant seek president today.,2021-12-14 12:10:35.385186,0.235793,2024-03-07 08:39:00.000088
+351,Finance,War human foreign possible.,2023-12-21 16:28:14.974533,0.218196,2024-11-28 10:00:57.898249
+352,Technology,Sure place able body alone.,2024-04-16 06:32:03.900610,0.312766,2024-07-13 16:59:15.792193
+353,Healthcare,Maybe meet help right pressure leave.,2025-03-02 17:12:39.587882,0.885877,2025-03-22 04:14:50.495036
+354,Healthcare,Citizen history direction.,2023-01-14 18:02:58.631190,0.467769,2023-07-02 03:25:41.817271
+355,Technology,Heart part discussion now common.,2022-03-22 07:37:40.265022,0.305804,2022-10-29 11:05:02.226381
+356,Finance,Attack cost close.,2024-02-08 12:42:58.946941,0.078665,2025-02-15 01:48:14.051963
+357,Technology,Difference beat war now note computer.,2021-08-11 13:19:57.444277,0.539153,2025-04-09 10:21:43.562332
+358,Energy,Book effort already economy two time between.,2022-10-24 03:10:15.560835,0.576541,2023-11-16 13:32:11.713100
+359,Consumer Goods,Marriage magazine trade.,2022-09-20 11:03:46.725439,0.212730,2024-09-26 02:56:55.289543
+360,Consumer Goods,Teach half figure center again step.,2021-04-07 05:08:54.252167,0.357755,2021-09-16 18:54:00.731483
+361,Technology,Customer defense Congress staff center alone amount baby.,2021-09-30 14:50:06.818956,0.144885,2023-08-13 08:56:28.080115
+362,Consumer Goods,Issue experience machine team.,2020-12-02 03:49:06.962006,0.401701,2022-08-09 12:10:37.507327
+363,Energy,Mother poor south both easy.,2022-11-30 12:39:28.283723,0.798001,2025-04-12 17:05:58.040560
+364,Finance,Leg stay every face hold away model.,2023-01-13 02:12:31.082063,0.140023,2023-06-17 22:54:25.287004
+365,Technology,True everyone tend training.,2024-10-03 23:56:36.136105,0.383958,2024-12-03 15:43:47.619859
+366,Consumer Goods,Range truth environmental science several free.,2020-10-01 05:45:50.922252,0.156419,2021-03-03 18:03:54.360721
+367,Technology,Let choice pressure.,2020-12-27 03:44:51.019970,0.782974,2022-08-07 11:56:33.028033
+368,Healthcare,Enjoy leave air key myself measure.,2022-08-10 19:55:30.177144,0.949595,2023-11-16 22:51:06.863989
+369,Consumer Goods,Marriage country hot page finally ten.,2021-02-03 06:48:47.386234,0.266416,2022-03-11 18:23:57.877081
+370,Consumer Goods,Language vote cultural affect process.,2024-10-14 09:19:48.515546,0.213855,2025-04-04 22:44:39.390190
+371,Technology,Pass middle accept there speech whom significant.,2021-10-07 04:45:15.804450,0.392455,2023-12-12 07:31:07.568630
+372,Finance,Realize better exist large let.,2023-08-05 11:19:55.623593,0.364505,2024-07-31 12:41:32.814130
+373,Consumer Goods,International visit feeling central safe speak operation camera.,2021-06-11 01:18:01.041841,0.248757,2023-02-25 13:58:45.556201
+374,Finance,Technology in next of.,2023-12-04 18:51:24.937428,0.036544,2024-01-14 11:56:51.062706
+375,Healthcare,Or live able ready machine make.,2022-10-23 05:49:37.403315,0.770697,2024-01-02 21:12:42.121698
+376,Finance,Final never almost likely do bank.,2024-09-12 15:40:32.277628,0.911881,2024-11-08 15:59:39.271987
+377,Finance,Side kitchen pattern particularly within.,2024-03-13 21:59:31.285672,0.789257,2025-02-27 09:33:17.819423
+378,Technology,Include meeting street.,2024-06-12 02:15:46.345343,0.523979,2025-03-27 11:39:30.710168
+379,Consumer Goods,Include beautiful yourself toward back continue next.,2024-09-03 13:19:50.429615,0.557516,2025-02-16 06:16:26.671335
+380,Healthcare,Large material eye star hundred college federal.,2020-08-21 11:24:42.469016,0.032362,2022-05-04 15:51:06.685205
+381,Consumer Goods,Direction value memory good.,2021-04-23 20:15:32.467677,0.192276,2023-02-17 07:57:48.861601
+382,Consumer Goods,I sea group grow green account could.,2022-03-02 12:03:13.200893,0.839065,2023-09-06 06:59:53.154744
+383,Consumer Goods,Entire sort world part.,2020-10-03 09:22:13.841668,0.272656,2023-11-22 14:16:29.586961
+384,Finance,Meeting campaign green carry time fill discuss carry.,2021-05-31 02:54:43.949849,0.580966,2024-02-09 19:18:12.010607
+385,Technology,Front place sometimes nature.,2021-03-13 21:42:20.081836,0.497437,2025-02-11 16:29:23.426736
+386,Consumer Goods,Successful somebody baby discover above discover question rather.,2024-04-23 01:55:59.359830,0.009949,2025-04-30 10:30:12.306698
+387,Consumer Goods,Protect certain especially move within nearly.,2025-03-07 17:41:20.973045,0.805590,2025-04-18 19:10:21.268580
+388,Healthcare,Day green leader team.,2023-11-02 10:50:23.394818,0.765314,2024-07-18 08:02:50.192303
+389,Healthcare,Base population experience agent fine.,2023-10-20 21:02:25.594209,0.973315,2024-08-31 21:14:19.103079
+390,Technology,Term degree history wish already its defense despite.,2024-03-30 07:20:23.354292,0.613936,2025-01-06 01:59:15.346302
+391,Finance,Next break teach likely hard pressure model.,2024-10-02 22:54:14.771532,0.642770,2025-04-16 17:27:27.824681
+392,Healthcare,Mean wrong follow.,2023-05-25 23:46:33.958864,0.369719,2023-12-19 03:13:13.213490
+393,Healthcare,He test part interview.,2021-01-05 04:30:53.164620,0.268775,2021-09-13 23:47:31.940386
+394,Finance,Wish could space.,2021-02-09 13:57:50.559540,0.972470,2023-09-04 11:51:18.724514
+395,Consumer Goods,East agent power land wind rate front.,2024-05-27 04:08:19.969383,0.362657,2024-11-06 00:45:37.182382
+396,Technology,Mind challenge kind strong.,2020-10-22 08:46:34.567599,0.679410,2024-06-30 23:16:48.526533
+397,Finance,Walk person player management.,2024-07-29 21:36:51.943645,0.850385,2025-03-06 22:33:23.250095
+398,Consumer Goods,Nearly catch media new open apply.,2020-09-05 20:13:45.254954,0.562614,2022-05-26 22:51:10.749327
+399,Healthcare,Research director want protect.,2020-11-08 17:31:48.586350,0.670498,2024-01-20 00:52:08.606950
+400,Healthcare,Daughter son commercial energy child treat drive.,2022-06-19 03:42:27.796347,0.905380,2024-10-09 04:54:08.321249
+401,Consumer Goods,Laugh audience road interview follow factor.,2025-04-04 21:10:53.962262,0.295111,2025-05-02 00:10:30.604160
+402,Healthcare,World soon large main.,2022-06-25 20:42:32.442985,0.264418,2023-12-11 17:00:27.289663
+403,Energy,Girl who animal chair half.,2020-11-09 17:44:04.166381,0.679507,2024-01-19 02:46:53.219537
+404,Energy,Support leave model PM reach many and real.,2023-11-28 14:42:04.219741,0.522645,2025-05-02 13:30:12.339773
+405,Healthcare,Act them friend clear.,2021-07-13 09:47:13.742464,0.636071,2022-03-12 15:12:20.043558
+406,Consumer Goods,Along heart example seem draw.,2024-01-24 06:23:22.662896,0.990983,2025-03-29 06:15:47.320766
+407,Consumer Goods,Society six cause service mother doctor behavior choice.,2022-03-13 22:58:20.137327,0.822931,2022-08-14 12:23:14.764662
+408,Energy,Stock either who show strong crime attack.,2020-07-28 07:57:49.778316,0.512302,2024-07-01 13:02:20.846057
+409,Healthcare,Glass individual individual bed century much or themselves.,2021-07-22 23:43:53.893905,0.371142,2022-11-07 17:19:01.541371
+410,Technology,Both her discover past clearly gun.,2022-11-15 23:57:51.365563,0.462541,2023-08-28 04:36:55.174768
+411,Energy,Although shake near man.,2024-03-20 15:35:20.945112,0.197880,2025-03-22 14:00:33.012068
+412,Consumer Goods,Visit see because area.,2021-01-19 17:10:58.998961,0.218486,2022-09-26 01:17:16.637013
+413,Energy,Hundred institution car as.,2022-10-28 03:39:51.624193,0.401687,2024-12-28 18:08:30.096502
+414,Energy,Type especially call.,2023-12-29 08:58:53.646110,0.753923,2024-06-20 04:10:51.935475
+415,Consumer Goods,Strategy guess plant be share.,2021-01-09 03:47:05.395941,0.810931,2021-11-22 00:22:20.542051
+416,Consumer Goods,Star seem drop help evening big bar.,2025-03-10 04:06:07.745030,0.900381,2025-04-06 17:30:07.149233
+417,Finance,Against agent especially measure art try culture.,2023-02-26 21:10:07.710539,0.449392,2023-11-15 18:49:22.355353
+418,Finance,Family music area study debate trial them.,2021-06-18 01:07:56.388074,0.185956,2023-09-09 03:30:06.257754
+419,Consumer Goods,Beat off many yourself simple stock.,2022-07-13 09:07:46.926252,0.824683,2024-02-10 04:10:06.188997
+420,Healthcare,Idea why second.,2024-01-08 22:27:53.484885,0.432631,2024-12-08 01:01:42.028442
+421,Energy,Region other PM.,2023-01-05 08:40:31.519559,0.405212,2024-04-22 19:43:20.789654
+422,Energy,Within seat especially full occur often board.,2025-01-27 06:18:35.516232,0.782375,2025-04-16 14:43:56.114703
+423,Consumer Goods,Each forward challenge purpose road.,2022-05-28 13:42:43.122017,0.149186,2022-10-28 01:35:56.244774
+424,Healthcare,Time capital collection practice.,2022-07-08 09:39:46.200958,0.841338,2024-01-18 19:15:28.594205
+425,Technology,Again little stop never total white course.,2024-10-24 09:01:32.535154,0.694858,2025-03-30 12:10:07.572911
+426,Technology,Name under significant it.,2024-07-16 16:15:28.098903,0.383376,2024-08-28 10:42:40.909717
+427,Energy,We exactly significant society edge.,2021-04-16 15:00:07.844420,0.734971,2024-08-19 17:04:07.968969
+428,Consumer Goods,Begin would financial teacher account hour this.,2023-11-25 11:39:10.761175,0.152047,2025-04-23 22:33:54.321697
+429,Energy,His day common prepare increase face film purpose.,2020-07-19 06:38:12.595715,0.398038,2021-10-18 16:08:03.565307
+430,Finance,Improve attention story adult information.,2024-10-30 22:37:35.694175,0.289811,2025-05-08 00:01:59.965814
+431,Technology,Event list picture provide glass significant tonight.,2025-01-08 03:17:18.905607,0.916084,2025-03-13 22:14:05.996932
+432,Finance,Than with no anyone with.,2024-04-15 22:27:53.523965,0.524840,2024-05-09 00:17:47.103021
+433,Energy,Red need country carry.,2022-06-15 18:27:08.315835,0.412747,2022-10-17 09:40:08.980816
+434,Energy,Recent rule author though ready listen.,2023-04-30 10:56:01.651049,0.110953,2024-03-07 11:41:24.867085
+435,Energy,Red pull class western.,2022-07-23 06:45:23.673538,0.321621,2023-11-25 21:25:48.676192
+436,Technology,National all example play scene cold try approach.,2022-01-26 08:36:47.023817,0.902960,2022-10-20 11:02:27.653842
+437,Finance,Cut hotel media television leave.,2022-03-22 07:44:01.117607,0.821401,2025-03-02 23:49:01.813493
+438,Healthcare,Wait soon high item.,2020-11-05 01:29:06.423833,0.511428,2023-06-23 22:51:09.951487
+439,Consumer Goods,Treatment Mrs idea.,2020-05-18 00:07:27.768116,0.691780,2024-11-02 06:48:45.747931
+440,Finance,Reveal expect much apply.,2021-03-18 10:00:42.694445,0.847097,2022-09-25 10:03:57.168789
+441,Technology,Exactly spend sister woman hotel.,2022-07-28 00:35:43.960518,0.811094,2024-05-20 20:07:00.402544
+442,Consumer Goods,Add body central.,2023-04-08 05:32:16.129679,0.974102,2024-12-15 14:48:37.173137
+443,Consumer Goods,Why keep painting else.,2020-05-14 08:07:49.042907,0.626349,2024-01-07 00:12:03.039777
+444,Technology,Marriage artist force nation.,2020-07-16 23:10:41.379672,0.838517,2023-06-07 19:02:03.152119
+445,Consumer Goods,Word among two arrive since.,2020-09-16 18:41:26.569443,0.805795,2024-09-29 15:09:58.066936
+446,Healthcare,Well direction act thousand body power.,2023-09-16 21:41:14.952455,0.115470,2023-09-30 10:52:06.927684
+447,Technology,Eye accept buy require ahead threat hit.,2022-06-20 01:13:35.952645,0.964053,2023-01-08 03:49:20.723743
+448,Finance,Travel particularly nothing.,2021-12-10 01:42:27.595242,0.448078,2023-10-30 16:28:23.617531
+449,Energy,That now individual whatever resource experience.,2025-02-13 21:07:47.845299,0.667202,2025-03-18 00:08:14.453852
+450,Healthcare,Number thus science maintain.,2023-04-24 07:23:19.592215,0.881429,2024-05-30 11:24:14.240266
+451,Consumer Goods,Wide administration second little western black.,2021-06-26 12:16:22.813093,0.061954,2021-12-05 20:47:34.519201
+452,Consumer Goods,Soon drug compare hour yeah.,2023-05-07 09:33:57.000291,0.289981,2024-05-24 04:14:31.858535
+453,Finance,High fill evidence piece TV.,2020-12-21 05:57:42.596294,0.840431,2023-03-14 05:35:53.373036
+454,Healthcare,Time sometimes population study cultural.,2023-01-17 05:20:09.847545,0.151528,2023-02-23 10:58:52.119747
+455,Healthcare,Media agency however remember base.,2022-05-15 21:47:12.369929,0.245265,2024-11-18 15:55:28.777570
+456,Healthcare,Chair author increase evening.,2023-12-07 01:22:00.205159,0.394937,2024-11-24 22:25:30.717555
+457,Finance,Training people college part maybe raise shoulder.,2022-02-14 19:48:42.282218,0.295949,2022-08-30 23:32:19.740936
+458,Energy,Attack point budget.,2024-08-18 13:18:05.068114,0.591064,2025-03-01 14:38:35.077153
+459,Consumer Goods,Since provide could item nearly.,2020-08-30 00:39:36.085106,0.167444,2022-12-12 00:54:22.795873
+460,Finance,Job score form maybe tell clearly.,2021-11-05 03:07:07.766967,0.706210,2024-10-04 21:56:10.140227
+461,Energy,Short hold about politics go country.,2023-05-06 19:40:12.581642,0.422845,2024-02-24 07:28:30.522349
+462,Energy,Fall rule tax practice.,2023-10-09 15:14:14.656987,0.960694,2024-03-01 14:48:28.431388
+463,Energy,Goal moment decade.,2022-07-27 12:13:06.301031,0.043654,2023-04-11 01:14:31.161015
+464,Energy,Name white Mrs.,2023-01-24 05:40:33.419935,0.705789,2025-03-21 15:03:16.289325
+465,Healthcare,Business anyone best kid impact.,2022-10-06 07:52:22.236409,0.673391,2024-10-19 17:25:19.194261
+466,Healthcare,Wide education consider threat carry economic minute should.,2021-09-21 20:53:27.318831,0.721997,2021-11-04 05:04:26.349527
+467,Finance,Now image now mean.,2024-05-03 09:44:28.626275,0.452002,2024-05-26 20:47:58.898074
+468,Healthcare,Than pay season year painting.,2021-04-12 13:07:14.338032,0.738272,2022-06-07 02:28:50.846520
+469,Finance,Strong picture break seem much hard.,2024-10-16 07:07:38.338473,0.097251,2024-10-25 16:58:47.165893
+470,Technology,Poor do notice crime truth thousand page exist.,2022-07-23 07:55:00.112211,0.299421,2024-11-10 08:25:24.146192
+471,Energy,Performance religious admit current.,2021-09-13 17:54:42.674863,0.066658,2023-05-22 12:15:46.687115
+472,Healthcare,Section prove set free theory stuff.,2020-09-16 02:28:38.525105,0.149001,2023-02-17 13:04:50.087616
+473,Energy,Report open under.,2022-07-17 13:11:54.585355,0.062381,2022-07-31 15:01:17.482446
+474,Technology,Poor law appear model approach.,2023-03-13 04:19:24.365862,0.599645,2023-12-03 20:38:42.111228
+475,Technology,Thousand research ago imagine throughout and significant without.,2025-04-30 16:41:19.876020,0.000020,2025-05-02 02:37:56.089208
+476,Healthcare,Firm this right hand late be far final.,2022-07-24 05:41:01.052498,0.191359,2024-04-14 15:28:32.276850
+477,Consumer Goods,Find risk second company pass surface.,2024-05-20 18:45:46.159722,0.813705,2024-11-05 19:56:42.912191
+478,Energy,Fear decade tell of.,2021-03-01 04:42:31.585708,0.743728,2022-05-12 16:14:50.046145
+479,Technology,Five notice happen.,2020-08-16 23:33:31.088296,0.387025,2023-10-24 17:17:53.291544
+480,Technology,Everybody unit nature pretty force chair.,2024-01-07 00:24:29.788475,0.845095,2024-10-24 01:28:54.852990
+481,Healthcare,Student story even exactly question last.,2020-05-16 04:25:09.911417,0.354680,2023-07-31 01:02:52.142452
+482,Technology,Factor form address shoulder four role poor special.,2022-10-08 21:51:33.038976,0.180089,2024-01-11 14:36:26.412899
+483,Finance,Industry cut personal safe.,2022-10-30 06:30:37.904618,0.850509,2023-03-29 12:53:44.614994
+484,Technology,Meet away building way office.,2020-12-24 08:12:30.967878,0.584341,2021-03-27 10:55:45.314715
+485,Consumer Goods,Day ability finish middle guy.,2024-07-08 13:55:16.470769,0.698757,2024-10-29 10:50:46.832604
+486,Healthcare,Small must list high.,2023-03-17 13:13:04.826969,0.508780,2025-04-05 09:43:59.730501
+487,Technology,President central provide civil without western.,2023-08-11 05:09:26.634362,0.941621,2025-02-21 17:48:55.887324
+488,Consumer Goods,Can like animal.,2022-07-25 09:21:10.684561,0.891212,2023-11-26 22:26:32.794627
+489,Consumer Goods,Cell draw manager these some health.,2024-06-26 12:33:51.569565,0.627418,2024-10-31 14:26:03.173151
+490,Healthcare,Woman huge player move life full.,2023-08-05 22:30:56.365399,0.315690,2024-05-26 04:50:58.947269
+491,Energy,Same college again democratic include into however.,2020-07-23 13:26:02.646865,0.162034,2024-11-03 03:07:11.107358
+492,Finance,Officer forward street building reduce.,2023-10-01 06:47:28.335839,0.996465,2025-03-04 18:15:04.408655
+493,Healthcare,Century nation task speech also great.,2020-08-25 09:40:04.354091,0.011699,2025-03-02 09:14:29.783889
+494,Technology,Another by mention do store.,2024-05-06 12:47:27.548876,0.551389,2025-02-09 09:11:59.178495
+495,Technology,Certain probably may interest enough never know.,2024-01-28 03:49:44.791572,0.524004,2024-10-30 09:00:09.159111
+496,Technology,Customer key scene people news day music.,2020-10-31 06:52:34.128672,0.968384,2025-03-19 02:19:15.396282
+497,Finance,Bill size site method.,2020-12-15 05:13:27.419743,0.951282,2023-02-10 22:09:02.834093
+498,Energy,Sit future that strategy late.,2020-11-26 02:26:20.236764,0.721160,2023-08-02 17:56:00.231232
+499,Healthcare,Might view should ready.,2022-05-30 05:25:19.344803,0.485524,2024-05-27 04:28:00.474852
+500,Healthcare,Operation key order in discussion growth need.,2024-03-09 16:05:20.952441,0.702292,2024-06-18 19:40:58.152943

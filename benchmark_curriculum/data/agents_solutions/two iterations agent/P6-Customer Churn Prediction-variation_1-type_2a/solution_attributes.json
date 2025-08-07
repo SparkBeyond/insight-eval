@@ -1,0 +1,34 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "spending_per_months_active",
+        "purchase_frequency",
+        "support_interaction_proportion",
+        "total_activities",
+        "first_signup_year",
+        "num_purchases",
+        "average_days_between_purchases",
+        "total_spent",
+        "discount_ratio",
+        "count_discounts",
+        "max_purchase_amount",
+        "signup_to_last_purchase_days"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "spending per months active",
+        "purchase frequency",
+        "support interaction proportion",
+        "total activities",
+        "first signup year",
+        "num purchases",
+        "average days between purchases",
+        "total spent",
+        "discount ratio",
+        "count discounts",
+        "max purchase amount",
+        "signup to last purchase days"
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "enriched_column_names": [
+        "trend_in_monthly_billing_amounts_for_the_past_year",
+        "total_billing_amount_unpaid_in_the_past_year",
+        "frequency_of_overdue_payments_in_the_last_year",
+        "number_of_unresolved_support_tickets_within_a_year",
+        "support_ticket_to_usage_ratio_over_six_months"
+    ],
+    "features_descriptions": [
+        "trend in monthly billing amounts for the past year",
+        "total billing amount unpaid in the past year",
+        "frequency of overdue payments in the last year",
+        "number of unresolved support tickets within a year",
+        "support ticket to usage ratio over six months"
+    ]
+}

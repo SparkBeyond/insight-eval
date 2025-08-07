@@ -1,0 +1,101 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "temperature_fluctuation",
+        "time_since_last_maintenance",
+        "extract_day_of_week",
+        "total_maintenance_cost",
+        "normalized_load_capacity",
+        "voltage_to_current_ratio",
+        "voltage_per_unit_capacity",
+        "operating_hours_to_maintenance_ratio",
+        "extract_hour_of_day",
+        "issues_resolved_in_year",
+        "temperature_deviation",
+        "operating_hours_bucket",
+        "maintenance_frequency",
+        "recent_maintenance_type",
+        "is_issue_resolution_slow"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.10794992459690038": {
+            "name": "temperature_fluctuation",
+            "code": "import datetime\nimport pandas as pd\n\ndef temperature_fluctuation(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Correct key for the environmental conditions table\n    environmental_df = aux_data[\"environmental_conditions_table.csv\"]\n    \n    # Parse the timestamp from the row\n    timestamp = datetime.datetime.strptime(row['timestamp'], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n    # Filter the environmental conditions dataframe for the matching location_id and timestamp\n    battery_conditions = environmental_df[\n        (environmental_df[\"location_id\"] == row[\"log_id\"]) &\n        (pd.to_datetime(environmental_df[\"timestamp\"]) <= timestamp)\n    ]\n    \n    # If there are matching records, calculate the temperature fluctuation\n    if not battery_conditions.empty:\n        return battery_conditions[\"temperature\"].max() - battery_conditions[\"temperature\"].min()\n    \n    # Return None if no matching records are found\n    return None\n"
+        },
+        "0.08028943616033259": {
+            "name": "time_since_last_maintenance",
+            "code": "import datetime\nimport pandas as pd\n\ndef time_since_last_maintenance(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Correct the key to match the aux_data dictionary\n    maintenance_df = aux_data[\"maintenance_records_table.csv\"]\n    \n    # Filter the maintenance records for the specific battery_id\n    battery_maint = maintenance_df[maintenance_df['battery_id'] == row['battery_id']]\n    \n    # Ensure the 'maintenance_date' column is in datetime format\n    battery_maint[\"maintenance_date\"] = pd.to_datetime(battery_maint[\"maintenance_date\"])\n    \n    # Get the most recent maintenance date\n    last_maintenance_date = battery_maint[\"maintenance_date\"].max()\n    \n    # If a maintenance date exists, calculate the time difference in days\n    if not pd.isnull(last_maintenance_date):\n        current_time = datetime.datetime.strptime(row['timestamp'], \"%Y-%m-%d %H:%M:%S.%f\")\n        return (current_time - last_maintenance_date).days\n    \n    # If no maintenance date exists, return None\n    return None\n"
+        },
+        "0.04244179502336284": {
+            "name": "extract_day_of_week",
+            "code": "import datetime\n\ndef extract_day_of_week(row):\n    timestamp = datetime.strptime(row['timestamp'], \"%Y-%m-%d %H:%M:%S.%f\")\n    return timestamp.weekday()\n"
+        },
+        "0.039719624583987735": {
+            "name": "total_maintenance_cost",
+            "code": "\n\ndef total_maintenance_cost(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the maintenance records dataframe using the correct key\n    maintenance_df = aux_data[\"maintenance_records_table.csv\"]\n    \n    # Filter the maintenance records for the specific battery_id in the row\n    battery_maintenance = maintenance_df[maintenance_df[\"battery_id\"] == row[\"battery_id\"]]\n    \n    # Check if there are any maintenance records and calculate the total cost\n    if not battery_maintenance.empty:\n        return battery_maintenance[\"maintenance_cost\"].sum()\n    \n    # Return 0 if no maintenance records are found\n    return 0\n"
+        },
+        "0.037981416587195525": {
+            "name": "normalized_load_capacity",
+            "code": "\n\ndef normalized_load_capacity(row, df_train: pd.DataFrame):\n    return (row['load_capacity'] - df_train['load_capacity'].mean()) / df_train['load_capacity'].std()\n"
+        },
+        "0.01711813385529288": {
+            "name": "voltage_to_current_ratio",
+            "code": "\n\ndef voltage_to_current_ratio(row):\n    if row['current'] != 0:  # Avoid division by zero\n        return row['voltage'] / row['current']\n    return None\n"
+        },
+        "0.015556978410681304": {
+            "name": "voltage_per_unit_capacity",
+            "code": "\n\ndef voltage_per_unit_capacity(row):\n    if row[\"load_capacity\"] > 0:\n        return row[\"voltage\"] / row[\"load_capacity\"]\n    return None\n"
+        },
+        "0.014788643906844205": {
+            "name": "operating_hours_to_maintenance_ratio",
+            "code": "\n\ndef operating_hours_to_maintenance_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the maintenance records dataframe\n    maintenance_df = aux_dataframes[\"maintenance_records_table.csv\"]\n    \n    # Filter the maintenance records for the specific battery_id\n    battery_maintenance = maintenance_df[maintenance_df[\"battery_id\"] == row[\"battery_id\"]]\n    \n    # If there are maintenance records, calculate the ratio\n    if len(battery_maintenance) > 0:\n        return row[\"operating_time\"] / len(battery_maintenance)\n    \n    # If no maintenance records exist, return None\n    return None\n"
+        },
+        "0.010265002333330761": {
+            "name": "extract_hour_of_day",
+            "code": "import datetime\n\ndef extract_hour_of_day(row):\n    timestamp = datetime.strptime(row['timestamp'], \"%Y-%m-%d %H:%M:%S.%f\")\n    return timestamp.hour\n"
+        },
+        "0.009057738009777844": {
+            "name": "issues_resolved_in_year",
+            "code": "import datetime\nimport pandas as pd\n\ndef issues_resolved_in_year(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the correct key\n    issue_logs = aux_data[\"issue_resolution_logs_table.csv\"]\n    \n    # Parse the timestamp from the row\n    row_timestamp = datetime.datetime.strptime(row['timestamp'], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n    # Calculate the date one year ago\n    one_year_ago = row_timestamp - pd.DateOffset(years=1)\n    \n    # Filter the issue logs for the given battery_id and within the one-year range\n    filtered_logs = issue_logs[\n        (issue_logs['battery_id'] == row['battery_id']) & \n        (pd.to_datetime(issue_logs['issue_resolved_date']) >= one_year_ago)\n    ]\n    \n    # Return the count of filtered logs\n    return len(filtered_logs)\n"
+        },
+        "0.005303624634293922": {
+            "name": "temperature_deviation",
+            "code": "\n\ndef temperature_deviation(row, df_train: pd.DataFrame):\n    mean_temperature = df_train['temperature'].mean()\n    return row['temperature'] - mean_temperature\n"
+        },
+        "0.0036941540537551785": {
+            "name": "operating_hours_bucket",
+            "code": "\n\ndef operating_hours_bucket(row):\n    return row['operating_time'] // (12 * 60)\n"
+        },
+        "0.0018766520007938528": {
+            "name": "maintenance_frequency",
+            "code": "import pandas as pd\n\ndef maintenance_frequency(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the key 'maintenance_records_table.csv'\n    maintenance_df = aux_data[\"maintenance_records_table.csv\"]\n    \n    # Filter the maintenance records for the specific battery_id\n    battery_maintenance = maintenance_df[maintenance_df[\"battery_id\"] == row[\"battery_id\"]]\n    \n    # Check if there is more than one maintenance record\n    if len(battery_maintenance) > 1:\n        # Convert the maintenance_date column to datetime and calculate the first and last maintenance dates\n        first_maintenance = pd.to_datetime(battery_maintenance[\"maintenance_date\"]).min()\n        last_maintenance = pd.to_datetime(battery_maintenance[\"maintenance_date\"]).max()\n        \n        # Calculate the total number of years between the first and last maintenance\n        total_years = ((last_maintenance - first_maintenance).days) / 365.25\n        \n        # If the total years is greater than 0, calculate and return the maintenance frequency\n        if total_years > 0:\n            return len(battery_maintenance) / total_years\n    \n    # Return None if there is only one or no maintenance record\n    return None\n"
+        },
+        "-0.0006560837002775877": {
+            "name": "recent_maintenance_type",
+            "code": "\n\ndef recent_maintenance_type(row, aux_data: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_data\n    maintenance_df = aux_data[\"maintenance_records_table.csv\"]\n    \n    # Filter the maintenance records for the given battery_id\n    battery_maintenance = maintenance_df[maintenance_df[\"battery_id\"] == row[\"battery_id\"]]\n    \n    # Check if there are any maintenance records for the battery\n    if not battery_maintenance.empty:\n        # Sort by maintenance_date in descending order and get the most recent record\n        recent_maintenance = battery_maintenance.sort_values(\"maintenance_date\", ascending=False).iloc[0]\n        return recent_maintenance[\"maintenance_type\"]\n    \n    # Return None if no maintenance records are found\n    return None\n"
+        },
+        "0": {
+            "name": "is_issue_resolution_slow",
+            "code": "import pandas as pd\n\ndef is_issue_resolution_slow(row, df_train: pd.DataFrame, aux_dataframes, threshold=7):\n    duration = issue_resolution_time(row, df_train, aux_dataframes)\n    if duration is not None:\n        return int(duration > threshold)\n    return 0\n\ndef issue_resolution_time(row, df_train: pd.DataFrame, aux_dataframes):\n    issue_logs = aux_dataframes[\"issue_resolution_logs\"]\n    battery_issues = issue_logs[issue_logs['battery_id'] == row['battery_id']]\n    battery_issues[\"issue_resolved_date\"] = pd.to_datetime(battery_issues[\"issue_resolved_date\"])\n    battery_issues[\"issue_reported_date\"] = pd.to_datetime(battery_issues[\"issue_reported_date\"])\n    # Filter for resolved issues only\n    resolved_issues = battery_issues[battery_issues[\"issue_resolved_date\"].notna()]\n    if not resolved_issues.empty:\n        last_resolved = resolved_issues[\"issue_resolved_date\"].max()\n        resolution_duration = (last_resolved - resolved_issues[resolved_issues[\"issue_resolved_date\"] == last_resolved][\"issue_reported_date\"].values[0]).days\n        return resolution_duration\n    return None\n"
+        }
+    },
+    "feature_descriptions": [
+        "temperature fluctuation",
+        "time since last maintenance",
+        "extract day of week",
+        "total maintenance cost",
+        "normalized load capacity",
+        "voltage to current ratio",
+        "voltage per unit capacity",
+        "operating hours to maintenance ratio",
+        "extract hour of day",
+        "issues resolved in year",
+        "temperature deviation",
+        "operating hours bucket",
+        "maintenance frequency",
+        "recent maintenance type",
+        "is issue resolution slow"
+    ]
+}

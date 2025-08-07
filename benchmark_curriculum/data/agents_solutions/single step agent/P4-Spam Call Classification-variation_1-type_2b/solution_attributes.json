@@ -1,0 +1,71 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "registration_vintage",
+        "registration_vintage_months",
+        "spam_complaints",
+        "unique_recipients",
+        "avg_call_cost",
+        "avg_spam_severity",
+        "peak_call_hour",
+        "total_spam_calls",
+        "outgoing_call_rate",
+        "num_missed_calls"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.4959122508792696": {
+            "name": "registration_vintage",
+            "code": "import datetime\n\ndef registration_vintage(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the user_id from the row\n    user_id = row['user_id']\n    \n    # Get the user_profiles_table dataframe from aux_data\n    user_profiles = aux_data['user_profiles_table.csv']\n    \n    # Find the registration_date for the given user_id\n    user_profile = user_profiles[user_profiles['user_id'] == user_id]\n    \n    # If the user_id is not found, return None\n    if user_profile.empty:\n        return None\n    \n    # Extract the registration_date\n    registration_date_str = user_profile.iloc[0]['registration_date']\n    \n    # Convert the registration_date to a datetime object\n    registration_date = datetime.datetime.strptime(registration_date_str, '%Y-%m-%d')\n    \n    # Calculate the vintage in days\n    vintage_days = (datetime.datetime.now() - registration_date).days\n    \n    return vintage_days\n"
+        },
+        "0.4959122508792692": {
+            "name": "registration_vintage_months",
+            "code": "import datetime\n\ndef registration_vintage_months(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the user_id from the row\n    user_id = row['user_id']\n    \n    # Get the user_profiles_table dataframe from aux_data\n    user_profiles = aux_data.get('user_profiles_table.csv')\n    \n    # Check if the user_profiles_table exists and contains the user_id\n    if user_profiles is not None and user_id in user_profiles['user_id'].values:\n        # Get the registration_date for the user_id\n        registration_date_str = user_profiles.loc[user_profiles['user_id'] == user_id, 'registration_date'].values[0]\n        \n        # Parse the registration_date string into a datetime object\n        registration_date = datetime.datetime.strptime(registration_date_str, '%Y-%m-%d')\n        \n        # Calculate the vintage in months\n        vintage_months = (datetime.datetime.now() - registration_date).days / 30\n        return vintage_months\n    else:\n        # If user_id is not found or user_profiles_table is missing, return None\n        return None\n"
+        },
+        "0.04314214432797302": {
+            "name": "spam_complaints",
+            "code": "\n\ndef spam_complaints(row: pd.Series, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Check if 'spam_reports_table' exists in aux_data\n    if \"spam_reports_table.csv\" not in aux_data:\n        raise KeyError(\"'spam_reports_table.csv' is missing from aux_data\")\n    \n    # Access the spam reports table\n    spam_reports_table = aux_data[\"spam_reports_table.csv\"]\n    \n    # Ensure the required columns exist in the spam reports table\n    required_columns = {'user_id'}\n    if not required_columns.issubset(spam_reports_table.columns):\n        raise KeyError(f\"The spam reports table is missing required columns: {required_columns - set(spam_reports_table.columns)}\")\n    \n    # Extract the user_id from the row\n    user_id = row['user_id']\n    \n    # Count the number of spam reports for the given user_id\n    return spam_reports_table[spam_reports_table['user_id'] == user_id].shape[0]\n"
+        },
+        "0.03805969953185406": {
+            "name": "unique_recipients",
+            "code": "\n\ndef unique_recipients(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Check if 'calling_patterns_table.csv' exists in aux_data\n    if \"calling_patterns_table.csv\" not in aux_data:\n        raise KeyError(\"'calling_patterns_table.csv' is missing from aux_data\")\n\n    # Get the calling_patterns_table dataframe\n    calling_patterns = aux_data[\"calling_patterns_table.csv\"]\n\n    # Ensure the required columns exist in the dataframe\n    if 'user_id' not in calling_patterns.columns or 'unique_recipients' not in calling_patterns.columns:\n        raise KeyError(\"The required columns 'user_id' or 'unique_recipients' are missing from 'calling_patterns_table.csv'\")\n\n    # Extract the user_id from the row\n    user_id = row['user_id']\n\n    # Filter the calling_patterns dataframe for the given user_id\n    user = calling_patterns[calling_patterns['user_id'] == user_id]\n\n    # Return the 'unique_recipients' value if the user exists, otherwise return 0\n    return user.iloc[0]['unique_recipients'] if not user.empty else 0\n"
+        },
+        "0.025803550634763195": {
+            "name": "avg_call_cost",
+            "code": "\n\ndef avg_call_cost(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    user_id = row['user_id']\n    \n    # Access the correct dataframe using the appropriate key\n    calls = aux_dataframes.get(\"calling_patterns_table.csv\")\n    \n    # Check if the dataframe exists and is not None\n    if calls is None:\n        raise KeyError(\"The key 'calling_patterns_table.csv' is missing in aux_dataframes.\")\n    \n    # Filter the dataframe for the specific user_id\n    user_calls = calls[calls['user_id'] == user_id]\n    \n    # Ensure the necessary columns exist before attempting to calculate the average call cost\n    required_columns = {'total_calls', 'total_call_duration'}\n    if not required_columns.issubset(user_calls.columns):\n        raise KeyError(f\"The required columns {required_columns} are missing in the calling patterns table.\")\n    \n    # Calculate the average call cost\n    # Assuming average call cost is proportional to total_call_duration / total_calls\n    if not user_calls.empty:\n        total_calls = user_calls['total_calls'].sum()\n        total_call_duration = user_calls['total_call_duration'].sum()\n        # Avoid division by zero\n        if total_calls > 0:\n            return total_call_duration / total_calls\n        else:\n            return 0\n    else:\n        return 0\n"
+        },
+        "0.009001503116445235": {
+            "name": "avg_spam_severity",
+            "code": "\n\ndef avg_spam_severity(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure we use the correct key to access the spam_reports_table DataFrame\n    spam_reports_key = 'spam_reports_table.csv'  # Adjusted to match the filename-based key\n    if spam_reports_key not in aux_data:\n        raise KeyError(f\"Key '{spam_reports_key}' not found in aux_data. Available keys: {list(aux_data.keys())}\")\n    \n    # Access the spam_reports_table DataFrame\n    spam_reports_table = aux_data[spam_reports_key]\n    \n    # Extract the user_id from the row\n    user_id = row['user_id']\n    \n    # Filter the spam_reports_table for the given user_id\n    reports = spam_reports_table[spam_reports_table['user_id'] == user_id]\n    \n    # Calculate and return the average spam severity, or 0 if no reports exist\n    return reports['spam_severity'].mean() if not reports.empty else 0\n"
+        },
+        "0.004445164361137954": {
+            "name": "peak_call_hour",
+            "code": "\n\ndef peak_call_hour(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the key 'user_profiles_table.csv' exists in aux_data\n    if \"user_profiles_table.csv\" not in aux_data:\n        raise KeyError(\"The key 'user_profiles_table.csv' is missing in aux_data.\")\n    \n    # Access the user_profiles_table dataframe\n    profiles = aux_data[\"user_profiles_table.csv\"]\n    \n    # Ensure the required column 'preferred_calling_time' exists in the dataframe\n    if 'preferred_calling_time' not in profiles.columns:\n        raise KeyError(\"The column 'preferred_calling_time' is missing in the user_profiles_table dataframe.\")\n    \n    # Get the user_id from the row\n    user_id = row['user_id']\n    \n    # Filter the profiles dataframe to find the matching user_id\n    user = profiles[profiles['user_id'] == user_id]\n    \n    # Return the 'preferred_calling_time' value if the user exists, otherwise return None\n    return user.iloc[0]['preferred_calling_time'] if not user.empty else None\n"
+        },
+        "0.004068204969561114": {
+            "name": "total_spam_calls",
+            "code": "\n\ndef total_spam_calls(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'calling_patterns_table.csv' exists in aux_dataframes\n    if \"calling_patterns_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'calling_patterns_table.csv' is missing from aux_dataframes.\")\n    \n    # Get the calling_patterns_table dataframe\n    calling_patterns = aux_dataframes[\"calling_patterns_table.csv\"]\n    \n    # Ensure the dataframe contains the expected columns\n    required_columns = {'user_id', 'spam_calls_count'}\n    if not required_columns.issubset(calling_patterns.columns):\n        raise ValueError(f\"The dataframe 'calling_patterns_table.csv' is missing required columns: {required_columns - set(calling_patterns.columns)}\")\n    \n    # Extract the user_id from the row\n    user_id = row['user_id']\n    \n    # Filter the calling_patterns dataframe for the given user_id\n    user = calling_patterns[calling_patterns['user_id'] == user_id]\n    \n    # Return the spam_calls_count if the user exists, otherwise return 0\n    return user.iloc[0]['spam_calls_count'] if not user.empty else 0\n"
+        },
+        "0.0022031661758049547": {
+            "name": "outgoing_call_rate",
+            "code": "\n\ndef outgoing_call_rate(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    user_id = row['user_id']\n    # Use the provided dataframe (df_train) for call details\n    calls = df_train\n    # Calculate the total number of calls for the user\n    total_calls = calls[calls['user_id'] == user_id].shape[0]\n    if total_calls == 0:\n        return 0\n    # Calculate the number of outgoing calls for the user\n    outgoing_calls = calls[(calls['user_id'] == user_id) & (calls['call_type'] == 'outgoing')].shape[0]\n    # Return the outgoing call rate\n    return outgoing_calls / total_calls\n"
+        },
+        "0": {
+            "name": "num_missed_calls",
+            "code": "\n\ndef num_missed_calls(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    user_id = row['user_id']\n    \n    # Access the correct dataframe from aux_data\n    calls = aux_data[\"calling_patterns_table.csv\"]\n    \n    # Ensure the column names match and filter for missed calls\n    if 'user_id' in calls.columns and 'call_type' in calls.columns:\n        missed_calls = calls[(calls['user_id'] == user_id) & (calls['call_type'] == 'missed')]\n        return missed_calls.shape[0]\n    else:\n        # If the required columns are missing, return 0 or handle the error appropriately\n        return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "registration vintage",
+        "registration vintage months",
+        "spam complaints",
+        "unique recipients",
+        "avg call cost",
+        "avg spam severity",
+        "peak call hour",
+        "total spam calls",
+        "outgoing call rate",
+        "num missed calls"
+    ]
+}

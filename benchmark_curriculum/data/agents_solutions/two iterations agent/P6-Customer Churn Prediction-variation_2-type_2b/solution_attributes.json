@@ -1,0 +1,26 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "last_purchase_recency",
+        "pct_purchases_with_discounts",
+        "support_interaction_ratio",
+        "count_discounts",
+        "num_purchases_repeated_colname1",
+        "last_activity_recency",
+        "purchase_frequency",
+        "first_signup_year"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "last purchase recency",
+        "pct purchases with discounts",
+        "support interaction ratio",
+        "count discounts",
+        "num purchases repeated colname1",
+        "last activity recency",
+        "purchase frequency",
+        "first signup year"
+    ]
+}

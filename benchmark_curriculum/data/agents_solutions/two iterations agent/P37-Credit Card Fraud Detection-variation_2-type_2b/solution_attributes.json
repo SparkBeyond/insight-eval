@@ -1,0 +1,71 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "transaction_amount_relative_to_spend",
+        "customer_transaction_frequency",
+        "merchant_risk_level",
+        "time_since_last_login",
+        "account_balance_percentage",
+        "transaction_day_of_week",
+        "transaction_hour_of_day",
+        "account_age_in_days",
+        "transaction_amount_bucket",
+        "location_distance_to_usual"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.1595992152195935": {
+            "name": "transaction_amount_relative_to_spend",
+            "code": "import numpy as np\n\ndef transaction_amount_relative_to_spend(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculates the ratio of transaction amount to the customer's average monthly spend.\n    \"\"\"\n    customer_behavior = aux_dataframes['customer_behavior_table.csv']\n    account_details = aux_dataframes['account_details_table.csv']\n    account_row = account_details[account_details['account_id'] == row['account_id']]\n    if account_row.empty:\n        return np.nan\n    customer_id = account_row.iloc[0]['customer_id']\n    customer_row = customer_behavior[customer_behavior['customer_id'] == customer_id]\n    if customer_row.empty:\n        return np.nan\n    avg_monthly_spend = customer_row.iloc[0]['average_monthly_spend']\n    return row['transaction_amount'] / avg_monthly_spend\n"
+        },
+        "0.12412976451457754": {
+            "name": "customer_transaction_frequency",
+            "code": "import numpy as np\n\ndef customer_transaction_frequency(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Fetch the customer's reported transaction frequency.\n    \"\"\"\n    customer_behavior = aux_dataframes['customer_behavior_table.csv']\n    account_details = aux_dataframes['account_details_table.csv']\n    account_row = account_details[account_details['account_id'] == row['account_id']]\n    if account_row.empty:\n        return np.nan\n    customer_id = account_row.iloc[0]['customer_id']\n    customer_row = customer_behavior[customer_behavior['customer_id'] == customer_id]\n    if customer_row.empty:\n        return np.nan\n    return customer_row.iloc[0]['transaction_frequency']\n"
+        },
+        "0.10971267020117728": {
+            "name": "merchant_risk_level",
+            "code": "import numpy as np\n\ndef merchant_risk_level(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Maps merchant risk level to a numerical score.\n    \"\"\"\n    merchant_details = aux_dataframes['merchant_details_table.csv']\n    merchant_row = merchant_details[merchant_details['merchant_id'] == row['merchant_id']]\n    if merchant_row.empty:\n        return np.nan\n    risk_map = {'low': 1, 'medium': 2, 'high': 3}\n    return risk_map.get(merchant_row.iloc[0]['risk_level'], np.nan)\n"
+        },
+        "0.08763584334537548": {
+            "name": "time_since_last_login",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef time_since_last_login(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculates the time in days since the customer's last login.\n    \"\"\"\n    customer_behavior = aux_dataframes['customer_behavior_table.csv']\n    account_details = aux_dataframes['account_details_table.csv']\n    account_row = account_details[account_details['account_id'] == row['account_id']]\n    if account_row.empty:\n        return np.nan\n    customer_id = account_row.iloc[0]['customer_id']\n    customer_row = customer_behavior[customer_behavior['customer_id'] == customer_id]\n    if customer_row.empty:\n        return np.nan\n    last_login_date = pd.Timestamp(customer_row.iloc[0]['last_login_date'])\n    transaction_date = pd.Timestamp(row['transaction_date'])\n    return (transaction_date - last_login_date).days\n"
+        },
+        "0.016627571668299784": {
+            "name": "account_balance_percentage",
+            "code": "import numpy as np\n\ndef account_balance_percentage(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculates the percentage of the credit limit currently used on the account.\n    \"\"\"\n    account_details = aux_dataframes['account_details_table.csv']\n    account_row = account_details[account_details['account_id'] == row['account_id']]\n    if account_row.empty:\n        return np.nan\n    current_balance = account_row.iloc[0]['current_balance']\n    credit_limit = account_row.iloc[0]['credit_limit']\n    return current_balance / credit_limit\n"
+        },
+        "0.008594894814743468": {
+            "name": "transaction_day_of_week",
+            "code": "import pandas as pd\n\ndef transaction_day_of_week(row):\n    \"\"\"\n    Extract the day of the week for the transaction.\n    \"\"\"\n    return pd.Timestamp(row['transaction_date']).dayofweek\n"
+        },
+        "0.00568324505393071": {
+            "name": "transaction_hour_of_day",
+            "code": "import pandas as pd\n\ndef transaction_hour_of_day(row):\n    \"\"\"\n    Extract the hour of the day for the transaction.\n    \"\"\"\n    return pd.Timestamp(row['transaction_date']).hour\n"
+        },
+        "0.002386392745116842": {
+            "name": "account_age_in_days",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef account_age_in_days(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculates the age of the account in days at the time of the transaction.\n    \"\"\"\n    account_details = aux_dataframes['account_details_table.csv']\n    account_row = account_details[account_details['account_id'] == row['account_id']]\n    if account_row.empty:\n        return np.nan\n    account_open_date = pd.Timestamp(account_row.iloc[0]['account_open_date'])\n    transaction_date = pd.Timestamp(row['transaction_date'])\n    return (transaction_date - account_open_date).days\n"
+        },
+        "0.0021306454218890103": {
+            "name": "transaction_amount_bucket",
+            "code": "\n\ndef transaction_amount_bucket(row):\n    \"\"\"\n    Buckets the transaction amounts into categories.\n    \"\"\"\n    amount = row['transaction_amount']\n    if amount < 100:\n        return 'low'\n    elif 100 <= amount <= 1000:\n        return 'medium'\n    elif 1000 < amount <= 5000:\n        return 'high'\n    else:\n        return 'very_high'\n"
+        },
+        "0": {
+            "name": "location_distance_to_usual",
+            "code": "import numpy as np\n\ndef location_distance_to_usual(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculates if the transaction location matches the customer's usual ones.\n    \"\"\"\n    customer_behavior = aux_dataframes['customer_behavior_table.csv']\n    account_details = aux_dataframes['account_details_table.csv']\n    account_row = account_details[account_details['account_id'] == row['account_id']]\n    if account_row.empty:\n        return np.nan\n    customer_id = account_row.iloc[0]['customer_id']\n    customer_row = customer_behavior[customer_behavior['customer_id'] == customer_id]\n    if customer_row.empty:\n        return 0\n    usual_locations = customer_row.iloc[0]['usual_locations']\n    transaction_location = row['location']\n    return int(transaction_location in usual_locations)\n"
+        }
+    },
+    "feature_descriptions": [
+        "transaction amount relative to spend",
+        "customer transaction frequency",
+        "merchant risk level",
+        "time since last login",
+        "account balance percentage",
+        "transaction day of week",
+        "transaction hour of day",
+        "account age in days",
+        "transaction amount bucket",
+        "location distance to usual"
+    ]
+}

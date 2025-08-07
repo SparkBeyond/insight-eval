@@ -1,0 +1,59 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "calculate_last_feedback_score",
+        "calculate_subscription_duration",
+        "calculate_tenure_months",
+        "calculate_total_payment",
+        "calculate_signup_year",
+        "calculate_active_days_since_signup",
+        "calculate_age_group",
+        "calculate_is_recent_feedback"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.08665517459570628": {
+            "name": "calculate_last_feedback_score",
+            "code": "\n\ndef calculate_last_feedback_score(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Extract the customer feedback table from aux_data\n    customer_feedback_df = aux_data['customer_feedback_table.csv']\n    \n    # Filter the feedback data for the given customer_id\n    customer_feedback = customer_feedback_df[customer_feedback_df['customer_id'] == row['customer_id']]\n    \n    # If no feedback exists for the customer, return None\n    if customer_feedback.empty:\n        return None\n    \n    # Sort the feedback data by feedback_date in descending order\n    customer_feedback = customer_feedback.sort_values('feedback_date', ascending=False)\n    \n    # Return the most recent satisfaction_score\n    return customer_feedback.iloc[0]['satisfaction_score']\n"
+        },
+        "0.03439978268258046": {
+            "name": "calculate_subscription_duration",
+            "code": "import pandas as pd\n\ndef calculate_subscription_duration(row):\n    if pd.isnull(row['subscription_start_date']) or pd.isnull(row['subscription_end_date']):\n        return None\n    return (pd.to_datetime(row['subscription_end_date']) - pd.to_datetime(row['subscription_start_date'])).days\n"
+        },
+        "0.032897461847404275": {
+            "name": "calculate_tenure_months",
+            "code": "import pandas as pd\n\ndef calculate_tenure_months(row, aux_data: Dict[str, pd.DataFrame]):\n    # Check if 'subscription_start_date' exists and is not null\n    if pd.isnull(row.get('subscription_start_date')):\n        return None\n    \n    # Convert 'subscription_start_date' to a datetime object\n    start_date = pd.to_datetime(row['subscription_start_date'])\n    \n    # Calculate the tenure in months\n    tenure_months = (pd.Timestamp.now() - start_date).days // 30\n    \n    return tenure_months\n"
+        },
+        "0.02481581039424367": {
+            "name": "calculate_total_payment",
+            "code": "\n\ndef calculate_total_payment(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Extract the payment history dataframe from aux_data\n    payment_history_df = aux_data['payment_history_table.csv']\n    \n    # Ensure the 'customer_id' column exists in the payment history dataframe\n    if 'customer_id' not in payment_history_df.columns or 'amount' not in payment_history_df.columns:\n        raise ValueError(\"The payment history dataframe does not have the required columns: 'customer_id' and 'amount'\")\n    \n    # Filter the payment history dataframe for the given customer_id and calculate the total payment\n    customer_id = row['customer_id']\n    total_payment = payment_history_df[payment_history_df['customer_id'] == customer_id]['amount'].sum()\n    \n    return total_payment\n"
+        },
+        "0.0033797232138614046": {
+            "name": "calculate_signup_year",
+            "code": "import pandas as pd\n\ndef calculate_signup_year(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Get the customer_profiles_table dataframe from aux_data\n    customer_profiles_df = aux_data['customer_profiles_table.csv']\n    \n    # Find the signup_date for the given customer_id\n    signup_date = customer_profiles_df.loc[\n        customer_profiles_df['customer_id'] == customer_id, 'signup_date'\n    ].squeeze()\n    \n    # Convert the signup_date to a datetime object and extract the year\n    signup_year = pd.to_datetime(signup_date).year\n    \n    return signup_year\n"
+        },
+        "0.002898050421967444": {
+            "name": "calculate_active_days_since_signup",
+            "code": "import pandas as pd\n\ndef calculate_active_days_since_signup(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Retrieve the signup_date from the customer_profiles_table.csv\n    customer_profiles = aux_data['customer_profiles_table.csv']\n    signup_date_row = customer_profiles[customer_profiles['customer_id'] == customer_id]\n    if signup_date_row.empty or pd.isnull(signup_date_row.iloc[0]['signup_date']):\n        return None\n    signup_date = pd.to_datetime(signup_date_row.iloc[0]['signup_date'])\n    \n    # Retrieve the earliest payment_date from the payment_history_table.csv\n    payment_history = aux_data['payment_history_table.csv']\n    payment_dates = payment_history[payment_history['customer_id'] == customer_id]['payment_date']\n    if payment_dates.empty or payment_dates.isnull().all():\n        return None\n    earliest_payment_date = pd.to_datetime(payment_dates.min())\n    \n    # Calculate the difference in days\n    return (earliest_payment_date - signup_date).days\n"
+        },
+        "-0.000128250268724317": {
+            "name": "calculate_age_group",
+            "code": "\n\ndef calculate_age_group(row, aux_data: Dict[str, pd.DataFrame]):\n    # Get the customer_profiles_table dataframe from aux_data\n    customer_profiles = aux_data['customer_profiles_table.csv']\n    \n    # Find the customer's age using the customer_id from the row\n    customer_id = row['customer_id']\n    customer_profile = customer_profiles[customer_profiles['customer_id'] == customer_id]\n    \n    # If the customer is found, get their age\n    if not customer_profile.empty:\n        age = customer_profile.iloc[0]['age']\n    else:\n        # If the customer is not found, return a default value or handle the case\n        return \"Unknown\"\n    \n    # Determine the age group based on the age\n    if age < 18:\n        return \"Child\"\n    elif age < 35:\n        return \"Young Adult\"\n    elif age < 55:\n        return \"Adult\"\n    else:\n        return \"Senior\"\n"
+        },
+        "0": {
+            "name": "calculate_is_recent_feedback",
+            "code": "import pandas as pd\n\ndef calculate_is_recent_feedback(row, aux_data: Dict[str, pd.DataFrame]) -> bool:\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Retrieve the relevant dataframes from aux_data\n    feedback_df = aux_data['customer_feedback_table.csv']\n    profiles_df = aux_data['customer_profiles_table.csv']\n    \n    # Get the feedback_date for the given customer_id\n    feedback_row = feedback_df[feedback_df['customer_id'] == customer_id]\n    if feedback_row.empty:\n        return False  # No feedback found for this customer\n    \n    # Get the most recent feedback_date\n    feedback_date = pd.to_datetime(feedback_row['feedback_date'].max())\n    \n    # Get the signup_date for the given customer_id\n    profile_row = profiles_df[profiles_df['customer_id'] == customer_id]\n    if profile_row.empty:\n        return False  # No profile found for this customer\n    \n    signup_date = pd.to_datetime(profile_row['signup_date'].iloc[0])\n    \n    # Check if the feedback is within 30 days of the signup date\n    return (feedback_date - signup_date).days < 30\n"
+        }
+    },
+    "feature_descriptions": [
+        "calculate last feedback score",
+        "calculate subscription duration",
+        "calculate tenure months",
+        "calculate total payment",
+        "calculate signup year",
+        "calculate active days since signup",
+        "calculate age group",
+        "calculate is recent feedback"
+    ]
+}

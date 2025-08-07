@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "marketing_spend",
+        "competitor_promotions",
+        "economic_indicators"
+    ],
+    "features_descriptions": [
+        "marketing spend",
+        "competitor promotions",
+        "economic indicators"
+    ]
+}

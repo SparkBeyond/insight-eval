@@ -1,0 +1,51 @@
+carrier_id,carrier_name,fleet_size,on_time_performance_rate,maintenance_frequency,incident_count
+CRR0000,"Perry, Turner and Diaz",277,82.430000,5,23
+CRR0001,Miranda Ltd,158,75.240000,12,45
+CRR0002,"Stanley, Rodriguez and Johnson",286,89.840000,2,1
+CRR0003,Ochoa-Barnes,137,81.530000,12,26
+CRR0004,"Lang, Davidson and Cohen",139,95.790000,6,40
+CRR0005,"Morales, Murillo and Brown",443,90.530000,12,25
+CRR0006,Hernandez Ltd,80,99.950000,1,8
+CRR0007,"Hansen, Moses and Clark",426,93.750000,4,9
+CRR0008,"Martinez, Baldwin and Jones",461,91.170000,9,43
+CRR0009,Miller-Case,117,79.930000,2,45
+CRR0010,Bowman-Greene,337,72.080000,7,5
+CRR0011,"Burnett, Li and Mora",269,98.190000,8,40
+CRR0012,Reynolds PLC,317,74.250000,7,32
+CRR0013,Prince Ltd,481,80.090000,7,23
+CRR0014,Williams-Woods,302,71.550000,12,22
+CRR0015,"Schroeder, Parrish and Allen",35,98.790000,6,37
+CRR0016,"Lewis, Wright and Bernard",406,70.150000,7,15
+CRR0017,Adams LLC,69,86.700000,4,33
+CRR0018,Adkins PLC,500,80.790000,5,4
+CRR0019,"Spencer, Anderson and Barrett",412,78.260000,12,38
+CRR0020,Flores-Rivera,434,86.670000,9,8
+CRR0021,"Lane, Nelson and Smith",138,89.760000,6,20
+CRR0022,Smith-Garner,97,79.960000,10,37
+CRR0023,Schultz-Daniel,410,78.180000,1,3
+CRR0024,Scott-Goodman,395,99.720000,1,29
+CRR0025,"Kent, Smith and Elliott",391,78.180000,11,3
+CRR0026,"Taylor, Washington and Bean",383,75.950000,5,4
+CRR0027,"Velasquez, White and Cowan",393,99.600000,8,1
+CRR0028,Rhodes and Sons,327,86.930000,11,8
+CRR0029,Wilkinson PLC,216,84.550000,10,25
+CRR0030,Ballard-Mora,103,75.870000,5,9
+CRR0031,Williams-Howe,356,73.310000,4,3
+CRR0032,Vazquez LLC,441,99.200000,5,20
+CRR0033,Sandoval-Powell,425,79.480000,3,26
+CRR0034,Weaver PLC,57,90.740000,5,16
+CRR0035,"Krause, Walker and Rubio",346,99.910000,8,4
+CRR0036,"Martin, Phillips and Hardy",287,72.550000,11,15
+CRR0037,Willis-Summers,125,85.970000,5,36
+CRR0038,Spencer PLC,93,94.040000,1,46
+CRR0039,"Wallace, Coffey and Walton",464,84.600000,7,31
+CRR0040,Webb and Sons,123,86.620000,9,40
+CRR0041,George-Nixon,237,72.320000,8,48
+CRR0042,"Bradley, Henderson and Barry",121,76.870000,6,12
+CRR0043,Brandt-Jackson,196,87.940000,12,36
+CRR0044,"Hall, Edwards and Jackson",300,85.580000,1,21
+CRR0045,Turner LLC,306,75.070000,9,14
+CRR0046,Vargas-Stone,323,79.400000,3,48
+CRR0047,"Smith, Dunlap and Roach",118,79.100000,6,28
+CRR0048,"Hubbard, Cole and Griffin",312,72.800000,2,33
+CRR0049,"Taylor, Dunn and Chavez",15,75.760000,10,45

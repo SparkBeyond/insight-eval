@@ -1,0 +1,83 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "recent_loan_status",
+        "income_to_loan_ratio",
+        "avg_interest_rate",
+        "max_loan_amount",
+        "credit_score_norm",
+        "compute_age",
+        "avg_loan_term",
+        "loan_application_frequency",
+        "loan_amount_trend",
+        "gender_employment_status_combo",
+        "debt_to_credit_weighted",
+        "paid_off_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.2128298771837157": {
+            "name": "recent_loan_status",
+            "code": "\n\ndef recent_loan_status(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    applicant_id = row['applicant_id']  # Use lowercase 'applicant_id' to match the column name\n    prev_loans = aux_dataframes['previous_loans_table.csv'][\n        aux_dataframes['previous_loans_table.csv']['applicant_id'] == applicant_id\n    ]\n    if prev_loans.empty:  # Handle case where there are no previous loans\n        return None\n    most_recent = prev_loans.sort_values(by='start_date', ascending=False).iloc[0]\n    return most_recent['loan_status']  # Use lowercase 'loan_status' to match the column name\n"
+        },
+        "0.12028509045441352": {
+            "name": "income_to_loan_ratio",
+            "code": "\n\ndef income_to_loan_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the applicant_id from the row\n    applicant_id = row['applicant_id']\n    \n    # Access the applicant_demographics_table.csv dataframe\n    demographics_df = aux_dataframes['applicant_demographics_table.csv']\n    \n    # Retrieve the annual income for the given applicant_id\n    income_row = demographics_df.loc[demographics_df['applicant_id'] == applicant_id, 'annual_income']\n    \n    # Ensure the income_row is not empty to avoid IndexError\n    if income_row.empty:\n        raise ValueError(f\"Applicant ID {applicant_id} not found in applicant_demographics_table.csv\")\n    \n    # Extract the income value\n    income = income_row.values[0]\n    \n    # Retrieve the loan amount from the row\n    loan_amount = row['loan_amount']\n    \n    # Calculate and return the income-to-loan ratio, handling division by zero\n    return income / loan_amount if loan_amount != 0 else 0\n"
+        },
+        "0.10867180801143236": {
+            "name": "avg_interest_rate",
+            "code": "import pandas as pd\n\ndef avg_interest_rate(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the applicant_id from the row\n    applicant_id = row['applicant_id']\n    \n    # Filter the previous_loans_table.csv dataframe for the given applicant_id\n    prev_loans = aux_dataframes['previous_loans_table.csv'][\n        aux_dataframes['previous_loans_table.csv']['applicant_id'] == applicant_id\n    ]\n    \n    # Calculate the average interest rate\n    avg_rate = prev_loans['interest_rate'].mean()\n    \n    # Return the average rate, or 0 if no previous loans exist\n    return avg_rate if not pd.isnull(avg_rate) else 0\n"
+        },
+        "0.06887835328986418": {
+            "name": "max_loan_amount",
+            "code": "\n\ndef max_loan_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    applicant_id = row['applicant_id']  # Correct column name is 'applicant_id'\n    prev_loans = aux_dataframes['previous_loans_table.csv'][\n        aux_dataframes['previous_loans_table.csv']['applicant_id'] == applicant_id\n    ]\n    if prev_loans.empty:  # Handle case where no previous loans exist\n        return None\n    return prev_loans['loan_amount'].max()  # Correct column name is 'loan_amount'\n"
+        },
+        "0.05296101501432511": {
+            "name": "credit_score_norm",
+            "code": "\n\ndef credit_score_norm(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the applicant_id from the row\n    applicant_id = row['applicant_id']\n    \n    # Get the credit_scores_table dataframe from aux_dataframes\n    credit_scores_df = aux_dataframes['credit_scores_table.csv']\n    \n    # Filter the dataframe to find the row corresponding to the applicant_id\n    credit_info = credit_scores_df[credit_scores_df['applicant_id'] == applicant_id]\n    \n    # If no matching row is found, return 0\n    if credit_info.empty:\n        return 0\n    \n    # Extract the credit_score and credit_history_length values\n    score = credit_info['credit_score'].values[0]\n    credit_length = credit_info['credit_history_length'].values[0]\n    \n    # Return the normalized credit score\n    return score / credit_length if credit_length != 0 else 0\n"
+        },
+        "0.04193013918407012": {
+            "name": "compute_age",
+            "code": "import pandas as pd\n\ndef compute_age(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the applicant_id from the row\n    applicant_id = row['applicant_id']\n    \n    # Access the demographics table\n    demographics_table = aux_dataframes['applicant_demographics_table.csv']\n    \n    # Find the birth_date for the given applicant_id\n    birth_date = demographics_table.loc[\n        demographics_table['applicant_id'] == applicant_id, 'date_of_birth'\n    ].values[0]\n    \n    # Convert application_date and birth_date to datetime\n    application_date = pd.to_datetime(row['application_date'])\n    birth_date = pd.to_datetime(birth_date)\n    \n    # Calculate the age in years\n    age = (application_date - birth_date).days // 365\n    return age\n"
+        },
+        "0.041841531348312824": {
+            "name": "avg_loan_term",
+            "code": "\n\ndef avg_loan_term(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the applicant_id from the row\n    applicant_id = row['applicant_id']\n    \n    # Filter the previous_loans_table.csv dataframe for the given applicant_id\n    prev_loans = aux_dataframes['previous_loans_table.csv'][\n        aux_dataframes['previous_loans_table.csv']['applicant_id'] == applicant_id\n    ]\n    \n    # Calculate the average loan term\n    avg_term = prev_loans['loan_term'].mean()\n    \n    # Return the average loan term\n    return avg_term\n"
+        },
+        "0.025055471714434747": {
+            "name": "loan_application_frequency",
+            "code": "import pandas as pd\n\ndef loan_application_frequency(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct column name 'applicant_id' (lowercase)\n    applicant_id = row['applicant_id']\n    \n    # Access the 'previous_loans_table.csv' dataframe and filter by 'applicant_id'\n    prev_loans = aux_dataframes['previous_loans_table.csv'][\n        aux_dataframes['previous_loans_table.csv']['applicant_id'] == applicant_id\n    ]\n    \n    # Ensure the column 'start_date' is used for loan dates (correct column name)\n    loan_dates = pd.to_datetime(prev_loans['start_date'])\n    \n    # Calculate the loan application frequency\n    if len(loan_dates) > 1:\n        return 12 / loan_dates.diff().dt.days.mean() * 30\n    return 0\n"
+        },
+        "0.020775813587721667": {
+            "name": "loan_amount_trend",
+            "code": "\n\ndef loan_amount_trend(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    applicant_id = row['applicant_id']  # Correct column name is 'applicant_id'\n    prev_loans = aux_dataframes['previous_loans_table.csv'][\n        aux_dataframes['previous_loans_table.csv']['applicant_id'] == applicant_id\n    ]\n    loan_amounts = prev_loans['loan_amount']  # Correct column name is 'loan_amount'\n    return loan_amounts.std()  # Return the standard deviation of loan amounts\n"
+        },
+        "-0.0021320462699909726": {
+            "name": "gender_employment_status_combo",
+            "code": "\n\ndef gender_employment_status_combo(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    applicant_id = row['applicant_id']  # Use lowercase column name to match the dataframe\n    demographics = aux_dataframes['applicant_demographics_table.csv'][\n        aux_dataframes['applicant_demographics_table.csv']['applicant_id'] == applicant_id\n    ]\n    if demographics.empty:\n        # Handle the case where no matching applicant_id is found\n        return \"Unknown_Unknown\"\n    \n    gender = demographics['gender'].values[0]  # Use lowercase column name\n    employment_status = demographics['employment_status'].values[0]  # Use lowercase column name\n    return f\"{gender}_{employment_status}\"\n"
+        },
+        "0.00018817928197551562": {
+            "name": "debt_to_credit_weighted",
+            "code": "\n\ndef debt_to_credit_weighted(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    applicant_id = row['applicant_id']  # Use lowercase 'applicant_id' to match the column name in the dataframe\n    credit_info = aux_dataframes['credit_scores_table.csv'][\n        aux_dataframes['credit_scores_table.csv']['applicant_id'] == applicant_id\n    ]\n    \n    # Check if credit_info is empty to avoid indexing errors\n    if credit_info.empty:\n        return 0  # Return 0 if no matching applicant_id is found\n    \n    # Extract debt and credit values\n    debt = credit_info['credit_utilization_ratio'].values[0]  # Assuming 'credit_utilization_ratio' represents debt\n    credit = credit_info['number_of_credit_accounts'].values[0]  # Assuming 'number_of_credit_accounts' represents credit\n    \n    # Return the debt-to-credit ratio, handling division by zero\n    return debt / credit if credit != 0 else 0\n"
+        },
+        "0": {
+            "name": "paid_off_ratio",
+            "code": "\n\ndef paid_off_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    applicant_id = row['applicant_id']  # Use the correct column name\n    prev_loans = aux_dataframes['previous_loans_table.csv'][\n        aux_dataframes['previous_loans_table.csv']['applicant_id'] == applicant_id\n    ]\n    total_loans = len(prev_loans)\n    paid_off = len(prev_loans[prev_loans['loan_status'] == 'Completed'])  # Use the correct column name\n    return paid_off / total_loans if total_loans != 0 else 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "recent loan status",
+        "income to loan ratio",
+        "avg interest rate",
+        "max loan amount",
+        "credit score norm",
+        "compute age",
+        "avg loan term",
+        "loan application frequency",
+        "loan amount trend",
+        "gender employment status combo",
+        "debt to credit weighted",
+        "paid off ratio"
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "enriched_column_names": [
+        "time_since_last_maintenance_event",
+        "frequency_of_high_severity_errors_in_the_past_month",
+        "average_performance_metric_deviation_over_the_last_month",
+        "percentage_of_devices_reporting_errors_in_the_last_week"
+    ],
+    "features_descriptions": [
+        "time since last maintenance event",
+        "frequency of high severity errors in the past month",
+        "average performance metric deviation over the last month",
+        "percentage of devices reporting errors in the last week"
+    ]
+}

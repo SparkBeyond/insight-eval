@@ -1,0 +1,22 @@
+{
+    "enriched_column_names": [
+        "number_of_additional_loans_held_by_a_borrower",
+        "ratio_of_income_to_loan_amount",
+        "loan_to_value_ratio",
+        "interest_rate_of_the_loan",
+        "credit_score_at_the_time_of_loan_issuance",
+        "customer_age_at_loan_approval",
+        "frequency_of_prepayments_within_a_customer_group",
+        "average_late_payments_in_the_last_12_months"
+    ],
+    "features_descriptions": [
+        "number of additional loans held by a borrower",
+        "ratio of income to loan amount",
+        "loan to value ratio",
+        "interest rate of the loan",
+        "credit score at the time of loan issuance",
+        "customer age at loan approval",
+        "frequency of prepayments within a customer group",
+        "average late payments in the last 12 months"
+    ]
+}

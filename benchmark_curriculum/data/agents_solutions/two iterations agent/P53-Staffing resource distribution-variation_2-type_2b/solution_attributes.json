@@ -1,0 +1,71 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "revenue_to_cost_ratio",
+        "profit_per_employee",
+        "customer_volume_percentile",
+        "customer_to_employee_ratio",
+        "average_experience",
+        "normalized_service_time",
+        "peak_hour_ratio",
+        "encode_skill_level",
+        "employee_satisfaction_efficiency_interaction",
+        "revenue_per_customer"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.6387327729540301": {
+            "name": "revenue_to_cost_ratio",
+            "code": "\n\ndef revenue_to_cost_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    financial_table = aux_dataframes['financial_metrics_table.csv']\n    branch_id = row['branch_id']\n    \n    branch_financials = financial_table[financial_table['branch_id'] == branch_id]\n    \n    if len(branch_financials) == 0:\n        return 0\n    \n    revenue = branch_financials['revenue'].sum()\n    cost = branch_financials['operational_cost'].sum()\n    \n    # Avoid division by zero\n    if cost == 0:\n        return 0\n    \n    return revenue / cost\n"
+        },
+        "0.5368497142828744": {
+            "name": "profit_per_employee",
+            "code": "\n\ndef profit_per_employee(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    financial_table = aux_dataframes['financial_metrics_table.csv']\n    staffing_table = aux_dataframes['staffing_levels_table.csv']\n    branch_id = row['branch_id']\n    \n    # Retrieve revenue, operational cost, and employee count\n    branch_financials = financial_table[financial_table['branch_id'] == branch_id]\n    branch_staff = staffing_table[staffing_table['branch_id'] == branch_id]\n    \n    if len(branch_financials) == 0 or len(branch_staff) == 0:\n        return 0\n    \n    revenue = branch_financials['revenue'].sum()\n    cost = branch_financials['operational_cost'].sum()\n    num_employees = branch_staff['number_of_employees'].sum()\n\n    # Avoid division by zero\n    if num_employees == 0:\n        return 0\n\n    profit = revenue - cost\n    return profit / num_employees\n"
+        },
+        "0.25735517061434404": {
+            "name": "customer_volume_percentile",
+            "code": "\n\ndef customer_volume_percentile(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    traffic_table = aux_dataframes['customer_traffic_table.csv']\n    branch_id = row['branch_id']\n    \n    total_customers = traffic_table.groupby('branch_id')['number_of_customers'].sum()\n    branch_customer_total = total_customers.get(branch_id, 0)\n    \n    return total_customers.rank(pct=True).get(branch_id, 0)\n"
+        },
+        "0.16559208624661756": {
+            "name": "customer_to_employee_ratio",
+            "code": "\n\ndef customer_to_employee_ratio(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    staffing_table = aux_dataframes['staffing_levels_table.csv']\n    traffic_table = aux_dataframes['customer_traffic_table.csv']\n    branch_id = row['branch_id']\n    \n    # Total customers and employees per branch\n    total_customers = traffic_table[traffic_table['branch_id'] == branch_id]['number_of_customers'].sum()\n    total_employees = staffing_table[staffing_table['branch_id'] == branch_id]['number_of_employees'].sum()\n    \n    if total_employees == 0:\n        return 0\n    \n    return total_customers / total_employees\n"
+        },
+        "0.041525543196882404": {
+            "name": "average_experience",
+            "code": "\n\ndef average_experience(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    staffing_table = aux_dataframes['staffing_levels_table.csv']\n    branch_id = row['branch_id']\n    \n    branch_staff = staffing_table[staffing_table['branch_id'] == branch_id]\n    return branch_staff['average_experience'].mean() if len(branch_staff) > 0 else 0\n"
+        },
+        "0.03425457129402856": {
+            "name": "normalized_service_time",
+            "code": "\n\ndef normalized_service_time(row, df_train: pd.DataFrame):\n    mean_service_time = df_train['average_service_time'].mean()\n    std_service_time = df_train['average_service_time'].std()\n    if std_service_time == 0:\n        return 0\n    return (row['average_service_time'] - mean_service_time) / std_service_time\n"
+        },
+        "0.02294927712557174": {
+            "name": "peak_hour_ratio",
+            "code": "\n\ndef peak_hour_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    traffic_table = aux_dataframes['customer_traffic_table.csv']\n    branch_rows = traffic_table[traffic_table['branch_id'] == row['branch_id']]\n    \n    if len(branch_rows) == 0:\n        return 0\n    \n    total_customers = branch_rows['number_of_customers'].sum()\n    peak_customers = branch_rows[branch_rows['peak_hours'] == '10-14']['number_of_customers'].sum()\n    \n    if total_customers == 0:\n        return 0\n    \n    return peak_customers / total_customers\n"
+        },
+        "0.0162309944783252": {
+            "name": "encode_skill_level",
+            "code": "import numpy as np\n\ndef encode_skill_level(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    staffing_table = aux_dataframes['staffing_levels_table.csv']\n    skill_map = {'Beginner': 1, 'Intermediate': 2, 'Advanced': 3}\n    branch_id = row['branch_id']\n    \n    branch_staff = staffing_table[staffing_table['branch_id'] == branch_id]\n    if len(branch_staff) == 0:\n        return 0\n    \n    skills = branch_staff['skill_level'].map(skill_map).mean()\n    return skills if not np.isnan(skills) else 0\n"
+        },
+        "0.015054416864770817": {
+            "name": "employee_satisfaction_efficiency_interaction",
+            "code": "\n\ndef employee_satisfaction_efficiency_interaction(row):\n    return row['customer_satisfaction'] * row['employee_efficiency']\n"
+        },
+        "0.014383310161958117": {
+            "name": "revenue_per_customer",
+            "code": "\n\ndef revenue_per_customer(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    financial_table = aux_dataframes['financial_metrics_table.csv']\n    traffic_table = aux_dataframes['customer_traffic_table.csv']\n    branch_id = row['branch_id']\n    \n    branch_financials = financial_table[financial_table['branch_id'] == branch_id]\n    branch_traffic = traffic_table[traffic_table['branch_id'] == branch_id]\n    \n    if len(branch_financials) == 0 or len(branch_traffic) == 0:\n        return 0\n    \n    revenue = branch_financials['revenue'].sum()\n    customers = branch_traffic['number_of_customers'].sum()\n    \n    # Avoid division by zero\n    if customers == 0:\n        return 0\n    \n    return revenue / customers\n"
+        }
+    },
+    "feature_descriptions": [
+        "revenue to cost ratio",
+        "profit per employee",
+        "customer volume percentile",
+        "customer to employee ratio",
+        "average experience",
+        "normalized service time",
+        "peak hour ratio",
+        "encode skill level",
+        "employee satisfaction efficiency interaction",
+        "revenue per customer"
+    ]
+}

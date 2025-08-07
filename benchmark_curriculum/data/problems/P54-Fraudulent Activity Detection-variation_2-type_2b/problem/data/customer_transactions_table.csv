@@ -1,0 +1,2501 @@
+transaction_id,customer_id,transaction_date,transaction_amount,merchant,transaction_type
+1,608,2025-04-04,114.970000,Johnson PLC,purchase
+2,155,2025-04-02,134.100000,"Kaiser, Parks and Lowery",refund
+3,255,2025-02-07,208.900000,"Watson, Perkins and Johnston",refund
+4,606,2025-02-18,184.440000,Hale PLC,refund
+5,451,2025-04-21,268.980000,"Barrett, Williams and Crawford",refund
+6,473,2025-04-08,319.590000,Brooks-Freeman,purchase
+7,726,2025-02-09,311.250000,Horton Ltd,purchase
+8,515,2025-01-10,316.110000,"Poole, Wilson and Barron",purchase
+9,437,2025-01-24,36.730000,"Powers, Moore and Thomas",refund
+10,774,2025-03-05,82.160000,"Chambers, Anderson and Pierce",purchase
+11,966,2025-02-19,427.590000,Lindsey-Garcia,refund
+12,443,2025-04-02,343.910000,"Gomez, Gonzales and Mitchell",purchase
+13,751,2025-01-09,30.580000,Watson Ltd,purchase
+14,218,2025-02-08,440.810000,Keller Group,purchase
+15,499,2025-01-08,158.020000,"Pearson, Arnold and Mann",purchase
+16,720,2025-02-19,225.940000,Smith-Barnes,purchase
+17,408,2025-01-28,196.590000,Walton PLC,purchase
+18,503,2025-04-18,135.630000,"Camacho, Garcia and Rivera",refund
+19,479,2025-02-19,377.060000,Weber Inc,refund
+20,316,2025-04-18,313.620000,Williams-Ruiz,refund
+21,106,2025-01-08,43.130000,"Hahn, Krueger and Brown",refund
+22,130,2025-03-27,377.170000,Dixon-Hill,refund
+23,862,2025-01-19,425.800000,"Smith, Johnson and Shannon",refund
+24,794,2025-04-11,491.270000,Webb-Nguyen,purchase
+25,865,2025-02-12,26.590000,Phillips Inc,purchase
+26,81,2025-04-14,321.410000,"Hood, Tran and Roberts",refund
+27,354,2025-01-07,281.730000,"Brown, Adams and Thompson",refund
+28,785,2025-01-14,348.630000,"Barber, Boyer and Hayes",refund
+29,672,2025-03-14,225.600000,"Reeves, Gonzales and Reyes",purchase
+30,205,2025-02-23,461.780000,Marshall Group,refund
+31,310,2025-03-13,455.630000,Watson and Sons,purchase
+32,96,2025-01-13,273.640000,Goodwin LLC,refund
+33,554,2025-04-18,386.040000,Smith-Mason,refund
+34,532,2025-02-01,181.620000,"Williams, Mitchell and Smith",refund
+35,808,2025-02-05,417.350000,Davis and Sons,refund
+36,119,2025-04-04,352.690000,"Banks, Mueller and Matthews",refund
+37,789,2025-01-19,36.140000,"Johnston, Wall and Mills",purchase
+38,493,2025-03-19,415.310000,"Barnes, Alvarez and Melendez",purchase
+39,622,2025-04-12,282.760000,Parker and Sons,purchase
+40,818,2025-03-17,241.170000,Ruiz-Sanders,purchase
+41,131,2025-02-19,212.490000,Pineda Inc,purchase
+42,980,2025-02-07,461.970000,Palmer LLC,purchase
+43,777,2025-04-01,288.170000,"Logan, Walker and Perez",refund
+44,942,2025-03-08,101.410000,"Mills, Jackson and Watkins",refund
+45,397,2025-04-16,237.820000,Jones-Lane,purchase
+46,514,2025-04-19,127.690000,"Morales, Schneider and Hood",refund
+47,323,2025-02-09,72.560000,Dillon Ltd,refund
+48,155,2025-03-18,170.600000,"Kelly, Farmer and Lambert",refund
+49,65,2025-02-21,327.410000,Garza-Bartlett,refund
+50,563,2025-02-27,12.040000,Collier and Sons,purchase
+51,643,2025-01-17,482.160000,Wells LLC,purchase
+52,317,2025-03-28,10.530000,Gonzalez-Jones,refund
+53,654,2025-02-28,84.950000,"Hamilton, Reid and Owens",refund
+54,185,2025-01-19,136.600000,"Ramos, Davidson and Padilla",purchase
+55,811,2025-01-26,346.150000,Vasquez Ltd,purchase
+56,222,2025-04-06,401.400000,"Evans, Huber and Jones",refund
+57,678,2025-02-26,438.130000,Graham-Atkins,refund
+58,781,2025-01-24,300.710000,Kelley-Hoffman,refund
+59,32,2025-02-13,110.020000,"Wilson, Hill and Moore",refund
+60,141,2025-01-18,112.620000,"Morales, Martinez and Rodriguez",purchase
+61,18,2025-03-26,474.160000,Grant Ltd,refund
+62,203,2025-04-07,325.670000,Horton and Sons,purchase
+63,243,2025-04-18,206.670000,"Garrison, Anthony and Harrison",refund
+64,404,2025-01-15,341.430000,Rios Ltd,purchase
+65,951,2025-04-17,162.910000,Kaiser PLC,refund
+66,922,2025-02-23,240.400000,Cox-Bernard,purchase
+67,940,2025-01-16,74.760000,Peterson-Booker,purchase
+68,440,2025-04-20,400.580000,Solis-Robinson,purchase
+69,173,2025-04-15,369.040000,Oconnor-Carter,purchase
+70,836,2025-02-22,436.500000,"Morris, Hess and Johnson",purchase
+71,445,2025-04-07,315.240000,Jenkins-Thornton,purchase
+72,54,2025-03-07,430.670000,"Turner, Dalton and Heath",refund
+73,766,2025-04-14,192.900000,Caldwell PLC,refund
+74,725,2025-01-11,187.430000,Harvey and Sons,refund
+75,516,2025-01-01,99.640000,"Lewis, Armstrong and Tran",refund
+76,526,2025-04-12,364.420000,Welch-Lopez,purchase
+77,770,2025-04-10,475.130000,Cook-Fleming,purchase
+78,118,2025-04-13,13.260000,Russell-Brown,refund
+79,226,2025-03-19,34.060000,Moore Inc,refund
+80,828,2025-01-21,124.210000,Johnson Inc,refund
+81,491,2025-02-17,446.430000,Price LLC,purchase
+82,561,2025-02-14,106.150000,"Stewart, Walton and Bradley",refund
+83,810,2025-03-24,78.900000,"Wilkerson, Pope and Craig",purchase
+84,813,2025-01-17,227.290000,"Wood, Cortez and Hoover",refund
+85,629,2025-02-10,72.510000,Buchanan-Humphrey,purchase
+86,271,2025-01-22,169.020000,Stevenson-Hunter,purchase
+87,728,2025-03-05,476.950000,Williamson-Hunter,purchase
+88,469,2025-02-14,336.050000,Collins-Hall,purchase
+89,917,2025-03-24,81.410000,Maldonado-Underwood,purchase
+90,829,2025-04-13,280.880000,"Wilson, Holden and Brown",refund
+91,463,2025-01-10,238.680000,"Cole, Hicks and Lester",purchase
+92,188,2025-04-12,425.480000,"Martinez, Sosa and Carroll",purchase
+93,596,2025-03-31,444.700000,Evans LLC,refund
+94,422,2025-01-31,335.530000,"Lane, Johnson and Lynch",refund
+95,88,2025-03-24,257.200000,"Glass, May and Wilson",purchase
+96,14,2025-03-29,66.520000,Smith Ltd,refund
+97,476,2025-04-06,371.250000,"Nguyen, Mcdonald and Gomez",refund
+98,758,2025-04-07,157.950000,Smith and Sons,refund
+99,463,2025-03-02,287.830000,Rodgers Inc,refund
+100,184,2025-03-06,323.720000,Kaufman Ltd,refund
+101,967,2025-02-13,269.410000,"Collins, Stephenson and Mckenzie",purchase
+102,638,2025-02-28,417.470000,Morales-Collins,refund
+103,86,2025-01-22,194.440000,Wood-Foster,refund
+104,861,2025-02-15,290.170000,Fox and Sons,refund
+105,666,2025-03-30,302.760000,Gonzalez-Williamson,purchase
+106,439,2025-02-11,299.400000,Davis-Martin,refund
+107,741,2025-01-03,296.240000,Robinson LLC,purchase
+108,167,2025-01-20,107.750000,Lane-Ramos,refund
+109,430,2025-03-17,442.780000,Barrett-Kramer,purchase
+110,746,2025-02-13,407.400000,Hall Ltd,purchase
+111,255,2025-01-12,126.980000,Harris-Hernandez,purchase
+112,577,2025-04-18,232.410000,Fowler and Sons,purchase
+113,237,2025-01-27,219.950000,Strickland-Harris,refund
+114,285,2025-04-02,309.640000,Patel-Farrell,refund
+115,690,2025-01-22,294.610000,Perkins-Zimmerman,purchase
+116,727,2025-02-24,91.900000,Mcpherson-Cameron,refund
+117,693,2025-04-02,473.280000,"Harris, Fuller and Reed",purchase
+118,49,2025-02-21,86.340000,Barker-James,refund
+119,212,2025-02-09,89.430000,"Burns, Hill and Newman",purchase
+120,836,2025-02-12,145.990000,Thomas Group,purchase
+121,68,2025-01-28,473.580000,Savage-Ochoa,refund
+122,198,2025-01-01,470.610000,Johnson Inc,refund
+123,835,2025-04-24,412.170000,Jones-Haley,refund
+124,767,2025-01-18,423.690000,Mueller-Harris,purchase
+125,144,2025-03-19,202.790000,Gregory Inc,refund
+126,116,2025-02-13,356.500000,Berry Inc,refund
+127,848,2025-02-16,303.640000,Mcconnell-Savage,refund
+128,788,2025-02-14,328.110000,Gutierrez PLC,refund
+129,810,2025-04-19,454.680000,Stevens and Sons,purchase
+130,74,2025-01-23,77.880000,Smith Ltd,refund
+131,993,2025-03-09,255.540000,Watkins-Martinez,purchase
+132,45,2025-01-31,467.150000,Ray-Decker,purchase
+133,149,2025-01-06,480.790000,Stevenson-Jones,refund
+134,461,2025-04-09,382.800000,Young-Duncan,purchase
+135,885,2025-02-16,218.710000,"Munoz, Young and Faulkner",purchase
+136,423,2025-03-12,39.500000,"Mcguire, Brock and Keller",purchase
+137,192,2025-03-25,149.100000,Sawyer-Jimenez,purchase
+138,864,2025-01-15,142.560000,Bowman LLC,purchase
+139,31,2025-03-09,169.370000,"Singh, Garza and Lee",refund
+140,512,2025-01-04,86.700000,Woodward Group,purchase
+141,900,2025-04-24,229.660000,"Wolf, Williams and Cline",refund
+142,778,2025-01-26,318.560000,Thompson-Hernandez,refund
+143,512,2025-01-26,59.550000,Johnson-Stewart,refund
+144,235,2025-01-22,29.240000,"Jones, Hawkins and Carter",purchase
+145,456,2025-04-22,330.940000,"Park, Nielsen and Butler",purchase
+146,467,2025-04-01,478.530000,Torres-Manning,purchase
+147,708,2025-03-26,97.070000,Manning-Johnson,refund
+148,363,2025-03-01,201.180000,"Berry, Dean and Morris",purchase
+149,89,2025-02-22,51.300000,"Alvarado, Brown and Hill",refund
+150,75,2025-01-08,41.090000,Lopez and Sons,refund
+151,105,2025-04-14,455.400000,Vazquez-Wilson,purchase
+152,887,2025-03-20,195.320000,Morris-Smith,refund
+153,690,2025-04-08,494.010000,"Jones, Copeland and Wood",purchase
+154,806,2025-03-09,204.390000,Cowan Inc,purchase
+155,980,2025-04-09,418.930000,Mckinney Group,refund
+156,996,2025-01-27,185.220000,Thompson-Beltran,purchase
+157,668,2025-02-03,173.110000,Jones-Gaines,purchase
+158,41,2025-01-21,270.290000,Proctor-Williams,refund
+159,666,2025-03-07,150.730000,"Savage, Best and Wilson",purchase
+160,391,2025-04-19,252.000000,Smith-Hernandez,purchase
+161,914,2025-01-07,331.350000,King-Ford,refund
+162,898,2025-01-09,326.540000,Fisher-Green,purchase
+163,593,2025-03-07,283.570000,"Williams, Benitez and King",refund
+164,850,2025-04-06,467.720000,Roberts Ltd,purchase
+165,535,2025-03-04,184.960000,"Miller, Kaufman and Mata",purchase
+166,68,2025-02-26,197.420000,"Fields, Wright and Whitaker",refund
+167,927,2025-03-07,285.140000,Shaw-Johnson,purchase
+168,397,2025-02-25,316.620000,Pugh-Bradley,refund
+169,197,2025-03-05,253.860000,"Warner, Avery and Stanley",purchase
+170,954,2025-02-20,235.790000,Shaffer Group,refund
+171,319,2025-04-03,247.410000,Black-Friedman,refund
+172,745,2025-04-22,289.440000,Taylor Inc,purchase
+173,760,2025-04-20,197.180000,Jones-Williams,purchase
+174,938,2025-03-20,205.740000,Hardin-Gonzalez,purchase
+175,551,2025-02-16,101.380000,Gibson Inc,purchase
+176,904,2025-03-18,232.680000,Patterson-Ali,purchase
+177,836,2025-03-05,353.650000,"Maynard, Chen and Spencer",refund
+178,495,2025-02-05,496.180000,"Payne, Tucker and Myers",purchase
+179,82,2025-03-03,382.010000,Lucas Inc,purchase
+180,779,2025-03-17,377.780000,Torres LLC,refund
+181,142,2025-01-01,131.710000,"Stone, Chen and Craig",refund
+182,930,2025-02-17,202.230000,Sullivan Ltd,refund
+183,63,2025-01-08,60.190000,Robinson PLC,purchase
+184,78,2025-04-19,361.910000,Clark Inc,purchase
+185,262,2025-02-16,385.820000,Edwards-Hull,refund
+186,520,2025-03-07,318.200000,Martin and Sons,refund
+187,976,2025-03-13,368.780000,Lee PLC,refund
+188,26,2025-02-17,307.120000,"Stevens, Mcmahon and Odom",purchase
+189,911,2025-04-05,410.150000,Perez and Sons,refund
+190,257,2025-03-26,399.290000,Carlson Group,purchase
+191,109,2025-01-09,85.550000,Bowen PLC,purchase
+192,39,2025-01-07,168.180000,Moore-Williams,refund
+193,137,2025-04-24,427.480000,Smith and Sons,purchase
+194,411,2025-02-04,252.470000,Barrett Inc,refund
+195,124,2025-03-24,450.760000,Kim PLC,purchase
+196,2,2025-04-04,427.470000,"Pennington, Harris and Floyd",purchase
+197,600,2025-03-02,314.990000,Martinez LLC,purchase
+198,60,2025-02-02,141.430000,"Callahan, Ryan and Hopkins",purchase
+199,674,2025-03-10,426.090000,Kemp-Jones,refund
+200,112,2025-01-03,123.230000,"Cox, Jimenez and Gilbert",refund
+201,294,2025-01-13,16.790000,Griffin-Mora,refund
+202,407,2025-01-06,79.620000,Luna and Sons,purchase
+203,283,2025-03-12,102.540000,Payne Inc,purchase
+204,969,2025-04-01,415.960000,"Hicks, Gutierrez and Harmon",purchase
+205,738,2025-03-14,207.270000,Morales Inc,refund
+206,199,2025-03-21,377.620000,Frederick PLC,refund
+207,638,2025-03-08,51.120000,Owens-Young,refund
+208,666,2025-01-29,365.230000,Ford Ltd,refund
+209,197,2025-03-31,448.340000,Stanley-Johnson,purchase
+210,877,2025-03-08,202.310000,Meza Ltd,refund
+211,495,2025-01-28,33.530000,"Mitchell, Scott and Christensen",purchase
+212,187,2025-02-14,174.740000,Stephenson Ltd,purchase
+213,816,2025-01-26,416.650000,"Brennan, Cooper and Manning",purchase
+214,455,2025-01-23,340.800000,"Garcia, Johnson and Durham",purchase
+215,910,2025-03-09,190.980000,Murphy and Sons,refund
+216,234,2025-03-03,82.920000,Sanchez-Harvey,purchase
+217,992,2025-02-12,172.910000,"Acosta, Melton and Houston",refund
+218,810,2025-02-26,97.690000,"Bell, Clayton and Alexander",refund
+219,990,2025-02-23,390.640000,"King, George and Arias",refund
+220,552,2025-03-21,110.620000,Webb Ltd,purchase
+221,831,2025-03-29,49.980000,Garner PLC,refund
+222,472,2025-03-05,226.530000,Harris-Huynh,refund
+223,282,2025-04-01,392.120000,Randall PLC,purchase
+224,853,2025-04-24,99.530000,Warner-Jackson,purchase
+225,858,2025-02-06,407.790000,Miles-Stephenson,purchase
+226,683,2025-04-15,215.980000,"Barnes, Mitchell and Greene",refund
+227,632,2025-02-06,479.900000,Luna LLC,purchase
+228,951,2025-02-04,379.730000,"Anthony, Maynard and Patel",refund
+229,688,2025-03-15,217.210000,"Livingston, Greer and Johnson",refund
+230,251,2025-04-04,45.840000,Benjamin-Branch,purchase
+231,658,2025-04-19,397.530000,Thornton-Lopez,refund
+232,160,2025-04-19,451.990000,Shepherd and Sons,purchase
+233,474,2025-02-27,64.910000,Greene Group,refund
+234,189,2025-01-01,434.240000,Norris PLC,refund
+235,660,2025-01-27,48.820000,"Shaw, Coleman and Riley",purchase
+236,35,2025-03-11,135.020000,Dyer Inc,refund
+237,489,2025-02-17,293.290000,Kaufman-Bullock,refund
+238,485,2025-02-10,384.850000,"Miller, Garza and Hernandez",purchase
+239,420,2025-02-06,474.570000,"Thompson, Clark and Hartman",refund
+240,28,2025-03-15,285.680000,Horton Group,refund
+241,925,2025-01-18,180.360000,Rosario-King,purchase
+242,814,2025-01-04,404.610000,Shields Inc,refund
+243,671,2025-02-26,496.930000,Taylor PLC,refund
+244,995,2025-01-16,180.410000,Thornton-Oneill,purchase
+245,4,2025-04-16,486.870000,Ramirez-Cantrell,refund
+246,702,2025-04-13,472.890000,Nelson Ltd,refund
+247,420,2025-03-09,264.540000,Robinson PLC,purchase
+248,430,2025-04-21,22.130000,Parks and Sons,refund
+249,695,2025-02-03,467.470000,Mitchell-Padilla,refund
+250,779,2025-03-17,76.770000,Swanson Group,refund
+251,650,2025-02-28,30.660000,Herring Group,refund
+252,921,2025-04-04,190.820000,"Burke, Garcia and Mathews",purchase
+253,132,2025-01-19,167.820000,Navarro and Sons,refund
+254,639,2025-02-05,227.710000,Martin LLC,refund
+255,944,2025-01-08,373.390000,Matthews Group,refund
+256,234,2025-03-12,332.890000,Duarte Ltd,purchase
+257,270,2025-02-19,324.790000,Mcmillan Group,refund
+258,300,2025-02-23,104.400000,Perez-Mcdonald,refund
+259,869,2025-02-06,448.130000,Walker LLC,refund
+260,575,2025-01-25,369.580000,Pope-Cruz,purchase
+261,741,2025-01-08,438.380000,"Harrell, Swanson and Clarke",refund
+262,434,2025-03-12,491.950000,Hughes-Richardson,refund
+263,689,2025-02-26,432.790000,Flynn Ltd,refund
+264,729,2025-04-10,317.400000,Phillips-Clark,refund
+265,505,2025-01-20,109.200000,Chaney-Harper,refund
+266,690,2025-04-02,472.470000,Gonzalez-Clark,refund
+267,486,2025-02-08,290.900000,Wilson Ltd,refund
+268,166,2025-04-23,319.410000,"Evans, Wilson and Smith",purchase
+269,526,2025-02-05,87.290000,Garcia Ltd,refund
+270,76,2025-03-25,44.120000,Lewis-Ross,purchase
+271,556,2025-04-07,102.230000,Harris-Scott,purchase
+272,203,2025-03-16,75.970000,Turner-Bird,refund
+273,179,2025-01-13,475.500000,Rivas PLC,refund
+274,921,2025-01-03,456.950000,Jackson and Sons,refund
+275,443,2025-03-13,197.890000,"Chang, Brown and Mccarthy",purchase
+276,410,2025-04-19,131.910000,"Lane, Levy and Evans",refund
+277,929,2025-04-18,459.020000,"Adkins, Nielsen and Bolton",purchase
+278,74,2025-01-10,45.830000,"Martin, Robinson and Brown",refund
+279,455,2025-03-10,490.930000,Mitchell-Boyer,purchase
+280,268,2025-01-19,446.440000,"Mack, Jones and Herman",refund
+281,313,2025-01-09,107.000000,Lopez Inc,refund
+282,971,2025-02-24,50.300000,Robertson-Dougherty,refund
+283,364,2025-02-04,247.800000,Leonard Ltd,purchase
+284,640,2025-03-10,474.390000,Chapman PLC,purchase
+285,553,2025-03-26,163.500000,Rhodes-Armstrong,refund
+286,543,2025-04-03,491.380000,"Wright, White and Young",refund
+287,578,2025-01-29,63.120000,Smith-Williams,refund
+288,768,2025-04-01,51.820000,Griffin-Smith,purchase
+289,239,2025-02-15,428.410000,"Richardson, Robinson and Copeland",refund
+290,999,2025-01-12,380.770000,"Lynn, Booth and Hayes",refund
+291,706,2025-01-24,147.180000,Galvan PLC,refund
+292,749,2025-02-07,397.770000,Padilla-Williams,purchase
+293,597,2025-02-22,163.940000,"Franco, Osborn and Bentley",purchase
+294,633,2025-03-31,259.360000,Macdonald-Austin,refund
+295,309,2025-03-09,318.290000,Warren-Sanders,purchase
+296,553,2025-03-21,198.510000,"Arellano, Schneider and Brown",purchase
+297,5,2025-03-11,71.440000,Pugh-Ray,purchase
+298,428,2025-01-14,373.560000,"Jones, Miller and Knight",purchase
+299,246,2025-01-31,149.500000,Kim-Hill,refund
+300,715,2025-01-21,142.560000,Baker-Hill,refund
+301,890,2025-02-11,375.790000,"Salazar, Contreras and Mcdowell",refund
+302,830,2025-04-11,363.830000,Lewis Ltd,purchase
+303,318,2025-04-01,219.440000,"Hill, Humphrey and Carrillo",purchase
+304,878,2025-03-26,378.910000,Chan-Knight,refund
+305,989,2025-01-01,489.950000,"Roberts, Cole and Robbins",refund
+306,532,2025-01-17,129.020000,Flynn-Gonzalez,purchase
+307,842,2025-03-19,374.310000,"Miller, Stanton and Wallace",refund
+308,246,2025-01-08,414.000000,Leonard LLC,refund
+309,400,2025-02-04,455.210000,"Long, Carroll and Brown",purchase
+310,246,2025-03-13,169.910000,Huff PLC,purchase
+311,527,2025-01-06,68.270000,Morgan Inc,purchase
+312,528,2025-02-06,236.330000,"Soto, Taylor and White",refund
+313,4,2025-03-19,251.140000,"Allen, Collins and Klein",purchase
+314,441,2025-03-08,491.650000,Michael-Williams,purchase
+315,159,2025-02-25,174.400000,Nguyen and Sons,refund
+316,239,2025-02-18,387.570000,Wilcox Inc,refund
+317,948,2025-01-01,45.530000,"Floyd, Ballard and Vargas",refund
+318,124,2025-04-23,470.400000,Montgomery-Newman,purchase
+319,995,2025-03-12,470.130000,Adams-Mullen,refund
+320,230,2025-03-07,349.360000,"Thomas, Garcia and Green",purchase
+321,119,2025-02-03,181.120000,Brown-Brown,purchase
+322,725,2025-03-11,363.920000,Reyes Ltd,purchase
+323,867,2025-02-03,231.370000,Martin-Fischer,refund
+324,657,2025-03-31,295.410000,"Oconnor, Powers and Rogers",refund
+325,795,2025-01-28,366.100000,Meyer-Burke,purchase
+326,537,2025-03-20,165.800000,"Chen, Cunningham and Nguyen",purchase
+327,633,2025-01-08,478.930000,"Wells, Walton and Simon",purchase
+328,382,2025-01-24,335.590000,Gibbs-Cook,purchase
+329,380,2025-02-02,466.880000,"Palmer, Peterson and Martin",purchase
+330,869,2025-03-01,107.970000,Brown-Miller,purchase
+331,332,2025-03-19,24.380000,Charles Group,refund
+332,996,2025-01-22,236.760000,Cummings-Salas,refund
+333,749,2025-02-13,10.150000,Jones LLC,refund
+334,986,2025-01-09,90.900000,"Robinson, Pollard and Pierce",refund
+335,943,2025-02-20,307.230000,Long-Carter,refund
+336,427,2025-04-03,355.030000,Oconnell-Ramirez,refund
+337,811,2025-01-07,253.200000,Johnson PLC,refund
+338,990,2025-03-13,136.560000,"Ramirez, Luna and Johnson",refund
+339,462,2025-01-05,390.830000,"Garrett, Bradley and Bass",refund
+340,135,2025-03-29,260.550000,Estrada-Baker,refund
+341,294,2025-04-07,54.430000,"Ford, Wright and Joseph",purchase
+342,860,2025-02-14,111.960000,Rosales-Adkins,refund
+343,564,2025-03-29,340.140000,Davis and Sons,purchase
+344,988,2025-04-22,447.230000,Ferguson Inc,purchase
+345,764,2025-04-04,459.980000,Reynolds Group,purchase
+346,937,2025-04-12,24.900000,Short Ltd,purchase
+347,449,2025-04-21,99.710000,Caldwell and Sons,purchase
+348,769,2025-03-02,302.180000,"Ellis, Avila and Chavez",refund
+349,485,2025-04-09,155.380000,"Miller, Miller and Gonzalez",refund
+350,692,2025-02-28,343.670000,"Johnson, Curtis and Gordon",purchase
+351,264,2025-03-26,393.100000,Hill Group,purchase
+352,797,2025-03-05,160.590000,Gilmore Group,purchase
+353,775,2025-02-06,301.140000,Chung-Bell,refund
+354,848,2025-01-20,76.360000,Phillips LLC,refund
+355,710,2025-02-28,299.750000,Ryan-Mayer,refund
+356,164,2025-01-09,52.530000,"Johnson, Fisher and Garza",refund
+357,75,2025-01-27,288.170000,Pruitt-Cunningham,refund
+358,539,2025-04-24,257.800000,Johnson LLC,purchase
+359,139,2025-04-15,163.210000,Larsen-Ferrell,purchase
+360,124,2025-02-16,147.680000,"Carroll, Odom and Smith",purchase
+361,504,2025-04-07,236.430000,Lawrence-Grant,purchase
+362,70,2025-02-23,447.460000,Roth Group,refund
+363,230,2025-02-21,270.440000,Poole-Miller,refund
+364,101,2025-02-03,74.790000,Young and Sons,refund
+365,456,2025-01-30,275.760000,Jimenez-Lang,refund
+366,955,2025-01-01,96.630000,Roth-Calhoun,refund
+367,855,2025-01-23,352.790000,"Moore, Mcfarland and Thompson",refund
+368,488,2025-02-06,134.790000,Prince and Sons,purchase
+369,353,2025-02-13,339.070000,Garcia-Smith,purchase
+370,562,2025-02-22,258.720000,Robertson-Castro,refund
+371,127,2025-01-04,98.800000,Pitts-Smith,refund
+372,988,2025-02-08,419.450000,"Allen, Roberts and Nelson",refund
+373,590,2025-03-03,167.110000,Wilkinson LLC,refund
+374,93,2025-02-26,167.630000,Harper-Harrison,purchase
+375,286,2025-02-16,197.190000,"Welch, Elliott and Phelps",purchase
+376,446,2025-03-07,350.040000,Figueroa-Tucker,purchase
+377,91,2025-03-28,284.280000,Smith Inc,purchase
+378,239,2025-03-24,425.610000,Hamilton LLC,purchase
+379,148,2025-03-20,25.820000,Davis Group,purchase
+380,761,2025-03-30,39.770000,"Romero, Stark and Turner",purchase
+381,23,2025-02-13,410.720000,Gutierrez-Church,purchase
+382,948,2025-04-15,303.310000,Frank-Hughes,purchase
+383,480,2025-01-22,146.640000,"Campbell, Glass and Snyder",refund
+384,39,2025-01-17,9.990000,Martinez-Booker,refund
+385,648,2025-04-19,103.480000,Blackwell and Sons,purchase
+386,859,2025-01-11,317.130000,Jones-Gonzalez,purchase
+387,190,2025-01-08,81.880000,"Williams, Trevino and Perry",purchase
+388,897,2025-03-11,268.600000,Warren and Sons,refund
+389,171,2025-02-25,230.510000,"Anderson, Meyer and Garcia",purchase
+390,246,2025-01-28,42.130000,Grant PLC,refund
+391,403,2025-03-04,215.730000,Welch-Parker,refund
+392,243,2025-04-12,223.700000,Edwards-Jones,purchase
+393,817,2025-02-20,381.970000,"Mason, Bailey and Franklin",purchase
+394,360,2025-03-25,488.000000,Kennedy Ltd,purchase
+395,860,2025-03-26,409.790000,Acevedo Group,refund
+396,614,2025-01-05,35.870000,"Alvarez, Melendez and Khan",purchase
+397,105,2025-01-10,244.770000,"Day, Rasmussen and Murray",purchase
+398,915,2025-02-20,145.510000,Mason LLC,refund
+399,822,2025-01-13,158.830000,"Clayton, Bartlett and Harris",refund
+400,290,2025-01-11,43.870000,Jones and Sons,purchase
+401,341,2025-03-08,39.340000,"Maxwell, Smith and Murphy",refund
+402,599,2025-01-28,353.870000,"Howard, Johnson and Shelton",purchase
+403,620,2025-02-10,445.240000,"Ramirez, Martin and Harris",purchase
+404,54,2025-01-30,461.490000,Huffman-Taylor,refund
+405,622,2025-01-21,353.510000,"White, Garcia and Johnson",purchase
+406,333,2025-04-03,28.890000,"Cardenas, Watkins and Hammond",refund
+407,27,2025-02-26,122.730000,Brown LLC,refund
+408,234,2025-02-23,309.050000,Allen and Sons,refund
+409,94,2025-03-05,374.350000,"Dunn, Vaughn and Clark",refund
+410,40,2025-02-24,411.280000,Marshall-Russell,refund
+411,890,2025-03-30,50.490000,Scott-Galvan,purchase
+412,321,2025-02-20,447.900000,Adams and Sons,refund
+413,188,2025-01-13,167.680000,"Thomas, Golden and Spencer",purchase
+414,502,2025-02-23,132.360000,Moreno-Ford,purchase
+415,578,2025-02-25,115.320000,Greene Ltd,purchase
+416,700,2025-01-30,440.980000,Washington-Arnold,purchase
+417,503,2025-01-01,257.360000,Dean PLC,refund
+418,542,2025-02-21,67.150000,"Howard, Gonzalez and Jones",purchase
+419,837,2025-02-14,81.150000,"Coleman, Tucker and Stevens",purchase
+420,635,2025-04-21,349.110000,"Morgan, Bauer and Preston",refund
+421,627,2025-01-25,85.570000,Douglas Ltd,refund
+422,795,2025-02-23,253.400000,Anthony Ltd,refund
+423,872,2025-02-06,22.390000,Maddox PLC,refund
+424,543,2025-03-05,462.380000,Henry Group,refund
+425,544,2025-02-05,240.120000,"Miller, Dunlap and Johnson",refund
+426,200,2025-04-23,98.410000,"Walker, Nolan and Williamson",purchase
+427,151,2025-04-09,264.730000,Mcdowell-Fields,purchase
+428,376,2025-04-21,100.470000,Hogan-Cooper,refund
+429,612,2025-01-01,303.030000,"Rivera, Barnes and Carlson",purchase
+430,35,2025-04-18,475.970000,"Murphy, Williams and Kennedy",purchase
+431,95,2025-04-23,334.680000,"Casey, Pratt and Graham",purchase
+432,79,2025-02-01,202.880000,"Tate, Boyd and Fuentes",refund
+433,238,2025-03-24,122.800000,Bauer LLC,purchase
+434,904,2025-04-18,161.810000,"Jackson, Mendez and Dennis",refund
+435,899,2025-01-17,289.470000,"Cisneros, Bell and Jordan",refund
+436,470,2025-03-14,99.800000,"Gordon, Gray and Martin",refund
+437,962,2025-01-12,428.910000,"Lamb, Quinn and Ortiz",refund
+438,378,2025-04-06,296.970000,Hunt-Beasley,purchase
+439,725,2025-03-02,299.870000,"Zamora, Williams and Briggs",refund
+440,891,2025-03-28,309.940000,"Hopkins, Moore and Ayers",refund
+441,461,2025-01-23,347.980000,Vazquez-Allen,purchase
+442,572,2025-02-25,373.280000,"Jackson, Perez and Olsen",purchase
+443,362,2025-04-09,483.250000,Henry Inc,refund
+444,810,2025-03-23,395.500000,Kelley Group,purchase
+445,126,2025-04-21,141.000000,Walker-Avery,refund
+446,899,2025-02-08,125.830000,Hess-Hansen,purchase
+447,627,2025-04-03,456.690000,"Brown, Phillips and Church",purchase
+448,840,2025-02-25,56.120000,"Jackson, Leonard and Johnson",refund
+449,441,2025-04-18,119.660000,Ballard LLC,purchase
+450,378,2025-02-09,365.370000,Wood-Tucker,purchase
+451,321,2025-04-20,39.670000,"Medina, Mcclure and Mayer",purchase
+452,456,2025-01-29,174.370000,Johnson-Carpenter,refund
+453,151,2025-03-06,77.760000,"Peterson, Sullivan and Hampton",purchase
+454,149,2025-02-01,331.250000,Jimenez-Church,purchase
+455,566,2025-02-08,16.400000,Compton Group,purchase
+456,459,2025-01-03,168.760000,"Murray, Love and Porter",refund
+457,57,2025-03-23,22.270000,"Dudley, Hernandez and Huynh",refund
+458,983,2025-01-01,259.270000,Aguilar-Mendez,purchase
+459,913,2025-03-02,249.360000,"Holden, Thompson and Rubio",purchase
+460,18,2025-02-14,172.150000,Ortiz-Walsh,purchase
+461,306,2025-04-19,491.710000,Ward Inc,refund
+462,966,2025-02-12,204.410000,"Frey, Jackson and Chung",purchase
+463,822,2025-03-26,382.800000,King Inc,purchase
+464,141,2025-02-08,69.920000,Baker-Williams,refund
+465,993,2025-02-17,246.210000,Cervantes Group,purchase
+466,699,2025-01-25,390.220000,Torres Ltd,refund
+467,838,2025-03-04,20.290000,Smith and Sons,refund
+468,914,2025-01-10,96.470000,Lopez LLC,purchase
+469,128,2025-02-15,67.930000,"Clark, Martinez and Johnson",purchase
+470,979,2025-04-20,157.690000,Parsons-Livingston,refund
+471,405,2025-03-09,314.550000,Nunez LLC,refund
+472,208,2025-04-07,220.310000,"Horton, Lester and Byrd",purchase
+473,482,2025-02-03,277.250000,Nolan Inc,purchase
+474,581,2025-03-21,368.120000,Sawyer-Adams,refund
+475,694,2025-03-07,266.340000,Hobbs Ltd,purchase
+476,887,2025-02-18,264.350000,Smith PLC,purchase
+477,372,2025-03-06,276.760000,Merritt-Stephens,refund
+478,129,2025-04-01,302.790000,"Knapp, Young and Smith",refund
+479,870,2025-02-20,256.330000,Duran LLC,purchase
+480,170,2025-03-02,341.270000,Barnes-Choi,purchase
+481,120,2025-03-14,49.140000,Mcconnell Group,purchase
+482,795,2025-01-03,132.730000,Rodriguez LLC,purchase
+483,79,2025-03-11,156.280000,"Mccormick, Fox and Miles",purchase
+484,991,2025-01-29,394.340000,"Williams, Johnson and Gonzalez",purchase
+485,933,2025-01-20,129.730000,"Elliott, Stewart and Douglas",refund
+486,694,2025-02-17,261.720000,Jones and Sons,purchase
+487,504,2025-02-03,132.500000,Douglas Group,refund
+488,170,2025-02-04,282.620000,"Fletcher, Mcdowell and Bell",purchase
+489,17,2025-01-15,341.110000,Smith-Nunez,purchase
+490,891,2025-02-21,206.050000,Montgomery Inc,purchase
+491,189,2025-02-10,325.380000,"Davis, Collins and Horne",purchase
+492,978,2025-03-16,94.910000,"Brooks, Marshall and Chapman",refund
+493,150,2025-03-24,242.310000,Hunt-Cooper,purchase
+494,133,2025-03-10,159.810000,Castaneda-Moran,purchase
+495,582,2025-03-17,265.880000,Lewis and Sons,refund
+496,759,2025-03-31,28.320000,Ashley-Robinson,purchase
+497,670,2025-03-07,113.050000,Murphy-Parker,refund
+498,554,2025-01-18,200.750000,Conner Inc,refund
+499,616,2025-03-14,406.680000,Harrison Ltd,refund
+500,804,2025-02-09,136.050000,Mckay Ltd,refund
+501,455,2025-01-25,33.210000,Davis LLC,purchase
+502,215,2025-01-03,119.960000,"Taylor, French and Luna",purchase
+503,687,2025-03-11,192.170000,Perez Group,purchase
+504,563,2025-01-30,43.400000,Perry-Jackson,purchase
+505,823,2025-04-17,341.890000,Johnston PLC,purchase
+506,702,2025-04-21,182.200000,Gonzales LLC,purchase
+507,19,2025-02-01,410.620000,Martin-Good,purchase
+508,186,2025-04-23,97.130000,"Barrett, James and Mills",refund
+509,78,2025-01-09,226.950000,Wallace-Buckley,refund
+510,615,2025-01-28,254.480000,"Ross, Cannon and Hayes",refund
+511,890,2025-01-15,72.110000,"Lewis, Ryan and Carter",refund
+512,590,2025-01-04,87.080000,Brown-Anderson,refund
+513,123,2025-01-27,324.800000,Berg Inc,refund
+514,591,2025-01-26,303.490000,Brown-Avila,purchase
+515,936,2025-03-09,496.150000,Stone Ltd,refund
+516,629,2025-03-25,81.980000,"Kirby, Harding and Ellis",purchase
+517,424,2025-02-23,350.180000,"Kelley, Sandoval and Owens",refund
+518,664,2025-04-09,385.470000,Frye LLC,purchase
+519,30,2025-01-07,468.630000,"Castillo, Garcia and Freeman",purchase
+520,249,2025-03-14,294.540000,Duarte Group,refund
+521,817,2025-02-03,424.940000,"Price, Dunn and Johnson",purchase
+522,850,2025-03-09,314.730000,Banks Inc,refund
+523,576,2025-03-19,155.990000,Garcia-Salas,refund
+524,140,2025-01-11,423.650000,"Mcmahon, Mcmahon and Fisher",purchase
+525,794,2025-01-18,358.580000,Rivera-Thomas,purchase
+526,210,2025-01-03,99.220000,Palmer Ltd,refund
+527,860,2025-03-15,422.380000,Olson Group,purchase
+528,694,2025-01-05,277.090000,Thompson-Delacruz,purchase
+529,761,2025-02-13,236.200000,Hull-Campbell,refund
+530,367,2025-01-21,88.070000,Levine-Hinton,refund
+531,970,2025-03-15,45.430000,Francis LLC,refund
+532,880,2025-02-18,319.200000,"Santiago, Schroeder and Carter",purchase
+533,139,2025-03-01,365.320000,Frazier-Parks,refund
+534,58,2025-03-01,387.300000,Day-Parsons,purchase
+535,113,2025-01-30,377.960000,Mcdonald-Rios,purchase
+536,762,2025-04-12,191.530000,Rodriguez Inc,purchase
+537,635,2025-02-16,384.640000,Church and Sons,refund
+538,207,2025-03-23,43.430000,Moreno PLC,purchase
+539,952,2025-01-22,269.580000,Ball-Price,purchase
+540,389,2025-04-21,479.210000,Clark Inc,purchase
+541,934,2025-03-16,107.460000,Curtis-Hall,refund
+542,665,2025-02-08,289.860000,Fernandez Ltd,refund
+543,809,2025-04-12,58.240000,Erickson PLC,purchase
+544,865,2025-02-22,244.800000,Garcia LLC,purchase
+545,175,2025-04-13,499.830000,"Rodriguez, Krueger and Perry",refund
+546,336,2025-04-18,19.110000,"Dudley, Smith and Watts",refund
+547,141,2025-01-08,425.020000,"Collins, Wright and Guerra",refund
+548,53,2025-04-11,378.130000,"Shelton, Nielsen and Powers",refund
+549,793,2025-03-27,65.930000,"Johnson, Choi and Robbins",refund
+550,763,2025-01-06,289.220000,"Douglas, Sandoval and Cowan",refund
+551,235,2025-03-27,472.460000,Morgan-Richards,refund
+552,53,2025-01-16,57.740000,Stone-Villa,purchase
+553,910,2025-02-02,238.530000,"Alvarez, Turner and Garcia",refund
+554,836,2025-01-29,63.560000,Nelson-Cox,purchase
+555,653,2025-03-27,184.650000,Smith Ltd,refund
+556,38,2025-02-03,104.750000,Mendoza PLC,refund
+557,574,2025-03-09,461.180000,Brown-Gould,purchase
+558,1,2025-02-12,7.200000,"Barnett, Bowers and Brown",purchase
+559,23,2025-01-14,210.970000,"Mullins, Shaffer and Russo",refund
+560,544,2025-02-13,339.710000,Ruiz and Sons,refund
+561,946,2025-03-02,223.300000,Johnston-Crawford,purchase
+562,6,2025-03-21,325.570000,Garcia-Hill,purchase
+563,270,2025-03-08,382.300000,Barrera-Powell,purchase
+564,283,2025-01-04,397.780000,"Bell, Trujillo and Williams",refund
+565,140,2025-03-04,214.040000,"Paul, Tanner and Thomas",refund
+566,122,2025-03-31,121.470000,"Watkins, Mcdonald and Williams",refund
+567,372,2025-04-10,274.850000,Wong-Hendricks,refund
+568,975,2025-03-22,39.750000,Jones Ltd,purchase
+569,883,2025-03-23,298.980000,Sparks Inc,purchase
+570,51,2025-02-08,415.410000,Marsh Ltd,refund
+571,231,2025-04-21,366.970000,"Martinez, Leon and Gonzales",purchase
+572,72,2025-03-20,27.810000,Thomas Group,refund
+573,412,2025-04-07,419.800000,Ward-Martinez,purchase
+574,571,2025-03-14,355.560000,Martin-Houston,refund
+575,331,2025-02-16,220.350000,"Moreno, Trevino and Morrison",refund
+576,315,2025-01-12,240.210000,"Williams, Harmon and Sanders",purchase
+577,490,2025-01-12,484.100000,Smith and Sons,refund
+578,683,2025-02-23,145.440000,"Taylor, Tucker and Nguyen",refund
+579,600,2025-03-12,423.470000,"Kim, Miller and Edwards",purchase
+580,115,2025-01-05,35.440000,"Newman, Pierce and Wilkins",purchase
+581,680,2025-01-20,409.390000,Gonzales-Harris,purchase
+582,504,2025-03-12,149.530000,Oconnor-Garcia,purchase
+583,50,2025-02-05,109.360000,"Harrison, Hubbard and Forbes",purchase
+584,641,2025-02-08,86.690000,Price-Jackson,refund
+585,464,2025-01-17,442.270000,King-Ball,purchase
+586,48,2025-01-27,125.610000,"Sanchez, Ferguson and Lee",refund
+587,977,2025-03-28,402.710000,"Foley, Carson and Baker",purchase
+588,102,2025-01-04,472.080000,"Frey, Woods and Robertson",refund
+589,545,2025-03-03,23.060000,Michael-Reynolds,refund
+590,865,2025-01-30,237.510000,Fitzpatrick-Mahoney,refund
+591,299,2025-04-10,205.860000,Johnson-Manning,purchase
+592,190,2025-01-19,402.890000,Barnes PLC,purchase
+593,770,2025-01-29,117.620000,Rice Inc,purchase
+594,644,2025-02-09,462.910000,Lewis and Sons,purchase
+595,603,2025-04-06,325.270000,"Deleon, Johnson and Cole",refund
+596,340,2025-01-07,495.670000,"Bryan, Mitchell and Anderson",refund
+597,785,2025-02-27,389.930000,"Phillips, Mccoy and Nichols",purchase
+598,337,2025-01-07,88.020000,"Peters, Boyd and Roberts",refund
+599,841,2025-01-03,414.890000,"Thomas, Keller and Gomez",purchase
+600,406,2025-04-20,83.620000,Cabrera Inc,refund
+601,779,2025-01-16,180.240000,Walters-White,purchase
+602,823,2025-03-31,293.840000,"Shaffer, Torres and Wells",purchase
+603,556,2025-03-31,120.460000,Anthony-Carter,purchase
+604,414,2025-03-21,220.600000,Hart Inc,purchase
+605,773,2025-04-17,190.810000,"Herrera, Turner and Johnson",purchase
+606,303,2025-03-09,7.500000,Garcia-Chavez,purchase
+607,966,2025-03-25,334.490000,Long-Kelley,refund
+608,598,2025-01-31,131.570000,Walker-Ryan,refund
+609,695,2025-04-05,231.610000,"Kaiser, Williams and Weber",refund
+610,639,2025-04-06,435.540000,Kirby PLC,refund
+611,27,2025-02-28,152.530000,Wilson-Morrow,purchase
+612,870,2025-02-03,25.950000,"Jacobs, Lucero and Serrano",purchase
+613,189,2025-01-13,170.540000,"Patel, Jennings and Suarez",purchase
+614,145,2025-01-10,474.980000,Bowen-Benton,refund
+615,320,2025-01-25,283.110000,Hill LLC,refund
+616,762,2025-04-08,475.860000,"Lee, Barrett and Cole",purchase
+617,978,2025-03-31,75.420000,"Weiss, Martin and Smith",refund
+618,885,2025-01-08,290.750000,Thomas-Hodge,purchase
+619,978,2025-03-15,17.680000,"Shields, Johnson and Johnson",refund
+620,16,2025-04-05,384.950000,"Jones, Patterson and Richards",purchase
+621,593,2025-03-12,467.120000,Byrd and Sons,purchase
+622,463,2025-04-22,278.430000,Odom LLC,purchase
+623,716,2025-02-28,49.880000,"Aguilar, Stokes and Rojas",refund
+624,3,2025-03-18,485.030000,Frank-Matthews,purchase
+625,48,2025-04-18,67.500000,Clark Group,purchase
+626,338,2025-03-12,272.310000,Allen and Sons,refund
+627,102,2025-02-22,301.110000,"Carter, Rich and Ellis",refund
+628,328,2025-04-20,483.980000,Cole-Garcia,purchase
+629,897,2025-03-18,9.600000,"Higgins, West and Dixon",purchase
+630,556,2025-02-15,86.110000,Williams-Martinez,refund
+631,829,2025-04-24,71.510000,"Smith, Hood and Roberts",refund
+632,244,2025-03-31,278.350000,"Brewer, Wu and Gallagher",refund
+633,544,2025-01-31,447.510000,Lopez Group,refund
+634,379,2025-04-08,131.030000,"Rivers, Roberts and Peters",refund
+635,135,2025-03-04,147.310000,Johnson-Costa,purchase
+636,182,2025-03-13,298.860000,Palmer Ltd,refund
+637,874,2025-02-06,338.460000,Miller-Roman,refund
+638,27,2025-02-24,261.920000,Tyler PLC,refund
+639,806,2025-04-19,76.990000,Russell Inc,refund
+640,431,2025-03-14,238.470000,"Malone, Smith and Wilson",refund
+641,726,2025-02-21,278.710000,Mclaughlin-Harris,refund
+642,219,2025-03-13,184.830000,"Garcia, Newman and Howe",purchase
+643,668,2025-01-18,234.890000,Morgan-Page,refund
+644,474,2025-01-30,191.170000,"Walters, Hunter and Webb",refund
+645,650,2025-01-05,145.750000,Johnson Group,purchase
+646,203,2025-01-28,62.330000,"Williams, Fisher and Mullins",purchase
+647,708,2025-03-14,294.660000,Stanley-White,purchase
+648,144,2025-03-15,51.880000,"Myers, Allen and Wagner",purchase
+649,210,2025-04-10,20.800000,"Daugherty, Patel and Tucker",purchase
+650,37,2025-02-05,346.420000,"Conner, Green and Johns",refund
+651,232,2025-03-07,354.530000,Smith-Johnson,purchase
+652,232,2025-01-10,244.680000,"Fernandez, Lee and Lewis",purchase
+653,325,2025-03-18,231.410000,"Good, Smith and Taylor",purchase
+654,414,2025-03-15,378.250000,Wilson Group,refund
+655,817,2025-02-23,461.760000,Chen-Cannon,purchase
+656,122,2025-01-27,462.840000,Vincent Group,purchase
+657,135,2025-03-06,248.920000,"Anderson, Simon and Rios",purchase
+658,652,2025-01-05,310.720000,"Ford, Perez and Clayton",purchase
+659,108,2025-01-15,302.500000,Holmes-Morales,purchase
+660,661,2025-02-08,199.470000,Gordon-Brooks,purchase
+661,45,2025-04-10,358.570000,Jacobs-Young,refund
+662,334,2025-02-28,192.680000,"Pratt, Reyes and Buchanan",refund
+663,21,2025-01-18,119.650000,Johnson-Smith,purchase
+664,495,2025-01-13,208.570000,"Cohen, Kelley and Duncan",refund
+665,634,2025-01-05,453.290000,Rollins Ltd,purchase
+666,263,2025-03-15,198.670000,"Moore, Roberts and Hughes",purchase
+667,251,2025-04-02,73.310000,Carpenter-Thomas,purchase
+668,429,2025-01-28,360.120000,Molina-Mejia,purchase
+669,484,2025-04-12,169.820000,"Mercer, Melendez and Baldwin",refund
+670,69,2025-01-10,205.320000,"Smith, Stephens and Wright",purchase
+671,364,2025-02-11,8.590000,Russell-Barrett,refund
+672,729,2025-01-11,110.200000,Snow-Hernandez,purchase
+673,875,2025-02-12,244.500000,"Whitney, Smith and Parsons",purchase
+674,121,2025-01-01,329.200000,"Oconnell, Hamilton and Roberts",refund
+675,936,2025-01-12,327.770000,Tran-Young,refund
+676,161,2025-03-25,326.200000,"Sanders, Glover and Walker",refund
+677,705,2025-04-21,442.830000,"Roberts, Weber and Tran",purchase
+678,708,2025-02-22,265.030000,Robles-Cruz,refund
+679,884,2025-03-11,423.800000,"Brooks, Sparks and Sanders",refund
+680,854,2025-04-20,303.010000,Sanders-Phillips,purchase
+681,4,2025-01-07,264.160000,Leonard-Wilson,refund
+682,140,2025-01-04,466.450000,Oconnor-Johnson,refund
+683,921,2025-03-06,153.670000,Hernandez Inc,purchase
+684,532,2025-02-03,268.350000,"Herman, Johnson and Harris",purchase
+685,624,2025-03-29,428.590000,Clay-Edwards,refund
+686,646,2025-04-18,248.950000,Martinez-Jackson,purchase
+687,872,2025-03-17,140.410000,Ward Inc,refund
+688,498,2025-03-09,167.920000,Ramos Inc,purchase
+689,936,2025-02-04,373.030000,Roy-Collier,refund
+690,160,2025-02-15,314.750000,"Clark, Curtis and Moreno",refund
+691,209,2025-02-05,37.400000,"Sullivan, Rivers and Lee",purchase
+692,641,2025-03-08,227.260000,"Garcia, Lewis and Dodson",purchase
+693,111,2025-04-11,411.110000,Hurst-Torres,refund
+694,453,2025-02-20,52.330000,"Jackson, Estrada and Salazar",refund
+695,920,2025-03-08,483.260000,Morales-Dixon,purchase
+696,614,2025-04-17,334.420000,Harris Ltd,refund
+697,821,2025-02-26,163.620000,Roman-Williams,refund
+698,848,2025-01-21,362.970000,Gould-Taylor,refund
+699,584,2025-02-25,233.340000,Sawyer-Browning,purchase
+700,155,2025-03-04,86.840000,Davidson Group,refund
+701,731,2025-03-08,198.400000,Cordova and Sons,refund
+702,265,2025-03-30,80.110000,Schaefer LLC,refund
+703,521,2025-03-02,37.570000,Wise Ltd,refund
+704,365,2025-02-25,108.130000,Acevedo-Ryan,purchase
+705,359,2025-04-03,217.950000,Cortez Group,refund
+706,29,2025-03-20,459.010000,Yates Group,purchase
+707,562,2025-02-11,170.460000,Baldwin LLC,refund
+708,968,2025-01-13,445.950000,"Rodgers, Simmons and Walsh",refund
+709,157,2025-01-11,159.740000,Brown-Flowers,refund
+710,985,2025-03-14,7.270000,Mcbride and Sons,refund
+711,975,2025-03-16,307.640000,"Golden, Miller and Smith",purchase
+712,88,2025-04-16,297.620000,Gilbert-Boyd,purchase
+713,450,2025-02-28,377.960000,Mills-Edwards,refund
+714,583,2025-01-24,334.710000,Ramos-Powers,purchase
+715,79,2025-04-15,197.850000,Hughes-Malone,purchase
+716,381,2025-02-15,313.140000,Leonard-Brown,refund
+717,495,2025-02-04,64.090000,"Graham, Weber and Gibbs",refund
+718,267,2025-02-09,411.000000,Green-Chavez,refund
+719,259,2025-03-10,77.820000,"Ruiz, Turner and Jones",refund
+720,24,2025-03-21,420.660000,"Harvey, Day and Lin",refund
+721,438,2025-01-26,50.380000,Rodriguez LLC,refund
+722,429,2025-02-07,64.280000,Williams-Orr,refund
+723,180,2025-03-22,67.590000,Graham-Haynes,purchase
+724,441,2025-04-04,107.190000,"Byrd, Mcclain and Perkins",purchase
+725,190,2025-03-05,282.970000,"Mcdonald, Martinez and Garza",refund
+726,299,2025-04-20,379.560000,Stanley-Davis,purchase
+727,418,2025-03-08,44.980000,Golden LLC,purchase
+728,587,2025-03-16,300.160000,"Davis, Lopez and Wood",purchase
+729,688,2025-02-15,483.990000,"Patrick, Newton and Morris",purchase
+730,738,2025-03-16,81.870000,Clay-Garcia,refund
+731,352,2025-03-25,265.370000,"Summers, Torres and Moore",purchase
+732,625,2025-03-06,200.930000,White and Sons,refund
+733,437,2025-02-11,164.000000,Taylor-Wyatt,refund
+734,116,2025-02-20,486.570000,Blackwell PLC,purchase
+735,822,2025-01-04,325.950000,Garcia Inc,purchase
+736,925,2025-03-13,313.720000,Walls-Williams,purchase
+737,417,2025-04-06,128.360000,"Saunders, Zamora and Bennett",purchase
+738,699,2025-04-03,274.050000,Sloan Ltd,purchase
+739,200,2025-03-15,36.540000,"Johnson, Morgan and Wilson",refund
+740,261,2025-03-09,130.100000,"Wilkinson, Garcia and Webb",refund
+741,266,2025-01-16,370.760000,Peterson-Martinez,purchase
+742,870,2025-04-18,230.910000,Acevedo-Brown,refund
+743,661,2025-04-17,59.850000,"Wheeler, Powell and Hinton",purchase
+744,8,2025-03-18,251.040000,Mckenzie LLC,purchase
+745,393,2025-01-03,118.700000,Jones Group,purchase
+746,305,2025-04-20,479.450000,Jones-Campbell,refund
+747,296,2025-03-23,468.990000,Ross-Sullivan,refund
+748,298,2025-03-28,316.810000,Powers and Sons,refund
+749,439,2025-03-04,190.960000,"Zavala, Drake and Rangel",refund
+750,368,2025-03-04,262.460000,"Rodgers, Davidson and Jones",purchase
+751,467,2025-04-02,122.380000,Reynolds Inc,refund
+752,400,2025-03-05,162.650000,Leonard LLC,purchase
+753,596,2025-02-15,450.800000,Bass-Villarreal,refund
+754,12,2025-01-31,213.180000,Lawson-Potter,purchase
+755,489,2025-01-14,89.420000,"Orozco, Fox and Smith",refund
+756,208,2025-04-07,434.220000,Williams-Harris,purchase
+757,622,2025-01-02,290.000000,"Stephens, Austin and Carter",refund
+758,88,2025-04-11,142.900000,Woodard Inc,purchase
+759,716,2025-02-16,358.230000,"Hayden, Deleon and Hooper",refund
+760,936,2025-03-05,338.100000,"Hernandez, Reed and Walker",refund
+761,378,2025-03-31,387.590000,Daniels-Palmer,purchase
+762,675,2025-04-18,167.070000,Herring-Tran,refund
+763,563,2025-03-06,100.450000,Davila and Sons,refund
+764,563,2025-04-11,73.690000,"Robles, Middleton and Flores",purchase
+765,536,2025-02-26,248.900000,"Williams, Smith and Young",purchase
+766,705,2025-03-06,174.250000,"Chung, Martin and Morrison",purchase
+767,586,2025-02-19,457.000000,"Holland, Martinez and Larsen",refund
+768,660,2025-02-07,493.690000,Bruce-Brady,purchase
+769,336,2025-01-24,430.240000,Alexander-Mendez,refund
+770,533,2025-01-16,54.070000,Olson Inc,purchase
+771,234,2025-03-28,267.370000,Lawrence and Sons,purchase
+772,861,2025-03-30,465.400000,Villegas PLC,purchase
+773,182,2025-02-08,320.150000,Garcia-Eaton,refund
+774,352,2025-03-30,229.640000,Larsen-Parker,refund
+775,976,2025-02-09,498.810000,Larson-Bradshaw,purchase
+776,570,2025-03-07,205.720000,Morrison Inc,refund
+777,418,2025-04-01,305.350000,"Miller, Watson and Soto",refund
+778,473,2025-04-07,288.920000,"Douglas, Koch and Levine",purchase
+779,155,2025-02-15,318.710000,"Kelley, Pugh and Singleton",refund
+780,254,2025-04-21,162.590000,"Stewart, Murphy and Lowe",refund
+781,408,2025-02-14,489.200000,Davenport and Sons,refund
+782,128,2025-01-02,320.290000,Jacobs Ltd,refund
+783,26,2025-03-08,296.180000,"Arias, Jones and Gill",refund
+784,768,2025-01-29,57.070000,Hoffman-Jones,purchase
+785,27,2025-02-16,30.000000,"Carson, Rodriguez and Davis",purchase
+786,90,2025-01-24,444.080000,Wagner-Hall,refund
+787,388,2025-03-22,105.410000,Jordan PLC,purchase
+788,194,2025-04-18,452.250000,Bell-Robertson,refund
+789,174,2025-04-15,353.890000,"Cox, Sanchez and Smith",refund
+790,515,2025-02-08,291.170000,Bennett PLC,purchase
+791,477,2025-02-20,317.290000,"Perez, Johnson and Black",purchase
+792,396,2025-01-22,255.180000,Chavez-Montgomery,purchase
+793,135,2025-03-05,341.530000,Ramirez Ltd,refund
+794,233,2025-04-04,445.440000,Rollins-Deleon,purchase
+795,220,2025-02-02,38.760000,Houston and Sons,refund
+796,117,2025-04-24,312.150000,"Gray, Harrison and Novak",purchase
+797,989,2025-02-04,436.390000,Dougherty Group,refund
+798,196,2025-01-26,235.540000,Morgan LLC,refund
+799,342,2025-04-21,373.860000,Hayes PLC,refund
+800,635,2025-01-06,217.950000,Smith and Sons,purchase
+801,704,2025-03-12,261.770000,"Salas, Aguirre and Cross",refund
+802,560,2025-03-30,185.610000,"Shaffer, Carlson and Pena",purchase
+803,137,2025-01-17,206.440000,Flores-Owens,purchase
+804,660,2025-04-12,355.000000,"Baker, Black and Everett",purchase
+805,760,2025-03-15,446.210000,Hernandez-Bautista,refund
+806,455,2025-01-11,462.640000,Hernandez LLC,purchase
+807,802,2025-01-25,210.730000,Adams-Huber,refund
+808,408,2025-03-04,199.970000,Christensen PLC,purchase
+809,723,2025-03-12,249.060000,Garcia-Montoya,refund
+810,998,2025-02-18,209.840000,"Brown, Yu and Johnson",refund
+811,963,2025-02-23,62.440000,Martin-Taylor,purchase
+812,933,2025-04-10,255.970000,"Wade, Watson and Haney",purchase
+813,622,2025-02-04,489.930000,Contreras-Martin,refund
+814,426,2025-02-23,350.260000,Ruiz-Anderson,refund
+815,524,2025-03-03,401.610000,Henry Ltd,refund
+816,444,2025-03-28,429.900000,"Zimmerman, Cook and Sanchez",purchase
+817,446,2025-02-24,48.450000,"Weiss, Johnson and Schwartz",purchase
+818,791,2025-04-17,476.020000,Lyons PLC,refund
+819,482,2025-02-28,196.310000,Allen-Callahan,refund
+820,596,2025-03-03,22.950000,Garcia-Edwards,refund
+821,906,2025-03-20,378.180000,"Watson, Salinas and Dunn",purchase
+822,867,2025-03-31,159.180000,Mcdaniel-Mcguire,refund
+823,454,2025-03-28,289.920000,Sims and Sons,purchase
+824,252,2025-01-02,104.830000,Newman Inc,purchase
+825,627,2025-03-26,315.300000,"Spencer, Nelson and Young",refund
+826,251,2025-01-13,17.670000,Miller Group,purchase
+827,849,2025-02-06,303.690000,Harvey-Anthony,purchase
+828,488,2025-01-24,332.710000,Oconnell-Ramos,refund
+829,888,2025-01-04,291.530000,Mccoy and Sons,purchase
+830,963,2025-01-17,108.270000,Hodges PLC,purchase
+831,308,2025-01-19,186.020000,Short PLC,purchase
+832,423,2025-01-22,335.100000,"Haynes, Mccoy and Oconnell",purchase
+833,536,2025-02-26,367.690000,"Smith, Sawyer and Martinez",refund
+834,24,2025-03-14,298.400000,Clark-Bishop,purchase
+835,712,2025-04-07,478.690000,Mack-Nielsen,refund
+836,294,2025-01-08,406.100000,Fisher Ltd,purchase
+837,712,2025-03-20,7.920000,Patrick-Alvarez,purchase
+838,805,2025-01-12,79.640000,"Patel, Ward and Reid",refund
+839,633,2025-02-15,490.300000,Harrison and Sons,refund
+840,330,2025-04-15,489.110000,Baldwin-Roy,refund
+841,106,2025-01-10,211.630000,Randolph Ltd,refund
+842,80,2025-03-29,255.740000,Davis-Cruz,purchase
+843,49,2025-01-24,400.160000,Davenport-Brock,purchase
+844,864,2025-02-10,481.570000,Maddox Ltd,refund
+845,199,2025-02-25,80.450000,"Davis, Davis and Mason",refund
+846,270,2025-02-06,184.180000,"Deleon, Johnson and Abbott",refund
+847,590,2025-01-02,337.890000,Ortiz and Sons,purchase
+848,936,2025-01-01,368.700000,"Gibson, Thompson and Barrera",refund
+849,357,2025-01-30,283.910000,Blackburn Ltd,refund
+850,55,2025-02-12,457.190000,Bowman and Sons,refund
+851,635,2025-01-26,496.440000,"Jackson, Kerr and Jordan",purchase
+852,915,2025-01-28,486.660000,Thompson Group,refund
+853,14,2025-03-31,94.410000,"Long, Thomas and Price",purchase
+854,620,2025-03-05,498.990000,Henry LLC,refund
+855,552,2025-02-16,79.590000,Howard PLC,purchase
+856,480,2025-02-25,395.090000,Lamb-Arroyo,purchase
+857,584,2025-02-10,434.220000,Bryant-Ibarra,purchase
+858,940,2025-01-17,52.130000,Gonzalez-Bennett,refund
+859,824,2025-03-26,194.700000,Nelson PLC,purchase
+860,821,2025-04-05,483.980000,Thomas PLC,purchase
+861,513,2025-03-02,108.250000,Anderson-Schmidt,refund
+862,143,2025-03-21,255.090000,Spencer-Rodriguez,purchase
+863,347,2025-01-03,60.570000,Cook-Solis,purchase
+864,203,2025-02-08,340.150000,Brown-Hammond,purchase
+865,287,2025-02-28,195.630000,Lowe-Juarez,refund
+866,67,2025-04-24,220.610000,"Gonzales, Mitchell and Jackson",purchase
+867,965,2025-04-17,403.730000,Roberts Inc,purchase
+868,771,2025-01-04,240.940000,"Jones, Carr and Benson",purchase
+869,843,2025-02-07,302.560000,"Hernandez, Doyle and Herrera",refund
+870,772,2025-03-08,154.360000,White LLC,refund
+871,554,2025-01-11,323.030000,"Hall, Mercado and Hunt",purchase
+872,176,2025-02-08,351.570000,"Hodges, Ray and Flores",refund
+873,328,2025-01-23,405.220000,Maldonado and Sons,refund
+874,322,2025-03-02,104.330000,"Pham, Patrick and Jackson",refund
+875,781,2025-02-02,199.270000,"Farmer, Johnson and Cochran",purchase
+876,419,2025-04-09,202.180000,"Vargas, Fritz and Peterson",refund
+877,850,2025-04-03,438.340000,"Larson, Hernandez and Cooke",refund
+878,387,2025-04-14,204.000000,"Austin, Larson and Hill",refund
+879,10,2025-04-03,387.250000,"Taylor, Peterson and Murphy",refund
+880,283,2025-03-21,113.860000,Silva Ltd,refund
+881,113,2025-02-08,376.940000,"Yang, Page and Hughes",refund
+882,182,2025-01-13,420.750000,Taylor and Sons,purchase
+883,944,2025-04-13,26.690000,Harris Ltd,refund
+884,781,2025-02-27,186.360000,"Gonzales, West and Watson",refund
+885,246,2025-01-15,93.340000,Morse Inc,purchase
+886,337,2025-03-03,454.850000,"Cain, Simpson and Vance",purchase
+887,860,2025-01-15,474.250000,Khan PLC,refund
+888,757,2025-02-26,173.400000,"Clayton, Ramirez and Williams",purchase
+889,421,2025-02-16,292.840000,Carney Inc,refund
+890,18,2025-02-11,74.030000,"Davis, Lopez and Lowery",refund
+891,404,2025-03-31,447.970000,Newton-Ramirez,purchase
+892,475,2025-03-15,274.820000,"Sutton, Adams and Guzman",refund
+893,446,2025-03-23,308.120000,Nunez-Avila,purchase
+894,239,2025-02-05,162.210000,"Hanson, Franklin and Reyes",purchase
+895,897,2025-01-03,40.370000,"Allen, Hancock and Watkins",refund
+896,292,2025-02-27,12.630000,"Smith, Tucker and Bowman",purchase
+897,403,2025-02-12,127.360000,Lowe Inc,refund
+898,645,2025-01-18,167.130000,Andrade-Parker,purchase
+899,706,2025-03-25,474.900000,Wilson-Day,refund
+900,86,2025-03-02,95.650000,Griffith-Mejia,refund
+901,344,2025-02-15,384.510000,Palmer-Kim,refund
+902,1000,2025-02-15,138.540000,"Moody, Moreno and Espinoza",purchase
+903,202,2025-01-06,27.610000,Skinner-Melton,refund
+904,850,2025-01-02,49.660000,Meyer-Jensen,refund
+905,399,2025-03-13,82.190000,"Weber, Bryan and Ortiz",refund
+906,930,2025-04-21,114.120000,"Torres, Keller and Myers",refund
+907,982,2025-04-11,288.410000,Rodriguez Ltd,purchase
+908,666,2025-01-31,138.220000,Cabrera LLC,purchase
+909,939,2025-01-24,236.140000,Lopez PLC,refund
+910,165,2025-03-09,309.560000,Griffin Ltd,purchase
+911,839,2025-01-10,408.060000,Lynn-Bailey,purchase
+912,28,2025-04-07,305.320000,Lopez-Webster,refund
+913,60,2025-02-23,30.910000,Bradley PLC,refund
+914,825,2025-03-07,148.650000,"Edwards, Miller and Wagner",refund
+915,760,2025-04-21,204.700000,Mcknight Ltd,purchase
+916,961,2025-04-23,111.670000,Morris Inc,purchase
+917,69,2025-02-16,480.750000,"Sanchez, Swanson and Zuniga",purchase
+918,563,2025-01-15,300.550000,"Warren, Gates and Wood",refund
+919,750,2025-01-13,227.460000,Harris Inc,purchase
+920,957,2025-01-08,102.840000,Harvey-Levy,refund
+921,960,2025-01-15,115.660000,Prince PLC,purchase
+922,958,2025-03-20,170.670000,"Juarez, Cooper and Elliott",purchase
+923,756,2025-04-16,470.620000,Oneill-Ritter,refund
+924,594,2025-03-09,344.320000,Morales PLC,refund
+925,531,2025-01-01,94.170000,Welch-Marks,refund
+926,792,2025-03-01,131.110000,"Fitzgerald, Whitney and Gonzalez",refund
+927,654,2025-04-21,327.330000,Butler-Hodges,refund
+928,55,2025-01-24,373.770000,"Henry, Golden and Green",refund
+929,913,2025-04-13,81.860000,Saunders LLC,purchase
+930,218,2025-02-08,59.420000,Herman-Roberts,purchase
+931,835,2025-03-18,453.230000,Berry-Mitchell,purchase
+932,421,2025-01-09,223.240000,Smith-Morales,purchase
+933,89,2025-01-10,18.070000,Burgess Ltd,refund
+934,397,2025-03-27,72.490000,Sellers-Morton,refund
+935,703,2025-01-23,357.960000,"Smith, Graham and Rogers",purchase
+936,39,2025-03-03,239.560000,"Robertson, Deleon and Bush",refund
+937,549,2025-01-27,290.910000,Williams Inc,refund
+938,296,2025-01-10,125.600000,Boyle Ltd,refund
+939,483,2025-04-21,227.710000,Hall LLC,purchase
+940,106,2025-02-02,300.960000,Miller-Wright,refund
+941,376,2025-02-17,440.980000,Miller-Cruz,refund
+942,267,2025-04-15,77.780000,"Miller, Mcbride and Gonzalez",purchase
+943,941,2025-04-14,153.810000,"Adams, Howard and Wagner",refund
+944,840,2025-01-23,329.630000,"Green, Hinton and Giles",refund
+945,60,2025-04-15,100.670000,"Hernandez, Blair and Jones",refund
+946,912,2025-01-07,32.770000,"Thomas, Shaw and Padilla",purchase
+947,375,2025-02-17,24.550000,Fernandez-Washington,refund
+948,662,2025-03-07,235.900000,"Singh, Sanchez and Lindsey",purchase
+949,817,2025-04-07,82.920000,Alexander-Turner,refund
+950,21,2025-04-18,78.020000,Cortez Group,purchase
+951,820,2025-01-01,180.680000,Nguyen-Mccormick,refund
+952,130,2025-03-05,144.880000,Patel-Campos,purchase
+953,668,2025-03-25,432.090000,Holmes LLC,refund
+954,584,2025-03-03,52.020000,Hughes PLC,refund
+955,550,2025-01-29,35.530000,Bradley PLC,refund
+956,807,2025-04-16,484.720000,Mendez-Figueroa,refund
+957,708,2025-02-27,486.700000,Haley and Sons,purchase
+958,945,2025-01-09,315.650000,Downs Inc,refund
+959,630,2025-03-27,419.280000,Farmer-Brown,refund
+960,232,2025-03-16,139.930000,"Parker, Levine and Valdez",purchase
+961,136,2025-01-04,458.100000,Willis-Rodriguez,refund
+962,882,2025-03-08,376.720000,Smith Group,refund
+963,981,2025-03-12,204.780000,Williams-Foster,refund
+964,654,2025-04-06,95.640000,"Morales, Wright and Martinez",refund
+965,368,2025-04-03,477.190000,Lopez Inc,refund
+966,375,2025-04-08,328.820000,Wood Ltd,refund
+967,197,2025-03-30,255.130000,"Bradley, Mcdonald and Miller",refund
+968,821,2025-02-14,248.990000,"Anderson, Mendez and Warner",refund
+969,251,2025-01-28,155.350000,Zuniga-Perez,refund
+970,379,2025-02-27,379.750000,Freeman and Sons,purchase
+971,427,2025-01-19,51.520000,Clark LLC,purchase
+972,925,2025-03-17,361.520000,Stevenson-Howard,refund
+973,415,2025-02-28,41.560000,Sharp Ltd,purchase
+974,379,2025-01-24,347.220000,Sparks and Sons,refund
+975,383,2025-02-05,164.930000,Moreno-Gray,purchase
+976,122,2025-02-27,495.480000,Gibbs-Taylor,purchase
+977,611,2025-04-11,6.520000,Martin Group,refund
+978,681,2025-01-09,390.810000,West LLC,purchase
+979,610,2025-04-07,106.330000,"Smith, Fisher and Goodman",purchase
+980,657,2025-04-16,48.360000,"Shea, Nicholson and Jenkins",refund
+981,446,2025-01-12,467.920000,Briggs LLC,refund
+982,272,2025-03-21,445.640000,Perez-Andrews,purchase
+983,420,2025-02-20,117.210000,Fisher PLC,purchase
+984,269,2025-01-31,230.150000,Jones Ltd,refund
+985,973,2025-01-12,108.680000,"Morris, Jackson and Novak",purchase
+986,800,2025-02-18,108.510000,Martinez-Moran,refund
+987,29,2025-04-12,436.700000,Navarro LLC,purchase
+988,597,2025-04-09,257.190000,York Group,purchase
+989,399,2025-03-17,200.170000,Murray Inc,purchase
+990,992,2025-04-24,57.750000,"Williams, Wu and Holmes",refund
+991,151,2025-04-06,350.850000,"Walsh, Parks and Reyes",purchase
+992,553,2025-04-08,376.930000,Hayes Group,purchase
+993,918,2025-02-07,132.600000,Moore-Leonard,purchase
+994,29,2025-01-21,82.490000,Smith LLC,refund
+995,755,2025-04-12,356.640000,"Moore, Reed and Oconnor",purchase
+996,122,2025-04-08,92.380000,Brown Group,purchase
+997,905,2025-04-05,214.670000,"Brown, Castro and Davidson",purchase
+998,176,2025-02-23,23.000000,Jones PLC,purchase
+999,670,2025-01-16,83.310000,Mclean Inc,refund
+1000,514,2025-01-14,33.780000,Kane Inc,refund
+1001,609,2025-01-05,55.850000,"Turner, Guerrero and Gray",refund
+1002,392,2025-01-25,135.250000,"Ortiz, Padilla and Savage",purchase
+1003,121,2025-04-10,32.970000,"Smith, Davis and Walker",refund
+1004,139,2025-03-25,463.580000,"Fry, Johnson and Lewis",refund
+1005,623,2025-04-12,417.040000,Anderson-Davis,purchase
+1006,209,2025-03-23,82.030000,Jones-Jimenez,refund
+1007,113,2025-03-11,312.190000,Walker and Sons,purchase
+1008,158,2025-01-23,193.330000,"Nicholson, Huffman and Cole",refund
+1009,310,2025-01-28,168.600000,"Murphy, Williams and Bryant",refund
+1010,881,2025-02-25,281.990000,Browning Group,refund
+1011,56,2025-04-12,332.610000,Scott-Green,purchase
+1012,302,2025-03-12,394.690000,Stewart Ltd,purchase
+1013,243,2025-02-06,157.100000,Wilson PLC,refund
+1014,299,2025-03-17,306.190000,Sanders-Ward,refund
+1015,803,2025-01-05,406.520000,"Perez, Flores and Cochran",purchase
+1016,555,2025-03-15,443.830000,Moore-Skinner,purchase
+1017,253,2025-02-05,303.560000,Patterson PLC,purchase
+1018,544,2025-03-23,110.320000,"Flores, Jackson and Rogers",refund
+1019,359,2025-02-05,335.100000,Haynes Ltd,refund
+1020,934,2025-02-02,116.200000,Gonzalez Inc,purchase
+1021,608,2025-01-16,156.870000,Calhoun Inc,refund
+1022,607,2025-02-21,436.460000,Fields-Nicholson,refund
+1023,48,2025-03-19,328.990000,Chang Inc,purchase
+1024,131,2025-02-05,218.290000,Sexton-Rice,refund
+1025,729,2025-02-28,434.700000,Ramirez-Johnson,purchase
+1026,806,2025-02-20,411.770000,"Collins, Lee and Bryant",refund
+1027,101,2025-02-21,479.010000,"Moore, Johnson and Johnson",refund
+1028,959,2025-03-30,51.570000,Cruz LLC,refund
+1029,528,2025-03-12,417.750000,Briggs and Sons,purchase
+1030,522,2025-04-23,78.000000,Morgan and Sons,refund
+1031,169,2025-01-22,279.990000,Rhodes PLC,purchase
+1032,427,2025-02-08,161.280000,Meyers and Sons,purchase
+1033,880,2025-03-04,377.960000,Chang and Sons,refund
+1034,337,2025-01-23,35.950000,"Chang, Day and Reed",refund
+1035,398,2025-04-22,400.290000,Shields-Williams,purchase
+1036,331,2025-02-21,221.610000,Hansen Ltd,purchase
+1037,30,2025-02-07,298.850000,French LLC,purchase
+1038,911,2025-01-02,242.900000,"Mitchell, Sanchez and Nunez",refund
+1039,986,2025-01-22,293.230000,"Martinez, Schmidt and Bullock",purchase
+1040,551,2025-03-11,238.610000,Hanson and Sons,purchase
+1041,599,2025-04-22,303.910000,"Watkins, David and Collins",purchase
+1042,69,2025-02-07,101.560000,Kidd Inc,purchase
+1043,929,2025-03-02,463.140000,"Morrow, Gonzalez and Rodriguez",purchase
+1044,656,2025-03-25,31.580000,Maynard-Park,refund
+1045,630,2025-04-19,493.590000,Turner PLC,refund
+1046,606,2025-02-28,410.160000,Fleming-Barnett,refund
+1047,837,2025-01-22,290.410000,"Holland, Moreno and Johnson",purchase
+1048,956,2025-03-04,202.680000,"Elliott, Davila and Robinson",purchase
+1049,567,2025-03-17,263.160000,"Spencer, Parrish and Glenn",refund
+1050,100,2025-03-30,119.580000,Turner Group,purchase
+1051,346,2025-03-02,412.390000,Smith and Sons,refund
+1052,713,2025-03-08,239.890000,Peters-Smith,refund
+1053,171,2025-03-23,240.660000,"Washington, Martin and Kelly",purchase
+1054,953,2025-04-03,498.280000,Austin Inc,purchase
+1055,575,2025-01-25,117.900000,Huynh-Nichols,refund
+1056,947,2025-02-25,214.590000,Mooney-Walton,purchase
+1057,264,2025-01-30,35.640000,Ellis LLC,refund
+1058,437,2025-02-10,55.860000,Johnson and Sons,refund
+1059,252,2025-02-08,182.710000,Dawson-Watts,refund
+1060,968,2025-02-16,173.100000,Mcgee-Peters,refund
+1061,278,2025-02-14,321.870000,Ortega-Garcia,purchase
+1062,910,2025-02-07,443.590000,Jones-Cruz,refund
+1063,389,2025-01-19,274.130000,Parrish PLC,refund
+1064,502,2025-03-23,337.740000,Flores-Owens,purchase
+1065,11,2025-02-17,205.810000,Howard and Sons,refund
+1066,866,2025-04-03,44.650000,"Alexander, Wilson and Burgess",purchase
+1067,191,2025-01-24,495.390000,Dominguez-Arnold,purchase
+1068,327,2025-02-07,84.640000,Henderson Ltd,purchase
+1069,194,2025-01-10,117.500000,"Coffey, White and Williams",purchase
+1070,335,2025-01-15,184.380000,Myers-Welch,purchase
+1071,940,2025-03-05,488.530000,Thomas Group,purchase
+1072,421,2025-01-02,237.330000,Robertson PLC,purchase
+1073,10,2025-03-06,468.830000,"Mason, Mcgrath and Yates",purchase
+1074,932,2025-03-02,185.740000,Henderson Group,refund
+1075,767,2025-01-07,117.230000,Perkins-Delgado,purchase
+1076,454,2025-01-15,216.250000,Glenn PLC,refund
+1077,516,2025-02-05,355.150000,Chavez-Ingram,refund
+1078,646,2025-03-21,403.910000,Fritz-Washington,refund
+1079,723,2025-01-05,434.850000,"Wolf, Garrett and Faulkner",purchase
+1080,501,2025-04-15,156.940000,"Roberts, Long and Murray",purchase
+1081,416,2025-04-04,113.740000,"Frank, Richardson and Gordon",refund
+1082,196,2025-02-12,208.190000,Williams-Brown,purchase
+1083,673,2025-02-08,387.210000,"Johnson, Thomas and King",refund
+1084,368,2025-02-08,452.470000,"Robertson, Weaver and Lewis",purchase
+1085,24,2025-02-07,299.720000,Cordova Group,refund
+1086,256,2025-04-08,251.810000,Hernandez-Moore,purchase
+1087,719,2025-03-16,176.160000,Dyer-Schneider,refund
+1088,188,2025-04-17,223.700000,Garcia Inc,refund
+1089,755,2025-01-29,34.580000,Martin Inc,refund
+1090,356,2025-02-08,403.660000,"Aguirre, Clark and Johnson",purchase
+1091,545,2025-04-10,157.600000,Diaz LLC,purchase
+1092,617,2025-04-12,479.590000,Kennedy Ltd,refund
+1093,634,2025-03-21,72.190000,Ayala-Garcia,refund
+1094,344,2025-04-20,439.920000,Ray LLC,purchase
+1095,28,2025-04-02,412.410000,Haynes Ltd,refund
+1096,840,2025-01-02,205.690000,"Pugh, Jones and Wolf",purchase
+1097,148,2025-03-22,434.450000,Johnson-Reed,purchase
+1098,484,2025-03-27,91.900000,Reilly-Murphy,refund
+1099,260,2025-03-28,328.710000,Butler-Lopez,purchase
+1100,87,2025-03-28,423.570000,"Park, Tapia and Chapman",purchase
+1101,774,2025-03-27,273.840000,"Erickson, Taylor and Anderson",refund
+1102,740,2025-02-09,393.300000,Rodriguez-Mills,purchase
+1103,377,2025-02-06,477.750000,Harris Inc,purchase
+1104,378,2025-02-24,285.550000,Brown LLC,refund
+1105,934,2025-03-02,428.590000,Glass and Sons,purchase
+1106,78,2025-03-05,348.960000,Tanner PLC,refund
+1107,104,2025-01-12,89.910000,"Reyes, Tran and Baker",refund
+1108,427,2025-01-09,119.080000,"Melendez, Mejia and Nguyen",purchase
+1109,20,2025-01-22,449.320000,May Ltd,refund
+1110,103,2025-04-24,439.200000,Moreno-Davis,refund
+1111,66,2025-03-09,89.930000,Harrington Inc,purchase
+1112,242,2025-02-17,300.290000,Kim-Hernandez,refund
+1113,393,2025-02-27,19.970000,"Obrien, Gillespie and Hernandez",purchase
+1114,484,2025-02-16,94.460000,"Gonzales, Johnson and Ford",purchase
+1115,441,2025-02-15,321.810000,"Lee, Davis and Walker",refund
+1116,918,2025-02-13,159.320000,Hughes-Rogers,refund
+1117,124,2025-04-05,336.730000,Burgess Inc,refund
+1118,105,2025-03-05,426.420000,Conley-Vasquez,refund
+1119,161,2025-02-03,462.310000,"Shaw, Owens and Barnes",refund
+1120,264,2025-04-04,319.810000,Larsen Group,refund
+1121,745,2025-02-08,29.310000,Davis-Green,purchase
+1122,793,2025-04-22,271.780000,Chavez-Rose,purchase
+1123,790,2025-01-17,70.420000,Miles-Duncan,purchase
+1124,751,2025-04-14,453.090000,"Carpenter, Ross and Martinez",refund
+1125,608,2025-03-13,221.160000,Hall Inc,refund
+1126,134,2025-01-09,63.180000,"Wood, Taylor and Hill",refund
+1127,785,2025-02-27,444.430000,Blair-Welch,purchase
+1128,878,2025-02-20,420.390000,"Smith, Cunningham and Williams",purchase
+1129,636,2025-03-17,153.900000,Miller-Acevedo,purchase
+1130,814,2025-01-14,299.600000,Hood PLC,refund
+1131,744,2025-03-30,314.410000,"Johnson, Rogers and Ortiz",refund
+1132,339,2025-03-10,291.940000,Moyer-Sanchez,refund
+1133,927,2025-02-24,217.000000,Jones-Bowman,purchase
+1134,172,2025-01-08,470.270000,"Cervantes, Gross and Irwin",purchase
+1135,626,2025-03-06,282.550000,"Moody, Avila and Ramsey",refund
+1136,977,2025-03-21,381.850000,Ross-Thompson,purchase
+1137,605,2025-01-21,106.290000,"Carrillo, Marsh and Harris",purchase
+1138,758,2025-01-17,268.720000,"Gray, Robertson and Gardner",refund
+1139,808,2025-02-14,226.990000,"Lopez, Wallace and Chang",refund
+1140,832,2025-03-01,138.890000,"Collins, Marshall and Case",refund
+1141,391,2025-03-17,484.390000,Valdez Ltd,refund
+1142,788,2025-03-09,375.840000,Davis Group,refund
+1143,86,2025-03-10,296.120000,Bryant Ltd,refund
+1144,888,2025-01-30,310.040000,Navarro LLC,purchase
+1145,990,2025-01-17,332.340000,Haynes Ltd,refund
+1146,146,2025-01-19,364.750000,Boyd-Johnson,refund
+1147,180,2025-04-09,408.890000,Tucker-Smith,refund
+1148,901,2025-04-13,23.840000,Li-Blanchard,refund
+1149,619,2025-03-28,440.400000,Collins and Sons,purchase
+1150,276,2025-03-27,38.350000,"Parrish, Peck and Dyer",purchase
+1151,244,2025-03-28,35.310000,"Jordan, Moore and Waters",refund
+1152,384,2025-02-17,7.100000,Spears Inc,purchase
+1153,8,2025-01-15,207.190000,"Singh, Diaz and Watson",purchase
+1154,284,2025-03-29,467.100000,Freeman PLC,refund
+1155,98,2025-02-13,330.870000,May-Gomez,refund
+1156,795,2025-04-19,288.840000,Figueroa-Willis,purchase
+1157,386,2025-02-01,8.550000,Alvarado-Ward,refund
+1158,488,2025-01-23,122.790000,"Williams, Williams and Marks",purchase
+1159,430,2025-04-15,76.900000,Padilla-Vega,refund
+1160,369,2025-01-12,267.260000,"Snyder, Austin and Johnson",purchase
+1161,911,2025-03-12,298.750000,"Johnson, Dunn and Burke",refund
+1162,607,2025-01-19,41.950000,"Daniel, Jarvis and Jones",refund
+1163,694,2025-01-12,91.130000,Johnson-Bennett,refund
+1164,363,2025-01-20,101.950000,Mcdonald PLC,purchase
+1165,428,2025-03-22,167.930000,"Schneider, Williams and Smith",purchase
+1166,994,2025-02-11,320.270000,"Franklin, Wilson and Kramer",purchase
+1167,697,2025-01-11,397.330000,Bryant and Sons,refund
+1168,573,2025-01-15,91.670000,Alvarez Group,purchase
+1169,971,2025-04-24,76.400000,Shah LLC,purchase
+1170,158,2025-01-31,116.580000,Mooney Group,purchase
+1171,55,2025-04-06,214.550000,"Dalton, Jones and Bonilla",purchase
+1172,955,2025-04-15,252.410000,Hess Inc,refund
+1173,983,2025-01-24,396.220000,Carey-Smith,refund
+1174,274,2025-01-13,422.010000,Trujillo-Montoya,purchase
+1175,742,2025-03-14,249.050000,Moore-Hunter,purchase
+1176,102,2025-04-24,112.760000,Wright-Mullins,purchase
+1177,257,2025-02-25,129.190000,Mcfarland-Frye,purchase
+1178,110,2025-03-09,338.150000,Martin Group,purchase
+1179,202,2025-03-23,467.030000,Lane-Johnson,purchase
+1180,848,2025-03-21,150.720000,Roberts-Navarro,refund
+1181,872,2025-03-11,417.310000,Ball-Moreno,refund
+1182,757,2025-04-04,176.490000,"Gill, Christensen and Hancock",refund
+1183,118,2025-03-28,273.370000,Walker Ltd,refund
+1184,870,2025-02-25,349.130000,Sanchez and Sons,purchase
+1185,840,2025-02-19,185.510000,"Williams, Perry and Sanders",refund
+1186,668,2025-01-08,358.380000,"Douglas, Howard and Goodman",refund
+1187,424,2025-04-02,358.770000,Crawford and Sons,purchase
+1188,839,2025-03-29,289.070000,Gross-Gutierrez,purchase
+1189,888,2025-04-17,224.220000,Nunez-Collins,purchase
+1190,614,2025-04-05,233.260000,"Olson, Williams and Warner",purchase
+1191,509,2025-01-27,267.180000,Osborn-Hanson,purchase
+1192,635,2025-03-13,213.830000,Williams PLC,purchase
+1193,419,2025-03-24,466.290000,Morgan-Mitchell,purchase
+1194,893,2025-02-06,440.650000,Dillon Ltd,refund
+1195,958,2025-04-04,295.680000,Garcia-Carson,purchase
+1196,797,2025-01-07,247.980000,"Adams, Christian and Baker",purchase
+1197,773,2025-02-27,378.880000,Moore LLC,refund
+1198,261,2025-01-31,316.710000,Butler Inc,refund
+1199,723,2025-01-15,226.220000,Bennett-Mccann,purchase
+1200,532,2025-02-12,331.340000,Williams-Allen,purchase
+1201,167,2025-03-25,365.470000,Young-Pham,purchase
+1202,201,2025-01-05,176.030000,Roman Group,refund
+1203,210,2025-01-18,114.790000,Williamson Group,refund
+1204,260,2025-01-04,243.950000,"Williams, Stewart and Smith",refund
+1205,263,2025-02-15,478.450000,Rodriguez-Sandoval,purchase
+1206,494,2025-01-15,420.510000,"Rogers, Williams and Callahan",purchase
+1207,830,2025-01-08,436.520000,Jones LLC,purchase
+1208,488,2025-01-28,248.870000,Bird-Sullivan,purchase
+1209,94,2025-03-01,270.340000,"Mcdowell, Rodriguez and Hill",refund
+1210,674,2025-02-10,457.400000,Knox Ltd,purchase
+1211,835,2025-04-24,136.100000,Monroe LLC,refund
+1212,371,2025-02-27,307.530000,"Santiago, Norton and Duncan",refund
+1213,230,2025-02-22,291.910000,Cooper Group,refund
+1214,961,2025-03-08,76.360000,Roach LLC,purchase
+1215,536,2025-04-19,163.950000,"Harrison, Johnson and Walter",refund
+1216,777,2025-02-05,75.270000,Perez PLC,purchase
+1217,195,2025-03-09,152.590000,Johnson Inc,purchase
+1218,971,2025-03-26,471.490000,"Hill, Massey and Ward",purchase
+1219,516,2025-02-02,81.370000,"Ray, Coleman and York",refund
+1220,877,2025-01-16,473.820000,Carroll LLC,refund
+1221,961,2025-01-07,17.760000,"Shaw, Stevens and Medina",purchase
+1222,961,2025-03-27,266.480000,Rose Inc,refund
+1223,195,2025-03-13,160.670000,Torres Group,refund
+1224,712,2025-03-05,143.550000,Adams Ltd,refund
+1225,7,2025-04-17,345.830000,"Wall, Thomas and Reed",purchase
+1226,276,2025-02-04,220.900000,"Dennis, Moore and Smith",purchase
+1227,679,2025-01-21,371.420000,Parker Ltd,purchase
+1228,472,2025-03-29,457.510000,Williams-Munoz,purchase
+1229,743,2025-01-17,269.880000,"Holmes, White and Perez",purchase
+1230,884,2025-03-10,239.450000,Martinez Group,purchase
+1231,442,2025-04-05,187.880000,Barnes-Brown,refund
+1232,929,2025-03-11,341.420000,Singh-Porter,purchase
+1233,333,2025-02-01,326.540000,"Singh, Padilla and Scott",purchase
+1234,136,2025-02-03,340.060000,"Nelson, Hamilton and Keith",purchase
+1235,727,2025-02-15,249.060000,"Mendoza, Williams and Wilson",refund
+1236,506,2025-02-21,176.070000,Garcia-Hernandez,refund
+1237,293,2025-03-02,124.190000,Lynch Inc,purchase
+1238,592,2025-03-17,232.620000,Fritz and Sons,purchase
+1239,905,2025-03-13,493.890000,"Powell, Brewer and Day",refund
+1240,707,2025-03-06,430.080000,Taylor Group,purchase
+1241,618,2025-01-10,455.440000,Miller-Nguyen,purchase
+1242,384,2025-01-30,38.010000,Nelson LLC,refund
+1243,142,2025-03-19,294.910000,"Hurley, Campbell and Kim",refund
+1244,828,2025-03-21,496.880000,"Hanson, Lindsey and Smith",refund
+1245,855,2025-04-08,475.710000,Landry Group,refund
+1246,496,2025-02-08,367.720000,"Grant, Haney and Frazier",refund
+1247,967,2025-04-10,178.120000,Powell LLC,refund
+1248,369,2025-02-04,245.420000,"Long, Johnston and Ayers",refund
+1249,423,2025-03-02,456.100000,"Johnson, Smith and Wilson",refund
+1250,115,2025-04-01,33.700000,Edwards-Lee,refund
+1251,210,2025-02-14,212.280000,Wilson-Kramer,purchase
+1252,320,2025-03-09,51.320000,Fitzgerald Group,purchase
+1253,435,2025-01-26,490.100000,"Murphy, Savage and Rodriguez",purchase
+1254,476,2025-01-16,18.220000,Livingston Ltd,purchase
+1255,222,2025-04-20,166.060000,"Lin, Wright and Richards",purchase
+1256,960,2025-02-21,79.250000,Pace-Sanders,purchase
+1257,96,2025-04-01,164.960000,Michael-Lawrence,refund
+1258,924,2025-04-10,297.500000,Kelly Ltd,purchase
+1259,770,2025-03-29,283.380000,Smith Ltd,refund
+1260,449,2025-03-25,95.430000,Wilcox PLC,refund
+1261,858,2025-03-01,54.200000,Ramirez Ltd,purchase
+1262,340,2025-01-30,92.480000,Lewis-Meyer,purchase
+1263,809,2025-04-08,415.860000,Fischer Inc,purchase
+1264,123,2025-03-01,391.120000,"Page, Smith and Austin",refund
+1265,870,2025-03-22,386.710000,Gibson and Sons,purchase
+1266,9,2025-04-11,73.600000,Strickland-Hart,purchase
+1267,476,2025-01-29,113.030000,Carter-Jimenez,purchase
+1268,993,2025-01-17,175.990000,Parrish-Walters,purchase
+1269,445,2025-03-23,264.560000,"Patel, Rice and Woodard",refund
+1270,673,2025-04-21,144.460000,Gonzales PLC,purchase
+1271,778,2025-02-18,41.350000,Williams-Cook,purchase
+1272,182,2025-01-14,227.000000,"Benson, Sullivan and Wright",purchase
+1273,28,2025-04-03,69.520000,Wright Group,refund
+1274,528,2025-02-07,39.360000,"Johnson, Rodgers and Scott",purchase
+1275,810,2025-03-01,491.430000,Mayo-Perez,purchase
+1276,380,2025-04-05,360.060000,Gonzalez Group,purchase
+1277,697,2025-02-14,48.460000,"Romero, Herring and Porter",refund
+1278,763,2025-03-09,315.440000,"Branch, Lynch and Terrell",purchase
+1279,394,2025-02-28,237.480000,"Everett, Smith and Perez",refund
+1280,171,2025-01-26,473.970000,Reynolds-Spencer,refund
+1281,359,2025-03-29,113.310000,Simmons Inc,refund
+1282,999,2025-02-27,16.460000,Kramer-Edwards,refund
+1283,3,2025-03-14,256.200000,"Reeves, Howard and Garrett",purchase
+1284,909,2025-04-01,234.650000,Perez Ltd,refund
+1285,832,2025-04-13,346.120000,Ware-Fuller,refund
+1286,6,2025-03-24,76.900000,Phelps PLC,purchase
+1287,658,2025-04-23,333.150000,Hart Ltd,refund
+1288,571,2025-01-24,356.550000,Newton and Sons,refund
+1289,681,2025-01-23,336.090000,Warren-Barnes,purchase
+1290,361,2025-02-26,355.720000,"Garrett, Dominguez and Nicholson",purchase
+1291,196,2025-04-05,312.940000,Norris-Moore,refund
+1292,10,2025-01-22,247.740000,"Stone, Edwards and Nguyen",purchase
+1293,619,2025-01-14,420.920000,"Warren, Jefferson and Hull",refund
+1294,814,2025-02-07,246.080000,"Brown, Pratt and Chandler",purchase
+1295,310,2025-04-11,101.640000,Mccormick-Watson,purchase
+1296,803,2025-01-13,80.390000,Hensley-Scott,purchase
+1297,395,2025-03-09,243.820000,"Mcbride, Jones and Adams",refund
+1298,530,2025-03-19,105.900000,"Rodriguez, Lester and Bowers",refund
+1299,915,2025-03-08,421.350000,"Ortega, Henry and Williams",refund
+1300,953,2025-01-12,60.160000,Allen LLC,refund
+1301,828,2025-03-06,27.600000,Norris LLC,purchase
+1302,577,2025-01-13,229.300000,Haley Group,refund
+1303,525,2025-01-24,230.440000,Smith-Lawson,purchase
+1304,165,2025-01-30,20.770000,Reid-Preston,purchase
+1305,992,2025-04-22,284.570000,"Odonnell, Atkinson and Luna",refund
+1306,471,2025-01-31,104.280000,Chan-Sanders,refund
+1307,717,2025-01-04,217.650000,Blake PLC,purchase
+1308,109,2025-04-20,321.800000,Johnson Group,refund
+1309,946,2025-02-17,479.740000,"Fletcher, Hall and Sutton",refund
+1310,612,2025-01-30,8.250000,"Garcia, Larson and Brown",refund
+1311,644,2025-01-12,124.050000,"Collins, Hernandez and Turner",refund
+1312,488,2025-03-17,13.280000,"Jensen, Rivera and Roberts",purchase
+1313,465,2025-04-07,174.020000,Vang PLC,purchase
+1314,682,2025-04-04,478.650000,Blackburn Ltd,refund
+1315,43,2025-02-08,139.020000,Wright Group,refund
+1316,549,2025-01-31,304.880000,Carey LLC,refund
+1317,512,2025-04-05,91.600000,Harrison-Adams,purchase
+1318,301,2025-01-30,149.920000,"Nelson, Rodriguez and Garcia",purchase
+1319,69,2025-01-29,379.990000,Thompson Group,purchase
+1320,971,2025-02-02,498.660000,"Lawson, Richardson and Anderson",refund
+1321,87,2025-04-20,495.620000,Noble Inc,purchase
+1322,351,2025-04-08,200.870000,"Lin, Mitchell and Flynn",refund
+1323,858,2025-04-01,289.570000,"Smith, Foley and Schroeder",purchase
+1324,523,2025-01-03,239.410000,Padilla Inc,refund
+1325,430,2025-02-23,462.340000,Morgan Group,refund
+1326,939,2025-01-26,351.780000,Mullen Group,purchase
+1327,550,2025-02-15,29.060000,"Nichols, Hughes and Sloan",refund
+1328,663,2025-04-17,22.280000,Sanders-Carter,refund
+1329,954,2025-02-19,159.790000,"Martinez, Carey and Cooke",purchase
+1330,609,2025-01-27,74.280000,Cameron PLC,refund
+1331,790,2025-03-19,107.290000,Jarvis-Ford,purchase
+1332,743,2025-02-01,243.750000,Wilkins-Wilson,purchase
+1333,994,2025-01-06,194.580000,Jones Inc,purchase
+1334,799,2025-04-18,377.450000,"Garner, Torres and Robinson",refund
+1335,602,2025-03-27,102.560000,"Watts, Ware and Montgomery",purchase
+1336,397,2025-03-29,79.120000,"Freeman, Serrano and Turner",refund
+1337,768,2025-01-06,325.430000,Stephens-Hurley,purchase
+1338,14,2025-01-17,304.910000,"Yoder, Patrick and Cruz",purchase
+1339,112,2025-03-12,428.940000,Hurst Inc,purchase
+1340,926,2025-04-01,77.170000,Martin Ltd,refund
+1341,203,2025-02-05,138.770000,Kennedy Group,purchase
+1342,263,2025-02-26,34.820000,Moss Group,purchase
+1343,709,2025-03-05,213.980000,Harrison-Mason,refund
+1344,625,2025-03-30,383.360000,"Blackwell, Randall and Yang",refund
+1345,730,2025-02-24,38.150000,Brown and Sons,refund
+1346,392,2025-02-12,392.690000,Rogers-Nelson,refund
+1347,964,2025-03-28,77.410000,Eaton-Garcia,refund
+1348,938,2025-04-20,258.980000,"Lawrence, Russo and Johnson",refund
+1349,868,2025-04-17,159.260000,"Hale, Fletcher and Gibson",purchase
+1350,668,2025-01-18,121.470000,Mccoy LLC,purchase
+1351,122,2025-02-28,153.330000,Bauer LLC,refund
+1352,273,2025-01-01,165.510000,"Johnson, Ruiz and Bell",refund
+1353,772,2025-04-15,42.600000,Martinez Group,purchase
+1354,989,2025-02-17,224.210000,Oneill Inc,purchase
+1355,897,2025-01-19,95.410000,Taylor Ltd,purchase
+1356,796,2025-02-19,169.280000,Nguyen and Sons,refund
+1357,436,2025-03-05,231.270000,Adams-Andrews,purchase
+1358,639,2025-04-11,458.020000,"Ryan, Pratt and Rowe",purchase
+1359,240,2025-03-19,227.970000,Trevino Group,refund
+1360,437,2025-04-18,484.660000,Clarke Ltd,refund
+1361,375,2025-04-19,493.860000,Ali LLC,refund
+1362,933,2025-03-22,215.430000,Mayo Ltd,refund
+1363,297,2025-01-23,24.730000,Cole Group,refund
+1364,808,2025-03-12,480.680000,"Taylor, Smith and Harrison",refund
+1365,791,2025-01-22,222.940000,Beck Inc,purchase
+1366,977,2025-04-15,202.260000,"Oconnell, Powell and Sexton",refund
+1367,975,2025-01-27,164.360000,Davis-Zuniga,purchase
+1368,101,2025-02-09,112.040000,"Crosby, King and Dunn",refund
+1369,277,2025-01-07,122.150000,Mckinney-Hall,purchase
+1370,329,2025-04-23,332.500000,Wood LLC,refund
+1371,487,2025-01-06,35.340000,"Wilson, Cox and Bennett",purchase
+1372,132,2025-04-09,271.590000,"Short, Schroeder and Wood",purchase
+1373,699,2025-02-22,95.550000,Perez-Simpson,purchase
+1374,635,2025-03-09,89.690000,"Barrera, Alvarado and Conley",refund
+1375,136,2025-01-13,297.440000,Palmer-Trujillo,refund
+1376,233,2025-03-30,63.670000,Reid and Sons,purchase
+1377,999,2025-02-20,16.280000,Sparks LLC,refund
+1378,657,2025-03-24,456.150000,Lewis-Mcgrath,purchase
+1379,230,2025-01-07,337.020000,Lee PLC,purchase
+1380,553,2025-04-14,155.880000,Kelly-Brown,purchase
+1381,835,2025-03-26,21.040000,Arias and Sons,purchase
+1382,669,2025-01-03,397.440000,"Johnson, Smith and Smith",refund
+1383,813,2025-03-01,132.050000,"Rose, Vega and Ramos",purchase
+1384,77,2025-03-02,33.520000,"Tran, Foster and Williams",refund
+1385,225,2025-03-27,68.230000,"Frazier, Baker and Walker",purchase
+1386,418,2025-04-07,26.180000,Sparks-Moore,refund
+1387,920,2025-01-04,100.330000,Rodriguez-Williams,refund
+1388,704,2025-02-13,216.000000,Wilson-Bush,refund
+1389,483,2025-02-24,238.150000,Fowler LLC,refund
+1390,560,2025-01-09,151.750000,Myers Group,refund
+1391,306,2025-03-20,380.530000,"Hooper, Reed and Calhoun",refund
+1392,225,2025-01-12,490.620000,"Ward, Adkins and Boyd",purchase
+1393,837,2025-03-31,362.330000,May Inc,purchase
+1394,604,2025-03-16,494.070000,"Wright, Lewis and Smith",refund
+1395,174,2025-03-23,71.780000,Jenkins Inc,purchase
+1396,989,2025-03-02,483.140000,"Jones, Sandoval and Fletcher",purchase
+1397,34,2025-01-01,149.600000,Carson-Gray,refund
+1398,767,2025-04-11,467.040000,Wilson and Sons,refund
+1399,192,2025-04-08,453.960000,Martinez-Clements,purchase
+1400,150,2025-02-07,238.200000,Bailey-Chang,purchase
+1401,139,2025-04-22,223.430000,Harvey PLC,refund
+1402,343,2025-01-20,382.640000,Price-Spencer,refund
+1403,100,2025-01-12,418.760000,"Hoffman, Krueger and Kennedy",purchase
+1404,844,2025-03-10,97.570000,Thompson Group,refund
+1405,351,2025-02-22,179.210000,Porter-Wilkins,refund
+1406,797,2025-03-25,498.310000,Johnson-Washington,refund
+1407,879,2025-01-21,202.890000,Phillips-Ryan,refund
+1408,961,2025-01-12,321.480000,Hobbs Inc,refund
+1409,435,2025-02-25,459.910000,Phillips-Sanchez,refund
+1410,205,2025-01-27,381.430000,"Taylor, Jones and Aguilar",refund
+1411,312,2025-01-09,279.060000,"Sexton, Becker and Thomas",purchase
+1412,107,2025-02-08,125.390000,Martin-Johnson,purchase
+1413,818,2025-01-17,193.220000,Johnson Inc,purchase
+1414,20,2025-04-02,345.210000,Bell PLC,refund
+1415,976,2025-02-07,108.560000,"Hines, Benson and Friedman",refund
+1416,396,2025-03-12,329.700000,Smith-Hayes,purchase
+1417,586,2025-02-04,400.880000,Richardson Ltd,refund
+1418,420,2025-02-18,288.610000,"Miller, Friedman and Salazar",purchase
+1419,711,2025-01-25,308.110000,Barton PLC,refund
+1420,941,2025-04-10,411.720000,Collins and Sons,purchase
+1421,605,2025-03-13,37.870000,"Dawson, Lawson and Hamilton",purchase
+1422,151,2025-02-07,98.620000,"Smith, Rice and Thornton",purchase
+1423,457,2025-02-20,430.820000,Young-Hurley,purchase
+1424,932,2025-03-24,217.850000,Hahn PLC,refund
+1425,114,2025-01-20,249.170000,"Brown, Love and Davis",refund
+1426,280,2025-03-04,71.540000,"Mcgee, Hill and Walsh",refund
+1427,570,2025-03-16,14.560000,Rosario-Rhodes,purchase
+1428,661,2025-03-13,358.020000,Conley LLC,purchase
+1429,353,2025-04-10,230.770000,Cross-Smith,refund
+1430,362,2025-03-10,226.710000,Jones-Bailey,purchase
+1431,178,2025-02-02,337.290000,Hammond PLC,purchase
+1432,665,2025-01-04,91.280000,Martinez and Sons,purchase
+1433,240,2025-01-28,343.780000,Velasquez Ltd,refund
+1434,937,2025-03-25,400.620000,"Fernandez, Elliott and Wright",purchase
+1435,219,2025-02-26,250.380000,Smith-Mann,purchase
+1436,510,2025-03-20,270.710000,Price-Barnes,purchase
+1437,84,2025-04-08,126.190000,Waller Inc,refund
+1438,82,2025-04-02,469.240000,"Hoffman, Wood and Ryan",refund
+1439,318,2025-03-24,371.960000,Garrett Inc,purchase
+1440,274,2025-02-01,343.870000,"Long, Coleman and Cook",refund
+1441,85,2025-04-06,117.140000,Sellers and Sons,purchase
+1442,341,2025-01-15,235.120000,Lucero Inc,refund
+1443,463,2025-04-08,398.600000,"Hayes, Freeman and Pacheco",purchase
+1444,147,2025-02-23,374.390000,"Dominguez, Hill and Taylor",refund
+1445,53,2025-01-12,221.400000,Booker-Williams,refund
+1446,2,2025-01-02,28.270000,Campbell Inc,refund
+1447,313,2025-01-25,196.960000,Chambers Ltd,refund
+1448,694,2025-03-15,482.070000,"Leonard, Pace and Ward",purchase
+1449,832,2025-02-07,130.820000,Sharp Inc,purchase
+1450,502,2025-02-16,295.770000,"Ruiz, Goodman and Nunez",purchase
+1451,635,2025-04-19,305.060000,Evans-Sanchez,purchase
+1452,72,2025-01-31,93.990000,Cruz-Chen,purchase
+1453,513,2025-01-31,88.940000,Wu-Cruz,refund
+1454,480,2025-04-08,438.070000,Ray PLC,purchase
+1455,569,2025-04-13,83.180000,"Archer, Schroeder and Ellison",refund
+1456,827,2025-04-16,499.930000,"Blair, Porter and Lee",purchase
+1457,490,2025-03-08,196.620000,Taylor-Hardin,refund
+1458,726,2025-02-04,347.500000,"Gordon, Rosales and Haas",refund
+1459,228,2025-03-25,222.150000,Saunders-Scott,refund
+1460,731,2025-02-24,45.700000,Wade-Graham,refund
+1461,966,2025-02-25,274.460000,Baker Inc,purchase
+1462,138,2025-04-12,60.330000,Boone and Sons,purchase
+1463,236,2025-01-23,414.770000,Clark-Meyer,refund
+1464,600,2025-01-02,458.220000,"Simpson, Braun and Grant",purchase
+1465,14,2025-04-02,200.060000,Compton-Arnold,refund
+1466,664,2025-03-14,448.360000,"Medina, Vasquez and Cooper",refund
+1467,189,2025-03-24,125.970000,"Brock, Carter and Cain",refund
+1468,16,2025-03-11,452.320000,Harrison-Jones,refund
+1469,25,2025-01-31,114.470000,Rose LLC,refund
+1470,457,2025-03-12,28.000000,"Kim, Daniel and Parrish",purchase
+1471,640,2025-02-19,383.500000,Torres LLC,purchase
+1472,46,2025-01-15,434.070000,Williams LLC,refund
+1473,374,2025-01-24,176.480000,"Hernandez, Mcneil and Larson",purchase
+1474,924,2025-03-25,86.530000,"Kane, Morrison and Moody",refund
+1475,625,2025-03-04,339.280000,Watson-Hall,purchase
+1476,131,2025-03-30,103.420000,"Myers, Potts and Meyer",refund
+1477,838,2025-02-19,302.720000,Hess Inc,refund
+1478,904,2025-03-05,376.690000,"Montoya, Norman and King",refund
+1479,564,2025-04-02,325.760000,Hill and Sons,refund
+1480,798,2025-02-24,367.870000,Walton PLC,purchase
+1481,611,2025-01-10,118.210000,Pham Ltd,purchase
+1482,587,2025-02-20,385.720000,Scott-Phillips,refund
+1483,731,2025-01-12,443.320000,"Gutierrez, Obrien and Carroll",refund
+1484,165,2025-03-31,339.490000,Williams-Hudson,refund
+1485,983,2025-04-20,491.090000,Garcia Group,purchase
+1486,236,2025-04-14,293.430000,"Watkins, Patel and Cisneros",purchase
+1487,948,2025-03-09,230.850000,"Bowman, Hill and Moses",refund
+1488,797,2025-04-09,282.500000,Holland-Cain,refund
+1489,706,2025-01-15,75.770000,Brown-Garcia,refund
+1490,153,2025-03-30,327.430000,Pearson-Young,purchase
+1491,344,2025-04-11,342.390000,"Vargas, Baker and Pacheco",refund
+1492,730,2025-03-18,5.910000,Lopez-Harrington,refund
+1493,297,2025-03-29,401.040000,Velez PLC,purchase
+1494,272,2025-03-17,203.250000,"Miller, Terry and Powell",refund
+1495,545,2025-02-18,130.410000,Curtis Ltd,purchase
+1496,7,2025-01-16,121.110000,"Carter, King and Johns",purchase
+1497,665,2025-04-01,490.110000,"Decker, Johnson and Gonzalez",purchase
+1498,928,2025-01-03,490.270000,Hernandez-Wood,refund
+1499,154,2025-04-21,233.360000,Odom-Stewart,refund
+1500,101,2025-01-29,95.910000,"Gilbert, Valentine and Pugh",refund
+1501,340,2025-02-24,487.680000,"Chandler, Tyler and Preston",purchase
+1502,284,2025-02-04,131.310000,"Powell, Green and Fischer",purchase
+1503,843,2025-04-11,440.090000,Dickerson-Myers,refund
+1504,515,2025-04-13,120.590000,Holland-Aguilar,purchase
+1505,859,2025-04-05,363.260000,"Fitzpatrick, Fritz and Sullivan",purchase
+1506,709,2025-04-16,421.680000,"Jacobs, Mcdonald and Jordan",refund
+1507,479,2025-02-21,17.420000,Mccann Inc,refund
+1508,570,2025-04-08,127.890000,Jensen Inc,refund
+1509,222,2025-01-26,123.570000,Williams-Gonzalez,refund
+1510,148,2025-02-16,408.010000,"Lewis, Carter and Mosley",refund
+1511,389,2025-01-15,250.190000,"Parker, Pierce and Shaffer",refund
+1512,186,2025-01-06,105.260000,Smith-Neal,refund
+1513,280,2025-03-01,478.720000,"Rodriguez, Clark and Elliott",refund
+1514,729,2025-02-10,253.690000,"Reed, Bell and Fischer",purchase
+1515,907,2025-01-04,263.040000,Davenport-Walsh,purchase
+1516,369,2025-01-01,218.270000,Pham-Williams,refund
+1517,934,2025-02-14,447.410000,Hinton-Lane,refund
+1518,896,2025-01-16,342.540000,Wagner-Holmes,purchase
+1519,895,2025-03-08,48.670000,Brown LLC,refund
+1520,364,2025-04-16,429.580000,"Sanders, Pruitt and Sullivan",purchase
+1521,650,2025-03-12,207.400000,Nelson-Grant,purchase
+1522,764,2025-04-18,494.730000,"Webster, Tapia and Nelson",purchase
+1523,56,2025-01-31,45.020000,Edwards Group,refund
+1524,69,2025-03-10,347.420000,Becker-Gregory,refund
+1525,889,2025-01-10,105.920000,"Morales, Martin and House",refund
+1526,786,2025-04-15,392.380000,Yang-Johnson,purchase
+1527,186,2025-03-01,153.570000,"Pena, Livingston and Vance",refund
+1528,550,2025-03-19,108.500000,"Mitchell, Freeman and Jacobs",refund
+1529,265,2025-03-30,293.650000,Meyers and Sons,refund
+1530,616,2025-02-06,283.960000,Gomez-Smith,purchase
+1531,433,2025-04-13,458.850000,"Roberts, Benton and Luna",purchase
+1532,996,2025-04-11,236.650000,"Parsons, Rosales and Zimmerman",refund
+1533,472,2025-01-23,38.590000,"Beard, Clark and Dominguez",refund
+1534,270,2025-03-28,166.840000,Smith Ltd,refund
+1535,205,2025-04-19,380.360000,Baker-Faulkner,refund
+1536,925,2025-01-11,290.820000,White-Barnes,refund
+1537,93,2025-02-26,150.690000,"Morgan, Lee and Acosta",refund
+1538,624,2025-04-04,115.740000,Salinas-Beck,purchase
+1539,433,2025-01-17,216.500000,Stewart-Flores,refund
+1540,641,2025-04-17,130.680000,"Mcpherson, Phillips and Hernandez",refund
+1541,265,2025-02-27,44.740000,Chandler-Liu,purchase
+1542,650,2025-02-14,393.450000,Burton PLC,refund
+1543,163,2025-03-05,95.420000,"Moody, Beck and Reynolds",purchase
+1544,119,2025-03-03,53.910000,Paul PLC,refund
+1545,354,2025-04-01,376.070000,"Rivera, Sanders and Price",purchase
+1546,53,2025-02-05,247.120000,Potter-Aguilar,refund
+1547,783,2025-02-24,349.090000,Wolfe LLC,refund
+1548,930,2025-01-15,165.990000,Andrade-Martin,refund
+1549,106,2025-03-14,274.840000,Perez and Sons,purchase
+1550,961,2025-03-13,206.920000,"Cohen, Paul and Hernandez",refund
+1551,721,2025-03-14,360.540000,"Kennedy, Lynch and Peterson",refund
+1552,977,2025-03-27,482.860000,Combs-Kramer,refund
+1553,271,2025-02-14,347.370000,Chase-Davenport,purchase
+1554,49,2025-02-10,413.820000,"Hernandez, Hughes and Fuller",purchase
+1555,206,2025-01-31,434.780000,Orr and Sons,refund
+1556,281,2025-02-08,232.390000,Rodriguez-Mullins,purchase
+1557,148,2025-04-22,360.770000,Mitchell-Shelton,refund
+1558,154,2025-01-14,230.700000,"Martin, Hines and Mcguire",refund
+1559,147,2025-04-04,49.680000,"Hill, Harris and Edwards",refund
+1560,241,2025-02-22,221.490000,Hill Ltd,purchase
+1561,611,2025-03-13,164.530000,Huerta PLC,refund
+1562,165,2025-03-18,346.340000,"Burns, Avery and Alvarez",refund
+1563,148,2025-03-22,10.200000,Weber-Richards,purchase
+1564,823,2025-03-27,215.640000,Munoz-Chambers,refund
+1565,112,2025-04-20,167.940000,Anderson Inc,purchase
+1566,371,2025-04-05,332.050000,King PLC,purchase
+1567,242,2025-01-03,19.680000,"Black, Holmes and Wright",refund
+1568,496,2025-03-12,214.640000,Hamilton Group,refund
+1569,15,2025-01-25,377.490000,"Anderson, Craig and Campbell",purchase
+1570,738,2025-04-23,340.670000,Anderson-Vaughan,purchase
+1571,326,2025-04-04,112.310000,Shaw-Waters,purchase
+1572,233,2025-04-20,309.720000,Lutz PLC,refund
+1573,381,2025-03-01,201.980000,"Forbes, King and Pope",purchase
+1574,574,2025-01-04,65.650000,"Ibarra, Williams and Gray",refund
+1575,814,2025-03-31,16.110000,Russell Inc,refund
+1576,230,2025-03-16,224.230000,"Chapman, Booker and Jacobs",purchase
+1577,552,2025-03-16,331.050000,Bradford Group,refund
+1578,89,2025-01-21,382.290000,Tucker LLC,purchase
+1579,175,2025-03-12,258.720000,"Gonzalez, Cordova and Mendoza",refund
+1580,451,2025-04-14,62.770000,Mason-Olsen,refund
+1581,725,2025-03-11,37.210000,Black-Moore,refund
+1582,811,2025-04-17,215.760000,Simpson-Johnson,refund
+1583,168,2025-04-10,468.120000,Mcbride-Reed,purchase
+1584,311,2025-02-28,29.140000,Johnson-Jensen,refund
+1585,377,2025-02-06,160.180000,Dillon Inc,purchase
+1586,805,2025-01-07,80.320000,Johnson-Gill,purchase
+1587,840,2025-03-17,86.600000,Santiago Group,refund
+1588,507,2025-01-21,470.930000,Schroeder LLC,refund
+1589,256,2025-01-03,352.180000,Fritz Group,purchase
+1590,331,2025-03-18,293.240000,Dawson-Schultz,refund
+1591,948,2025-03-19,465.790000,"Curry, Olsen and Jones",purchase
+1592,719,2025-04-10,477.970000,Lamb PLC,refund
+1593,581,2025-01-29,35.280000,"Contreras, Wong and Moore",purchase
+1594,168,2025-04-16,363.750000,Watson-Wilson,refund
+1595,237,2025-01-28,162.150000,Walters Ltd,purchase
+1596,3,2025-04-02,93.520000,"Owens, Marsh and Brooks",purchase
+1597,144,2025-01-05,429.430000,Davis and Sons,purchase
+1598,130,2025-03-14,166.200000,Riley and Sons,purchase
+1599,228,2025-01-17,459.530000,"Williams, Franco and Washington",refund
+1600,235,2025-03-04,259.820000,Garcia-Sutton,refund
+1601,835,2025-01-27,143.670000,Terrell-Williams,refund
+1602,169,2025-02-03,180.850000,Nunez-Johnson,refund
+1603,531,2025-02-14,113.650000,"Watts, Jones and Anderson",purchase
+1604,152,2025-02-28,465.640000,"Richardson, Oneal and Mueller",refund
+1605,570,2025-02-22,420.100000,"Hernandez, Stein and Green",purchase
+1606,698,2025-02-16,49.520000,Cross Ltd,purchase
+1607,640,2025-02-11,96.330000,Howard-Nguyen,purchase
+1608,763,2025-03-31,367.510000,Morrow Ltd,purchase
+1609,401,2025-04-16,164.900000,"Barr, Cross and Chen",purchase
+1610,605,2025-04-03,238.600000,"Walsh, Harrison and Morgan",refund
+1611,70,2025-01-18,454.200000,Wright-Hunt,purchase
+1612,564,2025-03-30,418.180000,Hall-Sanders,refund
+1613,470,2025-02-23,479.900000,"White, Patterson and Moran",purchase
+1614,118,2025-03-06,223.760000,Scott Ltd,refund
+1615,702,2025-02-14,45.110000,Hernandez Ltd,refund
+1616,497,2025-04-22,52.400000,Martin and Sons,refund
+1617,101,2025-02-27,331.190000,Padilla-Herrera,refund
+1618,452,2025-02-10,46.670000,Walker-Smith,purchase
+1619,187,2025-02-28,121.320000,"Jackson, King and Davis",refund
+1620,349,2025-02-23,239.240000,Morgan Inc,refund
+1621,667,2025-02-07,158.450000,"Lopez, Tyler and Lynn",purchase
+1622,538,2025-03-29,80.110000,"Gamble, Carter and Larson",refund
+1623,539,2025-01-04,312.320000,Anderson LLC,purchase
+1624,962,2025-03-10,45.520000,"Hubbard, Duncan and Hampton",refund
+1625,444,2025-03-09,461.030000,Coleman-White,purchase
+1626,106,2025-01-09,37.910000,Welch Group,refund
+1627,266,2025-01-29,298.950000,Brown-Romero,refund
+1628,697,2025-03-13,222.530000,Fernandez-Reeves,purchase
+1629,217,2025-03-21,151.330000,Middleton PLC,refund
+1630,961,2025-01-19,61.120000,Faulkner PLC,purchase
+1631,50,2025-04-23,415.320000,Morgan-Morrow,purchase
+1632,329,2025-01-28,343.000000,Acosta LLC,refund
+1633,462,2025-01-21,121.830000,"Tucker, Mueller and Burnett",refund
+1634,627,2025-03-14,414.030000,Mullins LLC,purchase
+1635,829,2025-03-20,67.450000,"Snow, Bradshaw and Morgan",refund
+1636,594,2025-01-23,275.100000,"Becker, Moore and Barber",purchase
+1637,219,2025-01-31,181.880000,"Davis, Gonzalez and Gonzalez",refund
+1638,979,2025-02-27,316.770000,"Thomas, Lee and Martin",purchase
+1639,878,2025-02-28,423.130000,"Owen, May and Weeks",purchase
+1640,612,2025-03-24,186.850000,Knight-Mcdaniel,purchase
+1641,569,2025-04-15,467.610000,Walton Ltd,purchase
+1642,714,2025-04-20,177.380000,"Jackson, Klein and Oliver",refund
+1643,677,2025-02-11,176.800000,"Smith, Trujillo and Houston",purchase
+1644,21,2025-04-22,249.450000,Martinez Ltd,refund
+1645,398,2025-04-23,477.330000,Vargas-Smith,refund
+1646,293,2025-02-27,44.010000,"Romero, Thomas and Rosario",refund
+1647,697,2025-02-26,373.710000,Martinez Inc,purchase
+1648,593,2025-02-05,64.630000,Fuentes Ltd,purchase
+1649,461,2025-01-06,228.600000,Bryant-Moore,refund
+1650,581,2025-03-03,458.640000,Thompson LLC,purchase
+1651,819,2025-03-19,86.630000,"Archer, Rhodes and Smith",refund
+1652,873,2025-03-14,485.190000,"Brooks, Greene and Torres",refund
+1653,741,2025-02-07,248.430000,Richardson Ltd,purchase
+1654,754,2025-03-07,457.890000,"Wilson, Walters and Camacho",refund
+1655,758,2025-01-23,330.780000,Carney Group,purchase
+1656,880,2025-01-26,139.340000,Hensley-Johnson,refund
+1657,296,2025-03-28,330.830000,Gonzalez-Miller,purchase
+1658,902,2025-04-04,264.260000,Jackson PLC,purchase
+1659,667,2025-02-14,434.200000,Ruiz-Brown,refund
+1660,204,2025-03-21,466.830000,Little-Kelly,purchase
+1661,831,2025-04-18,320.230000,Decker PLC,refund
+1662,212,2025-01-06,11.080000,"Hernandez, Horne and Bell",refund
+1663,117,2025-04-19,489.430000,Conner-Ellis,purchase
+1664,76,2025-04-13,462.720000,"Zimmerman, Shelton and Keller",purchase
+1665,343,2025-04-12,169.170000,Clarke-Bond,refund
+1666,337,2025-03-05,421.160000,"Roach, Scott and Humphrey",purchase
+1667,572,2025-01-18,426.620000,Ramos-Bryant,purchase
+1668,131,2025-04-02,90.920000,Buchanan-Williams,purchase
+1669,221,2025-02-17,90.350000,"Johnson, Rogers and Neal",purchase
+1670,589,2025-04-13,10.180000,"Murray, Stewart and Roberts",refund
+1671,893,2025-01-20,254.930000,"Stanley, Carr and Shaffer",refund
+1672,123,2025-03-14,84.510000,Huber Ltd,purchase
+1673,163,2025-03-08,16.900000,"Reyes, Shields and Scott",refund
+1674,960,2025-03-02,353.680000,Ellis-Burgess,purchase
+1675,986,2025-02-06,131.560000,Gilbert-Sanchez,purchase
+1676,62,2025-01-26,185.010000,"Williams, Bauer and Pham",refund
+1677,239,2025-03-20,453.420000,Wilson LLC,purchase
+1678,445,2025-01-29,83.140000,"Jordan, Patel and Clark",purchase
+1679,575,2025-02-16,398.400000,"Wilson, Berry and King",purchase
+1680,539,2025-01-04,65.540000,"Phillips, Best and Miller",refund
+1681,47,2025-03-17,411.300000,Morgan-Woods,purchase
+1682,558,2025-04-08,230.430000,"Edwards, Curtis and Norman",refund
+1683,619,2025-03-24,413.630000,Meyer Group,purchase
+1684,280,2025-03-20,352.570000,Contreras-Frederick,refund
+1685,302,2025-03-10,154.140000,Smith-Fry,purchase
+1686,103,2025-04-24,5.980000,Hancock-Mason,refund
+1687,70,2025-02-19,122.480000,Jensen-York,purchase
+1688,122,2025-04-09,32.250000,"Lam, Gomez and Bowers",purchase
+1689,209,2025-01-06,215.160000,"Clark, Hansen and Terry",purchase
+1690,36,2025-02-03,352.800000,"Chambers, Marks and Ellis",purchase
+1691,606,2025-01-09,172.600000,"Sanchez, Martin and Salazar",refund
+1692,282,2025-02-01,15.420000,"Boyd, Porter and Sherman",refund
+1693,710,2025-01-11,440.590000,Miller LLC,purchase
+1694,608,2025-03-05,243.850000,"Mitchell, Patterson and Graham",purchase
+1695,525,2025-01-06,301.340000,"Stark, Hughes and Williams",refund
+1696,527,2025-01-23,130.970000,Wolf-Campbell,refund
+1697,374,2025-03-13,336.230000,"Bell, Thompson and Kelley",refund
+1698,312,2025-01-30,64.140000,Alexander Group,refund
+1699,969,2025-01-26,264.690000,Roberts-Cook,refund
+1700,963,2025-03-30,69.780000,Boyer Inc,refund
+1701,603,2025-02-11,93.180000,"Poole, Nixon and Mosley",purchase
+1702,365,2025-02-13,89.700000,Ross-Melendez,purchase
+1703,384,2025-03-20,403.170000,"Hammond, Snyder and Ruiz",refund
+1704,356,2025-02-13,453.110000,Brewer-Meadows,refund
+1705,465,2025-01-11,458.620000,Padilla-Espinoza,purchase
+1706,621,2025-03-11,250.610000,White-Mann,refund
+1707,830,2025-04-01,353.270000,"Escobar, Smith and Blevins",purchase
+1708,973,2025-02-23,451.820000,Colon-Cooper,purchase
+1709,833,2025-03-03,434.570000,Morales PLC,purchase
+1710,5,2025-04-08,208.040000,"Armstrong, Oliver and Foster",purchase
+1711,113,2025-01-08,439.870000,"Shannon, Dawson and Green",purchase
+1712,96,2025-02-04,307.720000,"Barton, Green and Moore",refund
+1713,738,2025-02-06,410.430000,Martinez-Brewer,refund
+1714,472,2025-02-02,339.520000,Johnson-Gonzalez,purchase
+1715,989,2025-02-15,429.610000,"Jarvis, Bishop and Chavez",purchase
+1716,947,2025-02-11,66.160000,Rodriguez PLC,refund
+1717,652,2025-01-24,499.200000,"Bishop, Zimmerman and Hernandez",refund
+1718,200,2025-02-17,368.340000,Robinson-Cooper,refund
+1719,471,2025-01-27,459.240000,Johnson-Rodriguez,refund
+1720,14,2025-04-21,320.710000,"Villegas, Webster and Santiago",purchase
+1721,358,2025-01-10,376.690000,Olson-Acosta,purchase
+1722,548,2025-03-16,230.690000,Potter-Osborne,refund
+1723,977,2025-04-05,226.340000,Cook-Clark,purchase
+1724,357,2025-02-05,263.480000,"Molina, Jackson and Rodgers",refund
+1725,525,2025-02-12,52.320000,Stewart-Nichols,purchase
+1726,636,2025-03-07,17.380000,Montoya-Strong,refund
+1727,74,2025-03-15,248.560000,"Scott, Stewart and Collins",refund
+1728,385,2025-04-18,287.250000,Lopez Group,purchase
+1729,805,2025-03-07,76.920000,Haas PLC,refund
+1730,777,2025-02-19,307.680000,Johnson-Bray,purchase
+1731,523,2025-02-02,320.350000,"Norman, Sexton and Hart",refund
+1732,38,2025-02-01,422.280000,Allen-Barnes,refund
+1733,435,2025-02-25,139.270000,Carr LLC,refund
+1734,462,2025-03-30,434.530000,"Fleming, Barnes and English",purchase
+1735,9,2025-04-17,480.510000,Brown-Green,purchase
+1736,883,2025-01-28,479.080000,Rosario-Smith,refund
+1737,879,2025-01-23,231.400000,"Robinson, Bradley and Perez",purchase
+1738,832,2025-04-08,451.330000,Serrano-Mitchell,refund
+1739,424,2025-04-20,174.140000,Randall Inc,purchase
+1740,369,2025-03-23,67.370000,Bray Group,purchase
+1741,744,2025-03-19,237.130000,Davis-Oliver,refund
+1742,51,2025-02-04,149.070000,Flynn and Sons,refund
+1743,155,2025-01-21,36.620000,Schmidt LLC,purchase
+1744,246,2025-04-06,222.380000,"Reyes, Eaton and Murphy",purchase
+1745,746,2025-01-08,29.110000,Brown-Moore,purchase
+1746,228,2025-01-11,469.440000,"Woodard, Valencia and Horton",refund
+1747,909,2025-02-08,107.560000,Adams and Sons,purchase
+1748,359,2025-04-05,164.490000,Lynch PLC,purchase
+1749,673,2025-04-15,173.090000,"Jimenez, Hernandez and James",purchase
+1750,587,2025-02-07,345.390000,Thomas-Reyes,refund
+1751,314,2025-01-07,194.620000,"Sheppard, Woods and Campbell",purchase
+1752,716,2025-03-31,254.690000,"Harrison, Brennan and Patel",refund
+1753,502,2025-04-11,164.900000,Lyons-Christensen,refund
+1754,779,2025-03-01,232.220000,Ray-Sutton,refund
+1755,344,2025-02-16,333.900000,Casey-Howard,refund
+1756,333,2025-04-18,247.770000,Bennett LLC,refund
+1757,89,2025-04-04,481.400000,"Huynh, Nguyen and Walker",purchase
+1758,641,2025-03-16,98.060000,"Jones, Beltran and Bell",refund
+1759,639,2025-04-08,131.510000,Bennett-Guzman,purchase
+1760,735,2025-01-31,40.580000,"Rojas, Griffith and Murray",purchase
+1761,764,2025-03-28,347.120000,Hernandez PLC,refund
+1762,675,2025-03-24,491.790000,Johnson Group,purchase
+1763,541,2025-03-02,309.270000,Anderson-Garcia,purchase
+1764,528,2025-03-29,425.850000,Chan-Maldonado,purchase
+1765,390,2025-01-14,132.430000,Horton and Sons,purchase
+1766,909,2025-01-13,34.670000,Garcia-Mitchell,refund
+1767,868,2025-04-19,133.770000,Blevins-Rodgers,refund
+1768,111,2025-02-01,16.530000,"Gallegos, Cox and Davis",purchase
+1769,711,2025-02-11,6.180000,Mercer-Chavez,purchase
+1770,60,2025-04-04,56.440000,Jones-Webster,refund
+1771,912,2025-01-01,407.520000,Yoder-Allen,purchase
+1772,70,2025-03-23,118.900000,Atkins-Reynolds,purchase
+1773,408,2025-03-16,270.580000,White-Yang,purchase
+1774,981,2025-02-19,166.650000,Phillips-White,purchase
+1775,649,2025-03-14,175.840000,Perez Ltd,refund
+1776,432,2025-04-11,284.770000,Davis and Sons,refund
+1777,994,2025-02-06,255.490000,"Patterson, Sampson and Clark",refund
+1778,749,2025-01-19,41.470000,"Gonzalez, Pennington and Brown",refund
+1779,962,2025-04-10,334.280000,Allen PLC,purchase
+1780,771,2025-03-05,31.410000,Baird-Ellison,purchase
+1781,580,2025-02-18,494.340000,Harris-Butler,purchase
+1782,162,2025-03-23,195.560000,Jenkins Ltd,refund
+1783,674,2025-02-15,363.410000,Mueller PLC,purchase
+1784,332,2025-01-21,305.860000,Arnold-Moss,refund
+1785,953,2025-01-23,360.590000,Hayes Inc,purchase
+1786,315,2025-03-23,349.500000,Curry and Sons,refund
+1787,766,2025-03-17,343.430000,Johnson Inc,purchase
+1788,813,2025-02-19,64.180000,"Lee, Henry and Gonzalez",purchase
+1789,698,2025-01-14,485.080000,Anderson-Taylor,refund
+1790,57,2025-03-14,74.930000,Smith-Barry,purchase
+1791,102,2025-02-15,320.920000,King Inc,refund
+1792,407,2025-03-18,85.080000,Harrison Ltd,refund
+1793,291,2025-03-19,355.800000,Douglas Ltd,refund
+1794,154,2025-03-03,96.180000,Mcbride LLC,refund
+1795,933,2025-01-22,316.920000,Wiley-Nichols,purchase
+1796,694,2025-02-13,252.210000,Chavez LLC,refund
+1797,435,2025-04-05,276.680000,"Mcdonald, Brown and Anderson",purchase
+1798,103,2025-04-01,145.480000,Rodriguez-Swanson,refund
+1799,330,2025-01-31,127.310000,"Gordon, Melton and Adams",purchase
+1800,85,2025-01-29,23.470000,"Mcfarland, Salinas and Hernandez",refund
+1801,81,2025-04-11,207.050000,"Parks, Pena and Vargas",refund
+1802,589,2025-03-29,60.330000,King-Horton,refund
+1803,298,2025-02-07,178.470000,Johnson-Collins,refund
+1804,941,2025-02-06,486.590000,Jackson LLC,refund
+1805,373,2025-03-29,74.770000,Allen-Sims,refund
+1806,754,2025-02-16,472.000000,"Baker, Powell and Munoz",purchase
+1807,647,2025-01-16,228.770000,"Hughes, Baker and Kramer",purchase
+1808,737,2025-03-30,187.110000,"Frank, Black and Brewer",purchase
+1809,788,2025-03-19,238.630000,Solis PLC,refund
+1810,419,2025-04-18,306.340000,Fisher-Campbell,refund
+1811,406,2025-03-23,294.000000,Watson-Gutierrez,refund
+1812,292,2025-02-03,21.030000,"Knight, Horn and Dillon",refund
+1813,293,2025-03-20,398.820000,Alvarez-Neal,refund
+1814,798,2025-04-05,316.760000,"Robinson, Adams and Ritter",purchase
+1815,222,2025-03-13,242.270000,Wilson LLC,refund
+1816,9,2025-01-17,328.820000,"Nguyen, Scott and Powers",purchase
+1817,371,2025-04-09,80.020000,James Inc,purchase
+1818,745,2025-03-11,395.500000,"Johnson, Holmes and Anderson",purchase
+1819,630,2025-01-09,484.960000,Ball-Lambert,purchase
+1820,366,2025-01-30,69.630000,Roberts LLC,purchase
+1821,176,2025-01-09,26.060000,Adams-Sanders,purchase
+1822,693,2025-04-03,317.830000,Smith-Wheeler,purchase
+1823,305,2025-03-09,418.030000,"Martinez, Moore and Thomas",purchase
+1824,481,2025-02-11,334.540000,Robertson Group,purchase
+1825,189,2025-03-13,105.270000,Norman-Pearson,refund
+1826,684,2025-02-23,179.580000,Brown-Torres,refund
+1827,186,2025-03-06,223.980000,Golden LLC,refund
+1828,143,2025-04-24,112.770000,"Smith, Carlson and Frank",refund
+1829,598,2025-02-15,308.220000,"Perez, Smith and Kelley",purchase
+1830,702,2025-03-05,256.990000,Powell-Fitzgerald,refund
+1831,463,2025-01-10,409.350000,"Phillips, Jackson and Sheppard",purchase
+1832,176,2025-04-23,306.560000,Mcdaniel-Carroll,refund
+1833,7,2025-01-06,307.490000,Berry-Gomez,refund
+1834,211,2025-01-20,280.540000,"Boyd, Black and James",refund
+1835,728,2025-03-25,369.790000,Gray LLC,refund
+1836,52,2025-02-26,202.270000,"West, White and Mcintosh",refund
+1837,122,2025-04-17,94.270000,"English, Shaw and Lee",refund
+1838,144,2025-02-23,319.140000,Campbell Ltd,refund
+1839,719,2025-01-11,460.320000,Larson and Sons,refund
+1840,873,2025-02-23,211.740000,Esparza Group,refund
+1841,480,2025-01-19,314.860000,Walker LLC,purchase
+1842,366,2025-04-18,150.030000,Thornton Group,refund
+1843,444,2025-03-12,427.000000,House Inc,refund
+1844,292,2025-04-10,448.120000,Russell-Christensen,purchase
+1845,997,2025-01-20,148.640000,Hicks-Nelson,refund
+1846,982,2025-04-14,193.800000,Caldwell and Sons,purchase
+1847,394,2025-02-12,486.900000,Thomas-Fletcher,purchase
+1848,327,2025-04-07,193.840000,Phillips-Christensen,refund
+1849,281,2025-02-18,24.870000,"King, Lynch and Mitchell",purchase
+1850,802,2025-03-31,393.870000,Taylor-Odonnell,refund
+1851,401,2025-03-04,395.160000,Brown PLC,purchase
+1852,375,2025-01-18,45.480000,Roberts-Beltran,refund
+1853,35,2025-01-26,282.580000,Walker-Williams,purchase
+1854,562,2025-03-27,442.890000,"Taylor, Green and Perez",refund
+1855,894,2025-03-06,251.520000,Johnson-Cherry,purchase
+1856,644,2025-01-20,247.270000,Morris Group,purchase
+1857,576,2025-04-21,443.910000,Johnson-Stanley,refund
+1858,314,2025-02-04,389.680000,Henderson-Johnson,purchase
+1859,51,2025-04-05,27.360000,Escobar-Parks,purchase
+1860,308,2025-04-07,113.220000,Hogan-Boyle,purchase
+1861,108,2025-02-02,198.430000,"Hayes, Barrera and Stevens",purchase
+1862,116,2025-02-05,141.600000,"Brewer, Harmon and Jones",refund
+1863,768,2025-04-14,294.720000,"Morris, Mccarty and Johnson",refund
+1864,908,2025-04-22,138.650000,"Fox, Brown and Hicks",purchase
+1865,752,2025-02-23,390.260000,Branch Group,purchase
+1866,540,2025-01-28,203.120000,Smith LLC,refund
+1867,243,2025-02-28,157.610000,Wilson LLC,purchase
+1868,347,2025-04-02,468.450000,Gonzalez-Ward,purchase
+1869,552,2025-03-13,477.590000,Phillips-Lewis,purchase
+1870,516,2025-04-03,318.140000,"Peterson, Brewer and Thompson",purchase
+1871,575,2025-01-08,121.460000,Mora-Kim,purchase
+1872,990,2025-03-17,209.280000,Hill-Lawrence,purchase
+1873,613,2025-03-18,78.540000,Adams-Matthews,refund
+1874,18,2025-01-25,392.770000,"Carter, Russo and Gallagher",refund
+1875,301,2025-01-27,451.050000,Larson and Sons,purchase
+1876,242,2025-02-18,142.630000,Benton and Sons,purchase
+1877,705,2025-03-26,279.500000,Lowery LLC,purchase
+1878,468,2025-01-26,65.890000,"Stanley, Diaz and Ballard",refund
+1879,655,2025-01-23,496.420000,Moore PLC,refund
+1880,107,2025-02-03,29.450000,"English, Rodriguez and Banks",refund
+1881,315,2025-02-12,459.920000,"Barber, Hernandez and Barrett",refund
+1882,482,2025-02-26,273.060000,Brown-Shah,refund
+1883,622,2025-02-25,286.360000,"Williams, Edwards and Benjamin",purchase
+1884,117,2025-02-18,280.580000,Macias Inc,refund
+1885,950,2025-01-26,103.100000,Williams-Garrett,refund
+1886,186,2025-02-03,366.020000,"Mcclain, Peterson and Johnson",purchase
+1887,570,2025-04-12,328.670000,Adkins-Bender,refund
+1888,162,2025-03-13,228.100000,Bell-Fisher,purchase
+1889,890,2025-04-05,285.620000,"Price, Middleton and Mitchell",refund
+1890,550,2025-01-13,243.920000,Santana-Willis,purchase
+1891,939,2025-01-23,347.060000,"Hamilton, Franklin and Arellano",refund
+1892,916,2025-01-13,226.000000,"Richmond, Flynn and Martinez",purchase
+1893,497,2025-02-28,350.860000,Morrow-Reynolds,purchase
+1894,737,2025-04-15,489.710000,Smith PLC,refund
+1895,987,2025-03-13,361.210000,Brewer-Morris,purchase
+1896,807,2025-03-28,460.680000,Brown-Taylor,purchase
+1897,425,2025-02-12,147.390000,"Rodriguez, Davis and Acosta",purchase
+1898,667,2025-03-01,378.270000,"Soto, Barnes and Hill",purchase
+1899,702,2025-04-22,86.570000,Washington Inc,purchase
+1900,809,2025-01-31,445.780000,Gibson-Green,purchase
+1901,440,2025-02-15,336.840000,Smith-Barrett,refund
+1902,386,2025-03-12,81.460000,Lawrence Group,purchase
+1903,657,2025-01-19,446.390000,Perry-Kirby,refund
+1904,608,2025-03-21,367.550000,Taylor PLC,purchase
+1905,140,2025-03-21,270.430000,"Martinez, Edwards and Clay",purchase
+1906,807,2025-03-27,298.880000,"Lynch, Chavez and Silva",refund
+1907,65,2025-03-11,192.560000,"Dunn, Murphy and Thompson",refund
+1908,43,2025-01-30,230.220000,Perez-Palmer,purchase
+1909,425,2025-01-17,386.820000,Becker-Gibson,refund
+1910,631,2025-02-18,52.060000,Woodard LLC,refund
+1911,809,2025-01-02,488.960000,"Gill, Harvey and Bolton",refund
+1912,737,2025-03-11,145.390000,Morgan-James,purchase
+1913,134,2025-04-03,472.320000,"Smith, Robinson and Gonzalez",refund
+1914,138,2025-02-15,315.820000,Robinson Group,purchase
+1915,904,2025-01-20,130.520000,"Smith, Stevens and Lambert",refund
+1916,776,2025-03-12,50.310000,Bailey Group,purchase
+1917,292,2025-03-26,482.870000,Walton-Velez,refund
+1918,481,2025-03-26,404.240000,Zimmerman and Sons,refund
+1919,582,2025-02-26,71.240000,"Avery, Anderson and Horne",purchase
+1920,566,2025-01-10,81.690000,"Downs, Noble and Jackson",purchase
+1921,471,2025-04-08,423.050000,"Hudson, Graves and Martinez",purchase
+1922,643,2025-04-15,341.370000,Murphy-Oliver,purchase
+1923,647,2025-04-08,454.990000,"Medina, Ward and Martinez",refund
+1924,961,2025-01-25,95.260000,Jones-Taylor,purchase
+1925,311,2025-03-15,13.560000,"Johnson, Martinez and Spears",refund
+1926,146,2025-01-12,449.190000,Forbes-Barrera,purchase
+1927,984,2025-01-08,131.890000,Bray-Owens,purchase
+1928,826,2025-03-24,409.820000,Kerr-Joseph,purchase
+1929,730,2025-04-22,38.700000,Mendoza-Adkins,refund
+1930,681,2025-02-03,152.810000,Guzman and Sons,purchase
+1931,241,2025-04-13,12.700000,Sims LLC,refund
+1932,308,2025-03-04,325.460000,Smith-Jones,refund
+1933,565,2025-02-05,129.590000,Jarvis Group,purchase
+1934,936,2025-02-01,54.710000,"Ramirez, Pruitt and Oliver",refund
+1935,282,2025-03-04,498.920000,Woods-Lee,purchase
+1936,782,2025-03-17,252.370000,"Benton, Reyes and Rodriguez",purchase
+1937,657,2025-01-30,448.430000,Thompson Inc,purchase
+1938,323,2025-04-20,266.690000,Martin Group,refund
+1939,424,2025-03-27,295.560000,"Livingston, Carr and Buchanan",refund
+1940,776,2025-04-21,191.510000,"Underwood, Patterson and Sanford",purchase
+1941,717,2025-02-18,189.570000,Jones and Sons,purchase
+1942,47,2025-02-26,35.090000,Thomas and Sons,purchase
+1943,777,2025-04-13,326.590000,Johnson-Tran,purchase
+1944,287,2025-03-01,321.700000,"Johnson, Baker and Davis",purchase
+1945,897,2025-02-18,371.930000,"Olson, Perez and Schneider",refund
+1946,42,2025-03-29,15.620000,Graves-Lee,purchase
+1947,475,2025-04-22,360.010000,Petersen Group,refund
+1948,648,2025-03-22,149.650000,Harris PLC,refund
+1949,435,2025-01-27,404.990000,"Miller, King and White",refund
+1950,583,2025-03-20,159.200000,Schmitt and Sons,refund
+1951,100,2025-01-03,82.360000,Fernandez and Sons,refund
+1952,301,2025-01-23,273.580000,Gray LLC,purchase
+1953,452,2025-01-26,499.680000,Boyer and Sons,refund
+1954,10,2025-03-30,415.580000,Fuller-Davis,purchase
+1955,604,2025-01-21,230.020000,Frost Ltd,purchase
+1956,360,2025-02-12,139.710000,"Hendricks, Villarreal and Wright",refund
+1957,708,2025-02-16,277.050000,"Hill, Williams and Townsend",refund
+1958,532,2025-01-17,46.650000,"Landry, Rogers and Lee",refund
+1959,971,2025-01-09,448.190000,Brooks-Sims,refund
+1960,192,2025-03-11,160.790000,"Bell, Butler and Duncan",purchase
+1961,332,2025-03-11,65.600000,Crawford-Ellis,refund
+1962,336,2025-01-04,182.980000,Mcdonald LLC,refund
+1963,754,2025-02-17,350.790000,Sampson and Sons,purchase
+1964,627,2025-03-19,469.170000,"Lawrence, Bell and Lopez",refund
+1965,334,2025-03-14,37.420000,Hale-Floyd,refund
+1966,4,2025-04-07,420.330000,"Gutierrez, Dennis and Fisher",refund
+1967,108,2025-02-20,208.500000,"Sanchez, Bradley and Davis",purchase
+1968,136,2025-04-12,398.430000,Hawkins-Rogers,purchase
+1969,337,2025-04-09,399.340000,Banks-Arnold,purchase
+1970,763,2025-03-20,213.930000,Black-Wright,refund
+1971,732,2025-01-02,32.960000,Vargas PLC,purchase
+1972,227,2025-01-09,253.140000,Kennedy-Galloway,purchase
+1973,356,2025-04-07,274.320000,Arias-Singleton,refund
+1974,893,2025-02-20,113.950000,"Pineda, Weiss and Jefferson",refund
+1975,736,2025-01-28,209.920000,Barber-Jones,refund
+1976,857,2025-01-04,358.780000,White Ltd,purchase
+1977,408,2025-03-15,94.540000,"Kane, Ingram and Ward",purchase
+1978,453,2025-03-13,238.090000,Rollins PLC,refund
+1979,514,2025-04-20,36.270000,"Harris, Jones and Schultz",purchase
+1980,295,2025-04-13,149.050000,"Brown, Hatfield and Perez",refund
+1981,962,2025-04-21,424.280000,"Clark, Hunt and Wolfe",purchase
+1982,880,2025-02-09,47.810000,Stewart Inc,refund
+1983,310,2025-03-06,366.200000,Payne Ltd,purchase
+1984,639,2025-01-15,154.850000,Gutierrez-Adkins,refund
+1985,716,2025-01-27,387.900000,Brown Inc,refund
+1986,704,2025-01-27,32.260000,"Rodriguez, Johnson and Hines",refund
+1987,887,2025-04-13,116.740000,"Mcconnell, Le and Jackson",refund
+1988,313,2025-02-02,490.920000,May and Sons,refund
+1989,314,2025-03-18,23.090000,"Doyle, Francis and Bullock",refund
+1990,748,2025-01-08,236.990000,Pruitt LLC,purchase
+1991,830,2025-04-04,392.830000,"Velez, Smith and Bowman",purchase
+1992,715,2025-01-10,357.580000,Coleman-Jordan,purchase
+1993,629,2025-02-03,246.430000,"Pearson, Edwards and Johnson",refund
+1994,912,2025-02-12,32.590000,Smith Group,refund
+1995,603,2025-01-18,24.920000,Butler PLC,purchase
+1996,874,2025-03-31,471.530000,"Thompson, Graves and Sims",refund
+1997,417,2025-04-02,230.130000,Hoffman LLC,purchase
+1998,268,2025-01-30,224.490000,"Jenkins, Holt and Stark",refund
+1999,37,2025-03-17,130.120000,"Jones, Villa and Hunter",refund
+2000,898,2025-01-23,277.000000,Stewart-Jones,refund
+2001,106,2025-04-03,143.080000,Evans LLC,refund
+2002,109,2025-01-09,328.100000,Wilkins-Rose,refund
+2003,819,2025-02-15,69.830000,Baxter-Smith,purchase
+2004,274,2025-02-18,368.910000,"Bradley, Ellis and Williams",refund
+2005,736,2025-03-13,199.130000,Barker-Small,purchase
+2006,771,2025-01-26,199.880000,Jones Ltd,purchase
+2007,680,2025-01-05,47.740000,"Johnson, Thomas and Anderson",refund
+2008,527,2025-02-09,75.440000,Parker-Bernard,purchase
+2009,611,2025-01-31,203.690000,Smith-Harrington,purchase
+2010,925,2025-04-23,201.730000,"Williams, Garcia and Smith",refund
+2011,649,2025-01-25,377.720000,Garcia-Perry,refund
+2012,348,2025-03-03,419.540000,"Fletcher, Smith and Trujillo",purchase
+2013,38,2025-04-07,128.200000,Howard-Austin,refund
+2014,292,2025-04-05,442.250000,"Taylor, Bailey and Nguyen",refund
+2015,20,2025-01-04,166.800000,"Hoffman, Bradley and Ray",refund
+2016,577,2025-02-09,333.500000,Melendez-Smith,refund
+2017,403,2025-03-21,16.370000,Compton-Oconnor,purchase
+2018,565,2025-04-06,312.460000,Smith and Sons,refund
+2019,684,2025-04-20,406.090000,Reid-Graves,purchase
+2020,740,2025-02-15,229.700000,Martin-Curry,refund
+2021,88,2025-02-25,413.380000,Warner Inc,refund
+2022,476,2025-04-14,168.220000,Garcia-Blankenship,refund
+2023,411,2025-03-01,349.170000,Perkins-Morales,purchase
+2024,158,2025-02-12,39.470000,Avery-Underwood,refund
+2025,626,2025-02-12,431.070000,Proctor and Sons,purchase
+2026,22,2025-04-08,438.100000,"Simmons, Miller and Turner",refund
+2027,758,2025-04-23,184.530000,Gilmore-Baker,refund
+2028,941,2025-02-09,203.750000,Smith-Henry,refund
+2029,556,2025-03-02,333.430000,Richardson-Miller,refund
+2030,593,2025-02-03,222.810000,Bradley-Orr,refund
+2031,818,2025-02-24,66.350000,Wolf and Sons,refund
+2032,110,2025-04-04,239.990000,"Soto, Davenport and Burns",purchase
+2033,252,2025-03-18,334.810000,Hall-Mendoza,purchase
+2034,64,2025-02-24,184.830000,"Norton, Roberts and Copeland",purchase
+2035,604,2025-02-08,390.110000,Estrada and Sons,refund
+2036,133,2025-04-17,251.180000,Rogers-Wilson,refund
+2037,799,2025-01-30,364.760000,"Gregory, Sanchez and Mcclain",refund
+2038,580,2025-02-10,387.040000,Patel Inc,purchase
+2039,890,2025-01-28,447.130000,"Powell, Murphy and Atkins",refund
+2040,721,2025-04-08,90.410000,Hayes and Sons,refund
+2041,125,2025-02-27,102.760000,Richardson-Ray,purchase
+2042,134,2025-04-22,315.250000,Peters-Owen,refund
+2043,937,2025-03-14,205.410000,"Sanchez, Bond and Crawford",refund
+2044,527,2025-02-15,350.190000,"Ramos, Gibson and Ray",purchase
+2045,508,2025-01-15,471.480000,"Lee, Parker and Chaney",purchase
+2046,531,2025-01-13,8.870000,Maldonado-Williams,purchase
+2047,446,2025-01-29,143.730000,Turner-Cooper,refund
+2048,769,2025-02-26,314.390000,Farrell LLC,refund
+2049,691,2025-03-02,99.440000,Cole-Brown,refund
+2050,538,2025-04-08,390.460000,"Scott, Burke and Flynn",purchase
+2051,945,2025-04-13,111.810000,Sanchez Inc,purchase
+2052,915,2025-01-14,397.100000,Rogers-Scott,refund
+2053,534,2025-04-05,100.770000,"Frederick, Gibson and Romero",refund
+2054,419,2025-03-24,456.600000,Gonzalez Group,purchase
+2055,984,2025-01-28,118.960000,Stevens-Potter,purchase
+2056,8,2025-01-24,96.610000,Turner-Jones,purchase
+2057,744,2025-03-25,495.620000,Chen Group,refund
+2058,509,2025-04-02,382.360000,"Vaughn, Martinez and Howard",purchase
+2059,989,2025-04-15,103.000000,Stanley-Oliver,purchase
+2060,674,2025-01-10,53.570000,Finley-Saunders,purchase
+2061,331,2025-04-03,97.220000,Young-Kelly,purchase
+2062,419,2025-02-28,116.900000,Wilson Group,refund
+2063,248,2025-03-19,133.650000,Anderson Ltd,refund
+2064,939,2025-02-03,404.910000,Thompson-Jackson,purchase
+2065,853,2025-01-17,301.900000,"Carter, Harris and Wilson",purchase
+2066,995,2025-01-04,481.570000,"Stevens, Murphy and Williams",refund
+2067,719,2025-01-07,427.390000,"Johnson, Morgan and Burton",refund
+2068,352,2025-04-15,334.120000,Bailey LLC,refund
+2069,713,2025-04-11,389.240000,"Smith, Brown and Myers",refund
+2070,160,2025-03-01,163.360000,Hall and Sons,refund
+2071,260,2025-02-01,282.950000,Robbins-Fuller,refund
+2072,224,2025-03-23,378.850000,Frye-Lambert,purchase
+2073,525,2025-04-14,259.220000,Cook-Murphy,refund
+2074,689,2025-04-11,102.980000,Jackson PLC,refund
+2075,692,2025-04-11,343.860000,Alexander LLC,purchase
+2076,259,2025-03-16,473.660000,Peterson-Joyce,refund
+2077,356,2025-01-26,87.160000,Pitts Group,purchase
+2078,74,2025-01-09,442.370000,Huff Inc,purchase
+2079,92,2025-04-10,164.710000,Nichols-White,purchase
+2080,553,2025-03-11,334.550000,Harris-Vincent,purchase
+2081,419,2025-03-27,210.120000,Hill Ltd,refund
+2082,132,2025-02-18,110.670000,Jimenez-Payne,refund
+2083,612,2025-03-15,331.970000,Valdez-Contreras,refund
+2084,779,2025-04-20,7.180000,"Curry, Day and Brown",refund
+2085,114,2025-02-27,123.970000,Goodwin Ltd,refund
+2086,53,2025-03-26,170.580000,"Miller, Phillips and Torres",refund
+2087,727,2025-02-07,447.070000,Dunlap-Green,purchase
+2088,696,2025-04-15,42.180000,Molina-Moses,refund
+2089,302,2025-01-31,7.860000,"Bishop, Adams and Wood",purchase
+2090,30,2025-02-28,324.980000,Moyer and Sons,purchase
+2091,320,2025-03-23,52.730000,Gill PLC,purchase
+2092,912,2025-02-15,101.150000,Spencer-Ball,refund
+2093,446,2025-01-26,316.810000,Campbell-Tucker,refund
+2094,798,2025-03-15,472.850000,"Baker, Conrad and Bender",purchase
+2095,852,2025-02-07,154.740000,"Murphy, Alexander and Davidson",refund
+2096,393,2025-04-17,467.720000,Roth PLC,refund
+2097,161,2025-03-10,405.320000,Harris LLC,refund
+2098,245,2025-02-18,458.530000,Kaufman-Reed,refund
+2099,161,2025-03-20,440.060000,Erickson-Oneill,refund
+2100,19,2025-02-04,316.850000,Webster-Rhodes,refund
+2101,67,2025-03-03,351.320000,Garrett Group,purchase
+2102,507,2025-03-05,159.680000,"Porter, Calderon and White",refund
+2103,366,2025-04-03,297.780000,Reyes-Bradley,refund
+2104,931,2025-04-19,8.270000,Potter Inc,refund
+2105,730,2025-02-03,197.850000,"Rowe, White and Anderson",purchase
+2106,34,2025-03-03,456.780000,Hamilton Inc,refund
+2107,826,2025-03-18,202.110000,"Reynolds, Peterson and Williams",purchase
+2108,646,2025-03-25,457.760000,Murray PLC,refund
+2109,615,2025-03-23,365.290000,Flores Ltd,purchase
+2110,589,2025-02-16,290.130000,Gonzales Ltd,refund
+2111,174,2025-02-26,395.540000,"Taylor, Mcclure and Lee",purchase
+2112,513,2025-02-11,398.200000,Davis-Gibson,purchase
+2113,163,2025-04-05,83.040000,Smith LLC,purchase
+2114,541,2025-03-03,441.110000,Nolan-Stewart,purchase
+2115,289,2025-03-15,37.110000,"Johnson, King and Thomas",purchase
+2116,435,2025-04-09,438.260000,Smith-Frost,purchase
+2117,3,2025-01-30,41.050000,Bennett LLC,purchase
+2118,536,2025-03-08,486.100000,Welch and Sons,refund
+2119,204,2025-02-07,230.290000,Ayers Group,refund
+2120,93,2025-03-08,213.450000,"Downs, Johnson and Salazar",refund
+2121,77,2025-01-20,21.130000,"Carr, Mccall and Hernandez",purchase
+2122,177,2025-02-05,25.360000,Chavez and Sons,purchase
+2123,986,2025-02-20,365.370000,Barton Ltd,purchase
+2124,395,2025-02-09,219.000000,Burke and Sons,refund
+2125,912,2025-04-24,359.940000,Clark LLC,refund
+2126,822,2025-01-10,69.350000,"White, Hull and Colon",refund
+2127,641,2025-01-04,420.880000,Harrington and Sons,purchase
+2128,72,2025-02-15,275.060000,"Kelley, Chavez and Taylor",refund
+2129,572,2025-03-09,112.040000,Griffith Group,purchase
+2130,465,2025-02-17,151.800000,Huynh-Peterson,refund
+2131,598,2025-04-04,114.960000,Guerrero Group,purchase
+2132,867,2025-04-20,37.440000,"Shannon, Robertson and Nunez",refund
+2133,115,2025-01-27,113.970000,Collins Group,refund
+2134,538,2025-01-30,132.520000,Holland-Becker,purchase
+2135,937,2025-02-04,13.550000,"Case, Gallagher and Terry",refund
+2136,455,2025-02-22,146.490000,"Phillips, Malone and Dodson",purchase
+2137,14,2025-02-22,349.730000,Newman-Garcia,purchase
+2138,335,2025-01-28,21.210000,"Rodriguez, Hill and Rivera",refund
+2139,313,2025-03-12,286.920000,Mcdonald-Savage,purchase
+2140,718,2025-04-13,132.210000,Johnson LLC,purchase
+2141,373,2025-02-27,399.830000,Davis-Martin,refund
+2142,67,2025-03-03,473.250000,"Jones, Rodriguez and Douglas",refund
+2143,454,2025-02-07,314.910000,Davis LLC,purchase
+2144,233,2025-03-03,89.510000,"Andrews, Davila and Morgan",refund
+2145,624,2025-04-21,302.940000,Dunlap Group,purchase
+2146,616,2025-03-22,131.650000,"Walsh, Mitchell and Hall",refund
+2147,434,2025-02-09,176.780000,Bowen Ltd,purchase
+2148,684,2025-04-02,204.130000,Holmes-Alvarado,refund
+2149,147,2025-02-08,110.060000,"Lewis, Wilson and Ray",purchase
+2150,853,2025-02-04,400.760000,Robinson Ltd,refund
+2151,959,2025-03-07,262.220000,Swanson Group,purchase
+2152,996,2025-01-09,308.670000,Wheeler Ltd,purchase
+2153,343,2025-04-01,251.230000,Holmes Inc,refund
+2154,851,2025-04-22,277.140000,"Lowe, Copeland and Mitchell",purchase
+2155,315,2025-04-11,441.590000,Dean Group,purchase
+2156,647,2025-02-20,271.190000,"Shaffer, Gutierrez and Larson",refund
+2157,18,2025-01-24,340.170000,Sanders-Fernandez,purchase
+2158,677,2025-01-13,370.740000,"Hamilton, Glass and Higgins",refund
+2159,759,2025-01-18,416.280000,Rodriguez-Moreno,purchase
+2160,697,2025-02-04,300.980000,Martinez-Fitzpatrick,refund
+2161,421,2025-01-25,328.650000,Arnold and Sons,refund
+2162,908,2025-01-26,18.610000,Robertson Group,purchase
+2163,797,2025-02-20,159.350000,"Hickman, Gutierrez and Estrada",refund
+2164,51,2025-02-28,250.830000,Simmons-Carter,purchase
+2165,32,2025-01-28,213.590000,Mcintosh LLC,purchase
+2166,632,2025-01-26,273.540000,"Lopez, Hill and Cooper",purchase
+2167,119,2025-03-05,338.140000,"Thomas, Gonzalez and Thompson",refund
+2168,462,2025-01-28,263.640000,Dougherty-Ross,purchase
+2169,67,2025-01-23,70.590000,Garner LLC,purchase
+2170,526,2025-01-06,237.930000,Padilla LLC,refund
+2171,556,2025-02-14,194.740000,King LLC,purchase
+2172,327,2025-04-10,338.980000,"Day, Warren and Erickson",purchase
+2173,62,2025-01-14,145.870000,Walker PLC,refund
+2174,18,2025-03-27,8.120000,Perez-Smith,refund
+2175,882,2025-02-21,213.490000,Rivera PLC,purchase
+2176,423,2025-02-02,21.980000,"Diaz, Mcgrath and Jackson",purchase
+2177,547,2025-01-09,408.620000,Porter LLC,refund
+2178,183,2025-01-21,377.080000,"Jones, Sparks and Bautista",refund
+2179,58,2025-02-12,153.600000,Estrada-Jenkins,refund
+2180,335,2025-04-06,158.420000,Nunez-Banks,purchase
+2181,738,2025-04-14,177.740000,Oconnell Ltd,refund
+2182,238,2025-04-13,427.360000,"Wright, Lambert and Glenn",purchase
+2183,39,2025-01-17,370.500000,Poole LLC,refund
+2184,545,2025-01-31,497.460000,Harris and Sons,purchase
+2185,549,2025-02-02,236.360000,Dillon Inc,purchase
+2186,922,2025-03-09,280.040000,Brown LLC,refund
+2187,806,2025-01-30,499.490000,Banks Ltd,refund
+2188,563,2025-03-07,390.270000,Moore PLC,purchase
+2189,585,2025-03-30,244.600000,"Taylor, Reed and Ramirez",refund
+2190,315,2025-01-29,263.720000,Flores-Moore,refund
+2191,97,2025-04-19,295.640000,Jones and Sons,purchase
+2192,299,2025-02-01,103.530000,Curtis-Romero,purchase
+2193,461,2025-03-17,195.270000,"Weiss, Hamilton and Arnold",refund
+2194,487,2025-01-06,183.900000,"Reid, Vasquez and Jones",purchase
+2195,634,2025-04-13,433.170000,Sherman and Sons,refund
+2196,295,2025-04-09,39.800000,"Smith, Olson and Mccullough",refund
+2197,87,2025-04-24,356.370000,Ferrell-Short,purchase
+2198,759,2025-04-15,315.230000,Sullivan Inc,refund
+2199,79,2025-02-08,19.430000,Joseph LLC,refund
+2200,989,2025-04-03,353.100000,Watson-Kidd,purchase
+2201,139,2025-04-08,486.160000,"Fischer, Farrell and Howard",purchase
+2202,226,2025-02-02,101.840000,"Reeves, Williams and Vega",refund
+2203,810,2025-01-01,79.040000,Goodman and Sons,purchase
+2204,94,2025-01-01,265.400000,Kennedy-Thomas,purchase
+2205,423,2025-01-08,410.200000,"Harris, Melton and Brown",refund
+2206,128,2025-03-01,61.200000,Martin-Ramos,purchase
+2207,772,2025-03-31,435.640000,"Romero, Williams and Trujillo",purchase
+2208,209,2025-01-04,330.530000,Austin-Carpenter,purchase
+2209,242,2025-01-12,374.450000,"Francis, Gonzalez and Daugherty",purchase
+2210,76,2025-01-30,242.070000,French Ltd,refund
+2211,974,2025-02-21,377.360000,Lopez-Edwards,purchase
+2212,534,2025-02-12,211.640000,Romero and Sons,refund
+2213,40,2025-02-27,349.560000,Mitchell PLC,refund
+2214,563,2025-03-02,362.360000,Smith-Martin,refund
+2215,642,2025-02-14,456.750000,"Reyes, Santos and Santiago",purchase
+2216,550,2025-04-22,124.060000,"Hickman, Gillespie and Henderson",refund
+2217,621,2025-01-11,414.450000,Young-Zavala,purchase
+2218,359,2025-04-18,319.920000,Carr Ltd,purchase
+2219,351,2025-03-30,119.610000,Skinner PLC,refund
+2220,951,2025-02-23,108.890000,Grant Group,refund
+2221,252,2025-01-19,402.100000,"Petersen, Griffin and Davies",purchase
+2222,426,2025-04-21,422.070000,Lambert-Perez,purchase
+2223,646,2025-02-06,117.840000,Smith-Robinson,purchase
+2224,98,2025-02-13,86.560000,"Miles, Frazier and Stanley",purchase
+2225,393,2025-04-17,422.950000,Williams-Shaw,purchase
+2226,195,2025-01-09,260.410000,Nguyen-Cohen,purchase
+2227,531,2025-02-04,261.930000,Robertson Ltd,refund
+2228,474,2025-01-25,323.410000,"Butler, Chapman and Collier",purchase
+2229,927,2025-02-16,382.210000,Adams and Sons,refund
+2230,271,2025-04-04,332.380000,Johnson LLC,refund
+2231,17,2025-02-15,163.460000,Rogers and Sons,refund
+2232,13,2025-02-19,230.300000,"Hampton, Vaughn and Gross",refund
+2233,704,2025-02-09,166.290000,"Lowe, Wallace and Turner",purchase
+2234,305,2025-02-11,320.230000,Knight Inc,purchase
+2235,398,2025-01-20,377.550000,Foster PLC,refund
+2236,39,2025-02-12,68.950000,"Parker, Jones and Warren",purchase
+2237,47,2025-03-19,406.500000,Johnson Ltd,refund
+2238,745,2025-02-06,69.310000,West-Clark,refund
+2239,800,2025-04-19,109.660000,Hill-Marks,purchase
+2240,891,2025-02-07,230.880000,Washington-Lin,purchase
+2241,183,2025-04-17,306.450000,Hopkins-Parker,purchase
+2242,140,2025-02-05,145.920000,Hanson-Shelton,refund
+2243,540,2025-04-04,156.120000,Parsons Group,refund
+2244,9,2025-04-03,382.600000,"Rodriguez, Rivas and Davis",refund
+2245,566,2025-01-06,405.040000,Landry PLC,purchase
+2246,298,2025-04-09,85.340000,"Aguirre, Banks and Cook",purchase
+2247,59,2025-04-22,36.920000,"Guerrero, Kennedy and Smith",purchase
+2248,63,2025-04-19,109.280000,Collins Group,purchase
+2249,76,2025-02-19,248.170000,Morales LLC,purchase
+2250,326,2025-02-19,158.810000,"Houston, Rodriguez and Bowman",refund
+2251,33,2025-03-02,48.880000,Nguyen Ltd,purchase
+2252,786,2025-01-04,237.190000,Mcfarland-Hutchinson,purchase
+2253,884,2025-03-22,169.840000,Petersen and Sons,refund
+2254,717,2025-01-28,465.750000,Porter-Greer,purchase
+2255,429,2025-02-03,253.140000,"Ward, Scott and Jones",purchase
+2256,14,2025-01-11,72.230000,Clark PLC,refund
+2257,469,2025-02-14,86.760000,"Norton, Johnson and Adams",purchase
+2258,297,2025-01-06,447.160000,"Barrett, Campbell and Johnson",refund
+2259,116,2025-02-11,121.360000,Nguyen and Sons,refund
+2260,18,2025-03-05,257.410000,Myers LLC,purchase
+2261,740,2025-03-18,412.110000,"Lee, Owens and Thompson",purchase
+2262,725,2025-01-06,75.750000,"Roberts, Graham and Brown",refund
+2263,934,2025-02-11,107.040000,Wood-Lawson,purchase
+2264,34,2025-03-23,101.070000,Brown-Caldwell,refund
+2265,683,2025-03-29,253.750000,Cole-Christian,purchase
+2266,600,2025-03-22,318.010000,Jones Group,refund
+2267,476,2025-04-20,256.190000,Bartlett and Sons,purchase
+2268,652,2025-01-05,232.730000,Smith-Riggs,refund
+2269,594,2025-02-18,281.730000,Collins-Moon,refund
+2270,222,2025-01-07,312.920000,Williams-Diaz,refund
+2271,491,2025-03-27,345.950000,"Graves, Smith and Wallace",purchase
+2272,199,2025-04-18,65.430000,Moore and Sons,refund
+2273,662,2025-03-18,429.940000,Johnson-Jacobs,purchase
+2274,548,2025-04-15,397.770000,Smith Inc,purchase
+2275,971,2025-03-25,66.380000,Robbins Inc,refund
+2276,896,2025-02-17,195.280000,Cantu-Robinson,purchase
+2277,398,2025-03-28,122.360000,Johnson Ltd,refund
+2278,992,2025-03-02,271.200000,Smith Inc,refund
+2279,304,2025-03-20,106.220000,Nelson-Russell,purchase
+2280,586,2025-02-24,451.750000,Wright and Sons,purchase
+2281,344,2025-04-17,176.350000,"King, Carr and Smith",purchase
+2282,713,2025-04-21,352.370000,"Curtis, Holloway and Mckinney",purchase
+2283,501,2025-04-03,334.590000,"Yang, Zamora and Graham",refund
+2284,473,2025-01-26,178.830000,Wilson-Clarke,refund
+2285,342,2025-03-02,368.590000,"Burton, Cantu and Becker",purchase
+2286,435,2025-02-09,448.730000,Davis-Villarreal,refund
+2287,436,2025-04-04,347.300000,Mcdaniel-Knight,refund
+2288,361,2025-03-04,406.820000,"Holmes, Fisher and Simpson",purchase
+2289,468,2025-01-10,68.800000,Frazier Group,refund
+2290,426,2025-01-20,204.050000,Poole PLC,purchase
+2291,151,2025-04-09,87.130000,Perkins-Alvarez,refund
+2292,707,2025-04-03,144.100000,"Riley, Thompson and Davis",refund
+2293,118,2025-04-15,83.910000,Castro-Simpson,purchase
+2294,247,2025-01-26,248.140000,"Davidson, Medina and Burton",refund
+2295,194,2025-02-20,170.560000,Allen-Martinez,refund
+2296,104,2025-01-08,275.960000,Johnson Group,refund
+2297,298,2025-03-09,395.430000,"Haynes, Carlson and Mendoza",refund
+2298,875,2025-02-07,493.400000,Huffman Inc,purchase
+2299,665,2025-04-02,335.200000,"Curtis, Bradley and Wilson",purchase
+2300,578,2025-04-22,327.190000,"Austin, Rogers and Riley",purchase
+2301,450,2025-03-10,151.350000,Carter LLC,refund
+2302,4,2025-02-08,359.430000,Carter-Conner,refund
+2303,682,2025-03-13,111.250000,Smith-Sanders,refund
+2304,104,2025-01-16,434.840000,"Pugh, Maxwell and Gray",refund
+2305,114,2025-04-15,143.960000,"Dixon, Graham and Frost",purchase
+2306,850,2025-02-25,312.100000,Evans and Sons,purchase
+2307,741,2025-03-11,115.300000,Patrick-Cole,purchase
+2308,410,2025-01-16,451.060000,"Beck, Williams and Davenport",refund
+2309,544,2025-04-13,77.700000,Cline-Hess,purchase
+2310,276,2025-03-13,474.150000,"Harvey, Stein and Meyer",purchase
+2311,260,2025-01-05,190.820000,Knight-Montgomery,purchase
+2312,336,2025-02-25,139.250000,Williams-Johnson,refund
+2313,476,2025-03-31,94.030000,Parker PLC,refund
+2314,538,2025-03-11,357.820000,Lopez-Welch,refund
+2315,429,2025-02-18,430.490000,"Rodriguez, Goodman and Navarro",refund
+2316,133,2025-04-08,373.210000,"Schultz, Carpenter and Villegas",refund
+2317,278,2025-03-02,365.400000,Duffy PLC,refund
+2318,692,2025-03-09,42.640000,Miller-Carter,purchase
+2319,246,2025-03-20,185.310000,Meyer Inc,refund
+2320,816,2025-02-17,161.210000,"Smith, Harris and Howard",purchase
+2321,953,2025-04-02,123.820000,Smith-Moody,purchase
+2322,113,2025-01-30,250.640000,"Vasquez, Pruitt and Rodriguez",purchase
+2323,501,2025-02-10,107.760000,"Foster, Simmons and Lamb",purchase
+2324,451,2025-01-02,190.190000,Kirk Group,purchase
+2325,822,2025-01-11,378.850000,Brennan-Campbell,refund
+2326,209,2025-04-22,391.170000,"Jones, Bowen and Rivera",purchase
+2327,683,2025-03-03,376.040000,"Henry, Murphy and Moore",refund
+2328,655,2025-02-27,235.810000,"Cooper, Fisher and Nelson",refund
+2329,676,2025-03-23,50.180000,Guzman-Watson,refund
+2330,415,2025-04-16,336.520000,Miller PLC,purchase
+2331,44,2025-01-20,22.250000,Lawson LLC,refund
+2332,125,2025-04-07,280.890000,Chapman Group,refund
+2333,147,2025-04-07,198.690000,Bruce LLC,refund
+2334,795,2025-02-02,361.130000,Hernandez-Greene,purchase
+2335,797,2025-01-17,240.460000,"Saunders, Mahoney and Richardson",refund
+2336,192,2025-01-07,380.000000,Perry Group,purchase
+2337,152,2025-02-15,98.170000,Carlson-Ray,purchase
+2338,668,2025-03-22,498.500000,Collins-Taylor,refund
+2339,290,2025-04-11,300.350000,"Arnold, Mitchell and Mora",purchase
+2340,572,2025-02-18,406.760000,"Harris, Miller and Townsend",refund
+2341,934,2025-02-28,26.560000,"Fuller, Marks and Luna",purchase
+2342,666,2025-01-16,463.700000,"Shields, Kelly and Obrien",refund
+2343,934,2025-02-19,129.620000,Barton-Franco,purchase
+2344,560,2025-04-16,469.180000,"Bullock, Massey and Serrano",refund
+2345,934,2025-01-18,185.510000,"Fisher, Cooley and Frazier",purchase
+2346,757,2025-04-23,238.250000,Carter Ltd,purchase
+2347,287,2025-01-29,5.870000,Daniel Ltd,purchase
+2348,666,2025-03-31,452.640000,"Cooley, Smith and Lopez",purchase
+2349,878,2025-01-14,432.490000,"Thompson, King and Anderson",purchase
+2350,438,2025-03-07,102.030000,"Sellers, Porter and Jackson",refund
+2351,925,2025-02-01,24.900000,Vargas-Miles,refund
+2352,931,2025-04-17,190.270000,Mann Group,refund
+2353,828,2025-03-08,223.250000,Williams Inc,purchase
+2354,41,2025-02-22,208.110000,Guerra-Martin,purchase
+2355,133,2025-02-08,79.980000,Chen Inc,refund
+2356,749,2025-02-07,87.700000,Parker LLC,purchase
+2357,291,2025-03-11,191.580000,"Franco, Atkins and Whitehead",purchase
+2358,121,2025-01-25,273.650000,"Chavez, Ashley and Santiago",refund
+2359,463,2025-04-23,102.470000,Rivera-Molina,refund
+2360,358,2025-03-02,235.060000,"Farrell, Morrison and Rios",refund
+2361,747,2025-03-21,145.250000,Owens-Davis,purchase
+2362,193,2025-02-18,156.330000,Wright and Sons,refund
+2363,230,2025-01-04,399.980000,Lopez and Sons,purchase
+2364,911,2025-04-24,357.330000,Hardin-Bauer,refund
+2365,751,2025-04-12,495.640000,"Carrillo, Vargas and Rodriguez",refund
+2366,756,2025-03-18,316.320000,"Sanchez, Jackson and Hughes",refund
+2367,116,2025-02-28,180.210000,Morris Inc,refund
+2368,367,2025-01-30,475.290000,Edwards-Ross,purchase
+2369,998,2025-03-02,257.420000,"Bradley, Watson and Wise",refund
+2370,512,2025-01-31,337.080000,Graham Inc,refund
+2371,152,2025-02-27,316.710000,Nguyen Ltd,purchase
+2372,86,2025-01-06,64.420000,Nelson LLC,refund
+2373,938,2025-03-17,390.030000,"Watkins, Bird and Dennis",purchase
+2374,555,2025-04-13,421.770000,Gomez and Sons,refund
+2375,66,2025-02-23,159.320000,Robinson-Jones,refund
+2376,727,2025-01-09,36.130000,Blankenship Ltd,refund
+2377,652,2025-02-25,446.370000,Hunter-Aguirre,refund
+2378,89,2025-01-30,134.740000,Scott LLC,purchase
+2379,402,2025-03-12,152.110000,Velez-Rivera,purchase
+2380,620,2025-04-13,183.500000,Larsen Inc,purchase
+2381,759,2025-03-03,106.090000,Hughes Inc,refund
+2382,940,2025-04-16,266.130000,Hardin-Villarreal,purchase
+2383,599,2025-04-07,364.120000,"Davis, Harris and Horn",purchase
+2384,136,2025-04-20,162.150000,Reyes and Sons,refund
+2385,176,2025-01-16,472.280000,Cruz LLC,refund
+2386,699,2025-02-21,124.300000,Page Group,purchase
+2387,873,2025-01-09,209.960000,"Case, Holt and Jones",purchase
+2388,105,2025-03-09,103.610000,Carpenter-Young,purchase
+2389,421,2025-01-31,350.460000,Frey and Sons,refund
+2390,777,2025-02-08,383.000000,Howard and Sons,refund
+2391,37,2025-04-12,429.520000,"Willis, Payne and Santos",refund
+2392,759,2025-03-19,116.150000,Spears-Ruiz,refund
+2393,964,2025-03-30,105.880000,Rhodes and Sons,purchase
+2394,693,2025-02-04,321.370000,Hughes-Gutierrez,refund
+2395,239,2025-04-18,170.490000,"Rodriguez, Vazquez and Harrison",refund
+2396,867,2025-01-08,200.840000,Williamson Inc,refund
+2397,603,2025-01-11,134.450000,Perez Ltd,refund
+2398,996,2025-01-26,422.120000,Parrish LLC,purchase
+2399,447,2025-03-04,472.170000,"Stanley, Ho and Stone",refund
+2400,682,2025-03-23,62.560000,"Clark, Gonzalez and Martinez",purchase
+2401,452,2025-01-07,365.100000,Wright and Sons,refund
+2402,28,2025-04-14,34.220000,Lang-Daniel,purchase
+2403,931,2025-03-22,319.110000,"May, Durham and Jones",refund
+2404,552,2025-04-24,128.830000,Adams Inc,purchase
+2405,896,2025-03-19,266.200000,"Reed, Carroll and Lopez",purchase
+2406,687,2025-02-05,59.950000,White-Taylor,refund
+2407,553,2025-04-23,168.820000,Bailey-Alexander,purchase
+2408,520,2025-04-21,498.000000,"Roach, Jones and Barr",purchase
+2409,590,2025-04-04,202.550000,Rasmussen-Daniels,purchase
+2410,874,2025-02-22,60.230000,Mayer LLC,purchase
+2411,52,2025-03-08,489.940000,Romero PLC,refund
+2412,772,2025-02-01,168.990000,"Russo, Jones and Durham",purchase
+2413,240,2025-03-06,499.580000,"Rose, Stephens and Wang",purchase
+2414,409,2025-04-15,254.730000,Wyatt-Vaughn,refund
+2415,575,2025-01-25,420.450000,Brown-Richardson,refund
+2416,469,2025-04-23,443.740000,Gamble-Miller,purchase
+2417,975,2025-01-25,341.240000,Turner and Sons,purchase
+2418,482,2025-02-13,419.480000,"Glover, Watson and Garcia",purchase
+2419,446,2025-03-06,41.310000,Cook Ltd,refund
+2420,195,2025-03-19,194.660000,Fuller Group,refund
+2421,805,2025-03-17,355.620000,Baker Inc,refund
+2422,499,2025-03-19,373.150000,Key and Sons,purchase
+2423,29,2025-01-05,49.700000,"Cobb, Fischer and Parker",purchase
+2424,512,2025-01-26,6.780000,Peterson-Flores,purchase
+2425,820,2025-01-25,337.490000,Roberts-Hanna,refund
+2426,127,2025-02-01,298.010000,Baker Ltd,purchase
+2427,173,2025-01-26,101.840000,Burns-Hughes,purchase
+2428,593,2025-04-21,483.630000,"Mitchell, Bowers and Willis",refund
+2429,180,2025-01-23,7.130000,Ortiz PLC,refund
+2430,12,2025-04-11,198.070000,Contreras-Hahn,refund
+2431,151,2025-02-17,421.920000,Clark PLC,refund
+2432,416,2025-02-02,246.470000,Herman Ltd,refund
+2433,663,2025-02-20,104.200000,Duffy LLC,purchase
+2434,633,2025-04-08,270.900000,Adams Group,purchase
+2435,76,2025-03-28,80.110000,Lopez-Taylor,purchase
+2436,892,2025-02-14,459.820000,"Deleon, Garcia and Lucas",refund
+2437,705,2025-04-07,246.790000,Vaughn PLC,refund
+2438,168,2025-02-24,325.490000,"Williams, Lee and Norris",refund
+2439,115,2025-04-19,115.740000,Hughes-Munoz,purchase
+2440,619,2025-03-03,6.520000,"Carroll, Henson and Simmons",refund
+2441,935,2025-01-11,238.830000,"Thompson, Dean and Cunningham",purchase
+2442,889,2025-01-25,458.730000,Johnson PLC,refund
+2443,709,2025-03-10,285.930000,Peck-Long,refund
+2444,20,2025-03-31,477.110000,Downs Inc,refund
+2445,480,2025-03-18,20.670000,Hall-Carson,refund
+2446,844,2025-01-08,494.300000,Mitchell LLC,purchase
+2447,565,2025-03-26,338.200000,Patterson LLC,refund
+2448,468,2025-03-18,277.700000,Barton-Ramirez,purchase
+2449,190,2025-02-20,117.530000,Morgan and Sons,purchase
+2450,771,2025-01-31,60.660000,Carter LLC,refund
+2451,224,2025-02-21,315.720000,Woods Inc,purchase
+2452,86,2025-01-05,152.020000,"Clark, Wong and Pearson",refund
+2453,650,2025-03-15,128.260000,Thomas-Rice,refund
+2454,680,2025-01-13,439.760000,Johnson LLC,refund
+2455,574,2025-03-03,51.170000,Fisher-Johnson,refund
+2456,458,2025-02-21,347.010000,Henson Ltd,refund
+2457,718,2025-01-14,343.460000,Meyer-Burns,purchase
+2458,185,2025-01-02,69.860000,"Lynch, Dickerson and Morris",purchase
+2459,124,2025-04-03,427.560000,"Lawson, Anderson and Miller",refund
+2460,424,2025-03-07,366.770000,"Marsh, Bradley and Cook",purchase
+2461,430,2025-04-14,413.740000,"Sullivan, Hill and Wolfe",purchase
+2462,559,2025-03-31,301.540000,Garcia-Baldwin,purchase
+2463,918,2025-03-10,236.690000,Mueller PLC,refund
+2464,493,2025-01-26,176.020000,James Group,refund
+2465,537,2025-04-09,262.690000,Hughes-King,purchase
+2466,207,2025-03-12,417.750000,Gonzalez-Ford,purchase
+2467,545,2025-02-14,276.960000,Gregory Inc,refund
+2468,702,2025-03-06,109.400000,"Bennett, Miller and Owens",refund
+2469,287,2025-04-20,281.270000,Vaughn-Cook,purchase
+2470,745,2025-02-15,163.930000,Garcia-Murphy,refund
+2471,580,2025-02-28,22.660000,Rivera Group,purchase
+2472,933,2025-03-01,489.110000,"Allen, Delgado and Coleman",refund
+2473,547,2025-01-28,259.100000,Gonzales-Butler,purchase
+2474,931,2025-02-13,462.960000,Mays-Santiago,refund
+2475,593,2025-04-21,373.550000,"Hernandez, Juarez and Lewis",refund
+2476,450,2025-01-27,289.820000,"Espinoza, Diaz and Wilson",refund
+2477,892,2025-01-31,22.030000,Cruz PLC,purchase
+2478,922,2025-02-12,137.020000,Olson-Davis,purchase
+2479,152,2025-03-09,495.420000,Day and Sons,purchase
+2480,683,2025-03-04,409.230000,Jacobs-Murray,refund
+2481,211,2025-02-17,363.810000,"Mills, Elliott and Brown",purchase
+2482,100,2025-04-02,417.860000,"Mcknight, Rios and Pierce",purchase
+2483,907,2025-01-27,301.470000,"Griffin, Frazier and Gamble",refund
+2484,313,2025-02-09,95.650000,Taylor Inc,refund
+2485,754,2025-04-09,477.520000,Farley-Hudson,refund
+2486,420,2025-04-05,81.450000,"Cruz, Huerta and Mack",refund
+2487,652,2025-02-24,411.400000,Guerrero-Moore,purchase
+2488,56,2025-03-15,237.250000,Jones LLC,purchase
+2489,272,2025-02-17,86.770000,Gates-Figueroa,purchase
+2490,840,2025-02-26,135.310000,Larson-Shaffer,purchase
+2491,407,2025-03-28,481.290000,Burch Group,purchase
+2492,313,2025-03-29,220.060000,Aguilar-Rodriguez,purchase
+2493,864,2025-03-09,249.000000,Walters LLC,purchase
+2494,431,2025-04-17,48.760000,Haney-Kennedy,purchase
+2495,75,2025-04-21,228.520000,Sullivan Ltd,purchase
+2496,414,2025-03-20,260.760000,"Parrish, Sawyer and Jones",refund
+2497,99,2025-01-24,167.180000,"Anderson, Scott and Rowe",refund
+2498,377,2025-02-12,175.070000,"Davis, Carpenter and Rodriguez",refund
+2499,655,2025-03-17,350.890000,Sims Ltd,refund
+2500,559,2025-01-31,91.510000,Schultz-Frazier,refund

@@ -1,0 +1,26 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "total_campaign_responses",
+        "total_payment_last_6_months",
+        "avg_transaction_amount",
+        "total_customer_interactions",
+        "fraction_late_payments",
+        "total_transaction_amount",
+        "transaction_activity",
+        "late_payment_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "total campaign responses",
+        "total payment last 6 months",
+        "avg transaction amount",
+        "total customer interactions",
+        "fraction late payments",
+        "total transaction amount",
+        "transaction activity",
+        "late payment ratio"
+    ]
+}

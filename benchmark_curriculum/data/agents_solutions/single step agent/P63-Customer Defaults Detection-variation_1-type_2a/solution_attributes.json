@@ -1,0 +1,89 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "default_burden_ratio",
+        "payment_frequency_90_days",
+        "payment_completion_rate",
+        "avg_transaction_amount_per_day",
+        "mean_transaction_amount",
+        "total_credit_transactions",
+        "median_transaction_amount",
+        "payment_frequency_30_days",
+        "high_usage_alert",
+        "total_debit_transactions",
+        "income_category",
+        "days_since_last_payment",
+        "utility_spend_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.748861872592538": {
+            "name": "default_burden_ratio",
+            "code": "\n\ndef default_burden_ratio(row, df_train: pd.DataFrame):\n    customer_id = row['customer_id']\n    relevant_payments = df_train[df_train['customer_id'] == customer_id]\n    failed_payments = relevant_payments[relevant_payments['payment_status'] == 'Failed']\n    defaults = relevant_payments['default_flag'].sum()\n    if len(failed_payments) == 0:\n        return 0\n    return defaults / len(failed_payments)\n"
+        },
+        "0.18102429903162917": {
+            "name": "payment_frequency_90_days",
+            "code": "import pandas as pd\n\ndef payment_frequency_90_days(row, df_train: pd.DataFrame):\n    # Ensure the 'payment_date' column is in datetime format\n    df_train['payment_date'] = pd.to_datetime(df_train['payment_date'])\n    \n    customer_id = row['customer_id']\n    most_recent = df_train['payment_date'].max()\n    last_90_days = most_recent - pd.Timedelta(days=90)\n    \n    # Filter payments for the given customer in the last 90 days\n    payments_recent = df_train[\n        (df_train['customer_id'] == customer_id) & \n        (df_train['payment_date'] > last_90_days)\n    ]\n    \n    return len(payments_recent)\n"
+        },
+        "0.15911915052890996": {
+            "name": "payment_completion_rate",
+            "code": "\n\ndef payment_completion_rate(row, df_train: pd.DataFrame):\n    customer_id = row['customer_id']\n    payments = df_train[df_train['customer_id'] == customer_id]\n    completed_payments = payments[payments['payment_status'] == 'Completed']\n    total_payments = len(payments)\n    if total_payments == 0:\n        return 0\n    return len(completed_payments) / total_payments\n"
+        },
+        "0.0980387188260459": {
+            "name": "avg_transaction_amount_per_day",
+            "code": "import pandas as pd\n\ndef avg_transaction_amount_per_day(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the account history dataframe from aux_data\n    account_history_df = aux_data['account_history_table.csv']\n    \n    # Get the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter transactions for the given customer_id\n    transactions = account_history_df[account_history_df['customer_id'] == customer_id]\n    \n    # Ensure transaction_date is in datetime format\n    transactions['transaction_date'] = pd.to_datetime(transactions['transaction_date'])\n    \n    # Calculate the number of days between the first and last transaction\n    days = (transactions['transaction_date'].max() - transactions['transaction_date'].min()).days\n    days = days if days > 0 else 1  # Avoid division by zero\n    \n    # Calculate the total transaction amount\n    total_transaction_amount = transactions['transaction_amount'].sum()\n    \n    # Return the average transaction amount per day\n    return total_transaction_amount / days\n"
+        },
+        "0.09449585915836257": {
+            "name": "mean_transaction_amount",
+            "code": "\n\ndef mean_transaction_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Get the account history dataframe from aux_data\n    account_history_df = aux_data['account_history_table.csv']\n    \n    # Filter transactions for the given customer_id\n    transactions = account_history_df[account_history_df['customer_id'] == customer_id]\n    \n    # Return the mean of the 'transaction_amount' column\n    return transactions['transaction_amount'].mean()\n"
+        },
+        "0.09251249267591788": {
+            "name": "total_credit_transactions",
+            "code": "\n\ndef total_credit_transactions(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the account history dataframe from aux_data\n    account_history_df = aux_data['account_history_table.csv']\n    \n    # Get the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter for credit transactions for the given customer\n    transactions = account_history_df[\n        (account_history_df['customer_id'] == customer_id) & \n        (account_history_df['transaction_type'] == 'Credit')\n    ]\n    \n    # Return the sum of transaction amounts\n    return transactions['transaction_amount'].sum()\n"
+        },
+        "0.08730786438276338": {
+            "name": "median_transaction_amount",
+            "code": "\n\ndef median_transaction_amount(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe from aux_data\n    account_history_df = aux_data['account_history_table.csv']\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter transactions for the given customer_id\n    transactions = account_history_df[account_history_df['customer_id'] == customer_id]\n    \n    # Compute and return the median transaction amount\n    if not transactions.empty:\n        return transactions['transaction_amount'].median()\n    else:\n        # Return a default value (e.g., 0 or None) if no transactions are found\n        return None\n"
+        },
+        "0.07552552865179023": {
+            "name": "payment_frequency_30_days",
+            "code": "import pandas as pd\n\ndef payment_frequency_30_days(row, df_train: pd.DataFrame):\n    # Ensure 'payment_date' is in datetime format\n    df_train['payment_date'] = pd.to_datetime(df_train['payment_date'])\n    \n    customer_id = row['customer_id']\n    most_recent = df_train['payment_date'].max()\n    last_30_days = most_recent - pd.Timedelta(days=30)\n    \n    # Filter payments for the given customer in the last 30 days\n    payments_recent = df_train[\n        (df_train['customer_id'] == customer_id) & \n        (df_train['payment_date'] > last_30_days)\n    ]\n    \n    return len(payments_recent)\n"
+        },
+        "0.0747860910826164": {
+            "name": "high_usage_alert",
+            "code": "import numpy as np\n\ndef high_usage_alert(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe from aux_data\n    utility_usage_df = aux_data['utility_usage_table.csv']\n    \n    # Get the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Get all usage data\n    all_usage = utility_usage_df['units_consumed']\n    \n    # Calculate the 90th percentile threshold\n    high_threshold = np.percentile(all_usage.dropna(), 90)\n    \n    # Calculate the total usage for the specific customer\n    customer_usage = utility_usage_df[utility_usage_df['customer_id'] == customer_id]['units_consumed'].sum()\n    \n    # Return 1 if the customer's usage exceeds the threshold, otherwise 0\n    return int(customer_usage > high_threshold)\n"
+        },
+        "0.07078376740557936": {
+            "name": "total_debit_transactions",
+            "code": "\n\ndef total_debit_transactions(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the correct dataframe from aux_data\n    account_history_df = aux_data['account_history_table.csv']\n    \n    # Get the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter transactions for the given customer_id and transaction_type == 'Debit'\n    transactions = account_history_df[\n        (account_history_df['customer_id'] == customer_id) & \n        (account_history_df['transaction_type'] == 'Debit')\n    ]\n    \n    # Return the sum of the transaction_amount column\n    return transactions['transaction_amount'].sum()\n"
+        },
+        "0.006288825911105134": {
+            "name": "income_category",
+            "code": "\n\ndef income_category(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Get the customer_profile_table dataframe from aux_data\n    customer_profile_df = aux_data['customer_profile_table.csv']\n    \n    # Find the income for the given customer_id\n    customer_income = customer_profile_df.loc[\n        customer_profile_df['customer_id'] == customer_id, 'income'\n    ]\n    \n    # Ensure we handle cases where the customer_id is not found\n    if customer_income.empty:\n        raise ValueError(f\"Customer ID {customer_id} not found in customer_profile_table.csv\")\n    \n    # Get the income value (assuming there's only one match for customer_id)\n    income = customer_income.iloc[0]\n    \n    # Categorize the income\n    if income < 5000:\n        return 'Low'\n    elif income < 10000:\n        return 'Medium'\n    else:\n        return 'High'\n"
+        },
+        "0.006160512548588465": {
+            "name": "days_since_last_payment",
+            "code": "import pandas as pd\n\ndef days_since_last_payment(row, df_train: pd.DataFrame):\n    # Ensure payment_date column is in datetime format\n    df_train['payment_date'] = pd.to_datetime(df_train['payment_date'])\n    payment_date = pd.to_datetime(row['payment_date'])\n    most_recent = df_train['payment_date'].max()\n    return (most_recent - payment_date).days\n"
+        },
+        "0": {
+            "name": "utility_spend_ratio",
+            "code": "\n\ndef utility_spend_ratio(row, df_train: pd.DataFrame):\n    income = row['income']\n    utility_spending = total_spend_on_utilities(row, df_train)\n    if income > 0:\n        return utility_spending / income\n    return 0\n\ndef total_spend_on_utilities(row, df_train: pd.DataFrame):\n    customer_id = row['customer_id']\n    utilities = df_train[df_train['customer_id'] == customer_id]\n    if 'units_consumed' in utilities:\n        return (utilities['units_consumed'] * utilities['cost_per_unit']).sum()\n    return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "default burden ratio",
+        "payment frequency 90 days",
+        "payment completion rate",
+        "avg transaction amount per day",
+        "mean transaction amount",
+        "total credit transactions",
+        "median transaction amount",
+        "payment frequency 30 days",
+        "high usage alert",
+        "total debit transactions",
+        "income category",
+        "days since last payment",
+        "utility spend ratio"
+    ]
+}

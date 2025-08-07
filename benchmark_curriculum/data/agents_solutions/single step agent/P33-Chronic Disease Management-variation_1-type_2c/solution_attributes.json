@@ -1,0 +1,77 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "recent_abnormal_lab_tests",
+        "abnormal_test_proportion",
+        "lab_lifestyle_synergy",
+        "family_condition_count",
+        "recent_diagnosis_count",
+        "diagnosis_of_concern",
+        "risk_aggregation_score",
+        "lifestyle_risk_score",
+        "time_since_first_diagnosis",
+        "most_common_condition",
+        "patient_age_group"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.42989250347679264": {
+            "name": "recent_abnormal_lab_tests",
+            "code": "import pandas as pd\nimport datetime\n\ndef recent_abnormal_lab_tests(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the lab results table from the auxiliary dataframes\n    lab_results = aux_dataframes[\"lab_results_table.csv\"]\n    \n    # Filter lab results for the specific patient\n    tests = lab_results[lab_results[\"patient_id\"] == row[\"patient_id\"]]\n    \n    # Convert test_date to datetime and filter for tests within the last 365 days\n    tests[\"test_date\"] = pd.to_datetime(tests[\"test_date\"])\n    recent_tests = tests[tests[\"test_date\"] > (datetime.now() - timedelta(days=365))]\n    \n    # Count abnormal tests and total tests\n    abnormal_count = recent_tests[recent_tests[\"abnormal_flag\"]].shape[0]\n    total_tests = recent_tests.shape[0]\n    \n    # Return the ratio of abnormal tests to total tests, or 0 if no tests exist\n    return abnormal_count / total_tests if total_tests > 0 else 0\n"
+        },
+        "0.24397088239833878": {
+            "name": "abnormal_test_proportion",
+            "code": "\n\ndef abnormal_test_proportion(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Compute the proportion of abnormal tests among total lab tests for a patient.\n    Uses lab_results_table.csv.\n    \"\"\"\n    lab_results = aux_dataframes[\"lab_results_table.csv\"]\n    tests = lab_results[lab_results[\"patient_id\"] == row[\"patient_id\"]]\n    if not tests.empty:\n        abnormal = tests[\"abnormal_flag\"].sum()\n        total = tests.shape[0]\n        return abnormal / total if total > 0 else 0\n    return 0\n"
+        },
+        "0.16964853500567745": {
+            "name": "lab_lifestyle_synergy",
+            "code": "\n\ndef lab_lifestyle_synergy(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    lab_results = aux_dataframes[\"lab_results_table.csv\"]\n    lifestyle = aux_dataframes[\"lifestyle_information_table.csv\"]\n    personal_lifestyle = lifestyle[lifestyle[\"patient_id\"] == row[\"patient_id\"]]\n    if not personal_lifestyle.empty:\n        alcohol = personal_lifestyle.iloc[0][\"alcohol_consumption\"]\n        activity = personal_lifestyle.iloc[0][\"physical_activity_level\"]\n        personal_tests = lab_results[lab_results[\"patient_id\"] == row[\"patient_id\"]]\n        abnormal_count = personal_tests[personal_tests[\"abnormal_flag\"]].shape[0]\n        return alcohol * activity * abnormal_count\n    return 0\n"
+        },
+        "0.08426384369693458": {
+            "name": "family_condition_count",
+            "code": "\n\ndef family_condition_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Counts the number of conditions present in the family history table for the given patient.\n    This leverages family_history_details_table.csv.\n    \"\"\"\n    family_history = aux_dataframes[\"family_history_details_table.csv\"]\n    family_conditions = family_history[family_history[\"patient_id\"] == row[\"patient_id\"]]\n    return family_conditions.shape[0]\n"
+        },
+        "0.06236700167112705": {
+            "name": "recent_diagnosis_count",
+            "code": "import pandas as pd\nimport datetime\n\ndef recent_diagnosis_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Counts the number of diagnoses in the last 5 years for the patient.\n    Leverages previous_diagnoses_table.csv.\n    \"\"\"\n    previous_diag = aux_dataframes[\"previous_diagnoses_table.csv\"]\n    \n    # Filter diagnoses for the specific patient\n    patient_diagnoses = previous_diag[previous_diag[\"patient_id\"] == row[\"patient_id\"]]\n    \n    # Calculate the date 5 years ago from today\n    five_years_ago = datetime.now() - timedelta(days=5 * 365)\n    \n    # Filter diagnoses within the last 5 years\n    recent_diagnoses = patient_diagnoses[\n        pd.to_datetime(patient_diagnoses[\"diagnosis_date\"]) > five_years_ago\n    ]\n    \n    # Return the count of recent diagnoses\n    return recent_diagnoses.shape[0]\n"
+        },
+        "0.03868600376496192": {
+            "name": "diagnosis_of_concern",
+            "code": "\n\ndef diagnosis_of_concern(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    previous_diag = aux_dataframes[\"previous_diagnoses_table.csv\"]\n    high_risk_conditions = [\"Diabetes\", \"Cardiovascular Disease\", \"Cancer\"]\n    conditions = previous_diag[previous_diag[\"patient_id\"] == row[\"patient_id\"]][\"condition_diagnosed\"]\n    return int(any(cond in high_risk_conditions for cond in conditions))\n"
+        },
+        "0.01365450249874192": {
+            "name": "risk_aggregation_score",
+            "code": "\n\ndef risk_aggregation_score(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    total_score = 0\n    # Combine health history, lifestyle, and lab results.\n    total_score += family_condition_count(row, aux_dataframes)  # Family risk\n    total_score += abnormal_test_proportion(row, aux_dataframes) * 10  # Lab abnormalities\n    total_score += total_risk_behavior(row, aux_dataframes)  # Lifestyle risk\n    return total_score\n\ndef family_condition_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Counts the number of conditions present in the family history table for the given patient.\n    This leverages family_history_details_table.csv.\n    \"\"\"\n    family_history = aux_dataframes[\"family_history_details_table.csv\"]\n    family_conditions = family_history[family_history[\"patient_id\"] == row[\"patient_id\"]]\n    return family_conditions.shape[0]\n\ndef abnormal_test_proportion(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Compute the proportion of abnormal tests among total lab tests for a patient.\n    Uses lab_results_table.csv.\n    \"\"\"\n    lab_results = aux_dataframes[\"lab_results_table.csv\"]\n    tests = lab_results[lab_results[\"patient_id\"] == row[\"patient_id\"]]\n    if not tests.empty:\n        abnormal = tests[\"abnormal_flag\"].sum()\n        total = tests.shape[0]\n        return abnormal / total if total > 0 else 0\n    return 0\n"
+        },
+        "0.009457034403816447": {
+            "name": "lifestyle_risk_score",
+            "code": "\n\ndef lifestyle_risk_score(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Computes a lifestyle risk score by factoring in smoking and alcohol consumption.\n    This function uses the lifestyle_information_table.csv dataset.\n    \"\"\"\n    lifestyle = aux_dataframes[\"lifestyle_information_table.csv\"]\n    patient_lifestyle = lifestyle[lifestyle[\"patient_id\"] == row[\"patient_id\"]]\n    if not patient_lifestyle.empty:\n        is_smoker = patient_lifestyle.iloc[0][\"smoking_status\"] == \"Smoker\"\n        alcohol_consumption = patient_lifestyle.iloc[0][\"alcohol_consumption\"]\n        return int(is_smoker) + alcohol_consumption\n    return 0\n"
+        },
+        "0.006791350467572826": {
+            "name": "time_since_first_diagnosis",
+            "code": "import pandas as pd\nimport datetime\n\ndef time_since_first_diagnosis(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    previous_diag = aux_dataframes[\"previous_diagnoses_table.csv\"]\n    personal_diag = previous_diag[previous_diag[\"patient_id\"] == row[\"patient_id\"]]\n    if not personal_diag.empty:\n        first_diag_date = min(pd.to_datetime(personal_diag[\"diagnosis_date\"]))\n        return (datetime.now() - first_diag_date).days\n    return -1\n"
+        },
+        "-0.00010087701501459989": {
+            "name": "most_common_condition",
+            "code": "\n\ndef most_common_condition(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    previous_diag = aux_dataframes[\"previous_diagnoses_table.csv\"]\n    conditions = previous_diag[previous_diag[\"patient_id\"] == row[\"patient_id\"]][\"condition_diagnosed\"]\n    return conditions.mode().iloc[0] if not conditions.empty else \"None\"\n"
+        },
+        "0": {
+            "name": "patient_age_group",
+            "code": "\n\ndef patient_age_group(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Creates categorical age groups for the patient based on age values.\n    Leverages the main dataset + any relevant age data if available.\n    \"\"\"\n    if \"age\" in row:\n        age = row[\"age\"]\n        if age < 20:\n            return \"under_20\"\n        elif age < 40:\n            return \"20_39\"\n        elif age < 60:\n            return \"40_59\"\n        else:\n            return \"60_above\"\n    return \"unknown\"\n"
+        }
+    },
+    "feature_descriptions": [
+        "recent abnormal lab tests",
+        "abnormal test proportion",
+        "lab lifestyle synergy",
+        "family condition count",
+        "recent diagnosis count",
+        "diagnosis of concern",
+        "risk aggregation score",
+        "lifestyle risk score",
+        "time since first diagnosis",
+        "most common condition",
+        "patient age group"
+    ]
+}

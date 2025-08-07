@@ -1,0 +1,38 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "late_payment_count",
+        "total_number_of_loans",
+        "income_to_loan_ratio",
+        "loan_amount_per_term",
+        "debt_to_income_ratio",
+        "payment_history_late_rate",
+        "on_time_payment_ratio",
+        "missed_payment_ratio",
+        "monthly_payment",
+        "interest_to_income_ratio",
+        "loan_term_years",
+        "age_at_loan_start",
+        "age",
+        "recent_payment_behavior"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "late payment count",
+        "total number of loans",
+        "income to loan ratio",
+        "loan amount per term",
+        "debt to income ratio",
+        "payment history late rate",
+        "on time payment ratio",
+        "missed payment ratio",
+        "monthly payment",
+        "interest to income ratio",
+        "loan term years",
+        "age at loan start",
+        "age",
+        "recent payment behavior"
+    ]
+}

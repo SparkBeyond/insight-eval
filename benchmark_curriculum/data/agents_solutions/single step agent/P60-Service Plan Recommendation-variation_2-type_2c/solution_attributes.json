@@ -1,0 +1,17 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "plan_features"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0": {
+            "name": "plan_features",
+            "code": "\n\ndef plan_features(row):\n    return {\n        \"cost\": row.get(\"recommended_plan_cost\", None),\n        \"data_limit\": row.get(\"recommended_plan_data_limit\", None),\n        \"call_minutes\": row.get(\"recommended_plan_call_minutes\", None),\n        \"sms_limit\": row.get(\"recommended_plan_sms_limit\", None),\n    }\n"
+        }
+    },
+    "feature_descriptions": [
+        "plan features"
+    ]
+}

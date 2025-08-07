@@ -1,0 +1,20 @@
+{
+    "enriched_column_names": [
+        "proportion_of_successful_campaigns_to_total_campaigns_in_a_region",
+        "allocation_of_marketing_budgets_per_capita",
+        "influx_in_budget_spending_during_promotional_periods",
+        "frequency_of_purchases_reaching_a_threshold",
+        "rate_of_increase_for_online_customer_interactions_per_month",
+        "increase_in_average_spending_per_customer_over_a_year",
+        "average_online_interaction_time_per_customer_in_a_region"
+    ],
+    "features_descriptions": [
+        "proportion of successful campaigns to total campaigns in a region",
+        "allocation of marketing budgets per capita",
+        "influx in budget spending during promotional periods",
+        "frequency of purchases reaching a threshold",
+        "rate of increase for online customer interactions per month",
+        "increase in average spending per customer over a year",
+        "average online interaction time per customer in a region"
+    ]
+}

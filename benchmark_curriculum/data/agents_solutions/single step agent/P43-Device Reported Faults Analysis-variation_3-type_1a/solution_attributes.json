@@ -1,0 +1,95 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "device_age_days",
+        "time_since_last_support",
+        "service_frequency_last_year",
+        "avg_device_usage_per_day",
+        "customer_income_category",
+        "severity_weighted_faults",
+        "problem_severity_score",
+        "peak_device_usage_hour",
+        "customer_resolution_rate",
+        "avg_customer_response_time",
+        "total_issues_resolved",
+        "total_device_services",
+        "customer_income_bracket",
+        "customer_interaction_frequency"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.36823885621436386": {
+            "name": "device_age_days",
+            "code": "import pandas as pd\nimport datetime\n\ndef device_age_days(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the device attributes table from the auxiliary dataframes\n    device_attributes = aux_dataframes['device_attributes_table.csv']\n    \n    # Extract the device_id from the row\n    device_id = row['device_id']\n    \n    # Filter the device attributes table for the specific device_id\n    device_data = device_attributes[device_attributes['device_id'] == device_id]\n    \n    # If no matching device_id is found, return -1\n    if device_data.empty:\n        return -1\n    \n    # Extract the purchase_date for the device\n    purchase_date = device_data.iloc[0]['purchase_date']\n    \n    # If the purchase_date is missing or invalid, return -1\n    if pd.isna(purchase_date):\n        return -1\n    \n    try:\n        # Parse the purchase_date and report_date\n        purchase_date = datetime.datetime.strptime(purchase_date, '%Y-%m-%d')\n        report_date = datetime.datetime.strptime(row['report_date'], '%Y-%m-%d')\n    except ValueError:\n        # If date parsing fails, return -1\n        return -1\n    \n    # Calculate the difference in days between the report_date and purchase_date\n    return (report_date - purchase_date).days\n"
+        },
+        "0.29204510082243423": {
+            "name": "time_since_last_support",
+            "code": "import datetime\n\ndef time_since_last_support(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe for technical support logs\n    support_logs = aux_dataframes[\"technical_support_logs_table.csv\"]\n    \n    # Extract the device_id and support_date from the current row\n    device_id = row['device_id']\n    current_date = datetime.datetime.strptime(row['report_date'], '%Y-%m-%d')\n    \n    # Filter support logs for the same device\n    device_logs = support_logs[support_logs['device_id'] == device_id]\n    \n    # Get the dates of previous interactions, excluding the current support date\n    previous_dates = [\n        datetime.datetime.strptime(date, '%Y-%m-%d') \n        for date in device_logs['support_date'] \n        if date != row['report_date']\n    ]\n    \n    # If there are no previous support dates, return -1\n    if not previous_dates:\n        return -1  # Defines no prior support as -1\n    \n    # Find the most recent support date\n    last_support_date = max(previous_dates)\n    \n    # Calculate the difference in days between the current date and the last support date\n    return (current_date - last_support_date).days\n"
+        },
+        "0.11350970205109841": {
+            "name": "service_frequency_last_year",
+            "code": "import pandas as pd\nimport datetime\n\ndef service_frequency_last_year(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the service history dataframe\n    service_history = aux_dataframes['service_history_table.csv']\n    \n    # Correct column name for the date in the row\n    current_date = datetime.strptime(row['report_date'], '%Y-%m-%d')\n    \n    # Filter the service history for the specific device\n    device_services = service_history[service_history['device_id'] == row['device_id']]\n    \n    # If no services exist for the device, return 0\n    if device_services.empty:\n        return 0\n    \n    # Convert service dates to datetime\n    service_dates = pd.to_datetime(device_services['service_date'])\n    \n    # Count the number of services within the last year (365 days)\n    return sum((current_date - service_date).days <= 365 for service_date in service_dates)\n"
+        },
+        "0.07687643872646079": {
+            "name": "avg_device_usage_per_day",
+            "code": "\n\ndef avg_device_usage_per_day(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the customer_device_usage_table.csv dataframe\n    device_usage = aux_dataframes['customer_device_usage_table.csv']\n    \n    # Extract the device_id from the current row\n    device_id = row['device_id']\n    \n    # Filter the dataframe for the specific device_id\n    device_data = device_usage[device_usage['device_id'] == device_id]\n    \n    # If no data is found for the device_id, return 0\n    if device_data.empty:\n        return 0\n    \n    # Calculate the average usage duration per day\n    return device_data['usage_duration'].sum() / device_data['usage_duration'].count()\n"
+        },
+        "0.06561216696532947": {
+            "name": "customer_income_category",
+            "code": "import pandas as pd\nimport datetime\n\ndef customer_income_category(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the technical support logs dataframe from aux_data\n    support_logs = aux_data[\"technical_support_logs_table.csv\"]\n    \n    # Extract the device_id and report_date from the row\n    device_id = row['device_id']\n    current_date = datetime.strptime(row['report_date'], '%Y-%m-%d')  # Corrected column name\n    \n    # Filter logs for the same device\n    device_logs = support_logs[support_logs['device_id'] == device_id]\n    if device_logs.empty:\n        return -1  # No prior support interactions\n    \n    # Convert the 'support_date' column in the logs to datetime\n    device_logs['support_date'] = pd.to_datetime(device_logs['support_date'])\n    \n    # Find the most recent past support date\n    last_support_date = device_logs.loc[device_logs['support_date'] < current_date, 'support_date'].max()\n    if pd.isnull(last_support_date):\n        return -1  # No prior support interactions before the current date\n    \n    # Calculate the number of days since the last support interaction\n    return (current_date - last_support_date).days\n"
+        },
+        "0.04997098502640691": {
+            "name": "severity_weighted_faults",
+            "code": "\n\ndef severity_weighted_faults(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual dataframe name in aux_dataframes\n    faults = aux_dataframes['customer_device_usage_table.csv']\n    device_id = row['device_id']\n    \n    # Filter the faults dataframe for the given device_id\n    device_faults = faults[faults['device_id'] == device_id]\n    \n    # Define the severity mapping\n    severity_map = {'high': 3, 'medium': 2, 'low': 1}\n    \n    # Check if 'severity_level' exists in the row\n    if 'severity_level' in row:\n        # Use the severity level from the row\n        severity = row['severity_level']\n        return severity_map.get(severity, 0)  # Default to 0 if severity is not in the map\n    else:\n        # If 'severity_level' is not in the row, return 0\n        return 0\n"
+        },
+        "0.02266931609513256": {
+            "name": "problem_severity_score",
+            "code": "\n\ndef problem_severity_score(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the technical support logs dataframe\n    support_logs = aux_dataframes['technical_support_logs_table.csv']\n    \n    # Extract the device_id from the row\n    device_id = row['device_id']\n    \n    # Filter the logs for the specific device_id\n    device_logs = support_logs[support_logs['device_id'] == device_id]\n    \n    # If there are no logs for the device, return a severity score of 0\n    if device_logs.empty:\n        return 0\n    \n    # Define a severity mapping based on issue resolution status\n    # Assuming unresolved issues are more severe\n    severity_map = {False: 3, True: 1}  # False (unresolved) -> high severity, True (resolved) -> low severity\n    \n    # Calculate the severity score based on the 'issue_resolved' column\n    return sum(severity_map[resolved] for resolved in device_logs['issue_resolved'].dropna())\n"
+        },
+        "0.020880188723842064": {
+            "name": "peak_device_usage_hour",
+            "code": "import pandas as pd\n\ndef peak_device_usage_hour(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the customer_device_usage_table.csv dataframe\n    device_usage = aux_dataframes['customer_device_usage_table.csv']\n    \n    # Extract the device_id from the current row\n    device_id = row['device_id']\n    \n    # Filter the device usage data for the given device_id\n    device_data = device_usage[device_usage['device_id'] == device_id]\n    \n    # If no data is found for the device_id, return -1\n    if device_data.empty:\n        return -1\n    \n    # Ensure the 'usage_date' column is in datetime format\n    device_data['usage_date'] = pd.to_datetime(device_data['usage_date'], errors='coerce')\n    \n    # Drop rows with invalid or missing 'usage_date'\n    device_data = device_data.dropna(subset=['usage_date'])\n    \n    # Extract the hour from the 'usage_date' column\n    device_data['usage_hour'] = device_data['usage_date'].dt.hour\n    \n    # Calculate the mode (most frequent hour) of the 'usage_hour' column\n    if device_data['usage_hour'].empty:\n        return -1  # Return -1 if no valid usage hours are available\n    return device_data['usage_hour'].mode()[0]\n"
+        },
+        "0.011964822428071264": {
+            "name": "customer_resolution_rate",
+            "code": "\n\ndef customer_resolution_rate(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframes\n    support_logs = aux_dataframes['technical_support_logs_table.csv']\n    device_attributes = aux_dataframes['device_attributes_table.csv']\n    \n    # Get the device_id from the row\n    device_id = row['device_id']\n    \n    # Filter the support logs for the given device_id\n    device_logs = support_logs[support_logs['device_id'] == device_id]\n    \n    # If there are no logs for the device, return 0\n    if device_logs.empty:\n        return 0\n    \n    # Calculate the resolution rate\n    resolution_rate = device_logs['issue_resolved'].sum() / len(device_logs)\n    return resolution_rate\n"
+        },
+        "0.007279855741605191": {
+            "name": "avg_customer_response_time",
+            "code": "\n\ndef avg_customer_response_time(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the device_id from the row\n    device_id = row['device_id']\n    \n    # Use the technical_support_logs_table to find the customer_id associated with the device_id\n    technical_support_logs = aux_data['technical_support_logs_table.csv']\n    \n    # Filter the technical_support_logs to find the relevant customer_id(s) for the given device_id\n    customer_ids = technical_support_logs[technical_support_logs['device_id'] == device_id]['customer_id'].unique()\n    \n    # If no customer_id is found, return NaN\n    if len(customer_ids) == 0:\n        return float('nan')\n    \n    # Assuming there is only one customer_id per device_id, take the first one\n    customer_id = customer_ids[0]\n    \n    # Filter the technical_support_logs to get rows for the specific customer_id\n    customer_data = technical_support_logs[technical_support_logs['customer_id'] == customer_id]\n    \n    # If no response_time data is available, return NaN\n    if customer_data.empty or 'response_time' not in customer_data.columns:\n        return float('nan')\n    \n    # Calculate and return the average response time\n    return customer_data['response_time'].mean()\n"
+        },
+        "0.005788819951474595": {
+            "name": "total_issues_resolved",
+            "code": "\n\ndef total_issues_resolved(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the technical support logs dataframe using the correct key\n    support_logs = aux_dataframes[\"technical_support_logs_table.csv\"]\n    \n    # Extract the device_id from the current row\n    device_id = row['device_id']\n    \n    # Filter the support logs for the given device_id\n    device_logs = support_logs[support_logs['device_id'] == device_id]\n    \n    # Sum the 'issue_resolved' column to get the total issues resolved for the device\n    return device_logs['issue_resolved'].sum()\n"
+        },
+        "0.0026089692067672665": {
+            "name": "total_device_services",
+            "code": "\n\ndef total_device_services(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    service_history = aux_dataframes['service_history_table.csv']\n    device_id = row['device_id']\n    device_services = service_history[service_history['device_id'] == device_id]\n    return len(device_services)\n"
+        },
+        "-0.00038990177512565616": {
+            "name": "customer_income_bracket",
+            "code": "\n\ndef customer_income_bracket(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the relevant auxiliary dataframes\n    customer_demographics = aux_dataframes['customer_demographics_table.csv']\n    customer_device_usage = aux_dataframes['customer_device_usage_table.csv']\n    \n    # Get the device_id from the row\n    device_id = row['device_id']\n    \n    # Find the customer_id associated with the device_id\n    device_usage_data = customer_device_usage[customer_device_usage['device_id'] == device_id]\n    if device_usage_data.empty:\n        return 'Unknown'\n    \n    customer_id = device_usage_data.iloc[0]['customer_id']\n    \n    # Find the income_bracket for the customer_id\n    customer_data = customer_demographics[customer_demographics['customer_id'] == customer_id]\n    if customer_data.empty:\n        return 'Unknown'\n    \n    return customer_data.iloc[0]['income_level']\n"
+        },
+        "0": {
+            "name": "customer_interaction_frequency",
+            "code": "import pandas as pd\n\ndef customer_interaction_frequency(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the device_id from the row\n    device_id = row['device_id']\n    \n    # Look up the customer_id using the device_id in the auxiliary data\n    device_usage_df = aux_data.get('customer_device_usage_table.csv')\n    if device_usage_df is None:\n        raise ValueError(\"Auxiliary data is missing 'customer_device_usage_table.csv'\")\n    \n    # Find the customer_id associated with the device_id\n    customer_info = device_usage_df[device_usage_df['device_id'] == device_id]\n    if customer_info.empty:\n        return 0  # If no customer is found for the device_id, return 0\n    \n    # Extract the customer_id (assuming one-to-one mapping between device_id and customer_id)\n    customer_id = customer_info.iloc[0]['customer_id']\n    \n    # Ensure the 'customer_id' column exists in df_train by mapping it using the auxiliary data\n    if 'customer_id' not in df_train.columns:\n        if 'device_id' in df_train.columns:\n            # Map customer_id to df_train using device_id\n            df_train = df_train.merge(\n                device_usage_df[['device_id', 'customer_id']],\n                on='device_id',\n                how='left'\n            )\n        else:\n            raise KeyError(\"'customer_id' column is missing in df_train and cannot be mapped because 'device_id' is also missing\")\n    \n    # Filter the training dataframe for logs related to the customer_id\n    customer_logs = df_train[df_train['customer_id'] == customer_id]\n    \n    # Handle cases where device_age_days is missing or invalid\n    if 'device_age_days' not in row or pd.isna(row['device_age_days']) or row['device_age_days'] <= 0:\n        return 0\n    \n    # Calculate and return the interaction frequency\n    return len(customer_logs) / row['device_age_days']\n"
+        }
+    },
+    "feature_descriptions": [
+        "device age days",
+        "time since last support",
+        "service frequency last year",
+        "avg device usage per day",
+        "customer income category",
+        "severity weighted faults",
+        "problem severity score",
+        "peak device usage hour",
+        "customer resolution rate",
+        "avg customer response time",
+        "total issues resolved",
+        "total device services",
+        "customer income bracket",
+        "customer interaction frequency"
+    ]
+}

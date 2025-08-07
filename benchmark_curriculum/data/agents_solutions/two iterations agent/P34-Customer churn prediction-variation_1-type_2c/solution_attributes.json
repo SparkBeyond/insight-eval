@@ -1,0 +1,24 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "customer_activity_level",
+        "total_marketing_interactions",
+        "unresolved_support_issues_count",
+        "days_since_signup",
+        "billing_issue_ratio",
+        "transaction_frequency",
+        "days_since_last_login"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "customer activity level",
+        "total marketing interactions",
+        "unresolved support issues count",
+        "days since signup",
+        "billing issue ratio",
+        "transaction frequency",
+        "days since last login"
+    ]
+}

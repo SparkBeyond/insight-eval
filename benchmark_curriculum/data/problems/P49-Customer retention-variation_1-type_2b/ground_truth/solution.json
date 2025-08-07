@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "max_order_total_in_the_last_quarter",
+        "slope_of_the_monthly_number_of_orders",
+        "number_of_orders_placed_on_weekends_in_the_last_quarter"
+    ],
+    "features_descriptions": [
+        "max order total in the last quarter",
+        "slope of the monthly number of orders",
+        "number of orders placed on weekends in the last quarter"
+    ]
+}

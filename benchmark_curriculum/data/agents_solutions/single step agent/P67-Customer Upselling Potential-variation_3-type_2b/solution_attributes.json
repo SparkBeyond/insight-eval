@@ -1,0 +1,95 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "recency_of_purchase",
+        "last_review_rating",
+        "average_rating",
+        "num_reviews_given",
+        "count_unique_services",
+        "last_billing_amount",
+        "total_billing_amount",
+        "billing_variance",
+        "membership_duration",
+        "days_since_last_billing",
+        "device_value_category",
+        "average_billing_amount",
+        "total_billing_cycles",
+        "days_warranty"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5571765668409929": {
+            "name": "recency_of_purchase",
+            "code": "import datetime\n\ndef recency_of_purchase(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Get the device_characteristics_table dataframe from aux_data\n    device_characteristics_df = aux_data.get(\"device_characteristics_table.csv\")\n    \n    if device_characteristics_df is not None:\n        # Filter the dataframe for the given customer_id\n        customer_devices = device_characteristics_df[\n            device_characteristics_df[\"customer_id\"] == customer_id\n        ]\n        \n        if not customer_devices.empty:\n            # Get the most recent purchase_date for the customer\n            purchase_dates = customer_devices[\"purchase_date\"].dropna()\n            parsed_dates = purchase_dates.apply(parse_date).dropna()\n            \n            if not parsed_dates.empty:\n                most_recent_purchase_date = max(parsed_dates)\n                # Calculate the recency in days\n                return (datetime.datetime.now() - most_recent_purchase_date).days\n    \n    # Return None if no valid purchase_date is found\n    return None\n"
+        },
+        "0.10859728763990785": {
+            "name": "last_review_rating",
+            "code": "\n\ndef last_review_rating(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_reviews = aux_dataframes['customer_reviews_table.csv']\n    customer_ratings = customer_reviews[customer_reviews[\"customer_id\"] == row[\"customer_id\"]]\n    if not customer_ratings.empty:\n        last_review = customer_ratings.sort_values(\"review_date\", ascending=False).iloc[0]\n        return last_review[\"rating\"]\n    return None\n"
+        },
+        "0.08501209686926268": {
+            "name": "average_rating",
+            "code": "\n\ndef average_rating(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_reviews = aux_dataframes['customer_reviews_table.csv']\n    customer_ratings = customer_reviews[customer_reviews[\"customer_id\"] == row[\"customer_id\"]]\n    if not customer_ratings.empty:\n        return customer_ratings[\"rating\"].mean()\n    return None\n"
+        },
+        "0.0733650580182356": {
+            "name": "num_reviews_given",
+            "code": "\n\ndef num_reviews_given(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_reviews = aux_dataframes['customer_reviews_table.csv']\n    return len(customer_reviews[customer_reviews[\"customer_id\"] == row[\"customer_id\"]])\n"
+        },
+        "0.06411140643293489": {
+            "name": "count_unique_services",
+            "code": "\n\ndef count_unique_services(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_reviews = aux_dataframes['customer_reviews_table.csv']\n    customer_service = customer_reviews[customer_reviews[\"customer_id\"] == row[\"customer_id\"]]\n    if not customer_service.empty:\n        return customer_service[\"service_used\"].nunique()\n    return 0\n"
+        },
+        "0.047409655064603644": {
+            "name": "last_billing_amount",
+            "code": "\n\ndef last_billing_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_billings = aux_dataframes['billing_history_table.csv']\n    customer_bills = customer_billings[customer_billings[\"customer_id\"] == row[\"customer_id\"]]\n    if not customer_bills.empty:\n        last_bill = customer_bills.sort_values(\"billing_date\", ascending=False).iloc[0]\n        return last_bill[\"amount\"]\n    return None\n"
+        },
+        "0.0037834026511804415": {
+            "name": "total_billing_amount",
+            "code": "\n\ndef total_billing_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_billings = aux_dataframes['billing_history_table.csv']\n    customer_bills = customer_billings[customer_billings[\"customer_id\"] == row[\"customer_id\"]]\n    if not customer_bills.empty:\n        return customer_bills[\"amount\"].sum()\n    return 0\n"
+        },
+        "0.003753238725993275": {
+            "name": "billing_variance",
+            "code": "\n\ndef billing_variance(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_billings = aux_dataframes['billing_history_table.csv']\n    customer_bills = customer_billings[customer_billings[\"customer_id\"] == row[\"customer_id\"]]\n    if not customer_bills.empty:\n        return customer_bills[\"amount\"].var()\n    return None\n"
+        },
+        "0.0030091767334520137": {
+            "name": "membership_duration",
+            "code": "import datetime\n\ndef parse_date(date_str):\n    try:\n        return datetime.strptime(date_str, \"%Y-%m-%d\")\n    except (ValueError, TypeError):\n        return None\n\ndef membership_duration(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    sign_up_date = parse_date(row[\"signup_date\"])\n    if sign_up_date:\n        return (datetime.now() - sign_up_date).days\n    return None\n"
+        },
+        "0.0023966811635378477": {
+            "name": "days_since_last_billing",
+            "code": "import datetime\n\ndef parse_date(date_str):\n    try:\n        return datetime.strptime(date_str, \"%Y-%m-%d\")\n    except (ValueError, TypeError):\n        return None\n\ndef days_since_last_billing(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_billings = aux_dataframes['billing_history_table.csv']\n    customer_bills = customer_billings[customer_billings[\"customer_id\"] == row[\"customer_id\"]]\n    if not customer_bills.empty:\n        last_billing_date = customer_bills[\"billing_date\"].max()\n        last_billing_date = parse_date(last_billing_date)\n        if last_billing_date:\n            return (datetime.now() - last_billing_date).days\n    return None\n"
+        },
+        "-0.0005035907775046145": {
+            "name": "device_value_category",
+            "code": "\n\ndef device_value_category(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Get the device_characteristics_table dataframe from aux_data\n    device_characteristics_df = aux_data.get(\"device_characteristics_table.csv\")\n    \n    # Check if the dataframe exists and is not empty\n    if device_characteristics_df is not None and not device_characteristics_df.empty:\n        # Find the device_value for the given customer_id\n        customer_device = device_characteristics_df[device_characteristics_df[\"customer_id\"] == customer_id]\n        \n        # If a matching device is found, get its device_value\n        if not customer_device.empty:\n            device_value = customer_device.iloc[0][\"device_value\"]\n            \n            # Categorize the device_value\n            if device_value < 500:\n                return \"low\"\n            elif 500 <= device_value < 1000:\n                return \"medium\"\n            else:\n                return \"high\"\n    \n    # If no matching device is found or data is missing, return None or a default value\n    return None\n"
+        },
+        "0.0003955565738823878": {
+            "name": "average_billing_amount",
+            "code": "\n\ndef average_billing_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_billings = aux_dataframes['billing_history_table.csv']\n    customer_bills = customer_billings[customer_billings[\"customer_id\"] == row[\"customer_id\"]]\n    if not customer_bills.empty:\n        return customer_bills[\"amount\"].mean()\n    return None\n"
+        },
+        "4.8143127228876614e-05": {
+            "name": "total_billing_cycles",
+            "code": "\n\ndef total_billing_cycles(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_billings = aux_dataframes['billing_history_table.csv']\n    customer_bills = customer_billings[customer_billings[\"customer_id\"] == row[\"customer_id\"]]\n    if not customer_bills.empty:\n        return customer_bills[\"billing_cycle\"].nunique()\n    return 0\n"
+        },
+        "0": {
+            "name": "days_warranty",
+            "code": "import datetime\n\ndef days_warranty(row):\n    purchase_date = parse_date(row[\"purchase_date\"])\n    warranty_expiry = parse_date(row[\"warranty_expiry\"])\n    if purchase_date and warranty_expiry:\n        return (warranty_expiry - purchase_date).days\n    return None\n\ndef parse_date(date_str):\n    try:\n        return datetime.strptime(date_str, \"%Y-%m-%d\")\n    except (ValueError, TypeError):\n        return None\n"
+        }
+    },
+    "feature_descriptions": [
+        "recency of purchase",
+        "last review rating",
+        "average rating",
+        "num reviews given",
+        "count unique services",
+        "last billing amount",
+        "total billing amount",
+        "billing variance",
+        "membership duration",
+        "days since last billing",
+        "device value category",
+        "average billing amount",
+        "total billing cycles",
+        "days warranty"
+    ]
+}

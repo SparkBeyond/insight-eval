@@ -1,0 +1,7 @@
+{
+    "target_column": "DiseaseProgressed",
+    "description": "Predict the progression of chronic diseases based on patient data.",
+    "name": "Chronic Disease Progression",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Healthcare"
+}

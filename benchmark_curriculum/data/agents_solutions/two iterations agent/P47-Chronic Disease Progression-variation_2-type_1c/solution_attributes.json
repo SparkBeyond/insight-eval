@@ -1,0 +1,34 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "unique_conditions_count",
+        "average_adherence_rate",
+        "avg_time_between_visits",
+        "adherence_variance",
+        "time_since_diagnosis_days",
+        "medication_adherence_high_flag",
+        "hospital_visits_sum",
+        "family_history_flag",
+        "physical_activity_score",
+        "calculate_bmi",
+        "chronic_condition_count",
+        "dietary_habit_score"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "unique conditions count",
+        "average adherence rate",
+        "avg time between visits",
+        "adherence variance",
+        "time since diagnosis days",
+        "medication adherence high flag",
+        "hospital visits sum",
+        "family history flag",
+        "physical activity score",
+        "calculate bmi",
+        "chronic condition count",
+        "dietary habit score"
+    ]
+}

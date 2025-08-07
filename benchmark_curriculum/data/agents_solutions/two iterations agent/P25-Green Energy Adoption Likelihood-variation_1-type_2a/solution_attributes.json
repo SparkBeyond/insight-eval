@@ -1,0 +1,32 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "survey_sentiment_score",
+        "renewable_energy_percentage",
+        "year_over_year_non_renewable_change",
+        "total_renewable_usage_last_year",
+        "avg_monthly_usage_trend",
+        "yearly_usage_volatility",
+        "avg_yearly_incentive",
+        "avg_incentive_value",
+        "normalized_energy_usage",
+        "avg_incentives",
+        "renewable_usage_percentage"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "survey sentiment score",
+        "renewable energy percentage",
+        "year over year non renewable change",
+        "total renewable usage last year",
+        "avg monthly usage trend",
+        "yearly usage volatility",
+        "avg yearly incentive",
+        "avg incentive value",
+        "normalized energy usage",
+        "avg incentives",
+        "renewable usage percentage"
+    ]
+}

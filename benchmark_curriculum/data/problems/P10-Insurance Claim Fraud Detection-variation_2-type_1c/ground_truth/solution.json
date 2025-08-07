@@ -1,0 +1,18 @@
+{
+    "enriched_column_names": [
+        "history_of_policy_premium_increases_or_alterations_prior_to_claims",
+        "time_gap_between_claim_submission_and_incident_date_in_the_past_year",
+        "frequency_of_claims_surpassing_a_high_value_threshold_in_the_past_three_years",
+        "proportion_of_settled_claims_to_total_claims_for_a_policyholder",
+        "late_payment_frequency_in_the_last_two_years",
+        "lifetime_average_claim_amount_per_policyholder"
+    ],
+    "features_descriptions": [
+        "history of policy premium increases or alterations prior to claims",
+        "time gap between claim submission and incident date in the past year",
+        "frequency of claims surpassing a high value threshold in the past three years",
+        "proportion of settled claims to total claims for a policyholder",
+        "late payment frequency in the last two years",
+        "lifetime average claim amount per policyholder"
+    ]
+}

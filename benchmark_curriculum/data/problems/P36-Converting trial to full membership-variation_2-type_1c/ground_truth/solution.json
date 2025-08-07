@@ -1,0 +1,16 @@
+{
+    "enriched_column_names": [
+        "number_of_purchases_of_trial_users",
+        "engagement",
+        "frequency_of_site_visits",
+        "reviews",
+        "average_order_value"
+    ],
+    "features_descriptions": [
+        "number of purchases of trial users",
+        "engagement",
+        "frequency of site visits",
+        "reviews",
+        "average order value"
+    ]
+}

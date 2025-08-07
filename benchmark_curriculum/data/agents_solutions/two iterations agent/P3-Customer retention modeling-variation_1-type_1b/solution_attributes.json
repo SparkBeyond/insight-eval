@@ -1,0 +1,71 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "support_ticket_count",
+        "unresolved_tickets",
+        "ticket_resolution_time",
+        "unique_action_types",
+        "usage_activity_count",
+        "billing_diversity",
+        "billing_spend_velocity",
+        "account_age",
+        "lifetime_billing_total",
+        "invoice_payment_delay"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5343804565772713": {
+            "name": "support_ticket_count",
+            "code": "\n\ndef support_ticket_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    tickets_df = aux_dataframes['support_tickets_table.csv']\n    customer_tickets = tickets_df[tickets_df['customer_id'] == row['customer_id']]\n    return len(customer_tickets)\n"
+        },
+        "0.33064226561087173": {
+            "name": "unresolved_tickets",
+            "code": "\n\ndef unresolved_tickets(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    tickets_df = aux_dataframes['support_tickets_table.csv']\n    customer_tickets = tickets_df[tickets_df['customer_id'] == row['customer_id']]\n    unresolved = customer_tickets[customer_tickets['ticket_status'] != 'Resolved']\n    return len(unresolved)\n"
+        },
+        "0.06735171693764647": {
+            "name": "ticket_resolution_time",
+            "code": "import pandas as pd\n\ndef ticket_resolution_time(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    tickets_df = aux_dataframes['support_tickets_table.csv']\n    customer_tickets = tickets_df[tickets_df['customer_id'] == row['customer_id']]\n    resolve_times = (pd.to_datetime(customer_tickets['resolution_date']) - pd.to_datetime(customer_tickets['ticket_date'])).dt.days\n    return resolve_times.mean() if not resolve_times.empty else 0.0\n"
+        },
+        "0.05109931663112833": {
+            "name": "unique_action_types",
+            "code": "\n\ndef unique_action_types(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_df = aux_dataframes['usage_data_table.csv']\n    customer_usage = usage_df[usage_df['customer_id'] == row['customer_id']]\n    return customer_usage['action_type'].nunique()\n"
+        },
+        "0.02759027392677441": {
+            "name": "usage_activity_count",
+            "code": "\n\ndef usage_activity_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_df = aux_dataframes['usage_data_table.csv']\n    customer_usage = usage_df[usage_df['customer_id'] == row['customer_id']]\n    return len(customer_usage)\n"
+        },
+        "0.025787916946382924": {
+            "name": "billing_diversity",
+            "code": "\n\ndef billing_diversity(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_df = aux_dataframes['billing_data_table.csv']\n    customer_billing = billing_df[billing_df['customer_id'] == row['customer_id']]\n    return customer_billing['billing_amount'].std() or 0.0\n"
+        },
+        "0.017693080545558328": {
+            "name": "billing_spend_velocity",
+            "code": "\n\ndef billing_spend_velocity(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_df = aux_dataframes['billing_data_table.csv']\n    customer_billing = billing_df[billing_df['customer_id'] == row['customer_id']]\n    total_months = (customer_billing['billing_date'].max() - customer_billing['billing_date'].min()).days / 30\n    total_months = max(total_months, 1)  # Prevent divide by zero\n    return customer_billing['billing_amount'].sum() / total_months\n"
+        },
+        "0.013790080682340108": {
+            "name": "account_age",
+            "code": "import datetime\n\ndef account_age(row):\n    today = datetime.now()\n    signup_date = datetime.strptime(row['signup_date'], \"%Y-%m-%d %H:%M:%S.%f\")\n    return (today - signup_date).days\n"
+        },
+        "0.00986749606968318": {
+            "name": "lifetime_billing_total",
+            "code": "\n\ndef lifetime_billing_total(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_df = aux_dataframes['billing_data_table.csv']\n    customer_billing = billing_df[billing_df['customer_id'] == row['customer_id']]\n    return customer_billing['billing_amount'].sum()\n"
+        },
+        "0.004934075315570432": {
+            "name": "invoice_payment_delay",
+            "code": "import pandas as pd\n\ndef invoice_payment_delay(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_df = aux_dataframes['billing_data_table.csv']\n    customer_billing = billing_df[billing_df['customer_id'] == row['customer_id']]\n    payment_delays = (pd.to_datetime(customer_billing['payment_date']) - pd.to_datetime(customer_billing['billing_date'])).dt.days\n    return payment_delays.mean() or 0.0\n"
+        }
+    },
+    "feature_descriptions": [
+        "support ticket count",
+        "unresolved tickets",
+        "ticket resolution time",
+        "unique action types",
+        "usage activity count",
+        "billing diversity",
+        "billing spend velocity",
+        "account age",
+        "lifetime billing total",
+        "invoice payment delay"
+    ]
+}

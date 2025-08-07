@@ -1,0 +1,51 @@
+hospital_id,hospital_name,location,bed_capacity,current_bed_utilization
+1,"Perry, Turner and Diaz",Port Janet,317,212
+2,"Stanley, Rodriguez and Johnson",Ochoachester,463,155
+3,Heath-Lang,Taylorside,237,148
+4,Taylor and Sons,Lake Amanda,139,392
+5,"Clark, Fernandez and Khan",West Roberthaven,411,360
+6,Bowman-Greene,Limouth,326,338
+7,Reynolds PLC,Port Joanneton,192,56
+8,Brooks-Schroeder,Allenside,63,127
+9,Bernard PLC,Brianland,246,417
+10,Lee-Munoz,West Donna,432,214
+11,Flores-Rivera,Matthewton,179,440
+12,Smith-Garner,Schultzborough,306,410
+13,Scott-Goodman,Smithshire,212,327
+14,"Parks, Powell and Dennis",Whiteview,483,350
+15,Rhodes and Sons,Port Teresaport,420,205
+16,Cochran-Williams,Davisport,120,282
+17,Sandoval-Powell,New Christopherbury,81,71
+18,Patel LLC,Port Kenneth,466,405
+19,"Barron, Willis and Summers",New Ricky,498,100
+20,"Wallace, Coffey and Walton",South Lucas,127,451
+21,Booker PLC,Lake Belindahaven,411,272
+22,Brown-Collier,New Jerry,336,410
+23,Richardson-Bolton,West Ryan,401,107
+24,Vargas-Stone,East Sheriside,219,276
+25,Cole Group,New Andrea,113,451
+26,Smith-Baker,Port Rachelmouth,416,327
+27,Lewis-Adams,North Danielport,85,158
+28,"Harris, Deleon and Strickland",South Amandabury,259,41
+29,"Johnson, Ross and Martinez",Lake Amberborough,309,481
+30,"Baker, Kelly and Bentley",Sullivantown,489,242
+31,"Christensen, Morgan and Todd",Lake Jessicaport,377,307
+32,Morris-Cook,South Lydia,122,349
+33,Martinez-Wright,Collinsborough,465,209
+34,Diaz-Lewis,Port Kelly,466,259
+35,Kim-Merritt,Lake Anita,222,9
+36,Willis LLC,Prattport,271,190
+37,Jones-Young,Port Joe,342,26
+38,"Morris, Chang and Christensen",West Sheila,435,378
+39,King-Lee,Lake Davidfort,231,25
+40,Jordan PLC,Sanchezland,294,191
+41,Jones-Morgan,Morrisberg,346,396
+42,"Adams, Reyes and Nguyen",South Dalton,52,444
+43,"Garrett, Villanueva and Scott",East Amy,257,122
+44,Combs-Graham,Shirleyport,109,285
+45,Mata-Lucas,Alexandershire,159,490
+46,"Brown, Leonard and Vasquez",Bishopport,177,269
+47,Orozco-Everett,Lewisborough,234,29
+48,Mclaughlin-Mann,East Kathy,186,32
+49,Jones-Hopkins,Jenniferberg,452,141
+50,"Washington, Alexander and Lucas",East Natalie,148,382

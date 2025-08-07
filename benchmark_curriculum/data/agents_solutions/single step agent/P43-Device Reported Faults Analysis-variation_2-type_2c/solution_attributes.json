@@ -1,0 +1,77 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "device_age",
+        "avg_service_interval",
+        "customer_support_frequency",
+        "device_efficiency_score",
+        "service_cost_efficiency",
+        "high_severity_fault_count",
+        "downtime_ratio",
+        "unresolved_fault_count",
+        "recent_service_type",
+        "age_band",
+        "unique_device_count"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.3966890473933928": {
+            "name": "device_age",
+            "code": "import pandas as pd\n\ndef device_age(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the device attributes table from the aux_dataframes dictionary\n    device_data = aux_dataframes[\"device_attributes_table.csv\"]\n    \n    # Check if the device_id exists in the device_data dataframe\n    if row[\"device_id\"] not in device_data[\"device_id\"].values:\n        # If the device_id is not found, return None or a default value\n        return None\n    \n    # Get the purchase date for the given device_id\n    device_purchase_date = device_data.loc[device_data[\"device_id\"] == row[\"device_id\"], \"purchase_date\"].values[0]\n    \n    # Calculate the age of the device in days\n    return (pd.Timestamp(row[\"report_date\"]) - pd.Timestamp(device_purchase_date)).days\n"
+        },
+        "0.11473262162523432": {
+            "name": "avg_service_interval",
+            "code": "import pandas as pd\n\ndef avg_service_interval(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the service history dataframe from aux_data\n    service_history_df = aux_data['service_history_table.csv']\n    \n    # Ensure 'service_date' and 'report_date' are in datetime format\n    service_history_df['service_date'] = pd.to_datetime(service_history_df['service_date'], errors='coerce')\n    row_report_date = pd.to_datetime(row['report_date'], errors='coerce')\n    \n    # Filter the service history for the same device_id and service_date < row's report_date\n    services = service_history_df[\n        (service_history_df[\"device_id\"] == row[\"device_id\"]) & \n        (service_history_df[\"service_date\"] < row_report_date)\n    ]\n    \n    # Check if there are more than one service records\n    if len(services) > 1:\n        # Calculate the difference in days between consecutive service dates\n        intervals = services[\"service_date\"].sort_values().diff().dt.days.dropna()\n        return intervals.mean()\n    \n    # Return None if there are not enough service records\n    return None\n"
+        },
+        "0.05460869688826164": {
+            "name": "customer_support_frequency",
+            "code": "import pandas as pd\n\ndef customer_support_frequency(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the necessary auxiliary dataframes\n    device_usage = aux_dataframes[\"customer_device_usage_table.csv\"]\n    support_logs = aux_dataframes[\"technical_support_logs_table.csv\"]\n    \n    # Lookup the customer_id using the device_id from the row\n    device_id = row[\"device_id\"]\n    customer_id_row = device_usage[device_usage[\"device_id\"] == device_id]\n    \n    if customer_id_row.empty:\n        # If no customer_id is found for the device_id, return 0\n        return 0\n    \n    # Extract the customer_id\n    customer_id = customer_id_row[\"customer_id\"].iloc[0]\n    \n    # Filter the support logs for the given customer_id\n    customer_interactions = support_logs[support_logs[\"customer_id\"] == customer_id]\n    \n    if not customer_interactions.empty:\n        # Calculate the number of interactions and customer tenure in years\n        total_interactions = len(customer_interactions)\n        first_interaction_date = pd.Timestamp(customer_interactions[\"support_date\"].min())\n        last_service_date = pd.Timestamp(row[\"report_date\"])\n\n        # Tenure in years\n        tenure = (last_service_date - first_interaction_date).days / 365\n        return total_interactions / tenure if tenure > 0 else 0\n    \n    # If no interactions are found, return 0\n    return 0\n"
+        },
+        "0.04972366569857022": {
+            "name": "device_efficiency_score",
+            "code": "\n\ndef device_efficiency_score(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    device_usage = aux_dataframes[\"customer_device_usage_table.csv\"]\n    usage_data = device_usage[device_usage[\"device_id\"] == row[\"device_id\"]]\n    if not usage_data.empty:\n        total_usage = usage_data[\"usage_duration\"].sum()\n        total_data = usage_data[\"data_consumed\"].sum()\n        return total_usage / total_data if total_data > 0 else 0\n    return 0\n"
+        },
+        "0.031785017337518984": {
+            "name": "service_cost_efficiency",
+            "code": "\n\ndef service_cost_efficiency(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    service_data = aux_dataframes[\"service_history_table.csv\"]\n    service_records = service_data[service_data[\"device_id\"] == row[\"device_id\"]]\n    return service_records[\"service_cost\"].sum() / len(service_records)\n"
+        },
+        "0.028780072322784678": {
+            "name": "high_severity_fault_count",
+            "code": "\n\ndef high_severity_fault_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if the severity level is \"high\" in the main dataframe\n    if row[\"severity_level\"] == \"high\":\n        logs = aux_dataframes[\"technical_support_logs_table.csv\"]\n        # Filter logs by device_id\n        faults = logs[logs[\"device_id\"] == row[\"device_id\"]]\n        # Return the count of faults for the given device_id\n        return len(faults)\n    else:\n        # If severity is not \"high\", return 0\n        return 0\n"
+        },
+        "0.018411831631877422": {
+            "name": "downtime_ratio",
+            "code": "\n\ndef downtime_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    device_usage = aux_dataframes[\"customer_device_usage_table.csv\"]\n    \n    # Filter the device usage data for the given device_id\n    usage_data = device_usage[device_usage[\"device_id\"] == row[\"device_id\"]]\n    \n    if not usage_data.empty:\n        # Assuming downtime is derived as a placeholder (e.g., total time - usage_duration)\n        # Here, we assume a fixed total time per usage record (e.g., 1440 minutes in a day)\n        total_time_per_record = 1440  # Example: total minutes in a day\n        total_downtime = total_time_per_record * len(usage_data) - usage_data[\"usage_duration\"].sum()\n        \n        # Calculate the downtime ratio\n        return total_downtime / max(total_time_per_record * len(usage_data), 1)\n    \n    # If no usage data is found, return 0\n    return 0\n"
+        },
+        "0.01779086810337156": {
+            "name": "unresolved_fault_count",
+            "code": "\n\ndef unresolved_fault_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    logs = aux_dataframes[\"technical_support_logs_table.csv\"]\n    # Filter logs for the given device_id and unresolved issues\n    unresolved_faults = logs[(logs[\"device_id\"] == row[\"device_id\"]) & (logs[\"issue_resolved\"] == False)]\n    return len(unresolved_faults)\n"
+        },
+        "-0.0006569374303786457": {
+            "name": "recent_service_type",
+            "code": "\n\ndef recent_service_type(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure we are using the correct dataframe for service history\n    service_history_df = aux_data['service_history_table.csv']\n    \n    # Filter for previous services for the same device_id and before the report_date\n    previous_services = service_history_df[\n        (service_history_df[\"device_id\"] == row[\"device_id\"]) & \n        (service_history_df[\"service_date\"] < row[\"report_date\"])\n    ]\n    \n    # If there are previous services, return the most recent service_type\n    if not previous_services.empty:\n        return previous_services.iloc[-1][\"service_type\"]\n    \n    # If no previous services exist, return None\n    return None\n"
+        },
+        "-0.000245732109499297": {
+            "name": "age_band",
+            "code": "\n\ndef age_band(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Retrieve the customer_device_usage_table dataframe\n    device_usage = aux_dataframes[\"customer_device_usage_table.csv\"]\n    \n    # Retrieve the customer_id using the device_id from the row\n    customer_id = device_usage.loc[device_usage[\"device_id\"] == row[\"device_id\"], \"customer_id\"]\n    \n    # Check if customer_id exists\n    if customer_id.empty:\n        raise ValueError(f\"No customer_id found for device_id {row['device_id']}\")\n    \n    # Extract the first customer_id (assuming one-to-one mapping between device_id and customer_id)\n    customer_id = customer_id.values[0]\n    \n    # Retrieve the customer_demographics_table dataframe\n    demographics = aux_dataframes[\"customer_demographics_table.csv\"]\n    \n    # Retrieve the age using the customer_id\n    age = demographics.loc[demographics[\"customer_id\"] == customer_id, \"age\"]\n    \n    # Check if age exists\n    if age.empty:\n        raise ValueError(f\"No age found for customer_id {customer_id}\")\n    \n    # Extract the first age value\n    age = age.values[0]\n    \n    # Determine the age band\n    if age < 25:\n        return \"youth\"\n    elif 25 <= age < 60:\n        return \"adult\"\n    else:\n        return \"senior\"\n"
+        },
+        "0": {
+            "name": "unique_device_count",
+            "code": "import pandas as pd\n\ndef unique_device_count(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe from aux_data\n    df_device_usage = aux_data[\"customer_device_usage_table.csv\"]\n    \n    # Ensure the row contains a valid customer_id\n    if \"customer_id\" not in row or pd.isna(row[\"customer_id\"]):\n        return 0  # Return 0 if customer_id is missing or invalid\n    \n    # Calculate the number of unique devices for the given customer_id\n    return df_device_usage[df_device_usage[\"customer_id\"] == row[\"customer_id\"]][\"device_id\"].nunique()\n"
+        }
+    },
+    "feature_descriptions": [
+        "device age",
+        "avg service interval",
+        "customer support frequency",
+        "device efficiency score",
+        "service cost efficiency",
+        "high severity fault count",
+        "downtime ratio",
+        "unresolved fault count",
+        "recent service type",
+        "age band",
+        "unique device count"
+    ]
+}

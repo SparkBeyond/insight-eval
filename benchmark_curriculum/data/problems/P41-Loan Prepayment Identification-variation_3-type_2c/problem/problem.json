@@ -1,0 +1,7 @@
+{
+    "target_column": "Prepaid",
+    "description": "Identify loans likely to be prepaid before term expiration.",
+    "name": "Loan Prepayment Identification",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Financial services"
+}

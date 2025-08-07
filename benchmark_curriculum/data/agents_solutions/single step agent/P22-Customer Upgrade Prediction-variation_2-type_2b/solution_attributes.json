@@ -1,0 +1,83 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "average_data_usage",
+        "payment_lag",
+        "interaction_topic_count",
+        "days_between_payments",
+        "total_call_minutes",
+        "is_high_income",
+        "avg_billing_amount",
+        "sms_usage_ratio",
+        "competitor_plan_price_difference",
+        "plan_popularity",
+        "recent_interaction_type",
+        "age_group"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.558882608696751": {
+            "name": "average_data_usage",
+            "code": "\n\ndef average_data_usage(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the correct key\n    billing_data = aux_data['plan_usage_table.csv']\n    \n    # Calculate the average data usage for the given customer_id\n    avg_data = billing_data[billing_data['customer_id'] == row['customer_id']]['data_usage_gb'].mean()\n    \n    return avg_data\n"
+        },
+        "0.10487083468274798": {
+            "name": "payment_lag",
+            "code": "import pandas as pd\n\ndef payment_lag(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_data\n    billing_data = aux_data['billing_history_table.csv']\n    \n    # Filter the billing data for the specific customer\n    customer_billing = billing_data[billing_data['customer_id'] == row['customer_id']]\n    \n    if not customer_billing.empty:\n        # Convert dates to datetime format\n        customer_billing['billing_date'] = pd.to_datetime(customer_billing['billing_date'])\n        customer_billing['payment_date'] = pd.to_datetime(customer_billing['payment_date'])\n        \n        # Calculate the median payment lag in days\n        lag = (customer_billing['payment_date'] - customer_billing['billing_date']).dt.days.median()\n        return lag\n    \n    # Return 0 if no billing data is found for the customer\n    return 0\n"
+        },
+        "0.04506892190097559": {
+            "name": "interaction_topic_count",
+            "code": "\n\ndef interaction_topic_count(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the customer interactions dataframe using the correct key\n    interactions = aux_data['customer_interactions_table.csv']\n    \n    # Filter interactions for the given customer_id and count unique interaction topics\n    total_interactions = interactions[interactions['customer_id'] == row['customer_id']]['interaction_topic'].nunique()\n    \n    return total_interactions\n"
+        },
+        "0.038468977305978105": {
+            "name": "days_between_payments",
+            "code": "import pandas as pd\n\ndef days_between_payments(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct key for the plan usage data\n    if 'billing_history_table.csv' not in aux_data:\n        raise KeyError(\"The required 'billing_history_table.csv' is missing from aux_data.\")\n    \n    billing_data = aux_data['billing_history_table.csv']\n    \n    # Ensure the required columns exist in the billing data\n    required_columns = {'customer_id', 'billing_date'}\n    if not required_columns.issubset(billing_data.columns):\n        raise ValueError(f\"The billing data is missing required columns: {required_columns - set(billing_data.columns)}\")\n    \n    # Filter the billing data for the specific customer\n    customer_billing = billing_data[billing_data['customer_id'] == row['customer_id']]\n    \n    # If no billing data exists for the customer, return None\n    if customer_billing.empty:\n        return None\n    \n    # Convert billing_date to datetime\n    customer_billing['billing_date'] = pd.to_datetime(customer_billing['billing_date'], errors='coerce')\n    \n    # Drop rows with invalid or missing billing_date\n    customer_billing = customer_billing.dropna(subset=['billing_date'])\n    \n    # If there are fewer than 2 billing dates, we cannot calculate a meaningful difference\n    if len(customer_billing) < 2:\n        return None\n    \n    # Calculate the mean difference in days between consecutive billing dates\n    days_diff = customer_billing['billing_date'].sort_values().diff().dt.days.mean()\n    return days_diff\n"
+        },
+        "0.016483081509280472": {
+            "name": "total_call_minutes",
+            "code": "\n\ndef total_call_minutes(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the plan usage data from the aux_dataframes dictionary\n    plan_usage_data = aux_dataframes['plan_usage_table.csv']\n    \n    # Calculate the total call minutes for the given customer_id\n    total_minutes = plan_usage_data[plan_usage_data['customer_id'] == row['customer_id']]['call_minutes'].sum()\n    \n    return total_minutes\n"
+        },
+        "0.013934120254030577": {
+            "name": "is_high_income",
+            "code": "\n\ndef is_high_income(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct key for the customer demographics table\n    demographics = aux_data['customer_demographics_table.csv']\n    \n    # Filter the demographics dataframe for the specific customer_id\n    customer_data = demographics[demographics['customer_id'] == row['customer_id']]\n    \n    # Check if the customer exists in the demographics data\n    if len(customer_data) > 0:\n        # Return 1 if the income_bracket is 'High', otherwise return 0\n        return 1 if customer_data.iloc[0]['income_bracket'] == 'High' else 0\n    \n    # Return 0 if the customer is not found in the demographics data\n    return 0\n"
+        },
+        "0.013677521984022011": {
+            "name": "avg_billing_amount",
+            "code": "\n\ndef avg_billing_amount(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the appropriate key\n    billing_data = aux_data['billing_history_table.csv']\n    \n    # Calculate the average amount_due for the given customer_id\n    avg_amount = billing_data[billing_data['customer_id'] == row['customer_id']]['amount_due'].mean()\n    \n    return avg_amount\n"
+        },
+        "0.008321405589785436": {
+            "name": "sms_usage_ratio",
+            "code": "\n\ndef sms_usage_ratio(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the key 'plan_usage_table.csv'\n    plan_usage_data = aux_data['plan_usage_table.csv']\n    \n    # Filter the data for the specific customer_id\n    customer_usage = plan_usage_data[plan_usage_data['customer_id'] == row['customer_id']]\n    \n    # Calculate total SMS and total call minutes\n    total_sms = customer_usage['sms_count'].sum()\n    total_calls = customer_usage['call_minutes'].sum()\n    \n    # Return the SMS usage ratio, handling division by zero\n    return total_sms / total_calls if total_calls > 0 else 0\n"
+        },
+        "0.006369514382263982": {
+            "name": "competitor_plan_price_difference",
+            "code": "\n\ndef competitor_plan_price_difference(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_data\n    competitor_plan_info = aux_data['competitor_plan_info_table.csv']\n    \n    # Filter competitor plan info for the specific customer_id\n    comp_data = competitor_plan_info[competitor_plan_info['customer_id'] == row['customer_id']]\n    \n    # Check if there are any matching rows and calculate the mean plan price\n    if not comp_data.empty:\n        competitor_price = comp_data['plan_price'].mean()\n        return competitor_price\n    \n    # Return 0 if no matching rows are found\n    return 0\n"
+        },
+        "0.004682317122077477": {
+            "name": "plan_popularity",
+            "code": "\n\ndef plan_popularity(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the correct key\n    competitor_info = aux_dataframes['competitor_plan_info_table.csv']\n    \n    # Use the correct column name for the plan\n    plan_popularity_count = competitor_info[competitor_info['plan_name'] == row['new_plan']].shape[0]\n    \n    return plan_popularity_count\n"
+        },
+        "-0.0008625258090220189": {
+            "name": "recent_interaction_type",
+            "code": "\n\ndef recent_interaction_type(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the customer interactions data using the correct key\n    interactions = aux_data['customer_interactions_table.csv']\n    \n    # Filter interactions for the specific customer\n    customer_interaction = interactions[interactions['customer_id'] == row['customer_id']].sort_values('interaction_date', ascending=False)\n    \n    # Check if there are any interactions and return the most recent interaction type\n    if not customer_interaction.empty:\n        return customer_interaction.iloc[0]['interaction_type']\n    \n    # Return 'Unknown' if no interactions are found\n    return 'Unknown'\n"
+        },
+        "-0.0006393535247029014": {
+            "name": "age_group",
+            "code": "\n\ndef age_group(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the customer demographics dataframe using the correct key\n    demographics = aux_data['customer_demographics_table.csv']\n    \n    # Filter the demographics dataframe for the specific customer_id\n    customer_data = demographics[demographics['customer_id'] == row['customer_id']]\n    \n    # Check if customer data exists and determine the age group\n    if len(customer_data) > 0:\n        age = customer_data.iloc[0]['age']\n        if age < 30:\n            return 'Under 30'\n        elif age < 50:\n            return '30-50'\n        else:\n            return '50+'\n    \n    # Return 'Unknown' if no matching customer data is found\n    return 'Unknown'\n"
+        }
+    },
+    "feature_descriptions": [
+        "average data usage",
+        "payment lag",
+        "interaction topic count",
+        "days between payments",
+        "total call minutes",
+        "is high income",
+        "avg billing amount",
+        "sms usage ratio",
+        "competitor plan price difference",
+        "plan popularity",
+        "recent interaction type",
+        "age group"
+    ]
+}

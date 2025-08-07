@@ -1,0 +1,7 @@
+{
+    "target_column": "loyal_customer_flag",
+    "description": "Predict which customers may become long-term loyal buyers.",
+    "name": "Loyal customer prediction",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Retail"
+}

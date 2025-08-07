@@ -1,0 +1,16 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "avg_payment_timeliness",
+        "feedback_interaction_count",
+        "total_billing_amount"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "avg payment timeliness",
+        "feedback interaction count",
+        "total billing amount"
+    ]
+}

@@ -1,0 +1,7 @@
+{
+    "target_column": "delay_flag",
+    "description": "Anticipate potential delays in product deliveries.",
+    "name": "Predict delivery delays",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Retail"
+}

@@ -1,0 +1,7 @@
+{
+    "target_column": "returned",
+    "description": "Predict if a customer will return purchased products.",
+    "name": "Product Return Prediction",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Retail"
+}

@@ -1,0 +1,71 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "debt_to_credit_ratio",
+        "missed_payment_ratio",
+        "maximum_transaction_amount",
+        "transaction_std_dev",
+        "total_transaction_amount",
+        "minimum_transaction_amount",
+        "average_transaction_amount",
+        "borrower_age",
+        "is_self_employed",
+        "loan_interest_burden"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.1532166990740563": {
+            "name": "debt_to_credit_ratio",
+            "code": "\n\ndef debt_to_credit_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Calculates the debt-to-credit limit ratio using credit bureau data.\"\"\"\n    borrower_id = row[\"borrower_id\"]\n    \n    # Use the correct key for the credit bureau data\n    bureau_key = \"credit_bureau_data_table.csv\"\n    \n    # Check if the key exists in aux_dataframes\n    if bureau_key not in aux_dataframes:\n        raise KeyError(f\"Key '{bureau_key}' not found in aux_dataframes.\")\n    \n    bureau = aux_dataframes[bureau_key]\n    \n    # Filter the credit bureau data for the specific borrower\n    borrower_credit = bureau[bureau[\"borrower_id\"] == borrower_id]\n    \n    # If no data is found for the borrower, return None\n    if borrower_credit.empty:\n        return None\n    \n    # Extract total_debt and credit_limit for the borrower\n    total_debt = borrower_credit[\"total_debt\"].values[0]\n    credit_limit = borrower_credit[\"credit_limit\"].values[0]\n    \n    # Calculate and return the debt-to-credit ratio\n    return total_debt / credit_limit if credit_limit > 0 else None\n"
+        },
+        "0.14986665238102168": {
+            "name": "missed_payment_ratio",
+            "code": "\n\ndef missed_payment_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Calculates the ratio of missed payments from loan repayment history.\"\"\"\n    # Ensure the required table exists in aux_dataframes\n    if \"loan_repayment_history_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'loan_repayment_history_table.csv' is missing from aux_dataframes.\")\n    \n    # Retrieve the loan repayment history table\n    repayment = aux_dataframes[\"loan_repayment_history_table.csv\"]\n    \n    # Validate that the required columns exist in the dataframe\n    required_columns = {\"application_id\", \"missed_payment\"}\n    if not required_columns.issubset(repayment.columns):\n        raise ValueError(f\"The dataframe 'loan_repayment_history_table.csv' is missing required columns: {required_columns - set(repayment.columns)}\")\n    \n    # Extract the application_id from the row\n    application_id = row[\"application_id\"]\n    \n    # Filter the repayment history for the specific application\n    application_repayments = repayment[repayment[\"application_id\"] == application_id]\n    \n    # Calculate the total payments and missed payments\n    total_payments = len(application_repayments)\n    missed_payments = application_repayments[\"missed_payment\"].sum()\n    \n    # Return the missed payment ratio or None if no payments exist\n    return missed_payments / total_payments if total_payments > 0 else None\n"
+        },
+        "0.06991184552717045": {
+            "name": "maximum_transaction_amount",
+            "code": "\n\ndef maximum_transaction_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    borrower_id = row[\"borrower_id\"]\n    # Use the correct key for the transactions dataframe\n    transactions = aux_dataframes[\"bank_account_transactions_table.csv\"]\n    # Filter transactions for the given borrower_id\n    borrower_transactions = transactions[transactions[\"borrower_id\"] == borrower_id]\n    # Return the maximum transaction amount, or None if no transactions exist\n    return borrower_transactions[\"transaction_amount\"].max() if not borrower_transactions.empty else None\n"
+        },
+        "0.06310641477923795": {
+            "name": "transaction_std_dev",
+            "code": "\n\ndef transaction_std_dev(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    borrower_id = row[\"borrower_id\"]\n    # Use the correct key for the transactions dataframe\n    transactions = aux_dataframes[\"bank_account_transactions_table.csv\"]\n    # Filter transactions for the given borrower_id\n    borrower_transactions = transactions[transactions[\"borrower_id\"] == borrower_id]\n    # Return the standard deviation of the transaction amounts\n    return borrower_transactions[\"transaction_amount\"].std()\n"
+        },
+        "0.03096749577820689": {
+            "name": "total_transaction_amount",
+            "code": "\n\ndef total_transaction_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    borrower_id = row[\"borrower_id\"]\n    \n    # Access the correct dataframe using the key 'bank_account_transactions_table.csv'\n    transactions = aux_dataframes[\"bank_account_transactions_table.csv\"]\n    \n    # Filter transactions for the given borrower_id\n    borrower_transactions = transactions[transactions[\"borrower_id\"] == borrower_id]\n    \n    # Return the sum of the transaction_amount column, defaulting to 0 if no transactions exist\n    return borrower_transactions[\"transaction_amount\"].sum() if not borrower_transactions.empty else 0\n"
+        },
+        "0.03015698255585718": {
+            "name": "minimum_transaction_amount",
+            "code": "\n\ndef minimum_transaction_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    borrower_id = row[\"borrower_id\"]\n    \n    # Access the correct dataframe using the appropriate key\n    transactions = aux_dataframes[\"bank_account_transactions_table.csv\"]\n    \n    # Filter transactions for the given borrower_id\n    borrower_transactions = transactions[transactions[\"borrower_id\"] == borrower_id]\n    \n    # Check if there are any transactions for the borrower\n    if borrower_transactions.empty:\n        return None  # Return None if no transactions are found\n    \n    # Return the minimum transaction amount\n    return borrower_transactions[\"transaction_amount\"].min()\n"
+        },
+        "0.029084253289968692": {
+            "name": "average_transaction_amount",
+            "code": "\n\ndef average_transaction_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    borrower_id = row[\"borrower_id\"]\n    # Use the correct key for the transactions dataframe\n    transactions = aux_dataframes[\"bank_account_transactions_table.csv\"]\n    # Filter transactions for the given borrower_id\n    borrower_transactions = transactions[transactions[\"borrower_id\"] == borrower_id]\n    # Return the mean of the transaction_amount column\n    return borrower_transactions[\"transaction_amount\"].mean()\n"
+        },
+        "0.023099697522163086": {
+            "name": "borrower_age",
+            "code": "\n\ndef borrower_age(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Extracts the borrower's age from the demographics table.\"\"\"\n    borrower_id = row[\"borrower_id\"]\n    \n    # Correct the key to match the filename in aux_dataframes\n    demographics_key = \"borrower_demographics_table.csv\"\n    \n    # Check if the key exists in aux_dataframes\n    if demographics_key not in aux_dataframes:\n        raise KeyError(f\"Key '{demographics_key}' not found in aux_dataframes.\")\n    \n    demographics = aux_dataframes[demographics_key]\n    \n    # Ensure the demographics dataframe has the expected columns\n    expected_columns = {'borrower_id', 'name', 'age', 'gender', 'employment_status', 'annual_income'}\n    if not expected_columns.issubset(demographics.columns):\n        raise ValueError(f\"Demographics table is missing required columns. Expected columns: {expected_columns}\")\n    \n    # Filter the demographics dataframe for the given borrower_id\n    borrower_demo = demographics[demographics[\"borrower_id\"] == borrower_id]\n    \n    # If no matching borrower_id is found, return None\n    if borrower_demo.empty:\n        return None\n    \n    # Return the age of the borrower\n    return borrower_demo[\"age\"].values[0]\n"
+        },
+        "0.013004446137922645": {
+            "name": "is_self_employed",
+            "code": "\n\ndef is_self_employed(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Binary flag indicating if the borrower is self-employed.\"\"\"\n    # Ensure the key 'borrower_demographics_table' exists in aux_dataframes\n    if \"borrower_demographics_table.csv\" not in aux_dataframes:\n        raise KeyError(\"'borrower_demographics_table.csv' not found in aux_dataframes\")\n\n    # Get the demographics dataframe\n    demographics = aux_dataframes[\"borrower_demographics_table.csv\"]\n\n    # Ensure the required columns exist in the demographics dataframe\n    required_columns = {\"borrower_id\", \"employment_status\"}\n    if not required_columns.issubset(demographics.columns):\n        raise KeyError(f\"Missing required columns in 'borrower_demographics_table.csv': {required_columns - set(demographics.columns)}\")\n\n    # Extract the borrower_id from the row\n    borrower_id = row[\"borrower_id\"]\n\n    # Filter the demographics dataframe for the given borrower_id\n    borrower_demo = demographics[demographics[\"borrower_id\"] == borrower_id]\n\n    # If no matching borrower_id is found, return None\n    if borrower_demo.empty:\n        return None\n\n    # Extract the employment_status for the borrower\n    employment_status = borrower_demo[\"employment_status\"].values[0]\n\n    # Return 1 if the borrower is self-employed, otherwise return 0\n    return 1 if employment_status == \"Self-employed\" else 0\n"
+        },
+        "0.001813032007510265": {
+            "name": "loan_interest_burden",
+            "code": "\n\ndef loan_interest_burden(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Calculates the interest burden of a loan using the loan amount and interest rate from the main dataframe.\"\"\"\n    # Extract loan amount and interest rate from the row\n    loan_amount = row.get(\"loan_amount\")\n    interest_rate = row.get(\"interest_rate\")\n    \n    # Ensure both loan_amount and interest_rate are not None\n    if loan_amount is None or interest_rate is None:\n        return None\n    \n    # Calculate and return the interest burden\n    return loan_amount * (interest_rate / 100)\n"
+        }
+    },
+    "feature_descriptions": [
+        "debt to credit ratio",
+        "missed payment ratio",
+        "maximum transaction amount",
+        "transaction std dev",
+        "total transaction amount",
+        "minimum transaction amount",
+        "average transaction amount",
+        "borrower age",
+        "is self employed",
+        "loan interest burden"
+    ]
+}

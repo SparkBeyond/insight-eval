@@ -1,0 +1,16 @@
+{
+    "enriched_column_names": [
+        "volume_of_energy_consumption_in_peak_hours_over_the_last_month",
+        "decrease_in_satisfaction_rating_over_the_last_year",
+        "energy_conservation_level_compared_to_similar_customers",
+        "switching_to_alternative_energy_sources_reported_in_surveys",
+        "resolution_time_for_complaints_in_the_past_year"
+    ],
+    "features_descriptions": [
+        "volume of energy consumption in peak hours over the last month",
+        "decrease in satisfaction rating over the last year",
+        "energy conservation level compared to similar customers",
+        "switching to alternative energy sources reported in surveys",
+        "resolution time for complaints in the past year"
+    ]
+}

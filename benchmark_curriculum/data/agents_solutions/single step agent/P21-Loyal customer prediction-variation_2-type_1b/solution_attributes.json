@@ -1,0 +1,35 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "loyalty_program_duration",
+        "account_age",
+        "days_since_last_login",
+        "unique_campaigns_count"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.08339790111697189": {
+            "name": "loyalty_program_duration",
+            "code": "import pandas as pd\nimport datetime\n\ndef loyalty_program_duration(row, df_train: pd.DataFrame):\n    enrollment_date = row.get('loyalty_program_enrollment_date')\n    if pd.isna(enrollment_date):\n        return 0  # Not enrolled\n    today = datetime.now()\n    enrollment_date = pd.to_datetime(enrollment_date)\n    return (today - enrollment_date).days\n"
+        },
+        "0.0389250724483672": {
+            "name": "account_age",
+            "code": "import pandas as pd\nimport datetime\n\ndef account_age(row, df_train: pd.DataFrame):\n    signup_date = row.get('signup_date')\n    if pd.isna(signup_date):\n        return 0\n    today = datetime.datetime.now()  # Corrected the usage of datetime\n    signup_date = pd.to_datetime(signup_date)\n    return (today - signup_date).days\n"
+        },
+        "0.0004991391138491179": {
+            "name": "days_since_last_login",
+            "code": "import pandas as pd\nimport datetime\n\ndef days_since_last_login(row, df_train: pd.DataFrame):\n    last_login_date = row.get('last_login_date')\n    if pd.isna(last_login_date):\n        return None  # Might indicate lack of activity\n    today = datetime.now()\n    last_login_date = pd.to_datetime(last_login_date)\n    return (today - last_login_date).days\n"
+        },
+        "0": {
+            "name": "unique_campaigns_count",
+            "code": "\n\ndef unique_campaigns_count(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    marketing_engagement_df = aux_dataframes.get('marketing_engagement')\n    if marketing_engagement_df is None:\n        return 0\n    customer_id = row.get('customer_id')\n    customer_data = marketing_engagement_df[marketing_engagement_df['customer_id'] == customer_id]\n    if customer_data.empty:\n        return 0\n    return customer_data['campaign_id'].nunique()\n"
+        }
+    },
+    "feature_descriptions": [
+        "loyalty program duration",
+        "account age",
+        "days since last login",
+        "unique campaigns count"
+    ]
+}

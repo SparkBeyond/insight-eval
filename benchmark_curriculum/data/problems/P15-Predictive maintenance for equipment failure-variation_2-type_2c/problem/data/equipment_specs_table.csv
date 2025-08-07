@@ -1,0 +1,101 @@
+equipment_id,manufacturer,model,power_capacity,installation_date,warranty_period
+EQUIP_001,"Perry, Turner and Diaz",Model-284,634,2020-08-01,4
+EQUIP_002,Wright Ltd,Model-648,926,2024-04-06,3
+EQUIP_003,"Mathis, Landry and Morales",Model-802,474,2024-04-26,3
+EQUIP_004,Hernandez Ltd,Model-883,278,2021-10-04,5
+EQUIP_005,Khan Ltd,Model-146,777,2020-06-07,3
+EQUIP_006,Bowman-Greene,Model-685,212,2020-02-04,1
+EQUIP_007,Armstrong-Prince,Model-507,354,2021-12-28,4
+EQUIP_008,Parrish and Sons,Model-183,934,2025-02-01,4
+EQUIP_009,"Bernard, Brown and Brown",Model-439,358,2024-05-27,5
+EQUIP_010,"Spencer, Anderson and Barrett",Model-552,921,2021-10-06,3
+EQUIP_011,"Lane, Nelson and Smith",Model-507,755,2023-12-16,4
+EQUIP_012,Schultz-Daniel,Model-441,240,2023-12-23,5
+EQUIP_013,"Kent, Smith and Elliott",Model-267,163,2023-11-21,2
+EQUIP_014,"Velasquez, White and Cowan",Model-213,932,2020-04-07,2
+EQUIP_015,"Torres, Preston and Stewart",Model-502,254,2024-12-02,5
+EQUIP_016,Vazquez LLC,Model-467,672,2020-05-25,2
+EQUIP_017,Daniels and Sons,Model-384,438,2023-01-22,5
+EQUIP_018,Williams-Barron,Model-967,226,2021-03-07,1
+EQUIP_019,Black-Wallace,Model-733,416,2022-07-26,4
+EQUIP_020,Booker PLC,Model-099,183,2022-10-05,5
+EQUIP_021,Barry LLC,Model-928,979,2021-03-24,4
+EQUIP_022,Richardson-Bolton,Model-346,755,2021-11-21,5
+EQUIP_023,"Davis, Garcia and Smith",Model-982,245,2022-05-22,4
+EQUIP_024,Foley-Taylor,Model-877,932,2020-01-24,5
+EQUIP_025,White-Smith,Model-755,444,2021-02-14,1
+EQUIP_026,Garcia-Estrada,Model-001,543,2022-07-04,3
+EQUIP_027,Salazar-Kaiser,Model-107,685,2022-11-07,1
+EQUIP_028,Dillon Inc,Model-616,870,2025-01-29,3
+EQUIP_029,"Ryan, Lopez and Ryan",Model-455,151,2024-12-29,4
+EQUIP_030,"Weiss, Hester and Sullivan",Model-085,483,2020-06-06,5
+EQUIP_031,"Rivas, Johnson and Simon",Model-455,892,2020-08-15,1
+EQUIP_032,Ryan and Sons,Model-747,988,2020-08-29,4
+EQUIP_033,Jones Group,Model-437,344,2021-12-10,1
+EQUIP_034,Wagner PLC,Model-241,670,2022-04-26,2
+EQUIP_035,"Merritt, Norman and Munoz",Model-282,354,2020-11-15,5
+EQUIP_036,"Boyle, Snyder and Marks",Model-461,468,2023-04-12,1
+EQUIP_037,Barrera and Sons,Model-368,373,2021-09-16,1
+EQUIP_038,Christensen-Lloyd,Model-437,905,2021-05-01,3
+EQUIP_039,Watson Ltd,Model-157,297,2020-05-29,5
+EQUIP_040,Preston Group,Model-321,948,2024-12-11,5
+EQUIP_041,Roberts Group,Model-522,645,2023-12-14,5
+EQUIP_042,Reyes-Nguyen,Model-982,232,2022-04-26,3
+EQUIP_043,"Garrett, Villanueva and Scott",Model-338,774,2024-08-11,3
+EQUIP_044,"Graham, Nelson and Miller",Model-635,456,2020-01-24,3
+EQUIP_045,"Perkins, Bell and Santos",Model-669,274,2021-05-18,3
+EQUIP_046,Cole-Barton,Model-263,196,2021-01-02,5
+EQUIP_047,Mclaughlin-Mann,Model-336,692,2020-05-18,3
+EQUIP_048,"Gonzalez, Griffith and Casey",Model-977,443,2024-04-28,1
+EQUIP_049,Anderson Group,Model-636,151,2022-01-04,3
+EQUIP_050,Christian-Schwartz,Model-356,119,2024-12-09,4
+EQUIP_051,Vasquez Group,Model-167,862,2020-07-12,3
+EQUIP_052,Crawford LLC,Model-723,585,2020-10-31,1
+EQUIP_053,Johnson Inc,Model-470,846,2020-06-18,2
+EQUIP_054,Allison-Lucas,Model-846,417,2022-10-01,3
+EQUIP_055,"Johnson, Holland and Fletcher",Model-489,176,2024-11-17,4
+EQUIP_056,"Brown, Phillips and Bell",Model-738,121,2020-07-27,5
+EQUIP_057,Watson-Griffin,Model-753,677,2020-01-16,5
+EQUIP_058,Bailey and Sons,Model-619,802,2022-12-19,2
+EQUIP_059,Williams Group,Model-172,512,2023-06-14,4
+EQUIP_060,"Lamb, Williams and Mcclure",Model-409,849,2020-07-25,5
+EQUIP_061,Taylor and Sons,Model-444,936,2023-03-22,4
+EQUIP_062,"Smith, Davis and Smith",Model-715,287,2022-11-07,2
+EQUIP_063,Fitzgerald-House,Model-071,357,2022-11-02,2
+EQUIP_064,Phillips-Hickman,Model-921,792,2023-08-07,1
+EQUIP_065,"Williams, Moore and Pennington",Model-934,317,2023-12-23,1
+EQUIP_066,Rodriguez Group,Model-078,962,2022-03-06,5
+EQUIP_067,"Baker, Allen and Mason",Model-692,412,2024-02-06,3
+EQUIP_068,Cline and Sons,Model-575,930,2024-03-14,3
+EQUIP_069,Oliver and Sons,Model-873,150,2022-05-03,2
+EQUIP_070,Hess-Williamson,Model-313,529,2020-01-12,1
+EQUIP_071,Oneal Ltd,Model-566,807,2023-10-02,3
+EQUIP_072,"Castro, Vaughan and Smith",Model-859,959,2021-09-15,3
+EQUIP_073,"Dyer, Bird and Howard",Model-959,773,2021-04-08,4
+EQUIP_074,Duncan-Leblanc,Model-120,591,2024-10-09,1
+EQUIP_075,Romero-Higgins,Model-900,655,2020-12-02,1
+EQUIP_076,Sandoval-Ross,Model-433,656,2020-09-30,2
+EQUIP_077,Obrien Group,Model-527,330,2021-03-04,5
+EQUIP_078,Graves-Green,Model-771,371,2020-11-29,5
+EQUIP_079,Jimenez LLC,Model-148,267,2023-11-04,3
+EQUIP_080,Morris-Green,Model-607,150,2024-04-09,4
+EQUIP_081,Curry-Finley,Model-331,700,2020-03-03,4
+EQUIP_082,Espinoza and Sons,Model-553,944,2021-02-11,4
+EQUIP_083,Martin PLC,Model-990,327,2022-08-06,5
+EQUIP_084,Joseph Ltd,Model-766,517,2021-10-12,5
+EQUIP_085,"Owens, Blackwell and Kidd",Model-011,741,2023-04-27,4
+EQUIP_086,Cannon-Lamb,Model-024,179,2020-12-28,4
+EQUIP_087,Conley-Martin,Model-557,869,2021-03-29,2
+EQUIP_088,Hayden-Carter,Model-632,334,2023-01-05,4
+EQUIP_089,Kent-Boyle,Model-784,425,2023-05-12,2
+EQUIP_090,"Mack, Rice and Rivera",Model-500,472,2023-11-20,5
+EQUIP_091,Hartman-Miller,Model-918,129,2021-02-13,5
+EQUIP_092,Burnett LLC,Model-279,681,2022-07-11,5
+EQUIP_093,Olsen Group,Model-393,532,2024-04-04,1
+EQUIP_094,Johnson-Allen,Model-838,952,2023-05-30,3
+EQUIP_095,Perkins-Kennedy,Model-948,692,2020-12-04,2
+EQUIP_096,Taylor-Morris,Model-441,669,2025-02-17,2
+EQUIP_097,Baker-Chavez,Model-082,727,2022-02-28,3
+EQUIP_098,"Rogers, Lewis and Garner",Model-741,476,2023-04-06,2
+EQUIP_099,"Little, Escobar and Dixon",Model-430,872,2021-04-25,2
+EQUIP_100,Jones-Patterson,Model-065,410,2024-07-31,4

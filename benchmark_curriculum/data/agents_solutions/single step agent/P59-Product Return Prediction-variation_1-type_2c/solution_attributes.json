@@ -1,0 +1,71 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "purchase_month",
+        "days_since_purchase",
+        "comment_sentiment",
+        "num_purchases",
+        "total_amount_spent",
+        "product_return_rate",
+        "avg_product_price",
+        "time_to_first_purchase",
+        "account_age_days",
+        "price_deviation"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.19943429918643074": {
+            "name": "purchase_month",
+            "code": "import pandas as pd\n\ndef purchase_month(row):\n    return pd.to_datetime(row['purchase_date']).month\n"
+        },
+        "0.18707888973266656": {
+            "name": "days_since_purchase",
+            "code": "import pandas as pd\nimport datetime\n\ndef days_since_purchase(row: pd.Series) -> int:\n    \"\"\"\n    Calculate the number of days since the purchase date.\n\n    Args:\n        row (pd.Series): A row from a DataFrame containing a 'purchase_date' column.\n\n    Returns:\n        int: The number of days since the purchase date.\n    \"\"\"\n    # Ensure the 'purchase_date' column is parsed as a datetime object\n    purchase_date = pd.to_datetime(row['purchase_date'])\n    \n    # Calculate the difference in days between today and the purchase date\n    return (datetime.datetime.today() - purchase_date).days\n"
+        },
+        "0.07070273927908602": {
+            "name": "comment_sentiment",
+            "code": "\n\ndef comment_sentiment(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the customer_feedback_table.csv dataframe\n    feedback_df = aux_data.get('customer_feedback_table.csv')\n    \n    # Ensure the dataframe and the 'comments' column exist\n    if feedback_df is not None and 'comments' in feedback_df.columns:\n        # Find the corresponding feedback entry for the given row's customer_id and product_id\n        feedback_row = feedback_df[\n            (feedback_df['customer_id'] == row['customer_id']) & \n            (feedback_df['product_id'] == row['product_id'])\n        ]\n        \n        # If a matching feedback row is found, calculate the word count of the 'comments' column\n        if not feedback_row.empty:\n            comments = feedback_row.iloc[0]['comments']\n            return len(str(comments).split())\n    \n    # Return 0 if no matching feedback or comments are found\n    return 0\n"
+        },
+        "0.06553994315955032": {
+            "name": "num_purchases",
+            "code": "\n\ndef num_purchases(row, df_train: pd.DataFrame):\n    # Group by 'customer_id' instead of 'customer_id_x'\n    purchases = df_train.groupby('customer_id').size()\n    # Use the correct column name 'customer_id' to access the row value\n    return purchases.get(row['customer_id'], 0)\n"
+        },
+        "0.04549946852769708": {
+            "name": "total_amount_spent",
+            "code": "\n\ndef total_amount_spent(row, df_train: pd.DataFrame):\n    # Group by 'customer_id' and calculate the total purchase amount\n    total_spent = df_train.groupby('customer_id')['purchase_amount'].sum()\n    # Return the total spent for the given customer_id in the row, or 0 if not found\n    return total_spent.get(row['customer_id'], 0)\n"
+        },
+        "0.02378687683610233": {
+            "name": "product_return_rate",
+            "code": "\n\ndef product_return_rate(row, df_train: pd.DataFrame):\n    # Filter the training data to only include rows with purchase dates before the current row's purchase date\n    past_data = df_train[df_train['purchase_date'] < row['purchase_date']]\n    \n    # Group by product_id and calculate the mean return rate for each product\n    product_returns = past_data.groupby('product_id')['returned'].mean()\n    \n    # Return the return rate for the current row's product_id, defaulting to 0 if the product_id is not found\n    return product_returns.get(row['product_id'], 0)\n"
+        },
+        "0.014565952356123537": {
+            "name": "avg_product_price",
+            "code": "\n\ndef avg_product_price(row, df_train: pd.DataFrame):\n    avg_price = df_train.groupby('product_id')['purchase_amount'].mean()\n    return avg_price.get(row['product_id'], 0)\n"
+        },
+        "0.007514772754941003": {
+            "name": "time_to_first_purchase",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef time_to_first_purchase(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the column names match the provided data\n    customer_id_col = 'customer_id'\n    purchase_date_col = 'purchase_date'\n    account_creation_date_col = 'account_creation_date'\n    \n    # Extract the account creation dates from the customer profile table in aux_data\n    customer_profile_df = aux_data['customer_profile_table.csv']\n    account_creation = customer_profile_df.set_index(customer_id_col)[account_creation_date_col]\n    \n    # Find the first purchase date for each customer\n    first_purchase = df_train.groupby(customer_id_col)[purchase_date_col].min()\n    \n    # Calculate the time difference in days\n    time_diff_days = (pd.to_datetime(first_purchase) - pd.to_datetime(account_creation)).dt.days\n    \n    # Return the time difference for the specific customer in the row\n    return time_diff_days.get(row[customer_id_col], np.nan)\n"
+        },
+        "0.006915878417132336": {
+            "name": "account_age_days",
+            "code": "import pandas as pd\nimport datetime\n\ndef account_age_days(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the required table and column exist in aux_data\n    if 'customer_profile_table.csv' not in aux_data:\n        raise ValueError(\"The required 'customer_profile_table.csv' is missing in aux_data.\")\n    \n    customer_profile_df = aux_data['customer_profile_table.csv']\n    \n    if 'account_creation_date' not in customer_profile_df.columns:\n        raise ValueError(\"The 'account_creation_date' column is missing in the customer profile table.\")\n    \n    # Get the account creation date for the given customer_id\n    customer_id = row['customer_id']\n    account_creation_date = customer_profile_df.loc[\n        customer_profile_df['customer_id'] == customer_id, 'account_creation_date'\n    ]\n    \n    if account_creation_date.empty:\n        raise ValueError(f\"No account creation date found for customer_id: {customer_id}\")\n    \n    # Convert account_creation_date to datetime and calculate the age in days\n    account_creation_date = pd.to_datetime(account_creation_date.values[0])\n    return (datetime.datetime.today() - account_creation_date).days\n"
+        },
+        "0.0011118954737433075": {
+            "name": "price_deviation",
+            "code": "\n\ndef price_deviation(row, df_train: pd.DataFrame):\n    # Group by 'customer_id' (correct column name) and calculate the mean purchase amount\n    avg_spent = df_train.groupby('customer_id')['purchase_amount'].mean()\n    # Return the deviation of the current row's purchase amount from the average\n    return avg_spent.get(row['customer_id'], 0) - row['purchase_amount']\n"
+        }
+    },
+    "feature_descriptions": [
+        "purchase month",
+        "days since purchase",
+        "comment sentiment",
+        "num purchases",
+        "total amount spent",
+        "product return rate",
+        "avg product price",
+        "time to first purchase",
+        "account age days",
+        "price deviation"
+    ]
+}

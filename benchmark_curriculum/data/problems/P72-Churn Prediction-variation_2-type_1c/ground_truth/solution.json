@@ -1,0 +1,20 @@
+{
+    "enriched_column_names": [
+        "customer_inactivity_period_in_days",
+        "average_transaction_amount_of_a_customer_in_the_last_6_months",
+        "average_time_between_consecutive_transactions_over_the_past_year",
+        "rate_of_decline_in_transaction_frequency_over_the_last_year",
+        "decline_or_improvement_in_feedback_score_trend_over_the_last_6_months",
+        "changes_in_feedback_sentiment_from_first_to_last_recorded_feedback",
+        "average_customer_feedback_score_over_the_past_year"
+    ],
+    "features_descriptions": [
+        "customer inactivity period in days",
+        "average transaction amount of a customer in the last 6 months",
+        "average time between consecutive transactions over the past year",
+        "rate of decline in transaction frequency over the last year",
+        "decline or improvement in feedback score trend over the last 6 months",
+        "changes in feedback sentiment from first to last recorded feedback",
+        "average customer feedback score over the past year"
+    ]
+}

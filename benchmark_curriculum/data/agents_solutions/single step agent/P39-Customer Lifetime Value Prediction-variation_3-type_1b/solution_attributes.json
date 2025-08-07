@@ -1,0 +1,41 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "avg_spent",
+        "signup_duration",
+        "customer_age",
+        "transaction_count",
+        "encode_gender"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5682204901217455": {
+            "name": "avg_spent",
+            "code": "import pandas as pd\n\ndef avg_spent(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> float:\n    \"\"\"\n    Calculate the average amount spent by a customer based on their customer_id.\n\n    Args:\n        row (pd.Series): A row from the DataFrame containing customer information.\n        aux_data (Dict[str, pd.DataFrame]): A dictionary mapping filenames to DataFrames.\n\n    Returns:\n        float: The average amount spent by the customer, or 0.0 if no transactions are found.\n    \"\"\"\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Check if the required file exists in aux_data\n    if 'transaction_data_table.csv' not in aux_data:\n        raise ValueError(\"The required file 'transaction_data_table.csv' is not present in aux_data.\")\n    \n    # Extract the transaction data\n    df_train = aux_data['transaction_data_table.csv']\n    \n    # Ensure the required columns exist in the DataFrame\n    required_columns = {'customer_id', 'amount'}\n    if not required_columns.issubset(df_train.columns):\n        raise ValueError(f\"The input DataFrame does not have the required columns: {required_columns}\")\n    \n    # Ensure the 'customer_id' column is numeric\n    if not pd.api.types.is_numeric_dtype(df_train['customer_id']):\n        df_train['customer_id'] = pd.to_numeric(df_train['customer_id'], errors='coerce')\n    \n    # Filter the DataFrame for the given customer_id\n    customer_data = df_train[df_train['customer_id'] == customer_id]\n    \n    # Check if there are any transactions for the customer\n    if not customer_data.empty and customer_data['amount'].notna().any():\n        return customer_data['amount'].mean()\n    \n    # Return 0 if no transactions are found or if the 'amount' column is invalid\n    return 0.0\n"
+        },
+        "0.09281550801277734": {
+            "name": "signup_duration",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef signup_duration(row):\n    # Ensure signup_date is converted to a datetime object\n    if pd.notnull(row['signup_date']):\n        signup_date = pd.to_datetime(row['signup_date'], errors='coerce')\n        if pd.notnull(signup_date):\n            return (CURRENT_DATE - signup_date).days\n    return np.nan\n"
+        },
+        "0.02792552922053998": {
+            "name": "customer_age",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef customer_age(row):\n    # Ensure 'birth_date' is converted to a datetime object\n    if pd.notnull(row['birth_date']):\n        birth_date = pd.to_datetime(row['birth_date'], errors='coerce')\n        if pd.notnull(birth_date):\n            return (CURRENT_DATE - birth_date).days // 365\n    return np.nan\n"
+        },
+        "0.016967443892358013": {
+            "name": "transaction_count",
+            "code": "import pandas as pd\n\ndef transaction_count(customer_id, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure customer_id is a scalar value\n    if isinstance(customer_id, pd.Series):\n        customer_id = customer_id.iloc[0]\n    \n    # Get the transaction data from aux_data\n    if 'transaction_data_table.csv' not in aux_data:\n        raise ValueError(\"The required 'transaction_data_table.csv' is missing in aux_data.\")\n    \n    transaction_data = aux_data['transaction_data_table.csv']\n    \n    # Ensure the required columns exist in the transaction data\n    required_columns = {'transaction_id', 'customer_id'}\n    if not required_columns.issubset(transaction_data.columns):\n        raise ValueError(f\"The transaction data is missing one or more required columns: {required_columns}\")\n    \n    # Filter the DataFrame for the given customer_id\n    customer_data = transaction_data[transaction_data['customer_id'] == customer_id]\n    \n    # Return the count of transactions\n    return customer_data['transaction_id'].count()\n"
+        },
+        "0.013907989621067636": {
+            "name": "encode_gender",
+            "code": "\n\ndef encode_gender(row):\n    gender_map = {'Male': 0, 'Female': 1, 'Other': 2}\n    return gender_map.get(row['gender'], -1)\n"
+        }
+    },
+    "feature_descriptions": [
+        "avg spent",
+        "signup duration",
+        "customer age",
+        "transaction count",
+        "encode gender"
+    ]
+}

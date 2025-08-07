@@ -1,0 +1,107 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "transaction_variability",
+        "debt_to_income_ratio",
+        "total_transaction_amount",
+        "average_transaction_amount",
+        "days_since_last_application",
+        "days_since_last_transaction",
+        "credit_utilization_ratio",
+        "repayment_amount_std_dev",
+        "employment_indicator",
+        "credit_risk_score",
+        "inflation_adjusted_loan_amount",
+        "loan_to_credit_limit_ratio",
+        "interest_rate_burden",
+        "loan_to_income_ratio",
+        "number_of_transactions",
+        "age_bracket"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.11210190388047683": {
+            "name": "transaction_variability",
+            "code": "\n\ndef transaction_variability(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the correct dataframe from aux_data\n    bank_transactions_df = aux_data['bank_account_transactions_table.csv']\n    \n    # Ensure the dataframe contains the required columns\n    if 'borrower_id' not in bank_transactions_df.columns or 'transaction_amount' not in bank_transactions_df.columns:\n        raise ValueError(\"The required columns 'borrower_id' and 'transaction_amount' are missing in the bank transactions dataframe.\")\n    \n    # Get the borrower_id from the row\n    borrower_id = row['borrower_id']\n    \n    # Filter transactions for the given borrower_id\n    borrower_transactions = bank_transactions_df[bank_transactions_df['borrower_id'] == borrower_id]['transaction_amount']\n    \n    # Return the standard deviation of transaction amounts or 0 if no transactions exist\n    return borrower_transactions.std() if not borrower_transactions.empty else 0\n"
+        },
+        "0.1088566097179137": {
+            "name": "debt_to_income_ratio",
+            "code": "\n\ndef debt_to_income_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    borrower_id = row['borrower_id']\n    \n    # Get the relevant dataframes\n    borrower_demo = aux_dataframes['borrower_demographics_table.csv']\n    credit_bureau_data = aux_dataframes['credit_bureau_data_table.csv']\n    \n    # Filter the borrower demographics table for the given borrower_id\n    borrower_record = borrower_demo[borrower_demo['borrower_id'] == borrower_id]\n    if borrower_record.empty:\n        return None  # Borrower not found in demographics table\n    \n    # Filter the credit bureau data table for the given borrower_id\n    credit_record = credit_bureau_data[credit_bureau_data['borrower_id'] == borrower_id]\n    if credit_record.empty:\n        return None  # Borrower not found in credit bureau data table\n    \n    # Extract the annual income and total debt\n    annual_income = borrower_record.iloc[0]['annual_income']\n    total_debt = credit_record.iloc[0]['total_debt']\n    \n    # Ensure annual income is not zero to avoid division by zero\n    if annual_income == 0:\n        return None  # Cannot calculate debt-to-income ratio if annual income is zero\n    \n    # Calculate the debt-to-income ratio\n    debt_to_income = (total_debt / annual_income) * 100\n    return debt_to_income\n"
+        },
+        "0.06558309840260061": {
+            "name": "total_transaction_amount",
+            "code": "\n\ndef total_transaction_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the borrower_id from the row\n    borrower_id = row['borrower_id']\n    \n    # Get the bank account transactions DataFrame from aux_data\n    transactions_df = aux_data['bank_account_transactions_table.csv']\n    \n    # Filter the transactions for the given borrower_id and sum the transaction_amount\n    total_amount = transactions_df[transactions_df['borrower_id'] == borrower_id]['transaction_amount'].sum()\n    \n    return total_amount\n"
+        },
+        "0.061597793063739296": {
+            "name": "average_transaction_amount",
+            "code": "\n\ndef average_transaction_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the borrower_id from the row\n    borrower_id = row['borrower_id']\n    \n    # Get the bank account transactions dataframe from aux_data\n    transactions_df = aux_data['bank_account_transactions_table.csv']\n    \n    # Filter transactions for the given borrower_id\n    borrower_transactions = transactions_df[transactions_df['borrower_id'] == borrower_id]['transaction_amount']\n    \n    # Return the mean of transaction amounts or 0 if no transactions exist\n    return borrower_transactions.mean() if not borrower_transactions.empty else 0\n"
+        },
+        "0.0540830493233766": {
+            "name": "days_since_last_application",
+            "code": "import pandas as pd\nimport datetime\n\ndef days_since_last_application(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    borrower_id = row['borrower_id']\n    application_id = row['application_id']\n    \n    # Use the correct key to access the loan repayment history table\n    loan_repayment_history = aux_dataframes.get('loan_repayment_history_table.csv')\n    \n    if loan_repayment_history is not None:\n        # Ensure application_id is used to filter the repayment history\n        # Join loan_repayment_history with the main dataframe to get borrower_id\n        borrower_loans = loan_repayment_history[loan_repayment_history['application_id'] == application_id]\n        \n        if not borrower_loans.empty:\n            # Ensure payment_date is parsed as datetime\n            borrower_loans['payment_date'] = pd.to_datetime(borrower_loans['payment_date'], errors='coerce')\n            \n            # Drop rows where payment_date could not be parsed\n            borrower_loans = borrower_loans.dropna(subset=['payment_date'])\n            \n            # Get the most recent payment date\n            last_payment_date = borrower_loans['payment_date'].max()\n            \n            # Calculate the difference in days from the reference date\n            reference_date = datetime.datetime.strptime(\"2025-12-31\", '%Y-%m-%d')\n            return (reference_date - last_payment_date).days\n    \n    # Return None if no applications are found for the borrower\n    return None\n"
+        },
+        "0.04975580416048239": {
+            "name": "days_since_last_transaction",
+            "code": "import pandas as pd\nimport datetime\n\ndef days_since_last_transaction(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe from aux_data\n    transactions_df = aux_data['bank_account_transactions_table.csv']\n    \n    # Ensure the column names match the expected structure\n    if 'borrower_id' not in transactions_df.columns or 'transaction_date' not in transactions_df.columns:\n        raise KeyError(\"The required columns 'borrower_id' and 'transaction_date' are missing in the transactions dataframe.\")\n    \n    # Get the borrower_id from the row\n    borrower_id = row['borrower_id']\n    \n    # Filter transactions for the given borrower_id\n    borrower_transactions = transactions_df[transactions_df['borrower_id'] == borrower_id]['transaction_date']\n    \n    # If no transactions exist for the borrower, return None\n    if borrower_transactions.empty:\n        return None\n    \n    # Convert transaction_date to datetime and find the latest transaction date\n    borrower_transactions = pd.to_datetime(borrower_transactions, format=\"%Y-%m-%d\", errors='coerce')\n    latest_transaction_date = borrower_transactions.max()\n    \n    # If the latest transaction date is NaT (invalid), return None\n    if pd.isna(latest_transaction_date):\n        return None\n    \n    # Calculate the number of days since the latest transaction\n    reference_date = datetime.datetime.strptime(\"2025-12-31\", \"%Y-%m-%d\")\n    return (reference_date - latest_transaction_date).days\n"
+        },
+        "0.04658094420993666": {
+            "name": "credit_utilization_ratio",
+            "code": "\n\ndef credit_utilization_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    borrower_id = row['borrower_id']\n    \n    # Use the correct key for the credit bureau data\n    credit_bureau_key = 'credit_bureau_data_table.csv'\n    \n    # Check if the key exists in aux_dataframes\n    if credit_bureau_key not in aux_dataframes:\n        raise KeyError(f\"Key '{credit_bureau_key}' not found in aux_dataframes.\")\n    \n    credit_bureau = aux_dataframes[credit_bureau_key]\n    \n    # Filter the credit bureau data for the specific borrower\n    borrower_record = credit_bureau[credit_bureau['borrower_id'] == borrower_id]\n    \n    if not borrower_record.empty:\n        total_debt = borrower_record.iloc[0]['total_debt']\n        credit_limit = borrower_record.iloc[0]['credit_limit']\n        \n        # Ensure credit_limit is greater than 0 to avoid division by zero\n        if credit_limit > 0:\n            return total_debt / credit_limit\n    \n    # Return None if no record is found or credit_limit is 0\n    return None\n"
+        },
+        "0.04129497858743284": {
+            "name": "repayment_amount_std_dev",
+            "code": "\n\ndef repayment_amount_std_dev(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    application_id = row['application_id']\n    \n    # Access the loan repayment history dataframe\n    repayment_history = aux_dataframes['loan_repayment_history_table.csv']\n    \n    # Filter repayment history for the given application_id\n    repayments = repayment_history[repayment_history['application_id'] == application_id]['payment_amount']\n    \n    # Return the standard deviation of repayment amounts, or 0 if no repayments exist\n    return repayments.std() if not repayments.empty else 0\n"
+        },
+        "0.03347024812630464": {
+            "name": "employment_indicator",
+            "code": "\n\ndef employment_indicator(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    borrower_id = row['borrower_id']\n    # Correct the key to match the appropriate dataframe\n    borrower_demo = aux_dataframes['borrower_demographics_table.csv']\n    \n    # Filter the dataframe to find the record for the given borrower_id\n    borrower_record = borrower_demo[borrower_demo['borrower_id'] == borrower_id]\n    \n    # Check if a record exists for the borrower\n    if not borrower_record.empty:\n        # Extract the employment status\n        employment_status = borrower_record.iloc[0]['employment_status']\n        \n        # Return 1 if employed or self-employed, otherwise return 0\n        return 1 if employment_status.strip().lower() in ['employed', 'self-employed'] else 0\n    \n    # Return None if no record is found\n    return None\n"
+        },
+        "0.02805666540975378": {
+            "name": "credit_risk_score",
+            "code": "\n\ndef credit_risk_score(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    borrower_id = row['borrower_id']\n    \n    # Correct key for the credit bureau data\n    credit_bureau_key = 'credit_bureau_data_table.csv'\n    \n    # Check if the key exists in aux_dataframes\n    if credit_bureau_key not in aux_dataframes:\n        raise KeyError(f\"Key '{credit_bureau_key}' not found in aux_dataframes.\")\n    \n    credit_bureau = aux_dataframes[credit_bureau_key]\n    \n    # Ensure the required columns exist in the credit bureau dataframe\n    required_columns = {'borrower_id', 'credit_score'}\n    if not required_columns.issubset(credit_bureau.columns):\n        raise ValueError(f\"Missing required columns {required_columns - set(credit_bureau.columns)} in credit bureau data.\")\n    \n    # Filter the credit bureau data for the given borrower_id\n    borrower_record = credit_bureau[credit_bureau['borrower_id'] == borrower_id]\n    \n    if not borrower_record.empty:\n        credit_score = borrower_record.iloc[0]['credit_score']\n        return credit_score / 900  # Assuming max credit score is 900\n    \n    # Return None if no record is found for the borrower_id\n    return None\n"
+        },
+        "0.0245717440197925": {
+            "name": "inflation_adjusted_loan_amount",
+            "code": "\n\ndef inflation_adjusted_loan_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    borrower_id = row['borrower_id']\n    \n    # Correct key for borrower demographics\n    borrower_demo = aux_dataframes['borrower_demographics_table.csv']\n    borrower_loans = borrower_demo[borrower_demo['borrower_id'] == borrower_id]\n    \n    # Correct key for economic indicators\n    economic_indicators = aux_dataframes['economic_indicators_table.csv']\n    \n    if not borrower_loans.empty:\n        # Use the loan amount from the row instead of borrower_demo\n        loan_amount = row['loan_amount']\n        \n        # Ensure inflation_rate column exists and is not empty\n        if 'inflation_rate' in economic_indicators.columns and not economic_indicators['inflation_rate'].empty:\n            inflation_rate = economic_indicators['inflation_rate']\n            inflation_factor = 1 + inflation_rate.mean() / 100  # Inflation as multiplier\n            return loan_amount / inflation_factor\n    \n    return None\n"
+        },
+        "0.022995826324668917": {
+            "name": "loan_to_credit_limit_ratio",
+            "code": "\n\ndef loan_to_credit_limit_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    borrower_id = row['borrower_id']\n    loan_amount = row['loan_amount']\n    \n    # Correct table keys based on the provided aux_data structure\n    borrower_demo = aux_dataframes['borrower_demographics_table.csv']\n    credit_bureau = aux_dataframes['credit_bureau_data_table.csv']\n    \n    # Filter the relevant records\n    borrower_demo_record = borrower_demo[borrower_demo['borrower_id'] == borrower_id]\n    credit_record = credit_bureau[credit_bureau['borrower_id'] == borrower_id]\n    \n    # Check if records exist and calculate the ratio\n    if not borrower_demo_record.empty and not credit_record.empty:\n        credit_limit = credit_record.iloc[0]['credit_limit']\n        if credit_limit > 0:\n            return loan_amount / credit_limit\n    return None\n"
+        },
+        "0.01703780940112096": {
+            "name": "interest_rate_burden",
+            "code": "\n\ndef interest_rate_burden(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract loan amount and interest rate directly from the row\n    loan_amount = row['loan_amount']\n    interest_rate = row['interest_rate']\n    \n    # Calculate the interest rate burden\n    return loan_amount * interest_rate / 100  # Simple calculation of interest burden\n"
+        },
+        "0.01202595836369296": {
+            "name": "loan_to_income_ratio",
+            "code": "\n\ndef loan_to_income_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    borrower_id = row['borrower_id']\n    loan_amount = row['loan_amount']  # Use loan_amount from the row directly\n\n    # Access the correct dataframe for borrower demographics\n    borrower_demo = aux_dataframes['borrower_demographics_table.csv']\n    borrower_record = borrower_demo[borrower_demo['borrower_id'] == borrower_id]\n\n    if not borrower_record.empty:\n        # Access the correct dataframe for economic indicators\n        economic_indicators = aux_dataframes['borrower_demographics_table.csv']\n        annual_income = borrower_record.iloc[0]['annual_income']  # Get annual income from borrower demographics\n\n        if annual_income > 0:  # Ensure annual income is greater than 0\n            return loan_amount / annual_income\n\n    return None\n"
+        },
+        "0.006027265305429576": {
+            "name": "number_of_transactions",
+            "code": "\n\ndef number_of_transactions(row, df_train: pd.DataFrame):\n    borrower_id = row['borrower_id']\n    return df_train[df_train['borrower_id'] == borrower_id].shape[0]\n"
+        },
+        "-0.0013387374769400218": {
+            "name": "age_bracket",
+            "code": "\n\ndef age_bracket(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    borrower_id = row['borrower_id']\n    \n    # Correct key for borrower demographics table\n    borrower_demo_key = 'borrower_demographics_table.csv'\n    \n    # Check if the key exists in aux_dataframes\n    if borrower_demo_key not in aux_dataframes:\n        raise KeyError(f\"Key '{borrower_demo_key}' not found in aux_dataframes.\")\n    \n    # Get the borrower demographics dataframe\n    borrower_demo = aux_dataframes[borrower_demo_key]\n    \n    # Filter the dataframe for the specific borrower_id\n    borrower_info = borrower_demo[borrower_demo['borrower_id'] == borrower_id]\n    \n    # Check if the borrower exists in the demographics table\n    if not borrower_info.empty:\n        age = borrower_info.iloc[0]['age']\n        \n        # Determine the age bracket\n        if age < 25:\n            return '<25'\n        elif age <= 40:\n            return '25-40'\n        elif age <= 60:\n            return '40-60'\n        return '60+'\n    \n    # Return None if borrower_id is not found\n    return None\n"
+        }
+    },
+    "feature_descriptions": [
+        "transaction variability",
+        "debt to income ratio",
+        "total transaction amount",
+        "average transaction amount",
+        "days since last application",
+        "days since last transaction",
+        "credit utilization ratio",
+        "repayment amount std dev",
+        "employment indicator",
+        "credit risk score",
+        "inflation adjusted loan amount",
+        "loan to credit limit ratio",
+        "interest rate burden",
+        "loan to income ratio",
+        "number of transactions",
+        "age bracket"
+    ]
+}

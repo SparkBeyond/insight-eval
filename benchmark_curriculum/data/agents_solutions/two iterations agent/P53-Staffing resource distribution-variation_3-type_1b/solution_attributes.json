@@ -1,0 +1,42 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "weighted_customer_count",
+        "profit_margin",
+        "profit_per_customer",
+        "satisfaction_to_performance_ratio",
+        "cost_savings_potential",
+        "revenue_to_cost_ratio",
+        "revenue_to_satisfaction",
+        "deviation_from_avg_experience",
+        "experience_cost_ratio",
+        "peak_hour_flag",
+        "operational_efficiency_ratio",
+        "skill_level_encoded",
+        "temporal_day_of_week",
+        "employee_performance_score",
+        "peak_hours_span",
+        "traffic_per_employee"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "weighted customer count",
+        "profit margin",
+        "profit per customer",
+        "satisfaction to performance ratio",
+        "cost savings potential",
+        "revenue to cost ratio",
+        "revenue to satisfaction",
+        "deviation from avg experience",
+        "experience cost ratio",
+        "peak hour flag",
+        "operational efficiency ratio",
+        "skill level encoded",
+        "temporal day of week",
+        "employee performance score",
+        "peak hours span",
+        "traffic per employee"
+    ]
+}

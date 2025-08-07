@@ -1,0 +1,47 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "avg_environment_by_day",
+        "operational_strain_index",
+        "facility_downtime_stress",
+        "monthly_stress_index",
+        "maintenance_to_utilization_ratio",
+        "weekly_utilization_deviation"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.08213834352845566": {
+            "name": "avg_environment_by_day",
+            "code": "import pandas as pd\n\ndef avg_environment_by_day(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the environmental factors table from aux_data\n    environmental_factors = aux_data.get('environmental_factors_table.csv')\n    \n    # Ensure the environmental_factors dataframe exists\n    if environmental_factors is None:\n        raise ValueError(\"Environmental factors table is missing from aux_data.\")\n    \n    # Filter the environmental factors for the specific facility_id\n    group = environmental_factors[environmental_factors['facility_id'] == row['facility_id']]\n    \n    # Calculate the average temperature and humidity\n    avg_temp = group['temperature'].mean()\n    avg_humidity = group['humidity'].mean()\n    \n    # Return the average of temperature and humidity if both are not null\n    return (avg_temp + avg_humidity) / 2 if pd.notnull(avg_temp) and pd.notnull(avg_humidity) else None\n"
+        },
+        "0.031926826712296456": {
+            "name": "operational_strain_index",
+            "code": "import pandas as pd\n\ndef operational_strain_index(row):\n    if pd.isnull(row['downtime_hours']) or pd.isnull(row['maintenance_cost']):\n        return None\n    return row['downtime_hours'] * row['maintenance_cost']\n"
+        },
+        "0.018772994012723254": {
+            "name": "facility_downtime_stress",
+            "code": "import pandas as pd\n\ndef facility_downtime_stress(row):\n    if pd.isnull(row['downtime_hours']) or pd.isnull(row['capacity_utilization']):\n        return None\n    return row['downtime_hours'] * (1 / (row['capacity_utilization'] + 1))\n"
+        },
+        "0.00850842190039266": {
+            "name": "monthly_stress_index",
+            "code": "import pandas as pd\n\ndef monthly_stress_index(row, df_train: pd.DataFrame):\n    # Ensure the 'date' column in df_train is in datetime format\n    if not pd.api.types.is_datetime64_any_dtype(df_train['date']):\n        df_train['date'] = pd.to_datetime(df_train['date'])\n    \n    # Group by the month and calculate the mean energy output\n    mean_output = df_train.groupby(df_train['date'].dt.month)['energy_output'].mean()\n    \n    # Ensure the 'date' column in the row is in datetime format\n    if not isinstance(row['date'], pd.Timestamp):\n        row['date'] = pd.to_datetime(row['date'])\n    \n    # Get the current month from the row\n    current_month = row['date'].month\n    \n    # Calculate and return the monthly stress index\n    return row['energy_output'] / mean_output.get(current_month, 1)\n"
+        },
+        "0.005701374085216514": {
+            "name": "maintenance_to_utilization_ratio",
+            "code": "import pandas as pd\n\ndef maintenance_to_utilization_ratio(row):\n    if pd.isnull(row['capacity_utilization']) or row['capacity_utilization'] == 0:\n        return None\n    return row['maintenance_cost'] / row['capacity_utilization']\n"
+        },
+        "0.0022287668417120717": {
+            "name": "weekly_utilization_deviation",
+            "code": "import pandas as pd\n\ndef weekly_utilization_deviation(row, df_train: pd.DataFrame):\n    # Ensure the 'date' column is in datetime format\n    if not pd.api.types.is_datetime64_any_dtype(df_train['date']):\n        df_train['date'] = pd.to_datetime(df_train['date'])\n    \n    # Group by week and calculate the average capacity utilization\n    week_avg = df_train.groupby(df_train['date'].dt.isocalendar().week)['capacity_utilization'].mean()\n    \n    # Ensure the row's 'date' is in datetime format\n    row_date = pd.to_datetime(row['date'])\n    current_week = row_date.isocalendar().week\n    \n    # Return the deviation from the weekly average\n    return row['capacity_utilization'] - week_avg.get(current_week, 0)\n"
+        }
+    },
+    "feature_descriptions": [
+        "avg environment by day",
+        "operational strain index",
+        "facility downtime stress",
+        "monthly stress index",
+        "maintenance to utilization ratio",
+        "weekly utilization deviation"
+    ]
+}

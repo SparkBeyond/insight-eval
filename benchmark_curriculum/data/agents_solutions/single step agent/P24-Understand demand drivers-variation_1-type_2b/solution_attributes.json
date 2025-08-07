@@ -1,0 +1,107 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "aggregate_gdp_growth",
+        "month",
+        "unemployment_modifier",
+        "season_of_sale",
+        "marketing_effectiveness",
+        "sales_to_budget_ratio",
+        "average_monthly_precipitation",
+        "price_to_quantity_ratio",
+        "impressions_to_clicks_ratio",
+        "is_weather_favorable",
+        "revenue_per_impression",
+        "revenue_per_unit",
+        "profit_margin",
+        "is_weekend",
+        "day_of_week",
+        "average_channel_clicks"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.29428970731316856": {
+            "name": "aggregate_gdp_growth",
+            "code": "import pandas as pd\nimport datetime\n\ndef aggregate_gdp_growth(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculates the average GDP growth up to the current date using the auxiliary economic data.\n    \"\"\"\n    gdp_df = aux_dataframes[\"economic_table.csv\"]\n    \n    # Ensure the 'date' column in gdp_df is in datetime format\n    gdp_df['date'] = pd.to_datetime(gdp_df['date'])\n    \n    # Convert the row's 'date' to a datetime object\n    date = datetime.datetime.strptime(row['date'], '%Y-%m-%d')\n    \n    # Filter rows where the date is less than or equal to the current date\n    relevant_gdp = gdp_df[gdp_df['date'] <= date]['gdp_growth']\n    \n    # Return the mean of the relevant GDP growth values\n    return relevant_gdp.mean()\n"
+        },
+        "0.24561567770591022": {
+            "name": "month",
+            "code": "import datetime\n\ndef month(row):\n    date = datetime.strptime(row['date'], '%Y-%m-%d')\n    return date.month\n"
+        },
+        "0.1996644932929546": {
+            "name": "unemployment_modifier",
+            "code": "\n\ndef unemployment_modifier(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    economic_df = aux_dataframes[\"economic_table.csv\"]\n    # Use the correct column name 'unemployment_rate'\n    unemployment_rate = economic_df[economic_df['date'] == row['date']]['unemployment_rate']\n    return float(unemployment_rate.iloc[0]) / 100 if not unemployment_rate.empty else 0\n"
+        },
+        "0.09541737108474124": {
+            "name": "season_of_sale",
+            "code": "import datetime\n\ndef season_of_sale(row):\n    date = datetime.strptime(row['date'], '%Y-%m-%d')\n    month = date.month\n    if month in [12, 1, 2]:\n        return \"Winter\"\n    elif month in [3, 4, 5]:\n        return \"Spring\"\n    elif month in [6, 7, 8]:\n        return \"Summer\"\n    else:\n        return \"Autumn\"\n"
+        },
+        "0.06935596108888797": {
+            "name": "marketing_effectiveness",
+            "code": "\n\ndef marketing_effectiveness(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the marketing_table dataframe from aux_data\n    marketing_table = aux_data.get('marketing_table.csv')\n    \n    if marketing_table is None:\n        raise ValueError(\"The 'marketing_table.csv' data is missing from aux_data.\")\n    \n    # Match the row's date with the marketing_table's date\n    # (or use another relevant key if available, such as campaign_name or product_id)\n    matching_marketing_data = marketing_table[\n        (marketing_table['start_date'] <= row['date']) & \n        (marketing_table['end_date'] >= row['date'])\n    ]\n    \n    if matching_marketing_data.empty:\n        raise ValueError(f\"No matching marketing data found for date {row['date']}.\")\n    \n    # Assuming we take the first matching row (if multiple rows match)\n    marketing_row = matching_marketing_data.iloc[0]\n    \n    # Calculate marketing effectiveness\n    clicks = marketing_row['clicks']\n    budget = marketing_row['budget']\n    return clicks / (budget + 1e-6)\n"
+        },
+        "0.060130334322724285": {
+            "name": "sales_to_budget_ratio",
+            "code": "\n\ndef sales_to_budget_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the marketing table from aux_data\n    marketing_table = aux_data.get('marketing_table.csv')\n    \n    # Ensure the marketing table exists\n    if marketing_table is None:\n        raise ValueError(\"The marketing_table.csv is missing from aux_data.\")\n    \n    # Match the row with the corresponding budget in the marketing table\n    # Assuming we match on 'product_id' (this can be adjusted based on the actual relationship)\n    matching_row = marketing_table[marketing_table['marketing_id'] == row['product_id']]\n    \n    # Ensure a matching row exists\n    if matching_row.empty:\n        raise ValueError(f\"No matching marketing data found for product_id {row['product_id']}.\")\n    \n    # Extract the budget value (assuming one match)\n    budget = matching_row.iloc[0]['budget']\n    \n    # Calculate the sales-to-budget ratio\n    return row['quantity_sold'] / (budget + 1e-6)\n"
+        },
+        "0.052273580125576466": {
+            "name": "average_monthly_precipitation",
+            "code": "\n\ndef average_monthly_precipitation(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the month from the row's date\n    month = row['date'][5:7]\n    \n    # Access the weather_table.csv dataframe from aux_data\n    weather_df = aux_data['weather_table.csv']\n    \n    # Filter the weather dataframe for rows matching the month and calculate the mean precipitation\n    return weather_df[weather_df['date'].str.contains(f\"-{month}-\")]['precipitation'].mean()\n"
+        },
+        "0.044470802915703156": {
+            "name": "price_to_quantity_ratio",
+            "code": "\n\ndef price_to_quantity_ratio(row):\n    return row['price_per_unit'] / (row['quantity_sold'] + 1e-6)\n"
+        },
+        "0.037689216599902035": {
+            "name": "impressions_to_clicks_ratio",
+            "code": "\n\ndef impressions_to_clicks_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the marketing table from aux_data\n    marketing_table = aux_data.get('marketing_table.csv')\n    \n    # Ensure the marketing table exists\n    if marketing_table is None:\n        raise ValueError(\"The marketing_table.csv is missing from aux_data.\")\n    \n    # Find the relevant row in the marketing table using a common key (e.g., 'product_id' or another identifier)\n    # Assuming 'product_id' in the main dataframe corresponds to 'marketing_id' in the marketing table\n    marketing_row = marketing_table[marketing_table['marketing_id'] == row['product_id']]\n    \n    # Ensure we found a matching row\n    if marketing_row.empty:\n        raise ValueError(f\"No matching marketing data found for product_id {row['product_id']}.\")\n    \n    # Extract 'impressions' and 'clicks' from the marketing row\n    impressions = marketing_row['impressions'].iloc[0]\n    clicks = marketing_row['clicks'].iloc[0]\n    \n    # Calculate and return the impressions-to-clicks ratio\n    return impressions / (clicks + 1e-6)\n"
+        },
+        "0.02372409047494322": {
+            "name": "is_weather_favorable",
+            "code": "\n\ndef is_weather_favorable(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the weather_table dataframe from aux_data\n    weather_df = aux_data['weather_table.csv']\n    \n    # Extract the date from the row\n    date = row['date']\n    \n    # Filter the weather dataframe for the matching date\n    weather_on_date = weather_df[weather_df['date'] == date]\n    \n    # If no weather data is found for the date, return 0 (not favorable)\n    if weather_on_date.empty:\n        return 0\n    \n    # Extract the temperature for the first matching row (assuming one location)\n    temperature = weather_on_date.iloc[0]['temperature']\n    \n    # Extract the month from the date\n    month = int(date[5:7])  # Extract month from date format \"YYYY-MM-DD\"\n    \n    # Determine if the weather is favorable based on the temperature and month\n    if month in [6, 7, 8]:  # Summer months\n        return 1 if 25 <= temperature <= 30 else 0\n    elif month in [12, 1, 2]:  # Winter months\n        return 1 if 0 <= temperature <= 10 else 0\n    else:  # Other months (spring and fall)\n        return 1 if 15 <= temperature <= 25 else 0\n"
+        },
+        "0.02244451746168665": {
+            "name": "revenue_per_impression",
+            "code": "\n\ndef revenue_per_impression(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the marketing table from aux_data\n    marketing_table = aux_data.get('marketing_table.csv')\n    \n    # Ensure the marketing table exists and has the required columns\n    if marketing_table is None or 'impressions' not in marketing_table.columns:\n        raise ValueError(\"The marketing table is missing or does not contain the 'impressions' column.\")\n    \n    # Match the row's product_id with the marketing table's marketing_id to get impressions\n    # Assuming product_id corresponds to marketing_id (this assumption may need adjustment)\n    matching_row = marketing_table[marketing_table['marketing_id'] == row['product_id']]\n    \n    if matching_row.empty:\n        raise ValueError(f\"No matching marketing data found for product_id {row['product_id']}.\")\n    \n    # Extract impressions (assuming one match per product_id)\n    impressions = matching_row.iloc[0]['impressions']\n    \n    # Calculate revenue per impression\n    return row['total_revenue'] / (impressions + 1e-6)\n"
+        },
+        "0.01926042392357007": {
+            "name": "revenue_per_unit",
+            "code": "\n\ndef revenue_per_unit(row):\n    return row['total_revenue'] / (row['quantity_sold'] + 1e-6)\n"
+        },
+        "0.01856407093666194": {
+            "name": "profit_margin",
+            "code": "\n\ndef profit_margin(row):\n    return (row['price_per_unit'] * row['quantity_sold']) - row['total_revenue']\n"
+        },
+        "0.011375595739944936": {
+            "name": "is_weekend",
+            "code": "import datetime\n\ndef is_weekend(row):\n    date = datetime.strptime(row['date'], '%Y-%m-%d')\n    return 1 if date.weekday() >= 5 else 0\n"
+        },
+        "0.010148499045740392": {
+            "name": "day_of_week",
+            "code": "import datetime\n\ndef day_of_week(row):\n    date = datetime.strptime(row['date'], '%Y-%m-%d')\n    return date.weekday()\n"
+        },
+        "0": {
+            "name": "average_channel_clicks",
+            "code": "import pandas as pd\n\ndef average_channel_clicks(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the marketing_table.csv exists in aux_data\n    if 'marketing_table.csv' not in aux_data:\n        raise ValueError(\"The 'marketing_table.csv' is missing from aux_data.\")\n    \n    # Get the marketing dataframe\n    marketing_df = aux_data['marketing_table.csv']\n    \n    # Ensure the required columns exist in the marketing dataframe\n    required_columns = {'channels', 'clicks'}\n    if not required_columns.issubset(marketing_df.columns):\n        raise ValueError(f\"The marketing dataframe is missing required columns: {required_columns - set(marketing_df.columns)}\")\n    \n    # Calculate the mean clicks per channel\n    # Note: The 'channels' column may contain multiple channels (e.g., \"email,social_media\").\n    # We need to handle this by splitting the channels and calculating the mean clicks for each individual channel.\n    channel_clicks = []\n    for _, row in marketing_df.iterrows():\n        if pd.notna(row['channels']):  # Ensure 'channels' is not NaN\n            for channel in row['channels'].split(','):  # Split channels by comma\n                channel_clicks.append({'channel': channel.strip(), 'clicks': row['clicks']})\n    \n    # Create a new DataFrame for individual channels and their clicks\n    channel_clicks_df = pd.DataFrame(channel_clicks)\n    \n    # Calculate the mean clicks per channel\n    channel_mean_clicks = (\n        channel_clicks_df.groupby('channel')['clicks']\n        .mean()\n        .to_dict()\n    )\n    \n    # Get the channel from the input row\n    channel = row.get('channel', None)\n    \n    # Return the average clicks for the channel, or 0 if the channel is not found\n    return channel_mean_clicks.get(channel, 0)\n"
+        }
+    },
+    "feature_descriptions": [
+        "aggregate gdp growth",
+        "month",
+        "unemployment modifier",
+        "season of sale",
+        "marketing effectiveness",
+        "sales to budget ratio",
+        "average monthly precipitation",
+        "price to quantity ratio",
+        "impressions to clicks ratio",
+        "is weather favorable",
+        "revenue per impression",
+        "revenue per unit",
+        "profit margin",
+        "is weekend",
+        "day of week",
+        "average channel clicks"
+    ]
+}

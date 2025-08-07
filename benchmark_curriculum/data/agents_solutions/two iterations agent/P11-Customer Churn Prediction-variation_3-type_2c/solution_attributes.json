@@ -1,0 +1,71 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "days_since_last_top_up",
+        "average_payment_delay",
+        "days_since_last_feedback",
+        "high_value_top_up_frequency",
+        "top_up_to_payment_ratio",
+        "has_multiple_service_plans",
+        "complaint_days_since_signup",
+        "service_plan_churn_rate",
+        "gender_churn_rate",
+        "customer_complaint_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.31698204490357385": {
+            "name": "days_since_last_top_up",
+            "code": "import pandas as pd\n\ndef days_since_last_top_up(row, df_train, aux_dataframes):\n    top_up_df = aux_dataframes['top_up_activation_history_table.csv']\n    top_up_df['activation_date'] = pd.to_datetime(top_up_df['activation_date'])\n    last_top_up = top_up_df[top_up_df['customer_id'] == row['customer_id']]['activation_date'].max()\n    if pd.notnull(last_top_up):\n        return (pd.Timestamp.now() - last_top_up).days\n    return -1  # Indicates no top-up history\n"
+        },
+        "0.20438287888701068": {
+            "name": "average_payment_delay",
+            "code": "import pandas as pd\n\ndef average_payment_delay(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Use the billing history table from aux_data\n    billing_history = aux_data.get('billing_history_table.csv')\n    \n    # Check if the billing history table exists\n    if billing_history is None:\n        raise ValueError(\"The 'billing_history_table.csv' is missing in aux_data.\")\n    \n    # Filter the billing history for the specific customer\n    df_customer = billing_history[billing_history['customer_id'] == row['customer_id']]\n    \n    # If there are records for the customer, calculate the average payment delay\n    if not df_customer.empty:\n        # Calculate the delays in days\n        delays = (pd.to_datetime(df_customer['payment_date']) - pd.to_datetime(df_customer['billing_date'])).dt.days\n        return delays.mean()\n    \n    # If no records are found, return 0\n    return 0\n"
+        },
+        "0.1303599827979747": {
+            "name": "days_since_last_feedback",
+            "code": "import pandas as pd\n\ndef days_since_last_feedback(row, df_train, aux_dataframes):\n    feedback_df = aux_dataframes['customer_feedback_table.csv']\n    feedback_df['feedback_date'] = pd.to_datetime(feedback_df['feedback_date'])\n    last_feedback = feedback_df[feedback_df['customer_id'] == row['customer_id']]['feedback_date'].max()\n    if pd.notnull(last_feedback):\n        return (pd.Timestamp.now() - last_feedback).days\n    return -1  # Indicates no feedback history\n"
+        },
+        "0.07409790657289209": {
+            "name": "high_value_top_up_frequency",
+            "code": "\n\ndef high_value_top_up_frequency(row, df_train, aux_dataframes):\n    top_up_df = aux_dataframes['top_up_activation_history_table.csv']\n    high_value_topups = top_up_df[\n        (top_up_df['customer_id'] == row['customer_id']) & \n        (top_up_df['top_up_amount'] > 75)\n    ]\n    return len(high_value_topups)\n"
+        },
+        "0.05634280850400757": {
+            "name": "top_up_to_payment_ratio",
+            "code": "\n\ndef top_up_to_payment_ratio(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]) -> float:\n    # Extract the relevant auxiliary dataframe\n    top_up_df = aux_dataframes['top_up_activation_history_table.csv']\n    billing_df = aux_dataframes['billing_history_table.csv']\n    \n    # Calculate total top-up amount for the customer\n    total_top_up = top_up_df[top_up_df['customer_id'] == row['customer_id']]['top_up_amount'].sum()\n    \n    # Calculate total amount paid for the customer\n    total_paid = billing_df[billing_df['customer_id'] == row['customer_id']]['amount_paid'].sum()\n    \n    # Avoid division by zero\n    if total_paid > 0:\n        return total_top_up / total_paid\n    return 0\n"
+        },
+        "0.042951992385925": {
+            "name": "has_multiple_service_plans",
+            "code": "\n\ndef has_multiple_service_plans(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Access the billing history dataframe\n    billing_df = aux_data['billing_history_table.csv']\n    \n    # Filter the billing history for the given customer_id\n    customer_billing = billing_df[billing_df['customer_id'] == row['customer_id']]\n    \n    # Check if there are multiple unique 'amount_due' values (as a proxy for service plans)\n    unique_amounts = customer_billing['amount_due'].nunique()\n    \n    # Return 1 if there are multiple unique amounts, otherwise return 0\n    return int(unique_amounts > 1)\n"
+        },
+        "0.03930933365316675": {
+            "name": "complaint_days_since_signup",
+            "code": "import pandas as pd\n\ndef complaint_days_since_signup(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    feedback_df = aux_data['customer_feedback_table.csv']\n    \n    # Get the signup_date from the row\n    signup_date = row['signup_date']\n    \n    if pd.notnull(signup_date):\n        signup_date = pd.to_datetime(signup_date)\n        \n        # Filter complaints for the given customer_id\n        complaint_dates = pd.to_datetime(\n            feedback_df[\n                (feedback_df['customer_id'] == row['customer_id']) & \n                (feedback_df['feedback_type'] == 'Complaint')\n            ]['feedback_date']\n        )\n        \n        # If there are complaint dates, calculate the mean days since signup\n        if len(complaint_dates) > 0:\n            return (complaint_dates - signup_date).dt.days.mean()\n    \n    # Return -1 if no complaints history or signup_date is invalid\n    return -1\n"
+        },
+        "0.026903134643136928": {
+            "name": "service_plan_churn_rate",
+            "code": "\n\ndef service_plan_churn_rate(row, df_train):\n    # Filter out the current row to prevent target leakage\n    df_filtered = df_train[df_train['customer_id'] != row['customer_id']]\n    \n    # Ensure no data from the future is used\n    df_filtered = df_filtered[df_filtered['signup_date'] <= row['signup_date']]\n    \n    # Group by service_plan and calculate the mean churn rate\n    plan_groups = df_filtered.groupby('service_plan')['churn_status'].mean()\n    \n    # Return the churn rate for the row's service_plan, defaulting to 0 if not found\n    return plan_groups.get(row['service_plan'], 0)\n"
+        },
+        "0.020387720362036586": {
+            "name": "gender_churn_rate",
+            "code": "\n\ndef gender_churn_rate(row, df_train):\n    # Filter the training data to only include rows with a signup_date earlier than the current row's signup_date\n    df_filtered = df_train[df_train['signup_date'] < row['signup_date']]\n    \n    # Group by gender and calculate the mean churn_status for each gender\n    # If no data is available for a gender, return 0 as the default\n    if not df_filtered.empty:\n        gender_groups = df_filtered.groupby('gender')['churn_status'].mean()\n        return gender_groups.get(row['gender'], 0)\n    else:\n        return 0\n"
+        },
+        "0.00958386280493432": {
+            "name": "customer_complaint_ratio",
+            "code": "\n\ndef customer_complaint_ratio(row, df_train, aux_dataframes):\n    feedback_df = aux_dataframes['customer_feedback_table.csv']\n    customer_feedback = feedback_df[feedback_df['customer_id'] == row['customer_id']]\n    if len(customer_feedback) > 0:\n        complaint_count = len(customer_feedback[customer_feedback['feedback_type'] == 'Complaint'])\n        return complaint_count / len(customer_feedback)\n    return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "days since last top up",
+        "average payment delay",
+        "days since last feedback",
+        "high value top up frequency",
+        "top up to payment ratio",
+        "has multiple service plans",
+        "complaint days since signup",
+        "service plan churn rate",
+        "gender churn rate",
+        "customer complaint ratio"
+    ]
+}

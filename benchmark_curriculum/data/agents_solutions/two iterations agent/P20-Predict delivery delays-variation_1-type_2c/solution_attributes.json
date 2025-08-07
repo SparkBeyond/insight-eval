@@ -1,0 +1,71 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "delivery_date_year_month",
+        "delivery_lead_time",
+        "days_between_order_and_delivery",
+        "provider_rating",
+        "distance_adjusted_delay",
+        "total_order_items",
+        "delivery_cost_efficiency",
+        "feedback_delayed_proportion",
+        "elevated_distance_flag",
+        "warehouse_order_density"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5360922947739271": {
+            "name": "delivery_date_year_month",
+            "code": "import pandas as pd\n\ndef delivery_date_year_month(row):\n    delivery_date = pd.to_datetime(row['delivery_date'])\n    return delivery_date.year * 100 + delivery_date.month\n"
+        },
+        "0.40469738550721757": {
+            "name": "delivery_lead_time",
+            "code": "import pandas as pd\n\ndef delivery_lead_time(row):\n    scheduled_date = pd.to_datetime(row['scheduled_delivery_date'])\n    delivery_date = pd.to_datetime(row['delivery_date'])\n    lead_time = (delivery_date - scheduled_date).total_seconds() / (24 * 60 * 60)  # Lead time in days\n    return lead_time\n"
+        },
+        "0.37867189641116566": {
+            "name": "days_between_order_and_delivery",
+            "code": "import numpy as np\nimport pandas as pd\n\ndef days_between_order_and_delivery(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    order_data = aux_dataframes['order_details_table.csv']\n    order_date = order_data.loc[order_data['order_id'] == row['order_id'], 'order_date']\n    if not order_date.empty:\n        delivery_date = pd.to_datetime(row['delivery_date'])\n        order_date = pd.to_datetime(order_date.values[0])\n        return (delivery_date - order_date).days\n    return np.nan\n"
+        },
+        "0.19477086636644686": {
+            "name": "provider_rating",
+            "code": "import numpy as np\n\ndef provider_rating(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    provider_id = row['logistics_provider_id']\n    logistics_data = aux_dataframes['logistics_data_table.csv']\n    provider_rating = logistics_data.loc[logistics_data['logistics_provider_id'] == provider_id, 'customer_rating']\n    return provider_rating.values[0] if not provider_rating.empty else np.nan\n"
+        },
+        "0.08338506997992325": {
+            "name": "distance_adjusted_delay",
+            "code": "import numpy as np\n\ndef distance_adjusted_delay(row):\n    if row['distance_km'] > 0:\n        return row['delay_duration'] / row['distance_km']\n    return np.nan\n"
+        },
+        "0.024778422344797723": {
+            "name": "total_order_items",
+            "code": "import numpy as np\n\ndef total_order_items(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    order_data = aux_dataframes['order_details_table.csv']\n    order_items = order_data.loc[order_data['order_id'] == row['order_id'], 'order_total_items']\n    return order_items.values[0] if not order_items.empty else np.nan\n"
+        },
+        "0.02117595532174729": {
+            "name": "delivery_cost_efficiency",
+            "code": "\n\ndef delivery_cost_efficiency(row):\n    if row['distance_km'] > 0:\n        return row['delivery_cost'] / row['distance_km']\n    return 0\n"
+        },
+        "0.0196998489109706": {
+            "name": "feedback_delayed_proportion",
+            "code": "\n\ndef feedback_delayed_proportion(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    order_id = row['order_id']\n    feedback_data = aux_dataframes['customer_feedback_table.csv']\n    delay_feedback = feedback_data[feedback_data['order_id'] == order_id]['was_delayed']\n    return delay_feedback.mean() if not delay_feedback.empty else 0\n"
+        },
+        "0.0006333300461763422": {
+            "name": "elevated_distance_flag",
+            "code": "\n\ndef elevated_distance_flag(row):\n    return 1 if row['distance_km'] > 500 else 0\n"
+        },
+        "0": {
+            "name": "warehouse_order_density",
+            "code": "\n\ndef warehouse_order_density(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Use the correct dataframe from aux_data that contains the 'warehouse_id' column\n    order_details_df = aux_data.get('order_details_table.csv')\n    \n    if order_details_df is None:\n        raise ValueError(\"The 'order_details_table.csv' dataframe is missing from aux_data.\")\n    \n    # Group by 'warehouse_id' and count the number of orders\n    warehouse_orders = order_details_df.groupby('warehouse_id')['order_id'].count()\n    \n    # Get the warehouse_id from the current row\n    warehouse_id = row.get('warehouse_id')\n    \n    # Return the order count for the warehouse_id, or 0 if the warehouse_id is not found\n    return warehouse_orders.get(warehouse_id, 0)\n"
+        }
+    },
+    "feature_descriptions": [
+        "delivery date year month",
+        "delivery lead time",
+        "days between order and delivery",
+        "provider rating",
+        "distance adjusted delay",
+        "total order items",
+        "delivery cost efficiency",
+        "feedback delayed proportion",
+        "elevated distance flag",
+        "warehouse order density"
+    ]
+}

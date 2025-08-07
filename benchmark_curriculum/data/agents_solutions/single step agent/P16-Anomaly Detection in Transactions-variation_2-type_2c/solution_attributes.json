@@ -1,0 +1,125 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "anomalous_transaction_rate",
+        "high_risk_employment",
+        "transaction_month",
+        "regional_risk_mean",
+        "transaction_hour",
+        "average_daily_spending",
+        "transaction_day",
+        "spending_trend_slope",
+        "account_status_risk",
+        "transaction_type_ratio",
+        "transaction_count_per_merchant_category",
+        "max_transaction_amount",
+        "days_since_account_creation",
+        "mean_transaction_amount",
+        "count_transactions",
+        "transaction_is_weekend",
+        "transaction_to_balance_ratio",
+        "most_frequent_merchant_category",
+        "severity_level_multiplier"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.6643730802185465": {
+            "name": "anomalous_transaction_rate",
+            "code": "\n\ndef anomalous_transaction_rate(row, df_train: pd.DataFrame):\n    user_transactions = df_train[df_train['account_id'] == row['account_id']]\n    if not user_transactions.empty:\n        return user_transactions['anomalous'].mean()\n    return 0\n"
+        },
+        "0.15994464664660396": {
+            "name": "high_risk_employment",
+            "code": "\n\ndef high_risk_employment(row):\n    return int(row['employment_status_categorized_as_high_risk_'])\n"
+        },
+        "0.08733352804160505": {
+            "name": "transaction_month",
+            "code": "import pandas as pd\n\ndef transaction_month(row):\n    # Ensure the transaction_date is converted to a datetime object\n    transaction_date = pd.to_datetime(row['transaction_date'])\n    return transaction_date.month\n"
+        },
+        "0.0506319809911519": {
+            "name": "regional_risk_mean",
+            "code": "\n\ndef regional_risk_mean(row, aux_dataframes):\n    geospatial_data = aux_dataframes['geospatial_analysis_table.csv']\n    region_risks = geospatial_data.groupby('region')['risk_level'].mean().to_dict()\n    location_data = geospatial_data[geospatial_data['location_id'] == row['location_id']]\n    if not location_data.empty:\n        region = location_data['region'].values[0]\n        return region_risks.get(region, 0)\n    return 0\n"
+        },
+        "0.028933944867895082": {
+            "name": "transaction_hour",
+            "code": "import datetime\n\ndef transaction_hour(row):\n    # Convert the transaction_date string to a datetime object\n    transaction_date = datetime.strptime(row['transaction_date'], '%Y-%m-%d %H:%M:%S.%f')\n    # Return the hour of the transaction\n    return transaction_date.hour\n"
+        },
+        "0.02662715826195406": {
+            "name": "average_daily_spending",
+            "code": "import pandas as pd\n\ndef average_daily_spending(row, df_train: pd.DataFrame):\n    # Ensure 'transaction_date' is in datetime format\n    df_train['transaction_date'] = pd.to_datetime(df_train['transaction_date'])\n    \n    # Filter transactions for the specific account_id\n    user_transactions = df_train[df_train['account_id'] == row['account_id']]\n    \n    if not user_transactions.empty:\n        # Calculate the number of active days\n        days_active = (user_transactions['transaction_date'].max() - user_transactions['transaction_date'].min()).days + 1\n        \n        # Calculate and return the average daily spending\n        return user_transactions['amount'].sum() / max(1, days_active)\n    \n    # Return 0 if no transactions are found for the account_id\n    return 0\n"
+        },
+        "0.02390817602220183": {
+            "name": "transaction_day",
+            "code": "import pandas as pd\n\ndef transaction_day(row):\n    # Convert the transaction_date to a datetime object\n    transaction_date = pd.to_datetime(row['transaction_date'])\n    # Return the day of the week (0=Monday, 6=Sunday)\n    return transaction_date.day_of_week\n"
+        },
+        "0.02068885511473467": {
+            "name": "spending_trend_slope",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef spending_trend_slope(row, df_train: pd.DataFrame):\n    # Filter transactions for the given account_id\n    user_transactions = df_train[df_train['account_id'] == row['account_id']]\n    \n    if not user_transactions.empty:\n        # Ensure 'transaction_date' is in datetime format\n        user_transactions['transaction_date'] = pd.to_datetime(user_transactions['transaction_date'])\n        \n        # Sort transactions by date\n        user_transactions = user_transactions.sort_values(by='transaction_date')\n        \n        # Calculate days from the start date\n        days_from_start = (user_transactions['transaction_date'] - user_transactions['transaction_date'].min()).dt.days\n        \n        # Fit a linear regression line and return the slope\n        return np.polyfit(days_from_start, user_transactions['amount'], 1)[0]\n    \n    # Return 0 if no transactions are found for the account_id\n    return 0\n"
+        },
+        "0.016128835754940573": {
+            "name": "account_status_risk",
+            "code": "\n\ndef account_status_risk(row, aux_dataframes):\n    account_data = aux_dataframes['account_profile_table.csv']\n    account_row = account_data[account_data['account_id'] == row['account_id']]\n    if not account_row.empty:\n        status = account_row['account_status'].iloc[0]\n        status_risk_map = {'active': 1, 'suspended': 2, 'closed': 3}\n        return status_risk_map.get(status, 0)\n    return 0\n"
+        },
+        "0.014955373581998693": {
+            "name": "transaction_type_ratio",
+            "code": "\n\ndef transaction_type_ratio(row, df_train: pd.DataFrame):\n    user_transactions = df_train[df_train['account_id'] == row['account_id']]\n    if not user_transactions.empty:\n        count_type = user_transactions['transaction_type'].value_counts(normalize=True)\n        return count_type.get('withdrawal', 0) / max(1, count_type.get('purchase', 1))\n    return 0\n"
+        },
+        "0.01468031714683529": {
+            "name": "transaction_count_per_merchant_category",
+            "code": "\n\ndef transaction_count_per_merchant_category(row, df_train: pd.DataFrame):\n    user_transactions = df_train[df_train['account_id'] == row['account_id']]\n    if not user_transactions.empty:\n        return user_transactions['merchant_category'].value_counts().to_dict().get(row['merchant_category'], 0)\n    return 0\n"
+        },
+        "0.008583933735575791": {
+            "name": "max_transaction_amount",
+            "code": "\n\ndef max_transaction_amount(row, df_train: pd.DataFrame):\n    user_transactions = df_train[df_train['account_id'] == row['account_id']]\n    return user_transactions['amount'].max() if not user_transactions.empty else 0\n"
+        },
+        "0.008412536002614178": {
+            "name": "days_since_account_creation",
+            "code": "import pandas as pd\nimport datetime\nimport numpy as np\n\ndef days_since_account_creation(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the account profile table from the auxiliary data\n    account_data = aux_data['account_profile_table.csv']\n    \n    # Filter the account data to find the row matching the account_id in the input row\n    account_row = account_data[account_data['account_id'] == row['account_id']]\n    \n    # If a matching account row is found, calculate the days since account creation\n    if not account_row.empty:\n        account_creation_date = pd.to_datetime(account_row['account_creation_date']).iloc[0]\n        return (datetime.now() - account_creation_date).days\n    \n    # If no matching account row is found, return NaN\n    return np.nan\n"
+        },
+        "0.007906269838502799": {
+            "name": "mean_transaction_amount",
+            "code": "\n\ndef mean_transaction_amount(row, df_train: pd.DataFrame):\n    user_transactions = df_train[df_train['account_id'] == row['account_id']]\n    return user_transactions['amount'].mean() if not user_transactions.empty else 0\n"
+        },
+        "0.0058457138551531096": {
+            "name": "count_transactions",
+            "code": "\n\ndef count_transactions(row, df_train: pd.DataFrame):\n    user_transactions = df_train[df_train['account_id'] == row['account_id']]\n    return user_transactions.shape[0]\n"
+        },
+        "0.0015261620228991136": {
+            "name": "transaction_is_weekend",
+            "code": "import pandas as pd\n\ndef transaction_is_weekend(row):\n    # Ensure transaction_date is a datetime object\n    transaction_date = pd.to_datetime(row['transaction_date'])\n    # Check if the day of the week is Saturday (5) or Sunday (6)\n    return 1 if transaction_date.day_of_week >= 5 else 0\n"
+        },
+        "0.00028721717836848273": {
+            "name": "transaction_to_balance_ratio",
+            "code": "import numpy as np\n\ndef transaction_to_balance_ratio(row, aux_dataframes):\n    account_data = aux_dataframes['account_profile_table.csv']\n    account_row = account_data[account_data['account_id'] == row['account_id']]\n    if not account_row.empty and account_row['account_balance'].iloc[0] > 0:\n        return row['amount'] / account_row['account_balance'].iloc[0]\n    return np.nan\n"
+        },
+        "4.403949753217784e-05": {
+            "name": "most_frequent_merchant_category",
+            "code": "\n\ndef most_frequent_merchant_category(row, df_train: pd.DataFrame):\n    user_transactions = df_train[df_train['account_id'] == row['account_id']]\n    if not user_transactions.empty:\n        return user_transactions['merchant_category'].mode()[0]\n    return None\n"
+        },
+        "0": {
+            "name": "severity_level_multiplier",
+            "code": "\n\ndef severity_level_multiplier(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Check if 'pattern_id' exists in the row\n    if 'pattern_id' not in row:\n        # If 'pattern_id' is missing, return the default severity level of 1\n        return 1\n\n    # Retrieve the fraudulent patterns dataframe from aux_data\n    fraudulent_patterns = aux_data.get('fraudulent_pattern_indicators_table.csv')\n    \n    # Ensure the fraudulent_patterns dataframe is not None and contains the required columns\n    if fraudulent_patterns is None or 'pattern_id' not in fraudulent_patterns.columns or 'severity_level' not in fraudulent_patterns.columns:\n        # If the dataframe is missing or does not have the required columns, return the default severity level of 1\n        return 1\n\n    # Filter the fraudulent patterns dataframe for the matching pattern_id\n    pattern_row = fraudulent_patterns[fraudulent_patterns['pattern_id'] == row['pattern_id']]\n    \n    # Check if a matching row exists\n    if not pattern_row.empty:\n        # Return the severity level of the first matching row\n        return pattern_row['severity_level'].iloc[0]\n    \n    # If no matching row is found, return the default severity level of 1\n    return 1\n"
+        }
+    },
+    "feature_descriptions": [
+        "anomalous transaction rate",
+        "high risk employment",
+        "transaction month",
+        "regional risk mean",
+        "transaction hour",
+        "average daily spending",
+        "transaction day",
+        "spending trend slope",
+        "account status risk",
+        "transaction type ratio",
+        "transaction count per merchant category",
+        "max transaction amount",
+        "days since account creation",
+        "mean transaction amount",
+        "count transactions",
+        "transaction is weekend",
+        "transaction to balance ratio",
+        "most frequent merchant category",
+        "severity level multiplier"
+    ]
+}

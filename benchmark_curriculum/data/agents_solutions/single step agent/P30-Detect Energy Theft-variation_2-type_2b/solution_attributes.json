@@ -1,0 +1,107 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "energy_anomaly_score",
+        "energy_efficiency",
+        "late_fee_incurred",
+        "energy_usage_category",
+        "frequent_late_payer",
+        "is_weekend",
+        "season_encoding",
+        "billing_cycle_duration",
+        "heating_season_flag",
+        "day_of_week",
+        "temperature_deviation",
+        "account_age_in_years",
+        "high_billing_flag",
+        "average_energy_usage",
+        "time_of_day",
+        "peak_usage_hot_day"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.25493214443084006": {
+            "name": "energy_anomaly_score",
+            "code": "\n\ndef energy_anomaly_score(row, df_train: pd.DataFrame):\n    # Ensure the column name matches the provided dataframe\n    mean_usage = df_train['energy_used_kwh'].mean()\n    std_usage = df_train['energy_used_kwh'].std()\n    return (row['energy_used_kwh'] - mean_usage) / std_usage\n"
+        },
+        "0.13944588260492272": {
+            "name": "energy_efficiency",
+            "code": "\n\ndef energy_efficiency(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the billing information table from aux_data\n    billing_info = aux_data.get('billing_information_table.csv')\n    \n    # Ensure the billing information table exists\n    if billing_info is None:\n        raise ValueError(\"Billing information table is missing from aux_data.\")\n    \n    # Find the billing record for the given customer_id\n    customer_id = row['customer_id']\n    billing_record = billing_info[billing_info['customer_id'] == customer_id]\n    \n    # Ensure there is a billing record for the customer\n    if billing_record.empty:\n        return None\n    \n    # Extract the billing amount (assuming the latest billing record is relevant)\n    billing_amount = billing_record.iloc[-1]['billing_amount']\n    \n    # Handle the case where billing_amount is 0\n    if billing_amount == 0:\n        return None\n    \n    # Use the energy consumption from the row (assuming 'energy_used_kwh' is the energy consumption)\n    energy_consumption = row['energy_used_kwh']\n    \n    # Calculate and return energy efficiency\n    return energy_consumption / billing_amount\n"
+        },
+        "0.07245593527470315": {
+            "name": "late_fee_incurred",
+            "code": "\n\ndef late_fee_incurred(row, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Retrieve the billing information table\n    billing_info_df = aux_data['billing_information_table.csv']\n    \n    # Find the corresponding billing record for the given customer_id\n    customer_id = row['customer_id']\n    billing_record = billing_info_df[billing_info_df['customer_id'] == customer_id]\n    \n    # If no billing record is found, assume no late fee\n    if billing_record.empty:\n        return 0\n    \n    # Check if any late payment fee exists for the customer\n    late_fee = billing_record['late_payment_fee'].max()  # Use max in case of multiple records\n    return 1 if late_fee > 0 else 0\n"
+        },
+        "0.05702254735761747": {
+            "name": "energy_usage_category",
+            "code": "\n\ndef energy_usage_category(row, df_train: pd.DataFrame):\n    # Ensure the column name matches the actual data\n    if 'energy_used_kwh' not in df_train.columns:\n        raise ValueError(\"The dataframe does not contain the required 'energy_used_kwh' column.\")\n    \n    # Calculate the median energy usage\n    median_usage = df_train['energy_used_kwh'].median()\n    \n    # Return the category based on the median\n    return \"High\" if row['energy_used_kwh'] > median_usage else \"Low\"\n"
+        },
+        "0.02248869055167068": {
+            "name": "frequent_late_payer",
+            "code": "\n\ndef frequent_late_payer(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Access the billing information dataframe from aux_data\n    billing_df = aux_data['billing_information_table.csv']\n    \n    # Filter the billing dataframe for the given customer_id and count late payment fees\n    late_fee_count = len(billing_df[(billing_df['customer_id'] == customer_id) & (billing_df['late_payment_fee'] > 0)])\n    \n    # Return 1 if the customer has 3 or more late payment fees, otherwise return 0\n    return 1 if late_fee_count >= 3 else 0\n"
+        },
+        "0.021453378775008546": {
+            "name": "is_weekend",
+            "code": "import pandas as pd\n\ndef is_weekend(row):\n    day_of_week = pd.to_datetime(row['timestamp']).dayofweek\n    return 1 if day_of_week in [5, 6] else 0\n"
+        },
+        "0.01854578481301215": {
+            "name": "season_encoding",
+            "code": "import pandas as pd\n\ndef season_encoding(row):\n    month = pd.to_datetime(row['timestamp']).month\n    if month in [12, 1, 2]:\n        return 0  # Winter\n    elif month in [3, 4, 5]:\n        return 1  # Spring\n    elif month in [6, 7, 8]:\n        return 2  # Summer\n    else:\n        return 3  # Fall\n"
+        },
+        "0.018159942694666052": {
+            "name": "billing_cycle_duration",
+            "code": "import pandas as pd\n\ndef billing_cycle_duration(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Get the billing information table from aux_data\n    billing_info_df = aux_data.get('billing_information_table.csv')\n    \n    # Ensure the billing information table exists\n    if billing_info_df is None:\n        raise ValueError(\"The 'billing_information_table.csv' is missing from aux_data.\")\n    \n    # Ensure customer_id in both row and billing_info_df are of the same type\n    if not pd.api.types.is_numeric_dtype(billing_info_df['customer_id']):\n        billing_info_df['customer_id'] = pd.to_numeric(billing_info_df['customer_id'], errors='coerce')\n    if not isinstance(customer_id, (int, float)):\n        try:\n            customer_id = int(customer_id)\n        except ValueError:\n            raise ValueError(f\"Invalid customer_id: {customer_id}. Unable to convert to integer.\")\n    \n    # Find the billing record for the given customer_id\n    customer_billing_info = billing_info_df[billing_info_df['customer_id'] == customer_id]\n    \n    # Ensure there is at least one billing record for the customer\n    if customer_billing_info.empty:\n        return None  # Return None if no billing information is found for the customer\n    \n    # Use the first billing record for the customer (or modify logic if needed)\n    billing_record = customer_billing_info.iloc[0]\n    \n    # Calculate the billing cycle duration\n    try:\n        due_date = pd.to_datetime(billing_record['due_date'])\n        bill_generated_date = pd.to_datetime(billing_record['billing_date'])  # Assuming 'billing_date' is the bill generation date\n        return (due_date - bill_generated_date).days\n    except KeyError as e:\n        raise ValueError(f\"Missing required column in billing information: {e}\")\n    except Exception as e:\n        raise ValueError(f\"Error calculating billing cycle duration: {e}\")\n"
+        },
+        "0.013554065080827607": {
+            "name": "heating_season_flag",
+            "code": "import pandas as pd\n\ndef heating_season_flag(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the weather data table from aux_dataframes\n    weather_data = aux_dataframes.get('weather_data_table.csv')\n    \n    if weather_data is None:\n        raise ValueError(\"The 'weather_data_table.csv' dataframe is missing from aux_dataframes.\")\n    \n    # Convert the timestamp in the row to a pandas datetime object\n    row_timestamp = pd.to_datetime(row['timestamp'])\n    \n    # Find the closest weather data entry for the given timestamp\n    weather_data['timestamp'] = pd.to_datetime(weather_data['timestamp'])\n    closest_weather = weather_data.loc[\n        (weather_data['timestamp'] - row_timestamp).abs().idxmin()\n    ]\n    \n    # Check the temperature and return the heating season flag\n    return 1 if closest_weather['temperature_celsius'] < 0 else 0\n"
+        },
+        "0.00921249632741908": {
+            "name": "day_of_week",
+            "code": "import pandas as pd\n\ndef day_of_week(row):\n    return pd.to_datetime(row['timestamp']).dayofweek\n"
+        },
+        "0.007393586124063306": {
+            "name": "temperature_deviation",
+            "code": "import pandas as pd\n\ndef temperature_deviation(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> float:\n    \"\"\"\n    Compute the deviation of the temperature for a specific day from the average temperature.\n    \n    row: pd.Series of the current data row\n    aux_data: Dictionary of auxiliary datasets, including the key `'weather_data_table.csv'`.\n\n    Returns:\n        Float value of temperature deviation.\n    \"\"\"\n    # Ensure the correct key is used to access the weather data table\n    weather_data = aux_data.get('weather_data_table.csv')\n    if weather_data is None:\n        raise KeyError(\"The key 'weather_data_table.csv' is missing in the auxiliary data.\")\n\n    # Parse the timestamp from the row to match the date\n    row_date = pd.to_datetime(row['timestamp']).date()\n\n    # Filter the weather data to find the temperature for the specific date\n    weather_data['date'] = pd.to_datetime(weather_data['timestamp']).dt.date\n    daily_weather = weather_data[weather_data['date'] == row_date]\n\n    if daily_weather.empty:\n        raise ValueError(f\"No weather data found for the date: {row_date}\")\n\n    # Get the temperature for the specific day\n    daily_temperature = daily_weather['temperature_celsius'].mean()\n\n    # Compute average temperature from the weather data auxiliary table\n    avg_temp = weather_data['temperature_celsius'].mean()\n\n    # Calculate the deviation for the current row's temperature\n    return daily_temperature - avg_temp\n"
+        },
+        "0.003452643699434807": {
+            "name": "account_age_in_years",
+            "code": "import pandas as pd\n\ndef account_age_in_years(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Get the customer_profile_table dataframe from aux_data\n    customer_profile_df = aux_data['customer_profile_table.csv']\n    \n    # Find the signup_date for the given customer_id\n    account_creation_date = customer_profile_df.loc[\n        customer_profile_df['customer_id'] == customer_id, 'signup_date'\n    ].values\n    \n    # If no account_creation_date is found, return None\n    if len(account_creation_date) == 0:\n        return None\n    \n    # Convert the account_creation_date and timestamp to datetime\n    account_creation_date = pd.to_datetime(account_creation_date[0])\n    timestamp = pd.to_datetime(row['timestamp'])\n    \n    # Calculate the difference in years\n    return timestamp.year - account_creation_date.year\n"
+        },
+        "0.0020946904703996448": {
+            "name": "high_billing_flag",
+            "code": "import pandas as pd\n\ndef high_billing_flag(row, aux_data: Dict[str, pd.DataFrame]):\n    import pandas as pd\n    \n    # Access the billing information table from aux_data\n    billing_df = aux_data['billing_information_table.csv']\n    \n    # Calculate the 75th percentile (threshold) of the billing_amount column\n    threshold = billing_df['billing_amount'].quantile(0.75)\n    \n    # Match the row's customer_id with the billing_df to find the corresponding billing_amount\n    customer_id = row['customer_id']\n    customer_billing = billing_df[billing_df['customer_id'] == customer_id]\n    \n    # If there are no matching billing records, return 0 (no high billing flag)\n    if customer_billing.empty:\n        return 0\n    \n    # Get the most recent billing_amount for the customer\n    # Assuming the most recent billing is determined by the billing_date\n    most_recent_billing = customer_billing.sort_values('billing_date', ascending=False).iloc[0]\n    billing_amount = most_recent_billing['billing_amount']\n    \n    # Check if the billing_amount exceeds the threshold\n    return 1 if billing_amount > threshold else 0\n"
+        },
+        "0.00204308386380244": {
+            "name": "average_energy_usage",
+            "code": "\n\ndef average_energy_usage(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    # Access the meter readings table from aux_data\n    meter_readings_df = aux_data['meter_readings_table.csv']\n    # Filter the meter readings for the given customer_id and calculate the mean of 'meter_reading_kwh'\n    return meter_readings_df[meter_readings_df['customer_id'] == customer_id]['meter_reading_kwh'].mean()\n"
+        },
+        "-0.00041528196922113736": {
+            "name": "time_of_day",
+            "code": "import pandas as pd\n\ndef time_of_day(row):\n    hour = pd.to_datetime(row['timestamp']).hour\n    if hour < 6:\n        return \"Night\"\n    elif hour < 12:\n        return \"Morning\"\n    elif hour < 18:\n        return \"Afternoon\"\n    else:\n        return \"Evening\"\n"
+        },
+        "0": {
+            "name": "peak_usage_hot_day",
+            "code": "import pandas as pd\n\ndef peak_usage_hot_day(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure 'weather_data_table.csv' exists in aux_dataframes\n    if 'weather_data_table.csv' not in aux_dataframes:\n        raise KeyError(\"'weather_data_table.csv' not found in aux_dataframes\")\n    \n    # Access the weather data table\n    weather_data = aux_dataframes['weather_data_table.csv']\n    \n    # Ensure the required column exists in the weather data\n    if 'temperature_celsius' not in weather_data.columns:\n        raise KeyError(\"'temperature_celsius' column not found in weather_data_table.csv\")\n    \n    # Ensure the 'timestamp' column exists in both dataframes\n    if 'timestamp' not in weather_data.columns or 'timestamp' not in df_train.columns:\n        raise KeyError(\"'timestamp' column not found in one of the dataframes\")\n    \n    # Convert timestamps to datetime for proper comparison\n    weather_data['timestamp'] = pd.to_datetime(weather_data['timestamp'])\n    df_train['timestamp'] = pd.to_datetime(df_train['timestamp'])\n    \n    # Merge the weather data with the training data on the timestamp\n    merged_data = pd.merge(df_train, weather_data, on='timestamp', how='left')\n    \n    # Calculate the 75th percentile for temperature and energy consumption\n    hot_temp = merged_data['temperature_celsius'].quantile(0.75)\n    usage_high = df_train['energy_used_kwh'].quantile(0.75)\n    \n    # Get the temperature for the current row\n    current_temp = merged_data.loc[merged_data['consumption_id'] == row['consumption_id'], 'temperature_celsius'].values[0]\n    \n    # Return 1 if the conditions are met, otherwise return 0\n    return 1 if (row['energy_used_kwh'] > usage_high) and (current_temp > hot_temp) else 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "energy anomaly score",
+        "energy efficiency",
+        "late fee incurred",
+        "energy usage category",
+        "frequent late payer",
+        "is weekend",
+        "season encoding",
+        "billing cycle duration",
+        "heating season flag",
+        "day of week",
+        "temperature deviation",
+        "account age in years",
+        "high billing flag",
+        "average energy usage",
+        "time of day",
+        "peak usage hot day"
+    ]
+}

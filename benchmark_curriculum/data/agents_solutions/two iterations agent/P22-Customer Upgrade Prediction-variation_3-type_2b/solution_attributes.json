@@ -1,0 +1,32 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "monthly_plan_usage_average",
+        "average_late_payment_days",
+        "billing_amount_stddev",
+        "average_bill_amount",
+        "total_previous_payments",
+        "competitor_price_difference",
+        "income_level",
+        "late_payment_frequency",
+        "gender_mapping",
+        "payment_timeliness_rate",
+        "plan_upgrade_amount"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "monthly plan usage average",
+        "average late payment days",
+        "billing amount stddev",
+        "average bill amount",
+        "total previous payments",
+        "competitor price difference",
+        "income level",
+        "late payment frequency",
+        "gender mapping",
+        "payment timeliness rate",
+        "plan upgrade amount"
+    ]
+}

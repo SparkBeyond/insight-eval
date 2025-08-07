@@ -1,0 +1,22 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "total_transaction_amount",
+        "avg_sale_amount",
+        "high_value_customer",
+        "high_transaction_indicator",
+        "registration_month",
+        "days_since_last_sale"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "total transaction amount",
+        "avg sale amount",
+        "high value customer",
+        "high transaction indicator",
+        "registration month",
+        "days since last sale"
+    ]
+}

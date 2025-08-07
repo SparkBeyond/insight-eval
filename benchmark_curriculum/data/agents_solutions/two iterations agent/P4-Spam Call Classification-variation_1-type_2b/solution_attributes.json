@@ -1,0 +1,131 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "total_spam_calls_by_user",
+        "days_since_registration",
+        "spam_call_ratio",
+        "total_calls_by_user",
+        "user_call_cost_ratio",
+        "call_cost_decile",
+        "spam_reports_count",
+        "call_day_of_week",
+        "unique_recipients_from_patterns",
+        "call_duration",
+        "flagged_call_cost_proportion",
+        "account_status_flag",
+        "call_hour",
+        "avg_call_duration",
+        "outgoing_call_flag",
+        "avg_spam_severity",
+        "cost_per_second",
+        "call_month",
+        "call_type_encoded",
+        "peak_hours_match"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.7952541806386189": {
+            "name": "total_spam_calls_by_user",
+            "code": "\n\ndef total_spam_calls_by_user(row, df_train: pd.DataFrame):\n    user_spam_calls = df_train[(df_train[\"user_id\"] == row[\"user_id\"]) & (df_train[\"spam_flag\"] == 1)]\n    return len(user_spam_calls)\n"
+        },
+        "0.49591225087926877": {
+            "name": "days_since_registration",
+            "code": "import datetime\nimport pandas as pd\n\ndef days_since_registration(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    profiles_df = aux_dataframes[\"user_profiles_table.csv\"]\n    profile = profiles_df[profiles_df[\"user_id\"] == row[\"user_id\"]]\n    if not profile.empty:\n        reg_date = pd.to_datetime(profile[\"registration_date\"].iloc[0])\n        return (datetime.now() - reg_date).days\n    return None\n"
+        },
+        "0.08210407610075811": {
+            "name": "spam_call_ratio",
+            "code": "\n\ndef spam_call_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    patterns_df = aux_dataframes[\"calling_patterns_table.csv\"]\n    user_pattern = patterns_df[patterns_df[\"user_id\"] == row[\"user_id\"]]\n    return (user_pattern[\"spam_calls_count\"].sum() / user_pattern[\"total_calls\"].sum()) if not user_pattern.empty else 0\n"
+        },
+        "0.07983560127521754": {
+            "name": "total_calls_by_user",
+            "code": "\n\ndef total_calls_by_user(row, df_train: pd.DataFrame):\n    user_calls = df_train[df_train[\"user_id\"] == row[\"user_id\"]]\n    return len(user_calls)\n"
+        },
+        "0.056690349147890465": {
+            "name": "user_call_cost_ratio",
+            "code": "\n\ndef user_call_cost_ratio(row, df_train: pd.DataFrame):\n    user_calls = df_train[df_train[\"user_id\"] == row[\"user_id\"]]\n    total_cost = user_calls[\"call_cost\"].sum()\n    return row[\"call_cost\"] / total_cost if total_cost > 0 else 0\n"
+        },
+        "0.043660378660091044": {
+            "name": "call_cost_decile",
+            "code": "\n\ndef call_cost_decile(row, df_train: pd.DataFrame):\n    call_costs = df_train[\"call_cost\"].rank(pct=True)\n    return call_costs.iloc[row.name] * 10  # Return decile ranking (1-10)\n"
+        },
+        "0.0431421443279729": {
+            "name": "spam_reports_count",
+            "code": "\n\ndef spam_reports_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    spam_df = aux_dataframes[\"spam_reports_table.csv\"]\n    user_reports = spam_df[spam_df[\"user_id\"] == row[\"user_id\"]]\n    return len(user_reports)\n"
+        },
+        "0.031751769740916015": {
+            "name": "call_day_of_week",
+            "code": "import pandas as pd\n\ndef call_day_of_week(row):\n    try:\n        return pd.to_datetime(row[\"call_start_time\"]).weekday()\n    except Exception:\n        return None\n"
+        },
+        "0.028968344944454022": {
+            "name": "unique_recipients_from_patterns",
+            "code": "\n\ndef unique_recipients_from_patterns(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    patterns_df = aux_dataframes[\"calling_patterns_table.csv\"]\n    user_pattern = patterns_df[patterns_df[\"user_id\"] == row[\"user_id\"]]\n    return user_pattern[\"unique_recipients\"].sum() if not user_pattern.empty else 0\n"
+        },
+        "0.02625693004452573": {
+            "name": "call_duration",
+            "code": "import pandas as pd\n\ndef call_duration(row):\n    try:\n        start_time = pd.to_datetime(row[\"call_start_time\"])\n        end_time = pd.to_datetime(row[\"call_end_time\"])\n        return (end_time - start_time).total_seconds()\n    except Exception:\n        return None\n"
+        },
+        "0.023854162169785597": {
+            "name": "flagged_call_cost_proportion",
+            "code": "\n\ndef flagged_call_cost_proportion(row, df_train: pd.DataFrame):\n    user_flagged_calls = df_train[(df_train[\"user_id\"] == row[\"user_id\"]) & (df_train[\"is_flagged_spam\"] == True)]\n    return user_flagged_calls[\"call_cost\"].sum() / row[\"call_cost\"] if row[\"call_cost\"] > 0 else 0\n"
+        },
+        "0.021333273302126265": {
+            "name": "account_status_flag",
+            "code": "\n\ndef account_status_flag(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    profiles_df = aux_dataframes[\"user_profiles_table.csv\"]\n    profile = profiles_df[profiles_df[\"user_id\"] == row[\"user_id\"]]\n    return 1 if not profile.empty and profile[\"account_status\"].iloc[0] == \"active\" else 0\n"
+        },
+        "0.021017313062977026": {
+            "name": "call_hour",
+            "code": "import pandas as pd\n\ndef call_hour(row):\n    try:\n        return pd.to_datetime(row[\"call_start_time\"]).hour\n    except Exception:\n        return None\n"
+        },
+        "0.01742311480693219": {
+            "name": "avg_call_duration",
+            "code": "\n\ndef avg_call_duration(row, df_train: pd.DataFrame):\n    user_calls = df_train[df_train[\"user_id\"] == row[\"user_id\"]]\n    durations = user_calls.apply(call_duration, axis=1)\n    return durations.mean() if len(durations) > 0 else 0\n"
+        },
+        "0.010014584192519847": {
+            "name": "outgoing_call_flag",
+            "code": "\n\ndef outgoing_call_flag(row):\n    return 1 if row[\"call_type\"] == \"outgoing\" else 0\n"
+        },
+        "0.009001503116445228": {
+            "name": "avg_spam_severity",
+            "code": "\n\ndef avg_spam_severity(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    spam_df = aux_dataframes[\"spam_reports_table.csv\"]\n    user_reports = spam_df[spam_df[\"user_id\"] == row[\"user_id\"]]\n    return user_reports[\"spam_severity\"].mean() if not user_reports.empty else 0\n"
+        },
+        "0.008312811134825765": {
+            "name": "cost_per_second",
+            "code": "import pandas as pd\n\ndef call_duration(row):\n    try:\n        start_time = pd.to_datetime(row[\"call_start_time\"])\n        end_time = pd.to_datetime(row[\"call_end_time\"])\n        return (end_time - start_time).total_seconds()\n    except Exception:\n        return None\n\ndef cost_per_second(row):\n    duration = call_duration(row)\n    return row[\"call_cost\"] / duration if duration > 0 else None\n"
+        },
+        "0.007715123668438659": {
+            "name": "call_month",
+            "code": "import pandas as pd\n\ndef call_month(row):\n    try:\n        return pd.to_datetime(row[\"call_start_time\"]).month\n    except Exception:\n        return None\n"
+        },
+        "0.004465858373653651": {
+            "name": "call_type_encoded",
+            "code": "\n\ndef call_type_encoded(row):\n    call_type_map = {\"outgoing\": 0, \"incoming\": 1, \"missed\": 2}\n    return call_type_map.get(row[\"call_type\"], -1)\n"
+        },
+        "0.003879509235909205": {
+            "name": "peak_hours_match",
+            "code": "import pandas as pd\n\ndef call_hour(row):\n    try:\n        return pd.to_datetime(row[\"call_start_time\"]).hour\n    except Exception:\n        return None\n\ndef peak_hours_match(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    patterns_df = aux_dataframes[\"calling_patterns_table.csv\"]\n    user_pattern = patterns_df[patterns_df[\"user_id\"] == row[\"user_id\"]]\n    if not user_pattern.empty:\n        peak_hours = user_pattern[\"peak_calling_hours\"].iloc[0]\n        call_hour_row = call_hour(row)\n        if isinstance(peak_hours, str) and str(call_hour_row) in peak_hours:\n            return 1\n    return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "total spam calls by user",
+        "days since registration",
+        "spam call ratio",
+        "total calls by user",
+        "user call cost ratio",
+        "call cost decile",
+        "spam reports count",
+        "call day of week",
+        "unique recipients from patterns",
+        "call duration",
+        "flagged call cost proportion",
+        "account status flag",
+        "call hour",
+        "avg call duration",
+        "outgoing call flag",
+        "avg spam severity",
+        "cost per second",
+        "call month",
+        "call type encoded",
+        "peak hours match"
+    ]
+}

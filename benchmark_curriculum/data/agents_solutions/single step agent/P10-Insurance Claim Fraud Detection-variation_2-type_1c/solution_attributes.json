@@ -1,0 +1,71 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "annualized_premium",
+        "average_time_between_incidents",
+        "calculate_claim_frequency",
+        "has_investigations",
+        "total_claims_amount",
+        "payment_failure_rate",
+        "regional_premium_rank",
+        "calculate_policyholder_age",
+        "successful_claim_percentage",
+        "has_renewed_policy"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.14769334962445502": {
+            "name": "annualized_premium",
+            "code": "\n\ndef annualized_premium(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the policyholder table\n    policyholder_df = aux_dataframes['policyholder_table.csv']\n    \n    # Filter the policyholder dataframe for the matching policyholder_id\n    policyholder_data = policyholder_df[policyholder_df['policyholder_id'] == row['policyholder_id']]\n    \n    # Ensure there is a matching policyholder_id\n    if policyholder_data.empty:\n        return None\n    \n    # Extract premium and payment frequency\n    premium = policyholder_data['premium_amount'].values[0]\n    frequency = policyholder_data['payment_frequency'].values[0]\n    \n    # Calculate the annualized premium based on payment frequency\n    if frequency == 'Monthly':\n        return premium * 12\n    elif frequency == 'Quarterly':\n        return premium * 4\n    elif frequency == 'Annually':\n        return premium\n    \n    # Return None if the payment frequency is not recognized\n    return None\n"
+        },
+        "0.1072738358586123": {
+            "name": "average_time_between_incidents",
+            "code": "import pandas as pd\n\ndef average_time_between_incidents(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the correct key is used for the claim history table\n    claim_history_df = aux_dataframes.get('claim_history_table.csv')\n    \n    if claim_history_df is None:\n        raise KeyError(\"The key 'claim_history_table.csv' is not found in aux_dataframes.\")\n    \n    # Filter the claim history for the given policyholder_id\n    claim_dates = claim_history_df['claim_date'][\n        claim_history_df['policyholder_id'] == row['policyholder_id']\n    ]\n    \n    # Ensure claim_dates is not empty and has more than one entry\n    if len(claim_dates) > 1:\n        # Convert claim_date to datetime objects\n        claim_dates = pd.to_datetime(claim_dates)\n        \n        # Sort the dates\n        claim_dates = sorted(claim_dates)\n        \n        # Calculate the gaps between consecutive dates\n        gaps = [(claim_dates[i + 1] - claim_dates[i]).days for i in range(len(claim_dates) - 1)]\n        \n        # Return the average gap\n        return sum(gaps) / len(gaps)\n    \n    # If there are no or only one claim date, return 0\n    return 0\n"
+        },
+        "0.09733037599907621": {
+            "name": "calculate_claim_frequency",
+            "code": "import datetime\nimport pandas as pd\n\ndef calculate_claim_frequency(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the claim history table\n    claims_df = aux_dataframes['claim_history_table.csv']\n    \n    # Filter claims for the specific policyholder\n    claims_for_holder = claims_df[claims_df['policyholder_id'] == row['policyholder_id']]\n    \n    if not claims_for_holder.empty:\n        # Ensure 'claim_date' is in datetime format\n        claims_for_holder['claim_date'] = pd.to_datetime(claims_for_holder['claim_date'])\n        \n        # Find the earliest claim date\n        earliest_claim = claims_for_holder['claim_date'].min()\n        \n        # Calculate tenure in days\n        tenure_days = (datetime.datetime.today() - earliest_claim).days\n        \n        # Count unique claim dates\n        claim_count = claims_for_holder['claim_date'].nunique()\n        \n        # Avoid division by zero\n        if tenure_days > 0:\n            return claim_count / (tenure_days / 365)  # Annual claims frequency\n    \n    # Return 0 if no claims exist for the policyholder\n    return 0\n"
+        },
+        "0.05092260336117325": {
+            "name": "has_investigations",
+            "code": "\n\ndef has_investigations(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct DataFrame using the appropriate key\n    investigations_df = aux_dataframes['fraud_investigation_table.csv']\n    claim_history_df = aux_dataframes['claim_history_table.csv']\n    \n    # Filter the claim history to find claims related to the policyholder\n    related_claims = claim_history_df[\n        claim_history_df['policyholder_id'] == row['policyholder_id']\n    ]['claim_history_id']\n    \n    # Check if any of the related claims are under investigation\n    related_investigations = investigations_df[\n        investigations_df['claim_id'].isin(related_claims)\n    ]\n    \n    # Return 1 if there are related investigations, otherwise 0\n    return int(not related_investigations.empty)\n"
+        },
+        "0.04928515898567742": {
+            "name": "total_claims_amount",
+            "code": "\n\ndef total_claims_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the claim history table\n    claims_df = aux_dataframes['claim_history_table.csv']\n    \n    # Ensure the column names match the provided data\n    total_claim_amount = claims_df[claims_df['policyholder_id'] == row['policyholder_id']]['claim_amount'].sum()\n    \n    return total_claim_amount\n"
+        },
+        "0.03969114879032083": {
+            "name": "payment_failure_rate",
+            "code": "\n\ndef payment_failure_rate(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the payment details dataframe\n    payments_df = aux_dataframes['payment_details_table.csv']\n    \n    # Filter payments for the specific policyholder\n    holder_payments = payments_df[payments_df['policyholder_id'] == row['policyholder_id']]\n    \n    # Check if there are any payments for the policyholder\n    if not holder_payments.empty:\n        total_payments = len(holder_payments)\n        failed_payments = len(holder_payments[holder_payments['payment_status'] == 'Failed'])\n        return failed_payments / total_payments\n    \n    # Return 0 if no payments are found\n    return 0\n"
+        },
+        "0.025484119952221038": {
+            "name": "regional_premium_rank",
+            "code": "\n\ndef regional_premium_rank(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the policyholder dataframe using the correct key\n    policyholder_df = aux_dataframes['policyholder_table.csv']\n    \n    # Get the policyholder's region\n    policyholder_row = policyholder_df[policyholder_df['policyholder_id'] == row['policyholder_id']]\n    if policyholder_row.empty:\n        # If the policyholder_id is not found, return None\n        return None\n    \n    region = policyholder_row['region'].values[0]\n    \n    # Get all premiums in the same region\n    region_premiums = policyholder_df[policyholder_df['region'] == region]['premium_amount']\n    \n    # Check if there are multiple premiums in the region\n    if len(region_premiums) > 1:\n        # Rank the premiums in descending order\n        ranked_premiums = region_premiums.rank(method='dense', ascending=False)\n        # Return the rank of the current policyholder's premium\n        return ranked_premiums[policyholder_df['policyholder_id'] == row['policyholder_id']].values[0]\n    \n    # If there is only one premium in the region, return None\n    return None\n"
+        },
+        "0.023610802527493476": {
+            "name": "calculate_policyholder_age",
+            "code": "import datetime\n\ndef calculate_policyholder_age(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the policyholder table using the correct key\n    policyholder_table = aux_dataframes['policyholder_table.csv']\n    \n    # Filter the policyholder table to find the date of birth for the given policyholder_id\n    dob = policyholder_table['date_of_birth'][\n        policyholder_table['policyholder_id'] == row['policyholder_id']\n    ].values\n    \n    # Check if a date of birth was found\n    if len(dob) > 0:\n        # Convert the date of birth to a datetime object\n        dob_datetime = datetime.datetime.strptime(dob[0], \"%Y-%m-%d\")\n        # Calculate the age in years\n        return (datetime.datetime.today() - dob_datetime).days // 365\n    \n    # Return None if no date of birth was found\n    return None\n"
+        },
+        "0.007132130286111522": {
+            "name": "successful_claim_percentage",
+            "code": "\n\ndef successful_claim_percentage(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the claim history table\n    claims_df = aux_dataframes['claim_history_table.csv']\n    \n    # Filter claims for the specific policyholder\n    holder_claims = claims_df[claims_df['policyholder_id'] == row['policyholder_id']]\n    \n    # Check if there are any claims for the policyholder\n    if not holder_claims.empty:\n        total_claims = len(holder_claims)\n        approved_claims = len(holder_claims[holder_claims['claim_status'] == 'Approved'])\n        return approved_claims / total_claims\n    \n    # Return 0 if no claims exist for the policyholder\n    return 0\n"
+        },
+        "0": {
+            "name": "has_renewed_policy",
+            "code": "\n\ndef has_renewed_policy(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the policyholder_table.csv dataframe\n    policyholder_df = aux_dataframes.get('policyholder_table.csv')\n    \n    # Check if the dataframe exists\n    if policyholder_df is None:\n        raise KeyError(\"The key 'policyholder_table.csv' is missing in aux_dataframes.\")\n    \n    # Filter the dataframe for the given policyholder_id\n    policy_start_dates = policyholder_df['policy_start_date'][\n        policyholder_df['policyholder_id'] == row['policyholder_id']]\n    \n    # Check if the policyholder_id exists in the dataframe\n    if policy_start_dates.empty:\n        return 0  # No policy dates found, so no renewal\n    \n    # Check if there are multiple policy start dates\n    if len(policy_start_dates) > 1:\n        return 1  # Multiple policy dates indicate renewal\n    \n    return 0  # Single policy date, no renewal\n"
+        }
+    },
+    "feature_descriptions": [
+        "annualized premium",
+        "average time between incidents",
+        "calculate claim frequency",
+        "has investigations",
+        "total claims amount",
+        "payment failure rate",
+        "regional premium rank",
+        "calculate policyholder age",
+        "successful claim percentage",
+        "has renewed policy"
+    ]
+}

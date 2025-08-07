@@ -1,0 +1,101 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "inflation_rate_on_date",
+        "unemployment_rate_on_date",
+        "marketing_activity",
+        "marketing_intensity_on_date",
+        "link_temperature",
+        "link_humidity",
+        "total_quantity_sold_per_product",
+        "is_weekend",
+        "product_demand_ratio",
+        "average_price_per_product",
+        "avg_product_revenue",
+        "day_of_week",
+        "month_of_year",
+        "link_precipitation",
+        "marketing_budget_sum"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5517710532580893": {
+            "name": "inflation_rate_on_date",
+            "code": "import pandas as pd\n\ndef inflation_rate_on_date(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the economic_table DataFrame\n    economic_table = aux_dataframes.get('economic_table.csv')\n    \n    # Ensure the DataFrame exists and has the required columns\n    if economic_table is None:\n        raise KeyError(\"The 'economic_table.csv' DataFrame is missing.\")\n    \n    required_columns = {'date', 'inflation_rate'}\n    if not required_columns.issubset(economic_table.columns):\n        raise KeyError(f\"The 'economic_table.csv' DataFrame does not contain the required columns: {required_columns}\")\n    \n    # Ensure the 'date' column in economic_table is of datetime type\n    if not pd.api.types.is_datetime64_any_dtype(economic_table['date']):\n        economic_table['date'] = pd.to_datetime(economic_table['date'], errors='coerce')\n    \n    # Check for and drop rows with invalid dates in economic_table\n    if economic_table['date'].isna().any():\n        economic_table = economic_table.dropna(subset=['date'])\n    \n    # Ensure the 'date' column in the row is of datetime type\n    try:\n        row_date = pd.to_datetime(row['date'], errors='coerce')\n    except Exception as e:\n        raise ValueError(f\"Error converting row['date'] to datetime: {e}\")\n    \n    # If row_date is NaT (Not a Time), return 0 as the inflation rate\n    if pd.isna(row_date):\n        return 0\n    \n    # Filter the economic_table for the matching date and calculate the mean inflation rate\n    inflation = economic_table[economic_table['date'] == row_date]['inflation_rate'].mean()\n    \n    # Return the inflation rate or 0 if it is NaN\n    return inflation if not pd.isna(inflation) else 0\n"
+        },
+        "0.5456777093999855": {
+            "name": "unemployment_rate_on_date",
+            "code": "import pandas as pd\n\ndef unemployment_rate_on_date(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the economic table from aux_dataframes\n    economic_table = aux_dataframes['economic_table.csv']\n    \n    # Extract the date from the row\n    date = row['date']\n    \n    # Filter the economic table for the matching date and get the unemployment rate\n    unemployment_rate = economic_table[economic_table['date'] == date]['unemployment_rate'].mean()\n    \n    # Return the unemployment rate, or 0 if it is NaN\n    return unemployment_rate if not pd.isna(unemployment_rate) else 0\n"
+        },
+        "0.11931518893868079": {
+            "name": "marketing_activity",
+            "code": "import pandas as pd\n\ndef marketing_activity(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'marketing_table' exists in aux_dataframes\n    if 'marketing_table.csv' not in aux_dataframes:\n        raise KeyError(\"'marketing_table.csv' is missing from aux_dataframes\")\n    \n    # Access the marketing table\n    marketing = aux_dataframes['marketing_table.csv']\n    \n    # Ensure the required columns exist in the marketing table\n    required_columns = {'start_date', 'end_date'}\n    if not required_columns.issubset(marketing.columns):\n        raise ValueError(f\"The marketing table is missing required columns: {required_columns - set(marketing.columns)}\")\n    \n    # Parse the date from the row\n    date = pd.to_datetime(row['date'])\n    \n    # Ensure 'start_date' and 'end_date' are in datetime format\n    marketing['start_date'] = pd.to_datetime(marketing['start_date'])\n    marketing['end_date'] = pd.to_datetime(marketing['end_date'])\n    \n    # Filter the marketing table for active campaigns on the given date\n    active = marketing[(marketing['start_date'] <= date) & (marketing['end_date'] >= date)].shape[0]\n    \n    return active\n"
+        },
+        "0.06326204437646828": {
+            "name": "marketing_intensity_on_date",
+            "code": "import pandas as pd\n\ndef marketing_intensity_on_date(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure 'marketing_table' exists in aux_dataframes\n    if 'marketing_table.csv' not in aux_dataframes:\n        raise KeyError(\"'marketing_table.csv' not found in aux_dataframes\")\n    \n    # Get the marketing table\n    marketing = aux_dataframes['marketing_table.csv']\n    \n    # Ensure required columns exist in the marketing table\n    required_columns = {'start_date', 'end_date', 'budget'}\n    if not required_columns.issubset(marketing.columns):\n        raise ValueError(f\"Missing required columns in marketing_table.csv: {required_columns - set(marketing.columns)}\")\n    \n    # Parse the date from the row\n    date = pd.to_datetime(row['date'])\n    \n    # Filter active campaigns based on the date\n    marketing['start_date'] = pd.to_datetime(marketing['start_date'])\n    marketing['end_date'] = pd.to_datetime(marketing['end_date'])\n    active_campaigns = marketing[(marketing['start_date'] <= date) & (marketing['end_date'] >= date)]\n    \n    # Calculate the total budget and count of active campaigns\n    active_budget = active_campaigns['budget'].sum()\n    active_count = active_campaigns.shape[0]\n    \n    # Return the marketing intensity\n    if active_count == 0:\n        return 0\n    return active_budget / active_count\n"
+        },
+        "0.0593693286642339": {
+            "name": "link_temperature",
+            "code": "import pandas as pd\n\ndef link_temperature(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the weather_table dataframe\n    weather = aux_dataframes['weather_table.csv']\n    \n    # Extract the date from the row\n    date = row['date']\n    \n    # Filter the weather dataframe for the matching date and calculate the mean temperature\n    linked_temp = weather[weather['date'] == date]['temperature'].mean()\n    \n    # Return the mean temperature or 0 if no temperature data is available\n    return linked_temp if not pd.isna(linked_temp) else 0\n"
+        },
+        "0.040812389379032546": {
+            "name": "link_humidity",
+            "code": "import pandas as pd\n\ndef link_humidity(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> float:\n    # Ensure the 'weather_table' key exists in the auxiliary dataframes\n    if 'weather_table.csv' not in aux_dataframes:\n        raise KeyError(\"'weather_table.csv' not found in auxiliary dataframes\")\n    \n    # Access the weather_table from the auxiliary dataframes\n    weather = aux_dataframes['weather_table.csv']\n    \n    # Ensure the required columns exist in the weather_table\n    required_columns = {'date', 'humidity'}\n    if not required_columns.issubset(weather.columns):\n        raise ValueError(f\"weather_table is missing required columns: {required_columns - set(weather.columns)}\")\n    \n    # Extract the date from the current row\n    date = row['date']\n    \n    # Filter the weather_table for rows matching the date and calculate the mean humidity\n    linked_humidity = weather[weather['date'] == date]['humidity'].mean()\n    \n    # Return the mean humidity if it exists, otherwise return 0\n    return linked_humidity if not pd.isna(linked_humidity) else 0\n"
+        },
+        "0.03801924714877082": {
+            "name": "total_quantity_sold_per_product",
+            "code": "import pandas as pd\n\ndef total_quantity_sold_per_product(row, df_train: pd.DataFrame):\n    product_id = row['product_id']\n    total_quantity = df_train[df_train['product_id'] == product_id]['quantity_sold'].sum()\n    return total_quantity if not pd.isna(total_quantity) else 0\n"
+        },
+        "0.018510337547918816": {
+            "name": "is_weekend",
+            "code": "import pandas as pd\n\ndef is_weekend(row):\n    day = pd.to_datetime(row['date']).weekday()\n    return 1 if day in [5, 6] else 0\n"
+        },
+        "0.009413843287437437": {
+            "name": "product_demand_ratio",
+            "code": "\n\ndef product_demand_ratio(row, df_train: pd.DataFrame):\n    # Extract the product_id and date of the current row\n    product_id = row['product_id']\n    current_date = row['date']\n    \n    # Filter the dataframe to include only rows with the same product_id\n    # and dates strictly before the current row's date\n    product_df = df_train[(df_train['product_id'] == product_id) & (df_train['date'] < current_date)]\n    \n    # If no historical data is available for the product, return 0\n    if product_df.shape[0] == 0:\n        return 0\n    \n    # Calculate the mean demand for the product based on historical data\n    demand_ratio = product_df['Demand'].mean()\n    return demand_ratio\n"
+        },
+        "0.006452386992318633": {
+            "name": "average_price_per_product",
+            "code": "import pandas as pd\n\ndef average_price_per_product(row, df_train: pd.DataFrame):\n    product_id = row['product_id']\n    avg_price = df_train[df_train['product_id'] == product_id]['price_per_unit'].mean()\n    return avg_price if not pd.isna(avg_price) else 0\n"
+        },
+        "0.004275365726161202": {
+            "name": "avg_product_revenue",
+            "code": "import pandas as pd\n\ndef avg_product_revenue(row, df_train: pd.DataFrame):\n    product_id = row['product_id']\n    avg_revenue = df_train[df_train['product_id'] == product_id]['total_revenue'].mean()\n    return avg_revenue if not pd.isna(avg_revenue) else 0\n"
+        },
+        "0.0038602444848350914": {
+            "name": "day_of_week",
+            "code": "import pandas as pd\n\ndef day_of_week(row):\n    return pd.to_datetime(row['date']).weekday()\n"
+        },
+        "0.0022753644904595157": {
+            "name": "month_of_year",
+            "code": "import pandas as pd\n\ndef month_of_year(row):\n    return pd.to_datetime(row['date']).month\n"
+        },
+        "0.00040690654448183333": {
+            "name": "link_precipitation",
+            "code": "import pandas as pd\n\ndef link_precipitation(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the provided aux_data dictionary\n    weather = aux_dataframes['weather_table.csv']\n    \n    # Extract the date from the row\n    date = row['date']\n    \n    # Check if the 'precipitation' column exists in the weather table\n    if 'precipitation' not in weather.columns:\n        raise ValueError(\"The 'precipitation' column is missing in the weather_table.csv dataframe.\")\n    \n    # Filter the weather table for the matching date and calculate the mean precipitation\n    linked_precip = weather[weather['date'] == date]['precipitation'].mean()\n    \n    # Return the mean precipitation or 0 if it is NaN\n    return linked_precip if not pd.isna(linked_precip) else 0\n"
+        },
+        "0": {
+            "name": "marketing_budget_sum",
+            "code": "import pandas as pd\n\ndef marketing_budget_sum(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'marketing_table' exists in aux_dataframes\n    if 'marketing_table' not in aux_dataframes:\n        return 0  # Return 0 if the marketing_table is missing\n\n    marketing = aux_dataframes['marketing_table']\n\n    # Ensure the necessary columns exist in the marketing DataFrame\n    required_columns = {'start_date', 'end_date', 'budget'}\n    if not required_columns.issubset(marketing.columns):\n        return 0  # Return 0 if required columns are missing\n\n    # Convert date columns to datetime if they are not already\n    marketing['start_date'] = pd.to_datetime(marketing['start_date'], errors='coerce')\n    marketing['end_date'] = pd.to_datetime(marketing['end_date'], errors='coerce')\n    date = pd.to_datetime(row['date'], errors='coerce')\n\n    # Handle cases where date conversion fails\n    if pd.isna(date):\n        return 0\n\n    # Filter the marketing table for active campaigns and sum the budgets\n    active_budget = marketing[\n        (marketing['start_date'] <= date) & (marketing['end_date'] >= date)\n    ]['budget'].sum()\n\n    # Return the active budget or 0 if it is NaN\n    return active_budget if not pd.isna(active_budget) else 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "inflation rate on date",
+        "unemployment rate on date",
+        "marketing activity",
+        "marketing intensity on date",
+        "link temperature",
+        "link humidity",
+        "total quantity sold per product",
+        "is weekend",
+        "product demand ratio",
+        "average price per product",
+        "avg product revenue",
+        "day of week",
+        "month of year",
+        "link precipitation",
+        "marketing budget sum"
+    ]
+}

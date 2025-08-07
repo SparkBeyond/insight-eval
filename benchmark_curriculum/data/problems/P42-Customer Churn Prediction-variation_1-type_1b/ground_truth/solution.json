@@ -1,0 +1,20 @@
+{
+    "enriched_column_names": [
+        "number_of_support_tickets",
+        "ratio_of_resolved_vs_unresolved_issues",
+        "average_resolution_time_for_tickets",
+        "decline_in_monthly_usage",
+        "frequent_plan_changes",
+        "average_monthly_usage_time",
+        "cost_of_service_as_percentage_of_income"
+    ],
+    "features_descriptions": [
+        "number of support tickets",
+        "ratio of resolved vs unresolved issues",
+        "average resolution time for tickets",
+        "decline in monthly usage",
+        "frequent plan changes",
+        "average monthly usage time",
+        "cost of service as percentage of income"
+    ]
+}

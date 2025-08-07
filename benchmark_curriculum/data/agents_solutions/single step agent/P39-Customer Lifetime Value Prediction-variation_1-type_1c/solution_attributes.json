@@ -1,0 +1,89 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "unique_product_categories",
+        "total_amount_spent",
+        "time_since_signup",
+        "transaction_count",
+        "transactions_with_top_payment_method",
+        "total_spent_in_top_category",
+        "avg_amount_per_transaction",
+        "perc_spent_in_top_category",
+        "top_category_count",
+        "customer_age",
+        "encode_gender",
+        "freq_payment_method",
+        "transaction_amount_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.412154117139887": {
+            "name": "unique_product_categories",
+            "code": "\n\ndef unique_product_categories(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Access the transaction data from aux_data\n    transaction_data = aux_data.get(\"transaction_data_table.csv\")\n    \n    # Ensure the transaction data exists and has the required columns\n    if transaction_data is None or \"customer_id\" not in transaction_data.columns or \"product_category\" not in transaction_data.columns:\n        raise ValueError(\"The required transaction data or columns are missing in aux_data.\")\n    \n    # Get the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Calculate the number of unique product categories for the given customer_id\n    unique_categories = transaction_data[transaction_data[\"customer_id\"] == customer_id][\"product_category\"].nunique()\n    \n    return unique_categories\n"
+        },
+        "0.4004333810701217": {
+            "name": "total_amount_spent",
+            "code": "\n\ndef total_amount_spent(row, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Access the correct dataframe from aux_data\n    transaction_data = aux_data['transaction_data_table.csv']\n    \n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Calculate the total amount spent by the customer\n    total_spent = transaction_data[transaction_data[\"customer_id\"] == customer_id][\"amount\"].sum()\n    \n    return total_spent\n"
+        },
+        "0.3355448382123993": {
+            "name": "time_since_signup",
+            "code": "import pandas as pd\nimport datetime\n\ndef time_since_signup(row) -> float:\n    if pd.notnull(row[\"signup_date\"]):\n        # Convert signup_date to a datetime object\n        signup_date = pd.to_datetime(row[\"signup_date\"])\n        # Calculate the duration in days\n        signup_duration = (datetime.now() - signup_date).days\n        return float(signup_duration)\n    return 0.0\n"
+        },
+        "0.30655084568095037": {
+            "name": "transaction_count",
+            "code": "\n\ndef transaction_count(row, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Get the transaction data from aux_data\n    transaction_data = aux_data[\"transaction_data_table.csv\"]\n    \n    # Ensure the column names are correct and calculate the transaction count\n    if \"customer_id\" in transaction_data.columns and \"transaction_id\" in transaction_data.columns:\n        trans_count = transaction_data[transaction_data[\"customer_id\"] == customer_id][\"transaction_id\"].nunique()\n        return trans_count\n    else:\n        raise KeyError(\"The required columns 'customer_id' or 'transaction_id' are missing in the transaction data.\")\n"
+        },
+        "0.23862295300940004": {
+            "name": "transactions_with_top_payment_method",
+            "code": "\n\ndef transactions_with_top_payment_method(row, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Access the transaction data from aux_data\n    transaction_data = aux_data.get(\"transaction_data_table.csv\")\n    \n    # Ensure the transaction data is not None and has the required columns\n    if transaction_data is not None and {\"transaction_id\", \"customer_id\", \"payment_method\"}.issubset(transaction_data.columns):\n        customer_id = row[\"customer_id\"]\n        \n        # Filter the transaction data for the given customer_id\n        customer_data = transaction_data[transaction_data[\"customer_id\"] == customer_id]\n        \n        if not customer_data.empty:\n            # Find the most frequent payment method for the customer\n            top_payment_method = customer_data[\"payment_method\"].mode().iloc[0]\n            \n            # Count the number of unique transactions with the top payment method\n            return customer_data[customer_data[\"payment_method\"] == top_payment_method][\"transaction_id\"].nunique()\n    \n    # Return 0 if no data is found or if the required columns are missing\n    return 0\n"
+        },
+        "0.23193869274967938": {
+            "name": "total_spent_in_top_category",
+            "code": "\n\ndef total_spent_in_top_category(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> float:\n    \"\"\"\n    Calculate the total amount spent by a customer in their top product category.\n\n    Args:\n        row (pd.Series): A row of the DataFrame containing customer information.\n        aux_data (Dict[str, pd.DataFrame]): A dictionary mapping filenames to DataFrames.\n            Must include 'transaction_data_table.csv' with the required columns.\n\n    Returns:\n        float: The total amount spent by the customer in their top product category.\n    \"\"\"\n    # Extract the transaction data from aux_data\n    if 'transaction_data_table.csv' not in aux_data:\n        raise ValueError(\"The required transaction data is missing from aux_data.\")\n    \n    df_train = aux_data['transaction_data_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'customer_id', 'product_category', 'amount'}\n    if not required_columns.issubset(df_train.columns):\n        raise ValueError(f\"The dataframe is missing one or more required columns: {required_columns}\")\n    \n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Filter the transaction data for the given customer_id\n    customer_data = df_train[df_train[\"customer_id\"] == customer_id]\n    \n    # If there is no data for the customer, return 0.0\n    if customer_data.empty:\n        return 0.0\n    \n    # Find the top category (most frequent product_category) for the customer\n    top_category = customer_data[\"product_category\"].mode().iloc[0]\n    \n    # Calculate the total amount spent in the top category\n    total_spent = customer_data[customer_data[\"product_category\"] == top_category][\"amount\"].sum()\n    \n    return total_spent\n"
+        },
+        "0.22905843219858735": {
+            "name": "avg_amount_per_transaction",
+            "code": "\n\ndef avg_amount_per_transaction(row, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Access the transaction data from aux_data\n    transaction_data = aux_data.get('transaction_data_table.csv')\n    \n    # Ensure the transaction data is not None and has the expected structure\n    if transaction_data is None or 'customer_id' not in transaction_data.columns or 'amount' not in transaction_data.columns:\n        raise ValueError(\"Transaction data is missing or does not have the required columns.\")\n    \n    # Get the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Filter transactions for the given customer_id\n    transactions = transaction_data[transaction_data[\"customer_id\"] == customer_id]\n    \n    # Calculate the average amount spent\n    avg_spent = transactions[\"amount\"].mean() if not transactions.empty else 0.0\n    \n    return avg_spent\n"
+        },
+        "0.19303027839435669": {
+            "name": "perc_spent_in_top_category",
+            "code": "\n\ndef perc_spent_in_top_category(row, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Extract the transaction data from aux_data\n    transaction_data = aux_data.get('transaction_data_table.csv')\n    \n    # Check if the transaction data is available\n    if transaction_data is None:\n        raise ValueError(\"Transaction data is missing from aux_data.\")\n    \n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Filter the transaction data for the given customer_id\n    customer_data = transaction_data[transaction_data[\"customer_id\"] == customer_id]\n    \n    # If there are no transactions for the customer, return 0.0\n    if customer_data.empty:\n        return 0.0\n    \n    # Calculate the total amount spent by the customer\n    total_spent = customer_data[\"amount\"].sum()\n    \n    # Find the top product category by mode\n    top_category = customer_data[\"product_category\"].mode().iloc[0]\n    \n    # Calculate the total amount spent in the top category\n    top_category_spent = customer_data[customer_data[\"product_category\"] == top_category][\"amount\"].sum()\n    \n    # Return the percentage spent in the top category\n    return (top_category_spent / total_spent) * 100 if total_spent > 0 else 0.0\n"
+        },
+        "0.13256926622267928": {
+            "name": "top_category_count",
+            "code": "\n\ndef top_category_count(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Ensure the required dataframe is present in aux_data\n    if \"transaction_data_table.csv\" not in aux_data:\n        raise ValueError(\"The required 'transaction_data_table.csv' is missing from aux_data.\")\n    \n    # Load the transaction data\n    transaction_data = aux_data[\"transaction_data_table.csv\"]\n    \n    # Ensure the required columns are present in the transaction data\n    required_columns = {\"transaction_id\", \"customer_id\", \"product_category\"}\n    if not required_columns.issubset(transaction_data.columns):\n        raise ValueError(f\"The transaction data is missing one or more required columns: {required_columns}\")\n    \n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Filter the transaction data for the given customer_id\n    customer_data = transaction_data[transaction_data[\"customer_id\"] == customer_id]\n    \n    # If no data is found for the customer, return 0\n    if customer_data.empty:\n        return 0\n    \n    # Find the most frequent product category (mode) for the customer\n    top_category = customer_data[\"product_category\"].mode().iloc[0]\n    \n    # Count the number of unique transactions in the top category\n    return customer_data[customer_data[\"product_category\"] == top_category][\"transaction_id\"].nunique()\n"
+        },
+        "0.03899279616523908": {
+            "name": "customer_age",
+            "code": "import pandas as pd\nimport datetime\n\ndef customer_age(row) -> int:\n    if pd.notnull(row[\"birth_date\"]):\n        # Convert birth_date to a datetime object\n        birth_date = pd.to_datetime(row[\"birth_date\"])\n        # Calculate the age\n        return (datetime.now() - birth_date).days // 365\n    return 0\n"
+        },
+        "0.009334688154428498": {
+            "name": "encode_gender",
+            "code": "\n\ndef encode_gender(row) -> int:\n    gender_mapping = {\"Male\": 1, \"Female\": 2, \"Other\": 0}\n    return gender_mapping.get(row[\"gender\"], -1)\n"
+        },
+        "9.098938653007149e-05": {
+            "name": "freq_payment_method",
+            "code": "\n\ndef freq_payment_method(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]) -> str:\n    # Ensure the transaction data is available in aux_data\n    if 'transaction_data_table.csv' not in aux_data:\n        raise ValueError(\"The required transaction data is missing from aux_data.\")\n    \n    # Get the transaction data\n    transaction_data = aux_data['transaction_data_table.csv']\n    \n    # Ensure the required columns exist in the transaction data\n    required_columns = {'customer_id', 'payment_method'}\n    if not required_columns.issubset(transaction_data.columns):\n        raise ValueError(f\"The transaction data is missing required columns: {required_columns - set(transaction_data.columns)}\")\n    \n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Filter the transaction data for the given customer_id\n    customer_data = transaction_data[transaction_data[\"customer_id\"] == customer_id]\n    \n    # If there is data for the customer, return the most frequent payment method\n    if not customer_data.empty:\n        return customer_data[\"payment_method\"].mode().iloc[0]\n    \n    # If no data is found for the customer, return None\n    return None\n"
+        },
+        "0": {
+            "name": "transaction_amount_ratio",
+            "code": "\n\ndef transaction_amount_ratio(row, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Access the transaction data from aux_data\n    transaction_data = aux_data['transaction_data_table.csv']\n    \n    # Extract the customer_id and transaction_amount from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Filter the transaction data for the given customer_id\n    customer_transactions = transaction_data[transaction_data[\"customer_id\"] == customer_id]\n    \n    # Calculate the total amount spent by the customer\n    total_spent = customer_transactions[\"amount\"].sum()\n    \n    # If total_spent is 0, return 0.0 to avoid division by zero\n    if total_spent == 0:\n        return 0.0\n    \n    # Calculate the transaction amount ratio\n    # Note: The row itself does not contain the \"amount\" column, so we cannot directly use it.\n    # Instead, we need to ensure the row corresponds to a transaction in the transaction_data.\n    transaction_id = row.get(\"transaction_id\")\n    if transaction_id is not None:\n        transaction_amount = transaction_data.loc[\n            transaction_data[\"transaction_id\"] == transaction_id, \"amount\"\n        ].sum()\n    else:\n        # If transaction_id is not provided, we cannot calculate the ratio\n        return 0.0\n    \n    return transaction_amount / total_spent\n"
+        }
+    },
+    "feature_descriptions": [
+        "unique product categories",
+        "total amount spent",
+        "time since signup",
+        "transaction count",
+        "transactions with top payment method",
+        "total spent in top category",
+        "avg amount per transaction",
+        "perc spent in top category",
+        "top category count",
+        "customer age",
+        "encode gender",
+        "freq payment method",
+        "transaction amount ratio"
+    ]
+}

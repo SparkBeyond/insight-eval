@@ -1,0 +1,7 @@
+{
+    "target_column": "fraud_flag",
+    "description": "Identify instances of fraudulent activities based on patterns.",
+    "name": "Fraudulent Activity Detection",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Telecommunications"
+}

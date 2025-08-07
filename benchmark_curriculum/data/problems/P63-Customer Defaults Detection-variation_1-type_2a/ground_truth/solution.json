@@ -1,0 +1,16 @@
+{
+    "enriched_column_names": [
+        "count_of_missed_payments_within_the_last_year",
+        "number_of_older_than_average_overdue_bills_in_the_past_24_months",
+        "monthly_average_utility_usage_trend_for_the_past_6_months",
+        "total_outstanding_account_balance_as_of_last_month",
+        "ratio_of_income_to_utility_expenses_over_the_past_12_months"
+    ],
+    "features_descriptions": [
+        "count of missed payments within the last year",
+        "number of older than average overdue bills in the past 24 months",
+        "monthly average utility usage trend for the past 6 months",
+        "total outstanding account balance as of last month",
+        "ratio of income to utility expenses over the past 12 months"
+    ]
+}

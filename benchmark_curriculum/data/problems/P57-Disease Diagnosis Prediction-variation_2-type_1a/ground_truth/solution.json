@@ -1,0 +1,16 @@
+{
+    "enriched_column_names": [
+        "number_of_emergency_health_incidents_reported_within_a_specific_duration",
+        "number_of_abnormal_test_results_in_the_past_90_days",
+        "frequency_of_lab_tests_conducted_in_the_last_year",
+        "positive_test_results_for_certain_biomarkers",
+        "socioeconomic_factors_and_their_correlation_to_diagnosis_rates"
+    ],
+    "features_descriptions": [
+        "number of emergency health incidents reported within a specific duration",
+        "number of abnormal test results in the past 90 days",
+        "frequency of lab tests conducted in the last year",
+        "positive test results for certain biomarkers",
+        "socioeconomic factors and their correlation to diagnosis rates"
+    ]
+}

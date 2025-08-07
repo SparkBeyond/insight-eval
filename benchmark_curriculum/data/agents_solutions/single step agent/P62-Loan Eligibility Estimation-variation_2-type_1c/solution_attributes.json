@@ -1,0 +1,119 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "demographic_approval_rate",
+        "loan_term_to_amount_ratio",
+        "previous_loans_count",
+        "total_previous_loan_amount",
+        "average_previous_interest_rate",
+        "days_since_last_loan",
+        "utilization_risk_score",
+        "calculate_age",
+        "average_credit_score",
+        "is_high_income",
+        "loan_purpose_category",
+        "average_previous_loan_term",
+        "credit_utilization_ratio",
+        "debt_to_income_ratio",
+        "monthly_payment_to_income",
+        "median_interest_rate_similar_loans",
+        "average_previous_loan_amount",
+        "employment_stability"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.1437322165802007": {
+            "name": "demographic_approval_rate",
+            "code": "import pandas as pd\n\ndef demographic_approval_rate(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the correct key\n    demo_table = aux_data[\"applicant_demographics_table.csv\"]\n    \n    # Ensure the necessary columns exist or compute them\n    if \"age_group\" not in demo_table.columns:\n        # Calculate age from date_of_birth\n        current_year = pd.Timestamp.now().year\n        demo_table[\"age\"] = current_year - pd.to_datetime(demo_table[\"date_of_birth\"]).dt.year\n        \n        # Define age groups (example: you can adjust these ranges as needed)\n        bins = [0, 18, 25, 35, 45, 55, 65, 100]\n        labels = [\"0-18\", \"19-25\", \"26-35\", \"36-45\", \"46-55\", \"56-65\", \"65+\"]\n        demo_table[\"age_group\"] = pd.cut(demo_table[\"age\"], bins=bins, labels=labels, right=False)\n    \n    if \"income_class\" not in demo_table.columns:\n        # Define income classes (example: you can adjust these ranges as needed)\n        bins = [0, 30000, 60000, 100000, 150000, float(\"inf\")]\n        labels = [\"Low\", \"Lower-Middle\", \"Middle\", \"Upper-Middle\", \"High\"]\n        demo_table[\"income_class\"] = pd.cut(demo_table[\"annual_income\"], bins=bins, labels=labels, right=False)\n    \n    # Merge demographic data with the main dataframe to include the 'Approved' column\n    merged_table = pd.merge(demo_table, df_train[['applicant_id', 'Approved']], on='applicant_id', how='left')\n    \n    # Extract the applicant's demographic information from the merged table\n    applicant_id = row[\"applicant_id\"]\n    applicant_demo = merged_table[merged_table[\"applicant_id\"] == applicant_id]\n    \n    if applicant_demo.empty:\n        # If no demographic information is found for the applicant, return None\n        return None\n    \n    # Get the applicant's age_group and income_class\n    age_group = applicant_demo.iloc[0][\"age_group\"]\n    income_class = applicant_demo.iloc[0][\"income_class\"]\n    \n    # Filter the cohort based on age_group and income_class\n    cohort = merged_table[(merged_table[\"age_group\"] == age_group) &\n                          (merged_table[\"income_class\"] == income_class)]\n    \n    # Calculate the approval rate\n    total_count = len(cohort)\n    if total_count == 0:\n        return None\n    approved_count = cohort[\"Approved\"].sum()\n    return approved_count / total_count\n"
+        },
+        "0.1278056325111337": {
+            "name": "loan_term_to_amount_ratio",
+            "code": "\n\ndef loan_term_to_amount_ratio(row):\n    return row[\"loan_term\"] / max(row[\"loan_amount\"], 1)\n"
+        },
+        "0.07958238699375038": {
+            "name": "previous_loans_count",
+            "code": "\n\ndef previous_loans_count(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> int:\n    # Check if 'previous_loans_table' exists in aux_dataframes\n    if \"previous_loans_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'previous_loans_table.csv' is missing from aux_dataframes.\")\n    \n    # Retrieve the 'previous_loans_table' dataframe\n    prev_loans = aux_dataframes[\"previous_loans_table.csv\"]\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {\"applicant_id\"}\n    if not required_columns.issubset(prev_loans.columns):\n        raise KeyError(f\"The dataframe 'previous_loans_table.csv' is missing required columns: {required_columns - set(prev_loans.columns)}\")\n    \n    # Filter the dataframe for loans associated with the given applicant_id\n    applicant_loans = prev_loans[prev_loans[\"applicant_id\"] == row[\"applicant_id\"]]\n    \n    # Return the count of previous loans\n    return len(applicant_loans)\n"
+        },
+        "0.05928628751940346": {
+            "name": "total_previous_loan_amount",
+            "code": "\n\ndef total_previous_loan_amount(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> float:\n    # Ensure the key exists in the aux_dataframes dictionary\n    if \"previous_loans_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'previous_loans_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the previous_loans_table dataframe\n    prev_loans = aux_dataframes[\"previous_loans_table.csv\"]\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {\"applicant_id\", \"loan_amount\"}\n    if not required_columns.issubset(prev_loans.columns):\n        raise KeyError(f\"The dataframe 'previous_loans_table.csv' is missing one or more required columns: {required_columns}\")\n    \n    # Filter the dataframe for the applicant_id in the current row\n    applicant_loans = prev_loans[prev_loans[\"applicant_id\"] == row[\"applicant_id\"]]\n    \n    # Return the sum of the loan_amount column\n    return applicant_loans[\"loan_amount\"].sum()\n"
+        },
+        "0.054537075497676536": {
+            "name": "average_previous_interest_rate",
+            "code": "\n\ndef average_previous_interest_rate(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> float:\n    # Check if 'previous_loans_table' exists in aux_dataframes\n    if \"previous_loans_table.csv\" not in aux_dataframes:\n        raise KeyError(\"'previous_loans_table.csv' is missing from aux_dataframes\")\n    \n    # Get the previous loans table\n    prev_loans = aux_dataframes[\"previous_loans_table.csv\"]\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {\"applicant_id\", \"interest_rate\"}\n    if not required_columns.issubset(prev_loans.columns):\n        raise KeyError(f\"The dataframe 'previous_loans_table.csv' is missing required columns: {required_columns - set(prev_loans.columns)}\")\n    \n    # Filter the previous loans for the given applicant_id\n    applicant_loans = prev_loans[prev_loans[\"applicant_id\"] == row[\"applicant_id\"]]\n    \n    # Calculate and return the mean interest rate\n    return applicant_loans[\"interest_rate\"].mean() if not applicant_loans.empty else float('nan')\n"
+        },
+        "0.05021540002333558": {
+            "name": "days_since_last_loan",
+            "code": "import pandas as pd\n\ndef days_since_last_loan(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the key 'previous_loans_table.csv' exists in aux_data\n    if \"previous_loans_table.csv\" not in aux_data:\n        raise KeyError(\"The key 'previous_loans_table.csv' is missing from aux_data.\")\n    \n    # Access the previous loans table\n    prev_loans = aux_data[\"previous_loans_table.csv\"]\n    \n    # Filter loans for the specific applicant\n    applicant_loans = prev_loans[prev_loans[\"applicant_id\"] == row[\"applicant_id\"]]\n    \n    # If no previous loans exist for the applicant, return None\n    if applicant_loans.empty:\n        return None\n    \n    # Convert the 'start_date' column to datetime and find the most recent loan date\n    last_loan_date = pd.to_datetime(applicant_loans[\"start_date\"]).max()\n    \n    # Convert the 'application_date' in the row to datetime\n    application_date = pd.to_datetime(row[\"application_date\"])\n    \n    # Calculate the difference in days between the application date and the last loan date\n    return (application_date - last_loan_date).days\n"
+        },
+        "0.04305676014142672": {
+            "name": "utilization_risk_score",
+            "code": "\n\ndef utilization_risk_score(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the applicant_id from the row\n    applicant_id = row[\"applicant_id\"]\n    \n    # Get the credit_scores_table dataframe from aux_data\n    credit_scores_table = aux_data.get(\"credit_scores_table.csv\")\n    \n    # Check if the dataframe exists and is not empty\n    if credit_scores_table is not None and not credit_scores_table.empty:\n        # Find the row in credit_scores_table corresponding to the applicant_id\n        credit_score_row = credit_scores_table[credit_scores_table[\"applicant_id\"] == applicant_id]\n        \n        # Check if a matching row was found\n        if not credit_score_row.empty:\n            # Extract the credit_utilization_ratio value\n            credit_utilization_ratio = credit_score_row.iloc[0][\"credit_utilization_ratio\"]\n            \n            # Calculate and return the utilization risk score\n            return max(0, 1 - credit_utilization_ratio)\n    \n    # If no matching data is found, return a default score (e.g., 0)\n    return 0\n"
+        },
+        "0.02492719722187429": {
+            "name": "calculate_age",
+            "code": "import pandas as pd\n\ndef calculate_age(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the applicant_id from the row\n    applicant_id = row[\"applicant_id\"]\n    \n    # Get the applicant demographics dataframe from aux_data\n    demographics_df = aux_data[\"applicant_demographics_table.csv\"]\n    \n    # Find the date_of_birth for the given applicant_id\n    try:\n        birth_date = pd.to_datetime(\n            demographics_df.loc[demographics_df[\"applicant_id\"] == applicant_id, \"date_of_birth\"].values[0]\n        )\n    except IndexError:\n        raise ValueError(f\"Applicant ID {applicant_id} not found in demographics data.\")\n    \n    # Convert the application_date from the row to datetime\n    application_date = pd.to_datetime(row[\"application_date\"])\n    \n    # Calculate the age in years\n    return (application_date - birth_date).days // 365\n"
+        },
+        "0.022301928779368787": {
+            "name": "average_credit_score",
+            "code": "\n\ndef average_credit_score(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the key 'credit_scores_table.csv' exists in aux_data\n    if \"credit_scores_table.csv\" not in aux_data:\n        raise KeyError(\"The key 'credit_scores_table.csv' is missing from aux_data.\")\n    \n    # Get the credit_scores_table dataframe\n    credit_scores = aux_data[\"credit_scores_table.csv\"]\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {\"applicant_id\", \"credit_score\"}\n    if not required_columns.issubset(credit_scores.columns):\n        raise KeyError(f\"The dataframe 'credit_scores_table.csv' is missing required columns: {required_columns - set(credit_scores.columns)}\")\n    \n    # Filter the credit scores for the given applicant_id\n    applicant_scores = credit_scores[credit_scores[\"applicant_id\"] == row[\"applicant_id\"]]\n    \n    # Return the mean credit score, handling the case where no scores are found\n    if applicant_scores.empty:\n        return None  # Return None if no credit scores are found for the applicant\n    return applicant_scores[\"credit_score\"].mean()\n"
+        },
+        "0.019796670084213982": {
+            "name": "is_high_income",
+            "code": "\n\ndef is_high_income(row, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Extract the applicant_id from the row\n    applicant_id = row[\"applicant_id\"]\n    \n    # Get the applicant demographics dataframe from aux_data\n    demographics_df = aux_data[\"applicant_demographics_table.csv\"]\n    \n    # Find the annual income for the given applicant_id\n    applicant_data = demographics_df[demographics_df[\"applicant_id\"] == applicant_id]\n    \n    # If the applicant_id is not found, return 0 (not high income)\n    if applicant_data.empty:\n        return 0\n    \n    # Get the annual income\n    annual_income = applicant_data.iloc[0][\"annual_income\"]\n    \n    # Return 1 if the annual income is greater than 75000, otherwise return 0\n    return 1 if annual_income > 75000 else 0\n"
+        },
+        "0.018674226330047068": {
+            "name": "loan_purpose_category",
+            "code": "\n\ndef loan_purpose_category(row):\n    purpose_map = { \"Home Purchase\": 1, \"Business\": 2, \"Education\": 3, \"Other\": 4 }\n    return purpose_map.get(row[\"loan_purpose\"], 4)\n"
+        },
+        "0.018591342242142064": {
+            "name": "average_previous_loan_term",
+            "code": "\n\ndef average_previous_loan_term(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if \"previous_loans_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'previous_loans_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the previous loans table\n    prev_loans = aux_dataframes[\"previous_loans_table.csv\"]\n    \n    # Filter the loans for the specific applicant_id\n    applicant_loans = prev_loans[prev_loans[\"applicant_id\"] == row[\"applicant_id\"]]\n    \n    # Calculate and return the mean of the loan_term column\n    return applicant_loans[\"loan_term\"].mean()\n"
+        },
+        "0.016861004829430797": {
+            "name": "credit_utilization_ratio",
+            "code": "\n\ndef credit_utilization_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the applicant_id from the row\n    applicant_id = row[\"applicant_id\"]\n    \n    # Get the credit_scores_table dataframe from aux_data\n    credit_scores_df = aux_data[\"credit_scores_table.csv\"]\n    \n    # Find the row in credit_scores_df corresponding to the applicant_id\n    applicant_credit_data = credit_scores_df[credit_scores_df[\"applicant_id\"] == applicant_id]\n    \n    # If no matching data is found, return None\n    if applicant_credit_data.empty:\n        return None\n    \n    # Extract credit_used and credit_limit (assuming these columns exist in credit_scores_table.csv)\n    credit_used = applicant_credit_data[\"credit_score\"].iloc[0]  # Replace with the correct column if needed\n    credit_limit = applicant_credit_data[\"number_of_credit_accounts\"].iloc[0]  # Replace with the correct column if needed\n    \n    # Compute the credit utilization ratio\n    return credit_used / max(credit_limit, 1)\n"
+        },
+        "0.00980155806534162": {
+            "name": "debt_to_income_ratio",
+            "code": "\n\ndef debt_to_income_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the applicant_id from the row\n    applicant_id = row[\"applicant_id\"]\n    \n    # Retrieve the applicant's annual income from the applicant_demographics_table.csv\n    applicant_data = aux_data[\"applicant_demographics_table.csv\"]\n    annual_income = applicant_data.loc[applicant_data[\"applicant_id\"] == applicant_id, \"annual_income\"]\n    \n    # If the applicant's annual income is not found, default to 0\n    if annual_income.empty:\n        credit_annual_income = 0\n    else:\n        credit_annual_income = annual_income.iloc[0]\n    \n    # Calculate the debt-to-income ratio\n    return row[\"loan_amount\"] / max(credit_annual_income, 1)\n"
+        },
+        "0.009592121292084756": {
+            "name": "monthly_payment_to_income",
+            "code": "\n\ndef monthly_payment_to_income(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the applicant_id from the row\n    applicant_id = row[\"applicant_id\"]\n    \n    # Look up the applicant's annual income from the applicant_demographics_table.csv\n    demographics_df = aux_data[\"applicant_demographics_table.csv\"]\n    applicant_data = demographics_df[demographics_df[\"applicant_id\"] == applicant_id]\n    \n    # If the applicant is not found, assume annual income is 1 to avoid division by zero\n    if applicant_data.empty:\n        annual_income = 1\n    else:\n        annual_income = applicant_data.iloc[0][\"annual_income\"]\n    \n    # Calculate the monthly payment using the loan amount and interest rate\n    monthly_payment = row[\"loan_amount\"] * row[\"interest_rate\"] / 12  # Simplified formula\n    \n    # Return the ratio of monthly payment to annual income (converted to monthly income)\n    return monthly_payment / max(annual_income / 12, 1)\n"
+        },
+        "0.003464042386308716": {
+            "name": "median_interest_rate_similar_loans",
+            "code": "\n\ndef median_interest_rate_similar_loans(row, df_train):\n    similar_loans = df_train[(df_train[\"loan_purpose\"] == row[\"loan_purpose\"]) &\n                             (df_train[\"loan_term\"] == row[\"loan_term\"])]\n    if len(similar_loans) == 0:\n        return None\n    return similar_loans[\"interest_rate\"].median()\n"
+        },
+        "2.982378821500246e-05": {
+            "name": "average_previous_loan_amount",
+            "code": "\n\ndef average_previous_loan_amount(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> float:\n    # Ensure the key 'previous_loans_table.csv' exists in aux_dataframes\n    if \"previous_loans_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'previous_loans_table.csv' is missing from aux_dataframes.\")\n    \n    # Get the previous loans dataframe\n    prev_loans = aux_dataframes[\"previous_loans_table.csv\"]\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {\"applicant_id\", \"loan_amount\"}\n    if not required_columns.issubset(prev_loans.columns):\n        raise KeyError(f\"The dataframe 'previous_loans_table.csv' is missing one or more required columns: {required_columns}\")\n    \n    # Filter the dataframe for the current applicant_id\n    applicant_loans = prev_loans[prev_loans[\"applicant_id\"] == row[\"applicant_id\"]]\n    \n    # Calculate and return the mean loan amount, or 0 if no previous loans exist\n    return applicant_loans[\"loan_amount\"].mean() if not applicant_loans.empty else 0.0\n"
+        },
+        "0": {
+            "name": "employment_stability",
+            "code": "import pandas as pd\n\ndef employment_stability(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the applicant's demographics table\n    demographics_df = aux_data.get('applicant_demographics_table.csv')\n    \n    if demographics_df is None:\n        raise ValueError(\"The 'applicant_demographics_table.csv' is missing in aux_data.\")\n    \n    # Find the applicant's record in the demographics table\n    applicant_data = demographics_df[demographics_df['applicant_id'] == row['applicant_id']]\n    \n    if applicant_data.empty:\n        return 0  # If no data is found for the applicant, return 0\n    \n    # Extract years_at_employer and age\n    # Ensure the values are numeric\n    try:\n        years_at_employer = pd.to_numeric(applicant_data['employment_status'].values[0], errors='coerce')\n        age = pd.to_numeric(applicant_data['age'].values[0], errors='coerce')\n    except KeyError as e:\n        raise ValueError(f\"Missing expected column in demographics table: {e}\")\n    \n    # Handle cases where the values are NaN or invalid\n    if pd.isna(years_at_employer) or pd.isna(age):\n        return 0  # Return 0 if data is invalid or missing\n    \n    # Calculate years since education as a proxy (e.g., age - 22, assuming education ends at 22)\n    years_since_education = max(age - 22, 1)  # Ensure it's at least 1 to avoid division by zero\n    \n    # Calculate employment stability\n    return years_at_employer / years_since_education\n"
+        }
+    },
+    "feature_descriptions": [
+        "demographic approval rate",
+        "loan term to amount ratio",
+        "previous loans count",
+        "total previous loan amount",
+        "average previous interest rate",
+        "days since last loan",
+        "utilization risk score",
+        "calculate age",
+        "average credit score",
+        "is high income",
+        "loan purpose category",
+        "average previous loan term",
+        "credit utilization ratio",
+        "debt to income ratio",
+        "monthly payment to income",
+        "median interest rate similar loans",
+        "average previous loan amount",
+        "employment stability"
+    ]
+}

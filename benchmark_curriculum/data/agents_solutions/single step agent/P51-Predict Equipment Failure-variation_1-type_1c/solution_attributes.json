@@ -1,0 +1,47 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "days_since_last_maintenance",
+        "time_between_maintenance_and_failure",
+        "historical_failure_rate",
+        "failure_to_repair_ratio",
+        "maintenance_frequency",
+        "mean_sensor_temperature"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.49716530915168894": {
+            "name": "days_since_last_maintenance",
+            "code": "import pandas as pd\n\ndef days_since_last_maintenance(row, df_train: pd.DataFrame):\n    equipment_id = row['equipment_id']\n    current_date = pd.to_datetime(row['maintenance_date'])\n    past_dates = pd.to_datetime(df_train[df_train['equipment_id'] == equipment_id]['maintenance_date'])\n    if past_dates.empty:\n        return None\n    return (current_date - past_dates.max()).days\n"
+        },
+        "0.214729622596012": {
+            "name": "time_between_maintenance_and_failure",
+            "code": "import datetime as dt\nimport pandas as pd\n\ndef time_between_maintenance_and_failure(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the 'failure_log_table' key exists in aux_dataframes\n    if \"failure_log_table.csv\" not in aux_dataframes:\n        raise KeyError(\"'failure_log_table.csv' is missing from aux_dataframes\")\n    \n    # Retrieve the failure log table\n    failure_logs = aux_dataframes[\"failure_log_table.csv\"]\n    \n    # Ensure the required columns exist in the failure log table\n    required_columns = {'equipment_id', 'failure_date'}\n    if not required_columns.issubset(failure_logs.columns):\n        raise KeyError(f\"The failure log table is missing one or more required columns: {required_columns}\")\n    \n    # Extract the equipment_id and maintenance_date from the row\n    equipment_id = row['equipment_id']\n    maintenance_date = pd.to_datetime(row['maintenance_date'])\n    \n    # Filter the failure logs for the given equipment_id\n    failure_dates = failure_logs[failure_logs['equipment_id'] == equipment_id]\n    \n    # Convert the failure_date column to datetime\n    failure_dates['failure_date'] = pd.to_datetime(failure_dates['failure_date'])\n    \n    # If there are no failure dates for the equipment, return None\n    if failure_dates.empty:\n        return None\n    \n    # Calculate the time differences between failure dates and the maintenance date\n    min_diff = (failure_dates['failure_date'] - maintenance_date).dt.days\n    \n    # Filter out negative differences (failures that occurred before the maintenance date)\n    min_diff = min_diff[min_diff > 0]\n    \n    # Return the minimum positive difference, or None if no valid differences exist\n    return min_diff.min() if not min_diff.empty else None\n"
+        },
+        "0.04652375739906354": {
+            "name": "historical_failure_rate",
+            "code": "\n\ndef historical_failure_rate(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'failure_log_table' exists in aux_dataframes\n    if \"failure_log_table.csv\" not in aux_dataframes:\n        raise KeyError(\"'failure_log_table.csv' is missing from aux_dataframes\")\n    \n    # Access the failure log table\n    failure_logs = aux_dataframes[\"failure_log_table.csv\"]\n    \n    # Ensure the required columns exist in the failure log table\n    required_columns = {'equipment_id', 'failure_date'}\n    if not required_columns.issubset(failure_logs.columns):\n        raise KeyError(f\"The failure log table is missing one or more required columns: {required_columns}\")\n    \n    # Extract the equipment_id from the row\n    equipment_id = row['equipment_id']\n    \n    # Count the number of failures for the given equipment_id\n    failures = failure_logs[failure_logs['equipment_id'] == equipment_id].shape[0]\n    \n    # Count the total number of records for the given equipment_id in the training dataframe\n    total_records = df_train[df_train['equipment_id'] == equipment_id].shape[0]\n    \n    # Avoid division by zero\n    if total_records == 0:\n        return 0\n    \n    # Calculate and return the historical failure rate\n    return failures / total_records\n"
+        },
+        "0.03666794647896197": {
+            "name": "failure_to_repair_ratio",
+            "code": "\n\ndef failure_to_repair_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the required keys exist in the aux_dataframes dictionary\n    if \"failure_log_table.csv\" not in aux_dataframes or \"repair_records_table.csv\" not in aux_dataframes:\n        raise KeyError(\"Required tables 'failure_log_table.csv' or 'repair_records_table.csv' are missing in aux_dataframes.\")\n    \n    # Extract the relevant dataframes\n    failure_logs = aux_dataframes[\"failure_log_table.csv\"]\n    repair_logs = aux_dataframes[\"repair_records_table.csv\"]\n    \n    # Ensure the required columns exist in the dataframes\n    required_failure_columns = {'equipment_id'}\n    required_repair_columns = {'equipment_id'}\n    \n    if not required_failure_columns.issubset(failure_logs.columns):\n        raise KeyError(f\"Missing required columns in 'failure_log_table.csv': {required_failure_columns - set(failure_logs.columns)}\")\n    if not required_repair_columns.issubset(repair_logs.columns):\n        raise KeyError(f\"Missing required columns in 'repair_records_table.csv': {required_repair_columns - set(repair_logs.columns)}\")\n    \n    # Extract the equipment_id from the row\n    equipment_id = row['equipment_id']\n    \n    # Filter the failure and repair logs for the given equipment_id\n    failures = failure_logs[failure_logs['equipment_id'] == equipment_id].shape[0]\n    repairs = repair_logs[repair_logs['equipment_id'] == equipment_id].shape[0]\n    \n    # Calculate and return the failure-to-repair ratio\n    return failures / repairs if repairs > 0 else None\n"
+        },
+        "0.022582818139489615": {
+            "name": "maintenance_frequency",
+            "code": "\n\ndef maintenance_frequency(row, df_train: pd.DataFrame):\n    equipment_id = row['equipment_id']\n    maintenance_count = df_train[df_train['equipment_id'] == equipment_id].shape[0]\n    return maintenance_count\n"
+        },
+        "0.0030890789988228507": {
+            "name": "mean_sensor_temperature",
+            "code": "\n\ndef mean_sensor_temperature(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculate the mean temperature for a given equipment_id from the sensor_data_table.\n\n    Args:\n        row (pd.Series): A row from the main dataframe containing an 'equipment_id' column.\n        aux_dataframes (Dict[str, pd.DataFrame]): A dictionary of auxiliary dataframes, \n                                                  including 'sensor_data_table'.\n\n    Returns:\n        float or None: The mean temperature for the given equipment_id, or None if no data is available.\n    \"\"\"\n    # Check if 'sensor_data_table' exists in aux_dataframes\n    if \"sensor_data_table.csv\" not in aux_dataframes:\n        raise KeyError(\"'sensor_data_table.csv' is missing from aux_dataframes\")\n    \n    # Extract the sensor data table\n    sensor_data = aux_dataframes[\"sensor_data_table.csv\"]\n    \n    # Ensure the required columns exist in the sensor data table\n    required_columns = {'equipment_id', 'temperature'}\n    if not required_columns.issubset(sensor_data.columns):\n        raise ValueError(f\"Missing required columns in 'sensor_data_table.csv': {required_columns - set(sensor_data.columns)}\")\n    \n    # Get the equipment_id from the row\n    equipment_id = row['equipment_id']\n    \n    # Filter the sensor data for the given equipment_id\n    temp_data = sensor_data[sensor_data['equipment_id'] == equipment_id]['temperature']\n    \n    # Return the mean temperature or None if no data is available\n    return temp_data.mean() if not temp_data.empty else None\n"
+        }
+    },
+    "feature_descriptions": [
+        "days since last maintenance",
+        "time between maintenance and failure",
+        "historical failure rate",
+        "failure to repair ratio",
+        "maintenance frequency",
+        "mean sensor temperature"
+    ]
+}

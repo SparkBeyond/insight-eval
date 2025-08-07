@@ -1,0 +1,47 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "billing_amount_growth_rate",
+        "reviews_to_transactions_ratio",
+        "num_positive_sentiments",
+        "num_negative_sentiments",
+        "most_frequent_device_type",
+        "avg_device_cost"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.487420272339611": {
+            "name": "billing_amount_growth_rate",
+            "code": "\n\ndef billing_amount_growth_rate(row, df_train, aux_dataframes):\n    billing_history = aux_dataframes['billing_history_table.csv']\n    customer_id = row['customer_id']\n    customer_bills = billing_history[billing_history['customer_id'] == customer_id]\n    if customer_bills.shape[0] < 2:\n        return 0.0  # Insufficient data for growth calculation\n    sorted_bills = customer_bills.sort_values(by='billing_date')\n    initial_amount = sorted_bills['amount'].iloc[0]\n    final_amount = sorted_bills['amount'].iloc[-1]\n    growth_rate = (final_amount - initial_amount) / initial_amount if initial_amount > 0 else 0.0\n    return growth_rate\n"
+        },
+        "0.07321058793505607": {
+            "name": "reviews_to_transactions_ratio",
+            "code": "\n\ndef reviews_to_transactions_ratio(row, df_train, aux_dataframes):\n    reviews = aux_dataframes['customer_reviews_table.csv']\n    billing_history = aux_dataframes['billing_history_table.csv']\n    customer_id = row['customer_id']\n    num_reviews = reviews[reviews['customer_id'] == customer_id].shape[0]\n    num_transactions = billing_history[billing_history['customer_id'] == customer_id].shape[0]\n    return num_reviews / num_transactions if num_transactions > 0 else 0.0\n"
+        },
+        "0.042477588176988476": {
+            "name": "num_positive_sentiments",
+            "code": "\n\ndef num_positive_sentiments(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    reviews = aux_data['customer_reviews_table.csv']\n    customer_id = row['customer_id']\n    # Filter reviews for the given customer_id\n    customer_reviews = reviews[reviews['customer_id'] == customer_id]\n    # Count reviews with a rating greater than 0.5\n    positive_sentiments = customer_reviews[customer_reviews['rating'] > 0.5].shape[0]\n    return positive_sentiments\n"
+        },
+        "0.008068247024866717": {
+            "name": "num_negative_sentiments",
+            "code": "\n\ndef num_negative_sentiments(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the customer reviews dataframe from aux_data\n    reviews = aux_data['customer_reviews_table.csv']\n    \n    # Extract the customer_id from the current row\n    customer_id = row['customer_id']\n    \n    # Filter reviews for the current customer\n    customer_reviews = reviews[reviews['customer_id'] == customer_id]\n    \n    # Count reviews with a rating below 3 (negative sentiment)\n    negative_sentiments = customer_reviews[customer_reviews['rating'] < 3].shape[0]\n    \n    return negative_sentiments\n"
+        },
+        "4.872064722771796e-05": {
+            "name": "most_frequent_device_type",
+            "code": "\n\ndef most_frequent_device_type(row, df_train, aux_dataframes):\n    devices = aux_dataframes['device_characteristics_table.csv']\n    customer_id = row['customer_id']\n    customer_devices = devices[devices['customer_id'] == customer_id]\n    if 'device_type' not in customer_devices.columns or customer_devices.empty:\n        return None\n    most_common_device_type = customer_devices['device_type'].mode()[0] if not customer_devices['device_type'].mode().empty else None\n    return most_common_device_type\n"
+        },
+        "0": {
+            "name": "avg_device_cost",
+            "code": "import pandas as pd\n\ndef avg_device_cost(row, df_train, aux_dataframes):\n    devices = aux_dataframes['device_characteristics_table.csv']\n    customer_id = row['customer_id']\n    customer_devices = devices[devices['customer_id'] == customer_id]\n    avg_cost = customer_devices['device_cost'].mean() if 'device_cost' in customer_devices.columns else 0.0\n    return avg_cost if not pd.isna(avg_cost) else 0.0\n"
+        }
+    },
+    "feature_descriptions": [
+        "billing amount growth rate",
+        "reviews to transactions ratio",
+        "num positive sentiments",
+        "num negative sentiments",
+        "most frequent device type",
+        "avg device cost"
+    ]
+}

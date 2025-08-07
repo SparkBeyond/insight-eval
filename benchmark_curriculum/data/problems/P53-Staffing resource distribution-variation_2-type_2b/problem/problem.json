@@ -1,0 +1,7 @@
+{
+    "target_column": "OptimalStaffingLevel",
+    "description": "Optimize staffing resources across branches to improve efficiency and customer service.",
+    "name": "Staffing resource distribution",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Retail banking"
+}

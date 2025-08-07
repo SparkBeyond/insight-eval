@@ -1,0 +1,125 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "product_category",
+        "product_base_price",
+        "location_based_avg_discount",
+        "discounted_price",
+        "avg_purchase_amount_per_customer",
+        "avg_discount_percentage_per_product",
+        "regional_sales_flag_ratio",
+        "product_stock_level",
+        "purchase_month",
+        "sales_event_recency_product",
+        "customer_purchase_frequency",
+        "customer_age",
+        "sales_event_recency_customer",
+        "customer_income_level",
+        "product_sales_frequency",
+        "purchase_day_of_week",
+        "discount_level",
+        "customer_gender",
+        "overall_discounted_purchases_in_region"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.3886436625593308": {
+            "name": "product_category",
+            "code": "\n\ndef product_category(row, aux_dataframes):\n    product_df = aux_dataframes['product_information_table.csv']\n    product_id = row['product_id']\n    category = product_df.loc[product_df['product_id'] == product_id, 'category']\n    return category.values[0] if not category.empty else 'Unknown'\n"
+        },
+        "0.05558749523893339": {
+            "name": "product_base_price",
+            "code": "import numpy as np\n\ndef product_base_price(row, aux_dataframes):\n    product_df = aux_dataframes['product_information_table.csv']\n    product_id = row['product_id']\n    base_price = product_df.loc[product_df['product_id'] == product_id, 'base_price']\n    return base_price.values[0] if not base_price.empty else np.nan\n"
+        },
+        "0.05237726101253198": {
+            "name": "location_based_avg_discount",
+            "code": "\n\ndef location_based_avg_discount(row, df_train):\n    location = row['location_based_product_purchases_and_discounts']\n    location_purchases = df_train[df_train['location_based_product_purchases_and_discounts'] == location]\n    return location_purchases['discount_percentage'].mean()\n"
+        },
+        "0.048739290040099734": {
+            "name": "discounted_price",
+            "code": "\n\ndef discounted_price(row):\n    discounted_price = row['purchase_amount'] - (row['discount_percentage'] * row['purchase_amount'] / 100)\n    return discounted_price\n"
+        },
+        "0.04408820094781597": {
+            "name": "avg_purchase_amount_per_customer",
+            "code": "\n\ndef avg_purchase_amount_per_customer(row, df_train):\n    customer_id = row['customer_id']\n    customer_purchases = df_train[df_train['customer_id'] == customer_id]\n    return customer_purchases['purchase_amount'].mean()\n"
+        },
+        "0.0363583670234701": {
+            "name": "avg_discount_percentage_per_product",
+            "code": "\n\ndef avg_discount_percentage_per_product(row, df_train):\n    product_id = row['product_id']\n    product_purchases = df_train[df_train['product_id'] == product_id]\n    return product_purchases['discount_percentage'].mean()\n"
+        },
+        "0.014008963864928278": {
+            "name": "regional_sales_flag_ratio",
+            "code": "\n\ndef regional_sales_flag_ratio(row, df_train):\n    # Extract the current row's location and purchase date\n    location = row['location_based_product_purchases_and_discounts']\n    current_date = row['purchase_date']\n    \n    # Filter the training data to exclude:\n    # 1. The current row itself (to prevent target leakage)\n    # 2. Rows with purchase dates in the future (to prevent data leakage)\n    location_purchases = df_train[\n        (df_train['location_based_product_purchases_and_discounts'] == location) &\n        (df_train['purchase_date'] < current_date)\n    ]\n    \n    # If there are no valid rows, return a default value (e.g., 0.0)\n    if location_purchases.empty:\n        return 0.0\n    \n    # Calculate and return the mean sales_flag for the filtered rows\n    return location_purchases['sales_flag'].mean()\n"
+        },
+        "0.012237710433463805": {
+            "name": "product_stock_level",
+            "code": "import numpy as np\n\ndef product_stock_level(row, aux_dataframes):\n    product_df = aux_dataframes['product_information_table.csv']\n    product_id = row['product_id']\n    stock_quantity = product_df.loc[product_df['product_id'] == product_id, 'stock_quantity']\n    return stock_quantity.values[0] if not stock_quantity.empty else np.nan\n"
+        },
+        "0.00940218514658042": {
+            "name": "purchase_month",
+            "code": "import pandas as pd\n\ndef purchase_month(row):\n    return pd.to_datetime(row['purchase_date']).month\n"
+        },
+        "0.008290186069649477": {
+            "name": "sales_event_recency_product",
+            "code": "import numpy as np\nimport pandas as pd\n\ndef sales_event_recency_product(row, aux_dataframes):\n    sales_history_df = aux_dataframes['sales_history_table.csv']\n    product_id = row['product_id']\n    purchase_date = pd.to_datetime(row['purchase_date'])\n    product_sales = sales_history_df[sales_history_df['product_id'] == product_id]\n    if product_sales.empty:\n        return np.nan\n    last_sale_date = pd.to_datetime(product_sales['sale_date']).max()\n    return (purchase_date - last_sale_date).days\n"
+        },
+        "0.00767574223909894": {
+            "name": "customer_purchase_frequency",
+            "code": "\n\ndef customer_purchase_frequency(row, aux_dataframes):\n    sales_history_df = aux_dataframes['sales_history_table.csv']\n    customer_id = row['customer_id']\n    return len(sales_history_df[sales_history_df['customer_id'] == customer_id])\n"
+        },
+        "0.00599948899410067": {
+            "name": "customer_age",
+            "code": "import numpy as np\n\ndef customer_age(row, aux_dataframes):\n    customer_df = aux_dataframes['customer_demographics_table.csv']\n    customer_id = row['customer_id']\n    age = customer_df.loc[customer_df['customer_id'] == customer_id, 'age']\n    return age.values[0] if not age.empty else np.nan\n"
+        },
+        "0.00560758524191113": {
+            "name": "sales_event_recency_customer",
+            "code": "import numpy as np\nimport pandas as pd\n\ndef sales_event_recency_customer(row, aux_dataframes):\n    sales_history_df = aux_dataframes['sales_history_table.csv']\n    customer_id = row['customer_id']\n    purchase_date = pd.to_datetime(row['purchase_date'])\n    customer_sales = sales_history_df[sales_history_df['customer_id'] == customer_id]\n    if customer_sales.empty:\n        return np.nan\n    last_sale_date = pd.to_datetime(customer_sales['sale_date']).max()\n    return (purchase_date - last_sale_date).days\n"
+        },
+        "0.0053452246693368455": {
+            "name": "customer_income_level",
+            "code": "\n\ndef customer_income_level(row, aux_dataframes):\n    customer_df = aux_dataframes['customer_demographics_table.csv']\n    customer_id = row['customer_id']\n    income_level = customer_df.loc[customer_df['customer_id'] == customer_id, 'income_level']\n    return income_level.values[0] if not income_level.empty else 'Unknown'\n"
+        },
+        "0.003283499458320589": {
+            "name": "product_sales_frequency",
+            "code": "\n\ndef product_sales_frequency(row, aux_dataframes):\n    sales_history_df = aux_dataframes['sales_history_table.csv']\n    product_id = row['product_id']\n    return len(sales_history_df[sales_history_df['product_id'] == product_id])\n"
+        },
+        "0.0025604807186249976": {
+            "name": "purchase_day_of_week",
+            "code": "import pandas as pd\n\ndef purchase_day_of_week(row):\n    return pd.to_datetime(row['purchase_date']).weekday()\n"
+        },
+        "-0.000626784718146256": {
+            "name": "discount_level",
+            "code": "\n\ndef discount_level(row):\n    if row['discount_percentage'] < 10:\n        return 'low'\n    elif row['discount_percentage'] < 30:\n        return 'medium'\n    else:\n        return 'high'\n"
+        },
+        "-0.0002455503230374134": {
+            "name": "customer_gender",
+            "code": "\n\ndef customer_gender(row, aux_dataframes):\n    customer_df = aux_dataframes['customer_demographics_table.csv']\n    customer_id = row['customer_id']\n    gender = customer_df.loc[customer_df['customer_id'] == customer_id, 'gender']\n    return gender.values[0] if not gender.empty else 'Unknown'\n"
+        },
+        "0": {
+            "name": "overall_discounted_purchases_in_region",
+            "code": "\n\ndef overall_discounted_purchases_in_region(row, df_train):\n    location = row['location_based_product_purchases_and_discounts']\n    location_purchases = df_train[df_train['location_based_product_purchases_and_discounts'] == location]\n    discounted_purchases = location_purchases[location_purchases['discount_percentage'] > 0]\n    return len(discounted_purchases) / len(location_purchases) if not location_purchases.empty else 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "product category",
+        "product base price",
+        "location based avg discount",
+        "discounted price",
+        "avg purchase amount per customer",
+        "avg discount percentage per product",
+        "regional sales flag ratio",
+        "product stock level",
+        "purchase month",
+        "sales event recency product",
+        "customer purchase frequency",
+        "customer age",
+        "sales event recency customer",
+        "customer income level",
+        "product sales frequency",
+        "purchase day of week",
+        "discount level",
+        "customer gender",
+        "overall discounted purchases in region"
+    ]
+}

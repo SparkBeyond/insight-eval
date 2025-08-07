@@ -1,0 +1,7 @@
+{
+    "target_column": "Readmitted",
+    "description": "Predict likelihood of patient readmission within 30 days.",
+    "name": "Hospital Readmissions",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Healthcare"
+}

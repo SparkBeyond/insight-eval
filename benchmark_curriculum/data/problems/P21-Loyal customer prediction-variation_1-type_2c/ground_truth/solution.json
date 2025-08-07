@@ -1,0 +1,24 @@
+{
+    "enriched_column_names": [
+        "total_number_of_repeat_purchases_made_in_the_last_quarter",
+        "number_of_days_since_the_last_transaction",
+        "response_rates_to_marketing_campaigns_in_the_last_six_months",
+        "customer_engagement_rate_with_proactive_offers",
+        "decrease_in_transaction_frequency_month_over_month",
+        "resolution_rate_for_support_tickets_in_the_last_year",
+        "frequency_of_customer_interactions_with_support_over_the_last_year",
+        "average_transaction_value_of_a_customer_in_the_past_6_months",
+        "days_since_enrollment_in_loyalty_programs"
+    ],
+    "features_descriptions": [
+        "total number of repeat purchases made in the last quarter",
+        "number of days since the last transaction",
+        "response rates to marketing campaigns in the last six months",
+        "customer engagement rate with proactive offers",
+        "decrease in transaction frequency month over month",
+        "resolution rate for support tickets in the last year",
+        "frequency of customer interactions with support over the last year",
+        "average transaction value of a customer in the past 6 months",
+        "days since enrollment in loyalty programs"
+    ]
+}

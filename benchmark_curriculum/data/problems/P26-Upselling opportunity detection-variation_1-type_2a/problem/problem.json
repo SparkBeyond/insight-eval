@@ -1,0 +1,7 @@
+{
+    "target_column": "past_upgrade",
+    "description": "Identify customers most likely to upgrade to premium products.",
+    "name": "Upselling opportunity detection",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Retail"
+}

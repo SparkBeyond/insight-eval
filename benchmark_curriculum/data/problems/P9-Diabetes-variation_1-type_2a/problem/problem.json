@@ -1,0 +1,7 @@
+{
+    "target_column": "has_diabetes",
+    "description": "How risk to develop Diabetes type 2 within 12 months is correlated with demographics and medical history",
+    "name": "Diabetes",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Healthcare"
+}

@@ -1,0 +1,113 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "total_payment_amount",
+        "transaction_variety_score",
+        "std_transaction_amount",
+        "max_transaction_amount",
+        "total_transactions",
+        "last_payment_amount",
+        "time_since_registration",
+        "customer_credit_score",
+        "avg_transaction_amount",
+        "avg_feedback_per_month",
+        "min_transaction_amount",
+        "income_bracket_encoded",
+        "avg_feedback_sentiment",
+        "total_feedback",
+        "payment_method_mode",
+        "avg_payment_delay",
+        "neutral_feedback_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.4246942505070725": {
+            "name": "total_payment_amount",
+            "code": "\n\ndef total_payment_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the transaction data table from aux_data\n    transaction_data = aux_data['transaction_data_table.csv']\n    \n    # Filter transactions for the given customer_id\n    user_transactions = transaction_data[transaction_data['customer_id'] == row['customer_id']]\n    \n    # Return the sum of the transaction amounts\n    return user_transactions['transaction_amount'].sum()\n"
+        },
+        "0.2863122400228079": {
+            "name": "transaction_variety_score",
+            "code": "\n\ndef transaction_variety_score(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure we are using the correct dataframe from aux_data\n    transaction_data = aux_data.get('transaction_data_table.csv')\n    \n    if transaction_data is None:\n        raise ValueError(\"The 'transaction_data_table.csv' is missing from aux_data.\")\n    \n    # Filter transactions for the given customer_id\n    user_transactions = transaction_data[transaction_data['customer_id'] == row['customer_id']]\n    \n    # If no transactions exist for the customer, return 0\n    if len(user_transactions) == 0:\n        return 0\n    \n    # Calculate the variety score\n    return user_transactions['transaction_type'].nunique() / len(user_transactions)\n"
+        },
+        "0.08950122931762616": {
+            "name": "std_transaction_amount",
+            "code": "\n\ndef std_transaction_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the transaction data table from aux_data\n    transaction_data = aux_data['transaction_data_table.csv']\n    \n    # Filter transactions for the given customer_id\n    user_transactions = transaction_data[transaction_data['customer_id'] == row['customer_id']]\n    \n    # Calculate and return the standard deviation of the transaction amounts\n    return user_transactions['transaction_amount'].std()\n"
+        },
+        "0.07721138979301433": {
+            "name": "max_transaction_amount",
+            "code": "\n\ndef max_transaction_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure we are using the correct dataframe from aux_data\n    transaction_data = aux_data['transaction_data_table.csv']\n    \n    # Filter transactions for the given customer_id\n    user_transactions = transaction_data[transaction_data['customer_id'] == row['customer_id']]\n    \n    # Return the maximum transaction amount for the customer\n    return user_transactions['transaction_amount'].max()\n"
+        },
+        "0.06431172948892215": {
+            "name": "total_transactions",
+            "code": "\n\ndef total_transactions(row, df_train: pd.DataFrame):\n    user_transactions = df_train[df_train['customer_id'] == row['customer_id']]\n    return len(user_transactions)\n"
+        },
+        "0.05550797923012158": {
+            "name": "last_payment_amount",
+            "code": "\n\ndef last_payment_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Retrieve the transaction data table from aux_data\n    transaction_data = aux_data.get('transaction_data_table.csv')\n    \n    # Check if the transaction data is available\n    if transaction_data is None:\n        raise ValueError(\"Transaction data table is missing from aux_data.\")\n    \n    # Filter transactions for the given customer_id\n    user_transactions = transaction_data[transaction_data['customer_id'] == row['customer_id']]\n    \n    # Check if there are any transactions for the customer\n    if user_transactions.empty:\n        return 0  # Return 0 if no transactions exist for the customer\n    \n    # Sort transactions by 'transaction_date' in descending order\n    user_transactions = user_transactions.sort_values(by='transaction_date', ascending=False)\n    \n    # Get the most recent transaction\n    most_recent_transaction = user_transactions.iloc[0]\n    \n    # Return the transaction amount of the most recent transaction\n    return most_recent_transaction['transaction_amount']\n"
+        },
+        "0.04205207239252727": {
+            "name": "time_since_registration",
+            "code": "import pandas as pd\nimport datetime\n\ndef time_since_registration(row, aux_data: Dict[str, pd.DataFrame]):\n    from datetime import datetime\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Get the customer_data_table dataframe from aux_data\n    customer_data = aux_data.get('customer_data_table.csv')\n    \n    # Ensure the dataframe exists and contains the required columns\n    if customer_data is None or 'customer_id' not in customer_data.columns or 'registration_date' not in customer_data.columns:\n        raise ValueError(\"The 'customer_data_table.csv' dataframe is missing or does not contain the required columns.\")\n    \n    # Find the registration_date for the given customer_id\n    customer_row = customer_data[customer_data['customer_id'] == customer_id]\n    if customer_row.empty:\n        raise ValueError(f\"No registration data found for customer_id {customer_id}.\")\n    \n    # Extract the registration_date\n    registration_date = pd.to_datetime(customer_row.iloc[0]['registration_date'])\n    \n    # Get the current date\n    current_date = datetime.now()\n    \n    # Calculate the number of days since registration\n    return (current_date - registration_date).days\n"
+        },
+        "0.04203480068729523": {
+            "name": "customer_credit_score",
+            "code": "\n\ndef customer_credit_score(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'customer_data_table.csv' exists in aux_dataframes\n    if 'customer_data_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'customer_data_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the customer_data_table dataframe\n    customer_data = aux_dataframes['customer_data_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'customer_id', 'credit_score'}\n    if not required_columns.issubset(customer_data.columns):\n        raise ValueError(f\"The dataframe 'customer_data_table.csv' must contain the columns: {required_columns}\")\n    \n    # Filter the dataframe to find the credit score for the given customer_id\n    credit_score = customer_data.loc[customer_data['customer_id'] == row['customer_id'], 'credit_score']\n    \n    # Return the credit score if found, otherwise return 0\n    return credit_score.values[0] if not credit_score.empty else 0\n"
+        },
+        "0.03904952629506533": {
+            "name": "avg_transaction_amount",
+            "code": "\n\ndef avg_transaction_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the transaction data table from aux_data\n    transaction_data = aux_data['transaction_data_table.csv']\n    \n    # Filter transactions for the given customer_id\n    user_transactions = transaction_data[transaction_data['customer_id'] == row['customer_id']]\n    \n    # Return the mean of the transaction_amount column\n    return user_transactions['transaction_amount'].mean()\n"
+        },
+        "0.03855450840805993": {
+            "name": "avg_feedback_per_month",
+            "code": "import math\nimport pandas as pd\n\ndef avg_feedback_per_month(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if 'customer_feedback_table.csv' not in aux_dataframes:\n        raise KeyError(\"'customer_feedback_table.csv' not found in aux_dataframes\")\n    \n    # Retrieve the customer feedback table\n    feedback_data = aux_dataframes['customer_feedback_table.csv']\n    \n    # Ensure the required columns exist in the feedback_data DataFrame\n    required_columns = {'customer_id', 'feedback_date'}\n    if not required_columns.issubset(feedback_data.columns):\n        raise ValueError(f\"Missing required columns in customer_feedback_table.csv: {required_columns - set(feedback_data.columns)}\")\n    \n    # Filter feedback data for the specific customer\n    user_feedback = feedback_data[feedback_data['customer_id'] == row['customer_id']]\n    \n    # If no feedback exists for the customer, return 0\n    if user_feedback.empty:\n        return 0\n    \n    # Convert feedback_date to datetime if it's not already\n    user_feedback['feedback_date'] = pd.to_datetime(user_feedback['feedback_date'], errors='coerce')\n    \n    # Drop rows with invalid feedback_date\n    user_feedback = user_feedback.dropna(subset=['feedback_date'])\n    \n    # If no valid feedback dates remain, return 0\n    if user_feedback.empty:\n        return 0\n    \n    # Calculate the first feedback date\n    first_feedback_date = user_feedback['feedback_date'].min()\n    \n    # Calculate the number of months the customer has been active\n    months_active = (pd.Timestamp.now() - first_feedback_date) / pd.Timedelta(days=30)\n    months_active = math.ceil(months_active)  # Use math.ceil to round up\n    \n    # Avoid division by zero\n    if months_active == 0:\n        return 0\n    \n    # Calculate and return the average feedback per month\n    return len(user_feedback) / months_active\n"
+        },
+        "0.03191485491127162": {
+            "name": "min_transaction_amount",
+            "code": "\n\ndef min_transaction_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure we are using the correct dataframe from aux_data\n    transaction_data = aux_data['transaction_data_table.csv']\n    \n    # Filter transactions for the given customer_id\n    user_transactions = transaction_data[transaction_data['customer_id'] == row['customer_id']]\n    \n    # Return the minimum transaction amount for the customer\n    if not user_transactions.empty:\n        return user_transactions['transaction_amount'].min()\n    else:\n        # Return None or a default value if no transactions are found\n        return None\n"
+        },
+        "0.006825248431168385": {
+            "name": "income_bracket_encoded",
+            "code": "import pandas as pd\n\ndef income_bracket_encoded(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'customer_data_table.csv' exists in aux_dataframes\n    if 'customer_data_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'customer_data_table.csv' is missing from aux_dataframes.\")\n    \n    # Get the customer_data_table DataFrame\n    customer_data = aux_dataframes['customer_data_table.csv']\n    \n    # Ensure the required columns exist in the DataFrame\n    required_columns = {'customer_id', 'income_bracket'}\n    if not required_columns.issubset(customer_data.columns):\n        raise KeyError(f\"The DataFrame 'customer_data_table.csv' is missing one or more required columns: {required_columns}\")\n    \n    # Ensure the customer_id in the row and DataFrame are of the same type\n    if not pd.api.types.is_dtype_equal(customer_data['customer_id'].dtype, type(row['customer_id'])):\n        raise TypeError(\"The 'customer_id' column in 'customer_data_table.csv' and the 'customer_id' in the row have mismatched data types.\")\n    \n    # Filter the DataFrame to find the income_bracket for the given customer_id\n    income_bracket = customer_data.loc[customer_data['customer_id'] == row['customer_id'], 'income_bracket']\n    \n    # Return the income_bracket value if found, otherwise return 0\n    return income_bracket.values[0] if not income_bracket.empty else 0\n"
+        },
+        "0.0064175487613582285": {
+            "name": "avg_feedback_sentiment",
+            "code": "\n\ndef avg_feedback_sentiment(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'customer_feedback_table.csv' exists in aux_dataframes\n    if 'customer_feedback_table.csv' not in aux_dataframes:\n        raise KeyError(\"'customer_feedback_table.csv' is missing from aux_dataframes.\")\n    \n    # Get the customer feedback table\n    feedback_data = aux_dataframes['customer_feedback_table.csv']\n    \n    # Check if the required columns exist\n    required_columns = {'customer_id', 'feedback_text'}\n    if not required_columns.issubset(feedback_data.columns):\n        raise KeyError(f\"The following required columns are missing in the customer feedback table: {required_columns - set(feedback_data.columns)}\")\n    \n    # Filter feedback data for the given customer_id\n    user_feedback = feedback_data[feedback_data['customer_id'] == row['customer_id']]\n    \n    # If no feedback exists for the customer, return 0\n    if user_feedback.empty:\n        return 0\n    \n    # Calculate sentiment scores for each feedback\n    user_feedback['sentiment_score'] = user_feedback['feedback_text'].apply(calculate_sentiment_score)\n    \n    # Calculate and return the average sentiment score\n    return user_feedback['sentiment_score'].mean()\n"
+        },
+        "0.0008507682585550299": {
+            "name": "total_feedback",
+            "code": "\n\ndef total_feedback(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'customer_feedback_table' exists in aux_dataframes\n    if 'customer_feedback_table.csv' not in aux_dataframes:\n        raise KeyError(\"'customer_feedback_table.csv' is missing from aux_dataframes\")\n    \n    # Access the customer feedback table\n    feedback_data = aux_dataframes['customer_feedback_table.csv']\n    \n    # Ensure the required columns exist in the feedback_data DataFrame\n    required_columns = {'customer_id'}\n    if not required_columns.issubset(feedback_data.columns):\n        raise ValueError(f\"The DataFrame 'customer_feedback_table.csv' is missing required columns: {required_columns - set(feedback_data.columns)}\")\n    \n    # Filter feedback data for the given customer_id\n    user_feedback = feedback_data[feedback_data['customer_id'] == row['customer_id']]\n    \n    # Return the count of feedback entries for the customer\n    return len(user_feedback)\n"
+        },
+        "0.0006628780544588597": {
+            "name": "payment_method_mode",
+            "code": "\n\ndef payment_method_mode(row, df_train: pd.DataFrame):\n    user_transactions = df_train[df_train['customer_id'] == row['customer_id']]\n    if user_transactions.empty:\n        return None\n    return user_transactions['payment_method'].mode()[0]\n"
+        },
+        "0.0003974224579241829": {
+            "name": "avg_payment_delay",
+            "code": "import pandas as pd\n\ndef avg_payment_delay(row, df_train: pd.DataFrame):\n    # Ensure 'payment_date' and 'due_date' are in datetime format\n    df_train['payment_date'] = pd.to_datetime(df_train['payment_date'])\n    df_train['due_date'] = pd.to_datetime(df_train['due_date'])\n    \n    # Calculate the payment delay in days\n    df_train['payment_delay_days'] = (df_train['payment_date'] - df_train['due_date']).dt.days\n    \n    # Filter transactions for the specific customer\n    user_transactions = df_train[df_train['customer_id'] == row['customer_id']]\n    \n    # Return the average payment delay for the customer\n    return user_transactions['payment_delay_days'].mean()\n"
+        },
+        "0": {
+            "name": "neutral_feedback_ratio",
+            "code": "\n\ndef neutral_feedback_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'customer_feedback_table' exists in aux_dataframes\n    if 'customer_feedback_table.csv' not in aux_dataframes:\n        raise KeyError(\"'customer_feedback_table.csv' is missing from aux_dataframes\")\n    \n    # Retrieve the customer feedback table\n    feedback_data = aux_dataframes['customer_feedback_table.csv']\n    \n    # Ensure the required columns exist in the feedback_data\n    required_columns = {'customer_id', 'feedback_type'}\n    if not required_columns.issubset(feedback_data.columns):\n        raise ValueError(f\"The dataframe 'customer_feedback_table.csv' is missing required columns: {required_columns - set(feedback_data.columns)}\")\n    \n    # Filter feedback data for the given customer_id\n    user_feedback = feedback_data[feedback_data['customer_id'] == row['customer_id']]\n    \n    # If no feedback exists for the customer, return 0\n    if user_feedback.empty:\n        return 0.0\n    \n    # Calculate the ratio of neutral feedback\n    neutral_count = (user_feedback['feedback_type'] == 'NEUTRAL').sum()\n    total_feedback = len(user_feedback)\n    return neutral_count / total_feedback\n"
+        }
+    },
+    "feature_descriptions": [
+        "total payment amount",
+        "transaction variety score",
+        "std transaction amount",
+        "max transaction amount",
+        "total transactions",
+        "last payment amount",
+        "time since registration",
+        "customer credit score",
+        "avg transaction amount",
+        "avg feedback per month",
+        "min transaction amount",
+        "income bracket encoded",
+        "avg feedback sentiment",
+        "total feedback",
+        "payment method mode",
+        "avg payment delay",
+        "neutral feedback ratio"
+    ]
+}

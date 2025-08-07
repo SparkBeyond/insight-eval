@@ -1,0 +1,47 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "no_show_rate",
+        "count_poor_sleep_surveys",
+        "total_missed_appointments",
+        "cbt_frequency",
+        "average_severity_level",
+        "appointment_type_frequency"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.31484270744986187": {
+            "name": "no_show_rate",
+            "code": "\n\ndef no_show_rate(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Get the appointments_records_table dataframe from aux_data\n    appointments_df = aux_data['appointments_records_table.csv']\n    \n    # Filter the dataframe for the given patient_id\n    patient_history = appointments_df[appointments_df['patient_id'] == patient_id]\n    \n    # If the patient has no appointment history, return 0\n    if len(patient_history) == 0:\n        return 0.0\n    \n    # Calculate the total number of appointments\n    total_appointments = len(patient_history)\n    \n    # Calculate the number of missed appointments (where 'attended' is False)\n    missed_appointments = patient_history['attended'].apply(lambda x: not x).sum()\n    \n    # Return the no-show rate\n    return missed_appointments / total_appointments\n"
+        },
+        "0.26764256066703107": {
+            "name": "count_poor_sleep_surveys",
+            "code": "\n\ndef count_poor_sleep_surveys(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Access the lifestyle_surveys_table.csv DataFrame from aux_data\n    lifestyle_surveys = aux_data['lifestyle_surveys_table.csv']\n    \n    # Filter the DataFrame for the given patient_id\n    patient_surveys = lifestyle_surveys[lifestyle_surveys['patient_id'] == patient_id]\n    \n    # If there are no surveys for the patient, return 0\n    if len(patient_surveys) == 0:\n        return 0\n    \n    # Count the number of surveys where sleep_quality is \"Poor\"\n    return (patient_surveys['sleep_quality'] == \"Poor\").sum()\n"
+        },
+        "0.2499380705649926": {
+            "name": "total_missed_appointments",
+            "code": "\n\ndef total_missed_appointments(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Get the appointments_records_table dataframe from aux_data\n    appointments_df = aux_data['appointments_records_table.csv']\n    \n    # Filter the dataframe for the given patient_id\n    patient_appointments = appointments_df[appointments_df['patient_id'] == patient_id]\n    \n    # If no appointments exist for the patient, return 0\n    if len(patient_appointments) == 0:\n        return 0\n    \n    # Calculate the total missed appointments (where 'attended' is False)\n    return patient_appointments['attended'].apply(lambda x: not x).sum()\n"
+        },
+        "0.01939210971448786": {
+            "name": "cbt_frequency",
+            "code": "import pandas as pd\n\ndef cbt_frequency(row, df_train: pd.DataFrame):\n    patient_id = row['patient_id']\n    patient_history = df_train[df_train['patient_id'] == patient_id]\n    if len(patient_history) == 0 or pd.isna(patient_history['treatment_plan']).all():\n        return 0\n    return patient_history['treatment_plan'].apply(\n        lambda x: 'Cognitive Behavioral Therapy' in x if isinstance(x, str) else False).sum()\n"
+        },
+        "0.002919935944140588": {
+            "name": "average_severity_level",
+            "code": "import pandas as pd\n\ndef average_severity_level(row, df_train: pd.DataFrame):\n    patient_id = row['patient_id']\n    patient_history = df_train[df_train['patient_id'] == patient_id]\n    if len(patient_history) == 0 or pd.isna(patient_history['severity_level']).all():\n        return None\n    return patient_history['severity_level'].mean()\n"
+        },
+        "0": {
+            "name": "appointment_type_frequency",
+            "code": "\n\ndef appointment_type_frequency(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure we are using the correct dataframe from aux_data\n    appointments_df = aux_data['appointments_records_table.csv']\n    \n    # Extract patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Check if 'appointment_type' exists in the row\n    if 'appointment_type' not in row:\n        # If 'appointment_type' is not in the row, return 0 or handle it as needed\n        return 0\n    \n    # Extract appointment_type from the row\n    appointment_type = row['appointment_type']\n    \n    # Filter the appointments dataframe for the given patient_id\n    patient_history = appointments_df[appointments_df['patient_id'] == patient_id]\n    \n    # If no history exists for the patient, return 0\n    if len(patient_history) == 0:\n        return 0\n    \n    # Count the occurrences of the given appointment_type for the patient\n    return (patient_history['appointment_type'] == appointment_type).sum()\n"
+        }
+    },
+    "feature_descriptions": [
+        "no show rate",
+        "count poor sleep surveys",
+        "total missed appointments",
+        "cbt frequency",
+        "average severity level",
+        "appointment type frequency"
+    ]
+}

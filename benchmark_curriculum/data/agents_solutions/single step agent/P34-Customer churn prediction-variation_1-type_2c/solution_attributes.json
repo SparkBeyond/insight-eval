@@ -1,0 +1,83 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "marketing_engagement_recency",
+        "purchase_frequency",
+        "marketing_engagement_count",
+        "customer_support_interaction_count",
+        "total_lifetime_spend",
+        "lifetime_engagement_score",
+        "website_activity_frequency",
+        "days_since_last_purchase",
+        "avg_issue_resolution_time",
+        "avg_purchase_value",
+        "recent_spend_percentage",
+        "marketing_response_rate"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.06859758168663883": {
+            "name": "marketing_engagement_recency",
+            "code": "import pandas as pd\nimport datetime\n\ndef marketing_engagement_recency(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'marketing_engagement_table.csv' exists in aux_dataframes\n    if 'marketing_engagement_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'marketing_engagement_table.csv' is missing in aux_dataframes.\")\n    \n    # Access the marketing engagement table\n    marketing_data = aux_dataframes['marketing_engagement_table.csv']\n    \n    # Ensure the required columns exist in the marketing_data dataframe\n    required_columns = {'customer_id', 'engagement_date'}\n    if not required_columns.issubset(marketing_data.columns):\n        raise KeyError(f\"The marketing engagement table is missing one or more required columns: {required_columns}\")\n    \n    # Filter the marketing data for the specific customer\n    customer_data = marketing_data[marketing_data['customer_id'] == row['customer_id']]\n    \n    # If there is engagement data for the customer, calculate the recency\n    if not customer_data.empty:\n        latest_engagement = customer_data['engagement_date'].max()\n        # Convert the latest engagement date to a datetime object\n        latest_engagement_date = pd.to_datetime(latest_engagement)\n        # Calculate the difference in days between now and the latest engagement date\n        return (datetime.now() - latest_engagement_date).days\n    \n    # If no engagement data is found, return None\n    return None\n"
+        },
+        "0.05621663347407352": {
+            "name": "purchase_frequency",
+            "code": "\n\ndef purchase_frequency(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'purchase_history_table' exists in aux_dataframes\n    if 'purchase_history_table.csv' not in aux_dataframes:\n        raise KeyError(\"'purchase_history_table.csv' is missing from aux_dataframes\")\n    \n    # Retrieve the purchase history table\n    purchase_data = aux_dataframes['purchase_history_table.csv']\n    \n    # Ensure the required columns exist in the purchase_data dataframe\n    required_columns = {'customer_id', 'purchase_id', 'purchase_date', 'amount', 'product_category', 'payment_method'}\n    if not required_columns.issubset(purchase_data.columns):\n        raise ValueError(f\"The purchase_history_table.csv is missing required columns: {required_columns - set(purchase_data.columns)}\")\n    \n    # Calculate the purchase frequency for the given customer_id\n    customer_id = row['customer_id']\n    return len(purchase_data[purchase_data['customer_id'] == customer_id])\n"
+        },
+        "0.055011094133817606": {
+            "name": "marketing_engagement_count",
+            "code": "\n\ndef marketing_engagement_count(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'marketing_engagement_table' exists in aux_dataframes\n    if 'marketing_engagement_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'marketing_engagement_table.csv' is missing from aux_dataframes.\")\n    \n    # Retrieve the marketing engagement table\n    marketing_data = aux_dataframes['marketing_engagement_table.csv']\n    \n    # Ensure the required columns exist in the marketing_data dataframe\n    required_columns = {'engagement_id', 'customer_id', 'campaign_id', 'engagement_date', 'channel', 'response'}\n    if not required_columns.issubset(marketing_data.columns):\n        raise ValueError(f\"The dataframe 'marketing_engagement_table.csv' is missing one or more required columns: {required_columns}\")\n    \n    # Count the number of rows in marketing_data where 'customer_id' matches the row's 'customer_id'\n    return len(marketing_data[marketing_data['customer_id'] == row['customer_id']])\n"
+        },
+        "0.04715139739861552": {
+            "name": "customer_support_interaction_count",
+            "code": "\n\ndef customer_support_interaction_count(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if 'customer_support_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'customer_support_table.csv' is missing from the aux_dataframes dictionary.\")\n    \n    # Access the customer support data\n    support_data = aux_dataframes['customer_support_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'interaction_id', 'customer_id', 'interaction_date', 'issue_type', 'resolution_status', 'response_time'}\n    if not required_columns.issubset(support_data.columns):\n        raise ValueError(f\"The dataframe for 'customer_support_table.csv' is missing required columns: {required_columns - set(support_data.columns)}\")\n    \n    # Count the number of interactions for the given customer_id\n    return len(support_data[support_data['customer_id'] == row['customer_id']])\n"
+        },
+        "0.044319449346029674": {
+            "name": "total_lifetime_spend",
+            "code": "\n\ndef total_lifetime_spend(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'purchase_history_table.csv' exists in aux_dataframes\n    if 'purchase_history_table.csv' not in aux_dataframes:\n        raise KeyError(\"'purchase_history_table.csv' not found in aux_dataframes\")\n    \n    # Access the purchase history dataframe\n    purchase_data = aux_dataframes['purchase_history_table.csv']\n    \n    # Filter the purchase data for the specific customer_id\n    customer_data = purchase_data[purchase_data['customer_id'] == row['customer_id']]\n    \n    # Sum the 'amount' column to calculate total lifetime spend\n    return customer_data['amount'].sum()\n"
+        },
+        "0.03901065493348518": {
+            "name": "lifetime_engagement_score",
+            "code": "\n\ndef lifetime_engagement_score(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the keys in aux_dataframes match the expected filenames\n    support_data = aux_dataframes['customer_support_table.csv']\n    marketing_data = aux_dataframes['marketing_engagement_table.csv']\n    purchase_data = aux_dataframes['purchase_history_table.csv']\n    website_activity_data = aux_dataframes['website_activity_table.csv']\n    \n    # Normalize counts by dividing by respective maximums\n    support_count = len(support_data[support_data['customer_id'] == row['customer_id']])\n    marketing_count = len(marketing_data[marketing_data['customer_id'] == row['customer_id']])\n    purchase_count = len(purchase_data[purchase_data['customer_id'] == row['customer_id']])\n    website_count = len(website_activity_data[website_activity_data['customer_id'] == row['customer_id']])\n\n    # Sum normalized counts across datasets (weighted equally)\n    total_score = (\n        (support_count / max(1, support_data['customer_id'].value_counts().max())) + \n        (marketing_count / max(1, marketing_data['customer_id'].value_counts().max())) +\n        (purchase_count / max(1, purchase_data['customer_id'].value_counts().max())) +\n        (website_count / max(1, website_activity_data['customer_id'].value_counts().max()))\n    )\n\n    return total_score\n"
+        },
+        "0.031067648950699647": {
+            "name": "website_activity_frequency",
+            "code": "\n\ndef website_activity_frequency(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'website_activity_table' exists in aux_dataframes\n    if 'website_activity_table.csv' not in aux_dataframes:\n        raise KeyError(\"'website_activity_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the website activity data\n    website_activity_data = aux_dataframes['website_activity_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'customer_id'}\n    if not required_columns.issubset(website_activity_data.columns):\n        raise ValueError(f\"The dataframe 'website_activity_table.csv' is missing required columns: {required_columns - set(website_activity_data.columns)}\")\n    \n    # Calculate the frequency of website activity for the given customer_id\n    return len(website_activity_data[website_activity_data['customer_id'] == row['customer_id']])\n"
+        },
+        "0.02442899080166919": {
+            "name": "days_since_last_purchase",
+            "code": "import pandas as pd\nimport datetime\n\ndef days_since_last_purchase(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'purchase_history_table' exists in aux_dataframes\n    if 'purchase_history_table.csv' not in aux_dataframes:\n        raise KeyError(\"'purchase_history_table.csv' is missing from aux_dataframes\")\n    \n    # Get the purchase history table\n    purchase_data = aux_dataframes['purchase_history_table.csv']\n    \n    # Ensure the required columns exist in the purchase history table\n    required_columns = {'customer_id', 'purchase_date'}\n    if not required_columns.issubset(purchase_data.columns):\n        raise ValueError(f\"The purchase history table is missing required columns: {required_columns - set(purchase_data.columns)}\")\n    \n    # Filter the purchase data for the given customer_id\n    customer_data = purchase_data[purchase_data['customer_id'] == row['customer_id']]\n    \n    # If there is purchase data for the customer, calculate days since the last purchase\n    if not customer_data.empty:\n        last_purchase_date = pd.to_datetime(customer_data['purchase_date']).max()\n        return (datetime.now() - last_purchase_date).days\n    \n    # If no purchase data exists for the customer, return None\n    return None\n"
+        },
+        "0.022821964576040334": {
+            "name": "avg_issue_resolution_time",
+            "code": "\n\ndef avg_issue_resolution_time(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if 'customer_support_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'customer_support_table.csv' is missing in aux_dataframes.\")\n    \n    # Access the customer support table\n    support_data = aux_dataframes['customer_support_table.csv']\n    \n    # Filter the data for the specific customer_id\n    customer_data = support_data[support_data['customer_id'] == row['customer_id']]\n    \n    # Check if the filtered data is not empty\n    if not customer_data.empty:\n        # Calculate and return the mean of the 'response_time' column\n        return customer_data['response_time'].mean()\n    \n    # Return 0 if no data is found for the customer\n    return 0\n"
+        },
+        "0.016799359812491286": {
+            "name": "avg_purchase_value",
+            "code": "\n\ndef avg_purchase_value(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'purchase_history_table.csv' exists in aux_dataframes\n    if 'purchase_history_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'purchase_history_table.csv' is missing in aux_dataframes.\")\n    \n    # Get the purchase history table\n    purchase_data = aux_dataframes['purchase_history_table.csv']\n    \n    # Filter the purchase data for the specific customer\n    customer_data = purchase_data[purchase_data['customer_id'] == row['customer_id']]\n    \n    # If there is purchase data for the customer, calculate the average purchase value\n    if not customer_data.empty:\n        return customer_data['amount'].mean()\n    \n    # If no purchase data exists for the customer, return 0\n    return 0\n"
+        },
+        "0.014004184329433103": {
+            "name": "recent_spend_percentage",
+            "code": "import pandas as pd\nimport datetime\n\ndef recent_spend_percentage(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'purchase_history_table.csv' exists in aux_dataframes\n    if 'purchase_history_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'purchase_history_table.csv' is missing in aux_dataframes.\")\n    \n    # Load the purchase history table\n    purchase_data = aux_dataframes['purchase_history_table.csv']\n    \n    # Filter purchase data for the specific customer\n    customer_data = purchase_data[purchase_data['customer_id'] == row['customer_id']]\n    \n    if not customer_data.empty:\n        # Calculate total spend\n        total_spend = customer_data['amount'].sum()\n        \n        # Calculate the date six months ago\n        six_months_ago = datetime.now() - pd.Timedelta(180, 'days')\n        \n        # Filter purchases within the last six months\n        recent_spend = customer_data[pd.to_datetime(customer_data['purchase_date']) >= six_months_ago]['amount'].sum()\n        \n        # Return the percentage of recent spend\n        return (recent_spend / total_spend) if total_spend > 0 else 0\n    \n    # Return 0 if no purchase data is available for the customer\n    return 0\n"
+        },
+        "0": {
+            "name": "marketing_response_rate",
+            "code": "\n\ndef marketing_response_rate(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'marketing_engagement_table.csv' exists in aux_dataframes\n    if 'marketing_engagement_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'marketing_engagement_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the marketing engagement table\n    marketing_data = aux_dataframes['marketing_engagement_table.csv']\n    \n    # Ensure the required columns exist in the marketing engagement table\n    required_columns = {'customer_id', 'response'}\n    if not required_columns.issubset(marketing_data.columns):\n        raise ValueError(f\"The marketing engagement table is missing one or more required columns: {required_columns}\")\n    \n    # Filter the marketing data for the specific customer\n    customer_data = marketing_data[marketing_data['customer_id'] == row['customer_id']]\n    \n    # If there is no data for the customer, return 0\n    if customer_data.empty:\n        return 0\n    \n    # Calculate the response rate\n    positive_responses = customer_data[customer_data['response'] == 'positive']\n    return len(positive_responses) / len(customer_data)\n"
+        }
+    },
+    "feature_descriptions": [
+        "marketing engagement recency",
+        "purchase frequency",
+        "marketing engagement count",
+        "customer support interaction count",
+        "total lifetime spend",
+        "lifetime engagement score",
+        "website activity frequency",
+        "days since last purchase",
+        "avg issue resolution time",
+        "avg purchase value",
+        "recent spend percentage",
+        "marketing response rate"
+    ]
+}

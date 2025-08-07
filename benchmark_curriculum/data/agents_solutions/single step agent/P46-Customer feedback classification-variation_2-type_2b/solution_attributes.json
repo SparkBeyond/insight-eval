@@ -1,0 +1,125 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "avg_session_duration",
+        "days_since_last_website_visit",
+        "days_since_last_purchase",
+        "purchase_frequency",
+        "avg_purchase_amount",
+        "negative_feedback_following_support",
+        "support_interaction_last_days",
+        "avg_support_wait_time",
+        "avg_pages_per_session",
+        "first_support_contact_to_feedback_days",
+        "feedback_length",
+        "day_of_feedback",
+        "support_interaction_frequency",
+        "feedback_word_count",
+        "hour_of_feedback",
+        "feedback_via_social_media",
+        "bounce_rate",
+        "most_frequent_support_issue",
+        "interaction_website_to_purchase_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.11966563075981222": {
+            "name": "avg_session_duration",
+            "code": "import numpy as np\n\ndef avg_session_duration(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the website usage logs table\n    website_logs = aux_dataframes['website_usage_logs_table.csv']\n    \n    # Filter the logs for the specific customer_id\n    user_data = website_logs[website_logs['customer_id'] == row['customer_id']]\n    \n    # Calculate and return the average session duration\n    return user_data['session_duration_minutes'].mean() if not user_data.empty else np.nan\n"
+        },
+        "0.055634699042779415": {
+            "name": "days_since_last_website_visit",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef days_since_last_website_visit(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in aux_dataframes\n    if 'website_usage_logs_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'website_usage_logs_table.csv' is missing from aux_dataframes.\")\n    \n    # Load the website usage logs table\n    website_logs = aux_dataframes['website_usage_logs_table.csv']\n    \n    # Filter the logs for the specific customer_id\n    user_data = website_logs[website_logs['customer_id'] == row['customer_id']]\n    \n    # Check if there are any logs for the customer\n    if not user_data.empty:\n        # Convert session_start_time to datetime and find the most recent visit\n        last_visit_date = pd.to_datetime(user_data['session_start_time']).max()\n        \n        # Calculate the difference in days between feedback_timestamp and last_visit_date\n        feedback_date = pd.to_datetime(row['feedback_date'])\n        return (feedback_date - last_visit_date).days\n    \n    # If no logs exist for the customer, return NaN\n    return np.nan\n"
+        },
+        "0.049456694215156895": {
+            "name": "days_since_last_purchase",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef days_since_last_purchase(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if 'purchase_history_table.csv' not in aux_dataframes:\n        raise KeyError(\"'purchase_history_table.csv' not found in aux_dataframes\")\n    \n    # Access the purchase history table\n    user_purchases = aux_dataframes['purchase_history_table.csv']\n    \n    # Filter the purchase history for the specific customer\n    user_data = user_purchases[user_purchases['customer_id'] == row['customer_id']]\n    \n    # Check if the user has any purchase history\n    if not user_data.empty:\n        # Convert the 'purchase_date' column to datetime and find the most recent purchase date\n        last_purchase_date = pd.to_datetime(user_data['purchase_date']).max()\n        \n        # Calculate the difference in days between the feedback timestamp and the last purchase date\n        feedback_timestamp = pd.to_datetime(row['feedback_date'])\n        return (feedback_timestamp - last_purchase_date).days\n    \n    # If no purchase history exists, return NaN\n    return np.nan\n"
+        },
+        "0.047913065809173656": {
+            "name": "purchase_frequency",
+            "code": "\n\ndef purchase_frequency(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the correct key\n    user_purchases = aux_dataframes['purchase_history_table.csv']\n    \n    # Filter the dataframe using the correct column name for customer ID\n    user_data = user_purchases[user_purchases['customer_id'] == row['customer_id']]\n    \n    # Return the count of purchases for the given customer\n    return len(user_data)\n"
+        },
+        "0.04783951615804011": {
+            "name": "avg_purchase_amount",
+            "code": "\n\ndef avg_purchase_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the correct key\n    user_purchases = aux_dataframes['purchase_history_table.csv']\n    \n    # Filter the dataframe using the correct column name 'customer_id'\n    user_data = user_purchases[user_purchases['customer_id'] == row['customer_id']]\n    \n    # Calculate the mean of the 'purchase_amount' column\n    return user_data['purchase_amount'].mean() if not user_data.empty else 0\n"
+        },
+        "0.043567052488752984": {
+            "name": "negative_feedback_following_support",
+            "code": "import pandas as pd\n\ndef negative_feedback_following_support(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in aux_dataframes\n    if 'support_center_interactions_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'support_center_interactions_table.csv' is missing from aux_dataframes.\")\n    \n    # Load the support center interactions table\n    support_data = aux_dataframes['support_center_interactions_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'customer_id', 'interaction_date'}\n    if not required_columns.issubset(support_data.columns):\n        raise KeyError(f\"The support_center_interactions_table.csv is missing one or more required columns: {required_columns}\")\n    \n    # Filter the support data for the specific customer\n    user_support_data = support_data[support_data['customer_id'] == row['customer_id']]\n    \n    # Check if there are any interactions for the customer\n    if not user_support_data.empty:\n        # Convert dates to datetime\n        last_interaction_date = pd.to_datetime(user_support_data['interaction_date']).max()\n        feedback_date = pd.to_datetime(row['feedback_date'])\n        \n        # Check if the feedback is within 30 days of the last interaction\n        return int((feedback_date - last_interaction_date).days < 30)\n    \n    # Return 0 if no interactions are found\n    return 0\n"
+        },
+        "0.03917197361127081": {
+            "name": "support_interaction_last_days",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef support_interaction_last_days(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if 'support_center_interactions_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'support_center_interactions_table.csv' is not found in aux_dataframes.\")\n    \n    # Access the support center interactions table\n    support_data = aux_dataframes['support_center_interactions_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'customer_id', 'interaction_date'}\n    if not required_columns.issubset(support_data.columns):\n        raise KeyError(f\"The required columns {required_columns} are not present in the support_data dataframe.\")\n    \n    # Filter the support data for the specific customer\n    user_data = support_data[support_data['customer_id'] == row['customer_id']]\n    \n    # If there is interaction data for the customer, calculate the days since the last interaction\n    if not user_data.empty:\n        last_interaction_date = pd.to_datetime(user_data['interaction_date']).max()\n        feedback_date = pd.to_datetime(row['feedback_date'])\n        return (feedback_date - last_interaction_date).days\n    \n    # If no interaction data is found, return NaN\n    return np.nan\n"
+        },
+        "0.03750102543006844": {
+            "name": "avg_support_wait_time",
+            "code": "import numpy as np\n\ndef avg_support_wait_time(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if 'support_center_interactions_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'support_center_interactions_table.csv' is not found in aux_dataframes.\")\n    \n    # Load the support center interactions table\n    support_data = aux_dataframes['support_center_interactions_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    if 'customer_id' not in support_data.columns or 'response_time_minutes' not in support_data.columns:\n        raise KeyError(\"The required columns 'customer_id' or 'response_time_minutes' are missing in the support data.\")\n    \n    # Filter the support data for the specific customer\n    user_data = support_data[support_data['customer_id'] == row['customer_id']]\n    \n    # Return the average response time (wait time) or NaN if no data is available\n    return user_data['response_time_minutes'].mean() if not user_data.empty else np.nan\n"
+        },
+        "0.03152566179634569": {
+            "name": "avg_pages_per_session",
+            "code": "\n\ndef avg_pages_per_session(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if 'website_usage_logs_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'website_usage_logs_table.csv' is missing from aux_dataframes.\")\n    \n    # Get the website usage logs dataframe\n    website_logs = aux_dataframes['website_usage_logs_table.csv']\n    \n    # Ensure the required column exists in the dataframe\n    if 'customer_id' not in website_logs or 'pages_visited' not in website_logs:\n        raise KeyError(\"The required columns 'customer_id' or 'pages_visited' are missing from the website usage logs dataframe.\")\n    \n    # Filter the logs for the specific customer\n    user_data = website_logs[website_logs['customer_id'] == row['customer_id']]\n    \n    # Calculate and return the average pages visited per session\n    return user_data['pages_visited'].mean() if not user_data.empty else 0\n"
+        },
+        "0.026897018375417008": {
+            "name": "first_support_contact_to_feedback_days",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef first_support_contact_to_feedback_days(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Time difference between the user's first support center contact \n    (if any) and feedback submission date.\n    \"\"\"\n    # Ensure the key exists in aux_dataframes\n    if 'support_center_interactions_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'support_center_interactions_table.csv' is missing from aux_dataframes.\")\n    \n    # Access support center interactions auxiliary table\n    support_data = aux_dataframes['support_center_interactions_table.csv']\n    \n    # Filter data for relevant customer\n    user_support_data = support_data[support_data['customer_id'] == row['customer_id']]\n    \n    # If the customer has interacted with support at least once\n    if not user_support_data.empty:\n        # Get the first interaction date\n        first_interaction_date = pd.to_datetime(user_support_data['interaction_date']).min()\n        \n        # Feedback date\n        feedback_date = pd.to_datetime(row['feedback_date'])\n        \n        # Calculate and return the difference in days\n        return (feedback_date - first_interaction_date).days\n    \n    # Return NaN if no support interactions are found\n    return np.nan\n"
+        },
+        "0.02400648566144381": {
+            "name": "feedback_length",
+            "code": "import pandas as pd\n\ndef feedback_length(row: pd.Series) -> int:\n    \"\"\"\n    Calculate the length of the feedback text in a row.\n    \n    Args:\n        row (pd.Series): A row of a dataframe containing a 'feedback_text' column.\n    \n    Returns:\n        int: The length of the feedback text if it exists, otherwise 0.\n    \"\"\"\n    return len(row['feedback_text']) if pd.notnull(row['feedback_text']) else 0\n"
+        },
+        "0.022075249753176502": {
+            "name": "day_of_feedback",
+            "code": "import pandas as pd\n\ndef day_of_feedback(row: pd.Series, aux_data: Dict[str, pd.DataFrame] = None) -> int:\n    \"\"\"\n    This function calculates the day of the week for the feedback_date column.\n    If feedback_date is null, it returns -1.\n    \n    Args:\n        row (pd.Series): A row of the dataframe.\n        aux_data (Dict[str, pd.DataFrame], optional): Auxiliary data, not used in this function.\n    \n    Returns:\n        int: Day of the week (0=Monday, 6=Sunday) or -1 if feedback_date is null.\n    \"\"\"\n    return pd.to_datetime(row['feedback_date']).dayofweek if pd.notnull(row['feedback_date']) else -1\n"
+        },
+        "0.021436350817660654": {
+            "name": "support_interaction_frequency",
+            "code": "\n\ndef support_interaction_frequency(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in aux_dataframes\n    if 'support_center_interactions_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'support_center_interactions_table.csv' is not found in aux_dataframes.\")\n    \n    # Get the support center interactions table\n    support_data = aux_dataframes['support_center_interactions_table.csv']\n    \n    # Ensure the required column exists in the dataframe\n    if 'customer_id' not in support_data.columns:\n        raise KeyError(\"The column 'customer_id' is not found in the support center interactions table.\")\n    \n    # Filter the support data for the given customer_id\n    user_data = support_data[support_data['customer_id'] == row['customer_id']]\n    \n    # Return the count of interactions for the customer\n    return len(user_data)\n"
+        },
+        "0.015240408750745938": {
+            "name": "feedback_word_count",
+            "code": "import pandas as pd\n\ndef feedback_word_count(row: pd.Series, aux_data: Dict[str, pd.DataFrame] = None) -> int:\n    # Use the correct column name 'feedback_text' instead of 'feedback'\n    return len(row['feedback_text'].split()) if pd.notnull(row['feedback_text']) else 0\n"
+        },
+        "0.013099942670401406": {
+            "name": "hour_of_feedback",
+            "code": "import pandas as pd\n\ndef hour_of_feedback(row: pd.Series, aux_data: Dict[str, pd.DataFrame] = None) -> int:\n    \"\"\"\n    Extracts the hour from the 'feedback_date' column if it is not null.\n    Returns -1 if the 'feedback_date' is null.\n\n    Args:\n        row (pd.Series): A row of the dataframe.\n        aux_data (Dict[str, pd.DataFrame], optional): Auxiliary data, not used in this function.\n\n    Returns:\n        int: The hour of the feedback or -1 if 'feedback_date' is null.\n    \"\"\"\n    return pd.to_datetime(row['feedback_date']).hour if pd.notnull(row['feedback_date']) else -1\n"
+        },
+        "0.007769431143298055": {
+            "name": "feedback_via_social_media",
+            "code": "import pandas as pd\n\ndef feedback_via_social_media(row):\n    # Check if 'feedback_channel' contains 'social media' (case-insensitive)\n    return int('social media' in str(row['feedback_channel']).lower() if pd.notnull(row['feedback_channel']) else 0)\n"
+        },
+        "0.004036674018979193": {
+            "name": "bounce_rate",
+            "code": "\n\ndef bounce_rate(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'website_usage_logs_table' exists in aux_dataframes\n    if 'website_usage_logs_table.csv' not in aux_dataframes:\n        raise KeyError(\"'website_usage_logs_table.csv' not found in aux_dataframes\")\n    \n    # Get the website usage logs dataframe\n    website_logs = aux_dataframes['website_usage_logs_table.csv']\n    \n    # Filter the logs for the specific customer_id\n    user_data = website_logs[website_logs['customer_id'] == row['customer_id']]\n    \n    # Identify single-page sessions\n    single_page_sessions = user_data[user_data['pages_visited'] <= 1]\n    \n    # Calculate and return the bounce rate\n    return len(single_page_sessions) / len(user_data) if not user_data.empty else 0\n"
+        },
+        "-0.0005833169022171347": {
+            "name": "most_frequent_support_issue",
+            "code": "\n\ndef most_frequent_support_issue(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the correct key\n    support_data = aux_dataframes['support_center_interactions_table.csv']\n    \n    # Filter the support data for the specific customer_id\n    user_data = support_data[support_data['customer_id'] == row['customer_id']]\n    \n    # Return the most frequent issue type if user_data is not empty, otherwise return None\n    return user_data['issue_type'].mode().iloc[0] if not user_data.empty else None\n"
+        },
+        "0": {
+            "name": "interaction_website_to_purchase_ratio",
+            "code": "import numpy as np\n\ndef interaction_website_to_purchase_ratio(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    website_visits = total_website_visits(row, df_train, aux_dataframes)\n    purchases = purchase_frequency(row, df_train, aux_dataframes)\n    return website_visits / purchases if purchases > 0 else np.nan\n\ndef purchase_frequency(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    user_purchases = aux_dataframes['purchase_history_table']\n    user_data = user_purchases[user_purchases['user_id'] == row['user_id']]\n    return len(user_data)\n\ndef total_website_visits(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    website_logs = aux_dataframes['website_usage_logs_table']\n    user_data = website_logs[website_logs['user_id'] == row['user_id']]\n    return len(user_data)\n"
+        }
+    },
+    "feature_descriptions": [
+        "avg session duration",
+        "days since last website visit",
+        "days since last purchase",
+        "purchase frequency",
+        "avg purchase amount",
+        "negative feedback following support",
+        "support interaction last days",
+        "avg support wait time",
+        "avg pages per session",
+        "first support contact to feedback days",
+        "feedback length",
+        "day of feedback",
+        "support interaction frequency",
+        "feedback word count",
+        "hour of feedback",
+        "feedback via social media",
+        "bounce rate",
+        "most frequent support issue",
+        "interaction website to purchase ratio"
+    ]
+}

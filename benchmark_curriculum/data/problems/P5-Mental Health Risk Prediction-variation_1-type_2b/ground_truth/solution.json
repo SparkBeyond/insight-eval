@@ -1,0 +1,16 @@
+{
+    "enriched_column_names": [
+        "survey_responses_indicating_low_scores_on_mood_and_life_satisfaction",
+        "days_since_last_medical_appointment",
+        "increase_in_the_severity_of_past_mental_health_diagnoses",
+        "drop_in_annual_exercise_frequency",
+        "frequency_of_stressful_life_events_in_the_past_12_months"
+    ],
+    "features_descriptions": [
+        "survey responses indicating low scores on mood and life satisfaction",
+        "days since last medical appointment",
+        "increase in the severity of past mental health diagnoses",
+        "drop in annual exercise frequency",
+        "frequency of stressful life events in the past 12 months"
+    ]
+}

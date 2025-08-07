@@ -1,0 +1,42 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "shortest_route_distance_per_carrier",
+        "route_delay_percentage",
+        "carrier_maintenance_score",
+        "route_transit_hub_count",
+        "weight_distance_interaction",
+        "carrier_delay_rate_by_month",
+        "carrier_fleet_size",
+        "days_from_start_of_year",
+        "carrier_cumulative_delay",
+        "carrier_performance_rank",
+        "route_popularity",
+        "actual_departure_day_of_week",
+        "temperature_difference",
+        "carrier_on_time_performance_rate",
+        "route_late_percentage",
+        "route_distance"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "shortest route distance per carrier",
+        "route delay percentage",
+        "carrier maintenance score",
+        "route transit hub count",
+        "weight distance interaction",
+        "carrier delay rate by month",
+        "carrier fleet size",
+        "days from start of year",
+        "carrier cumulative delay",
+        "carrier performance rank",
+        "route popularity",
+        "actual departure day of week",
+        "temperature difference",
+        "carrier on time performance rate",
+        "route late percentage",
+        "route distance"
+    ]
+}

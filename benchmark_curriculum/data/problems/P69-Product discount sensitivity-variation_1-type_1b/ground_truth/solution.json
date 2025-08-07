@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "sales_trend_of_similar_category_products_over_the_last_year",
+        "increase_in_discount_percentage_in_the_last_quarter",
+        "high_base_price_before_discounts_vs_sale_amounts_post_discounts"
+    ],
+    "features_descriptions": [
+        "sales trend of similar category products over the last year",
+        "increase in discount percentage in the last quarter",
+        "high base price before discounts vs sale amounts post discounts"
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "time_since_installation",
+        "cumulative_usage_hours_since_last_maintenance",
+        "average_temperature_deviation_over_the_past_month"
+    ],
+    "features_descriptions": [
+        "time since installation",
+        "cumulative usage hours since last maintenance",
+        "average temperature deviation over the past month"
+    ]
+}

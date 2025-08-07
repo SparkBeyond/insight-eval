@@ -1,0 +1,26 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "marketing_interaction_rate",
+        "total_payment_last_6_months",
+        "avg_transaction_amount",
+        "interaction_volume_normalized",
+        "late_payment_ratio",
+        "repeat_campaign_participation",
+        "service_resolution_time_mean",
+        "transaction_activity"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "marketing interaction rate",
+        "total payment last 6 months",
+        "avg transaction amount",
+        "interaction volume normalized",
+        "late payment ratio",
+        "repeat campaign participation",
+        "service resolution time mean",
+        "transaction activity"
+    ]
+}

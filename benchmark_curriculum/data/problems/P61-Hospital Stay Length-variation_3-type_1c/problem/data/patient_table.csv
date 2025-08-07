@@ -1,0 +1,3001 @@
+patient_id,first_name,last_name,date_of_birth,gender,ethnicity
+1,Charles,Woods,1980-12-04,Male,Caucasian
+2,Michael,Leach,1938-09-25,Female,Caucasian
+3,Alan,Ward,2006-03-05,Other,Asian
+4,Ian,Johnson,1991-01-07,Female,Caucasian
+5,Brian,Lam,1999-04-29,Other,Other
+6,Nicholas,Weaver,1945-10-11,Male,Other
+7,Jamie,Jones,1958-03-08,Male,African American
+8,Alison,Lopez,2007-02-17,Other,Other
+9,Duane,Castro,1935-02-26,Other,Caucasian
+10,Vanessa,Watkins,1939-06-16,Female,Other
+11,Ashley,Phillips,2006-09-15,Other,Other
+12,Michael,Mccoy,1948-07-03,Female,Caucasian
+13,Brittany,Vargas,1977-11-01,Other,Caucasian
+14,Darlene,Brown,1970-06-22,Female,Caucasian
+15,Michelle,Freeman,1987-08-16,Other,Other
+16,Rebecca,Smith,2001-05-08,Other,African American
+17,David,Jensen,1988-05-19,Other,Other
+18,Darlene,Espinoza,1997-08-11,Other,African American
+19,Philip,Bass,1967-05-16,Female,African American
+20,Amanda,Skinner,1999-06-18,Female,Hispanic
+21,Brenda,Pittman,1994-02-10,Male,African American
+22,Melissa,Santos,1956-02-20,Other,African American
+23,John,Murray,1991-11-17,Other,African American
+24,Adam,Knight,2004-06-05,Male,Other
+25,Erin,Hall,1962-03-01,Female,African American
+26,Gregory,Perry,1999-05-14,Other,African American
+27,Brian,Sandoval,1979-11-09,Other,Hispanic
+28,Yvonne,Cantu,1965-10-19,Other,Asian
+29,Jacqueline,Wise,1936-02-01,Female,African American
+30,Amy,Howard,1946-03-21,Female,Caucasian
+31,Ann,Lynn,1978-10-15,Male,Other
+32,Robert,King,1961-01-01,Other,Hispanic
+33,Kelli,Williams,1938-02-20,Male,Asian
+34,Pamela,Lambert,1948-06-30,Female,Caucasian
+35,Joshua,Johnson,1987-03-17,Male,Other
+36,David,Turner,2006-02-08,Male,Other
+37,Sherry,Mcintosh,1983-10-30,Male,Hispanic
+38,Matthew,Dixon,1994-04-22,Other,Caucasian
+39,Erica,Sanchez,1940-05-11,Male,Hispanic
+40,Sarah,Gomez,1946-04-19,Male,Hispanic
+41,David,Johnson,1960-04-21,Male,Caucasian
+42,Nicholas,Fisher,1960-05-30,Female,African American
+43,Gabriella,Davenport,1942-06-21,Female,Asian
+44,Johnny,Burns,2002-12-24,Other,Hispanic
+45,Danielle,Vasquez,1999-08-13,Female,Hispanic
+46,Jack,Randall,1975-09-28,Other,Hispanic
+47,Veronica,Williams,1960-01-23,Female,Hispanic
+48,Daniel,Martinez,1939-02-11,Female,African American
+49,Sandra,Luna,1947-12-18,Other,Other
+50,Toni,Moore,1979-05-10,Male,Hispanic
+51,Audrey,Chavez,1990-05-21,Other,Asian
+52,Donna,Grimes,1947-05-01,Male,African American
+53,Edward,Higgins,1952-07-28,Other,African American
+54,Deborah,Mooney,1938-05-12,Female,Hispanic
+55,Ana,Gibson,1952-01-09,Male,Caucasian
+56,Paul,Harrison,1953-08-06,Other,Other
+57,Bryan,Smith,1960-06-05,Other,African American
+58,Lisa,Lamb,1944-12-14,Male,Asian
+59,Alicia,Robinson,1964-05-07,Other,Hispanic
+60,Chad,Pearson,1993-01-18,Female,African American
+61,James,Miller,1937-10-29,Male,Asian
+62,Tammy,Perez,1969-10-01,Male,Hispanic
+63,Sean,Ball,1989-10-02,Female,Hispanic
+64,Sandra,Holt,1951-09-15,Female,Other
+65,James,Jackson,2002-06-23,Other,Asian
+66,Brian,Robinson,1963-04-05,Other,Asian
+67,Sandra,Lewis,2006-07-19,Other,Caucasian
+68,Zachary,Miller,1950-12-04,Female,Hispanic
+69,Carol,Moore,1987-12-28,Female,Asian
+70,Dana,Davis,2000-01-16,Male,African American
+71,Erika,Barrett,1935-07-19,Female,Asian
+72,Rebecca,Diaz,1953-05-22,Other,African American
+73,William,Nichols,1947-04-23,Male,Caucasian
+74,Susan,Morris,1976-01-10,Male,Asian
+75,Caitlyn,Harris,1953-06-04,Other,Caucasian
+76,Spencer,Smith,1997-08-11,Female,Other
+77,Brandon,Johnson,1958-10-16,Female,Other
+78,Heather,Cox,1942-05-24,Female,Hispanic
+79,Thomas,Lindsey,2006-12-18,Other,Caucasian
+80,Samuel,Hernandez,1942-11-18,Other,Other
+81,Barbara,Werner,1975-03-17,Male,African American
+82,Alyssa,Howard,1990-02-07,Other,Other
+83,Joseph,Lynch,1976-06-18,Female,Asian
+84,Tanya,Gray,1992-08-15,Female,Hispanic
+85,Daniel,Green,1991-05-26,Male,Caucasian
+86,Nicole,Martinez,1941-03-19,Male,Other
+87,Katie,Taylor,1993-05-15,Female,Other
+88,Jonathan,Harrison,1975-03-07,Female,Other
+89,Emily,Carter,1964-04-06,Female,Other
+90,Dana,Hernandez,1963-07-09,Male,Other
+91,Alejandro,Hoover,1947-05-16,Male,African American
+92,Emily,Williams,1985-12-11,Male,Asian
+93,Jennifer,Waller,1953-10-15,Other,Caucasian
+94,Yesenia,Hicks,1988-06-14,Male,Hispanic
+95,Kathy,Greene,1962-05-08,Male,Caucasian
+96,Sean,Adams,2000-04-22,Other,Caucasian
+97,James,Murphy,1972-02-11,Other,Hispanic
+98,Philip,Castillo,1943-08-17,Female,Hispanic
+99,Jamie,Brown,1940-09-03,Female,African American
+100,Kayla,Gallagher,1992-12-25,Male,Other
+101,Tracy,Glover,1954-04-05,Other,Asian
+102,Julie,Dennis,1970-01-05,Male,Asian
+103,Emma,Walters,1996-11-04,Other,African American
+104,Heather,Knight,1943-11-21,Other,Asian
+105,Linda,Peterson,1976-12-18,Other,African American
+106,Michael,Hayden,1939-04-16,Male,Caucasian
+107,William,Johnson,1967-05-21,Male,Other
+108,Tonya,Baker,1973-02-14,Male,Other
+109,Mary,Bailey,1960-03-13,Male,Asian
+110,Jessica,Shaffer,1985-06-21,Other,Hispanic
+111,Heather,Harper,1940-04-24,Male,African American
+112,Heather,Thompson,1988-03-09,Female,Caucasian
+113,James,Rhodes,2003-09-23,Other,Hispanic
+114,Chad,Riggs,1937-12-19,Male,Hispanic
+115,Daniel,Walker,1979-12-18,Female,Hispanic
+116,Barbara,Smith,1946-07-17,Other,Caucasian
+117,Michael,Fletcher,1947-05-24,Female,African American
+118,Andrea,Hayes,1990-09-21,Male,Asian
+119,Jeffrey,Wallace,1973-03-06,Other,Hispanic
+120,Rebecca,Pierce,1949-11-10,Female,Hispanic
+121,Richard,Bradley,1945-08-31,Female,Other
+122,John,Brennan,1943-02-13,Female,Asian
+123,Angela,Salas,1980-01-22,Male,Asian
+124,Ann,Pearson,1952-08-27,Male,Other
+125,Elizabeth,Harrington,1983-07-22,Male,Hispanic
+126,Crystal,Gordon,1952-10-31,Male,Hispanic
+127,Michaela,Wheeler,1941-08-14,Female,African American
+128,Tracey,Rhodes,1994-12-05,Male,African American
+129,Keith,Wheeler,1981-12-25,Male,Caucasian
+130,Stephen,Wallace,1988-05-13,Female,Caucasian
+131,Jordan,Powell,1976-09-13,Female,Asian
+132,Keith,Robinson,2004-04-26,Other,Asian
+133,Melissa,Perez,1976-08-04,Other,Caucasian
+134,Megan,Knight,1961-10-23,Other,Other
+135,Kathryn,Moss,1940-10-16,Male,Other
+136,James,Smith,1962-03-03,Male,Other
+137,Donald,Anderson,1947-03-15,Other,Asian
+138,Nicole,Fields,2001-12-11,Other,Asian
+139,Jennifer,Jenkins,1942-03-24,Male,African American
+140,Patricia,Patton,2006-05-26,Male,African American
+141,Jeffrey,Watson,1991-05-06,Female,Caucasian
+142,Sherri,Johnson,1975-02-13,Other,Caucasian
+143,Erica,Bryant,1981-07-07,Female,African American
+144,Ashley,Jackson,1936-07-08,Male,Asian
+145,Ashley,Bowers,1949-02-16,Male,African American
+146,Heather,Jensen,1996-04-17,Female,Hispanic
+147,Stephen,Baker,1990-06-20,Other,African American
+148,Joseph,Hardy,1943-09-24,Male,Other
+149,Ashley,Haynes,1996-03-27,Female,Other
+150,Eric,Black,1976-02-09,Female,Hispanic
+151,Jonathan,Casey,1999-11-23,Male,Hispanic
+152,Rachel,Nelson,1994-04-08,Other,Other
+153,Robert,Neal,1976-11-14,Other,African American
+154,Mary,Taylor,1995-04-07,Female,Asian
+155,Derrick,Johnston,1998-02-13,Other,Caucasian
+156,Melody,Campbell,1940-12-10,Male,Hispanic
+157,Tonya,Kennedy,1941-12-21,Male,African American
+158,Jenna,Kelly,1985-07-17,Male,Other
+159,Martha,Strong,1985-04-06,Female,Other
+160,Philip,Benjamin,1989-07-12,Male,Caucasian
+161,Michael,Foster,2004-02-17,Female,Caucasian
+162,Michelle,Ross,1952-06-26,Other,African American
+163,Christina,Thompson,1964-08-04,Other,Asian
+164,William,Dunn,1960-11-30,Male,Asian
+165,Andrew,Cunningham,1990-08-24,Other,African American
+166,April,West,1994-02-15,Female,Asian
+167,Kathryn,Parks,1971-03-16,Female,African American
+168,Stephanie,Moore,1967-09-02,Male,Hispanic
+169,Latoya,Smith,1964-09-05,Female,Other
+170,Thomas,Kim,1988-02-01,Male,Other
+171,Casey,Gonzalez,1956-04-11,Female,Caucasian
+172,Patricia,Nielsen,2003-05-15,Male,Other
+173,Brian,Brooks,1938-10-03,Male,Hispanic
+174,James,Weeks,1970-02-03,Male,Asian
+175,Cynthia,Bowen,2007-04-15,Female,Other
+176,Aaron,Washington,1945-01-30,Male,Caucasian
+177,Rachel,Hernandez,2006-10-21,Female,African American
+178,Anthony,Martin,1982-10-26,Other,Other
+179,Brandon,Greene,1960-11-14,Other,Hispanic
+180,Mark,Cox,1947-03-08,Other,Other
+181,Brian,Delacruz,2002-12-23,Other,Hispanic
+182,Thomas,Johnson,1939-09-29,Female,Caucasian
+183,Christopher,Jackson,1984-08-06,Female,Other
+184,William,Williamson,1974-08-17,Other,Asian
+185,Randall,Nichols,1959-05-31,Other,Other
+186,Christina,Evans,1975-07-24,Male,Other
+187,Joseph,Martin,1995-04-25,Other,Hispanic
+188,Timothy,Lane,1956-03-27,Other,Other
+189,Carrie,Anderson,1981-12-20,Male,Other
+190,Kevin,Hernandez,1989-05-03,Female,Other
+191,Belinda,Collins,1976-02-24,Other,Caucasian
+192,Catherine,Sandoval,1962-10-02,Other,Caucasian
+193,Wesley,Brown,2001-06-19,Male,Caucasian
+194,Robin,Dalton,1951-01-16,Female,Other
+195,Seth,Khan,1990-12-18,Other,African American
+196,Patrick,Taylor,1954-01-24,Other,African American
+197,Matthew,Park,1954-10-25,Female,Hispanic
+198,Jeffery,Rodriguez,2002-07-07,Other,Hispanic
+199,Theresa,Brown,1962-10-31,Other,Other
+200,Anna,Shannon,1992-09-29,Female,Other
+201,Nichole,Harvey,1975-02-27,Female,Other
+202,Linda,Moore,1984-12-27,Male,Hispanic
+203,Fernando,Young,1998-06-01,Other,Hispanic
+204,Melissa,Brown,1967-10-03,Male,Caucasian
+205,Christopher,Blackburn,1969-11-03,Male,African American
+206,Michelle,Payne,2006-01-24,Female,Asian
+207,Angel,Cannon,1987-10-01,Other,African American
+208,Cameron,Hardy,1965-10-07,Female,Other
+209,Antonio,Garrett,2001-10-13,Male,Other
+210,Dana,Walker,1987-08-25,Female,Caucasian
+211,Karen,Morgan,1991-06-16,Male,Caucasian
+212,Walter,Boone,1972-09-13,Female,Asian
+213,Christopher,Walters,1962-06-01,Male,African American
+214,Laura,Haley,2003-07-11,Other,African American
+215,Daniel,Green,1989-11-07,Female,Other
+216,April,Stevenson,1991-05-28,Male,Other
+217,Natalie,Miller,1985-05-10,Male,Other
+218,Brandi,Peters,1969-07-09,Other,Asian
+219,Becky,Johnson,1997-10-06,Other,Hispanic
+220,Cody,Bryan,1957-01-28,Other,African American
+221,Samantha,Allison,2001-11-17,Other,Other
+222,Mark,Dillon,2004-05-19,Male,Asian
+223,Michael,Clarke,2005-08-12,Other,Caucasian
+224,Derrick,Gibson,1975-07-01,Female,Asian
+225,Larry,Cantrell,1958-09-17,Male,African American
+226,Robert,Snyder,2002-08-21,Female,Other
+227,Jessica,Ruiz,1980-12-07,Other,Asian
+228,Cody,Henry,1944-12-06,Other,Other
+229,Matthew,Underwood,1978-10-10,Male,Asian
+230,Brett,Huerta,1994-02-20,Male,Asian
+231,Jonathan,Taylor,1958-10-09,Other,African American
+232,Madison,Willis,1959-12-19,Female,African American
+233,Angela,Walker,2004-02-12,Female,Other
+234,Tyler,King,1968-08-09,Other,African American
+235,Bryan,Tucker,1935-02-02,Female,Asian
+236,Jonathan,Velazquez,1942-10-26,Other,Hispanic
+237,Jeremiah,Sanford,1993-02-15,Female,African American
+238,Kaitlin,Sanders,1952-11-08,Male,Caucasian
+239,Daniel,Morris,1937-07-18,Female,Caucasian
+240,Patrick,Anderson,1937-12-22,Female,Hispanic
+241,Felicia,Snyder,1986-09-01,Male,African American
+242,April,Newman,1973-09-25,Female,Caucasian
+243,Amy,Huffman,2001-11-04,Female,Asian
+244,Frederick,Stewart,1943-03-22,Female,Other
+245,Nancy,Bishop,1964-05-16,Female,Hispanic
+246,Barbara,Mcmahon,1965-09-08,Other,Hispanic
+247,Nicholas,Duran,1993-07-18,Male,Hispanic
+248,Adriana,Reynolds,1953-03-18,Male,Other
+249,Crystal,Young,1971-08-16,Male,Other
+250,Kathryn,Hayes,1985-11-28,Male,Other
+251,Chase,Lutz,2002-02-18,Male,Caucasian
+252,Nancy,Boone,1967-03-13,Male,African American
+253,Heather,Campbell,1964-09-23,Female,Other
+254,Glenn,Simon,1936-09-05,Female,Asian
+255,John,Fuentes,1997-05-09,Other,Hispanic
+256,William,Reeves,1999-01-01,Female,African American
+257,Matthew,Mccarthy,1982-02-12,Other,Caucasian
+258,Kathleen,Obrien,1994-09-08,Male,African American
+259,Amanda,Richards,1982-10-13,Male,Other
+260,Brian,Bailey,1937-03-18,Male,Other
+261,Joshua,Ryan,1954-12-23,Male,African American
+262,Fernando,Stevenson,1961-10-06,Male,African American
+263,Nicholas,Robinson,1977-10-25,Other,Other
+264,Gary,Duncan,1991-11-06,Female,Caucasian
+265,Kristin,Conner,1969-07-16,Other,Hispanic
+266,Steven,Williams,1940-11-07,Female,Asian
+267,Tammie,Jenkins,1990-10-17,Male,Other
+268,Carol,Jenkins,1959-09-17,Other,Caucasian
+269,Lawrence,Braun,1964-07-20,Female,Caucasian
+270,Logan,Johnson,1935-08-15,Female,Hispanic
+271,Tyler,Hayden,1999-11-12,Male,Hispanic
+272,Michael,Conner,1997-02-05,Male,Caucasian
+273,Allison,Harris,1959-10-04,Female,African American
+274,Bruce,Gibson,1946-02-19,Other,Caucasian
+275,Victor,Gibson,1935-09-28,Female,African American
+276,Nicole,Lopez,1948-03-16,Male,African American
+277,Daniel,Dudley,1988-10-18,Female,Asian
+278,Ian,Hernandez,1953-01-07,Male,African American
+279,Jessica,Jimenez,1958-03-13,Other,Caucasian
+280,Adam,Randall,1939-08-02,Male,Hispanic
+281,Russell,Smith,1985-01-12,Other,Asian
+282,Raymond,Russell,1935-07-01,Other,Asian
+283,Jennifer,Hudson,1967-01-14,Other,Caucasian
+284,Aaron,Gonzales,1938-05-06,Male,Hispanic
+285,Matthew,Wilkinson,1985-08-28,Other,Caucasian
+286,Tony,Wiley,1959-10-02,Male,Other
+287,Scott,Griffin,1987-09-05,Other,Hispanic
+288,Kevin,David,1968-08-30,Other,Asian
+289,Brian,Higgins,1936-03-09,Other,African American
+290,Thomas,Kline,1955-08-05,Other,African American
+291,Shawn,Atkins,2004-02-27,Male,Caucasian
+292,Natasha,Phillips,1999-03-20,Female,African American
+293,Jennifer,Espinoza,1994-08-02,Other,Other
+294,Joseph,Newman,1937-07-20,Other,African American
+295,Amanda,White,1988-11-07,Male,Caucasian
+296,Dawn,Kramer,1993-05-16,Female,Other
+297,Michael,Acosta,1965-08-03,Other,Other
+298,Wesley,Lopez,1999-01-21,Male,African American
+299,William,Jackson,1947-04-28,Female,Other
+300,Michael,Farmer,2002-09-25,Other,Caucasian
+301,Jason,Gonzalez,1965-03-22,Other,Other
+302,Paul,Navarro,1996-05-16,Female,Other
+303,Jennifer,Lyons,1981-01-17,Male,Hispanic
+304,Richard,Mckay,2000-11-15,Female,Caucasian
+305,Rachel,Wilson,1983-07-16,Female,Hispanic
+306,Alejandro,Ingram,1951-10-26,Female,Other
+307,Andrew,Sims,1967-01-26,Female,Other
+308,Richard,Sandoval,1963-06-30,Male,Other
+309,Jane,Newton,1986-02-28,Male,Hispanic
+310,Tonya,Vincent,1952-04-24,Other,Caucasian
+311,Russell,Hardy,1980-03-09,Female,Other
+312,Mitchell,Wilson,1940-10-05,Other,Asian
+313,Sara,Wang,1962-08-06,Male,Other
+314,Raymond,Thomas,1946-08-14,Male,Asian
+315,Regina,Ferguson,1978-10-20,Female,Hispanic
+316,Stephen,Mitchell,1949-03-03,Female,Caucasian
+317,Donald,Booker,1959-11-23,Male,Caucasian
+318,Brian,Chase,1980-09-12,Female,Asian
+319,Jesse,Bailey,1949-10-13,Male,Caucasian
+320,Kristin,King,1953-09-02,Female,Hispanic
+321,Carolyn,Harrison,2003-04-29,Male,Hispanic
+322,Melissa,Fernandez,1961-01-13,Other,Other
+323,Angela,Smith,1940-12-03,Other,Other
+324,Joshua,Molina,1937-11-20,Male,Other
+325,Christopher,Mata,1953-07-14,Male,Asian
+326,Jeffrey,Simmons,1949-11-03,Other,Caucasian
+327,Joseph,Young,1947-05-28,Male,Hispanic
+328,Sabrina,Freeman,1964-05-22,Male,Hispanic
+329,Kelsey,Lopez,1987-10-26,Other,Asian
+330,Aaron,Smith,1940-08-08,Other,African American
+331,Maurice,Williams,1935-04-02,Male,African American
+332,William,Bates,1971-11-16,Male,Hispanic
+333,David,Meyers,2000-10-01,Other,African American
+334,Courtney,Thomas,1970-09-17,Other,Asian
+335,Nicole,Butler,1957-02-14,Male,Other
+336,Krystal,Salazar,1971-01-10,Other,African American
+337,Amber,Meyer,1993-07-24,Other,Asian
+338,Michele,Smith,1938-06-10,Male,Other
+339,Kathleen,Carter,1968-12-06,Female,Hispanic
+340,Natalie,Rojas,1987-11-20,Female,Caucasian
+341,Mitchell,Rose,1936-04-19,Other,Asian
+342,Michael,Buck,1943-06-17,Other,Other
+343,Audrey,Mclaughlin,1951-09-07,Female,Other
+344,Sierra,Merritt,1934-08-08,Female,African American
+345,Rebecca,Johnson,1946-12-13,Female,Hispanic
+346,Emily,Brown,2004-10-04,Other,Hispanic
+347,Steven,Bishop,1950-05-30,Female,African American
+348,Kelly,Wilson,1999-02-05,Female,Caucasian
+349,Steven,Schneider,2003-10-12,Male,African American
+350,Kendra,Mullins,1987-01-21,Female,Hispanic
+351,Emily,Johnson,1975-04-03,Male,Asian
+352,Blake,Hancock,1940-09-16,Male,Caucasian
+353,Jeffrey,Coleman,1999-10-21,Male,Asian
+354,Brooke,Kennedy,1994-03-10,Male,African American
+355,Amanda,Duncan,1963-10-18,Male,Asian
+356,Ryan,Long,1981-03-11,Female,Hispanic
+357,Christina,Clark,1992-05-10,Female,Asian
+358,Erin,Johnson,2007-01-09,Female,Caucasian
+359,Kathleen,Hill,1936-11-02,Male,African American
+360,Mark,Gray,1996-07-12,Other,Hispanic
+361,Terry,Davis,1988-10-20,Other,Other
+362,Kenneth,Collins,1941-10-20,Male,African American
+363,Hunter,Moody,1968-02-22,Other,Asian
+364,Erika,Ross,1946-11-25,Male,African American
+365,Walter,Baker,1936-04-17,Other,Asian
+366,Jeremy,Sullivan,1974-06-02,Other,African American
+367,Barbara,Figueroa,1958-02-04,Other,Hispanic
+368,Laura,Faulkner,1983-05-16,Female,Asian
+369,David,Hamilton,1974-01-16,Male,Asian
+370,Joshua,Martin,1945-01-06,Male,Caucasian
+371,Cynthia,Lyons,1962-03-30,Female,Other
+372,Michelle,Conway,1950-01-20,Other,Other
+373,Christopher,Ayala,1996-05-27,Female,Other
+374,Angela,Arroyo,1996-08-28,Female,Hispanic
+375,Cheryl,Johnston,1958-06-12,Female,Hispanic
+376,Daniel,Torres,1993-01-21,Male,Other
+377,Maria,Huynh,1975-07-09,Female,Caucasian
+378,Alexander,Martin,1946-04-25,Other,Asian
+379,Rose,Green,1940-03-26,Other,Caucasian
+380,Joseph,Walter,1937-07-01,Other,Hispanic
+381,Benjamin,Powell,1940-03-26,Male,African American
+382,Scott,Moreno,1954-11-11,Female,Asian
+383,Katie,Good,1940-05-12,Other,Caucasian
+384,Alejandro,Salinas,1942-07-15,Other,Asian
+385,Anthony,Robbins,1983-12-30,Male,Caucasian
+386,Pamela,Jones,1983-05-25,Female,Caucasian
+387,Stephen,Fisher,1989-08-26,Other,Hispanic
+388,Robin,Ross,1964-02-24,Other,Asian
+389,Zachary,Dickson,1961-08-01,Male,Asian
+390,Thomas,Garcia,1980-11-24,Male,Hispanic
+391,Jay,Miller,2006-06-04,Other,Caucasian
+392,Nicholas,Ritter,1950-10-17,Male,Hispanic
+393,Brian,Murphy,1950-11-10,Other,Asian
+394,Steven,Maldonado,1958-10-02,Other,Other
+395,Scott,Hobbs,1974-10-28,Female,Other
+396,Jessica,White,1965-08-07,Male,African American
+397,Andrea,Gray,1973-06-06,Other,Other
+398,Peter,Cole,1936-05-07,Other,Asian
+399,Kathryn,Ramirez,2002-06-22,Other,Hispanic
+400,Janice,Beasley,1940-05-12,Male,Other
+401,Hunter,Klein,1987-11-05,Male,African American
+402,Jennifer,Torres,1985-04-26,Male,Other
+403,Bruce,Salazar,1965-10-09,Male,Other
+404,Benjamin,Norris,1957-01-09,Other,Asian
+405,Ethan,Hill,1947-08-25,Female,Caucasian
+406,Sarah,Grant,2005-10-08,Female,African American
+407,Timothy,Reynolds,1969-12-24,Male,African American
+408,Claudia,Banks,1982-02-01,Male,Other
+409,John,Jenkins,2000-05-04,Female,Other
+410,Maria,Grant,1992-11-02,Other,Asian
+411,Daniel,Ellis,1971-05-08,Male,Caucasian
+412,Alexandra,Lopez,2004-04-26,Female,African American
+413,Monique,Wright,2006-04-17,Male,African American
+414,James,House,1946-02-22,Female,African American
+415,Michael,Lawson,1974-04-07,Other,Asian
+416,Anthony,Faulkner,1934-07-05,Female,African American
+417,Wendy,Bishop,1938-10-24,Male,Caucasian
+418,Christine,White,1943-07-15,Male,African American
+419,David,Davis,1941-02-23,Female,Hispanic
+420,Brandy,Gutierrez,2001-08-03,Other,Caucasian
+421,Maria,Chambers,1973-08-06,Other,Asian
+422,Victoria,Neal,1947-04-15,Female,African American
+423,Jason,Hunter,1988-07-13,Female,Asian
+424,Nancy,Hill,1952-12-15,Female,Other
+425,Jennifer,Lloyd,1999-04-18,Female,Hispanic
+426,Phillip,Ray,1953-08-23,Female,Other
+427,Jason,Jackson,1995-02-01,Female,Caucasian
+428,Christine,Lopez,2007-02-13,Other,Asian
+429,Nancy,Gallegos,1951-01-07,Male,Caucasian
+430,Bradley,Lee,1953-04-02,Female,Hispanic
+431,Jose,Nguyen,1952-01-20,Male,Asian
+432,Aaron,Johnson,1993-10-24,Female,African American
+433,Stacey,White,1942-07-18,Female,Caucasian
+434,Jose,Welch,1996-10-12,Other,Asian
+435,Michelle,Jones,1959-10-25,Male,African American
+436,Ronald,Mccann,1949-03-04,Female,Caucasian
+437,Sarah,Lopez,1989-07-12,Male,Caucasian
+438,Richard,Rogers,1957-09-13,Female,African American
+439,David,Koch,1949-04-22,Other,Hispanic
+440,Jennifer,Johnson,1938-11-03,Male,Hispanic
+441,Jonathan,Hall,1971-01-15,Male,African American
+442,Dakota,Parker,1941-11-28,Other,Hispanic
+443,Sally,Hamilton,1935-08-04,Other,Hispanic
+444,Jason,Garza,1943-05-26,Female,Caucasian
+445,Michael,Osborne,1972-06-19,Female,Asian
+446,Amanda,Goodman,1934-12-17,Other,Asian
+447,Andrew,Parker,1964-01-21,Male,Asian
+448,Alexis,Barber,1958-06-28,Other,Other
+449,Daniel,Turner,1959-08-03,Other,Caucasian
+450,Carrie,Gray,1991-07-29,Other,Hispanic
+451,Linda,Price,1937-10-02,Other,African American
+452,Luis,Guerrero,1978-09-24,Male,Other
+453,Anthony,Saunders,2001-03-05,Female,Hispanic
+454,Melissa,Mclean,1965-11-14,Female,Other
+455,Derek,Mendoza,1973-02-21,Other,Asian
+456,Richard,Jimenez,1987-07-24,Male,Asian
+457,Donald,Russo,1953-06-21,Male,Hispanic
+458,Robert,Hamilton,1935-10-05,Other,Asian
+459,Alicia,Gay,1961-02-13,Other,Asian
+460,Mark,Bird,1981-03-22,Male,Other
+461,Jill,Walton,1980-03-22,Other,Other
+462,Amber,Lawson,1954-08-11,Female,Asian
+463,Susan,Estrada,1983-01-08,Male,Other
+464,Daniel,Stevenson,1999-02-07,Female,Asian
+465,Timothy,Fowler,1984-07-30,Female,Caucasian
+466,Matthew,Scott,1961-04-26,Other,Asian
+467,Keith,Graham,1965-06-03,Male,African American
+468,Julie,Castaneda,1979-09-13,Other,African American
+469,Bailey,Sosa,1988-10-21,Male,Asian
+470,Janice,Brown,1999-05-17,Other,African American
+471,Brittney,Cabrera,1973-12-12,Other,Other
+472,Scott,Atkinson,1998-10-01,Male,Hispanic
+473,Lauren,Campbell,1959-01-02,Male,Other
+474,Ashley,Booth,1962-01-20,Female,African American
+475,Michael,Larsen,1979-01-26,Female,Hispanic
+476,Carol,Flores,1975-05-22,Male,African American
+477,Robin,Brown,2006-02-24,Female,Hispanic
+478,Michelle,Williamson,1942-10-15,Male,Hispanic
+479,Karen,Thompson,1950-09-06,Female,Caucasian
+480,Lisa,Rodriguez,1945-09-13,Female,Hispanic
+481,Travis,Mccarthy,1968-06-10,Other,African American
+482,Jessica,Petersen,1990-05-20,Female,Hispanic
+483,Sarah,Daniels,1980-09-17,Other,Hispanic
+484,John,George,1983-03-09,Other,Other
+485,Nancy,Phillips,2004-02-08,Female,African American
+486,Vincent,Stout,1938-02-15,Female,African American
+487,Rickey,Lin,2002-11-16,Male,Asian
+488,Jeremiah,Robinson,1977-01-04,Male,Hispanic
+489,John,Lewis,1998-10-22,Female,Asian
+490,Pamela,Johnson,1999-05-15,Other,Other
+491,Michelle,Robinson,1960-03-16,Female,Asian
+492,Michael,Stewart,1955-03-01,Other,Asian
+493,Brittney,Hardin,1959-05-26,Male,Hispanic
+494,Matthew,Parker,1987-06-30,Female,Hispanic
+495,Amanda,White,1976-12-05,Other,Other
+496,Timothy,Morris,1966-12-30,Female,Hispanic
+497,Melissa,Harrington,2006-06-26,Female,Caucasian
+498,Eric,Jones,1984-08-09,Other,African American
+499,Christopher,Wagner,1956-02-15,Other,Asian
+500,Diane,Gibson,1964-02-02,Female,Other
+501,Danielle,Oconnor,1994-06-02,Other,Asian
+502,Richard,Guzman,1996-11-29,Male,Other
+503,Adrian,Vargas,1982-10-02,Other,Asian
+504,Jeffrey,Martinez,1959-02-23,Female,Caucasian
+505,Patricia,Shepherd,1974-07-23,Male,Hispanic
+506,Heather,Gonzalez,1993-12-15,Female,Asian
+507,Jacqueline,Williams,1995-06-21,Female,Other
+508,Sarah,Holmes,1936-05-27,Other,African American
+509,Jesse,Schroeder,1984-08-13,Male,Asian
+510,Christopher,Leonard,1935-03-12,Male,African American
+511,Michelle,Flores,1950-11-22,Male,Hispanic
+512,Lynn,Gonzalez,1979-06-14,Female,African American
+513,Vickie,Copeland,1975-06-11,Other,Caucasian
+514,Robert,Thomas,1950-02-21,Female,Caucasian
+515,Daniel,Wood,1937-09-13,Male,African American
+516,Tyler,Bryan,1966-01-19,Male,African American
+517,Rebecca,Kelly,2005-10-17,Female,African American
+518,Diane,Rojas,1954-09-17,Other,Asian
+519,Joseph,Lopez,1957-07-24,Female,Caucasian
+520,Michelle,Berry,1965-10-24,Female,African American
+521,Jamie,Holmes,1988-09-30,Other,Caucasian
+522,Jade,Harris,1975-03-04,Female,Asian
+523,Tamara,Santos,1969-07-22,Female,Asian
+524,Stephen,Daniels,2006-12-05,Other,African American
+525,Charles,Young,1956-11-18,Female,African American
+526,Joshua,Hart,2002-04-29,Other,African American
+527,Robert,Hubbard,1949-06-03,Other,Caucasian
+528,Victor,Hall,1954-08-21,Female,Other
+529,Daniel,Lopez,1945-01-01,Female,Other
+530,Nicholas,Bishop,1973-04-09,Other,Caucasian
+531,Jenna,Garcia,1974-02-04,Female,African American
+532,Stephanie,Galvan,1960-09-02,Male,Hispanic
+533,Haley,Vasquez,1977-07-25,Female,Other
+534,Stephen,Le,1992-05-07,Female,Caucasian
+535,Alyssa,Moore,1966-10-24,Female,African American
+536,Robert,Garcia,1960-09-29,Male,African American
+537,Charles,Meadows,1968-03-11,Male,African American
+538,Amber,Mckay,1960-04-26,Male,Hispanic
+539,Nicholas,Ortiz,1949-12-12,Male,African American
+540,Keith,Whitney,1951-08-31,Other,Asian
+541,Thomas,Mcguire,1989-09-20,Other,Hispanic
+542,Amanda,Carter,1966-06-01,Female,Caucasian
+543,Justin,Lewis,2006-12-29,Other,African American
+544,Gavin,Owens,1997-09-20,Other,Hispanic
+545,John,Williams,2006-06-04,Female,Other
+546,Eric,Conner,2003-06-06,Male,Hispanic
+547,Megan,Liu,1989-10-22,Female,Asian
+548,Erica,Rose,1934-08-30,Other,Hispanic
+549,Jo,Miller,1991-12-25,Other,Caucasian
+550,Lindsey,Haney,1972-03-13,Female,Caucasian
+551,Emily,Jimenez,1954-03-28,Other,Asian
+552,Jason,Logan,2001-07-17,Other,African American
+553,Benjamin,Bowers,1986-07-08,Female,Asian
+554,Jessica,Henry,1997-06-14,Female,Asian
+555,Courtney,Smith,1956-10-02,Other,Caucasian
+556,Michael,Mckinney,1962-01-25,Male,Hispanic
+557,Alexander,Weiss,1941-01-24,Male,Hispanic
+558,Stephen,Ellis,1991-09-15,Male,African American
+559,Jonathan,Rivas,1988-11-03,Other,African American
+560,Veronica,Ross,1970-04-10,Other,Asian
+561,Brittany,Woodward,1998-11-19,Female,Caucasian
+562,Janet,Stevenson,1939-09-29,Female,Caucasian
+563,Matthew,Avila,1944-04-14,Female,Asian
+564,Renee,Glover,2003-08-24,Other,Hispanic
+565,April,Campbell,1968-07-14,Male,African American
+566,Susan,Lozano,1958-03-17,Male,Other
+567,James,Adams,1947-08-14,Other,Hispanic
+568,Jeffrey,Scott,1934-09-09,Other,Hispanic
+569,Rhonda,Edwards,1942-10-23,Male,Hispanic
+570,James,Burke,1979-06-12,Female,Asian
+571,Michael,Taylor,1940-02-19,Female,Asian
+572,Tanya,Wilson,2001-08-26,Male,African American
+573,Megan,Adams,1997-09-22,Male,Other
+574,Brandon,Mitchell,1963-10-31,Other,Hispanic
+575,Christine,Macias,1949-09-14,Other,Asian
+576,William,Torres,1998-05-07,Other,Hispanic
+577,Edward,Rodriguez,1938-11-20,Other,Asian
+578,Patrick,Sloan,1955-12-23,Female,Asian
+579,Katherine,Murphy,1937-01-02,Other,African American
+580,Morgan,Garrett,2007-03-25,Female,Asian
+581,Paul,Escobar,1960-03-27,Male,Other
+582,Jonathan,Chen,1967-07-16,Other,Hispanic
+583,Christine,Gray,1950-08-04,Female,African American
+584,David,Wolfe,1989-04-25,Female,Other
+585,Richard,Schwartz,1944-02-04,Male,Other
+586,Holly,Cohen,1946-06-10,Male,Caucasian
+587,Lindsay,Cooper,1952-11-23,Other,Asian
+588,Alexandra,Bridges,1966-05-03,Other,Asian
+589,Daniel,Ruiz,1957-05-20,Other,Hispanic
+590,Sarah,Bauer,1935-02-01,Male,Other
+591,Eric,Madden,1993-09-04,Male,Asian
+592,Kathy,Ramos,1962-09-29,Other,Other
+593,Kirk,Walker,1939-01-14,Male,Asian
+594,Craig,Nguyen,1947-04-26,Male,African American
+595,Willie,Davis,1942-06-08,Other,Asian
+596,Kristin,Robinson,1982-03-13,Male,Asian
+597,William,Patel,2004-11-08,Other,Asian
+598,Kimberly,Johnson,1985-05-23,Other,African American
+599,David,Armstrong,1975-12-28,Female,Caucasian
+600,Shane,Cruz,1987-12-01,Other,Other
+601,Joshua,Bennett,1971-06-09,Male,African American
+602,Cynthia,Williams,1986-05-23,Other,Caucasian
+603,Steven,Malone,1982-06-06,Male,African American
+604,Nicole,Johnston,1937-03-11,Other,Asian
+605,Thomas,Jones,2004-07-06,Male,Hispanic
+606,Megan,Wilson,2006-05-16,Other,African American
+607,Kimberly,Leach,1948-05-29,Male,Hispanic
+608,Anna,Keller,1935-06-30,Male,African American
+609,Scott,Caldwell,1946-03-14,Other,Other
+610,Christy,Williams,1955-09-14,Other,Asian
+611,Danny,Anderson,1964-11-09,Other,Hispanic
+612,Barbara,Lee,1982-09-09,Female,Caucasian
+613,John,King,1996-02-13,Female,Caucasian
+614,Nicole,Stewart,1936-11-14,Other,Hispanic
+615,Erin,Rodriguez,2005-10-02,Male,Other
+616,Jean,Flores,1990-11-13,Other,Asian
+617,Patrick,Joseph,1945-10-11,Male,Other
+618,Robert,Martin,1971-03-11,Male,Caucasian
+619,Matthew,Welch,1942-06-14,Female,African American
+620,Arthur,Forbes,1972-02-25,Male,African American
+621,Steven,Peterson,1943-05-28,Male,Hispanic
+622,William,Aguirre,1990-05-22,Female,Other
+623,Charles,Pena,1988-05-25,Male,African American
+624,Kevin,Lee,1937-04-13,Other,Hispanic
+625,Matthew,Erickson,1983-02-24,Female,Asian
+626,Frederick,Hunter,1980-02-07,Other,Asian
+627,Loretta,Wood,2004-04-26,Female,African American
+628,Tyler,House,1958-09-08,Female,Asian
+629,Darius,Flynn,1978-01-11,Other,African American
+630,Brandon,Arnold,1939-11-07,Other,African American
+631,Vincent,Luna,1974-05-01,Other,Asian
+632,Alex,Burns,1977-10-20,Female,Hispanic
+633,Justin,Harrington,1970-04-19,Other,Asian
+634,Valerie,Castro,1958-11-27,Male,Caucasian
+635,Pamela,Bright,1939-03-23,Male,African American
+636,Joseph,Jimenez,1954-01-28,Other,African American
+637,Amber,Thompson,1994-04-15,Female,Asian
+638,Mary,Castro,1959-03-17,Male,Hispanic
+639,Leslie,Adkins,1993-02-11,Female,African American
+640,Scott,Holt,1998-05-03,Male,Hispanic
+641,Emma,Lawson,1974-07-20,Male,Other
+642,Sarah,Harris,1971-07-05,Male,Hispanic
+643,Mark,Russell,1951-10-23,Other,Hispanic
+644,Nicholas,Thompson,1995-08-27,Female,Caucasian
+645,Tracy,Gardner,1945-01-03,Female,Asian
+646,Harold,Dominguez,2004-06-06,Other,Asian
+647,Susan,Allison,1966-10-04,Other,Caucasian
+648,Maria,Oliver,1956-07-14,Female,Other
+649,Diane,Hunt,1941-06-10,Female,Hispanic
+650,Jessica,Thomas,1949-12-17,Male,Caucasian
+651,Billy,Byrd,1988-04-14,Other,Other
+652,Kathryn,Gomez,1999-03-04,Male,Other
+653,Jacqueline,Williams,1971-09-25,Male,Caucasian
+654,Anthony,Thomas,1943-03-13,Other,African American
+655,Karen,Larson,1977-12-11,Other,Hispanic
+656,Jeffrey,Hopkins,1981-06-02,Female,Asian
+657,Nicole,Wright,1959-03-28,Other,African American
+658,Margaret,Foster,1966-08-21,Other,Hispanic
+659,Jamie,Gomez,1943-09-02,Female,Hispanic
+660,Elizabeth,Jackson,1981-09-11,Male,Other
+661,Olivia,Gould,2005-12-30,Female,Other
+662,Daniel,Brown,1943-03-12,Male,Other
+663,Brian,Fuentes,1953-10-01,Other,African American
+664,Amanda,Everett,1999-11-24,Female,Other
+665,Timothy,Bradley,1993-07-04,Female,Asian
+666,Michael,Ferguson,1967-06-04,Other,African American
+667,Shannon,Campbell,1959-10-18,Other,African American
+668,Geoffrey,Gonzales,1969-01-27,Female,Other
+669,Frank,Ramirez,1988-10-07,Female,Caucasian
+670,Margaret,Ball,1964-03-19,Female,Caucasian
+671,Vincent,Frazier,1980-06-18,Male,Caucasian
+672,Robert,Tanner,1997-06-12,Other,Hispanic
+673,Gloria,Campos,1942-06-13,Female,Asian
+674,Edward,Garcia,1979-07-25,Female,Asian
+675,Kayla,Fernandez,2006-05-13,Male,Hispanic
+676,Kimberly,Hill,1992-09-13,Female,Asian
+677,Michael,Swanson,2005-06-26,Male,Hispanic
+678,Matthew,Dawson,1983-08-15,Other,African American
+679,Ryan,Hurst,1964-05-01,Other,African American
+680,Jimmy,Perez,1982-04-25,Other,Hispanic
+681,Carrie,Fuentes,1941-05-11,Male,Asian
+682,Martha,Huynh,1978-01-22,Male,African American
+683,Rodney,James,1962-07-25,Female,African American
+684,Ashley,Kim,1995-06-29,Other,Hispanic
+685,Brandy,Pennington,1975-03-12,Female,Asian
+686,Frances,Brown,1959-08-22,Female,Caucasian
+687,Kelly,Peters,1974-01-05,Male,Asian
+688,Mia,Wright,1999-04-21,Female,Other
+689,Melissa,Mccarthy,1988-01-25,Female,Asian
+690,Christina,Williams,1947-04-06,Male,African American
+691,Joshua,Bray,1963-05-13,Male,Other
+692,Laura,Smith,2000-06-20,Female,African American
+693,Steven,Wu,1955-05-22,Female,Other
+694,Cynthia,Hall,1995-02-27,Female,Other
+695,Jessica,Stanton,2005-09-04,Female,Asian
+696,Joshua,Williams,1952-06-20,Female,Hispanic
+697,James,Weaver,1939-12-14,Other,African American
+698,Jason,Freeman,1953-02-27,Male,Caucasian
+699,Dustin,Cooper,1999-07-30,Other,Caucasian
+700,Brian,Mcdonald,1983-11-25,Female,African American
+701,Sherry,Cervantes,1978-12-03,Other,Caucasian
+702,Jason,Burns,1952-04-03,Male,African American
+703,Brent,Bailey,1995-09-12,Female,Other
+704,Michael,Solis,1978-05-18,Other,African American
+705,Jacob,Evans,1961-08-05,Male,Asian
+706,Brittany,Miller,1962-03-10,Male,Caucasian
+707,Christina,Mcfarland,1960-05-17,Male,Hispanic
+708,Amanda,Stewart,1995-01-17,Female,Other
+709,Keith,Macdonald,1985-12-19,Female,Caucasian
+710,Alejandro,Collins,1975-02-12,Male,African American
+711,Jason,Webb,1951-09-20,Other,African American
+712,John,Adams,1986-11-21,Male,Asian
+713,Raymond,Allen,1958-11-04,Male,Asian
+714,Glenn,Wright,1989-07-23,Female,Other
+715,Brittney,Dudley,1981-02-21,Male,Other
+716,Diana,Jenkins,2005-06-25,Female,African American
+717,Denise,Lee,1989-12-18,Male,Caucasian
+718,Linda,Bailey,1980-02-24,Female,African American
+719,Donald,Benjamin,1999-04-26,Male,Caucasian
+720,Jorge,Johnson,1951-05-05,Male,Other
+721,Bethany,Jones,1967-07-25,Male,Hispanic
+722,Donna,Nguyen,1937-01-23,Male,Other
+723,Jerry,Summers,2001-07-30,Female,Caucasian
+724,Rebecca,Coleman,1948-02-01,Other,African American
+725,Kenneth,Cooper,1962-09-22,Male,Caucasian
+726,Lindsay,Davis,1989-06-01,Female,Hispanic
+727,Rebecca,Sherman,1997-10-28,Female,Caucasian
+728,Justin,Guzman,1950-08-09,Male,African American
+729,Clayton,Hamilton,1980-06-23,Female,Asian
+730,Erin,Miller,1997-02-07,Female,Caucasian
+731,Mary,Wilson,2002-06-27,Female,Hispanic
+732,Kevin,Brown,1987-09-19,Male,Caucasian
+733,Frederick,Holland,1936-06-13,Female,Hispanic
+734,Brandon,Henderson,1937-11-07,Male,Caucasian
+735,Amy,Garcia,2006-01-04,Female,Hispanic
+736,Ethan,King,2005-10-20,Other,Caucasian
+737,Carmen,Kirby,1990-06-03,Male,Asian
+738,Kristy,Vance,1991-05-21,Female,Caucasian
+739,Megan,Sandoval,1997-09-26,Male,African American
+740,Tammy,Lopez,1984-05-23,Male,Other
+741,Adrian,Walsh,2006-03-15,Other,Caucasian
+742,John,Shaw,1969-11-01,Male,Caucasian
+743,Connie,Brown,1934-05-04,Male,Hispanic
+744,Debra,Hall,1945-09-09,Female,Other
+745,Monica,Fitzgerald,1973-09-18,Other,Hispanic
+746,Timothy,Bailey,1947-08-04,Male,Other
+747,John,Welch,1954-02-10,Other,Other
+748,Sonya,Bryan,1948-10-21,Female,Asian
+749,David,Collins,1964-06-29,Other,African American
+750,Robert,Miller,1950-09-27,Male,Asian
+751,Amanda,Moore,1990-08-04,Female,Other
+752,April,Pearson,1979-11-10,Other,Caucasian
+753,John,Kennedy,1991-10-20,Male,Asian
+754,Cheryl,King,1990-05-05,Male,Asian
+755,Jason,Myers,1943-12-26,Other,Asian
+756,Randy,Spencer,1944-02-14,Female,Asian
+757,Richard,Hess,1987-01-22,Other,Caucasian
+758,Craig,Bell,1960-12-22,Male,Hispanic
+759,Whitney,Williamson,1992-06-08,Male,Hispanic
+760,Jeremy,Reyes,1951-10-31,Male,Hispanic
+761,Jose,Melton,1995-10-19,Other,Asian
+762,Ariana,Johnson,1951-12-13,Other,Asian
+763,Anthony,Rosales,1996-01-28,Other,Other
+764,Tiffany,Thompson,1936-08-12,Other,African American
+765,Donald,Ramos,2003-01-20,Female,Hispanic
+766,Kevin,Butler,1975-09-28,Male,Asian
+767,Jill,Price,1980-11-04,Other,Other
+768,Tony,Fernandez,1987-08-23,Other,Asian
+769,Alexis,Brown,1985-12-03,Female,Asian
+770,Daniel,Hamilton,1935-02-15,Female,African American
+771,James,Newman,1957-01-11,Female,Asian
+772,Thomas,Duke,1986-11-08,Male,African American
+773,Matthew,Vincent,2007-04-21,Male,Hispanic
+774,Carla,Mcdaniel,1955-03-03,Male,Other
+775,Jorge,Nelson,1938-11-03,Other,Asian
+776,Lauren,Schmidt,1970-11-20,Other,Other
+777,Wendy,Ayers,1969-09-06,Other,Caucasian
+778,Daniel,Brown,2003-12-13,Male,African American
+779,Linda,Mitchell,1935-08-01,Female,African American
+780,Claudia,Collins,1982-04-08,Other,Asian
+781,Matthew,Valencia,1953-12-31,Male,African American
+782,Jennifer,Allen,1968-12-05,Male,Asian
+783,Katherine,Peterson,1979-07-12,Other,Asian
+784,Vanessa,Rogers,1942-01-18,Male,African American
+785,Nicholas,Reynolds,1968-09-11,Male,African American
+786,Robert,Johnson,2005-03-29,Female,Hispanic
+787,Emily,Crawford,1940-08-22,Other,Hispanic
+788,Gina,Molina,1973-12-29,Male,African American
+789,Crystal,Maddox,1989-11-04,Other,African American
+790,Stephanie,Becker,1935-04-29,Male,Asian
+791,Danny,Blankenship,1943-01-03,Male,Asian
+792,Alejandra,Kim,1940-08-19,Other,Other
+793,Aaron,Brown,2000-11-17,Other,Caucasian
+794,Amanda,Perry,1954-10-20,Female,Asian
+795,Ryan,Smith,1977-06-23,Female,African American
+796,Anna,Washington,1982-07-30,Female,African American
+797,Sean,Rivera,2000-07-22,Other,Caucasian
+798,Daniel,Brown,1963-12-30,Other,Asian
+799,Sean,Mason,1969-03-20,Male,African American
+800,Austin,Watson,1955-03-04,Male,Asian
+801,Carrie,Coleman,1969-07-31,Other,Asian
+802,Carolyn,Sparks,1971-10-15,Other,Asian
+803,Jacob,Rivera,1946-12-19,Male,Other
+804,Gerald,Williams,2001-11-17,Male,Other
+805,Karen,Hogan,2005-07-28,Other,Hispanic
+806,Evelyn,Mclaughlin,2002-02-19,Male,Other
+807,Dennis,Mahoney,1989-02-27,Male,African American
+808,Amy,Walker,2002-06-15,Female,Asian
+809,Madeline,Johnson,1981-07-14,Other,Asian
+810,Kara,Stone,1957-03-10,Other,Asian
+811,Gabriel,Davis,1972-12-06,Other,Hispanic
+812,Christie,Adams,1953-03-26,Male,Other
+813,Patricia,Peck,1956-08-29,Other,Hispanic
+814,Joseph,Peterson,1957-09-03,Other,African American
+815,Andrew,Lee,2004-11-26,Male,Hispanic
+816,Jerry,Carter,1970-12-20,Other,Asian
+817,Barbara,Gentry,1969-01-21,Female,Asian
+818,Jennifer,Wagner,1993-02-06,Male,Other
+819,Shannon,Dalton,1954-06-05,Male,African American
+820,Cassandra,Bennett,1970-08-01,Male,African American
+821,Crystal,Harris,1946-09-02,Other,Asian
+822,Margaret,Thompson,2000-06-02,Female,Caucasian
+823,Donna,Gray,1983-02-27,Female,Asian
+824,Sarah,Lopez,1967-08-14,Other,Caucasian
+825,Bryan,Farmer,1957-10-18,Other,Asian
+826,David,Williamson,1939-01-21,Other,Other
+827,David,Mcclain,1991-05-19,Other,Hispanic
+828,Ronnie,Wilson,1970-04-21,Male,Asian
+829,Cassie,Allen,2002-01-07,Male,Caucasian
+830,Karen,Parker,1989-09-08,Other,Hispanic
+831,Patrick,Ramirez,1945-11-13,Male,Other
+832,Dan,Patel,1935-11-19,Other,Other
+833,Christopher,Allen,1975-12-05,Female,Other
+834,Kathleen,Dunn,1967-08-20,Male,Other
+835,Derrick,Ortiz,2005-09-05,Male,Hispanic
+836,Michelle,Merritt,1941-06-05,Female,Caucasian
+837,Jeffrey,Robinson,1972-12-02,Female,Caucasian
+838,Jillian,Martin,1980-06-28,Male,Other
+839,Joel,Rich,1947-04-20,Male,Caucasian
+840,Vincent,Collins,1992-12-28,Male,African American
+841,Pamela,Young,1936-11-29,Female,Asian
+842,Calvin,Burnett,2000-02-06,Male,Hispanic
+843,Kristina,Thompson,1969-11-22,Other,Hispanic
+844,Tyler,Pugh,1982-09-13,Other,Hispanic
+845,Andrew,Fox,1943-12-22,Male,Caucasian
+846,Frances,Lucas,1997-08-21,Female,Other
+847,Danielle,Cox,1989-10-02,Female,Hispanic
+848,Danny,Douglas,1965-05-31,Male,Other
+849,Jose,Hawkins,1962-09-20,Female,Caucasian
+850,Vanessa,Thompson,2005-02-22,Other,Caucasian
+851,Isaac,Willis,1975-03-12,Female,Caucasian
+852,Travis,Chavez,2003-04-03,Other,African American
+853,Ashley,Hurley,1970-05-26,Male,Caucasian
+854,Angela,Rodriguez,1948-08-11,Other,Hispanic
+855,Michael,Hudson,1975-07-25,Female,Asian
+856,Emily,Coffey,1936-03-31,Male,African American
+857,Andrea,Vargas,1966-02-03,Other,Asian
+858,Christine,Bowers,1989-02-11,Male,Other
+859,Anthony,Davis,1943-06-07,Male,Asian
+860,Kelly,Adams,1963-10-13,Other,Caucasian
+861,Rhonda,Rodriguez,1985-08-11,Female,Asian
+862,Kristina,Sandoval,1960-08-12,Female,Other
+863,David,Martin,1953-02-22,Other,Other
+864,Jessica,Thompson,1954-10-18,Other,Asian
+865,Mark,Norman,1980-12-27,Other,Caucasian
+866,Benjamin,Anderson,1981-08-01,Female,Other
+867,Gary,Paul,1955-10-09,Other,Caucasian
+868,Nicole,Miller,1968-09-19,Female,Asian
+869,Brittany,Ford,1994-02-15,Female,Hispanic
+870,Gary,Welch,1971-10-18,Male,Caucasian
+871,Sherry,Rivers,1974-10-01,Female,Hispanic
+872,Joseph,Garcia,1979-10-05,Female,Asian
+873,Vicki,Morgan,1952-08-18,Other,Hispanic
+874,James,Rodriguez,1978-06-18,Other,Asian
+875,Tracy,Richardson,2005-03-04,Female,African American
+876,Mark,Chavez,2003-09-15,Other,Caucasian
+877,Alicia,Arias,1974-06-22,Male,Other
+878,Cassie,Lucas,1986-03-14,Other,Caucasian
+879,Edward,Holt,1963-07-31,Female,Asian
+880,Cassandra,Hall,1975-02-09,Male,Hispanic
+881,Karen,Collins,1960-03-04,Male,Asian
+882,Morgan,Barrett,2006-12-11,Male,Hispanic
+883,Christopher,Daugherty,1948-01-26,Male,Other
+884,Nicole,Edwards,1977-02-11,Other,Caucasian
+885,John,Tran,1954-12-11,Other,Caucasian
+886,Lauren,Cowan,1995-07-29,Other,Hispanic
+887,Christina,Juarez,1942-04-24,Male,African American
+888,Kendra,King,1979-12-05,Female,African American
+889,Jeremy,Haley,1965-07-06,Female,African American
+890,Amanda,Rocha,1962-10-21,Female,African American
+891,Christine,Miranda,1943-10-21,Female,Asian
+892,Kristy,Glass,1949-01-12,Other,Caucasian
+893,Kyle,Owens,1937-06-07,Male,Asian
+894,Emily,Ellis,1950-05-05,Other,Hispanic
+895,Rick,Lopez,2004-11-24,Other,Other
+896,Kayla,Scott,1991-02-25,Male,Asian
+897,Tara,Morales,1973-07-09,Female,Asian
+898,Stephen,Fitzgerald,2006-05-30,Female,Caucasian
+899,Kevin,Mccoy,1989-08-08,Female,Other
+900,Thomas,Clark,1982-07-31,Female,African American
+901,Julie,Hernandez,2000-10-28,Other,Hispanic
+902,Dana,Martin,1940-05-30,Female,Caucasian
+903,Kristy,Pruitt,1943-11-17,Female,Hispanic
+904,Victoria,Grant,1960-02-25,Male,Caucasian
+905,Kimberly,Benjamin,1955-09-16,Other,African American
+906,Donna,Hernandez,1952-06-07,Female,Asian
+907,Elizabeth,Cooper,1982-06-01,Male,African American
+908,Gina,Gray,2001-07-22,Female,Other
+909,Virginia,Powell,1968-10-10,Male,Asian
+910,Dawn,Wilson,2001-01-31,Other,African American
+911,Sarah,Rodriguez,1963-06-13,Male,Hispanic
+912,Kara,Wilkins,1987-01-10,Other,Hispanic
+913,Bruce,Santos,1992-09-24,Male,African American
+914,Derrick,Davidson,1969-10-11,Other,Asian
+915,Jasmine,Scott,1993-07-29,Female,African American
+916,Stephen,Sullivan,1972-07-19,Male,Other
+917,Paige,Hebert,1973-04-24,Other,Other
+918,Catherine,Rose,1980-03-11,Male,Other
+919,Sandra,Rangel,1997-05-24,Female,African American
+920,Travis,Adams,1948-11-24,Female,Other
+921,Brittany,Patel,2004-12-27,Male,African American
+922,Charles,Burgess,2005-12-30,Female,Hispanic
+923,Lacey,Carr,1993-04-28,Female,Hispanic
+924,Ryan,Kaiser,1963-12-09,Female,Hispanic
+925,Bianca,Chang,1991-04-15,Other,Hispanic
+926,Kenneth,Gamble,1990-11-22,Male,African American
+927,Eric,Robertson,1998-10-31,Other,Caucasian
+928,Logan,Lewis,1983-01-01,Male,Caucasian
+929,William,Carrillo,1946-04-17,Female,African American
+930,Alex,Valenzuela,1958-04-06,Female,African American
+931,Lisa,Duran,1990-06-13,Male,Hispanic
+932,Brandon,Williams,1964-05-14,Male,Caucasian
+933,Natalie,Gibson,1996-04-02,Other,African American
+934,Dean,Joseph,1944-12-22,Female,African American
+935,Daniel,Fisher,1936-12-07,Male,African American
+936,Michele,Allison,1994-01-23,Other,Hispanic
+937,Dawn,Cain,1994-08-17,Other,Hispanic
+938,Joshua,Wright,2001-04-16,Male,Caucasian
+939,Kelly,Copeland,1994-01-02,Male,Caucasian
+940,Isaac,Martin,1980-09-21,Other,African American
+941,Brian,Austin,1996-05-02,Female,Caucasian
+942,Chelsea,Graves,2003-02-01,Other,Other
+943,Catherine,George,1987-08-15,Male,African American
+944,Angelica,Foster,1971-02-23,Male,African American
+945,Amanda,Hoffman,1995-11-03,Female,Asian
+946,Shannon,Marquez,1990-05-31,Male,African American
+947,Shane,Estrada,2007-02-06,Male,Other
+948,Rebecca,Smith,1969-02-06,Male,Other
+949,Dana,Jimenez,1996-06-09,Female,Other
+950,Matthew,Chang,1972-09-06,Male,African American
+951,Katherine,Brown,1972-02-29,Other,Hispanic
+952,David,Bowen,1960-04-26,Other,Other
+953,Martha,Smith,1952-09-05,Female,African American
+954,Jeremiah,Mendoza,1946-09-05,Other,Asian
+955,Bethany,Peterson,1943-04-26,Female,Other
+956,Marcia,Brown,1973-09-15,Male,Asian
+957,Latoya,Moss,1979-01-26,Other,African American
+958,Christopher,Liu,1960-06-04,Other,Hispanic
+959,Ross,Wall,1992-12-11,Male,Asian
+960,Sheila,Johnson,1959-06-29,Other,Caucasian
+961,Stephen,French,1976-02-02,Other,African American
+962,Angela,Moore,1958-11-03,Male,Hispanic
+963,Anne,Sawyer,1955-12-12,Female,Asian
+964,Sharon,Horton,1965-03-04,Male,Hispanic
+965,Vincent,Kelly,1944-08-11,Male,Caucasian
+966,Jesse,Wilson,1956-04-19,Other,Hispanic
+967,Kenneth,Smith,1957-08-07,Other,Other
+968,Erin,Anderson,2005-08-03,Other,Other
+969,Francisco,Johnson,1998-05-17,Female,Asian
+970,Jason,Garcia,1994-06-25,Other,Asian
+971,Angela,Alexander,1957-08-16,Other,African American
+972,Alan,Hernandez,2001-06-10,Other,Other
+973,John,Bush,1971-11-11,Other,Caucasian
+974,Jorge,Porter,1995-11-25,Female,African American
+975,Timothy,Davis,1995-08-03,Female,Other
+976,Melissa,Taylor,1951-11-03,Other,Asian
+977,Charlotte,Wilson,1943-12-22,Female,Caucasian
+978,William,Kline,1986-04-12,Male,Caucasian
+979,Steven,Morris,1961-08-02,Other,Hispanic
+980,Crystal,Palmer,1944-02-17,Female,Caucasian
+981,Andrew,Walls,1981-04-30,Female,African American
+982,Sarah,Johnson,1977-11-06,Other,Asian
+983,Daniel,Watts,1955-09-30,Other,Caucasian
+984,Brian,Christian,2001-04-15,Other,Hispanic
+985,Mckenzie,Vasquez,1962-07-28,Other,Hispanic
+986,Randy,Simmons,1959-04-04,Female,African American
+987,William,Stevens,1958-12-19,Other,Other
+988,Mary,Johnson,1950-12-05,Other,Other
+989,Paul,Sanchez,2003-05-08,Male,African American
+990,Ryan,Hicks,1981-03-07,Female,African American
+991,Christina,Miller,1980-07-27,Male,Other
+992,Katherine,Adams,1935-05-13,Female,Hispanic
+993,Lisa,Lyons,1993-08-23,Male,African American
+994,Meagan,Meyer,1968-03-24,Female,Asian
+995,Donald,Moody,1998-02-09,Male,African American
+996,Heather,Serrano,1988-02-20,Male,Asian
+997,Corey,Miller,1948-01-23,Male,Other
+998,Ashley,Alvarez,1974-02-27,Other,Caucasian
+999,William,Matthews,1940-02-26,Male,African American
+1000,Jeanette,Williams,1952-06-06,Other,Other
+1001,Timothy,Hanna,1947-05-26,Male,Asian
+1002,Brent,Osborne,1995-03-21,Female,Asian
+1003,Larry,Turner,1947-08-07,Female,Asian
+1004,David,Miranda,1951-04-28,Male,Hispanic
+1005,Angela,Dean,1998-05-28,Male,Caucasian
+1006,Ann,Carlson,1947-04-17,Male,African American
+1007,Paul,Juarez,1934-09-17,Female,Other
+1008,James,Olson,1985-08-11,Male,Caucasian
+1009,Krystal,Herman,1995-09-03,Female,African American
+1010,David,Mcguire,2002-04-27,Other,Asian
+1011,Timothy,Ellis,1937-07-26,Other,Asian
+1012,Lauren,Wagner,1936-06-01,Other,Hispanic
+1013,Stephanie,Coleman,1949-05-08,Female,Other
+1014,Dustin,Stewart,1974-04-02,Other,Other
+1015,Andrew,West,1981-06-27,Male,African American
+1016,Erin,Cooper,2007-04-07,Male,African American
+1017,John,Keith,1977-01-31,Male,Hispanic
+1018,Melissa,Schmitt,1979-07-27,Male,African American
+1019,Corey,Franklin,1988-11-25,Male,African American
+1020,Sandra,Lawrence,1979-08-13,Male,Hispanic
+1021,Robert,Diaz,1978-07-28,Male,African American
+1022,Ana,Brown,1944-09-24,Other,Caucasian
+1023,Tracy,Lindsey,1987-10-21,Other,Caucasian
+1024,Amber,Hensley,1970-05-19,Male,Hispanic
+1025,Maria,Harris,1935-12-31,Male,Other
+1026,Terry,Castro,1991-04-16,Female,African American
+1027,Stacey,Rowland,1969-09-08,Male,African American
+1028,Karen,Porter,1949-04-01,Male,Other
+1029,Perry,Stone,1975-02-16,Other,Other
+1030,Gregory,Krueger,1946-09-07,Other,Other
+1031,Karen,Davis,1972-12-25,Other,African American
+1032,Zachary,Chavez,1946-07-07,Female,Asian
+1033,Kelli,Williams,1939-02-04,Male,Caucasian
+1034,Chad,Aguirre,1999-07-21,Female,Other
+1035,Michael,Bailey,1989-08-25,Other,Caucasian
+1036,Robert,Palmer,1936-04-18,Male,African American
+1037,Alyssa,Harris,2002-11-02,Male,Hispanic
+1038,Amanda,Martin,1951-02-09,Female,Hispanic
+1039,Renee,Williams,2003-09-05,Male,Caucasian
+1040,Edwin,Fitzpatrick,1957-03-18,Female,Caucasian
+1041,Jason,Merritt,1986-12-03,Female,Other
+1042,Amber,Murray,1938-12-30,Male,Other
+1043,David,Miller,1964-08-11,Male,Caucasian
+1044,Robert,Riley,1939-12-23,Male,Hispanic
+1045,Robert,Lester,1942-06-20,Female,Caucasian
+1046,Sierra,Washington,1943-02-01,Female,Hispanic
+1047,Justin,Flowers,1939-07-12,Female,Other
+1048,Robert,Flores,2002-08-14,Other,Asian
+1049,Patricia,Love,1959-02-08,Other,Other
+1050,Matthew,Snyder,1976-04-28,Male,Caucasian
+1051,Thomas,Smith,1983-03-19,Male,Asian
+1052,Tami,Jarvis,1967-10-13,Male,Asian
+1053,Barry,Sanchez,1969-05-07,Other,Hispanic
+1054,Richard,Santiago,1994-10-21,Other,Asian
+1055,Nina,Herman,1985-05-15,Other,Hispanic
+1056,Emily,Matthews,1972-11-03,Female,Asian
+1057,Adrienne,Lane,1999-02-07,Female,Asian
+1058,Steven,Little,1953-05-16,Other,Other
+1059,Andrea,Young,1981-11-15,Female,Caucasian
+1060,Krystal,Evans,1985-01-31,Female,Hispanic
+1061,Marcus,Murphy,1947-09-02,Male,African American
+1062,Megan,Evans,1963-12-24,Female,Caucasian
+1063,Matthew,Bishop,2002-07-06,Female,Other
+1064,Alexis,Garcia,1938-11-18,Female,Hispanic
+1065,Timothy,Chase,1975-11-25,Other,Caucasian
+1066,Micheal,Rhodes,1969-05-12,Female,African American
+1067,Melissa,Davis,1952-10-04,Female,Asian
+1068,Beth,Scott,1968-10-27,Other,Caucasian
+1069,Samantha,Moreno,1942-04-08,Other,Asian
+1070,John,Moore,1956-02-29,Other,African American
+1071,Tiffany,Davis,1946-10-12,Male,Asian
+1072,Cameron,Lopez,1971-02-25,Male,Asian
+1073,Shelly,Roberts,1934-08-27,Female,Caucasian
+1074,Joseph,Hampton,1939-03-10,Male,Asian
+1075,Timothy,Ramos,1956-11-26,Other,Caucasian
+1076,Eric,Bean,1975-07-18,Other,Caucasian
+1077,Logan,Davis,1971-04-16,Other,Asian
+1078,Nancy,Morris,1977-10-27,Other,Caucasian
+1079,Matthew,Mitchell,1962-06-15,Male,Hispanic
+1080,James,Thomas,1991-05-09,Male,African American
+1081,Sabrina,Sosa,1941-07-22,Female,African American
+1082,Walter,Ballard,1958-09-16,Other,Hispanic
+1083,Jessica,Randolph,1938-06-15,Other,Other
+1084,David,Williams,1935-12-15,Other,Other
+1085,Matthew,Moore,2005-09-30,Other,Caucasian
+1086,Cynthia,Williams,1958-08-11,Other,Asian
+1087,Paul,Schroeder,1972-03-28,Other,Caucasian
+1088,Shirley,Collins,1986-09-11,Female,African American
+1089,Jason,Bowen,1974-03-20,Female,Hispanic
+1090,Christine,Brooks,2000-03-14,Male,Hispanic
+1091,Parker,Lewis,1943-03-06,Other,Caucasian
+1092,Michelle,Clark,2000-01-05,Female,African American
+1093,Kristine,Brown,1965-07-13,Female,Hispanic
+1094,Tony,Thomas,1936-07-31,Other,Hispanic
+1095,Holly,Richard,1999-05-28,Male,Hispanic
+1096,Robert,Soto,1997-02-24,Male,Hispanic
+1097,Jeffrey,Lopez,1979-02-16,Male,Caucasian
+1098,Bruce,Burke,1968-07-02,Male,Hispanic
+1099,Martha,Lamb,1979-12-19,Other,Asian
+1100,Amanda,Preston,1941-05-04,Other,Caucasian
+1101,Lauren,Payne,1938-06-12,Other,Other
+1102,William,Meza,2004-11-15,Female,African American
+1103,Robin,Butler,2006-07-29,Female,Other
+1104,Michael,Hernandez,1984-01-09,Female,Caucasian
+1105,Jason,Nash,1986-02-24,Other,African American
+1106,Natasha,Guerrero,1997-08-06,Male,Caucasian
+1107,Samantha,White,1951-10-09,Other,Asian
+1108,Jeffery,Conley,1954-10-15,Female,Caucasian
+1109,Crystal,Johnson,1996-07-04,Male,African American
+1110,Jared,Padilla,1976-12-30,Female,Caucasian
+1111,Yvonne,Stone,1935-01-03,Other,Hispanic
+1112,Mary,Robinson,1961-07-08,Other,Other
+1113,Denise,Summers,1976-11-28,Female,Caucasian
+1114,Robert,Turner,1973-03-03,Female,Hispanic
+1115,Nicholas,Garcia,1965-09-02,Other,Asian
+1116,Margaret,Yoder,1998-12-26,Other,Hispanic
+1117,Traci,Sanders,1968-07-15,Male,Hispanic
+1118,Jason,Chavez,1972-06-07,Other,Hispanic
+1119,Courtney,Flores,1975-05-16,Female,African American
+1120,Karl,King,1963-05-24,Male,Hispanic
+1121,Jennifer,Hanna,1981-12-30,Female,African American
+1122,Patricia,Padilla,1949-09-10,Other,Caucasian
+1123,James,Thomas,2001-10-01,Other,Asian
+1124,Sophia,Aguilar,1983-08-29,Male,Asian
+1125,William,Rivera,1955-05-28,Other,Asian
+1126,Erik,Smith,1954-05-17,Other,African American
+1127,David,Morgan,1969-01-19,Female,Asian
+1128,Sarah,Mckee,1974-12-31,Female,Asian
+1129,Brooke,Dyer,1985-10-25,Male,Hispanic
+1130,Derek,Reyes,1978-08-11,Other,Other
+1131,Elizabeth,Hatfield,1945-01-27,Male,Other
+1132,Robert,Watkins,1957-03-13,Female,Hispanic
+1133,Jennifer,Morgan,1969-02-15,Female,Caucasian
+1134,Joseph,Clark,1958-07-23,Male,Other
+1135,Michelle,Jordan,1978-03-12,Male,Asian
+1136,Christopher,Smith,1961-10-09,Female,Asian
+1137,Patricia,Jones,2001-02-06,Male,Asian
+1138,Andrew,Hunt,1997-01-12,Male,Hispanic
+1139,Brian,Berg,1980-02-26,Male,African American
+1140,Michael,Moore,2006-01-11,Male,Caucasian
+1141,Taylor,Orozco,2003-08-08,Other,Hispanic
+1142,Alan,Howard,1984-03-26,Female,Asian
+1143,Austin,Warner,2000-03-31,Female,Caucasian
+1144,Steven,Mata,1982-11-28,Male,Other
+1145,Francisco,Hernandez,1970-06-11,Other,Caucasian
+1146,Kathryn,Schneider,1967-06-02,Male,African American
+1147,Thomas,Carter,1945-06-22,Female,Asian
+1148,Jamie,Collins,1983-08-27,Male,African American
+1149,Lisa,Norton,1939-09-03,Other,Other
+1150,Daniel,Carr,1993-07-22,Male,Hispanic
+1151,Brittany,Rojas,1941-11-11,Female,Other
+1152,Andrew,Rodriguez,1972-12-01,Male,Other
+1153,Julie,Atkins,1935-02-24,Other,Hispanic
+1154,Alan,Franklin,1994-09-26,Other,Other
+1155,Karen,Landry,1968-08-02,Female,Hispanic
+1156,Scott,Ryan,1949-08-17,Female,Hispanic
+1157,Vanessa,Bautista,1978-08-24,Male,Other
+1158,Francisco,Marshall,1959-06-18,Female,Caucasian
+1159,Michael,Anderson,1971-06-24,Male,Asian
+1160,Shirley,Le,1949-05-23,Female,African American
+1161,Kimberly,Shepherd,1958-07-25,Female,Hispanic
+1162,Brittany,Howell,1972-03-04,Male,Asian
+1163,Stacey,Cannon,1979-05-13,Female,African American
+1164,Debbie,Morales,1960-06-29,Female,Asian
+1165,Wendy,Schwartz,1965-04-21,Female,African American
+1166,Connor,Macias,1953-04-07,Male,Caucasian
+1167,Jennifer,Jones,1983-03-16,Male,Caucasian
+1168,Dawn,Quinn,1938-02-19,Other,Other
+1169,Lisa,Moore,1942-09-01,Male,Hispanic
+1170,Jenna,Allen,1972-02-23,Female,African American
+1171,April,Ritter,1961-08-02,Other,African American
+1172,Joyce,Rivera,1964-09-24,Male,Asian
+1173,Rhonda,Roberts,1986-06-28,Female,Asian
+1174,Grace,Young,2001-11-29,Male,Other
+1175,George,Craig,1972-09-07,Female,Caucasian
+1176,Ricky,Sims,1969-01-13,Other,African American
+1177,Jack,Barnett,1979-06-08,Female,Caucasian
+1178,Taylor,Mora,2005-03-01,Other,Asian
+1179,Seth,Martin,1976-05-26,Female,Other
+1180,Nicholas,West,1964-07-29,Male,Asian
+1181,Amanda,Thompson,1970-05-03,Other,Hispanic
+1182,Tiffany,Nichols,2005-02-24,Male,African American
+1183,Zachary,Horn,1939-09-06,Female,Other
+1184,Jeffery,Cooper,1953-06-25,Other,Other
+1185,Danny,Torres,1993-11-24,Female,Asian
+1186,Jacob,Davis,2001-04-24,Male,Caucasian
+1187,Robert,Foley,1965-08-03,Male,Other
+1188,Kenneth,Hudson,2003-10-01,Male,Hispanic
+1189,Robert,Foster,1942-09-03,Other,Asian
+1190,Harold,Bonilla,1988-10-28,Female,African American
+1191,Samuel,Williams,1954-07-17,Other,Other
+1192,Luke,Perkins,1959-07-18,Male,African American
+1193,Randy,Choi,2001-08-18,Other,Asian
+1194,Cody,Fuller,1935-09-08,Other,Asian
+1195,Colleen,Wiley,1978-02-25,Male,African American
+1196,Gregory,Ruiz,1961-06-17,Other,Asian
+1197,Kimberly,Martinez,1990-06-22,Other,African American
+1198,Dwayne,Lucas,1967-09-17,Other,Hispanic
+1199,Meagan,Franklin,1934-12-29,Female,African American
+1200,Alyssa,Wood,2005-02-08,Other,Asian
+1201,Bruce,Allen,1990-01-03,Female,Asian
+1202,Robert,Rodriguez,1935-01-08,Male,Asian
+1203,Todd,Wright,1956-11-25,Female,Caucasian
+1204,Kirsten,Weber,1996-03-23,Female,Hispanic
+1205,Daniel,Johnson,1970-08-06,Female,Hispanic
+1206,Donna,Alvarez,2003-03-05,Male,Asian
+1207,Mckenzie,Chase,1973-11-07,Male,African American
+1208,Michael,Padilla,1949-05-13,Female,Other
+1209,Alexis,Jones,1998-06-19,Female,Other
+1210,Cynthia,Valencia,1955-09-19,Other,Caucasian
+1211,Katie,Donaldson,1956-05-17,Other,Asian
+1212,Patrick,Watson,1999-01-18,Female,Asian
+1213,Carl,Gomez,2002-06-11,Female,Caucasian
+1214,Lucas,Perez,1983-10-10,Male,African American
+1215,Jonathon,Ferrell,2004-01-31,Other,Caucasian
+1216,Kendra,Randolph,1988-12-04,Female,African American
+1217,Lisa,Mcfarland,1947-06-17,Female,Other
+1218,Joshua,Meyer,1993-03-29,Female,Hispanic
+1219,Christine,Huffman,1962-07-04,Female,Asian
+1220,Emily,Stafford,1951-09-30,Female,Other
+1221,Christopher,Russell,1953-02-09,Other,Hispanic
+1222,Marc,Potter,1984-01-11,Female,African American
+1223,George,Reid,2003-11-05,Male,Caucasian
+1224,Sean,Hernandez,2005-04-27,Female,Hispanic
+1225,Daniel,Gonzalez,1937-12-21,Male,Asian
+1226,Scott,Reyes,1977-04-04,Other,Caucasian
+1227,Jennifer,Hanson,1962-01-18,Male,African American
+1228,Erin,Briggs,1956-04-28,Other,Asian
+1229,Mitchell,Thompson,1964-05-10,Male,African American
+1230,Bonnie,Bryant,1980-08-01,Male,Other
+1231,Teresa,Taylor,2000-03-18,Other,African American
+1232,Lauren,Harmon,1961-08-05,Other,Hispanic
+1233,Paul,Swanson,1987-07-11,Male,Hispanic
+1234,Phillip,Griffin,1970-06-10,Female,Hispanic
+1235,Kenneth,Boone,1949-01-06,Male,Caucasian
+1236,Sheila,Mcdonald,1969-10-01,Male,African American
+1237,Jennifer,Hines,1940-12-20,Female,Caucasian
+1238,Douglas,Simmons,1978-07-03,Male,Hispanic
+1239,William,Peterson,1966-12-02,Male,Hispanic
+1240,James,Anderson,1976-06-02,Male,Other
+1241,Teresa,Bryan,1970-04-06,Other,Asian
+1242,Darlene,Day,1991-09-03,Other,Caucasian
+1243,Hannah,Hernandez,1950-04-26,Other,African American
+1244,Raymond,Ramirez,1939-11-10,Female,Asian
+1245,Ryan,Murphy,1996-10-22,Male,Hispanic
+1246,Kevin,Nelson,1950-10-08,Other,Other
+1247,Michael,Harper,1969-01-24,Female,Hispanic
+1248,Jeffrey,Cooper,1942-11-12,Other,Other
+1249,Corey,Lee,1961-05-27,Other,Other
+1250,Christina,Howard,1937-02-16,Female,African American
+1251,Haley,Stevenson,1994-09-20,Female,Caucasian
+1252,Brandi,Torres,1941-03-25,Female,Other
+1253,Paul,York,1989-06-02,Other,African American
+1254,Robert,Richards,1984-12-27,Female,African American
+1255,Stacy,Roberts,1963-06-27,Other,Other
+1256,Linda,Young,2002-10-23,Other,Hispanic
+1257,Frank,Grant,1940-01-11,Other,Other
+1258,Renee,Chandler,1970-06-02,Female,Asian
+1259,Madeline,Baker,1946-11-04,Male,Other
+1260,Micheal,Mitchell,2006-10-27,Female,Asian
+1261,Tonya,Jackson,1994-08-30,Other,Hispanic
+1262,Marie,Gilbert,1934-09-04,Female,Hispanic
+1263,Elizabeth,Lopez,1968-08-29,Female,African American
+1264,Valerie,Thomas,1994-10-07,Female,Caucasian
+1265,Eric,White,1977-09-15,Male,Hispanic
+1266,John,Garcia,1940-11-05,Male,Other
+1267,Michele,Jones,1948-11-04,Female,African American
+1268,Alexander,Day,1994-11-19,Male,Caucasian
+1269,Timothy,Hall,1960-06-03,Male,Caucasian
+1270,Christopher,Norton,2006-05-14,Female,African American
+1271,Barbara,Watts,1975-08-20,Other,Caucasian
+1272,Robert,Cooper,1949-03-08,Other,African American
+1273,Andrew,Mills,1951-05-31,Female,Asian
+1274,Eric,Terry,1948-02-12,Other,Other
+1275,Dennis,Bentley,1985-12-13,Other,Other
+1276,Andrew,Hill,1952-04-14,Other,African American
+1277,William,Robles,2001-09-23,Female,Other
+1278,John,Brown,1983-12-20,Female,Other
+1279,Jill,Downs,1959-02-28,Female,Caucasian
+1280,Christopher,Torres,1958-10-10,Male,Hispanic
+1281,Scott,Brown,1970-04-09,Other,Asian
+1282,Patrick,Acosta,1991-09-30,Male,Asian
+1283,Richard,Frey,1943-07-03,Female,Caucasian
+1284,Tim,Fernandez,1973-02-14,Male,Other
+1285,Shannon,Smith,1957-01-04,Other,Caucasian
+1286,Lucas,Reynolds,1937-05-22,Other,Asian
+1287,Denise,Harris,1967-10-27,Female,Other
+1288,James,Dudley,1960-09-08,Female,Other
+1289,Matthew,Fernandez,1948-04-25,Female,African American
+1290,Kevin,Mcintosh,1956-12-11,Female,Hispanic
+1291,Joseph,Lane,2004-04-27,Female,Hispanic
+1292,William,Rivers,2000-09-28,Other,Other
+1293,Lori,Compton,1974-10-01,Other,Caucasian
+1294,Sarah,Lutz,1943-01-07,Male,Hispanic
+1295,Jessica,Wright,1984-06-12,Other,Caucasian
+1296,James,Lucero,1993-10-14,Female,Asian
+1297,Stephanie,Hull,1987-08-01,Female,Other
+1298,Jason,Kelley,1949-04-28,Other,African American
+1299,Joseph,Ferrell,1950-02-22,Female,Hispanic
+1300,Sarah,Salinas,1944-11-27,Female,African American
+1301,Brenda,Smith,1985-09-17,Female,Hispanic
+1302,Michael,Sims,1998-05-06,Other,Caucasian
+1303,Danielle,Brooks,1973-10-05,Female,Hispanic
+1304,Jeffrey,Mullins,1940-01-28,Male,African American
+1305,Mary,Ryan,1941-12-05,Other,Caucasian
+1306,Benjamin,Smith,1968-10-30,Female,Hispanic
+1307,Aaron,Valdez,1968-03-08,Male,African American
+1308,Jennifer,Hicks,1965-12-16,Male,Caucasian
+1309,Brian,Garrison,1939-09-11,Female,Other
+1310,Bobby,Griffin,1971-06-24,Female,African American
+1311,Thomas,Anderson,1999-02-05,Female,Other
+1312,Brittany,Long,1958-03-02,Other,Other
+1313,Joseph,Frye,2003-02-13,Male,Asian
+1314,Nicholas,Myers,1967-01-08,Male,Caucasian
+1315,Juan,Davis,1994-06-18,Other,Hispanic
+1316,Michael,Brown,1940-05-07,Female,Hispanic
+1317,Michael,Thomas,1958-12-06,Other,Other
+1318,Juan,Novak,1992-09-26,Male,Caucasian
+1319,Samantha,Rhodes,1989-03-05,Female,Other
+1320,Jessica,Johnson,1960-02-10,Other,Hispanic
+1321,Dawn,Munoz,1989-03-13,Male,African American
+1322,Brendan,Howard,2001-12-07,Female,African American
+1323,Brian,Perez,1948-12-18,Male,Other
+1324,Kimberly,Walters,1948-07-27,Male,Caucasian
+1325,Erica,Wong,2003-06-11,Male,Asian
+1326,Kevin,Smith,1998-05-02,Male,Hispanic
+1327,Robin,Jones,1956-08-27,Male,African American
+1328,Kevin,Wilson,1968-04-10,Female,African American
+1329,Kimberly,Reeves,1937-08-23,Male,Other
+1330,Pamela,Bryant,1948-09-22,Other,Hispanic
+1331,Charles,Wong,1945-01-29,Other,African American
+1332,James,Hurley,1935-07-08,Female,African American
+1333,Melissa,Mckinney,1978-10-09,Male,Caucasian
+1334,Clinton,Henderson,1977-01-13,Female,Caucasian
+1335,Laura,Newman,1934-10-20,Male,Asian
+1336,Jesse,Smith,1973-03-11,Other,African American
+1337,Peter,Taylor,1980-06-17,Other,Asian
+1338,Jordan,Scott,1990-09-07,Male,Caucasian
+1339,Charles,Barber,1943-08-10,Other,Other
+1340,Derrick,Palmer,1987-11-28,Female,Other
+1341,Lawrence,Hayden,1939-05-09,Male,Other
+1342,Clinton,Hart,1974-02-21,Male,Asian
+1343,Erik,Wolf,1939-02-13,Female,Other
+1344,Tracy,Jordan,1972-01-06,Female,Other
+1345,Christian,Nguyen,1963-05-05,Female,Other
+1346,Robert,Hudson,2004-01-04,Other,Other
+1347,Crystal,Foster,1975-12-27,Female,Other
+1348,Laurie,Newton,1934-10-07,Female,Asian
+1349,Nicholas,Short,1990-09-04,Other,Asian
+1350,Jody,Steele,1940-01-29,Male,Caucasian
+1351,James,Richards,1996-02-09,Other,Hispanic
+1352,Kristi,Warner,1981-01-25,Other,Other
+1353,Daniel,Grant,1965-05-16,Female,Asian
+1354,Cameron,Simpson,1972-08-12,Other,Hispanic
+1355,Sara,Gonzalez,1991-09-08,Male,African American
+1356,Kayla,Turner,1994-10-08,Male,Hispanic
+1357,Jeffrey,Dickerson,1957-10-26,Male,Hispanic
+1358,Amy,Herring,1966-06-10,Other,Caucasian
+1359,Becky,Turner,1960-01-31,Female,Asian
+1360,Margaret,Hoffman,1950-11-02,Other,African American
+1361,Eric,White,1949-09-18,Male,Other
+1362,Bethany,Stevenson,1961-12-09,Male,Caucasian
+1363,Ashley,Morales,1958-02-21,Male,African American
+1364,Daniel,Lawson,1946-08-24,Female,Hispanic
+1365,Robin,Franklin,1977-06-29,Female,African American
+1366,Jason,Silva,1988-11-21,Female,Caucasian
+1367,Gene,Holmes,1966-11-21,Female,Asian
+1368,John,Freeman,1948-05-29,Female,Asian
+1369,Jared,Ashley,2002-09-22,Female,Asian
+1370,Rachel,Spence,1963-05-04,Other,African American
+1371,Michele,Blair,2006-09-23,Female,Asian
+1372,Nicole,Irwin,1979-12-20,Male,Asian
+1373,Peter,Smith,1955-09-17,Male,Caucasian
+1374,Donald,Frazier,1962-12-29,Female,Hispanic
+1375,Kevin,Simmons,1938-02-27,Other,Caucasian
+1376,Kim,Torres,1994-02-18,Other,Caucasian
+1377,Gregory,Miller,1954-11-03,Male,Hispanic
+1378,Lisa,Williams,1956-04-12,Female,Asian
+1379,Lindsey,Owens,1935-01-27,Other,African American
+1380,Lawrence,Miller,1943-09-09,Female,Asian
+1381,Jeffrey,Perez,2004-06-30,Male,Asian
+1382,Sandy,James,1999-10-31,Female,African American
+1383,Victoria,Ramos,1959-07-17,Male,Caucasian
+1384,Paul,Simmons,1981-02-22,Male,African American
+1385,Kelly,Greene,1997-11-12,Female,African American
+1386,Brian,Moss,1938-10-05,Other,Other
+1387,Jenna,Mcintyre,1992-09-18,Other,Other
+1388,Steven,Robinson,1987-11-16,Other,Asian
+1389,Christine,Lopez,1957-11-02,Male,Hispanic
+1390,Kelsey,Olsen,1990-11-25,Male,Other
+1391,Nicholas,Robles,1965-09-07,Other,Asian
+1392,Donna,Fisher,1941-10-19,Other,Caucasian
+1393,Stacy,Wright,1988-07-08,Female,African American
+1394,Hunter,Johnson,2000-07-20,Male,Other
+1395,Maria,King,1935-09-28,Other,Caucasian
+1396,David,Hood,1972-02-16,Other,Other
+1397,Brandy,Chapman,1972-10-09,Other,Hispanic
+1398,John,Martinez,1961-01-23,Male,Asian
+1399,Anthony,Scott,1969-12-01,Other,Asian
+1400,Joanna,Anderson,1935-03-18,Female,Hispanic
+1401,Christopher,Davis,1937-10-10,Female,Caucasian
+1402,Alex,Jackson,1977-08-07,Other,Other
+1403,Molly,Gutierrez,1997-10-12,Male,Asian
+1404,Michael,Campbell,1947-12-09,Male,Other
+1405,Joel,Miller,1968-12-01,Other,Caucasian
+1406,Katelyn,Juarez,2001-04-11,Female,Asian
+1407,Shelley,Woodard,2003-04-02,Male,Other
+1408,Jason,Spencer,1974-10-04,Male,African American
+1409,Michelle,Martinez,2001-01-25,Female,Other
+1410,Peggy,Wilson,1982-09-10,Other,Asian
+1411,Hayden,Jenkins,1941-01-12,Other,African American
+1412,Jeanette,Rodriguez,1942-02-16,Other,Hispanic
+1413,Mason,Shaffer,1980-10-18,Female,Hispanic
+1414,Patrick,Smith,1952-09-14,Male,Asian
+1415,Fred,Price,1959-02-24,Female,Asian
+1416,Christina,Wong,1965-06-21,Female,Asian
+1417,Jeremy,Hodges,1977-01-01,Male,Asian
+1418,Alex,Richards,1973-08-19,Other,Other
+1419,Melanie,Snyder,1970-07-23,Male,African American
+1420,Jesse,Vasquez,1984-01-20,Other,Other
+1421,Jesse,Ross,1985-03-11,Male,Other
+1422,Joel,Knight,1942-08-17,Male,Asian
+1423,Robert,Williams,1981-06-20,Female,Hispanic
+1424,Robin,Sherman,1953-10-27,Male,Caucasian
+1425,Amanda,Dyer,1996-11-05,Female,Asian
+1426,Nicholas,Lara,1993-01-24,Other,Other
+1427,Jesse,Mcdonald,2003-12-20,Other,Hispanic
+1428,Brian,Bass,1936-12-15,Male,Asian
+1429,Tamara,Mitchell,1980-11-03,Other,Asian
+1430,Mark,Ross,1950-06-24,Female,Other
+1431,William,Hogan,1961-12-18,Female,African American
+1432,Cassandra,Davis,1964-03-19,Male,Other
+1433,Edward,Brown,1956-10-15,Male,Hispanic
+1434,Renee,Phillips,1995-07-07,Other,Hispanic
+1435,Kathryn,Baker,1954-10-31,Female,Hispanic
+1436,Patricia,Hicks,1953-02-12,Female,Asian
+1437,William,Keller,2006-07-27,Male,Hispanic
+1438,Christina,Flowers,1994-05-27,Male,Other
+1439,Brandi,Sandoval,2004-10-05,Other,Caucasian
+1440,Maria,Lane,1981-03-29,Male,Asian
+1441,Seth,Melton,1993-08-22,Female,Asian
+1442,Candice,Perez,1994-06-07,Male,Hispanic
+1443,Lance,Casey,1958-01-18,Female,Other
+1444,Kimberly,Harris,2004-06-06,Female,Asian
+1445,Hannah,Mack,2001-06-26,Other,Other
+1446,Patrick,Davis,1996-04-23,Male,Other
+1447,Kimberly,Clayton,1944-04-18,Male,African American
+1448,Michael,Diaz,1966-02-19,Female,African American
+1449,Robert,Gomez,1939-06-25,Female,Asian
+1450,Robert,Frank,1941-01-22,Other,African American
+1451,Melissa,Walsh,1979-11-08,Female,Other
+1452,Kenneth,Nelson,1995-08-11,Male,African American
+1453,Paul,Beard,1998-03-24,Female,Hispanic
+1454,Luis,Hobbs,1970-01-20,Male,Other
+1455,Brian,Poole,1955-05-08,Other,Caucasian
+1456,Shawn,Huffman,1995-06-29,Other,Hispanic
+1457,David,Brooks,1964-09-27,Other,Other
+1458,Vincent,Cohen,1960-10-17,Other,Hispanic
+1459,Anthony,Collins,1936-12-22,Male,Other
+1460,Emily,Baker,1938-05-13,Female,Caucasian
+1461,Christine,Coleman,1980-10-15,Female,Hispanic
+1462,Chase,Cohen,1965-05-30,Other,African American
+1463,Chase,Smith,1983-01-04,Female,Caucasian
+1464,Teresa,Williams,1985-08-02,Female,Hispanic
+1465,Robert,Bentley,1997-01-18,Female,Asian
+1466,Kevin,Hill,1998-01-28,Other,Hispanic
+1467,Alan,Peterson,1956-04-18,Other,Hispanic
+1468,Noah,Marsh,1938-10-27,Other,Asian
+1469,Elizabeth,Hernandez,1979-06-25,Other,Asian
+1470,Eric,Mckinney,1939-10-11,Other,Other
+1471,Chad,Garcia,2005-07-24,Male,African American
+1472,Holly,Hutchinson,1970-09-07,Male,African American
+1473,Teresa,Oneill,1947-12-28,Other,Other
+1474,Hector,Lopez,1945-10-20,Other,Other
+1475,Cynthia,Sanchez,1960-04-08,Female,Asian
+1476,Crystal,Cabrera,1978-08-12,Other,African American
+1477,Luis,Murphy,2006-11-05,Other,Caucasian
+1478,Ian,Lowery,1959-02-14,Other,African American
+1479,Jack,Kerr,1937-03-23,Other,Hispanic
+1480,Pamela,Morris,2002-05-23,Female,Other
+1481,Eric,Ibarra,1981-02-25,Female,Caucasian
+1482,Marcia,Boyd,1939-12-28,Male,African American
+1483,Teresa,Davis,1995-07-11,Female,Hispanic
+1484,Steven,Gibbs,1987-12-20,Other,African American
+1485,Edward,Bishop,1995-04-05,Male,Caucasian
+1486,Jeffrey,Howell,1949-08-05,Male,Other
+1487,Gina,Anthony,1963-12-24,Male,African American
+1488,Traci,Cameron,1967-12-08,Male,African American
+1489,Rebecca,Henderson,1979-02-22,Male,Asian
+1490,Monica,Cohen,1989-01-25,Other,Hispanic
+1491,Julie,Patterson,1945-06-04,Other,Asian
+1492,Joshua,Haas,2001-05-29,Other,Other
+1493,Tiffany,Kennedy,1973-04-20,Other,Asian
+1494,Nicholas,Lopez,1955-04-03,Female,Asian
+1495,Brian,Hopkins,1966-03-30,Other,Caucasian
+1496,Elizabeth,Howard,1972-02-25,Other,Hispanic
+1497,Donna,Green,1972-04-27,Other,African American
+1498,Amy,Booth,1981-05-05,Other,Asian
+1499,Joseph,Arroyo,2003-10-28,Male,Caucasian
+1500,Donna,Smith,1981-12-26,Male,Hispanic
+1501,Anna,Johnson,1997-06-17,Female,Caucasian
+1502,Tamara,Baker,1983-03-26,Other,Hispanic
+1503,Claire,Lynn,1978-11-13,Other,African American
+1504,Jennifer,Vaughan,1980-03-14,Male,Other
+1505,Jennifer,Romero,1942-04-25,Male,Hispanic
+1506,Jennifer,Winters,1979-01-12,Male,Hispanic
+1507,Ian,Hall,1944-05-09,Female,Other
+1508,Dustin,Estes,1989-03-14,Male,Asian
+1509,Monica,Hayes,1993-03-12,Other,Hispanic
+1510,Bridget,Smith,1963-06-22,Other,African American
+1511,Daniel,Thomas,2000-06-02,Female,Asian
+1512,Christopher,Craig,1962-02-06,Female,Hispanic
+1513,Lori,Wu,1992-10-19,Male,Other
+1514,Joshua,Smith,2001-10-26,Female,Other
+1515,Sean,Ball,1971-07-06,Other,African American
+1516,Arthur,Barnett,2006-07-20,Male,Hispanic
+1517,Matthew,Lee,1973-12-13,Male,African American
+1518,Gina,Hammond,2006-10-11,Female,Caucasian
+1519,Virginia,Johnson,1997-12-08,Other,Asian
+1520,Ryan,Howe,1950-10-15,Female,Asian
+1521,Joseph,Snow,1948-03-16,Female,Other
+1522,Edward,Foster,1936-12-09,Male,Asian
+1523,Matthew,Mclaughlin,1994-08-08,Male,African American
+1524,Jennifer,Hill,1963-08-29,Male,Asian
+1525,Brandon,Hernandez,1979-04-11,Female,Asian
+1526,Lauren,Wallace,1940-11-11,Female,Asian
+1527,Linda,Knight,1976-02-26,Other,Caucasian
+1528,Emily,Jackson,1979-05-08,Female,Asian
+1529,Krista,Campbell,1954-02-22,Female,Hispanic
+1530,Jeffrey,Thomas,1939-04-10,Other,Other
+1531,Karen,Allen,2006-11-28,Female,Other
+1532,Renee,Stanley,1987-12-18,Other,Hispanic
+1533,Danielle,Rodriguez,1935-12-17,Female,Hispanic
+1534,Eric,Marsh,1952-09-03,Female,Caucasian
+1535,Karen,Larson,1996-11-05,Male,Other
+1536,Cathy,Shah,1991-02-19,Other,Other
+1537,Richard,Fox,2004-12-25,Other,Other
+1538,Tommy,Green,1951-11-25,Female,Other
+1539,Brian,Marks,1992-08-22,Other,Hispanic
+1540,Lisa,Johnson,1984-08-21,Female,African American
+1541,Michael,Morgan,1990-11-30,Other,Other
+1542,Sara,Wood,1950-06-22,Female,Hispanic
+1543,Taylor,Whitney,1968-08-21,Female,Other
+1544,Ethan,Lopez,1987-02-20,Female,Caucasian
+1545,Ashley,Taylor,1948-03-09,Female,Asian
+1546,Alison,Kim,1996-02-07,Other,Caucasian
+1547,Rebecca,Henry,1982-12-25,Female,Other
+1548,Larry,Meyer,1985-02-23,Other,Caucasian
+1549,Kevin,Lowery,1997-08-11,Other,African American
+1550,Robert,Todd,2002-10-25,Male,Asian
+1551,Joshua,Cross,1961-02-09,Female,Hispanic
+1552,Larry,Evans,1975-06-14,Other,Asian
+1553,Elizabeth,Perez,1998-03-22,Other,Caucasian
+1554,Jonathan,Curry,1975-12-17,Male,Other
+1555,Shane,Goodwin,1945-06-27,Female,Other
+1556,Anthony,Lopez,1986-11-27,Female,Hispanic
+1557,Natalie,Calderon,1981-04-29,Female,Caucasian
+1558,Ronald,Reed,1967-08-16,Male,African American
+1559,Vanessa,Davis,1968-06-10,Male,African American
+1560,John,Moore,1954-06-12,Female,Other
+1561,Jason,Stone,1978-08-01,Male,African American
+1562,Shirley,Burns,1957-05-15,Female,Caucasian
+1563,Michelle,Gonzalez,2004-08-13,Male,African American
+1564,Todd,Blake,1953-01-21,Male,Asian
+1565,Jennifer,Wright,1980-08-30,Other,Caucasian
+1566,Daniel,Ward,1935-03-06,Female,African American
+1567,Henry,Thompson,1996-08-06,Male,Other
+1568,Robert,Campbell,1961-08-10,Female,African American
+1569,Valerie,Atkins,1972-03-30,Male,Caucasian
+1570,Kristina,Sanders,1958-05-10,Female,Other
+1571,Steven,Davis,1975-05-10,Other,Caucasian
+1572,Amy,Jackson,1992-05-24,Female,African American
+1573,Sarah,Walker,1968-10-28,Female,Asian
+1574,Patrick,Nichols,1942-08-25,Male,African American
+1575,Christopher,Mitchell,1963-02-02,Other,Other
+1576,Kimberly,Hammond,1965-03-21,Female,African American
+1577,David,Robles,1972-10-19,Female,Other
+1578,Melissa,Schneider,1968-07-24,Other,Asian
+1579,Nancy,Williams,1964-08-21,Male,Hispanic
+1580,Philip,Horton,1944-02-08,Other,Caucasian
+1581,Debra,Hughes,1977-03-10,Female,Caucasian
+1582,Frank,Baker,1981-05-16,Female,Asian
+1583,Christopher,Padilla,1975-06-12,Female,Asian
+1584,Michael,Johnson,1951-07-05,Male,Asian
+1585,Cindy,Guzman,1976-06-09,Other,Asian
+1586,Nicholas,Owens,1937-07-13,Female,Hispanic
+1587,Danielle,Briggs,1937-04-29,Male,African American
+1588,Kristopher,Charles,1974-06-22,Male,Asian
+1589,Maria,Walter,1971-10-30,Female,Hispanic
+1590,Reginald,Lewis,1957-07-23,Other,Other
+1591,Shannon,Nichols,1993-09-03,Female,Asian
+1592,Rebecca,Bentley,1965-02-25,Female,Other
+1593,Pamela,Walker,1987-03-05,Other,Other
+1594,William,Blankenship,1960-07-01,Male,Asian
+1595,Andrea,Strong,1949-03-13,Other,African American
+1596,Kayla,Becker,1990-03-05,Female,Caucasian
+1597,Michael,White,1938-07-25,Male,Hispanic
+1598,Anthony,Maddox,1998-04-06,Other,African American
+1599,Mario,Moyer,1946-12-27,Other,African American
+1600,Rebecca,Prince,1955-10-17,Female,Hispanic
+1601,Bradley,Mcconnell,1942-09-15,Other,Hispanic
+1602,Darlene,Cline,1983-04-23,Other,Other
+1603,Monica,Collins,1986-09-26,Male,Caucasian
+1604,Sarah,Allen,1992-11-30,Other,African American
+1605,Jeffrey,Ross,1992-09-17,Female,Other
+1606,Keith,Brown,1988-06-26,Male,Hispanic
+1607,James,White,1936-02-23,Male,Caucasian
+1608,Sara,Montoya,1935-09-09,Other,Other
+1609,David,Lynch,1947-11-17,Other,Asian
+1610,Laura,Hill,1983-01-11,Other,African American
+1611,William,Carson,1943-02-27,Other,Asian
+1612,Thomas,West,1987-03-26,Other,Hispanic
+1613,Susan,Tucker,1965-09-26,Other,African American
+1614,Lindsey,Stewart,1984-04-09,Male,African American
+1615,Nathan,Rogers,1948-08-04,Female,Hispanic
+1616,Janice,Hines,1949-05-28,Male,Asian
+1617,Elizabeth,Carroll,1965-12-04,Other,Caucasian
+1618,Kelly,Wilson,1990-07-02,Female,Caucasian
+1619,Mark,Sanchez,1975-03-03,Other,Other
+1620,Andrew,Miller,2003-08-09,Male,Hispanic
+1621,Stacy,Kidd,1951-07-23,Male,African American
+1622,Ronald,Browning,1949-12-04,Female,Hispanic
+1623,Kevin,Luna,1962-12-27,Female,Other
+1624,Timothy,Smith,1947-12-18,Male,Other
+1625,James,Duncan,2000-02-23,Female,African American
+1626,Sandra,Becker,1968-09-05,Male,Asian
+1627,Cameron,Smith,1937-10-28,Female,Caucasian
+1628,Vicki,Atkins,1943-12-09,Male,Other
+1629,Jacqueline,Roberts,1954-01-01,Male,African American
+1630,Rachel,Conner,1981-08-18,Male,Caucasian
+1631,Michael,Berry,1981-04-18,Male,Caucasian
+1632,Corey,Scott,1983-10-07,Male,Hispanic
+1633,Jonathon,Nelson,1989-09-14,Other,Other
+1634,Wanda,Reyes,1959-01-20,Female,Caucasian
+1635,Madison,Fields,1994-07-14,Male,Other
+1636,Leslie,Taylor,1998-10-23,Female,African American
+1637,Richard,Chan,1957-10-15,Female,Hispanic
+1638,Glenn,Henry,1948-03-07,Male,Caucasian
+1639,Kevin,Thomas,1988-11-09,Female,Asian
+1640,Anthony,Mcfarland,1947-09-28,Male,Other
+1641,Amber,Howe,1964-10-03,Female,Hispanic
+1642,Ashley,Meadows,1963-04-07,Other,African American
+1643,Kimberly,Woods,2004-09-07,Male,Hispanic
+1644,Susan,Bell,1965-08-18,Other,Hispanic
+1645,Brian,Jones,1957-07-13,Female,Other
+1646,Heidi,Gonzalez,1973-06-10,Female,African American
+1647,William,Woods,1986-12-17,Female,Caucasian
+1648,Donald,Jones,1973-05-30,Other,African American
+1649,Michael,Singh,1954-06-08,Other,African American
+1650,Ann,Daniel,1987-11-30,Female,Asian
+1651,Michelle,Richard,1948-10-16,Female,Caucasian
+1652,Kelsey,Moreno,1962-09-05,Female,African American
+1653,Tina,Smith,1970-07-26,Other,Other
+1654,Mikayla,Lewis,1988-10-31,Female,Other
+1655,Jesus,Moore,1980-08-14,Other,Hispanic
+1656,Christopher,Heath,1988-09-11,Male,Hispanic
+1657,Raymond,Dawson,2006-08-21,Male,Other
+1658,Toni,Harris,1936-04-09,Male,Caucasian
+1659,Sharon,Acevedo,1936-12-05,Other,Other
+1660,Ryan,Campos,1984-08-01,Other,African American
+1661,Susan,Erickson,1990-04-24,Female,African American
+1662,Heather,Adams,1960-03-22,Female,African American
+1663,Crystal,Stephenson,1983-06-20,Other,Asian
+1664,Debbie,Kim,1992-12-14,Male,Asian
+1665,Lance,Mathis,2001-12-28,Male,African American
+1666,Shelia,West,1951-02-06,Other,Other
+1667,Daniel,Mcknight,1942-03-22,Female,Asian
+1668,Heather,Williams,2006-06-26,Other,Hispanic
+1669,Terry,Owens,2001-03-01,Female,Hispanic
+1670,Alexandra,Hall,1979-05-18,Female,African American
+1671,Thomas,Fernandez,1974-08-28,Male,Asian
+1672,Matthew,Fields,1979-10-09,Male,Other
+1673,Jacob,Miller,1991-12-12,Female,Hispanic
+1674,Rebecca,Osborne,1957-03-29,Female,African American
+1675,Katrina,Arias,1937-05-13,Male,Hispanic
+1676,Denise,Gonzales,1937-11-05,Female,Caucasian
+1677,Jessica,Wagner,1946-12-10,Male,African American
+1678,Joshua,Patel,1974-11-01,Female,Hispanic
+1679,Ashley,Cordova,1949-08-25,Female,Asian
+1680,Jeremy,Roach,1983-12-08,Other,African American
+1681,Jermaine,Jackson,1970-05-20,Male,Hispanic
+1682,Jennifer,Shaw,1968-06-03,Male,Other
+1683,Taylor,Tucker,1970-02-11,Other,Other
+1684,Debra,Jones,1978-02-18,Female,African American
+1685,Whitney,Garrett,2003-02-18,Female,African American
+1686,Denise,Bruce,1943-03-22,Other,African American
+1687,Christopher,Braun,1937-11-16,Male,Hispanic
+1688,Hannah,Knapp,1983-09-13,Male,African American
+1689,Adrian,May,1942-04-28,Female,African American
+1690,George,Dalton,1950-02-12,Other,African American
+1691,Whitney,Dixon,1950-10-13,Female,African American
+1692,Robert,Donaldson,1951-01-23,Male,Hispanic
+1693,Anne,White,1947-01-02,Other,Other
+1694,Marc,Rogers,1952-12-20,Male,African American
+1695,Heather,Diaz,2004-07-27,Female,Hispanic
+1696,Susan,Conrad,2004-08-15,Other,Caucasian
+1697,Anna,Garcia,1951-04-19,Female,Other
+1698,James,Wang,1949-07-12,Female,Asian
+1699,Marcia,Bradley,1937-09-15,Female,Asian
+1700,Zachary,Estes,1982-09-07,Other,African American
+1701,Cynthia,Wilson,2002-04-23,Other,Other
+1702,Paul,Sullivan,1978-05-22,Male,Asian
+1703,Alfred,Ramsey,1950-02-23,Other,Caucasian
+1704,Donald,Hanna,1941-06-24,Male,Other
+1705,Joshua,Wilkins,1943-09-17,Female,Caucasian
+1706,Jenny,Newton,1938-12-15,Female,African American
+1707,Austin,Savage,1998-10-24,Female,Caucasian
+1708,Elizabeth,Hughes,1946-06-12,Male,Hispanic
+1709,Nicholas,Peterson,1958-01-17,Other,Hispanic
+1710,Richard,Meyer,1981-08-23,Female,Other
+1711,Stephen,Ortiz,1957-02-03,Female,Caucasian
+1712,Justin,Elliott,1979-08-30,Female,African American
+1713,Cynthia,Thomas,1969-12-21,Male,African American
+1714,Amanda,Perkins,1994-04-12,Other,Other
+1715,Michael,Ritter,1945-02-19,Male,Other
+1716,Dominique,White,1943-12-25,Male,African American
+1717,Katherine,Smith,1939-01-15,Male,Hispanic
+1718,Amanda,George,1982-11-29,Male,Asian
+1719,Stephen,Lambert,1939-07-26,Female,Other
+1720,Nathan,Bridges,1980-04-05,Female,Hispanic
+1721,Dennis,Morgan,1962-11-29,Female,Caucasian
+1722,Ruben,Davila,1995-06-27,Male,Hispanic
+1723,Rebecca,Kim,1958-07-26,Female,Hispanic
+1724,Brian,Carney,1951-02-27,Male,Caucasian
+1725,Dustin,Rivas,2000-12-11,Other,Asian
+1726,Jacob,Schneider,1936-09-25,Female,African American
+1727,Lori,Kim,1988-09-30,Male,Hispanic
+1728,Alan,Gonzales,1951-05-12,Female,Asian
+1729,Jacqueline,Sullivan,1989-10-09,Male,Asian
+1730,Jeffrey,James,1940-09-22,Male,Caucasian
+1731,Mallory,Lopez,1994-09-11,Male,Hispanic
+1732,Amy,Palmer,1957-04-19,Other,Other
+1733,Michelle,King,1999-05-26,Male,Caucasian
+1734,Renee,Kelley,1944-11-24,Female,Caucasian
+1735,Austin,Hayden,1964-02-09,Other,Hispanic
+1736,Robert,Fleming,1996-08-30,Female,Asian
+1737,Wendy,West,1950-02-12,Male,Other
+1738,Joseph,Cruz,1963-01-23,Female,African American
+1739,Billy,Vega,1968-09-07,Female,Caucasian
+1740,Michael,Mcneil,2002-09-16,Female,African American
+1741,Jennifer,Stark,1935-06-13,Other,African American
+1742,Michael,Garcia,1967-08-08,Male,Asian
+1743,Brianna,Williams,1936-04-21,Male,African American
+1744,Kevin,Perez,2001-11-13,Male,Asian
+1745,Samuel,Johnston,1981-11-23,Male,Caucasian
+1746,Penny,Hutchinson,1960-03-22,Female,Other
+1747,Sarah,Parker,1957-12-04,Female,Hispanic
+1748,Barbara,Allison,1951-04-07,Female,Caucasian
+1749,Kristina,Meyer,1939-09-19,Male,Other
+1750,Sherri,Page,1990-05-20,Male,Asian
+1751,Michael,Wade,1962-08-11,Female,Other
+1752,Andrew,Armstrong,1936-11-22,Male,African American
+1753,Victor,Rogers,1984-02-23,Male,Asian
+1754,Christine,Campbell,2002-07-26,Female,Asian
+1755,Jacob,Watson,2006-10-10,Female,Other
+1756,Jessica,White,1955-09-20,Female,Asian
+1757,Robert,Rodriguez,1943-11-14,Other,Hispanic
+1758,Kevin,Clark,1991-05-29,Female,Asian
+1759,Catherine,Nguyen,2006-04-12,Other,Hispanic
+1760,Melvin,Gray,1941-06-15,Female,Hispanic
+1761,Jared,Stevenson,1968-12-30,Female,African American
+1762,Christopher,Larson,1971-02-13,Male,African American
+1763,Jill,Frederick,1993-11-23,Other,Other
+1764,Jesse,Butler,1959-12-31,Other,Hispanic
+1765,Nicholas,Tran,1988-07-04,Male,Asian
+1766,Peter,Garcia,1985-05-21,Female,Asian
+1767,Maria,Peterson,1935-06-18,Female,Asian
+1768,Amber,Dunn,2003-03-28,Female,Other
+1769,Luis,Huffman,1970-05-23,Other,Caucasian
+1770,Pamela,Wood,2001-02-13,Other,Caucasian
+1771,Thomas,Ramirez,1977-11-13,Other,Caucasian
+1772,Kristine,Ochoa,1985-08-19,Female,African American
+1773,Justin,Robertson,1964-10-05,Male,Other
+1774,Nicole,Gonzalez,1959-02-08,Other,African American
+1775,Olivia,Brooks,2005-04-06,Other,African American
+1776,Tamara,Odom,1951-02-06,Male,Hispanic
+1777,Katrina,King,1962-03-13,Female,Caucasian
+1778,Scott,Harris,1941-07-24,Male,Caucasian
+1779,Sally,Mosley,1995-01-04,Other,Caucasian
+1780,Jennifer,Miller,1946-07-21,Male,African American
+1781,Lisa,Medina,1992-06-04,Female,Caucasian
+1782,James,Ruiz,1960-04-21,Female,Other
+1783,Annette,Hubbard,1953-12-01,Male,Other
+1784,Sara,Newman,1945-04-10,Male,Other
+1785,Caitlin,Knight,1949-02-09,Male,African American
+1786,Brad,Kirk,1963-04-03,Male,Other
+1787,Robert,Chapman,1959-09-27,Male,Caucasian
+1788,Michelle,Bowman,1935-02-27,Other,African American
+1789,Gary,Mercer,1993-06-25,Other,Hispanic
+1790,Amanda,Wall,1967-01-16,Female,Other
+1791,Jasmine,Nelson,1975-06-10,Male,Other
+1792,Jessica,Roth,2007-03-18,Other,Hispanic
+1793,Jade,Davis,1945-11-29,Male,Hispanic
+1794,Vicki,Weiss,1962-03-29,Male,Other
+1795,Shawn,Conner,1968-10-27,Other,African American
+1796,Melanie,West,1984-03-29,Male,Asian
+1797,Heidi,Guerrero,1967-06-12,Male,Asian
+1798,Christina,Pitts,1954-06-03,Male,Other
+1799,Megan,Nicholson,1999-03-16,Other,Other
+1800,Chase,Collins,1978-05-21,Female,Other
+1801,Samantha,Lin,1982-07-15,Other,Other
+1802,Daniel,Sanchez,1964-03-16,Male,Other
+1803,Andre,Scott,1963-09-01,Female,Caucasian
+1804,Caleb,Lowe,2005-03-08,Male,Asian
+1805,John,Ruiz,2001-10-31,Male,Other
+1806,Jack,Phillips,2003-10-04,Male,African American
+1807,Laura,Mahoney,2006-02-11,Male,Hispanic
+1808,Michael,Douglas,1999-10-31,Female,Hispanic
+1809,Michael,Nash,1937-11-25,Female,Asian
+1810,Kristin,Garza,1975-01-12,Female,Hispanic
+1811,Krystal,White,1989-03-10,Female,Other
+1812,Susan,Webb,1981-03-03,Female,Caucasian
+1813,John,Phelps,1997-03-28,Other,Hispanic
+1814,Anthony,Kelley,1961-09-25,Female,Caucasian
+1815,Justin,Ponce,1939-02-15,Male,Caucasian
+1816,Patricia,Parrish,1954-04-04,Female,Other
+1817,Andrew,Patterson,1985-03-24,Other,African American
+1818,Jessica,Medina,1959-04-22,Other,Other
+1819,Melissa,Price,1936-08-08,Male,Hispanic
+1820,Anthony,Mccarty,1979-09-27,Other,African American
+1821,Scott,Price,1994-02-24,Other,Asian
+1822,Bobby,Welch,2001-01-13,Male,Caucasian
+1823,Zachary,Beard,1937-04-07,Other,Asian
+1824,Kenneth,Hawkins,1954-10-23,Other,Asian
+1825,Marie,Waters,1959-04-22,Other,Other
+1826,Judy,Johnson,1938-06-28,Female,Caucasian
+1827,Wendy,Collier,1971-09-09,Female,Hispanic
+1828,Steve,Bowman,1951-01-01,Female,African American
+1829,Amy,Mcbride,2007-04-09,Female,Caucasian
+1830,Jill,Garner,1979-07-06,Other,Asian
+1831,Kelly,Johnson,1949-04-23,Female,Other
+1832,Todd,Eaton,1993-02-27,Male,Hispanic
+1833,Rachel,Arellano,1949-05-01,Male,Other
+1834,Jessica,Coleman,1956-05-10,Male,Hispanic
+1835,Pamela,Benitez,2000-11-22,Male,Caucasian
+1836,Erik,Hunter,1988-06-06,Female,Caucasian
+1837,William,Brown,1983-04-26,Male,Caucasian
+1838,Jeffery,Alvarez,1934-09-23,Male,Hispanic
+1839,Christine,Mitchell,1942-07-15,Male,Hispanic
+1840,Sharon,Krause,1966-04-22,Other,African American
+1841,Shelby,Mcbride,1961-02-12,Other,Caucasian
+1842,Barbara,Boyle,1980-05-25,Other,Hispanic
+1843,Erin,Lane,1938-01-01,Other,Caucasian
+1844,Anne,Cox,1955-05-08,Female,Other
+1845,Erin,Brown,1942-09-28,Male,Asian
+1846,Christina,Bradley,1978-11-02,Female,Other
+1847,Jesus,Nash,1975-01-17,Other,Caucasian
+1848,David,Booth,1981-11-06,Other,Other
+1849,Joshua,Green,1961-12-05,Other,Hispanic
+1850,Marilyn,Galloway,1966-06-15,Female,African American
+1851,Lisa,Lopez,1977-12-16,Male,African American
+1852,Brandon,Mathis,1983-02-27,Other,Asian
+1853,Jason,Harris,1974-07-24,Male,Hispanic
+1854,Eric,White,1963-01-29,Male,Asian
+1855,Danny,Allen,1983-05-22,Male,Asian
+1856,Patrick,Chavez,1997-07-08,Male,Caucasian
+1857,Mike,Parker,1967-07-12,Male,Other
+1858,Sarah,Palmer,1951-04-05,Male,Other
+1859,Barbara,Navarro,1986-03-25,Other,Caucasian
+1860,Robert,Taylor,2005-10-19,Other,Asian
+1861,Raymond,Williams,1952-02-13,Male,African American
+1862,Kim,Leach,1948-12-26,Female,Hispanic
+1863,Brian,Rivera,1939-09-28,Female,Other
+1864,Elizabeth,Guerrero,1940-05-01,Female,Other
+1865,Jason,Allen,1948-06-01,Male,Asian
+1866,Matthew,Duncan,1987-04-07,Female,Caucasian
+1867,Erica,Perez,1957-04-02,Male,Caucasian
+1868,Jeff,Thomas,1956-04-17,Other,Caucasian
+1869,Michael,Glover,1936-07-06,Male,Asian
+1870,David,Gross,1939-01-23,Other,Other
+1871,Natasha,Garcia,1993-07-02,Male,Other
+1872,Martin,Garcia,1977-05-12,Other,Other
+1873,Todd,Williams,1954-09-23,Female,Asian
+1874,Michael,Williams,1940-05-14,Other,Asian
+1875,Emily,Duncan,1974-09-15,Male,African American
+1876,Sara,Green,2005-06-22,Male,Caucasian
+1877,Diane,Fleming,1946-04-25,Male,Caucasian
+1878,Erin,Simpson,1963-05-28,Male,African American
+1879,Jason,Davis,1991-11-18,Other,Asian
+1880,Sean,Miller,2000-10-10,Male,Other
+1881,Erin,Payne,1990-04-14,Male,Asian
+1882,Daniel,Price,1973-09-05,Female,Hispanic
+1883,Sierra,Mcintyre,1990-03-26,Male,Other
+1884,Lindsay,Johnson,1979-10-23,Female,Asian
+1885,Nicole,Oneill,1941-09-25,Other,Asian
+1886,Jonathan,Johnson,1971-05-15,Female,Caucasian
+1887,Alison,Ramsey,1954-09-29,Female,Caucasian
+1888,Lori,Ford,1966-10-02,Female,Asian
+1889,Heather,Nichols,1996-10-06,Male,Caucasian
+1890,Ashley,Gibbs,2003-04-11,Female,Asian
+1891,Bonnie,Callahan,1945-01-12,Other,African American
+1892,Justin,Bishop,1985-02-04,Other,African American
+1893,William,Sanchez,2001-10-15,Male,African American
+1894,Yesenia,Martin,1959-09-21,Other,Asian
+1895,Charles,Blair,1976-01-24,Other,African American
+1896,Christopher,Burch,2001-03-19,Female,Caucasian
+1897,Matthew,Smith,1981-01-10,Female,African American
+1898,Maria,Randolph,1995-04-28,Other,Other
+1899,Paul,Smith,1987-07-27,Other,Asian
+1900,Crystal,Chen,1935-06-29,Other,Asian
+1901,Kevin,Lee,1972-05-01,Male,African American
+1902,Deborah,Carter,1981-03-29,Other,African American
+1903,Debbie,Marquez,1950-01-07,Male,African American
+1904,Allen,Jones,2005-07-30,Other,African American
+1905,Mary,Moore,1977-10-05,Female,Other
+1906,Thomas,Reese,1951-05-31,Male,Caucasian
+1907,Jon,Rodgers,1982-01-06,Other,Caucasian
+1908,Dawn,Phillips,2003-04-13,Male,Asian
+1909,Johnny,Hopkins,1984-09-23,Female,African American
+1910,Cynthia,Oneill,1942-04-19,Other,Other
+1911,Andrew,Jenkins,1974-05-27,Male,African American
+1912,Jessica,Hawkins,1967-12-09,Female,Asian
+1913,Jeremy,Morgan,1974-12-30,Other,Other
+1914,Michael,Ballard,1991-05-03,Male,Other
+1915,Mary,Wall,1988-06-10,Female,Hispanic
+1916,Ryan,Gonzales,1942-06-17,Female,African American
+1917,Robert,Mendoza,1959-12-14,Other,Hispanic
+1918,Melissa,Miller,1978-07-02,Other,Other
+1919,Michael,Blair,1960-07-08,Female,Caucasian
+1920,Christine,Tran,1946-05-21,Other,Caucasian
+1921,Wayne,Walsh,1972-02-14,Female,Asian
+1922,Valerie,Moore,1987-07-10,Male,Caucasian
+1923,Danielle,Mitchell,1967-03-31,Other,Other
+1924,Carolyn,Hart,1998-12-23,Other,Caucasian
+1925,Carly,Mathis,1968-09-12,Other,Hispanic
+1926,Beth,Smith,1946-12-23,Other,African American
+1927,James,Coleman,1996-06-14,Male,Hispanic
+1928,Helen,Allen,1986-10-31,Other,Caucasian
+1929,Christopher,Guzman,1984-07-30,Other,Caucasian
+1930,Susan,Allen,1967-09-18,Other,African American
+1931,Mary,Garcia,1998-08-12,Female,Hispanic
+1932,James,Archer,1946-03-20,Other,Asian
+1933,Amanda,Stevenson,1990-11-21,Female,Other
+1934,Kevin,Mcdonald,1964-12-25,Other,African American
+1935,Jamie,Collins,1974-11-12,Female,African American
+1936,Keith,Anderson,1995-03-02,Female,African American
+1937,Jessica,Wood,1954-04-11,Other,Other
+1938,Mark,Williams,1938-07-22,Male,Other
+1939,Mark,Beasley,1946-02-08,Other,African American
+1940,Amanda,Gray,1954-08-23,Other,Hispanic
+1941,James,Richards,1995-02-26,Female,Asian
+1942,Ashley,Jones,1977-06-16,Female,African American
+1943,Robert,Aguilar,1963-01-07,Male,African American
+1944,Mary,Huerta,1976-10-28,Other,Other
+1945,Connie,Ramirez,1993-10-16,Male,African American
+1946,Robert,Rodriguez,1952-05-21,Female,Hispanic
+1947,Brian,Morrow,2005-03-08,Other,Other
+1948,Troy,Robinson,1939-05-01,Male,Caucasian
+1949,Sara,Love,1937-12-05,Other,African American
+1950,Brenda,Foster,1958-12-22,Other,Other
+1951,Christopher,Roberts,1949-08-05,Other,Asian
+1952,Deborah,Peterson,1976-09-02,Female,African American
+1953,Robert,Vasquez,1957-09-16,Male,Asian
+1954,Amanda,Olson,1974-02-21,Female,African American
+1955,Nicholas,Miller,1994-03-27,Other,Other
+1956,James,Sandoval,1948-09-16,Other,African American
+1957,Victoria,Powell,1949-02-15,Other,African American
+1958,Gabriel,Miller,1995-01-09,Female,Caucasian
+1959,Carrie,Walsh,1979-07-03,Other,Asian
+1960,Grace,Berry,1944-11-03,Female,Asian
+1961,Megan,Johnson,1971-03-10,Male,African American
+1962,Heather,Chavez,2006-09-18,Male,African American
+1963,Christine,Solomon,1985-10-25,Male,Asian
+1964,Sara,Nelson,2003-01-30,Female,African American
+1965,Marissa,Howe,1981-11-24,Female,Caucasian
+1966,Jennifer,Thornton,1971-05-24,Female,African American
+1967,Diane,Santiago,1940-07-23,Female,Hispanic
+1968,Whitney,Johnson,1977-09-08,Male,Other
+1969,Rachel,Williams,1987-10-22,Male,Asian
+1970,Jenna,Smith,1983-01-05,Other,Hispanic
+1971,Renee,Schroeder,1979-02-12,Other,African American
+1972,Pamela,Collins,1965-08-22,Male,Hispanic
+1973,Alexis,Stout,1986-05-23,Male,Hispanic
+1974,Edward,Wilson,1992-01-10,Male,Caucasian
+1975,Christina,Ward,1954-06-06,Male,African American
+1976,Tyrone,White,1949-08-16,Female,Asian
+1977,John,Anderson,1935-11-26,Other,Caucasian
+1978,Michael,Cruz,1938-09-25,Other,Other
+1979,Emily,Watson,1996-10-10,Male,Hispanic
+1980,Donald,Bennett,2000-06-08,Male,Other
+1981,Andrew,Velazquez,1956-10-04,Female,Asian
+1982,Joshua,Hull,1936-07-10,Other,African American
+1983,Juan,Watts,1938-06-28,Male,Other
+1984,Leah,Huffman,1998-09-20,Other,Other
+1985,Beth,Rios,1937-03-06,Female,Other
+1986,Lauren,White,1969-09-06,Male,African American
+1987,Marissa,Brown,1988-04-20,Female,Caucasian
+1988,Amy,Torres,1995-12-28,Male,African American
+1989,David,Yoder,2004-04-04,Male,Asian
+1990,Robert,Underwood,1974-06-08,Female,Caucasian
+1991,Melissa,Miller,1955-03-02,Male,Caucasian
+1992,Daniel,Ross,1963-04-24,Female,African American
+1993,Christopher,Graham,1999-05-22,Male,Other
+1994,Phillip,Morris,1988-05-03,Female,Hispanic
+1995,Marcus,Dixon,1973-05-04,Female,Asian
+1996,Brooke,Neal,1991-12-14,Male,African American
+1997,Zachary,Wright,1970-10-25,Male,Caucasian
+1998,Nicole,Craig,1939-02-09,Male,Other
+1999,Laura,Owens,1990-04-01,Other,Asian
+2000,Autumn,Stephens,1961-12-02,Other,Caucasian
+2001,Kathy,Francis,1947-04-04,Male,Other
+2002,Ruth,Smith,1993-09-02,Female,Asian
+2003,Amy,Gonzales,1948-03-16,Female,Other
+2004,Virginia,Carroll,1986-01-21,Other,African American
+2005,Ashley,Lynn,1969-09-02,Male,Caucasian
+2006,Tammy,Cooper,1993-06-05,Other,Asian
+2007,Russell,Farmer,1993-04-28,Female,Caucasian
+2008,Jasmine,Wagner,1940-03-31,Other,Hispanic
+2009,Joseph,Green,1949-05-21,Male,Asian
+2010,Sarah,Owens,1995-06-30,Female,Hispanic
+2011,Jackie,Edwards,2006-03-14,Male,Other
+2012,Kyle,Carpenter,1987-01-15,Male,Caucasian
+2013,Justin,Hughes,1940-02-07,Female,Caucasian
+2014,Traci,Gordon,1940-10-04,Other,Hispanic
+2015,Riley,Shelton,2006-03-25,Male,Hispanic
+2016,Curtis,Clark,2002-06-23,Female,Other
+2017,Jamie,Tucker,1938-03-23,Female,Other
+2018,Christian,Smith,1996-06-04,Other,African American
+2019,Mario,Sims,1977-10-15,Male,Other
+2020,Gabrielle,Jones,1976-07-27,Other,Other
+2021,David,Randolph,1963-11-13,Female,Hispanic
+2022,Wendy,Robinson,1934-10-09,Male,Hispanic
+2023,Todd,Bell,1952-09-02,Other,Asian
+2024,Mark,Davidson,2005-07-31,Other,African American
+2025,William,Bird,1974-07-05,Other,Hispanic
+2026,Matthew,Green,1989-11-27,Other,African American
+2027,Nicole,Flores,1944-10-16,Other,Asian
+2028,Samuel,Conner,1955-02-01,Male,Asian
+2029,Jeremy,Graham,1959-04-16,Male,Caucasian
+2030,Margaret,Watson,1990-09-22,Male,Other
+2031,Nicole,Coleman,1964-02-02,Other,Caucasian
+2032,John,Hernandez,2002-08-27,Male,Hispanic
+2033,Jesse,Rhodes,1973-03-09,Other,Hispanic
+2034,David,Fowler,1970-10-13,Female,Asian
+2035,Craig,Cowan,1959-01-01,Female,Asian
+2036,Jeffrey,Harris,1942-04-21,Other,Other
+2037,Kendra,Burns,1988-04-24,Other,Asian
+2038,Kelly,Duarte,1935-11-23,Male,Other
+2039,Evelyn,Lopez,1970-11-09,Other,African American
+2040,Jacqueline,Mclean,1979-03-16,Female,African American
+2041,Ivan,Francis,1943-02-14,Female,Asian
+2042,Stacey,Snyder,1956-03-08,Other,Other
+2043,Joseph,Dixon,1964-03-25,Female,Asian
+2044,Jennifer,Phillips,1959-01-24,Female,Hispanic
+2045,Sean,Dean,1952-01-14,Other,Asian
+2046,Matthew,Maxwell,1973-07-04,Other,Hispanic
+2047,Audrey,Taylor,2006-08-05,Other,Other
+2048,Franklin,Moses,1987-08-31,Female,Other
+2049,Hunter,Rodriguez,1956-08-04,Male,Hispanic
+2050,Joseph,Williams,1995-02-17,Female,Asian
+2051,Erica,Aguilar,1982-09-06,Female,Other
+2052,Amy,Baker,1936-07-03,Male,Asian
+2053,Karen,Fisher,1942-10-11,Female,Hispanic
+2054,Bryan,Hart,1938-05-18,Female,Other
+2055,Timothy,Hester,1964-09-21,Female,Other
+2056,Emily,Knight,1962-03-20,Male,Other
+2057,Marc,Robbins,1973-06-02,Male,Caucasian
+2058,Ronald,Ho,1937-07-10,Female,Other
+2059,Philip,Robinson,1988-04-05,Female,African American
+2060,Matthew,Mccarthy,1989-12-03,Female,Hispanic
+2061,Jessica,Liu,1987-06-19,Other,Other
+2062,Joshua,Moore,1953-04-28,Male,Caucasian
+2063,Harry,Mills,1964-09-03,Female,Hispanic
+2064,Shelly,Cline,1959-02-21,Female,African American
+2065,Rebecca,Patton,1968-05-08,Male,Asian
+2066,Heather,Riley,1998-09-28,Other,Other
+2067,Steven,Kane,1946-12-01,Other,Hispanic
+2068,Andrea,Austin,1990-07-29,Other,Caucasian
+2069,Stephanie,Wood,1985-08-27,Female,Hispanic
+2070,Jason,Chase,1962-10-10,Female,Other
+2071,James,Osborne,1996-12-11,Male,Asian
+2072,Anthony,Snyder,1956-11-25,Male,African American
+2073,Nicole,Pitts,1954-02-04,Male,Other
+2074,Martin,Barnes,1953-09-28,Other,Hispanic
+2075,Jessica,Ward,1958-07-07,Male,African American
+2076,Douglas,Rogers,1944-10-25,Other,African American
+2077,Kevin,Sheppard,1960-12-10,Other,Asian
+2078,Ashley,Perry,1985-04-23,Female,Asian
+2079,Anna,Flores,2002-08-14,Male,Asian
+2080,Hayden,Scott,1956-06-08,Male,Hispanic
+2081,George,Joyce,1954-02-15,Female,Caucasian
+2082,Kevin,Todd,2000-10-08,Other,Asian
+2083,Melissa,Torres,1974-10-24,Female,Other
+2084,Scott,Hoover,1946-02-02,Other,Other
+2085,Christopher,Williams,1940-11-11,Male,Other
+2086,Donna,Thomas,1986-07-19,Male,Other
+2087,Julia,Waters,1963-11-07,Male,Asian
+2088,Stephanie,Martin,1935-03-29,Other,Other
+2089,Shannon,Robbins,1951-12-17,Male,African American
+2090,Francisco,Robinson,1970-05-31,Male,Asian
+2091,Gina,Johnson,1981-02-27,Other,Hispanic
+2092,Melissa,Johnson,1972-04-19,Other,Caucasian
+2093,Charles,Randall,2005-06-19,Other,Hispanic
+2094,Ricardo,Robinson,1978-02-05,Male,Asian
+2095,Matthew,Peterson,1953-07-23,Male,Other
+2096,Erin,Dalton,2000-09-12,Male,African American
+2097,Brenda,Parker,1970-01-26,Other,Other
+2098,Michele,Reed,1993-12-01,Female,African American
+2099,Hannah,Brown,1976-03-31,Female,Hispanic
+2100,Brandi,Mcclain,1957-01-31,Female,African American
+2101,Benjamin,Dunn,1966-05-20,Female,African American
+2102,Brittany,Snyder,2005-11-03,Other,Hispanic
+2103,Gregory,Hess,1967-03-18,Male,Other
+2104,Craig,Mullins,1953-07-14,Female,Asian
+2105,Frederick,Cox,1938-09-28,Other,Asian
+2106,Tiffany,Brooks,1961-10-01,Female,Other
+2107,Meagan,Hill,1936-07-15,Female,Asian
+2108,Michael,Lin,1977-02-06,Female,African American
+2109,Hailey,Patterson,1952-08-11,Male,Asian
+2110,Austin,Crawford,1992-05-18,Female,Caucasian
+2111,Melissa,Miller,1965-04-27,Other,Other
+2112,Debra,Powell,1937-07-19,Female,Caucasian
+2113,John,Fox,1951-12-23,Other,Other
+2114,Deborah,Woods,1992-02-16,Other,Asian
+2115,John,Ayala,1999-08-18,Male,Caucasian
+2116,Christian,Smith,1996-04-24,Male,Caucasian
+2117,Lauren,Jackson,1999-04-29,Female,Caucasian
+2118,Diane,Guerrero,1946-05-25,Male,Asian
+2119,Samuel,Ramirez,1970-02-15,Female,Other
+2120,Veronica,Clark,1965-10-20,Male,Asian
+2121,Nicole,Pace,1936-12-28,Other,Caucasian
+2122,Shelby,Sloan,1949-02-25,Male,Hispanic
+2123,Leslie,Wong,1987-08-17,Other,Asian
+2124,Paige,Kim,1969-10-30,Other,African American
+2125,Kenneth,Anderson,1975-12-09,Female,Hispanic
+2126,Eric,Pearson,1970-06-29,Female,Caucasian
+2127,Kyle,Smith,1947-10-15,Female,African American
+2128,Bryan,Harrington,1968-03-10,Male,African American
+2129,Virginia,West,1987-03-23,Male,Other
+2130,Jesus,Ramsey,1985-10-14,Female,Asian
+2131,Roy,Meyer,1952-02-15,Male,Hispanic
+2132,Erin,Jackson,2005-12-06,Male,Asian
+2133,Michael,Good,1975-09-05,Other,Other
+2134,Dustin,Wright,2007-04-03,Male,Caucasian
+2135,Kevin,Quinn,1962-07-12,Male,Asian
+2136,Aaron,Key,1976-01-23,Male,Asian
+2137,Morgan,Watson,1962-12-07,Other,Hispanic
+2138,Elizabeth,Thomas,1995-10-31,Male,African American
+2139,Kimberly,Short,2003-10-22,Other,Other
+2140,Logan,Robinson,1994-08-27,Other,Other
+2141,Michael,Lopez,1977-07-30,Other,Caucasian
+2142,Anna,Collins,1996-07-03,Female,Hispanic
+2143,Luke,Ray,1945-12-15,Female,Other
+2144,Teresa,Wolfe,1940-05-14,Other,African American
+2145,Kelly,Daniels,1943-12-10,Other,Hispanic
+2146,Sylvia,Fernandez,1960-11-29,Other,Caucasian
+2147,Cindy,Gardner,1977-11-02,Other,Caucasian
+2148,Rhonda,Sawyer,1952-12-27,Male,African American
+2149,Benjamin,Hill,1945-06-06,Female,Caucasian
+2150,Nicole,Allen,1957-10-01,Other,Asian
+2151,Dana,Arnold,1938-07-30,Other,Asian
+2152,Kendra,Cruz,1966-06-08,Male,Hispanic
+2153,Bonnie,Wright,1944-09-23,Female,Hispanic
+2154,Nancy,Oconnor,1982-09-15,Other,Hispanic
+2155,Alexander,Smith,1953-01-06,Male,Asian
+2156,William,Moore,1937-09-08,Other,Hispanic
+2157,Amber,Elliott,1980-04-10,Male,Hispanic
+2158,Kimberly,Lewis,1977-09-04,Male,Other
+2159,James,Allen,2003-03-18,Male,Caucasian
+2160,Barbara,May,1969-11-24,Male,Caucasian
+2161,Michael,Lopez,1957-08-08,Other,Other
+2162,Amy,Allen,1954-01-10,Male,Caucasian
+2163,Christopher,Reyes,1992-01-18,Other,African American
+2164,Sandra,Thompson,1953-07-29,Female,African American
+2165,Catherine,Johnson,1957-03-05,Female,African American
+2166,Steven,Chase,1940-04-22,Other,Other
+2167,Megan,Woods,1986-07-15,Male,Other
+2168,Helen,Turner,1951-10-26,Other,Asian
+2169,Michael,Garrett,1970-07-13,Other,Asian
+2170,Troy,English,1964-04-17,Male,Hispanic
+2171,Andrea,Hicks,1985-01-31,Male,Asian
+2172,Travis,Strickland,1963-09-30,Other,Asian
+2173,George,Mcconnell,1934-08-16,Male,Hispanic
+2174,Dominique,Watts,2000-09-14,Other,Hispanic
+2175,William,Rogers,1988-10-20,Male,Hispanic
+2176,Paul,Roy,2004-09-09,Other,Other
+2177,Jason,Delacruz,1995-03-23,Female,Hispanic
+2178,Haley,Cox,1973-04-24,Female,Asian
+2179,Cory,Pennington,1980-01-06,Other,Other
+2180,David,Smith,1999-04-10,Female,Asian
+2181,Alexandra,Sullivan,1979-04-05,Male,Caucasian
+2182,Kristine,Davis,1996-11-10,Other,Other
+2183,Steven,Reid,1963-09-14,Male,Asian
+2184,Peter,Rivera,1977-08-24,Male,African American
+2185,Sharon,Hughes,1998-05-28,Male,Hispanic
+2186,Jason,Hardy,1974-03-09,Female,Other
+2187,Joseph,Ortiz,1982-06-17,Other,Caucasian
+2188,Kyle,Dean,1982-01-14,Female,Other
+2189,Shelly,Lewis,1971-05-11,Female,African American
+2190,Stephanie,Daniel,1959-03-21,Other,African American
+2191,Keith,Summers,1974-10-15,Female,Hispanic
+2192,Anne,Hill,1963-06-09,Female,African American
+2193,Daniel,Peterson,1974-03-22,Other,Hispanic
+2194,Alyssa,Estrada,1960-12-20,Other,African American
+2195,Julie,Foster,1979-02-16,Male,Hispanic
+2196,Daniel,Brown,2003-06-26,Female,Asian
+2197,Jeanette,Ritter,1952-04-19,Male,Other
+2198,Brittany,Stewart,1951-11-19,Other,Hispanic
+2199,Stephen,Petersen,1941-09-19,Female,Caucasian
+2200,Rhonda,Donovan,1994-01-17,Female,Caucasian
+2201,Sara,Boyer,1999-06-21,Other,Caucasian
+2202,Jim,Hill,1961-10-13,Male,Hispanic
+2203,Kimberly,Moore,1980-04-24,Male,Caucasian
+2204,Amanda,Edwards,1977-11-08,Other,African American
+2205,Jennifer,Carter,1936-03-30,Male,Hispanic
+2206,John,Watkins,1935-06-23,Other,African American
+2207,Angie,King,1980-03-08,Male,Asian
+2208,James,Gordon,1977-01-03,Other,Asian
+2209,Jennifer,Wilkerson,1939-09-26,Female,Asian
+2210,Cassidy,Wu,1972-02-23,Female,Hispanic
+2211,Katherine,Olson,1975-12-02,Other,African American
+2212,Mario,Miles,1944-10-14,Female,African American
+2213,Patricia,Flores,1994-10-09,Female,Other
+2214,Margaret,Gentry,1964-12-16,Male,Other
+2215,Karen,Nguyen,1960-07-08,Male,Other
+2216,Mary,Norris,1986-01-15,Female,Other
+2217,Scott,Erickson,1986-06-13,Other,Asian
+2218,Adrian,Thomas,2001-03-23,Male,Hispanic
+2219,Lacey,Frederick,1936-03-12,Other,Hispanic
+2220,Margaret,Ramirez,1976-06-26,Female,Hispanic
+2221,Cassidy,Perry,1986-08-10,Female,African American
+2222,Lori,Perez,1999-07-06,Other,Hispanic
+2223,James,Martin,1967-12-07,Female,Asian
+2224,Michael,Shepard,1939-02-07,Male,Caucasian
+2225,Elizabeth,Hurley,1957-09-27,Female,Asian
+2226,Megan,Leonard,1949-09-04,Male,Hispanic
+2227,Sheila,Kelly,1988-07-26,Other,African American
+2228,Michelle,Mclaughlin,1974-06-15,Male,Hispanic
+2229,Kim,Zhang,1944-08-10,Female,Asian
+2230,Michael,Wagner,1983-05-08,Male,African American
+2231,Vanessa,Torres,1968-12-01,Other,Other
+2232,Joel,Michael,1994-08-25,Male,Hispanic
+2233,Elizabeth,Thornton,1992-06-20,Male,Hispanic
+2234,Scott,White,1948-12-02,Male,Caucasian
+2235,Melvin,Ortiz,1970-01-08,Other,Other
+2236,Edwin,Lewis,1961-10-17,Male,Caucasian
+2237,Stacy,Morgan,1984-12-10,Male,African American
+2238,Michael,Turner,1968-09-20,Other,Caucasian
+2239,Larry,Howard,1965-12-05,Female,Asian
+2240,Patricia,Johnson,1950-09-27,Female,African American
+2241,Timothy,Thomas,2001-08-02,Male,Other
+2242,Nicole,Cochran,1954-06-27,Male,Caucasian
+2243,Marvin,Vincent,2005-11-06,Female,Asian
+2244,Thomas,Gregory,1977-11-09,Male,Hispanic
+2245,Barbara,French,2006-07-25,Female,Caucasian
+2246,Joshua,Johnson,1942-07-17,Female,Asian
+2247,Yolanda,Martin,1995-05-23,Male,Other
+2248,Logan,Davis,1943-03-06,Male,African American
+2249,Kim,Schneider,1937-12-12,Male,African American
+2250,Ryan,Wyatt,1997-03-18,Other,African American
+2251,Charles,Sanchez,1985-05-10,Female,Other
+2252,Paula,Smith,1943-07-25,Female,Other
+2253,Zachary,Whitney,1959-04-28,Other,Caucasian
+2254,Isaac,Allen,2003-12-15,Other,Caucasian
+2255,April,Cantu,1949-12-23,Male,African American
+2256,Dana,Gutierrez,2006-09-26,Female,Other
+2257,Jonathan,Chase,1978-09-03,Other,Hispanic
+2258,Michelle,Neal,1993-12-06,Other,Other
+2259,Tina,Bowman,1963-11-01,Female,Caucasian
+2260,Sean,West,1966-08-17,Other,Hispanic
+2261,Eric,Stokes,1959-04-18,Female,Hispanic
+2262,Joseph,Villanueva,1994-05-03,Female,Asian
+2263,Michael,Brown,1968-07-04,Male,Other
+2264,Brenda,Rowe,1958-01-28,Male,Other
+2265,Kelli,Brown,1970-05-27,Female,Hispanic
+2266,Mark,Stevens,1949-08-29,Male,Caucasian
+2267,Jennifer,Jenkins,1974-10-28,Male,Other
+2268,Kristin,Leonard,1965-09-18,Other,Other
+2269,Denise,Diaz,1980-04-30,Other,Hispanic
+2270,Jose,Lee,1935-08-09,Other,Caucasian
+2271,Jared,Ritter,1956-12-23,Other,Asian
+2272,Angela,Harris,1968-02-27,Other,Hispanic
+2273,Janice,Foley,1987-06-19,Female,African American
+2274,Martha,Walker,1995-08-20,Male,Asian
+2275,Melvin,Stuart,1986-12-07,Female,Asian
+2276,Gerald,Smith,1952-05-08,Other,Other
+2277,Matthew,Shelton,1990-10-31,Other,Hispanic
+2278,Ronald,Taylor,1935-05-10,Male,Caucasian
+2279,Brad,Snyder,1989-08-22,Other,Caucasian
+2280,Barry,Clark,1959-04-03,Female,Hispanic
+2281,Robert,Thompson,1953-05-14,Female,African American
+2282,Pamela,Berg,1969-05-31,Male,Caucasian
+2283,Isabella,Collier,1982-10-21,Male,African American
+2284,John,Torres,1983-09-21,Male,Caucasian
+2285,Leslie,Harrell,2000-03-09,Female,African American
+2286,Latoya,Chambers,1955-01-10,Male,Asian
+2287,Katrina,Young,1946-04-13,Male,Other
+2288,Paul,Nixon,1951-11-03,Female,Hispanic
+2289,Miranda,Watkins,1995-08-23,Male,Other
+2290,Jonathan,Gamble,1979-11-18,Female,African American
+2291,Melissa,Norton,1950-04-29,Male,Other
+2292,Roger,Pace,1938-12-24,Male,Other
+2293,James,Hernandez,1937-12-08,Other,Asian
+2294,Angela,Sharp,1990-08-03,Other,Other
+2295,Lauren,Vazquez,1985-11-17,Female,Asian
+2296,Dylan,Martinez,1977-02-20,Other,African American
+2297,Allen,Cooper,1992-06-18,Other,Hispanic
+2298,Sarah,Ayers,1984-04-23,Other,Hispanic
+2299,Amy,Thomas,1958-07-05,Other,Caucasian
+2300,Jesse,Mueller,1954-05-25,Male,Asian
+2301,Katie,Garcia,1993-08-28,Female,Asian
+2302,Lee,Murillo,1989-01-01,Female,Caucasian
+2303,Lawrence,Hernandez,1940-11-27,Female,Caucasian
+2304,Cindy,Hayes,2007-02-01,Other,Hispanic
+2305,Zachary,Bell,1937-02-05,Other,Caucasian
+2306,Jason,Bailey,1947-11-01,Male,Other
+2307,Victoria,Sosa,1975-03-29,Male,Other
+2308,Edgar,Santiago,1996-08-25,Male,Other
+2309,Glenn,York,1956-09-28,Male,Caucasian
+2310,Christopher,Perez,1943-03-01,Other,Other
+2311,Donald,Mitchell,1989-02-12,Female,Asian
+2312,Shannon,Thompson,1982-05-18,Female,Hispanic
+2313,Christina,Potter,1958-01-18,Female,Asian
+2314,Jeremy,Rubio,2002-07-26,Other,Other
+2315,Amy,Chung,1963-05-18,Other,Caucasian
+2316,Alicia,Proctor,1963-04-23,Other,African American
+2317,Timothy,Gonzalez,1999-03-05,Female,Other
+2318,Nancy,Hernandez,1967-11-17,Male,Hispanic
+2319,Christian,Scott,1986-02-24,Female,Asian
+2320,Jacqueline,Deleon,2004-08-20,Female,Asian
+2321,Lisa,Carr,1990-10-03,Male,Other
+2322,Matthew,Beck,1976-08-08,Other,Asian
+2323,Jill,Ramsey,1972-11-03,Female,Caucasian
+2324,Chelsea,Hall,1935-02-05,Other,African American
+2325,Kelsey,Hutchinson,1998-08-13,Male,Hispanic
+2326,Matthew,Dawson,1997-05-30,Male,Other
+2327,Brittney,Allen,1981-01-14,Male,Asian
+2328,Sarah,Anderson,1964-08-16,Male,Hispanic
+2329,Stephanie,Butler,1982-10-25,Male,Asian
+2330,David,Pham,1981-11-13,Female,Caucasian
+2331,Douglas,Parker,1949-02-02,Male,Other
+2332,Sarah,Liu,1941-03-18,Other,African American
+2333,John,Payne,1987-10-09,Other,Other
+2334,Michael,Foster,2006-09-27,Female,Hispanic
+2335,Parker,Cunningham,2006-10-04,Female,Hispanic
+2336,Nicholas,Newton,1954-06-08,Female,Asian
+2337,April,Tyler,1935-05-24,Male,Asian
+2338,Colleen,Johnson,2001-10-24,Male,African American
+2339,Amanda,Anderson,1985-06-23,Female,African American
+2340,Ethan,Webster,1941-11-30,Male,Asian
+2341,Mary,Martinez,1955-08-06,Female,Caucasian
+2342,Joshua,Parsons,1936-07-20,Female,Asian
+2343,Gregory,Vance,1962-05-08,Female,African American
+2344,Michelle,Proctor,2003-10-17,Other,Caucasian
+2345,Andrew,Mason,1968-12-28,Female,Caucasian
+2346,Danielle,Cole,1971-11-13,Other,Caucasian
+2347,Joyce,Rodriguez,1997-07-22,Other,Caucasian
+2348,Lance,Jackson,1994-03-29,Other,Caucasian
+2349,Jake,Aguilar,1975-06-06,Male,Asian
+2350,Sheryl,Reed,1943-10-21,Other,Other
+2351,Robert,Castro,1972-11-26,Other,Other
+2352,Christopher,Brown,1988-01-05,Male,Caucasian
+2353,Brenda,Gonzalez,1971-12-13,Male,Hispanic
+2354,Eric,Watts,1970-11-26,Male,Caucasian
+2355,Shelby,Brown,2004-05-11,Other,Asian
+2356,Melissa,Chang,1977-03-07,Male,Hispanic
+2357,Mark,Jones,1985-03-07,Female,Other
+2358,Jeffery,Gentry,1996-09-27,Other,Caucasian
+2359,Martha,Jackson,1965-03-19,Female,Caucasian
+2360,Becky,Schmidt,1938-04-25,Other,African American
+2361,David,Skinner,1963-06-08,Other,Asian
+2362,Jonathan,Craig,1994-10-25,Male,Caucasian
+2363,Carrie,Heath,1947-12-21,Female,Caucasian
+2364,Tina,Nelson,1961-08-01,Male,Caucasian
+2365,David,James,1976-09-21,Other,Other
+2366,Melissa,Chavez,1969-11-15,Other,Asian
+2367,Cathy,Cordova,1955-05-22,Other,Other
+2368,Dawn,Gallagher,1937-05-18,Female,Caucasian
+2369,Marvin,Neal,1984-04-18,Other,Other
+2370,Stephanie,Anderson,1995-09-19,Male,Hispanic
+2371,Tina,Booker,2000-04-30,Female,Caucasian
+2372,Michael,Johnson,1977-03-09,Male,Hispanic
+2373,Felicia,Miller,1999-04-26,Other,Hispanic
+2374,Derek,Wiggins,2005-05-29,Male,Asian
+2375,Jasmine,Lewis,1983-05-26,Female,Hispanic
+2376,Charles,Patterson,1934-07-19,Other,Hispanic
+2377,Courtney,Day,1959-04-28,Other,Asian
+2378,Kelly,Fields,1984-10-29,Male,Asian
+2379,Brian,Hayes,1999-06-03,Male,African American
+2380,Jason,Myers,2002-02-03,Female,Hispanic
+2381,Ashley,Oliver,1992-10-08,Female,Asian
+2382,James,Martinez,1970-09-16,Female,African American
+2383,Stacey,Bowers,1988-04-03,Male,Hispanic
+2384,Courtney,Young,1970-07-03,Other,African American
+2385,Scott,Gray,1941-11-10,Male,Other
+2386,Donald,Whitehead,1968-09-26,Male,Asian
+2387,Scott,Obrien,1984-08-20,Male,Asian
+2388,William,Gutierrez,1941-12-08,Other,African American
+2389,Adam,Russell,1953-02-19,Other,Caucasian
+2390,Brooke,Taylor,1970-10-08,Female,Hispanic
+2391,Derrick,Mitchell,1950-06-25,Male,Other
+2392,Heather,Daniel,1946-03-29,Male,African American
+2393,James,Fischer,1935-03-25,Female,Asian
+2394,John,Hamilton,1944-11-14,Female,Hispanic
+2395,Jillian,Bird,1945-11-09,Female,Asian
+2396,Karl,Williams,1934-08-03,Female,Asian
+2397,Cheryl,Johnson,1985-06-17,Female,African American
+2398,Todd,Davis,1996-02-21,Other,African American
+2399,Jennifer,Escobar,1964-11-24,Female,Hispanic
+2400,Michelle,Bowman,1953-10-26,Male,Hispanic
+2401,Anthony,Mullen,2001-11-13,Male,Caucasian
+2402,Laura,Ponce,2003-10-27,Female,Asian
+2403,James,Werner,1947-05-03,Female,Other
+2404,Charles,Taylor,2000-11-06,Other,Asian
+2405,Brenda,Tran,1935-10-11,Male,Asian
+2406,Crystal,Gomez,1940-11-22,Male,African American
+2407,Steven,Luna,1998-05-25,Male,African American
+2408,Darrell,Mack,2003-03-23,Male,Caucasian
+2409,Lisa,Pruitt,1968-08-29,Male,Other
+2410,Edward,Fuller,1979-06-20,Male,Asian
+2411,Pamela,Shepard,2006-07-27,Other,African American
+2412,Isabella,Harrison,1992-08-25,Male,Asian
+2413,Rachel,Wilson,1999-10-04,Female,Other
+2414,Thomas,Sandoval,1978-06-16,Male,Other
+2415,Jody,Lopez,1949-01-16,Male,Caucasian
+2416,Elaine,Jimenez,1938-05-13,Male,Hispanic
+2417,Rodney,Roberts,2002-11-29,Female,Caucasian
+2418,Nancy,Cummings,1959-10-31,Female,African American
+2419,Brandy,Brown,1950-08-14,Male,Caucasian
+2420,Benjamin,Rangel,1976-06-14,Other,African American
+2421,Brooke,Day,1982-06-08,Female,Other
+2422,Glenn,Bailey,1985-04-14,Male,Hispanic
+2423,Sandra,Durham,1951-06-11,Female,Hispanic
+2424,Nancy,Cunningham,2005-11-25,Female,Other
+2425,Kelly,Jordan,1991-06-30,Male,Other
+2426,Lucas,Jenkins,1981-07-26,Female,Asian
+2427,Alexandria,Hill,1975-08-21,Male,Hispanic
+2428,Kevin,Harrington,1952-12-02,Other,Hispanic
+2429,David,Stephens,1943-01-27,Female,Asian
+2430,Teresa,Simon,1950-03-21,Other,African American
+2431,Christopher,Reyes,2000-06-09,Male,Other
+2432,Logan,Bailey,1974-11-20,Female,Other
+2433,Jack,Cordova,2002-02-07,Male,Hispanic
+2434,Tanya,Crosby,1962-05-06,Male,African American
+2435,Alan,Case,2002-12-01,Female,Other
+2436,Charles,Parker,1970-03-01,Male,Asian
+2437,Sherry,Goodwin,1943-05-01,Male,Caucasian
+2438,Austin,Weaver,1934-09-28,Female,Hispanic
+2439,Brian,Fowler,1943-10-30,Other,Asian
+2440,Nathan,Mercado,1968-03-16,Female,Asian
+2441,Joe,Glenn,1958-06-09,Male,Asian
+2442,Erica,Green,1949-12-22,Female,Other
+2443,Anthony,Logan,1966-09-26,Female,Asian
+2444,William,Zamora,1979-05-15,Female,Hispanic
+2445,Stephen,Adams,2004-10-10,Male,Asian
+2446,Eric,Chase,1971-05-05,Female,African American
+2447,Christine,Bennett,1999-02-16,Female,African American
+2448,Johnathan,Murray,2002-02-19,Male,African American
+2449,Roger,Beck,1951-05-29,Male,African American
+2450,Gerald,Salinas,1956-08-14,Other,African American
+2451,Richard,Rodriguez,1953-08-03,Female,Asian
+2452,Donald,Robinson,1965-12-05,Male,Caucasian
+2453,Virginia,Miller,1961-02-03,Female,Caucasian
+2454,Katelyn,Barber,1956-05-13,Female,Other
+2455,Matthew,Barrett,1980-09-07,Male,Caucasian
+2456,Nathan,Nelson,1954-08-04,Other,Asian
+2457,Daniel,Robbins,1938-11-21,Female,Asian
+2458,Hannah,Henry,1947-06-14,Female,Hispanic
+2459,William,Best,1967-04-29,Male,Other
+2460,Gary,Olsen,1991-09-04,Other,Caucasian
+2461,Michele,Cline,1964-06-12,Male,African American
+2462,Shawn,Bridges,1943-07-07,Male,Asian
+2463,Christopher,Gibbs,1975-02-03,Female,Hispanic
+2464,Jennifer,Gomez,1971-05-18,Male,Asian
+2465,Michelle,Strickland,1982-06-07,Female,Hispanic
+2466,Jennifer,Anderson,1943-06-13,Female,Asian
+2467,Latoya,Wu,1956-08-04,Female,Hispanic
+2468,Jonathan,Oneal,1935-02-12,Male,Other
+2469,Cheryl,Moreno,1967-10-06,Female,African American
+2470,Gloria,Williams,1964-06-16,Female,Other
+2471,Christopher,Perez,1987-07-20,Other,Caucasian
+2472,Zachary,Martinez,1971-10-07,Male,Caucasian
+2473,Emily,Stewart,1965-08-24,Male,Other
+2474,Billy,Fuller,1947-04-06,Other,Caucasian
+2475,David,Hamilton,1944-09-21,Male,Asian
+2476,Justin,Silva,1980-08-30,Female,African American
+2477,Jennifer,Nguyen,1958-04-12,Other,Other
+2478,Laura,Ross,1952-02-26,Other,Hispanic
+2479,Kiara,Taylor,2003-07-08,Male,Caucasian
+2480,Cameron,Parsons,1978-05-15,Other,Asian
+2481,Alison,Fleming,1997-05-11,Other,Asian
+2482,Melinda,Evans,2004-03-04,Female,Other
+2483,Patricia,Moore,1967-12-25,Female,Other
+2484,Cory,Winters,1985-11-18,Female,African American
+2485,Daniel,Davis,1973-10-01,Other,African American
+2486,Shannon,Johnson,1997-12-29,Male,Asian
+2487,Kerry,Jordan,1998-08-28,Male,African American
+2488,John,Ramos,1978-06-03,Other,Asian
+2489,Joshua,Schultz,1981-06-14,Other,Other
+2490,George,Thomas,1939-06-28,Male,Asian
+2491,Mariah,Palmer,1951-11-13,Male,African American
+2492,Thomas,Ruiz,1970-12-30,Male,Other
+2493,Daniel,Armstrong,1997-11-18,Male,African American
+2494,Emily,Chambers,1985-12-09,Female,African American
+2495,Kelli,Carter,1984-04-23,Other,Asian
+2496,Michael,Rogers,1983-08-20,Female,Hispanic
+2497,Nancy,Mccormick,1977-12-16,Female,African American
+2498,Phyllis,Bradley,1962-09-30,Other,Asian
+2499,Frederick,Huang,1939-09-24,Other,Hispanic
+2500,Isabella,Key,1936-10-10,Male,African American
+2501,Gary,Watts,1984-01-19,Male,Other
+2502,Juan,Davis,1992-04-13,Other,African American
+2503,Larry,Woods,1964-02-06,Other,Asian
+2504,Morgan,Hatfield,1958-09-23,Male,Asian
+2505,James,Bell,1989-08-23,Female,African American
+2506,Brandon,Schmidt,1951-06-05,Male,Other
+2507,Victoria,Gallagher,1965-09-22,Other,Hispanic
+2508,Jesse,Wallace,1970-03-06,Male,African American
+2509,David,Robertson,1979-04-07,Female,Caucasian
+2510,Adam,Long,1976-06-20,Other,Other
+2511,Deanna,Gonzales,1945-09-06,Male,Hispanic
+2512,Michael,Miller,1936-08-26,Other,Hispanic
+2513,Scott,Hubbard,1967-04-10,Male,Hispanic
+2514,David,Hanson,1998-09-18,Male,Other
+2515,Bryan,Taylor,1987-05-07,Female,African American
+2516,Sandra,Weaver,1962-05-27,Male,Caucasian
+2517,Zachary,Jones,1964-11-21,Female,Other
+2518,Diana,Haley,1967-02-22,Other,Other
+2519,Kevin,Ortiz,1991-11-27,Male,Hispanic
+2520,Michael,Robles,1979-06-06,Male,Asian
+2521,Kathleen,Smith,1986-06-11,Female,Hispanic
+2522,Dennis,Myers,1940-08-12,Male,Caucasian
+2523,Molly,Bird,1992-03-09,Female,Caucasian
+2524,Rachel,Smith,1952-06-28,Male,African American
+2525,Samantha,Morris,1949-02-12,Male,Asian
+2526,Amanda,Strickland,1945-06-13,Other,Other
+2527,Ralph,Carroll,1984-03-10,Other,African American
+2528,William,Liu,1979-12-04,Other,African American
+2529,Adam,Benton,1966-01-20,Female,Caucasian
+2530,Mark,Mitchell,1936-07-21,Male,African American
+2531,Scott,Gray,1949-05-20,Male,African American
+2532,Brian,Johnson,2004-10-15,Male,Asian
+2533,Meghan,Sanchez,1999-08-02,Male,Caucasian
+2534,Sherri,Coleman,1962-12-19,Male,Hispanic
+2535,Cynthia,Powers,1935-04-27,Male,Asian
+2536,Paul,Bell,1953-11-13,Female,Caucasian
+2537,Steven,Harrington,1997-07-06,Male,Other
+2538,Stuart,Patterson,1972-01-24,Male,Caucasian
+2539,Andrew,Garcia,1962-12-14,Other,Asian
+2540,Patricia,Harrison,1961-04-27,Female,Other
+2541,Allen,Hernandez,1984-03-24,Female,African American
+2542,Kaitlin,Pitts,1993-10-04,Female,African American
+2543,Jimmy,Lopez,1968-05-12,Male,Hispanic
+2544,Patrick,Allen,1976-01-08,Other,Other
+2545,Terri,Cruz,1998-04-16,Female,Other
+2546,Jacob,Jones,1996-05-16,Female,Asian
+2547,Monica,Salinas,1997-09-01,Other,Other
+2548,Haley,Jones,1991-07-05,Other,Asian
+2549,Michelle,Baird,1957-05-04,Male,Caucasian
+2550,Edward,Moore,1937-01-24,Other,Caucasian
+2551,Michelle,Stewart,1945-03-18,Other,Caucasian
+2552,Kimberly,Johnston,1996-05-11,Male,African American
+2553,Victoria,Vargas,1977-06-17,Male,Caucasian
+2554,Nicole,Moreno,1985-10-11,Female,Other
+2555,Melissa,Martinez,1958-05-26,Female,Hispanic
+2556,Timothy,Taylor,1981-01-16,Male,Asian
+2557,Tammy,Wolfe,1936-08-08,Other,Other
+2558,Rebecca,Ford,1939-02-24,Male,Other
+2559,James,Harris,1972-03-31,Other,Asian
+2560,Allison,Strickland,1989-09-01,Male,Other
+2561,Sarah,Garza,1997-08-31,Other,African American
+2562,Rita,Murphy,1992-05-30,Other,African American
+2563,Michael,Williams,1995-01-18,Female,Asian
+2564,Peter,Wilson,2006-11-11,Male,Caucasian
+2565,Zachary,Coleman,1999-06-07,Female,Other
+2566,William,Harper,1959-06-25,Female,Other
+2567,Jamie,Wilson,1974-11-05,Male,Other
+2568,Mariah,Reyes,1971-03-17,Male,African American
+2569,Angela,Reed,1965-11-08,Female,Hispanic
+2570,Eric,Wilson,1971-08-10,Female,Hispanic
+2571,Rebecca,Ortiz,2002-08-25,Male,Hispanic
+2572,Michael,Hall,1954-09-23,Male,Asian
+2573,Karen,Ray,1994-06-23,Male,Caucasian
+2574,Jacob,Bradley,1948-08-19,Other,African American
+2575,Nichole,Mitchell,1970-09-05,Other,Other
+2576,Toni,White,1962-06-01,Male,African American
+2577,Timothy,Taylor,2003-12-03,Other,Asian
+2578,Rhonda,Cook,1977-09-24,Male,Asian
+2579,Timothy,Higgins,2000-10-07,Male,Hispanic
+2580,Stephanie,Jenkins,1949-03-25,Other,Asian
+2581,Kara,Petersen,1967-03-21,Male,Caucasian
+2582,Jessica,Nash,2002-01-06,Male,Caucasian
+2583,Joshua,Harrison,1949-02-15,Female,African American
+2584,Julia,Caldwell,1960-08-03,Other,Hispanic
+2585,Ronald,Jones,1987-06-08,Female,Other
+2586,Bridget,Medina,1989-02-07,Female,Caucasian
+2587,Ronald,Wilson,1973-01-31,Male,Other
+2588,William,Blanchard,1998-08-08,Female,Other
+2589,Paula,Garcia,1944-10-18,Other,Asian
+2590,Anita,Dudley,2003-04-19,Female,Hispanic
+2591,Charles,Boyd,1968-07-26,Other,African American
+2592,Latoya,Cruz,1981-03-25,Female,Asian
+2593,Heather,Hill,1949-08-07,Male,African American
+2594,Dana,Soto,1976-12-04,Other,Hispanic
+2595,Cassandra,Kane,1988-06-11,Female,Asian
+2596,Katelyn,Duran,1952-03-02,Female,Caucasian
+2597,Madison,Bush,1948-11-28,Female,Caucasian
+2598,Sabrina,Ware,1976-08-26,Male,Hispanic
+2599,Shawn,Wallace,1988-07-10,Male,Hispanic
+2600,Susan,Brown,1986-04-18,Male,Caucasian
+2601,Kimberly,Espinoza,1952-08-30,Female,Hispanic
+2602,Raymond,Evans,1984-01-03,Other,Caucasian
+2603,Daisy,Andrews,2002-08-02,Male,Caucasian
+2604,Justin,Doyle,1974-04-06,Female,Caucasian
+2605,Kelly,Collins,1946-01-24,Male,Other
+2606,Kelly,Shaw,1979-08-14,Female,Other
+2607,Whitney,Winters,1955-01-09,Male,African American
+2608,Debra,Manning,1961-08-10,Male,African American
+2609,Jaclyn,Collins,1968-09-23,Male,Hispanic
+2610,Cynthia,Mccormick,1943-01-02,Female,Other
+2611,Robert,Smith,1988-06-03,Other,Caucasian
+2612,Steven,Wright,1950-04-30,Other,Other
+2613,Brittany,Dickerson,2006-09-12,Male,Caucasian
+2614,Olivia,Perez,1977-10-10,Other,Other
+2615,Joe,Wells,1947-03-07,Male,Asian
+2616,Kristina,Curtis,1968-07-24,Male,Asian
+2617,Christina,Perez,1968-11-19,Other,Hispanic
+2618,Lisa,Schneider,1972-04-16,Male,Caucasian
+2619,Brianna,Sullivan,1941-12-01,Male,Hispanic
+2620,Lauren,Anderson,2001-05-18,Male,Asian
+2621,Brian,Erickson,1992-12-18,Other,Caucasian
+2622,Betty,Wright,2005-06-20,Male,Hispanic
+2623,Nicholas,Bowman,1992-05-17,Male,Hispanic
+2624,Matthew,Berger,1989-04-08,Male,African American
+2625,Michelle,Graham,1991-01-24,Other,Hispanic
+2626,Kim,Hayes,1959-07-31,Other,Caucasian
+2627,Pam,Scott,1999-10-20,Male,Hispanic
+2628,Sarah,Salinas,1995-06-30,Male,Other
+2629,Glenn,Gray,1976-03-26,Female,Asian
+2630,Ashley,Cameron,1993-05-26,Male,Other
+2631,Chelsea,Vaughn,1977-08-30,Other,African American
+2632,Michael,Stokes,1949-12-30,Female,African American
+2633,Peter,Ayala,1946-10-17,Female,Caucasian
+2634,Victoria,Ramirez,1988-08-14,Male,African American
+2635,Joel,Watson,1982-05-03,Other,African American
+2636,Lauren,Blanchard,1981-07-01,Male,Caucasian
+2637,Michael,Perez,1959-04-24,Female,Caucasian
+2638,Tyrone,Reed,1957-12-31,Female,Other
+2639,April,Oconnor,1991-03-18,Other,Hispanic
+2640,Tyler,Mccarthy,1960-12-25,Male,Other
+2641,James,Wade,1952-02-29,Male,Other
+2642,Richard,Fernandez,1976-11-03,Other,African American
+2643,Robert,Clark,1942-05-17,Female,Caucasian
+2644,Kevin,Moore,1981-11-12,Other,Hispanic
+2645,James,Barton,1949-07-09,Male,Other
+2646,Jonathan,Murillo,1958-03-03,Male,Other
+2647,Becky,Paul,1990-06-13,Female,Asian
+2648,Jacqueline,Baird,1982-10-08,Female,Caucasian
+2649,Mathew,Alvarado,1991-01-13,Female,Caucasian
+2650,Robert,Ramos,1965-11-03,Male,Other
+2651,Anthony,Cooper,1970-08-08,Female,Caucasian
+2652,Benjamin,Johnson,1941-04-26,Male,African American
+2653,Darrell,Wilson,1964-02-11,Other,African American
+2654,Howard,Miller,1962-06-25,Male,African American
+2655,David,Harris,1949-10-04,Female,African American
+2656,Brad,Jensen,1952-01-04,Other,Hispanic
+2657,Patricia,Smith,1935-05-24,Female,African American
+2658,Christopher,Hendrix,2000-03-01,Male,African American
+2659,Brianna,Lyons,1998-04-28,Male,Hispanic
+2660,Jasmine,Long,1979-06-19,Male,Hispanic
+2661,David,Snyder,1953-02-07,Female,African American
+2662,Paul,Carr,1980-01-20,Other,Hispanic
+2663,Jeffrey,Greer,1965-12-12,Male,African American
+2664,Brent,Graves,1956-05-24,Male,Hispanic
+2665,Emily,Michael,1964-10-12,Male,Other
+2666,Christina,Higgins,1992-06-27,Female,Hispanic
+2667,Jessica,Ewing,1963-06-05,Female,Asian
+2668,Charles,Malone,1968-03-09,Male,Other
+2669,Kevin,Warner,1988-08-28,Male,Hispanic
+2670,Michelle,Golden,1987-06-05,Male,Caucasian
+2671,Sean,Harris,1989-04-11,Male,Caucasian
+2672,Steven,Odonnell,1957-07-24,Other,Hispanic
+2673,Bailey,Medina,2002-09-30,Male,Hispanic
+2674,Casey,Davis,1984-09-25,Female,African American
+2675,David,Woods,1946-07-13,Male,Other
+2676,Megan,Morgan,1994-07-18,Male,Other
+2677,Michelle,Manning,1953-04-05,Female,Caucasian
+2678,Charles,Chen,1977-05-23,Other,Other
+2679,Dawn,George,1976-03-08,Other,Caucasian
+2680,Miranda,Ayers,1938-08-11,Other,Caucasian
+2681,Brittney,Brandt,1961-05-24,Female,Caucasian
+2682,Brandi,Patel,1985-11-10,Female,African American
+2683,Michael,Soto,2001-09-03,Other,Asian
+2684,Danielle,Peterson,1955-03-07,Other,African American
+2685,Alejandro,Lee,2005-08-09,Male,Hispanic
+2686,Justin,Vasquez,1974-07-21,Female,Other
+2687,Alec,Diaz,1964-04-30,Female,Hispanic
+2688,Kevin,Munoz,1961-04-15,Female,Asian
+2689,David,Wu,1997-04-19,Male,African American
+2690,Robert,Montgomery,1947-12-14,Female,Caucasian
+2691,Daniel,Higgins,1980-11-07,Male,Caucasian
+2692,Alexander,Crawford,2006-03-27,Female,African American
+2693,Cynthia,Johnson,1966-12-25,Female,Hispanic
+2694,Robert,Calhoun,1953-07-08,Other,Other
+2695,Angela,Mcgee,1999-10-26,Other,Caucasian
+2696,Donald,Smith,1991-07-17,Female,Hispanic
+2697,Scott,Allen,1982-04-08,Female,African American
+2698,Scott,Garcia,1984-11-12,Male,Other
+2699,Michele,Williams,1939-10-28,Other,Caucasian
+2700,Makayla,Jacobson,1986-09-14,Female,Asian
+2701,Renee,Baker,1997-11-05,Male,Hispanic
+2702,Jacqueline,Brown,1950-01-21,Other,Caucasian
+2703,Rodney,Rodriguez,1992-08-12,Female,Caucasian
+2704,Kimberly,Escobar,1958-12-24,Other,Hispanic
+2705,Brian,Gray,1961-08-27,Other,African American
+2706,Rodney,Burton,2004-04-21,Male,Caucasian
+2707,Phillip,Rhodes,1948-07-06,Female,African American
+2708,Kelly,Bailey,1948-03-11,Male,Caucasian
+2709,Shawn,Pollard,1980-12-15,Female,Asian
+2710,Michael,Crosby,1984-09-15,Other,Other
+2711,Lisa,Colon,1939-03-27,Female,African American
+2712,Juan,Cuevas,1942-09-19,Other,African American
+2713,William,Avery,1969-06-09,Other,Caucasian
+2714,Kevin,Ramos,1988-03-07,Female,African American
+2715,Andrew,Knight,1990-05-26,Other,African American
+2716,Paul,Hunt,1983-06-28,Female,Hispanic
+2717,John,Mcbride,1934-11-28,Male,Other
+2718,George,Rogers,1962-01-07,Other,Caucasian
+2719,Rodney,Hill,1975-06-03,Other,Other
+2720,Christine,Thomas,1980-05-21,Other,Caucasian
+2721,Levi,Brooks,2005-05-09,Other,Hispanic
+2722,Edward,Bautista,1972-08-08,Female,Hispanic
+2723,Amanda,Morris,1965-03-17,Male,Caucasian
+2724,Anne,Thompson,1937-10-10,Male,African American
+2725,Jay,Moon,1987-07-28,Other,Other
+2726,Brenda,Wilkerson,1944-07-29,Male,Other
+2727,Marc,Estrada,1976-11-18,Male,Asian
+2728,Phillip,Martinez,1961-04-02,Male,Other
+2729,Wayne,Smith,2003-03-07,Female,Other
+2730,Jerry,Gillespie,1936-02-11,Female,Hispanic
+2731,Jennifer,Turner,1993-01-13,Other,Caucasian
+2732,Colton,Robinson,1982-05-29,Male,Caucasian
+2733,Jonathan,Green,1954-01-10,Female,African American
+2734,Vincent,Brown,1963-05-26,Female,Other
+2735,Alexandra,George,1961-02-23,Female,Asian
+2736,Kyle,Cline,1949-11-05,Other,Hispanic
+2737,Travis,Moody,1935-07-24,Female,Other
+2738,Daniel,Davis,1975-09-01,Other,Asian
+2739,Kenneth,Cantrell,1940-07-27,Male,Other
+2740,Amy,Williams,1958-03-15,Female,Other
+2741,James,Rice,1991-12-23,Male,Caucasian
+2742,Curtis,Hudson,1941-06-11,Male,Hispanic
+2743,Jon,Levy,1964-09-15,Other,Caucasian
+2744,Scott,Duarte,1972-06-22,Female,African American
+2745,Lisa,Cook,2004-01-03,Female,Caucasian
+2746,Margaret,Rice,1945-06-06,Female,Caucasian
+2747,Jennifer,Adams,1974-11-09,Other,Other
+2748,Martin,Cook,1950-07-13,Female,Hispanic
+2749,Linda,Sims,1935-08-23,Other,African American
+2750,Zachary,Lee,1995-10-05,Male,Asian
+2751,David,Leon,1943-03-23,Male,Asian
+2752,David,Wilson,1996-07-20,Male,Hispanic
+2753,Kara,Davis,1938-05-15,Male,African American
+2754,Adam,Porter,1953-08-14,Other,Other
+2755,Alexandra,Payne,1972-12-25,Male,Asian
+2756,Aaron,Collier,1955-01-13,Female,Caucasian
+2757,Daniel,Castillo,2000-08-02,Male,Other
+2758,Kayla,Cox,1948-10-12,Female,African American
+2759,Aaron,Mcclain,1938-02-12,Female,Other
+2760,Victoria,Shaffer,1942-01-16,Other,Other
+2761,Dean,Phillips,2001-05-19,Other,Asian
+2762,Brandon,Daniel,1983-09-14,Female,Hispanic
+2763,Richard,Barber,1944-10-01,Other,Caucasian
+2764,William,Casey,1996-05-29,Other,Caucasian
+2765,Karen,Smith,2002-08-29,Male,Other
+2766,Amanda,Allen,1938-03-03,Other,African American
+2767,Ronald,Young,2003-02-01,Other,Hispanic
+2768,Elizabeth,Allen,1985-05-04,Male,African American
+2769,Karla,Ford,1987-07-25,Other,African American
+2770,Jeffrey,Johnson,2004-01-14,Male,Asian
+2771,David,Burke,1983-05-10,Female,Asian
+2772,Rebecca,Williams,1965-12-21,Female,Asian
+2773,Laura,Clark,1935-09-20,Other,Other
+2774,Mark,Cooper,1965-07-18,Female,Other
+2775,Brian,Lutz,1935-11-26,Male,Other
+2776,Deanna,Davis,1959-04-08,Other,Caucasian
+2777,Aaron,Miller,1993-03-13,Male,Asian
+2778,Randy,Johnson,2006-12-16,Male,Caucasian
+2779,Cynthia,Wilson,1960-09-20,Female,Other
+2780,Shelley,Khan,1983-09-12,Male,Asian
+2781,Tiffany,Sullivan,1950-02-14,Male,Caucasian
+2782,Diana,Rivera,1971-03-20,Other,Hispanic
+2783,Terri,Martin,1968-07-14,Female,Asian
+2784,Sherry,Johnson,1982-10-16,Female,Other
+2785,Brandon,Harris,2003-07-11,Other,Hispanic
+2786,Sandra,Hayes,1973-10-07,Male,Hispanic
+2787,Sharon,Forbes,1965-10-11,Other,Asian
+2788,Shawn,Shelton,2006-10-22,Other,Other
+2789,Wendy,Abbott,1939-05-31,Other,Other
+2790,David,Stafford,1935-04-02,Female,African American
+2791,Alicia,Munoz,1998-05-22,Male,Caucasian
+2792,Justin,Hill,1997-02-26,Other,Asian
+2793,Maria,Krueger,1943-12-19,Other,Caucasian
+2794,Dustin,Lucas,1970-07-12,Other,Hispanic
+2795,William,Lewis,1977-05-26,Female,Caucasian
+2796,Laura,Anthony,1992-09-18,Male,Caucasian
+2797,Brittany,Fuentes,1962-01-08,Male,Caucasian
+2798,Devon,Anderson,1986-12-20,Other,Other
+2799,Sue,Mason,1956-06-20,Male,African American
+2800,Kelly,Cox,2004-05-14,Other,Caucasian
+2801,Jennifer,Reyes,1993-12-25,Other,Other
+2802,Cynthia,Dixon,1977-09-29,Female,Caucasian
+2803,Heather,Hart,1965-03-01,Other,African American
+2804,Nathan,Gonzalez,1951-05-03,Female,African American
+2805,Angela,Owen,1960-10-19,Female,Hispanic
+2806,Patricia,Holden,1979-01-13,Female,African American
+2807,Tiffany,Davila,1961-01-23,Male,Asian
+2808,Alexis,Lopez,1974-04-02,Other,Asian
+2809,Angelica,Robinson,2007-03-28,Male,African American
+2810,Sarah,Edwards,1988-04-21,Male,Asian
+2811,Kimberly,Brown,1969-02-22,Female,Hispanic
+2812,David,Harris,1949-07-03,Female,Caucasian
+2813,Xavier,Martin,1960-01-02,Other,Caucasian
+2814,Debra,Turner,1988-04-18,Male,Hispanic
+2815,Destiny,Velez,1985-06-06,Other,Asian
+2816,Melvin,Quinn,1984-11-11,Male,Hispanic
+2817,Katherine,Davis,1991-11-23,Other,Hispanic
+2818,Lauren,Boyd,1982-07-28,Male,Caucasian
+2819,Zachary,Medina,1961-02-13,Female,Caucasian
+2820,Andrew,Burgess,2001-11-09,Male,African American
+2821,Dennis,Mcbride,2005-01-31,Male,African American
+2822,Drew,Lee,1948-05-06,Female,Caucasian
+2823,Jon,Dunn,1987-12-22,Female,Caucasian
+2824,Joseph,Banks,1946-01-18,Female,African American
+2825,Andre,Powell,1944-12-10,Female,Caucasian
+2826,Richard,Manning,1980-10-28,Female,Hispanic
+2827,Jesse,Wright,1950-09-22,Other,Caucasian
+2828,James,Gonzalez,1960-10-09,Female,Asian
+2829,Bobby,Rodriguez,2007-04-08,Other,African American
+2830,Jessica,Owens,1940-01-04,Male,Hispanic
+2831,Diana,Ferguson,1961-07-01,Male,African American
+2832,Miguel,Franklin,1995-09-13,Male,Other
+2833,Marc,Lopez,2001-04-21,Female,Caucasian
+2834,Eric,Levine,1994-08-26,Other,African American
+2835,Scott,Henderson,1990-12-04,Male,Asian
+2836,Bryan,Long,1985-10-21,Other,Asian
+2837,Jennifer,Ballard,1961-12-19,Male,African American
+2838,Tina,Henderson,1949-05-19,Other,Other
+2839,Jackson,Evans,2006-05-05,Male,Other
+2840,Danielle,Day,2001-04-01,Male,Caucasian
+2841,Tanya,Owens,1958-03-12,Other,Asian
+2842,Michele,Strickland,1960-10-21,Male,Asian
+2843,Kim,Cobb,1956-04-13,Other,Hispanic
+2844,Rhonda,Barajas,1948-09-19,Other,Asian
+2845,Joseph,Allen,1951-04-16,Male,African American
+2846,Monica,Nelson,1962-04-11,Male,Other
+2847,Kellie,Molina,1976-04-06,Other,Caucasian
+2848,Jennifer,Adams,1984-05-10,Male,Caucasian
+2849,Devin,Stanley,2004-12-18,Other,Hispanic
+2850,Sabrina,Lewis,1937-05-25,Other,Hispanic
+2851,Jeremy,Zhang,1942-12-21,Male,Other
+2852,Patricia,Manning,1968-12-29,Female,Other
+2853,Ashley,Short,1938-11-28,Female,African American
+2854,Kristopher,Davis,1985-10-05,Male,Hispanic
+2855,Gina,Richard,1984-07-09,Other,Other
+2856,Andrew,Hurst,1953-12-20,Male,Other
+2857,Michael,Velasquez,1945-10-12,Male,Hispanic
+2858,Erin,Miller,2003-12-26,Male,Asian
+2859,Austin,Arias,1999-05-30,Female,Caucasian
+2860,Ronald,Kennedy,1995-01-29,Female,Asian
+2861,Caleb,Garcia,1995-04-15,Male,Caucasian
+2862,Alyssa,Parsons,1999-01-31,Female,Hispanic
+2863,Kristin,Martin,1975-02-25,Other,Hispanic
+2864,Tara,Santos,1986-07-09,Female,Caucasian
+2865,Matthew,Miller,1954-09-14,Male,Asian
+2866,Evelyn,Levine,1990-08-22,Female,Other
+2867,Megan,Walker,1974-04-21,Female,African American
+2868,Joseph,George,1991-03-21,Male,Hispanic
+2869,Thomas,Adams,1953-03-10,Male,African American
+2870,Carrie,Carter,1943-05-01,Other,Other
+2871,Andrea,Delacruz,1947-03-14,Other,Caucasian
+2872,Jerry,Duarte,1975-01-08,Other,Hispanic
+2873,Elizabeth,Norman,2000-05-15,Male,Hispanic
+2874,Tamara,Gallegos,1990-10-21,Male,Other
+2875,Mark,Vega,1957-03-12,Other,Caucasian
+2876,Patricia,Mullins,1997-08-17,Female,Asian
+2877,Michael,Rasmussen,1944-04-07,Other,Other
+2878,Theresa,Brown,1954-11-27,Male,Asian
+2879,Nicole,Jennings,1951-07-20,Female,African American
+2880,Tracy,Wade,1957-03-12,Male,Hispanic
+2881,Morgan,Marquez,1986-08-08,Male,Caucasian
+2882,Kathleen,Reynolds,1979-01-24,Female,African American
+2883,Katherine,Davis,1966-06-21,Other,Hispanic
+2884,David,Wright,2001-07-27,Male,Asian
+2885,Daniel,Little,1999-04-16,Other,Asian
+2886,Karen,Burton,1953-08-26,Other,Asian
+2887,Melissa,Chen,1934-07-07,Female,Hispanic
+2888,Daniel,Johnson,1991-10-10,Female,African American
+2889,Lucas,Oliver,1967-10-28,Other,Asian
+2890,Jeffrey,Levy,1940-10-12,Male,Asian
+2891,Steve,Sanchez,2002-10-13,Female,Caucasian
+2892,Eric,Cruz,1950-12-05,Male,Hispanic
+2893,Amanda,Wade,1948-08-24,Male,Hispanic
+2894,Tara,Rios,1989-12-23,Male,Hispanic
+2895,Lee,Miller,1986-12-05,Other,Asian
+2896,Heather,Williams,1968-07-06,Male,Hispanic
+2897,Alan,Jackson,1936-12-13,Female,Hispanic
+2898,Jeffrey,Miller,2003-04-17,Other,Hispanic
+2899,Ashley,Bradley,1947-03-26,Other,Asian
+2900,John,Schmidt,1968-01-24,Male,Other
+2901,William,Gibson,2000-06-14,Female,Asian
+2902,Kelly,Fitzgerald,1957-01-01,Other,Hispanic
+2903,Thomas,Calderon,1970-08-24,Male,African American
+2904,Todd,Meadows,1968-11-01,Male,Hispanic
+2905,Roy,Francis,1966-04-25,Male,Other
+2906,Lindsay,Fisher,1939-04-23,Female,Caucasian
+2907,Julie,Wood,1982-07-05,Female,African American
+2908,Christine,Strickland,1979-08-25,Male,African American
+2909,Haley,Sandoval,2005-10-06,Male,Caucasian
+2910,Janet,Bates,1958-10-13,Male,Caucasian
+2911,James,Mccullough,1965-10-06,Male,Asian
+2912,Justin,Webb,1997-02-09,Female,African American
+2913,Daniel,Green,1983-08-18,Female,African American
+2914,Jordan,Richard,1946-10-03,Other,Hispanic
+2915,Christine,Gallagher,1968-02-15,Female,African American
+2916,Margaret,Hill,1955-07-06,Other,Other
+2917,Paul,Jones,1972-07-13,Male,Other
+2918,Amanda,Garcia,1961-03-01,Female,Other
+2919,Alexander,Jackson,1980-01-01,Other,Hispanic
+2920,Jennifer,Cohen,2001-04-26,Other,Caucasian
+2921,Joseph,Singh,1989-12-26,Male,Other
+2922,Matthew,Miller,1937-02-11,Other,Caucasian
+2923,Mark,Williams,1982-07-18,Male,Asian
+2924,Joshua,Baker,1967-12-23,Male,Hispanic
+2925,Anthony,Alexander,1973-12-27,Female,Other
+2926,William,Hayes,1964-11-23,Female,Hispanic
+2927,Douglas,Lane,1955-02-24,Female,Hispanic
+2928,Stephanie,Leblanc,1993-01-04,Other,Other
+2929,Robert,West,2002-11-20,Female,African American
+2930,James,Smith,1982-06-16,Other,Hispanic
+2931,Olivia,Thornton,1979-02-28,Other,Other
+2932,Zachary,Smith,1998-06-03,Male,Asian
+2933,Lisa,Levy,1990-10-05,Other,Other
+2934,Julian,Harris,1962-02-05,Male,Other
+2935,Jasmine,Logan,1994-04-01,Other,Hispanic
+2936,Rachael,Morris,1965-06-02,Male,Caucasian
+2937,Sharon,Turner,1944-09-11,Male,Caucasian
+2938,Jessica,Pacheco,1977-05-01,Other,Caucasian
+2939,David,Robinson,1941-08-04,Male,Caucasian
+2940,Elizabeth,Gonzalez,1951-12-16,Other,African American
+2941,Angela,Alvarez,1999-07-01,Other,Hispanic
+2942,Brittany,Woods,1934-07-04,Other,Caucasian
+2943,Hannah,Washington,1970-02-10,Female,African American
+2944,Travis,Shelton,1956-10-28,Female,Other
+2945,Angela,Johnson,1968-09-15,Other,Hispanic
+2946,Jesus,Miller,1997-09-29,Male,Caucasian
+2947,Sandra,Townsend,1966-09-15,Other,Other
+2948,Christina,Carr,2005-09-10,Female,African American
+2949,Kayla,Holder,1937-09-25,Male,Hispanic
+2950,Javier,Robbins,1967-04-03,Female,Other
+2951,Rodney,Freeman,1987-09-05,Other,African American
+2952,Joseph,Tate,1942-11-05,Other,African American
+2953,Melanie,Koch,1962-09-11,Male,Asian
+2954,Jeremy,West,1970-09-18,Female,Other
+2955,Keith,Wilkins,1963-07-21,Male,African American
+2956,Geoffrey,Evans,1938-06-16,Other,African American
+2957,Olivia,Perez,2002-06-17,Other,Other
+2958,William,Bell,1948-04-06,Male,African American
+2959,Anne,Smith,1944-01-15,Other,Other
+2960,Latoya,Roman,1974-09-07,Other,African American
+2961,Jacob,Adams,1954-12-14,Other,Asian
+2962,Jessica,Adams,1992-11-20,Other,Hispanic
+2963,Traci,Franklin,1940-03-03,Other,African American
+2964,Carolyn,Pena,1986-05-04,Male,African American
+2965,Michelle,Tucker,1980-10-04,Other,Other
+2966,Steven,Bush,1946-11-04,Other,Caucasian
+2967,Holly,Morgan,1980-06-03,Female,Caucasian
+2968,Lauren,Kelley,1946-08-17,Male,Other
+2969,Brittany,Smith,1962-01-31,Male,Caucasian
+2970,Michael,Monroe,1967-07-16,Female,Hispanic
+2971,Regina,Lam,1942-04-15,Female,Other
+2972,Veronica,Franco,1983-03-04,Male,Asian
+2973,Duane,Adams,1973-04-14,Female,Hispanic
+2974,Tiffany,Pierce,2004-10-12,Female,Other
+2975,Frank,Barrett,1992-06-15,Female,Other
+2976,Amanda,Mcfarland,1954-02-04,Female,Hispanic
+2977,Christopher,Brewer,1955-03-06,Male,African American
+2978,Angel,Collins,1984-08-22,Male,Other
+2979,Heidi,Valenzuela,1978-10-19,Female,Caucasian
+2980,Stacy,Wu,1966-08-31,Other,African American
+2981,Jennifer,Campbell,1953-05-24,Female,Other
+2982,Denise,Harris,1984-05-27,Other,Asian
+2983,Tamara,Wells,1948-10-22,Male,Caucasian
+2984,Christopher,Gordon,1956-11-05,Male,Hispanic
+2985,Danny,Farmer,2005-12-11,Male,Asian
+2986,Zachary,Gordon,2006-08-14,Female,African American
+2987,Marcus,Franklin,1995-11-05,Male,African American
+2988,Nathan,Camacho,1978-09-21,Female,African American
+2989,Ronald,Anderson,1990-07-16,Other,Caucasian
+2990,Linda,Daugherty,1948-01-08,Other,Caucasian
+2991,Lindsey,Hernandez,1971-03-15,Female,Caucasian
+2992,Peter,Jones,1969-10-03,Other,African American
+2993,Christopher,Harper,1953-04-27,Female,Asian
+2994,Lori,Gonzalez,1972-03-30,Male,Caucasian
+2995,Dylan,Ramos,1995-04-09,Male,Other
+2996,Christopher,Brown,1947-05-07,Other,Asian
+2997,Kaitlyn,Davis,1979-03-25,Male,African American
+2998,Molly,Pierce,1944-06-01,Other,African American
+2999,William,Peters,1977-04-17,Male,Other
+3000,Brian,Brown,1944-02-19,Female,African American

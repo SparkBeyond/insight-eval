@@ -1,0 +1,16 @@
+{
+    "enriched_column_names": [
+        "average_maintenance_delay_in_days_over_the_past_year",
+        "frequency_of_vibration_level_spikes_beyond_safe_limits_in_the_last_90_days",
+        "humidity_level_exceeding_recommended_range_frequency",
+        "number_of_maintenance_alerts_triggered_in_the_past_quarter",
+        "cumulative_repair_cost_in_the_last_year"
+    ],
+    "features_descriptions": [
+        "average maintenance delay in days over the past year",
+        "frequency of vibration level spikes beyond safe limits in the last 90 days",
+        "humidity level exceeding recommended range frequency",
+        "number of maintenance alerts triggered in the past quarter",
+        "cumulative repair cost in the last year"
+    ]
+}

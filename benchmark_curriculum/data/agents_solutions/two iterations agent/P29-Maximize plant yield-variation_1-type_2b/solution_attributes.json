@@ -1,0 +1,16 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "avg_nearby_field_yield",
+        "avg_yield_by_species",
+        "lai_to_height_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "avg nearby field yield",
+        "avg yield by species",
+        "lai to height ratio"
+    ]
+}

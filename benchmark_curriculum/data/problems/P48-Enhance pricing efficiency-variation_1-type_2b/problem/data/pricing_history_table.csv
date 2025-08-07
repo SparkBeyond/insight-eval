@@ -1,0 +1,501 @@
+pricing_id,product_id,effective_date,price,price_change_reason
+pricing_0,product_6,2024-01-01,88.280000,market adjustment
+pricing_1,product_94,2022-11-24,78.560000,promotional
+pricing_2,product_82,2023-03-18,77.810000,seasonal
+pricing_3,product_59,2024-07-10,17.630000,seasonal
+pricing_4,product_29,2023-06-17,93.060000,market adjustment
+pricing_5,product_6,2022-03-16,43.960000,seasonal
+pricing_6,product_12,2024-03-25,65.470000,seasonal
+pricing_7,product_72,2023-07-02,15.850000,promotional
+pricing_8,product_32,2024-03-01,55.160000,market adjustment
+pricing_9,product_27,2022-05-28,70.460000,promotional
+pricing_10,product_51,2023-10-10,53.730000,market adjustment
+pricing_11,product_37,2022-03-27,38.000000,promotional
+pricing_12,product_16,2022-08-11,51.880000,promotional
+pricing_13,product_28,2022-03-16,39.270000,market adjustment
+pricing_14,product_1,2022-09-21,23.110000,seasonal
+pricing_15,product_27,2023-01-08,10.020000,market adjustment
+pricing_16,product_33,2023-07-24,29.950000,market adjustment
+pricing_17,product_46,2022-07-31,16.120000,promotional
+pricing_18,product_49,2023-03-06,94.200000,market adjustment
+pricing_19,product_43,2023-01-03,75.140000,seasonal
+pricing_20,product_83,2022-02-28,66.070000,seasonal
+pricing_21,product_71,2022-11-12,43.320000,promotional
+pricing_22,product_61,2024-08-23,83.800000,market adjustment
+pricing_23,product_55,2022-03-17,98.570000,seasonal
+pricing_24,product_24,2023-10-20,30.270000,promotional
+pricing_25,product_92,2025-01-02,64.170000,seasonal
+pricing_26,product_24,2023-02-20,93.670000,market adjustment
+pricing_27,product_53,2022-11-03,19.500000,promotional
+pricing_28,product_89,2024-09-19,77.980000,promotional
+pricing_29,product_6,2023-09-01,54.900000,seasonal
+pricing_30,product_29,2024-01-17,93.300000,promotional
+pricing_31,product_85,2023-06-06,45.550000,market adjustment
+pricing_32,product_52,2024-06-04,12.320000,market adjustment
+pricing_33,product_63,2022-12-15,93.780000,promotional
+pricing_34,product_49,2022-11-27,88.970000,seasonal
+pricing_35,product_81,2022-03-19,27.120000,seasonal
+pricing_36,product_45,2022-03-25,20.420000,market adjustment
+pricing_37,product_70,2022-12-25,24.510000,promotional
+pricing_38,product_36,2023-05-14,72.030000,promotional
+pricing_39,product_54,2024-01-22,24.910000,promotional
+pricing_40,product_68,2022-03-02,87.240000,seasonal
+pricing_41,product_7,2023-05-05,17.040000,promotional
+pricing_42,product_16,2023-04-03,65.530000,market adjustment
+pricing_43,product_3,2023-01-30,94.230000,market adjustment
+pricing_44,product_97,2024-02-06,51.970000,promotional
+pricing_45,product_34,2024-08-04,54.890000,seasonal
+pricing_46,product_44,2022-10-04,44.220000,market adjustment
+pricing_47,product_15,2023-01-07,45.360000,seasonal
+pricing_48,product_55,2024-11-15,35.160000,promotional
+pricing_49,product_74,2024-10-05,34.300000,seasonal
+pricing_50,product_43,2024-01-09,34.110000,market adjustment
+pricing_51,product_60,2023-06-27,98.480000,market adjustment
+pricing_52,product_18,2022-05-04,64.060000,promotional
+pricing_53,product_62,2024-01-27,65.500000,promotional
+pricing_54,product_53,2023-03-28,51.600000,seasonal
+pricing_55,product_76,2024-12-25,20.470000,promotional
+pricing_56,product_50,2024-02-11,38.480000,seasonal
+pricing_57,product_68,2022-11-25,66.110000,seasonal
+pricing_58,product_34,2023-03-20,33.140000,market adjustment
+pricing_59,product_55,2022-03-11,82.760000,market adjustment
+pricing_60,product_93,2023-06-21,25.040000,promotional
+pricing_61,product_31,2024-03-01,98.700000,promotional
+pricing_62,product_15,2023-05-06,75.650000,market adjustment
+pricing_63,product_12,2023-07-09,42.370000,seasonal
+pricing_64,product_18,2022-09-27,77.370000,market adjustment
+pricing_65,product_3,2022-10-07,22.640000,market adjustment
+pricing_66,product_69,2024-09-15,80.980000,seasonal
+pricing_67,product_29,2023-02-23,77.270000,market adjustment
+pricing_68,product_84,2023-02-04,20.330000,promotional
+pricing_69,product_3,2024-06-29,17.420000,promotional
+pricing_70,product_25,2023-08-15,50.740000,promotional
+pricing_71,product_1,2024-07-29,27.670000,market adjustment
+pricing_72,product_24,2023-05-08,59.950000,seasonal
+pricing_73,product_7,2022-11-26,89.120000,seasonal
+pricing_74,product_27,2022-10-04,33.010000,seasonal
+pricing_75,product_72,2022-06-15,71.770000,promotional
+pricing_76,product_56,2022-01-25,35.520000,seasonal
+pricing_77,product_74,2024-03-30,24.910000,promotional
+pricing_78,product_72,2023-03-14,22.080000,market adjustment
+pricing_79,product_95,2024-08-10,63.590000,seasonal
+pricing_80,product_1,2024-04-23,88.590000,seasonal
+pricing_81,product_43,2022-05-22,33.030000,seasonal
+pricing_82,product_37,2022-10-01,94.650000,market adjustment
+pricing_83,product_66,2024-06-04,18.720000,market adjustment
+pricing_84,product_43,2024-05-10,22.900000,seasonal
+pricing_85,product_21,2023-10-11,44.110000,market adjustment
+pricing_86,product_23,2022-08-03,72.700000,promotional
+pricing_87,product_41,2024-01-22,71.330000,promotional
+pricing_88,product_32,2022-04-10,72.730000,promotional
+pricing_89,product_48,2022-09-01,49.420000,promotional
+pricing_90,product_89,2023-01-12,54.250000,promotional
+pricing_91,product_57,2024-10-17,65.880000,promotional
+pricing_92,product_54,2023-03-19,63.060000,market adjustment
+pricing_93,product_95,2024-06-17,56.230000,seasonal
+pricing_94,product_81,2022-08-23,39.160000,seasonal
+pricing_95,product_91,2024-02-21,19.250000,promotional
+pricing_96,product_6,2024-12-16,76.250000,seasonal
+pricing_97,product_30,2024-08-18,97.800000,promotional
+pricing_98,product_88,2022-10-09,28.800000,market adjustment
+pricing_99,product_50,2024-01-01,11.040000,market adjustment
+pricing_100,product_43,2023-05-24,25.330000,seasonal
+pricing_101,product_24,2023-09-28,16.120000,promotional
+pricing_102,product_20,2023-11-29,52.800000,promotional
+pricing_103,product_52,2024-02-06,45.540000,promotional
+pricing_104,product_28,2022-10-20,96.820000,market adjustment
+pricing_105,product_84,2022-02-08,60.960000,market adjustment
+pricing_106,product_45,2022-04-03,78.370000,market adjustment
+pricing_107,product_45,2024-10-19,30.160000,promotional
+pricing_108,product_17,2022-06-06,29.850000,promotional
+pricing_109,product_34,2022-04-28,14.100000,seasonal
+pricing_110,product_36,2023-10-02,51.800000,promotional
+pricing_111,product_86,2024-03-05,20.220000,promotional
+pricing_112,product_12,2022-09-27,24.740000,seasonal
+pricing_113,product_38,2023-07-02,92.570000,promotional
+pricing_114,product_65,2023-08-20,57.230000,promotional
+pricing_115,product_24,2022-04-20,60.770000,promotional
+pricing_116,product_34,2022-03-21,25.450000,market adjustment
+pricing_117,product_84,2024-07-17,78.010000,promotional
+pricing_118,product_25,2023-01-29,79.660000,market adjustment
+pricing_119,product_87,2024-09-17,76.640000,seasonal
+pricing_120,product_91,2024-04-13,28.520000,market adjustment
+pricing_121,product_39,2022-06-05,20.580000,market adjustment
+pricing_122,product_45,2024-10-28,89.430000,promotional
+pricing_123,product_21,2023-07-04,14.750000,market adjustment
+pricing_124,product_4,2024-05-14,55.920000,seasonal
+pricing_125,product_25,2023-01-25,14.250000,promotional
+pricing_126,product_51,2023-02-19,51.310000,promotional
+pricing_127,product_29,2022-02-23,33.420000,seasonal
+pricing_128,product_83,2024-03-29,72.700000,seasonal
+pricing_129,product_75,2024-05-08,90.450000,market adjustment
+pricing_130,product_53,2022-12-14,67.630000,promotional
+pricing_131,product_56,2022-11-25,64.050000,promotional
+pricing_132,product_85,2022-05-10,60.400000,market adjustment
+pricing_133,product_23,2023-06-15,84.520000,seasonal
+pricing_134,product_26,2024-10-15,87.170000,promotional
+pricing_135,product_84,2022-06-03,56.860000,seasonal
+pricing_136,product_83,2023-05-30,36.830000,promotional
+pricing_137,product_73,2024-12-13,85.240000,seasonal
+pricing_138,product_11,2024-08-23,28.430000,promotional
+pricing_139,product_79,2022-04-22,40.800000,promotional
+pricing_140,product_69,2024-04-21,64.880000,seasonal
+pricing_141,product_70,2022-09-11,67.750000,market adjustment
+pricing_142,product_90,2022-10-13,57.240000,market adjustment
+pricing_143,product_60,2024-01-17,80.060000,market adjustment
+pricing_144,product_14,2022-07-08,11.000000,market adjustment
+pricing_145,product_51,2022-07-02,23.790000,market adjustment
+pricing_146,product_66,2022-10-26,96.900000,seasonal
+pricing_147,product_85,2025-01-13,30.180000,seasonal
+pricing_148,product_19,2023-08-31,15.320000,market adjustment
+pricing_149,product_75,2022-08-03,33.460000,market adjustment
+pricing_150,product_37,2024-04-19,66.520000,market adjustment
+pricing_151,product_97,2024-07-29,51.310000,promotional
+pricing_152,product_87,2025-01-21,48.580000,promotional
+pricing_153,product_95,2023-08-08,51.480000,seasonal
+pricing_154,product_35,2023-12-15,23.130000,market adjustment
+pricing_155,product_88,2024-07-15,69.590000,seasonal
+pricing_156,product_72,2023-05-25,85.990000,seasonal
+pricing_157,product_96,2022-07-06,53.750000,market adjustment
+pricing_158,product_31,2022-04-01,34.950000,market adjustment
+pricing_159,product_66,2024-06-07,35.730000,market adjustment
+pricing_160,product_95,2023-06-19,42.930000,market adjustment
+pricing_161,product_93,2023-12-04,96.390000,seasonal
+pricing_162,product_43,2024-10-23,98.680000,promotional
+pricing_163,product_99,2024-05-13,13.860000,market adjustment
+pricing_164,product_98,2024-09-16,63.280000,market adjustment
+pricing_165,product_25,2022-10-19,81.260000,promotional
+pricing_166,product_68,2023-12-22,34.240000,market adjustment
+pricing_167,product_86,2023-04-09,77.460000,market adjustment
+pricing_168,product_47,2024-10-07,61.310000,market adjustment
+pricing_169,product_44,2023-08-28,33.120000,seasonal
+pricing_170,product_39,2022-10-04,87.810000,seasonal
+pricing_171,product_49,2022-11-02,95.390000,promotional
+pricing_172,product_82,2024-01-29,90.990000,promotional
+pricing_173,product_19,2024-12-29,14.970000,seasonal
+pricing_174,product_67,2022-09-12,31.350000,promotional
+pricing_175,product_35,2024-05-31,47.390000,market adjustment
+pricing_176,product_83,2024-07-11,96.380000,market adjustment
+pricing_177,product_22,2023-04-11,65.540000,promotional
+pricing_178,product_2,2024-07-16,24.810000,seasonal
+pricing_179,product_68,2023-09-21,12.470000,market adjustment
+pricing_180,product_19,2023-11-16,53.900000,seasonal
+pricing_181,product_67,2022-11-04,23.080000,promotional
+pricing_182,product_20,2022-11-20,12.730000,seasonal
+pricing_183,product_83,2023-05-18,86.450000,seasonal
+pricing_184,product_64,2023-10-26,15.440000,seasonal
+pricing_185,product_1,2024-10-11,21.870000,promotional
+pricing_186,product_66,2024-12-28,28.200000,market adjustment
+pricing_187,product_54,2023-06-24,89.680000,promotional
+pricing_188,product_22,2022-07-30,46.740000,market adjustment
+pricing_189,product_19,2024-08-11,22.110000,market adjustment
+pricing_190,product_62,2022-05-03,80.410000,promotional
+pricing_191,product_99,2022-04-12,42.300000,seasonal
+pricing_192,product_71,2022-07-23,54.100000,market adjustment
+pricing_193,product_10,2023-08-09,42.690000,market adjustment
+pricing_194,product_69,2023-04-24,87.520000,seasonal
+pricing_195,product_72,2023-10-08,42.320000,market adjustment
+pricing_196,product_34,2024-05-12,50.860000,promotional
+pricing_197,product_42,2023-08-17,59.750000,promotional
+pricing_198,product_19,2022-04-17,64.750000,market adjustment
+pricing_199,product_96,2024-12-03,89.870000,seasonal
+pricing_200,product_80,2024-12-04,50.710000,market adjustment
+pricing_201,product_62,2022-06-19,45.650000,seasonal
+pricing_202,product_29,2023-04-04,87.480000,promotional
+pricing_203,product_12,2022-04-18,16.910000,seasonal
+pricing_204,product_48,2022-07-17,93.120000,seasonal
+pricing_205,product_87,2023-07-06,35.710000,seasonal
+pricing_206,product_76,2023-03-28,78.350000,market adjustment
+pricing_207,product_15,2024-04-11,25.640000,promotional
+pricing_208,product_17,2022-07-31,90.930000,market adjustment
+pricing_209,product_56,2024-07-07,41.500000,promotional
+pricing_210,product_84,2024-12-01,81.740000,market adjustment
+pricing_211,product_59,2024-10-12,95.920000,market adjustment
+pricing_212,product_84,2024-06-02,52.940000,market adjustment
+pricing_213,product_80,2022-10-27,75.580000,market adjustment
+pricing_214,product_72,2024-02-13,13.290000,promotional
+pricing_215,product_54,2023-03-07,74.610000,seasonal
+pricing_216,product_72,2025-01-11,15.080000,seasonal
+pricing_217,product_56,2022-08-20,83.570000,seasonal
+pricing_218,product_12,2022-09-20,53.900000,seasonal
+pricing_219,product_43,2023-06-19,84.280000,promotional
+pricing_220,product_57,2023-05-09,93.500000,market adjustment
+pricing_221,product_49,2023-08-03,90.080000,promotional
+pricing_222,product_42,2024-06-01,29.480000,seasonal
+pricing_223,product_15,2023-07-15,84.100000,market adjustment
+pricing_224,product_72,2023-01-13,85.600000,seasonal
+pricing_225,product_87,2022-09-18,75.550000,promotional
+pricing_226,product_61,2022-08-19,94.320000,seasonal
+pricing_227,product_40,2024-02-14,85.070000,market adjustment
+pricing_228,product_92,2023-11-01,33.900000,promotional
+pricing_229,product_21,2023-04-20,67.520000,market adjustment
+pricing_230,product_83,2024-09-17,14.400000,seasonal
+pricing_231,product_27,2025-01-08,51.670000,promotional
+pricing_232,product_49,2023-03-24,99.500000,promotional
+pricing_233,product_60,2024-01-05,79.840000,market adjustment
+pricing_234,product_54,2023-07-06,85.510000,market adjustment
+pricing_235,product_91,2024-03-05,96.890000,promotional
+pricing_236,product_40,2023-07-11,94.690000,market adjustment
+pricing_237,product_92,2022-09-07,55.100000,seasonal
+pricing_238,product_49,2022-09-15,95.940000,seasonal
+pricing_239,product_26,2023-10-13,50.540000,promotional
+pricing_240,product_10,2022-05-20,74.550000,market adjustment
+pricing_241,product_63,2023-12-04,51.000000,seasonal
+pricing_242,product_74,2022-07-17,87.120000,seasonal
+pricing_243,product_45,2023-02-22,70.320000,market adjustment
+pricing_244,product_61,2024-08-09,45.840000,promotional
+pricing_245,product_57,2023-03-29,84.280000,seasonal
+pricing_246,product_80,2024-02-14,33.960000,promotional
+pricing_247,product_36,2023-12-08,41.130000,promotional
+pricing_248,product_91,2022-03-13,98.140000,market adjustment
+pricing_249,product_2,2023-12-21,33.740000,seasonal
+pricing_250,product_51,2023-11-16,24.560000,market adjustment
+pricing_251,product_94,2023-03-02,96.850000,seasonal
+pricing_252,product_40,2024-02-19,89.150000,market adjustment
+pricing_253,product_95,2022-08-29,64.020000,market adjustment
+pricing_254,product_25,2024-04-22,21.000000,seasonal
+pricing_255,product_24,2023-06-20,95.500000,promotional
+pricing_256,product_3,2023-07-18,53.970000,seasonal
+pricing_257,product_73,2023-08-16,88.540000,seasonal
+pricing_258,product_4,2022-07-08,67.270000,promotional
+pricing_259,product_44,2024-11-13,93.780000,promotional
+pricing_260,product_92,2025-01-21,13.410000,seasonal
+pricing_261,product_7,2024-03-12,15.320000,seasonal
+pricing_262,product_90,2023-06-10,60.970000,market adjustment
+pricing_263,product_56,2024-05-19,76.100000,promotional
+pricing_264,product_15,2023-06-18,61.650000,seasonal
+pricing_265,product_53,2024-07-02,53.960000,seasonal
+pricing_266,product_64,2024-12-12,55.140000,market adjustment
+pricing_267,product_27,2024-02-29,97.150000,promotional
+pricing_268,product_93,2024-06-07,58.830000,seasonal
+pricing_269,product_2,2023-05-06,64.060000,promotional
+pricing_270,product_56,2023-09-10,53.570000,seasonal
+pricing_271,product_67,2024-10-01,86.450000,market adjustment
+pricing_272,product_60,2024-07-01,81.860000,seasonal
+pricing_273,product_31,2022-05-12,51.070000,promotional
+pricing_274,product_31,2024-05-14,45.050000,market adjustment
+pricing_275,product_80,2024-06-01,76.970000,market adjustment
+pricing_276,product_50,2024-11-22,89.840000,market adjustment
+pricing_277,product_32,2022-04-08,65.220000,market adjustment
+pricing_278,product_48,2022-11-10,68.550000,promotional
+pricing_279,product_55,2022-06-17,45.910000,market adjustment
+pricing_280,product_2,2024-02-07,15.420000,market adjustment
+pricing_281,product_57,2022-12-26,57.650000,promotional
+pricing_282,product_29,2023-10-19,92.910000,promotional
+pricing_283,product_81,2023-09-08,62.930000,promotional
+pricing_284,product_61,2022-09-18,93.620000,promotional
+pricing_285,product_38,2024-08-02,17.300000,promotional
+pricing_286,product_47,2023-12-24,13.960000,seasonal
+pricing_287,product_41,2023-02-13,18.110000,seasonal
+pricing_288,product_30,2023-07-06,14.760000,seasonal
+pricing_289,product_36,2024-07-10,62.010000,market adjustment
+pricing_290,product_94,2022-02-25,91.210000,seasonal
+pricing_291,product_46,2023-11-23,81.410000,seasonal
+pricing_292,product_46,2022-06-04,14.500000,seasonal
+pricing_293,product_59,2022-06-15,33.840000,market adjustment
+pricing_294,product_6,2022-08-06,83.470000,seasonal
+pricing_295,product_44,2023-01-18,94.810000,market adjustment
+pricing_296,product_50,2022-02-03,43.870000,promotional
+pricing_297,product_2,2024-11-09,28.700000,market adjustment
+pricing_298,product_32,2023-09-18,45.290000,seasonal
+pricing_299,product_85,2023-01-07,81.910000,market adjustment
+pricing_300,product_89,2024-10-27,12.530000,market adjustment
+pricing_301,product_36,2023-02-20,48.850000,promotional
+pricing_302,product_22,2024-02-29,45.670000,seasonal
+pricing_303,product_78,2024-06-07,34.960000,promotional
+pricing_304,product_43,2023-07-01,39.670000,promotional
+pricing_305,product_29,2024-05-13,22.080000,market adjustment
+pricing_306,product_64,2022-10-28,42.610000,seasonal
+pricing_307,product_94,2023-08-09,42.920000,promotional
+pricing_308,product_81,2024-03-19,76.650000,market adjustment
+pricing_309,product_69,2022-04-11,96.600000,seasonal
+pricing_310,product_64,2024-03-02,87.500000,market adjustment
+pricing_311,product_20,2022-10-29,13.960000,promotional
+pricing_312,product_16,2024-09-17,91.810000,promotional
+pricing_313,product_88,2022-03-22,12.340000,seasonal
+pricing_314,product_33,2022-10-11,20.250000,promotional
+pricing_315,product_38,2022-09-02,44.500000,seasonal
+pricing_316,product_2,2023-11-05,53.120000,market adjustment
+pricing_317,product_39,2023-03-28,98.250000,market adjustment
+pricing_318,product_63,2023-04-22,74.950000,seasonal
+pricing_319,product_63,2022-08-26,42.500000,market adjustment
+pricing_320,product_38,2024-07-19,92.320000,promotional
+pricing_321,product_29,2023-05-18,14.040000,seasonal
+pricing_322,product_13,2023-09-13,36.750000,seasonal
+pricing_323,product_50,2022-04-19,28.660000,seasonal
+pricing_324,product_1,2023-11-19,45.110000,market adjustment
+pricing_325,product_25,2023-05-07,32.480000,market adjustment
+pricing_326,product_61,2024-02-14,17.210000,market adjustment
+pricing_327,product_67,2023-03-25,44.990000,market adjustment
+pricing_328,product_28,2023-08-06,72.490000,market adjustment
+pricing_329,product_5,2023-09-11,79.140000,market adjustment
+pricing_330,product_48,2024-05-15,69.880000,promotional
+pricing_331,product_74,2023-10-09,69.130000,market adjustment
+pricing_332,product_45,2023-01-24,79.760000,market adjustment
+pricing_333,product_45,2024-10-08,64.630000,promotional
+pricing_334,product_51,2025-01-23,97.170000,seasonal
+pricing_335,product_92,2022-05-14,14.350000,market adjustment
+pricing_336,product_49,2024-10-12,97.530000,promotional
+pricing_337,product_75,2022-12-18,45.630000,seasonal
+pricing_338,product_12,2023-01-04,54.890000,promotional
+pricing_339,product_34,2024-09-29,90.720000,seasonal
+pricing_340,product_38,2023-06-26,28.530000,seasonal
+pricing_341,product_78,2022-12-05,10.080000,seasonal
+pricing_342,product_48,2023-06-22,81.150000,market adjustment
+pricing_343,product_90,2023-10-07,50.200000,promotional
+pricing_344,product_7,2023-10-05,86.890000,promotional
+pricing_345,product_88,2023-04-13,98.580000,promotional
+pricing_346,product_53,2022-08-26,56.260000,market adjustment
+pricing_347,product_41,2022-02-10,58.360000,promotional
+pricing_348,product_35,2022-06-19,83.020000,promotional
+pricing_349,product_49,2024-06-23,66.990000,market adjustment
+pricing_350,product_65,2022-04-25,95.620000,promotional
+pricing_351,product_54,2023-07-05,65.620000,seasonal
+pricing_352,product_84,2023-03-07,63.760000,market adjustment
+pricing_353,product_7,2022-08-13,60.690000,promotional
+pricing_354,product_10,2023-07-03,18.650000,promotional
+pricing_355,product_57,2022-10-25,60.720000,promotional
+pricing_356,product_67,2022-12-22,73.540000,promotional
+pricing_357,product_77,2022-10-22,28.030000,seasonal
+pricing_358,product_60,2023-12-02,42.930000,seasonal
+pricing_359,product_91,2024-05-26,69.440000,market adjustment
+pricing_360,product_88,2023-10-11,24.890000,market adjustment
+pricing_361,product_11,2024-07-18,80.060000,market adjustment
+pricing_362,product_79,2023-12-11,21.680000,seasonal
+pricing_363,product_68,2024-05-31,11.610000,market adjustment
+pricing_364,product_79,2024-03-25,18.830000,market adjustment
+pricing_365,product_77,2024-10-05,64.940000,market adjustment
+pricing_366,product_91,2022-07-21,86.400000,promotional
+pricing_367,product_48,2023-12-20,87.140000,seasonal
+pricing_368,product_48,2024-02-21,68.590000,seasonal
+pricing_369,product_50,2024-02-24,93.940000,promotional
+pricing_370,product_63,2023-04-22,88.770000,seasonal
+pricing_371,product_70,2022-06-13,50.900000,seasonal
+pricing_372,product_54,2024-12-05,77.830000,market adjustment
+pricing_373,product_27,2023-03-31,99.670000,promotional
+pricing_374,product_40,2022-04-13,23.150000,seasonal
+pricing_375,product_64,2023-05-21,89.260000,market adjustment
+pricing_376,product_81,2022-11-16,83.070000,promotional
+pricing_377,product_58,2023-11-12,47.790000,promotional
+pricing_378,product_61,2023-11-02,52.120000,market adjustment
+pricing_379,product_61,2023-05-26,46.490000,promotional
+pricing_380,product_26,2023-04-14,78.670000,promotional
+pricing_381,product_9,2022-03-10,49.590000,seasonal
+pricing_382,product_90,2023-09-16,96.450000,seasonal
+pricing_383,product_6,2022-08-21,56.260000,market adjustment
+pricing_384,product_75,2023-01-24,19.040000,seasonal
+pricing_385,product_93,2022-02-03,12.490000,seasonal
+pricing_386,product_99,2023-12-21,94.460000,promotional
+pricing_387,product_60,2023-03-06,48.900000,market adjustment
+pricing_388,product_5,2024-11-05,56.960000,promotional
+pricing_389,product_35,2023-10-27,73.620000,market adjustment
+pricing_390,product_86,2024-09-10,72.740000,promotional
+pricing_391,product_34,2022-07-24,10.610000,promotional
+pricing_392,product_72,2023-06-12,80.090000,seasonal
+pricing_393,product_24,2024-12-04,53.180000,promotional
+pricing_394,product_77,2023-04-13,77.380000,seasonal
+pricing_395,product_70,2022-07-23,91.900000,seasonal
+pricing_396,product_26,2023-10-23,66.340000,seasonal
+pricing_397,product_64,2024-05-25,56.160000,seasonal
+pricing_398,product_33,2024-10-19,85.660000,promotional
+pricing_399,product_50,2024-06-18,47.520000,seasonal
+pricing_400,product_42,2023-03-04,21.650000,market adjustment
+pricing_401,product_18,2022-12-11,83.000000,promotional
+pricing_402,product_40,2022-10-15,59.050000,seasonal
+pricing_403,product_37,2023-06-05,35.320000,market adjustment
+pricing_404,product_54,2023-01-23,39.660000,seasonal
+pricing_405,product_46,2022-06-20,38.070000,market adjustment
+pricing_406,product_21,2023-10-30,89.530000,market adjustment
+pricing_407,product_57,2024-02-29,74.520000,market adjustment
+pricing_408,product_64,2023-08-17,67.210000,seasonal
+pricing_409,product_10,2024-07-21,19.380000,seasonal
+pricing_410,product_17,2022-04-30,27.720000,seasonal
+pricing_411,product_56,2023-11-09,83.120000,promotional
+pricing_412,product_90,2024-10-10,80.540000,promotional
+pricing_413,product_21,2022-08-01,57.720000,market adjustment
+pricing_414,product_30,2022-12-17,20.700000,market adjustment
+pricing_415,product_42,2022-07-12,51.060000,promotional
+pricing_416,product_45,2024-06-16,74.180000,market adjustment
+pricing_417,product_31,2023-12-15,62.760000,seasonal
+pricing_418,product_19,2023-04-07,99.020000,market adjustment
+pricing_419,product_87,2023-01-18,30.400000,seasonal
+pricing_420,product_40,2024-02-15,31.730000,promotional
+pricing_421,product_12,2024-08-05,72.050000,seasonal
+pricing_422,product_21,2022-08-13,35.020000,seasonal
+pricing_423,product_26,2024-04-18,84.410000,seasonal
+pricing_424,product_73,2024-04-26,57.850000,market adjustment
+pricing_425,product_68,2024-01-06,12.970000,seasonal
+pricing_426,product_21,2022-05-23,76.420000,seasonal
+pricing_427,product_20,2022-03-14,12.520000,market adjustment
+pricing_428,product_77,2024-12-05,82.790000,market adjustment
+pricing_429,product_70,2022-12-31,73.650000,market adjustment
+pricing_430,product_66,2022-10-01,39.700000,market adjustment
+pricing_431,product_22,2022-04-16,59.470000,seasonal
+pricing_432,product_26,2024-02-15,57.140000,market adjustment
+pricing_433,product_24,2022-03-14,81.070000,promotional
+pricing_434,product_27,2022-06-30,21.770000,seasonal
+pricing_435,product_72,2022-08-14,50.350000,market adjustment
+pricing_436,product_8,2022-07-03,34.840000,seasonal
+pricing_437,product_93,2025-01-15,34.410000,promotional
+pricing_438,product_66,2024-04-16,30.170000,market adjustment
+pricing_439,product_88,2022-10-26,32.840000,promotional
+pricing_440,product_8,2024-11-23,95.770000,promotional
+pricing_441,product_35,2022-11-28,20.520000,seasonal
+pricing_442,product_88,2022-10-14,19.620000,market adjustment
+pricing_443,product_35,2022-03-02,26.560000,seasonal
+pricing_444,product_58,2024-02-14,59.300000,market adjustment
+pricing_445,product_31,2023-03-19,15.430000,seasonal
+pricing_446,product_26,2022-03-22,70.810000,market adjustment
+pricing_447,product_67,2023-08-09,45.070000,promotional
+pricing_448,product_96,2022-10-24,42.020000,seasonal
+pricing_449,product_94,2024-04-13,42.630000,market adjustment
+pricing_450,product_63,2025-01-01,91.880000,seasonal
+pricing_451,product_7,2023-05-19,85.650000,promotional
+pricing_452,product_81,2022-09-23,65.300000,promotional
+pricing_453,product_85,2023-12-06,96.420000,market adjustment
+pricing_454,product_6,2024-09-02,24.030000,market adjustment
+pricing_455,product_70,2023-07-28,86.840000,promotional
+pricing_456,product_59,2024-05-26,71.620000,market adjustment
+pricing_457,product_39,2022-08-03,49.270000,promotional
+pricing_458,product_79,2024-09-23,60.180000,market adjustment
+pricing_459,product_83,2023-02-15,83.320000,seasonal
+pricing_460,product_88,2025-01-21,52.610000,market adjustment
+pricing_461,product_85,2024-07-06,34.210000,seasonal
+pricing_462,product_62,2024-07-06,81.560000,seasonal
+pricing_463,product_62,2022-11-03,91.180000,market adjustment
+pricing_464,product_21,2024-09-22,80.810000,promotional
+pricing_465,product_36,2023-07-21,63.700000,seasonal
+pricing_466,product_19,2024-04-08,65.450000,market adjustment
+pricing_467,product_69,2024-04-29,15.760000,market adjustment
+pricing_468,product_23,2023-06-27,45.530000,market adjustment
+pricing_469,product_2,2024-06-14,54.770000,market adjustment
+pricing_470,product_50,2024-12-16,29.350000,market adjustment
+pricing_471,product_50,2023-12-02,14.300000,seasonal
+pricing_472,product_77,2022-03-20,93.050000,promotional
+pricing_473,product_13,2024-01-10,15.340000,promotional
+pricing_474,product_97,2024-05-28,76.010000,seasonal
+pricing_475,product_32,2024-02-26,92.340000,promotional
+pricing_476,product_40,2024-07-29,84.970000,market adjustment
+pricing_477,product_76,2022-12-02,75.740000,market adjustment
+pricing_478,product_97,2023-03-26,77.310000,seasonal
+pricing_479,product_4,2024-09-19,30.560000,promotional
+pricing_480,product_52,2024-07-03,64.510000,market adjustment
+pricing_481,product_45,2022-09-10,68.020000,market adjustment
+pricing_482,product_71,2024-09-28,73.010000,seasonal
+pricing_483,product_16,2022-06-22,84.570000,market adjustment
+pricing_484,product_86,2024-01-19,50.950000,market adjustment
+pricing_485,product_97,2024-01-30,54.740000,market adjustment
+pricing_486,product_67,2024-10-16,22.280000,promotional
+pricing_487,product_27,2024-02-02,40.110000,seasonal
+pricing_488,product_3,2023-06-11,10.270000,market adjustment
+pricing_489,product_95,2024-02-08,67.580000,promotional
+pricing_490,product_63,2023-04-05,26.400000,seasonal
+pricing_491,product_36,2023-10-11,52.520000,promotional
+pricing_492,product_90,2023-07-09,80.150000,promotional
+pricing_493,product_49,2022-09-10,92.570000,market adjustment
+pricing_494,product_94,2023-10-15,82.070000,promotional
+pricing_495,product_38,2022-02-16,88.750000,promotional
+pricing_496,product_13,2022-09-17,63.760000,market adjustment
+pricing_497,product_50,2024-08-12,21.500000,market adjustment
+pricing_498,product_99,2024-03-27,25.780000,seasonal
+pricing_499,product_75,2023-10-03,68.300000,market adjustment

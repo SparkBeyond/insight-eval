@@ -1,0 +1,7 @@
+{
+    "target_column": "battery_failure_risk",
+    "description": "Determine reliability of energy storage batteries under load.",
+    "name": "Battery Storage Reliability",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Energy and utilities"
+}

@@ -1,0 +1,18 @@
+{
+    "enriched_column_names": [
+        "employment_role_and_industry_risk_assessment",
+        "employment_stability_indicator",
+        "percentage_of_monthly_income_paid_towards_similar_loans",
+        "income_growth_trend_over_the_last_five_years",
+        "previous_loan_approval_rate",
+        "frequency_of_residence_changes_in_the_last_decade"
+    ],
+    "features_descriptions": [
+        "employment role and industry risk assessment",
+        "employment stability indicator",
+        "percentage of monthly income paid towards similar loans",
+        "income growth trend over the last five years",
+        "previous loan approval rate",
+        "frequency of residence changes in the last decade"
+    ]
+}

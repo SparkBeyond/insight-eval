@@ -1,0 +1,29 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "total_test_results_for_patient",
+        "age_to_median_age_ratio",
+        "severe_symptom_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.3182861232387611": {
+            "name": "total_test_results_for_patient",
+            "code": "\n\ndef total_test_results_for_patient(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    test_results_df = aux_dataframes.get('test_results_data_table.csv', None)\n    if test_results_df is None:\n        return 0\n    return len(test_results_df[test_results_df['patient_id'] == row.get('patient_id', None)])\n"
+        },
+        "0.007033437351478103": {
+            "name": "age_to_median_age_ratio",
+            "code": "import pandas as pd\nimport datetime\nimport numpy as np\n\ndef age_to_median_age_ratio(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame] = None):\n    # Calculate the current age for all rows in the dataframe\n    current_date = datetime.now()\n    df_train['age'] = df_train['date_of_birth'].apply(\n        lambda dob: (current_date - pd.to_datetime(dob)).days // 365 if pd.notna(dob) else np.nan\n    )\n    \n    # Calculate the median age\n    median_age = df_train['age'].median()\n    \n    # Calculate the age for the current row\n    if pd.isna(row.get('date_of_birth')):\n        return np.nan\n    row_age = (current_date - pd.to_datetime(row.get('date_of_birth'))).days // 365\n    \n    # Return the ratio of the row's age to the median age\n    return row_age / median_age if median_age > 0 else np.nan\n"
+        },
+        "0": {
+            "name": "severe_symptom_ratio",
+            "code": "import numpy as np\n\ndef severe_symptom_ratio(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Retrieve the symptoms dataframe from aux_dataframes\n    symptoms_df = aux_dataframes.get('symptoms_data_table.csv', None)\n    if symptoms_df is None:\n        return np.nan  # Return NaN if the symptoms dataframe is not provided\n    \n    # Extract the symptom list from the row and convert it to a set of lowercase strings\n    symptoms = set(row.get('symptom_list', \"\").lower().split(\",\"))\n    \n    # Extract the set of severe symptoms from the symptoms dataframe\n    severe_symptoms_set = set(symptoms_df[symptoms_df['severity'] == 'high']['symptom_name'].str.lower())\n    \n    # If the symptom list is empty, return 0\n    if not symptoms:\n        return 0\n    \n    # Calculate and return the ratio of severe symptoms to total symptoms\n    return len(symptoms & severe_symptoms_set) / len(symptoms)\n"
+        }
+    },
+    "feature_descriptions": [
+        "total test results for patient",
+        "age to median age ratio",
+        "severe symptom ratio"
+    ]
+}

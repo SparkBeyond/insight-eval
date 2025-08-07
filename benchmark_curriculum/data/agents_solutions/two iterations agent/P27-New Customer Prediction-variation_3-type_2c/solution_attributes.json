@@ -1,0 +1,71 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "gdp_competitor_ratio",
+        "unemployment_rate",
+        "average_online_interaction_time",
+        "gdp_per_capita",
+        "average_customer_spending",
+        "competitor_density",
+        "urbanization_competitors_product",
+        "spending_to_income_ratio",
+        "average_purchase_frequency",
+        "total_customers_reached"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.13960978594338733": {
+            "name": "gdp_competitor_ratio",
+            "code": "\n\ndef gdp_competitor_ratio(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    region_id = row['region_id']\n    regional_econ = aux_dataframes['regional_economics_table.csv']\n    region_data = regional_econ[regional_econ['region_id'] == region_id]\n    if len(region_data) == 0 or row['number_of_competitors'] == 0:\n        return None\n    return region_data['gdp'].values[0] / row['number_of_competitors']\n"
+        },
+        "0.09737556950359597": {
+            "name": "unemployment_rate",
+            "code": "\n\ndef unemployment_rate(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    region_id = row['region_id']\n    regional_econ = aux_dataframes['regional_economics_table.csv']\n    region_data = regional_econ[regional_econ['region_id'] == region_id]\n    if len(region_data) == 0:\n        return None\n    return region_data['unemployment_rate'].values[0]\n"
+        },
+        "0.09720375669418858": {
+            "name": "average_online_interaction_time",
+            "code": "\n\ndef average_online_interaction_time(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    region_id = row['region_id']\n    customer_behavior = aux_dataframes['customer_behavior_table.csv']\n    regional_customers = customer_behavior[customer_behavior['region_id'] == region_id]\n    if len(regional_customers) == 0:\n        return None\n    return regional_customers['online_interaction_time'].mean()\n"
+        },
+        "0.07220171405586598": {
+            "name": "gdp_per_capita",
+            "code": "\n\ndef gdp_per_capita(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    region_id = row['region_id']\n    regional_econ = aux_dataframes['regional_economics_table.csv']\n    region_data = regional_econ[regional_econ['region_id'] == region_id]\n    if len(region_data) == 0:\n        return None\n    return region_data['gdp'].values[0] / row['population']\n"
+        },
+        "0.05413350492084098": {
+            "name": "average_customer_spending",
+            "code": "\n\ndef average_customer_spending(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    region_id = row['region_id']\n    customer_behavior = aux_dataframes['customer_behavior_table.csv']\n    regional_customers = customer_behavior[customer_behavior['region_id'] == region_id]\n    if len(regional_customers) == 0:\n        return None\n    return regional_customers['average_monthly_spending'].mean()\n"
+        },
+        "0.04456469616799817": {
+            "name": "competitor_density",
+            "code": "\n\ndef competitor_density(row):\n    if row['population'] == 0:\n        return None  # Avoid division by zero\n    return row['number_of_competitors'] / (row['population'] / 100000)\n"
+        },
+        "0.030706063865321466": {
+            "name": "urbanization_competitors_product",
+            "code": "\n\ndef urbanization_competitors_product(row):\n    return row['urbanization_rate'] * row['number_of_competitors']\n"
+        },
+        "0.014892005834281458": {
+            "name": "spending_to_income_ratio",
+            "code": "\n\ndef spending_to_income_ratio(row):\n    if row['average_income'] == 0:\n        return None  # Avoid division by zero\n    return row['average_spending_per_customer'] / row['average_income']\n"
+        },
+        "0.010154490605849035": {
+            "name": "average_purchase_frequency",
+            "code": "\n\ndef average_purchase_frequency(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    region_id = row['region_id']\n    customer_behavior = aux_dataframes['customer_behavior_table.csv']\n    regional_customers = customer_behavior[customer_behavior['region_id'] == region_id]\n    if len(regional_customers) == 0:\n        return None\n    return regional_customers['purchase_frequency'].mean()\n"
+        },
+        "0": {
+            "name": "total_customers_reached",
+            "code": "\n\ndef total_customers_reached(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    region_id = row['region_id']\n    campaigns = aux_dataframes['marketing_campaigns_table.csv']\n    region_campaigns = campaigns[campaigns['region_id'] == region_id]\n    return region_campaigns['number_of_customers_reached'].sum()\n"
+        }
+    },
+    "feature_descriptions": [
+        "gdp competitor ratio",
+        "unemployment rate",
+        "average online interaction time",
+        "gdp per capita",
+        "average customer spending",
+        "competitor density",
+        "urbanization competitors product",
+        "spending to income ratio",
+        "average purchase frequency",
+        "total customers reached"
+    ]
+}

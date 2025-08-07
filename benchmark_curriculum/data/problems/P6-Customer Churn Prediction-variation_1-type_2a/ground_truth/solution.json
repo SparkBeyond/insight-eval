@@ -1,0 +1,14 @@
+{
+    "enriched_column_names": [
+        "change_in_average_purchase_value_over_the_last_3_months_compared_to_previous_3_months",
+        "switching_from_high_margin_to_low_margin_items_",
+        "number_of_app_activities_related_to_customer_support_interactions",
+        "number_of_purchases_made_via_mobile_app_in_the_last_6_months"
+    ],
+    "features_descriptions": [
+        "change in average purchase value over the last 3 months compared to previous 3 months",
+        "switching from high margin to low margin items ",
+        "number of app activities related to customer support interactions",
+        "number of purchases made via mobile app in the last 6 months"
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "route_distance_kilometers",
+        "carrier_delay_frequency",
+        "route_complexity",
+        "planned_departure_month",
+        "carrier_maintenance_frequency",
+        "maintenance_to_fleet_size_ratio",
+        "shipment_delay_in_hours",
+        "carrier_fleet_size",
+        "departure_hour",
+        "precipitation_at_departure_repeated_colname1",
+        "route_distance",
+        "route_transit_hub_count",
+        "delay_in_arrival"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "route distance kilometers",
+        "carrier delay frequency",
+        "route complexity",
+        "planned departure month",
+        "carrier maintenance frequency",
+        "maintenance to fleet size ratio",
+        "shipment delay in hours",
+        "carrier fleet size",
+        "departure hour",
+        "precipitation at departure repeated colname1",
+        "route distance",
+        "route transit hub count",
+        "delay in arrival"
+    ]
+}

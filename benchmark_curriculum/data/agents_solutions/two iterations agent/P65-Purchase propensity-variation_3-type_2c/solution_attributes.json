@@ -1,0 +1,38 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "frequency_of_activity",
+        "time_spent_on_product_pages",
+        "checkout_page_visits",
+        "page_activity_count",
+        "total_spending",
+        "recently_viewed_product_popularity",
+        "promo_response_rate",
+        "avg_transaction_amount",
+        "logins_per_day",
+        "is_recent_promotion",
+        "session_duration_normalized",
+        "recency_of_activity",
+        "high_demand_search_ratio",
+        "is_recent_search"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "frequency of activity",
+        "time spent on product pages",
+        "checkout page visits",
+        "page activity count",
+        "total spending",
+        "recently viewed product popularity",
+        "promo response rate",
+        "avg transaction amount",
+        "logins per day",
+        "is recent promotion",
+        "session duration normalized",
+        "recency of activity",
+        "high demand search ratio",
+        "is recent search"
+    ]
+}

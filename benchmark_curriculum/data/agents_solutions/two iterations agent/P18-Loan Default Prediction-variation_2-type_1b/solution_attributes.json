@@ -1,0 +1,26 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "withdrawal_ratio",
+        "transaction_count",
+        "missed_payment_count",
+        "max_transaction_amount",
+        "avg_transaction_amount",
+        "recent_payment_delay_days",
+        "is_employed",
+        "recent_transaction_amount"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "withdrawal ratio",
+        "transaction count",
+        "missed payment count",
+        "max transaction amount",
+        "avg transaction amount",
+        "recent payment delay days",
+        "is employed",
+        "recent transaction amount"
+    ]
+}

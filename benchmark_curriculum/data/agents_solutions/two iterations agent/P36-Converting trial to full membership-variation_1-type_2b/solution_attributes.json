@@ -1,0 +1,40 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "trial_count",
+        "membership_count",
+        "is_active_member",
+        "trial_conversion_rate",
+        "trial_year",
+        "avg_trial_gap",
+        "is_gold_member",
+        "trial_count_repeated_colname1",
+        "num_premium_trials",
+        "total_trial_duration",
+        "has_trial_overlap",
+        "is_customer_retrying",
+        "days_since_signup",
+        "trial_month",
+        "total_membership_duration"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "trial count",
+        "membership count",
+        "is active member",
+        "trial conversion rate",
+        "trial year",
+        "avg trial gap",
+        "is gold member",
+        "trial count repeated colname1",
+        "num premium trials",
+        "total trial duration",
+        "has trial overlap",
+        "is customer retrying",
+        "days since signup",
+        "trial month",
+        "total membership duration"
+    ]
+}

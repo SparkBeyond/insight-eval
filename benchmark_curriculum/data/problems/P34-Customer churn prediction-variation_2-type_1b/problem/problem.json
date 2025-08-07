@@ -1,0 +1,7 @@
+{
+    "target_column": "churn",
+    "description": "Identify customers likely to stop engaging with the service.",
+    "name": "Customer churn prediction",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Retail"
+}

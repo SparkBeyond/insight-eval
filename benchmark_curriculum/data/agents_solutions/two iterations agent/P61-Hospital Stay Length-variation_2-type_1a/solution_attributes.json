@@ -1,0 +1,38 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "chronic_condition_count",
+        "patient_age",
+        "patient_age_repeated_colname1",
+        "age_at_first_hospitalization",
+        "avg_length_of_stay",
+        "median_length_of_stay",
+        "total_treatment_days",
+        "hospitalization_count",
+        "treatment_overlap",
+        "discharge_day_of_week",
+        "unique_treatments",
+        "unique_treatment_count",
+        "previous_surgeries_count",
+        "gender_encoded"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "chronic condition count",
+        "patient age",
+        "patient age repeated colname1",
+        "age at first hospitalization",
+        "avg length of stay",
+        "median length of stay",
+        "total treatment days",
+        "hospitalization count",
+        "treatment overlap",
+        "discharge day of week",
+        "unique treatments",
+        "unique treatment count",
+        "previous surgeries count",
+        "gender encoded"
+    ]
+}

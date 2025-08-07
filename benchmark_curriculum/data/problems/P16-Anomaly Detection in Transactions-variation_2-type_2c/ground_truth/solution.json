@@ -1,0 +1,14 @@
+{
+    "enriched_column_names": [
+        "transaction_volume_in_flagged_zones_over_the_last_30_days",
+        "proximity_to_flagged_fraudulent_regions_in_recent_transactions",
+        "low_average_monthly_balance_relative_to_expenditure_over_the_past_quarter",
+        "unusually_high_frequency_of_transactions_compared_to_account_history"
+    ],
+    "features_descriptions": [
+        "transaction volume in flagged zones over the last 30 days",
+        "proximity to flagged fraudulent regions in recent transactions",
+        "low average monthly balance relative to expenditure over the past quarter",
+        "unusually high frequency of transactions compared to account history"
+    ]
+}

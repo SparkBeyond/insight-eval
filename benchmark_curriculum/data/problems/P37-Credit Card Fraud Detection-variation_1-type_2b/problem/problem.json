@@ -1,0 +1,7 @@
+{
+    "target_column": "is_fraud",
+    "description": "Identify transactions that are potentially fraudulent to prevent losses.",
+    "name": "Credit Card Fraud Detection",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Financial services"
+}

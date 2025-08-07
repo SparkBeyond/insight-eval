@@ -1,0 +1,131 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "days_since_last_transaction",
+        "total_transactions",
+        "account_age",
+        "total_feedbacks",
+        "gender_churn_rate",
+        "marketing_response_rate",
+        "active_days_ratio",
+        "total_spend_per_day",
+        "avg_feedback_score",
+        "region_churn_ratio",
+        "gender_loyalty_trend",
+        "avg_transaction_amount",
+        "total_expense_ratio",
+        "region_avg_loyalty_score",
+        "loyalty_per_spent",
+        "is_recently_active",
+        "refund_rate",
+        "avg_transaction_amount_by_gender",
+        "age_bracket",
+        "high_spender"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.6786605002143774": {
+            "name": "days_since_last_transaction",
+            "code": "import datetime\n\ndef days_since_last_transaction(row, df_train, aux_dataframes):\n    from datetime import datetime\n    transaction_df = aux_dataframes['transaction_history_table.csv']\n    customer_transactions = transaction_df[transaction_df['customer_id'] == row['customer_id']]\n    if customer_transactions.empty:\n        return -1\n    last_transaction = customer_transactions['transaction_date'].max()\n    last_date = datetime.strptime(last_transaction, '%Y-%m-%d %H:%M:%S.%f')\n    return (datetime.now() - last_date).days\n"
+        },
+        "0.20137610948255985": {
+            "name": "total_transactions",
+            "code": "\n\ndef total_transactions(row, df_train, aux_dataframes):\n    transaction_df = aux_dataframes['transaction_history_table.csv']\n    return transaction_df[transaction_df['customer_id'] == row['customer_id']].shape[0]\n"
+        },
+        "0.10941765277552307": {
+            "name": "account_age",
+            "code": "import datetime\n\ndef account_age(row):\n    from datetime import datetime\n    account_date = datetime.strptime(row['account_creation_date'], '%Y-%m-%d %H:%M:%S.%f')\n    return (datetime.now() - account_date).days\n"
+        },
+        "0.10508296558651616": {
+            "name": "total_feedbacks",
+            "code": "\n\ndef total_feedbacks(row, df_train, aux_dataframes):\n    feedback_df = aux_dataframes['customer_feedback_table.csv']\n    return feedback_df[feedback_df['customer_id'] == row['customer_id']].shape[0]\n"
+        },
+        "0.051973891141560695": {
+            "name": "gender_churn_rate",
+            "code": "\n\ndef gender_churn_rate(row, df_train):\n    # Filter out the current row to prevent target leakage\n    df_filtered = df_train[df_train['customer_id'] != row['customer_id']]\n    \n    # Optional: Prevent future data leakage by filtering rows with account_creation_date >= current row's date\n    if 'account_creation_date' in df_train.columns:\n        df_filtered = df_filtered[df_filtered['account_creation_date'] < row['account_creation_date']]\n    \n    # Calculate the mean churn rate for each gender\n    gender_churn = df_filtered.groupby('gender')['Churned'].mean().to_dict()\n    \n    # Return the churn rate for the current row's gender, defaulting to 0 if the gender is not found\n    return gender_churn.get(row['gender'], 0)\n"
+        },
+        "0.047806335414052076": {
+            "name": "marketing_response_rate",
+            "code": "\n\ndef marketing_response_rate(row, df_train, aux_dataframes):\n    campaigns_df = aux_dataframes['marketing_campaigns_table.csv']\n    customer_campaigns = campaigns_df[campaigns_df['customer_id'] == row['customer_id']]\n    if customer_campaigns.empty:\n        return 0\n    response_count = customer_campaigns[customer_campaigns['response'] == True].shape[0]\n    return response_count / customer_campaigns.shape[0]\n"
+        },
+        "0.04078883035381776": {
+            "name": "active_days_ratio",
+            "code": "\n\ndef active_days_ratio(row):\n    return (row['total_spent'] * 365) / max(1, row['customer_age'])\n"
+        },
+        "0.040788830353817744": {
+            "name": "total_spend_per_day",
+            "code": "\n\ndef total_spend_per_day(row):\n    return row['total_spent'] / max(row['customer_age'], 1)\n"
+        },
+        "0.03986646061806369": {
+            "name": "avg_feedback_score",
+            "code": "\n\ndef avg_feedback_score(row, df_train, aux_dataframes):\n    feedback_df = aux_dataframes['customer_feedback_table.csv']\n    customer_feedbacks = feedback_df[feedback_df['customer_id'] == row['customer_id']]\n    return customer_feedbacks['feedback_score'].mean() if not customer_feedbacks.empty else 0\n"
+        },
+        "0.03768199209049249": {
+            "name": "region_churn_ratio",
+            "code": "\n\ndef region_churn_ratio(row, df_train):\n    # Filter the training data to exclude the current row and any rows with account_creation_date in the future\n    filtered_df = df_train[\n        (df_train['account_creation_date'] < row['account_creation_date'])  # Exclude future data\n    ]\n    \n    # Calculate the average churn ratio per region using the filtered data\n    region_churn_avg = filtered_df.groupby('region')['Churned'].mean().to_dict()\n    \n    # Return the churn ratio for the row's region, defaulting to 0 if the region is not found\n    return region_churn_avg.get(row['region'], 0)\n"
+        },
+        "0.02584076245786359": {
+            "name": "gender_loyalty_trend",
+            "code": "\n\ndef gender_loyalty_trend(row, df_train):\n    gender_loyalty_avg = df_train.groupby('gender')['loyalty_score'].mean().to_dict()\n    return gender_loyalty_avg.get(row['gender'], 0)\n"
+        },
+        "0.023065136591472545": {
+            "name": "avg_transaction_amount",
+            "code": "\n\ndef avg_transaction_amount(row, df_train, aux_dataframes):\n    transaction_df = aux_dataframes['transaction_history_table.csv']\n    customer_transactions = transaction_df[transaction_df['customer_id'] == row['customer_id']]\n    return customer_transactions['transaction_amount'].mean() if not customer_transactions.empty else 0\n"
+        },
+        "0.016747266939007206": {
+            "name": "total_expense_ratio",
+            "code": "\n\ndef total_expense_ratio(row, df_train):\n    avg_spent = df_train['total_spent'].mean()\n    return row['total_spent'] / avg_spent if avg_spent != 0 else 0\n"
+        },
+        "0.010349093380526678": {
+            "name": "region_avg_loyalty_score",
+            "code": "\n\ndef region_avg_loyalty_score(row, df_train):\n    region_avg = df_train.groupby('region')['loyalty_score'].mean().to_dict()\n    return region_avg.get(row['region'], 0)\n"
+        },
+        "0.009709321602986192": {
+            "name": "loyalty_per_spent",
+            "code": "\n\ndef loyalty_per_spent(row):\n    return row['loyalty_score'] / row['total_spent'] if row['total_spent'] > 0 else 0\n"
+        },
+        "0.005830473940027784": {
+            "name": "is_recently_active",
+            "code": "\n\ndef is_recently_active(row):\n    return 1 if row['account_status'] == 'Active' else 0\n"
+        },
+        "0.005010150079083956": {
+            "name": "refund_rate",
+            "code": "\n\ndef refund_rate(row, df_train, aux_dataframes):\n    transaction_df = aux_dataframes['transaction_history_table.csv']\n    customer_transactions = transaction_df[transaction_df['customer_id'] == row['customer_id']]\n    if customer_transactions.empty:\n        return 0\n    refund_count = customer_transactions[customer_transactions['transaction_type'] == 'Refund'].shape[0]\n    return refund_count / customer_transactions.shape[0]\n"
+        },
+        "0.0031212009253594347": {
+            "name": "avg_transaction_amount_by_gender",
+            "code": "import pandas as pd\n\ndef avg_transaction_amount_by_gender(row, df_train, aux_dataframes):\n    transaction_df = aux_dataframes['transaction_history_table.csv']\n    merged_df = pd.merge(df_train[['customer_id', 'gender']], transaction_df, on='customer_id')\n    gender_avg = merged_df.groupby('gender')['transaction_amount'].mean().to_dict()\n    return gender_avg.get(row['gender'], 0)\n"
+        },
+        "0.0027031465796799603": {
+            "name": "age_bracket",
+            "code": "\n\ndef age_bracket(row):\n    if row['customer_age'] < 30:\n        return 'young_adult'\n    elif row['customer_age'] < 60:\n        return 'middle_aged'\n    return 'senior'\n"
+        },
+        "0": {
+            "name": "high_spender",
+            "code": "\n\ndef high_spender(row):\n    return 1 if row['total_spent'] > 100000 else 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "days since last transaction",
+        "total transactions",
+        "account age",
+        "total feedbacks",
+        "gender churn rate",
+        "marketing response rate",
+        "active days ratio",
+        "total spend per day",
+        "avg feedback score",
+        "region churn ratio",
+        "gender loyalty trend",
+        "avg transaction amount",
+        "total expense ratio",
+        "region avg loyalty score",
+        "loyalty per spent",
+        "is recently active",
+        "refund rate",
+        "avg transaction amount by gender",
+        "age bracket",
+        "high spender"
+    ]
+}

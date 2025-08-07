@@ -1,0 +1,89 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "data_consumed_sum",
+        "call_duration_sum",
+        "sms_sent_sum",
+        "data_consumed_max",
+        "call_duration_max",
+        "sms_sent_max",
+        "data_consumed_mean",
+        "call_duration_mean",
+        "gender_binary",
+        "age",
+        "sms_sent_mean",
+        "signup_year",
+        "location"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.6908449025214833": {
+            "name": "data_consumed_sum",
+            "code": "\n\ndef data_consumed_sum(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Access the usage_data_table.csv dataframe from aux_data\n    usage_data = aux_data[\"usage_data_table.csv\"]\n    \n    # Filter the usage data for the given customer_id\n    customer_usage = usage_data[usage_data[\"customer_id\"] == customer_id]\n    \n    # Calculate the sum of the 'data_consumed' column for the customer\n    total_data_consumed = customer_usage[\"data_consumed\"].sum()\n    \n    return total_data_consumed\n"
+        },
+        "0.5329200633613663": {
+            "name": "call_duration_sum",
+            "code": "\n\ndef call_duration_sum(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Get the usage data table from aux_data\n    usage_data = aux_data[\"usage_data_table.csv\"]\n    \n    # Filter the usage data for the given customer_id\n    customer_usage = usage_data[usage_data[\"customer_id\"] == customer_id]\n    \n    # Calculate the sum of call durations for the customer\n    total_call_duration = customer_usage[\"call_duration\"].sum()\n    \n    return total_call_duration\n"
+        },
+        "0.5143755715901879": {
+            "name": "sms_sent_sum",
+            "code": "\n\ndef sms_sent_sum(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Access the usage_data_table from aux_data\n    usage_data = aux_data[\"usage_data_table.csv\"]\n    \n    # Filter the usage data for the specific customer_id\n    customer_usage = usage_data[usage_data[\"customer_id\"] == customer_id]\n    \n    # Calculate the sum of the 'sms_sent' column for the customer\n    sms_sum = customer_usage[\"sms_sent\"].sum()\n    \n    return sms_sum\n"
+        },
+        "0.37117971285613527": {
+            "name": "data_consumed_max",
+            "code": "\n\ndef data_consumed_max(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Get the usage_data_table dataframe from aux_data\n    usage_data = aux_data[\"usage_data_table.csv\"]\n    \n    # Filter the usage data for the given customer_id\n    customer_usage = usage_data[usage_data[\"customer_id\"] == customer_id]\n    \n    # Calculate the maximum data consumed by the customer\n    if not customer_usage.empty:\n        max_data_consumed = customer_usage[\"data_consumed\"].max()\n    else:\n        max_data_consumed = 0  # Default to 0 if no usage data is found for the customer\n    \n    return max_data_consumed\n"
+        },
+        "0.2681860099048203": {
+            "name": "call_duration_max",
+            "code": "\n\ndef call_duration_max(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Get the usage_data_table dataframe from aux_data\n    usage_data = aux_data[\"usage_data_table.csv\"]\n    \n    # Filter the usage data for the given customer_id\n    customer_usage = usage_data[usage_data[\"customer_id\"] == customer_id]\n    \n    # Calculate the maximum call duration for the customer\n    if not customer_usage.empty:\n        return customer_usage[\"call_duration\"].max()\n    else:\n        # Return 0 or None if no usage data is found for the customer\n        return 0\n"
+        },
+        "0.26234007767197504": {
+            "name": "sms_sent_max",
+            "code": "\n\ndef sms_sent_max(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the usage data table from aux_data\n    usage_data = aux_data[\"usage_data_table.csv\"]\n    \n    # Filter the usage data for the given customer_id\n    customer_id = row[\"customer_id\"]\n    customer_usage = usage_data[usage_data[\"customer_id\"] == customer_id]\n    \n    # Calculate the maximum SMS sent by the customer\n    if not customer_usage.empty:\n        return customer_usage[\"sms_sent\"].max()\n    else:\n        # Return 0 or an appropriate default value if no usage data is found\n        return 0\n"
+        },
+        "0.24003498464819864": {
+            "name": "data_consumed_mean",
+            "code": "\n\ndef data_consumed_mean(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Get the usage_data_table dataframe from aux_data\n    usage_data = aux_data[\"usage_data_table.csv\"]\n    \n    # Filter the dataframe for the specific customer_id\n    customer_usage = usage_data[usage_data[\"customer_id\"] == customer_id]\n    \n    # Calculate the mean of the 'data_consumed' column for the customer\n    if not customer_usage.empty:\n        return customer_usage[\"data_consumed\"].mean()\n    else:\n        # Return None or 0 if no usage data is available for the customer\n        return None\n"
+        },
+        "0.08319231302184697": {
+            "name": "call_duration_mean",
+            "code": "\n\ndef call_duration_mean(row, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Access the usage_data_table.csv dataframe\n    usage_data = aux_data[\"usage_data_table.csv\"]\n    \n    # Filter the dataframe for the specific customer_id\n    customer_id = row[\"customer_id\"]\n    customer_usage = usage_data[usage_data[\"customer_id\"] == customer_id]\n    \n    # Calculate and return the mean call duration for the customer\n    if not customer_usage.empty:\n        return customer_usage[\"call_duration\"].mean()\n    else:\n        # Return 0 or NaN if the customer has no usage data\n        return 0.0\n"
+        },
+        "0.02172441053727699": {
+            "name": "gender_binary",
+            "code": "\n\ndef gender_binary(row):\n    return 1 if row[\"gender\"] == \"Female\" else 0\n"
+        },
+        "0.021450884377231166": {
+            "name": "age",
+            "code": "\n\ndef age(row):\n    return row[\"age\"]\n"
+        },
+        "0.01482533957704864": {
+            "name": "sms_sent_mean",
+            "code": "\n\ndef sms_sent_mean(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Access the usage_data_table.csv dataframe from aux_data\n    usage_data = aux_data[\"usage_data_table.csv\"]\n    \n    # Filter the dataframe for the specific customer_id\n    customer_usage = usage_data[usage_data[\"customer_id\"] == customer_id]\n    \n    # Calculate and return the mean of the sms_sent column for the customer\n    if not customer_usage.empty:\n        return customer_usage[\"sms_sent\"].mean()\n    else:\n        # Return None or 0 if there is no usage data for the customer\n        return None\n"
+        },
+        "0.004430630647454616": {
+            "name": "signup_year",
+            "code": "\n\ndef signup_year(row):\n    return int(row[\"signup_date\"][:4])\n"
+        },
+        "0.0026988728687669106": {
+            "name": "location",
+            "code": "\n\ndef location(row):\n    return row[\"location\"]\n"
+        }
+    },
+    "feature_descriptions": [
+        "data consumed sum",
+        "call duration sum",
+        "sms sent sum",
+        "data consumed max",
+        "call duration max",
+        "sms sent max",
+        "data consumed mean",
+        "call duration mean",
+        "gender binary",
+        "age",
+        "sms sent mean",
+        "signup year",
+        "location"
+    ]
+}

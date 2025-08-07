@@ -1,0 +1,7 @@
+{
+    "target_column": "HighRisk",
+    "description": "Assess risk levels associated with investment portfolios.",
+    "name": "Portfolio Risk Assessment",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Financial services"
+}

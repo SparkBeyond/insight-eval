@@ -1,0 +1,51 @@
+inspector_id,inspector_name,team_specialization,years_of_experience,certifications,team_id
+1,Renee Horne,automotive,10,"Lean Manufacturing, Six Sigma",9
+2,Ralph Padilla,appliances,4,Six Sigma,7
+3,Ashley Johnson,automotive,9,"Lean Manufacturing, PMP, ISO 9001",9
+4,Paul King,electronics,5,Six Sigma,9
+5,Emily Mathis,furniture,11,"ISO 9001, Kaizen, Six Sigma",7
+6,Jennifer Murillo,electronics,17,"Kaizen, Six Sigma",7
+7,Robert Hutchinson,appliances,1,"Lean Manufacturing, ISO 9001",6
+8,Michael Hansen,electronics,16,"Kaizen, ISO 9001",7
+9,Christine Fernandez,furniture,4,"Six Sigma, Kaizen, Lean Manufacturing",6
+10,Margaret Parker,electronics,9,Lean Manufacturing,4
+11,Todd Wells,furniture,9,"Lean Manufacturing, Kaizen, Six Sigma",3
+12,Brenda Burnett PhD,appliances,4,"Kaizen, Lean Manufacturing, Six Sigma",1
+13,Alicia Watson,electronics,12,PMP,5
+14,Paul Gomez,automotive,2,"Six Sigma, Lean Manufacturing, Kaizen",2
+15,Jade Schroeder,automotive,1,"Kaizen, Six Sigma, PMP",8
+16,Cynthia Hawkins,automotive,6,Lean Manufacturing,3
+17,Kelsey Ward,electronics,7,Kaizen,5
+18,Richard Lee,appliances,11,Six Sigma,7
+19,Kristi Spencer,electronics,10,"PMP, Kaizen",2
+20,Matthew Rangel,electronics,18,"Six Sigma, Kaizen, Lean Manufacturing",5
+21,Gary Stout,furniture,10,PMP,10
+22,Denise Smith,automotive,16,Kaizen,7
+23,Hannah Mcdonald,automotive,3,"Six Sigma, Kaizen",8
+24,Mark Daniel,appliances,7,"Kaizen, ISO 9001",10
+25,Benjamin Hatfield,automotive,2,"Kaizen, Six Sigma",9
+26,Alicia Elliott,furniture,20,"Lean Manufacturing, Six Sigma",4
+27,Jennifer Dennis,appliances,14,"PMP, ISO 9001",9
+28,Leslie Myers,electronics,17,Six Sigma,10
+29,David Hernandez,furniture,15,"PMP, Six Sigma",9
+30,Daniel Wilkinson,automotive,15,Lean Manufacturing,5
+31,Renee Mora,furniture,1,"Lean Manufacturing, Kaizen",4
+32,Amber Howe,electronics,9,Kaizen,1
+33,Ray Combs,electronics,4,"Lean Manufacturing, Six Sigma",2
+34,Jennifer Jones,electronics,15,"Six Sigma, ISO 9001, Kaizen",2
+35,Mark Allen,automotive,2,"Kaizen, ISO 9001, PMP",9
+36,Deborah Martin,appliances,9,"Lean Manufacturing, PMP",7
+37,Nathaniel Tucker,electronics,17,"ISO 9001, Kaizen",5
+38,John Spencer,appliances,11,Lean Manufacturing,3
+39,Jill Coffey,furniture,16,"PMP, ISO 9001",5
+40,Crystal Flores,furniture,3,"PMP, Lean Manufacturing, Kaizen",4
+41,Jackson Johnson,automotive,12,Six Sigma,9
+42,Laura Henderson,furniture,10,PMP,8
+43,Erin Lane,automotive,17,"Six Sigma, Kaizen, ISO 9001",10
+44,Kristi Austin,appliances,16,"PMP, ISO 9001",10
+45,Zachary Fischer,furniture,6,"Six Sigma, Kaizen, PMP",9
+46,Henry Vargas,appliances,18,"Kaizen, Six Sigma",5
+47,Kelly Lee,furniture,16,"Kaizen, Six Sigma",6
+48,Michele Hubbard,electronics,4,"PMP, ISO 9001",7
+49,Jeremy Gordon,electronics,17,"Six Sigma, Kaizen",2
+50,Karen Smith,appliances,3,"Lean Manufacturing, PMP",6

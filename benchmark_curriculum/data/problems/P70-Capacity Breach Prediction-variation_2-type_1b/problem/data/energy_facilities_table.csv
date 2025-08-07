@@ -1,0 +1,201 @@
+facility_id,facility_name,location,capacity_mw,commission_date,facility_type
+1,"Perry, Turner and Diaz",Port Janet,317,2011-07-09,wind
+2,Rodriguez-Johnson,Ochoachester,463,2002-11-19,wind
+3,"Lang, Davidson and Cohen",Taylorside,237,1997-03-06,wind
+4,Hernandez Ltd,West Amber,139,2021-10-14,nuclear
+5,"Jones, Ortiz and Hunter",Bowmanberg,410,2015-10-17,nuclear
+6,Li-Mora,South Nathanton,388,2022-03-22,wind
+7,"Gomez, Chung and Brooks",Port Richardville,106,2012-01-07,solar
+8,Rose LLC,West Calebview,177,2001-02-04,wind
+9,"Poole, Patel and Winters",Donnastad,467,2004-11-17,nuclear
+10,Davis-Andrews,Matthewton,264,2017-11-29,wind
+11,Smith-Garner,Schultzborough,490,2004-08-09,nuclear
+12,Goodman Ltd,Smithshire,460,2011-01-26,wind
+13,Powell Ltd,Whiteview,377,2024-02-21,nuclear
+14,"Rodriguez, Lewis and Wilkinson",Lindamouth,420,2019-08-21,wind
+15,Martin Group,Lake Kelliview,120,2015-01-14,nuclear
+16,Castillo-Weaver,East Amanda,81,2003-04-09,solar
+17,Solis Inc,Willisfort,466,2001-12-26,solar
+18,Black-Wallace,Waltonbury,127,2009-10-20,nuclear
+19,Booker PLC,Lake Belindahaven,322,2007-12-29,nuclear
+20,Brandt-Jackson,New Lawrence,460,2000-06-23,nuclear
+21,Turner LLC,Vargashaven,157,1998-06-24,wind
+22,Lee PLC,South Steven,326,2020-12-25,solar
+23,Herrera Group,Smithview,416,2000-10-31,nuclear
+24,Mckenzie Group,Karenborough,85,1996-11-12,wind
+25,Holmes Ltd,North Danielport,259,2013-09-06,solar
+26,Strickland Inc,Herrerabury,309,2021-05-02,wind
+27,Jefferson Inc,Blanchardside,377,1997-02-08,nuclear
+28,"Baker, Kelly and Bentley",Sullivantown,122,2011-02-01,nuclear
+29,Miller-Brady,Lake Jessicaport,465,2005-01-27,wind
+30,Cook PLC,South Lydia,466,2008-08-03,nuclear
+31,Wright-Becker,Gailfort,222,2006-04-12,solar
+32,Wagner PLC,Port Kelly,271,2008-05-22,wind
+33,"Merritt, Norman and Munoz",Lake Anita,342,2000-03-31,solar
+34,"Boyle, Snyder and Marks",Suechester,435,1997-04-15,nuclear
+35,Jackson Ltd,Port Joe,231,2011-09-24,solar
+36,"Chang, Christensen and Lloyd",Sheilafort,294,2002-10-31,wind
+37,Watson Ltd,West Trevorchester,346,1997-11-28,solar
+38,"Gray, Jackson and Galvan",West Matthewmouth,494,2004-12-14,wind
+39,Paul LLC,Boyershire,172,2010-09-25,solar
+40,Graham Ltd,Joelborough,335,2011-08-26,solar
+41,Combs-Graham,Shirleyport,177,2007-06-12,nuclear
+42,"Harris, Stewart and Johnson",West Emilyfort,234,2007-06-07,solar
+43,"Green, Turner and Orozco",Port Robert,186,2000-12-28,solar
+44,Mclaughlin-Mann,East Kathy,452,2020-07-29,wind
+45,Bryant and Sons,Jenniferberg,148,2023-07-01,nuclear
+46,Rojas-Cervantes,East Joechester,359,2018-05-09,nuclear
+47,Jennings Group,Cookbury,322,2005-02-10,nuclear
+48,Spears-Hodge,Smithville,116,2007-07-05,wind
+49,"Olson, Chung and White",West Thomasborough,387,2000-01-07,wind
+50,Johnson Inc,Scottland,228,2022-04-14,wind
+51,"Lucas, Schmidt and Holland",Lisaton,137,2018-08-14,wind
+52,Fletcher LLC,Lake Brianport,98,2013-10-18,nuclear
+53,Bean-Saunders,North Nathanfort,346,2008-09-15,wind
+54,Richardson-Robinson,West Aprilberg,221,2020-11-10,solar
+55,Carr Inc,Lake Peterville,75,2015-08-11,wind
+56,Thomas-Gonzalez,Williamsview,59,1995-11-10,wind
+57,"Rodriguez, Davis and Alvarez",Kristineport,431,2004-05-25,wind
+58,Tran-Kim,Smithmouth,292,1998-06-05,nuclear
+59,Herrera-Morris,Houseton,77,2021-06-06,nuclear
+60,Ferguson Group,Catherineville,151,2017-01-22,wind
+61,"Guerra, Moore and Krueger",Erinberg,182,2020-07-28,solar
+62,"Gregory, Sawyer and Goodman",North Lisafurt,433,2019-05-03,nuclear
+63,Robertson-Gutierrez,Barbarashire,298,2010-05-12,solar
+64,Guzman-Ingram,Port Mark,367,2002-04-05,nuclear
+65,Ruiz-Tyler,New Corey,318,2001-06-18,nuclear
+66,"Mcdonald, Gonzales and Diaz",Williamsonborough,120,2024-02-17,wind
+67,Smith Inc,Mirandastad,298,2020-03-13,nuclear
+68,Mccarthy-Ferguson,North Cristinamouth,352,2016-04-29,wind
+69,Shepherd-Wade,Port Michael,143,2013-07-26,solar
+70,George-Petersen,Leblancville,178,1999-02-28,solar
+71,Gibson and Sons,Lowerytown,396,2021-12-30,solar
+72,Reyes Ltd,Garciaborough,158,2001-05-23,solar
+73,"Smith, Ayers and Mcdonald",South Jeffrey,481,2007-12-25,nuclear
+74,Green-Daniel,Harrisonburgh,206,1998-06-21,wind
+75,Wright-Garcia,Marcusview,465,2010-07-26,wind
+76,Chavez LLC,New Jason,75,1998-06-12,solar
+77,Wilson-Williams,Katiebury,264,2001-08-10,solar
+78,Martin PLC,South Sandraton,403,2016-09-05,wind
+79,"Stevens, Perry and Stone",Perkinston,479,1996-02-09,wind
+80,Weber LLC,Valdezberg,386,2020-01-10,wind
+81,Morton Ltd,Lake Melissa,295,2023-03-16,solar
+82,Burns-Elliott,Debrachester,327,2001-10-16,solar
+83,"George, Kent and Boyle",Stephenston,328,2016-06-26,nuclear
+84,"Adkins, Anderson and Sanford",North Jessicaport,173,2018-11-24,solar
+85,Cox Inc,North Lisa,322,2006-06-01,wind
+86,Bruce-Alvarez,Port Scott,344,2020-09-05,solar
+87,Franklin Group,Port Johnside,460,2022-05-24,wind
+88,Mack Ltd,South Bonniefort,75,2003-07-12,nuclear
+89,Patel-Cooper,Lake Manuel,299,2018-09-20,nuclear
+90,Brown-Cortez,Bakermouth,251,2006-12-11,wind
+91,"Smith, Carrillo and Russell",Alanton,163,2009-10-29,nuclear
+92,Austin Ltd,Rebeccahaven,258,2006-04-05,nuclear
+93,Neal-Johnson,South Chadchester,370,2019-12-25,wind
+94,Banks-Luna,Port Sydney,89,2022-05-02,wind
+95,"Ibarra, Nelson and Hunter",North Jonathanstad,434,1995-09-04,solar
+96,"Quinn, Tran and Anderson",Johnsonmouth,167,2019-07-25,wind
+97,"Mack, Richardson and Gonzalez",Annaborough,212,2010-09-07,solar
+98,Henderson-Baker,Vanessaside,236,2010-06-10,nuclear
+99,Weaver-Robinson,West Brian,64,2016-01-04,nuclear
+100,Bryant PLC,Danielburgh,345,1998-01-29,nuclear
+101,Harris and Sons,Adrianaport,315,2010-01-31,wind
+102,Jones Group,Aguilarburgh,77,1998-05-11,wind
+103,Vasquez-Benson,New Rileyborough,346,2013-09-12,solar
+104,Wilson LLC,Christieborough,334,2000-10-01,solar
+105,"Larson, Hughes and Garner",Port Josephborough,363,2001-05-20,wind
+106,Cox Ltd,New Kevin,238,1997-11-12,solar
+107,"Webb, Evans and Pierce",Gilesmouth,436,2012-11-27,solar
+108,"Warner, Wright and Evans",Jarvisport,205,2000-04-22,wind
+109,"Morales, Daniels and Walker",East Matthewstad,232,2015-08-18,wind
+110,Marshall-Ross,Hillburgh,352,2001-11-12,solar
+111,"Baker, Carroll and Cooper",West Andrea,315,2024-02-24,solar
+112,Wright and Sons,Port Cody,317,2021-06-04,solar
+113,Edwards-Richmond,East Davidhaven,148,1999-08-20,nuclear
+114,Johnson-Robinson,Laneland,410,2022-11-26,nuclear
+115,"Scott, Miller and Hood",Johnmouth,441,1999-09-14,solar
+116,Reynolds-Brown,Ortegaton,280,2012-07-22,wind
+117,Rose-Gutierrez,New Rachel,278,2024-06-23,nuclear
+118,Ramirez-Johnson,Henryburgh,120,1996-01-12,nuclear
+119,"Nguyen, Anderson and Miller",South Thomasbury,331,1996-11-19,wind
+120,Perez Inc,New Douglasland,281,2005-08-14,solar
+121,Murphy PLC,North Stefanieberg,200,2000-07-19,wind
+122,Nash Group,New Brianmouth,144,2019-07-05,solar
+123,Gonzalez-Baxter,Waltonside,473,2015-03-08,wind
+124,Dunn and Sons,South Derek,222,2008-01-29,wind
+125,Sullivan-Shelton,Lake Raymondview,158,2004-01-26,solar
+126,"Brown, Dominguez and Rangel",Port Robertburgh,186,2020-12-11,solar
+127,Watson Inc,Paulview,315,1996-04-03,nuclear
+128,"Green, Vasquez and Gardner",New Christopher,408,1996-06-02,solar
+129,"Frye, Larsen and Small",Denisechester,64,2007-09-16,solar
+130,Sanchez Group,South Josephland,291,2003-12-08,nuclear
+131,"Bennett, Tapia and Curtis",North Rebeccaside,204,2009-02-13,nuclear
+132,Swanson PLC,Pinedamouth,154,1995-10-10,solar
+133,Hensley-Lucas,Port Michellechester,448,2006-11-05,solar
+134,Martinez-King,East Noah,283,2004-11-05,nuclear
+135,Flores Inc,West Frederickberg,470,2005-07-05,solar
+136,Henderson-Fleming,Lake Victoria,494,2006-10-16,nuclear
+137,"Garcia, Wilkinson and Smith",Murrayside,65,2022-12-19,wind
+138,"Morales, Crawford and Mejia",Thomaston,456,2022-09-10,solar
+139,Lewis Ltd,North Robertchester,269,2003-06-20,solar
+140,Wang Group,South Jamie,428,2021-06-20,nuclear
+141,"Hunt, Ray and Hernandez",Jamesmouth,80,2021-08-14,solar
+142,Wells LLC,Port Kevin,325,2022-02-20,wind
+143,"Dillon, Robinson and Stevens",East Barbaramouth,187,2018-05-08,wind
+144,Walker LLC,Bondborough,227,1995-10-08,nuclear
+145,"Whitaker, Bennett and Molina",South Mariaport,347,2002-02-12,wind
+146,Vincent-Lee,Autumnmouth,257,2004-01-01,solar
+147,"Waters, Guerrero and Hopkins",Kimtown,319,2014-04-03,wind
+148,Stewart Inc,South Charles,91,2008-11-26,nuclear
+149,Matthews-Porter,Lake Carloston,475,2023-03-14,solar
+150,Davis LLC,Roweland,370,2012-10-01,nuclear
+151,Baker-Turner,Jordanville,492,2015-04-01,wind
+152,Reynolds-Fisher,Staceyton,216,2019-07-20,wind
+153,Hickman-Mills,East Stevenside,110,1995-10-06,wind
+154,Smith-Moore,East Marvin,115,2003-02-08,nuclear
+155,"Fry, Gomez and Schroeder",South Ryan,478,2004-10-06,solar
+156,Martin-Smith,South Tracyview,303,2024-03-11,wind
+157,West-Duffy,South Jonathan,276,2004-10-26,solar
+158,Miller-Clark,Amandaborough,180,2003-03-02,solar
+159,"Hamilton, Carr and Montes",Port Jenniferbury,87,2017-09-05,nuclear
+160,Henry Inc,South Loristad,265,2022-08-15,wind
+161,"Alexander, Benitez and Moore",Lake Michelle,400,2018-04-11,solar
+162,Smith-Henry,South Annafort,297,2017-02-04,wind
+163,Evans Ltd,North Ryan,115,2015-08-17,solar
+164,"Cox, Baldwin and Mccullough",Robertston,308,2015-07-09,nuclear
+165,Smith-Hall,North Jessetown,127,1998-07-26,wind
+166,"Krueger, Winters and Smith",Larachester,92,2019-03-05,wind
+167,Carter-Williams,Port Robin,274,1998-07-05,nuclear
+168,Peck Group,East Robert,248,2006-08-10,nuclear
+169,Johnson Inc,Sellersland,359,2011-11-13,solar
+170,Cobb-Torres,East Jennifer,389,2023-11-18,nuclear
+171,Freeman PLC,South Christian,123,2020-03-03,solar
+172,Taylor LLC,North Danielle,350,2003-04-08,nuclear
+173,"Campos, Johnson and Strong",Riceland,212,2000-01-22,wind
+174,Cohen-Sullivan,Lake Daniel,461,2012-03-25,wind
+175,Bowers Ltd,Allenville,258,2000-01-24,solar
+176,Murray Ltd,Port Joshua,365,2009-08-22,solar
+177,Oliver LLC,South Jimmy,136,2020-12-22,nuclear
+178,"Parker, Hoover and Jenkins",Santiagoborough,127,2017-05-24,solar
+179,Chang LLC,East Marthafort,268,2017-02-01,nuclear
+180,Walker PLC,North Michael,214,2011-11-01,nuclear
+181,Silva-Hartman,Port Lisa,438,2018-10-15,wind
+182,Marshall Group,Blakechester,434,2005-08-17,nuclear
+183,Holmes Inc,West Michael,459,2002-10-17,solar
+184,Snyder LLC,Parkerborough,197,2022-07-11,solar
+185,Mejia PLC,East Nicole,303,2019-06-14,wind
+186,Stafford and Sons,South Andrewstad,307,2017-12-20,solar
+187,"Boone, Turner and Butler",Warnershire,240,1999-11-22,solar
+188,Gibson-Thompson,Acostafurt,375,1997-10-15,solar
+189,Willis Inc,Alyssaland,221,2000-10-28,wind
+190,Parsons-Holloway,South Mitchellburgh,89,2006-01-26,wind
+191,Hale-Drake,Savannahstad,94,1996-08-23,nuclear
+192,"Anderson, Delgado and Flowers",Susanborough,243,2020-06-10,solar
+193,Flores Inc,Lake Marc,137,2018-10-17,solar
+194,Choi Ltd,Cameronborough,201,2014-03-03,solar
+195,"Ward, Cantrell and Mayo",New Mark,197,2015-01-30,wind
+196,James-Montgomery,Travisville,440,2013-09-10,wind
+197,"Wright, Adams and Rodriguez",Ashleyberg,214,2008-05-01,solar
+198,Brown-Brock,West Joseph,126,2003-08-31,nuclear
+199,Garrison Inc,Johnbury,186,2009-12-10,wind
+200,Smith LLC,Danielschester,246,2007-03-04,wind

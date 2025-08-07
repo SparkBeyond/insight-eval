@@ -1,0 +1,53 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "complaint_frequency",
+        "average_complaint_satisfaction",
+        "average_monthly_bill",
+        "peak_to_total_energy_ratio",
+        "days_overdue_or_early",
+        "discount_response_ratio",
+        "is_high_bill"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.15937238917007784": {
+            "name": "complaint_frequency",
+            "code": "\n\ndef complaint_frequency(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the service usage data\n    complaints_data = aux_dataframes[\"customer_complaint_table.csv\"]\n    customer_id = row[\"customer_id\"]\n    # Filter the complaints data for the given customer_id\n    customer_complaints = complaints_data[complaints_data[\"customer_id\"] == customer_id]\n    # Return the number of complaints for the customer\n    return len(customer_complaints)\n"
+        },
+        "0.07806016081178642": {
+            "name": "average_complaint_satisfaction",
+            "code": "\n\ndef average_complaint_satisfaction(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe for customer complaints\n    complaints_data = aux_dataframes[\"customer_complaint_table.csv\"]\n    \n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Filter the complaints data for the given customer_id\n    satisfaction_ratings = complaints_data[\n        complaints_data[\"customer_id\"] == customer_id\n    ][\"satisfaction_after_resolution\"]\n    \n    # Return the mean satisfaction rating or None if no ratings are found\n    return satisfaction_ratings.mean() if not satisfaction_ratings.empty else None\n"
+        },
+        "0.03930480234809858": {
+            "name": "average_monthly_bill",
+            "code": "\n\ndef average_monthly_bill(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the billing information table from aux_data\n    billing_info_df = aux_data.get('billing_information_table.csv')\n    \n    # Ensure the billing information table exists\n    if billing_info_df is None:\n        raise ValueError(\"The 'billing_information_table.csv' is missing from aux_data.\")\n    \n    # Get the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Filter the billing information for the given customer_id\n    customer_bills = billing_info_df[billing_info_df[\"customer_id\"] == customer_id][\"bill_amount\"]\n    \n    # Return the mean of the bill amounts if there are any, otherwise return None\n    return customer_bills.mean() if not customer_bills.empty else None\n"
+        },
+        "0.03793852232954149": {
+            "name": "peak_to_total_energy_ratio",
+            "code": "\n\ndef peak_to_total_energy_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe for service usage\n    usage_data = aux_dataframes[\"service_usage_table.csv\"]\n    customer_id = row[\"customer_id\"]\n    \n    # Filter the usage data for the specific customer\n    customer_usage = usage_data[usage_data[\"customer_id\"] == customer_id]\n    \n    if not customer_usage.empty:\n        # Calculate total and peak energy consumption\n        total_energy = customer_usage[\"energy_consumed_kwh\"].sum()\n        peak_energy = customer_usage[\"peak_hours_consumption_kwh\"].sum()\n        \n        # Return the ratio if total_energy is greater than 0\n        return peak_energy / total_energy if total_energy > 0 else None\n    \n    # Return None if no usage data is found for the customer\n    return None\n"
+        },
+        "0.013754875922094506": {
+            "name": "days_overdue_or_early",
+            "code": "import pandas as pd\n\ndef days_overdue_or_early(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the billing_information_table dataframe from aux_data\n    billing_df = aux_data.get(\"billing_information_table.csv\")\n    \n    if billing_df is None:\n        raise ValueError(\"The 'billing_information_table.csv' dataframe is missing from aux_data.\")\n    \n    # Find the corresponding billing record for the given customer_id\n    customer_id = row[\"customer_id\"]\n    customer_billing_records = billing_df[billing_df[\"customer_id\"] == customer_id]\n    \n    if customer_billing_records.empty:\n        # If no billing records are found for the customer, return None\n        return None\n    \n    # Assuming we want to calculate days overdue/early for the most recent billing record\n    most_recent_billing = customer_billing_records.sort_values(\"billing_date\", ascending=False).iloc[0]\n    \n    # Parse the dates\n    billing_date = pd.to_datetime(most_recent_billing[\"billing_date\"], errors=\"coerce\")\n    due_date = pd.to_datetime(most_recent_billing[\"due_date\"], errors=\"coerce\")\n    payment_date = pd.to_datetime(most_recent_billing[\"payment_date\"], errors=\"coerce\")\n    \n    # Calculate days overdue or early\n    if pd.notnull(payment_date) and pd.notnull(due_date):\n        return (payment_date - due_date).days\n    \n    return None\n"
+        },
+        "0.0036358510013632345": {
+            "name": "discount_response_ratio",
+            "code": "\n\ndef discount_response_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual data structure\n    marketing_data = aux_dataframes[\"marketing_engagement_table.csv\"]\n    customer_id = row[\"customer_id\"]\n    \n    # Filter the marketing data for the specific customer\n    customer_engagements = marketing_data[marketing_data[\"customer_id\"] == customer_id]\n    \n    if not customer_engagements.empty:\n        # Calculate the total discounts used and offered\n        discounts_used = customer_engagements[\"discount_used\"].sum()\n        discounts_offered = customer_engagements[\"discount_offered\"].sum()\n        \n        # Return the ratio if discounts_offered is greater than 0\n        return discounts_used / discounts_offered if discounts_offered > 0 else None\n    \n    # Return None if no engagements are found\n    return None\n"
+        },
+        "0": {
+            "name": "is_high_bill",
+            "code": "\n\ndef is_high_bill(row, aux_data: Dict[str, pd.DataFrame], threshold: float = 300.0):\n    # Extract the billing information table from aux_data\n    billing_info_df = aux_data.get('billing_information_table.csv')\n    \n    if billing_info_df is None:\n        raise ValueError(\"The 'billing_information_table.csv' is missing from aux_data.\")\n    \n    # Find the customer's billing information using their customer_id\n    customer_id = row['customer_id']\n    customer_bills = billing_info_df[billing_info_df['customer_id'] == customer_id]\n    \n    if customer_bills.empty:\n        # If no billing information is found for the customer, return False\n        return False\n    \n    # Check if any of the customer's bills exceed the threshold\n    return (customer_bills['bill_amount'] > threshold).any()\n"
+        }
+    },
+    "feature_descriptions": [
+        "complaint frequency",
+        "average complaint satisfaction",
+        "average monthly bill",
+        "peak to total energy ratio",
+        "days overdue or early",
+        "discount response ratio",
+        "is high bill"
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "consumer_confidence_effect",
+        "average_unemployment_rate",
+        "holiday_duration_ratio",
+        "average_temp_during_promotion",
+        "average_inflation_rate",
+        "end_month",
+        "total_revenue_from_promotion",
+        "discount_to_budget_ratio",
+        "avg_loyalty_score_of_customers",
+        "avg_price_per_unit_sales",
+        "date_diff_days"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "consumer confidence effect",
+        "average unemployment rate",
+        "holiday duration ratio",
+        "average temp during promotion",
+        "average inflation rate",
+        "end month",
+        "total revenue from promotion",
+        "discount to budget ratio",
+        "avg loyalty score of customers",
+        "avg price per unit sales",
+        "date diff days"
+    ]
+}

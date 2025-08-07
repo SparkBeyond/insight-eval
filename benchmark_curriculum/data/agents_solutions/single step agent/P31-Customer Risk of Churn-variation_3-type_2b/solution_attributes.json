@@ -1,0 +1,95 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "compute_number_of_complaints",
+        "compute_total_bill_amount",
+        "compute_total_energy_usage",
+        "compute_total_peak_hours_usage",
+        "compute_avg_energy_usage_per_day",
+        "compute_after_service_satisfaction",
+        "compute_payment_days_late",
+        "compute_number_of_marketing_engagements",
+        "compute_avg_satisfaction",
+        "compute_discount_usage_rate",
+        "compute_avg_bill_amount",
+        "compute_avg_discount_offered",
+        "compute_signup_days",
+        "compute_last_login_days"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.1525180645110047": {
+            "name": "compute_number_of_complaints",
+            "code": "\n\ndef compute_number_of_complaints(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the 'customer_complaint_table.csv' dataframe from aux_data\n    customer_complaint_df = aux_data['customer_complaint_table.csv']\n    \n    # Filter the dataframe for the given customer_id and count non-null complaint_id values\n    return customer_complaint_df[customer_complaint_df['customer_id'] == row['customer_id']]['complaint_id'].notna().sum()\n"
+        },
+        "0.14732115089803546": {
+            "name": "compute_total_bill_amount",
+            "code": "\n\ndef compute_total_bill_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe from aux_data\n    billing_df = aux_data['billing_information_table.csv']\n    \n    # Filter the dataframe for the given customer_id and compute the sum of bill_amount\n    return billing_df[billing_df['customer_id'] == row['customer_id']]['bill_amount'].sum()\n"
+        },
+        "0.14459471619098851": {
+            "name": "compute_total_energy_usage",
+            "code": "\n\ndef compute_total_energy_usage(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the 'service_usage_table.csv' dataframe from aux_data\n    service_usage_df = aux_data['service_usage_table.csv']\n    \n    # Filter the dataframe for the given customer_id and sum the 'energy_consumed_kwh' column\n    return service_usage_df[service_usage_df['customer_id'] == row['customer_id']]['energy_consumed_kwh'].sum()\n"
+        },
+        "0.1163103926179407": {
+            "name": "compute_total_peak_hours_usage",
+            "code": "\n\ndef compute_total_peak_hours_usage(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe from aux_data\n    service_usage_df = aux_data['service_usage_table.csv']\n    \n    # Filter the dataframe for the given customer_id and sum the 'peak_hours_consumption_kwh' column\n    return service_usage_df[service_usage_df['customer_id'] == row['customer_id']]['peak_hours_consumption_kwh'].sum()\n"
+        },
+        "0.0889882534646404": {
+            "name": "compute_avg_energy_usage_per_day",
+            "code": "\n\ndef compute_avg_energy_usage_per_day(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe from aux_data\n    service_usage_df = aux_data['service_usage_table.csv']\n    \n    # Filter the dataframe for the specific customer_id and compute the mean energy consumption\n    return service_usage_df[service_usage_df['customer_id'] == row['customer_id']]['energy_consumed_kwh'].mean()\n"
+        },
+        "0.08036230810959218": {
+            "name": "compute_after_service_satisfaction",
+            "code": "\n\ndef compute_after_service_satisfaction(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the customer_complaint_table.csv DataFrame from aux_data\n    customer_complaint_df = aux_data['customer_complaint_table.csv']\n    \n    # Filter the DataFrame for the given customer_id\n    customer_id = row['customer_id']\n    customer_complaints = customer_complaint_df[customer_complaint_df['customer_id'] == customer_id]\n    \n    # Compute the mean satisfaction_after_resolution\n    if not customer_complaints.empty:\n        return customer_complaints['satisfaction_after_resolution'].mean()\n    else:\n        # Return NaN if there are no complaints for the customer\n        return float('nan')\n"
+        },
+        "0.06666187320695326": {
+            "name": "compute_payment_days_late",
+            "code": "import datetime\nimport pandas as pd\n\ndef compute_payment_days_late(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the function is applied to the correct dataframe\n    if 'billing_information_table.csv' not in aux_data:\n        raise ValueError(\"The required 'billing_information_table.csv' is not present in aux_data.\")\n    \n    billing_df = aux_data['billing_information_table.csv']\n    \n    # Check if the row's customer_id exists in the billing dataframe\n    customer_id = row['customer_id']\n    customer_billing_info = billing_df[billing_df['customer_id'] == customer_id]\n    \n    if customer_billing_info.empty:\n        return None  # No billing information for this customer\n    \n    # Extract the first row of billing information for the customer\n    billing_row = customer_billing_info.iloc[0]\n    \n    # Check for missing due_date or payment_date\n    if pd.isnull(billing_row['due_date']) or pd.isnull(billing_row['payment_date']):\n        return None\n    \n    # Compute the days late\n    try:\n        due_date = datetime.strptime(billing_row['due_date'], \"%Y-%m-%d\")\n        payment_date = datetime.strptime(billing_row['payment_date'], \"%Y-%m-%d\")\n        return (payment_date - due_date).days\n    except ValueError:\n        # Handle invalid date formats\n        return None\n"
+        },
+        "0.05762194100128169": {
+            "name": "compute_number_of_marketing_engagements",
+            "code": "\n\ndef compute_number_of_marketing_engagements(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the marketing engagement table from aux_data\n    marketing_engagement_df = aux_data['marketing_engagement_table.csv']\n    \n    # Filter the dataframe for the given customer_id and count non-null engagement_id values\n    return marketing_engagement_df[marketing_engagement_df['customer_id'] == row['customer_id']]['engagement_id'].notna().sum()\n"
+        },
+        "0.04615628046858972": {
+            "name": "compute_avg_satisfaction",
+            "code": "\n\ndef compute_avg_satisfaction(row, df_train: pd.DataFrame):\n    return df_train[df_train['customer_id'] == row['customer_id']]['satisfaction_rating'].mean()\n"
+        },
+        "0.024769170999969312": {
+            "name": "compute_discount_usage_rate",
+            "code": "\n\ndef compute_discount_usage_rate(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe from aux_data\n    marketing_df = aux_data['marketing_engagement_table.csv']\n    \n    # Filter the dataframe for the specific customer_id\n    group = marketing_df[marketing_df['customer_id'] == row['customer_id']]\n    \n    # Compute the discount usage rate\n    discount_usage_rate = group['discount_used'].eq(True).sum() / max(1, group['discount_used'].notna().sum())\n    \n    return discount_usage_rate\n"
+        },
+        "0.02231558606470499": {
+            "name": "compute_avg_bill_amount",
+            "code": "\n\ndef compute_avg_bill_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the billing information dataframe from aux_data\n    billing_df = aux_data['billing_information_table.csv']\n    \n    # Filter the dataframe for the given customer_id and compute the mean of 'bill_amount'\n    return billing_df[billing_df['customer_id'] == row['customer_id']]['bill_amount'].mean()\n"
+        },
+        "0.021967766645677164": {
+            "name": "compute_avg_discount_offered",
+            "code": "\n\ndef compute_avg_discount_offered(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe from aux_data\n    marketing_engagement_df = aux_data['marketing_engagement_table.csv']\n    \n    # Filter the dataframe for the given customer_id and compute the mean of 'discount_offered'\n    customer_discounts = marketing_engagement_df[marketing_engagement_df['customer_id'] == row['customer_id']]['discount_offered']\n    \n    # Return the mean discount offered, or NaN if no discounts are found\n    return customer_discounts.mean() if not customer_discounts.empty else float('nan')\n"
+        },
+        "0.0006015122843956131": {
+            "name": "compute_signup_days",
+            "code": "import datetime\nimport pandas as pd\n\ndef compute_signup_days(row, reference_date='2025-05-09'):\n    if pd.isnull(row['signup_date']):\n        return None\n    return (datetime.strptime(reference_date, \"%Y-%m-%d\") - datetime.strptime(row['signup_date'], \"%Y-%m-%d\")).days\n"
+        },
+        "0": {
+            "name": "compute_last_login_days",
+            "code": "import datetime\nimport pandas as pd\n\ndef compute_last_login_days(row, reference_date='2025-05-09'):\n    if pd.isnull(row['last_login_date']):\n        return None\n    return (datetime.strptime(reference_date, \"%Y-%m-%d\") - datetime.strptime(row['last_login_date'], \"%Y-%m-%d\")).days\n"
+        }
+    },
+    "feature_descriptions": [
+        "compute number of complaints",
+        "compute total bill amount",
+        "compute total energy usage",
+        "compute total peak hours usage",
+        "compute avg energy usage per day",
+        "compute after service satisfaction",
+        "compute payment days late",
+        "compute number of marketing engagements",
+        "compute avg satisfaction",
+        "compute discount usage rate",
+        "compute avg bill amount",
+        "compute avg discount offered",
+        "compute signup days",
+        "compute last login days"
+    ]
+}

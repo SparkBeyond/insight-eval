@@ -1,0 +1,2101 @@
+patient_id,age,gender,ethnicity,height,weight,blood_pressure,cholesterol_level,smoking_status,DiseaseProgressed
+2139,76,Male,Other,152,102,101/62,241,Current,0
+1697,35,Other,African American,195,117,126/74,220,Former,0
+1243,46,Female,African American,191,114,123/77,198,Former,1
+1498,61,Male,Asian,176,97,127/70,218,Never,1
+1187,25,Male,Asian,161,78,99/85,164,Never,1
+716,36,Female,African American,187,80,94/80,216,Never,0
+2889,86,Other,Hispanic,163,80,117/82,242,Never,0
+2885,63,Female,Other,167,107,114/74,210,Never,0
+2213,51,Female,Other,166,94,92/85,154,Current,0
+2710,31,Male,Hispanic,190,94,110/87,163,Current,0
+1140,23,Female,Asian,183,86,139/76,158,Current,0
+452,62,Female,Other,173,56,115/65,155,Current,1
+111,52,Other,African American,162,83,98/71,218,Never,0
+1020,49,Other,Hispanic,151,73,114/89,247,Never,0
+1574,33,Female,Other,179,74,109/72,222,Former,0
+1719,59,Female,African American,158,90,117/74,174,Never,0
+1034,40,Female,Other,185,96,104/60,180,Never,1
+2055,34,Female,Hispanic,164,111,117/89,223,Current,1
+1301,59,Male,Asian,151,85,104/79,224,Current,0
+2624,80,Male,Asian,186,67,99/90,245,Former,0
+2804,62,Male,Other,194,63,108/79,199,Former,0
+2967,64,Male,Hispanic,181,100,93/83,213,Current,0
+1645,55,Male,African American,198,58,106/71,185,Former,0
+564,88,Female,Other,179,114,109/71,223,Never,0
+2258,59,Female,Hispanic,172,59,101/67,156,Never,0
+255,79,Male,African American,172,100,94/63,164,Never,1
+573,66,Other,Other,200,61,90/65,204,Current,0
+806,69,Other,African American,170,99,139/88,208,Former,1
+619,30,Other,Other,192,106,130/60,225,Current,0
+2891,51,Male,Other,155,98,96/65,193,Current,0
+2183,72,Male,Hispanic,187,64,115/70,205,Never,0
+2290,18,Male,Hispanic,183,86,97/68,203,Current,1
+2810,88,Other,Caucasian,196,65,100/67,160,Current,0
+861,81,Other,Other,169,110,131/88,180,Never,0
+1356,45,Female,Caucasian,194,102,96/90,178,Former,1
+2212,61,Female,Caucasian,198,105,116/84,191,Former,0
+506,50,Male,Asian,163,88,125/72,244,Former,0
+2932,55,Male,Hispanic,184,80,118/76,213,Current,0
+2617,38,Other,Hispanic,171,84,137/82,180,Never,0
+284,25,Male,Asian,188,61,105/78,227,Current,0
+1267,44,Male,Hispanic,153,88,111/81,215,Never,0
+1679,47,Female,African American,183,68,130/90,246,Current,0
+336,42,Other,African American,160,94,103/79,178,Never,0
+2078,38,Male,Caucasian,156,103,133/63,172,Former,0
+1942,68,Other,African American,160,118,111/62,240,Current,0
+2623,25,Other,Hispanic,184,108,106/64,176,Current,0
+2458,55,Female,Other,152,60,133/85,151,Former,0
+581,38,Other,Asian,184,114,124/62,246,Never,0
+2796,89,Other,Hispanic,188,114,133/86,245,Former,1
+1674,51,Other,Other,154,119,108/87,201,Never,1
+2073,66,Other,Hispanic,158,56,99/73,189,Former,0
+1378,29,Male,African American,161,67,110/62,225,Never,0
+74,74,Female,Caucasian,158,53,98/74,214,Current,1
+1773,88,Female,African American,196,85,137/80,158,Current,0
+1525,56,Male,Other,194,102,115/68,164,Current,0
+2342,20,Male,African American,173,75,139/66,229,Current,0
+212,86,Other,African American,172,84,91/68,246,Current,0
+1453,82,Male,African American,196,56,107/90,237,Current,0
+207,18,Other,African American,193,91,140/66,180,Never,0
+1955,28,Male,Caucasian,171,61,132/88,168,Former,0
+1536,62,Other,Asian,199,60,93/69,197,Former,0
+2376,86,Other,Other,163,99,118/83,154,Former,0
+22,29,Other,Caucasian,183,51,102/90,223,Never,0
+1661,37,Other,Other,196,69,135/80,159,Current,0
+979,32,Other,Other,179,63,126/65,206,Current,0
+480,25,Other,African American,152,77,130/70,205,Former,0
+2281,58,Other,Caucasian,165,105,90/85,211,Current,0
+876,22,Female,Caucasian,191,79,132/80,249,Former,0
+1019,51,Other,Hispanic,199,83,108/89,178,Current,0
+2159,74,Male,African American,155,96,129/62,247,Current,0
+1474,54,Male,Hispanic,191,75,112/64,250,Never,0
+239,81,Other,Caucasian,191,91,97/74,205,Current,0
+1095,71,Female,Hispanic,181,87,99/74,221,Former,1
+264,29,Female,Asian,163,101,109/71,197,Current,0
+1129,53,Male,Caucasian,195,92,111/72,204,Former,0
+790,31,Other,Other,151,92,102/80,223,Former,0
+2474,75,Female,Caucasian,178,87,132/69,206,Never,0
+2276,24,Female,Asian,156,67,108/83,222,Current,0
+2184,64,Other,Caucasian,165,83,115/77,164,Former,0
+2268,90,Other,Caucasian,153,82,109/90,192,Former,0
+531,58,Male,Caucasian,180,86,112/74,222,Former,1
+1025,76,Male,African American,186,71,91/82,223,Former,0
+2698,88,Female,Hispanic,183,95,112/62,199,Current,1
+1260,25,Other,Other,185,51,137/75,211,Never,0
+1425,83,Male,Hispanic,151,102,106/80,229,Never,0
+1307,27,Female,Asian,169,57,121/83,226,Current,0
+700,73,Female,Asian,162,71,90/74,183,Never,1
+1361,25,Male,Other,183,108,98/77,237,Never,0
+386,48,Female,Caucasian,177,106,113/78,210,Former,0
+2355,54,Female,Hispanic,191,91,127/73,234,Former,0
+2369,34,Other,Asian,158,112,130/69,209,Current,0
+1117,36,Male,Hispanic,180,93,116/70,189,Former,0
+1373,88,Other,Asian,181,63,129/86,184,Former,1
+40,59,Male,African American,197,84,109/72,191,Never,0
+208,62,Male,Asian,163,116,113/61,196,Current,0
+1426,21,Other,Other,156,108,134/85,187,Current,0
+79,31,Female,Other,196,82,110/74,183,Never,0
+1914,45,Other,African American,199,51,98/86,219,Former,1
+2909,76,Other,Caucasian,181,75,132/69,212,Former,1
+1941,59,Male,Other,193,104,118/89,155,Current,1
+2594,44,Male,Asian,153,116,125/75,164,Former,1
+222,23,Male,Caucasian,190,60,100/74,224,Never,0
+813,80,Female,Hispanic,151,104,104/70,199,Current,0
+1269,56,Female,Caucasian,194,64,92/87,215,Never,1
+1058,31,Other,Other,155,117,114/74,199,Current,0
+308,31,Male,African American,188,87,138/68,191,Former,0
+1987,50,Male,Caucasian,167,69,112/88,180,Current,0
+85,22,Male,Asian,161,92,137/65,243,Former,0
+2544,44,Female,Asian,154,63,125/74,174,Former,0
+2311,72,Female,African American,193,73,109/69,202,Never,0
+2152,39,Other,African American,152,99,109/65,190,Current,0
+2968,82,Female,Other,163,115,111/60,173,Current,0
+567,23,Other,Caucasian,155,94,105/82,229,Former,0
+1651,90,Female,African American,176,74,112/71,159,Current,0
+2894,76,Male,Asian,171,93,90/78,177,Former,0
+2418,20,Male,Other,155,117,109/66,167,Former,0
+1604,81,Male,African American,199,101,95/85,194,Never,0
+751,20,Other,Asian,170,92,117/80,231,Former,0
+802,76,Male,Caucasian,164,54,103/86,189,Never,0
+1030,44,Female,African American,172,67,121/78,192,Former,0
+618,20,Male,African American,178,61,98/71,160,Former,0
+2771,83,Female,Hispanic,166,73,103/65,248,Former,0
+453,37,Other,African American,155,85,95/89,168,Never,1
+870,35,Other,Other,169,94,111/69,184,Former,0
+206,34,Female,Hispanic,172,77,103/65,190,Never,0
+2200,76,Male,Hispanic,162,58,120/82,223,Never,0
+1250,55,Male,Caucasian,158,117,116/80,223,Current,0
+1293,49,Male,Asian,194,94,101/85,165,Never,0
+1295,66,Female,Other,170,95,124/86,190,Former,0
+203,23,Male,Other,157,84,123/80,161,Current,0
+662,51,Male,Hispanic,189,109,140/72,221,Former,0
+1717,19,Other,African American,186,65,114/70,209,Current,0
+381,43,Other,Other,162,99,131/80,157,Former,0
+2832,68,Male,African American,195,65,112/84,212,Current,1
+1278,39,Female,African American,182,85,133/76,230,Never,0
+1027,37,Female,Other,196,66,96/78,228,Never,0
+2693,44,Other,African American,174,93,120/77,217,Never,1
+1654,54,Male,Asian,154,86,124/74,183,Current,0
+1968,28,Male,Hispanic,154,110,115/87,155,Former,0
+2895,32,Female,Hispanic,172,87,128/64,208,Current,0
+2221,32,Other,Asian,181,70,109/80,175,Current,0
+349,84,Male,African American,183,116,109/74,213,Former,0
+2225,19,Male,Caucasian,157,102,105/65,160,Current,0
+2608,85,Other,Caucasian,159,57,95/79,158,Current,0
+991,70,Other,Asian,161,76,110/78,223,Current,0
+922,26,Female,Other,186,50,129/83,198,Current,0
+2181,79,Male,Other,190,54,128/88,209,Former,0
+1087,66,Male,Caucasian,172,57,92/74,170,Former,1
+2360,22,Other,Hispanic,182,79,106/62,153,Current,1
+670,75,Male,Hispanic,190,82,134/83,176,Former,1
+1210,57,Other,Asian,150,102,138/80,176,Never,1
+202,76,Other,African American,181,103,136/71,198,Current,0
+1994,29,Male,Asian,167,61,140/72,200,Former,0
+2402,64,Other,Caucasian,156,54,122/84,220,Former,1
+1609,37,Male,African American,173,77,102/78,220,Never,0
+1993,34,Female,Asian,171,74,100/70,219,Never,0
+912,47,Female,Asian,199,59,108/60,218,Former,0
+2270,37,Male,African American,167,119,125/90,192,Former,1
+1671,53,Male,Caucasian,187,110,100/77,198,Former,0
+2113,36,Male,Hispanic,164,54,90/89,203,Never,0
+2568,40,Male,Hispanic,158,93,110/80,200,Former,0
+1823,89,Female,African American,180,83,120/66,232,Current,0
+318,49,Female,Other,158,119,140/88,214,Former,0
+1882,86,Other,Other,199,61,109/62,209,Former,0
+896,44,Female,Hispanic,189,113,120/73,248,Former,0
+939,20,Other,Hispanic,178,78,129/78,172,Former,0
+1979,52,Male,African American,190,95,107/76,222,Former,0
+1304,42,Female,Caucasian,194,111,112/84,209,Former,1
+774,77,Female,African American,184,72,103/71,250,Former,1
+1492,84,Other,Asian,186,86,106/80,200,Current,0
+2451,31,Other,African American,159,67,94/86,203,Never,1
+117,45,Male,Other,166,102,112/67,170,Former,0
+2368,40,Female,Other,157,93,95/84,227,Never,0
+2327,59,Female,African American,170,91,114/84,177,Never,0
+2128,66,Other,Asian,166,109,96/73,223,Never,0
+1732,73,Other,Asian,192,64,133/84,206,Former,0
+220,19,Male,Hispanic,155,93,112/87,230,Former,0
+1347,42,Male,Asian,164,87,103/76,243,Never,0
+2370,35,Male,African American,194,62,111/90,230,Current,1
+693,23,Other,African American,161,72,110/83,220,Current,1
+2277,19,Female,African American,173,115,95/85,213,Never,0
+947,31,Other,African American,164,95,92/77,183,Former,0
+2511,74,Other,Asian,190,91,123/90,214,Never,1
+1284,63,Female,Hispanic,171,83,118/62,224,Former,0
+1508,86,Male,Hispanic,151,63,123/69,245,Current,0
+706,56,Other,African American,159,75,107/68,161,Former,0
+865,72,Female,Hispanic,170,95,118/76,247,Never,1
+2998,58,Female,Other,150,76,109/67,250,Former,0
+1777,90,Other,Other,190,68,102/75,208,Never,0
+1457,54,Female,Hispanic,154,110,116/82,191,Former,0
+1840,47,Female,African American,185,66,99/80,185,Former,1
+2423,71,Female,Asian,169,61,133/75,154,Current,0
+383,25,Other,Hispanic,190,79,140/71,245,Current,1
+2125,35,Other,Hispanic,166,77,100/60,173,Never,0
+433,57,Female,Other,195,107,92/86,207,Current,0
+2144,26,Female,Other,191,117,103/81,153,Current,1
+44,22,Other,Other,153,95,133/80,212,Former,0
+787,39,Female,Caucasian,176,72,109/70,174,Never,1
+2359,80,Male,Hispanic,181,93,109/67,221,Never,1
+2921,78,Male,Caucasian,166,118,126/61,153,Never,0
+733,23,Male,Caucasian,170,78,91/68,151,Never,0
+1841,63,Female,Hispanic,162,107,118/65,174,Current,0
+1900,78,Female,Asian,177,101,90/81,241,Current,0
+1826,86,Other,Asian,196,118,105/70,216,Former,0
+2066,73,Female,Caucasian,164,51,125/80,236,Former,0
+562,76,Female,Hispanic,171,104,105/70,179,Never,1
+2197,78,Female,Hispanic,191,74,107/79,176,Never,1
+2251,62,Other,African American,170,108,111/80,185,Former,0
+1946,42,Other,Other,189,118,139/86,170,Former,0
+1855,46,Other,Asian,193,69,100/90,237,Former,0
+50,48,Female,Hispanic,163,72,121/60,210,Current,0
+1206,76,Other,Other,167,84,113/66,225,Former,0
+1079,18,Other,Other,198,83,128/70,210,Never,0
+754,50,Other,African American,185,110,97/63,235,Former,0
+34,67,Other,Other,198,69,132/77,168,Current,0
+1915,74,Male,African American,171,56,126/65,240,Never,0
+1382,34,Female,African American,171,89,135/74,155,Never,0
+2823,63,Female,Caucasian,190,71,128/88,221,Former,0
+866,20,Other,African American,180,73,136/71,187,Never,1
+213,36,Male,Asian,165,80,121/76,153,Current,0
+2928,86,Female,Hispanic,152,77,124/80,188,Current,0
+404,90,Other,Caucasian,185,65,120/78,155,Current,0
+2121,57,Female,Hispanic,150,62,105/90,197,Current,0
+2733,54,Female,Other,190,58,118/69,225,Current,1
+63,80,Male,Other,191,109,109/79,165,Never,0
+113,88,Female,Hispanic,171,75,122/82,181,Current,0
+463,84,Female,Asian,181,66,112/87,230,Former,0
+1933,27,Male,African American,189,113,131/69,220,Former,0
+1235,60,Female,Asian,184,54,95/87,223,Never,0
+2508,64,Male,Caucasian,192,120,129/66,243,Never,0
+836,37,Female,African American,159,68,107/74,217,Never,0
+405,53,Male,Asian,195,106,124/66,181,Current,0
+108,39,Male,Asian,181,100,134/76,150,Never,0
+1866,76,Other,Other,151,89,123/66,216,Never,0
+2198,77,Other,Asian,187,66,128/79,242,Never,0
+910,89,Male,Hispanic,151,108,107/82,173,Current,0
+2660,57,Male,Caucasian,165,67,102/81,225,Never,0
+123,25,Male,Hispanic,192,56,93/78,158,Former,1
+1639,32,Other,Hispanic,163,54,105/80,185,Never,0
+503,40,Other,Other,175,106,131/64,157,Never,0
+1754,75,Male,African American,171,64,136/63,231,Never,0
+2929,54,Other,Caucasian,169,119,112/71,233,Former,0
+2209,78,Female,Other,187,60,115/73,163,Current,0
+246,60,Male,Other,162,54,103/68,210,Never,0
+771,50,Other,Caucasian,174,79,131/79,230,Former,1
+2207,37,Other,Asian,164,65,128/74,180,Never,0
+1075,66,Female,Asian,184,89,105/78,215,Former,1
+1104,69,Other,African American,197,55,135/89,249,Current,0
+1462,84,Female,Other,154,109,132/80,172,Former,0
+1423,35,Other,African American,172,62,97/81,166,Never,0
+2228,27,Other,Asian,194,98,139/82,160,Former,0
+2381,80,Female,African American,158,52,103/66,224,Current,0
+1707,64,Female,African American,150,73,101/87,197,Former,0
+1662,27,Male,Caucasian,196,106,121/85,152,Current,0
+31,34,Other,African American,181,86,118/63,182,Current,0
+2154,87,Other,Other,167,61,140/67,190,Never,0
+1390,71,Female,Asian,153,101,120/71,232,Current,0
+332,29,Other,Caucasian,191,71,136/81,226,Never,1
+138,49,Other,Caucasian,152,116,107/88,195,Never,0
+2566,23,Other,Other,168,65,100/79,215,Former,0
+1167,42,Male,Caucasian,175,118,111/78,191,Never,1
+1333,81,Male,Caucasian,193,119,130/78,156,Never,0
+1318,45,Female,Other,158,100,125/85,167,Former,0
+482,52,Other,Caucasian,183,75,112/79,183,Former,0
+1370,53,Female,Asian,170,54,123/64,242,Never,1
+522,26,Other,Asian,158,119,109/90,223,Current,0
+2206,56,Female,Caucasian,159,109,130/67,178,Former,0
+997,33,Female,Caucasian,156,83,98/81,243,Former,0
+2026,28,Other,African American,169,94,122/75,235,Never,1
+1161,53,Female,Other,175,65,126/78,183,Former,0
+1813,68,Male,Hispanic,187,63,112/89,160,Never,0
+511,27,Male,African American,198,111,130/72,150,Never,0
+1045,31,Female,Other,189,88,126/64,184,Former,0
+1024,65,Female,Caucasian,200,54,91/77,236,Never,0
+302,45,Male,Caucasian,162,69,121/72,165,Never,1
+1723,35,Other,Asian,174,55,101/78,232,Current,0
+1272,43,Female,African American,152,95,118/64,184,Never,0
+821,72,Male,Caucasian,158,61,109/85,153,Current,0
+1978,69,Other,African American,177,57,123/83,181,Former,0
+2997,83,Female,Caucasian,197,93,133/71,216,Current,0
+526,50,Male,Other,171,58,130/82,154,Former,1
+2933,64,Male,Other,162,57,116/70,244,Current,0
+2068,23,Other,African American,190,108,95/79,182,Never,0
+2344,73,Female,Hispanic,179,64,97/68,218,Never,0
+622,51,Male,Other,188,115,113/87,222,Never,1
+1204,90,Other,Hispanic,159,77,96/68,197,Never,0
+341,85,Female,Asian,171,115,108/74,238,Former,1
+1786,58,Female,Other,166,64,115/77,173,Current,0
+1793,34,Other,Asian,171,89,140/70,178,Never,0
+2163,75,Female,Asian,173,102,124/85,169,Former,1
+1592,38,Male,Hispanic,154,89,109/75,165,Never,0
+2805,33,Female,Other,164,116,115/61,192,Former,0
+2476,29,Male,Asian,199,76,96/87,184,Never,0
+632,47,Female,Asian,191,53,140/90,197,Former,0
+2291,36,Other,Asian,181,113,122/86,177,Never,0
+585,33,Other,Other,180,78,115/78,193,Current,1
+674,23,Other,African American,196,83,111/84,219,Former,0
+2403,80,Female,Caucasian,165,89,95/69,157,Current,0
+2191,79,Other,Hispanic,182,63,116/68,176,Never,0
+1299,87,Other,Other,191,62,116/62,180,Never,0
+2021,18,Other,African American,200,71,91/78,250,Former,0
+1154,50,Other,Other,159,63,97/74,185,Never,0
+1668,37,Female,Other,198,78,107/79,250,Current,1
+270,77,Other,African American,193,88,140/66,248,Current,0
+2527,47,Other,Asian,172,107,115/74,182,Current,0
+968,66,Male,Hispanic,158,91,93/89,234,Current,0
+691,87,Male,African American,158,110,121/71,240,Former,0
+2972,66,Male,Asian,185,70,93/73,246,Current,0
+966,39,Male,African American,173,57,109/66,182,Current,0
+1750,28,Other,African American,180,53,132/90,182,Current,0
+2242,63,Male,Asian,174,75,116/74,229,Current,1
+2738,45,Other,Caucasian,191,58,129/77,167,Never,0
+2214,42,Female,Other,177,106,134/79,238,Current,0
+1816,30,Male,African American,179,76,114/65,208,Never,0
+2056,26,Male,Asian,159,105,93/78,221,Never,0
+527,24,Other,African American,162,51,127/71,199,Former,0
+1183,25,Female,Other,196,107,124/63,206,Former,0
+994,79,Other,Hispanic,158,69,111/63,167,Never,0
+2031,35,Female,Caucasian,151,55,104/61,211,Current,1
+2865,75,Male,Hispanic,159,80,97/85,247,Never,0
+2058,20,Female,Other,176,119,116/64,160,Former,0
+783,29,Other,African American,197,114,126/82,250,Former,0
+1526,81,Female,Hispanic,152,85,140/70,241,Never,1
+29,62,Other,Other,176,101,90/76,246,Former,0
+2603,45,Other,African American,182,118,132/77,214,Never,1
+502,20,Male,Caucasian,159,95,106/77,218,Former,1
+2908,44,Other,Caucasian,170,91,103/77,189,Never,0
+2019,59,Male,Caucasian,158,118,116/61,246,Never,0
+315,70,Male,Caucasian,189,114,131/84,244,Former,0
+1764,32,Female,Other,171,81,98/63,240,Current,0
+355,35,Other,African American,178,116,137/68,247,Current,0
+2111,38,Other,African American,161,75,117/81,193,Former,0
+1550,61,Female,Hispanic,172,76,132/64,150,Never,0
+999,73,Male,Hispanic,174,51,103/86,197,Current,1
+698,90,Other,Hispanic,165,95,128/81,231,Current,0
+290,51,Other,African American,187,65,127/77,219,Former,1
+1216,35,Male,Caucasian,188,109,122/77,228,Current,0
+299,43,Male,Caucasian,163,91,118/81,235,Never,0
+1182,59,Female,Other,197,57,126/79,223,Former,0
+1392,54,Other,Asian,153,69,131/77,158,Current,0
+1895,59,Male,Hispanic,191,53,139/76,234,Never,0
+1317,78,Male,Other,189,63,106/84,248,Former,1
+609,80,Female,Hispanic,161,111,108/87,159,Former,0
+613,25,Female,African American,170,87,139/70,213,Never,0
+1090,81,Male,Asian,153,50,124/62,228,Former,0
+1263,85,Male,Caucasian,163,93,110/89,245,Former,0
+1571,70,Other,Hispanic,158,111,124/66,218,Former,1
+1334,56,Other,Caucasian,172,64,108/89,230,Current,1
+2911,65,Male,African American,175,56,119/77,214,Never,0
+2106,39,Female,Hispanic,162,79,115/65,159,Current,0
+2590,81,Female,Asian,183,61,97/64,205,Current,0
+588,69,Male,Hispanic,167,102,130/71,169,Never,0
+1787,22,Female,Asian,176,102,104/81,198,Never,0
+427,28,Other,Hispanic,157,60,118/68,154,Former,0
+2563,89,Other,Hispanic,155,59,138/75,189,Current,0
+1055,80,Female,Other,161,53,90/84,243,Former,0
+972,46,Male,Hispanic,169,102,111/90,213,Never,0
+888,39,Male,African American,163,57,94/76,161,Former,1
+874,45,Female,Other,196,115,99/61,176,Former,0
+2231,56,Male,Caucasian,176,103,135/73,215,Never,0
+1513,84,Male,Caucasian,199,119,131/70,201,Current,0
+2648,67,Female,Asian,179,97,135/71,240,Current,0
+1538,58,Female,African American,154,83,124/86,190,Current,1
+1107,39,Other,African American,184,56,129/87,208,Former,0
+323,24,Male,Other,196,109,103/70,214,Former,1
+1261,23,Female,Hispanic,185,78,111/75,186,Former,1
+1657,88,Male,Asian,189,104,133/80,167,Current,0
+834,25,Other,Asian,182,117,107/71,206,Never,0
+1294,55,Male,Asian,173,81,127/88,160,Never,1
+49,73,Female,African American,193,101,114/75,192,Never,0
+145,36,Female,Caucasian,155,93,100/81,169,Former,0
+2331,29,Other,Hispanic,191,66,106/70,163,Never,0
+2385,81,Other,Hispanic,185,117,98/69,214,Never,0
+247,57,Other,Asian,160,56,105/90,185,Former,0
+1442,84,Female,Hispanic,171,63,116/67,184,Never,1
+2016,50,Other,Asian,162,67,122/66,224,Never,0
+1655,34,Female,Asian,176,110,121/88,237,Former,0
+1734,62,Female,African American,167,104,107/89,209,Current,0
+2499,71,Other,Caucasian,185,119,103/68,219,Never,1
+1063,35,Female,Hispanic,163,89,100/85,192,Former,0
+1240,78,Male,Asian,150,51,90/85,169,Current,0
+2799,69,Other,African American,165,108,108/77,202,Current,0
+665,31,Male,Hispanic,181,99,93/71,211,Never,0
+1700,33,Female,Asian,186,78,113/88,190,Former,0
+873,33,Female,Caucasian,185,65,131/61,215,Current,0
+776,88,Female,Other,187,88,90/83,151,Former,0
+853,83,Other,Hispanic,156,87,112/70,202,Former,1
+1486,37,Other,Other,163,99,102/82,160,Never,1
+803,52,Female,Hispanic,168,103,128/76,215,Former,0
+943,20,Other,Hispanic,179,113,96/74,236,Current,0
+2595,53,Male,African American,156,114,127/82,246,Current,1
+1556,70,Other,African American,152,89,95/63,210,Former,1
+293,88,Other,African American,167,56,125/76,231,Former,1
+2767,81,Male,Asian,178,53,133/78,250,Never,1
+810,52,Female,African American,161,111,137/77,241,Former,0
+1455,33,Female,Caucasian,190,103,116/78,224,Former,0
+2051,18,Female,Other,151,111,113/82,197,Current,1
+513,65,Male,African American,186,77,104/74,171,Former,0
+2393,47,Female,Caucasian,155,70,135/73,164,Current,1
+1984,89,Other,Asian,191,91,126/75,170,Former,0
+1810,40,Male,African American,167,118,126/85,175,Current,0
+360,29,Male,African American,194,58,140/70,237,Current,0
+538,63,Other,Hispanic,162,92,106/60,205,Never,0
+2692,77,Male,African American,171,61,100/85,233,Former,0
+2713,33,Male,African American,163,67,127/63,240,Current,0
+1613,80,Female,African American,163,114,130/89,227,Current,0
+933,19,Male,Caucasian,167,50,92/77,210,Never,0
+1646,59,Other,Asian,152,114,132/74,176,Never,0
+1551,42,Other,Hispanic,179,117,99/83,178,Former,1
+1991,23,Female,Other,186,88,130/77,250,Never,0
+1371,39,Other,Asian,194,61,120/90,225,Current,1
+980,59,Other,Asian,178,67,93/72,220,Never,0
+1339,82,Male,Hispanic,197,54,122/71,221,Former,0
+1581,34,Female,Other,186,63,124/61,228,Current,0
+878,83,Female,Other,182,100,92/80,223,Current,0
+711,32,Male,Other,166,76,118/71,174,Current,0
+2673,59,Male,Other,157,93,127/64,207,Former,0
+48,82,Male,Other,180,106,131/62,166,Current,0
+1939,71,Male,Caucasian,196,57,126/78,157,Never,0
+402,68,Female,Asian,178,58,92/62,204,Never,1
+1666,39,Female,Hispanic,150,70,112/88,206,Never,0
+1973,22,Other,African American,190,76,105/70,226,Never,1
+408,88,Other,Asian,184,105,105/68,197,Never,0
+2787,19,Male,Hispanic,161,50,111/78,240,Never,0
+2035,58,Male,Caucasian,179,65,114/84,245,Never,0
+125,73,Female,Other,191,72,91/89,237,Former,0
+1084,24,Male,Asian,175,102,116/84,199,Never,0
+1934,83,Female,Hispanic,166,65,108/67,193,Current,1
+529,33,Female,Hispanic,174,115,124/77,236,Former,0
+815,25,Other,Hispanic,193,57,105/61,213,Never,0
+643,90,Female,Other,173,98,129/74,172,Current,0
+1051,53,Female,African American,154,63,134/89,192,Never,1
+601,22,Male,Caucasian,183,115,105/90,230,Former,0
+148,69,Female,African American,199,98,109/75,190,Current,0
+510,84,Other,Caucasian,156,81,113/64,222,Former,0
+1193,63,Male,Asian,164,90,130/69,224,Never,1
+1807,83,Female,Caucasian,187,75,134/70,179,Former,0
+2899,87,Other,Other,153,74,96/62,185,Never,1
+359,70,Male,Other,150,92,99/70,201,Current,0
+1214,79,Female,Caucasian,187,89,119/77,242,Current,0
+2509,32,Male,Caucasian,191,98,92/90,194,Never,0
+1065,65,Female,Caucasian,159,74,111/83,224,Never,1
+2177,73,Male,Hispanic,155,114,134/75,159,Former,1
+1276,75,Female,Asian,163,94,109/65,176,Former,0
+2592,70,Male,Asian,156,75,116/63,196,Former,0
+2120,64,Female,Other,161,115,130/89,192,Former,0
+2788,26,Female,African American,187,120,110/63,152,Current,0
+2308,86,Male,Asian,197,97,113/79,204,Current,0
+139,81,Female,Hispanic,161,57,105/85,213,Current,1
+128,20,Other,Caucasian,187,68,126/62,193,Never,1
+2766,64,Female,Asian,169,106,99/77,174,Never,1
+1168,33,Other,Other,163,87,135/67,153,Never,0
+2702,65,Male,Asian,189,103,106/66,229,Current,0
+2506,64,Male,Hispanic,177,98,119/71,248,Current,1
+294,82,Other,Hispanic,173,104,132/62,232,Never,0
+228,37,Male,Hispanic,197,77,95/89,230,Former,1
+1126,46,Male,Hispanic,188,94,120/79,218,Never,0
+1207,48,Other,Hispanic,186,76,126/76,223,Never,0
+2524,31,Other,Hispanic,162,94,94/67,211,Current,0
+1440,60,Female,Caucasian,173,106,122/60,177,Current,1
+1974,50,Other,Hispanic,185,105,121/61,187,Former,0
+2877,25,Other,Hispanic,156,57,123/89,167,Current,0
+2054,46,Male,Other,193,80,106/67,184,Never,0
+441,46,Female,African American,158,107,97/69,184,Former,0
+179,31,Male,Other,180,102,90/85,199,Former,0
+1524,41,Male,Asian,189,103,116/87,231,Former,0
+2946,79,Female,Hispanic,158,101,106/83,242,Former,0
+1961,57,Other,Hispanic,182,94,97/86,188,Never,1
+1829,34,Female,Caucasian,186,88,90/77,230,Former,0
+1349,59,Female,Asian,188,98,117/75,230,Former,0
+2020,59,Other,Asian,182,106,129/82,209,Never,0
+1503,47,Male,Asian,193,54,134/82,225,Former,0
+900,18,Other,Other,152,55,102/63,207,Former,0
+33,82,Other,African American,200,87,95/73,206,Never,0
+2462,50,Other,African American,178,110,98/87,181,Never,0
+466,26,Female,Other,158,113,98/66,237,Former,0
+1427,35,Other,Hispanic,187,99,104/72,202,Former,0
+2807,32,Male,Hispanic,179,73,129/66,152,Never,1
+610,53,Female,Asian,198,53,117/67,233,Never,0
+1566,50,Male,Other,194,79,99/90,239,Current,0
+472,74,Male,Other,164,61,121/66,247,Current,0
+2504,70,Other,African American,173,120,139/79,165,Never,0
+2286,29,Male,Caucasian,191,75,111/70,214,Never,0
+325,90,Other,Caucasian,175,58,114/62,164,Current,1
+168,69,Male,Asian,151,119,93/73,212,Never,0
+1605,42,Other,Caucasian,197,110,117/64,158,Current,0
+449,26,Female,African American,188,50,117/73,206,Former,0
+1889,46,Male,Caucasian,166,112,93/66,224,Current,0
+589,51,Other,Asian,169,77,94/70,184,Never,0
+807,83,Male,Hispanic,168,88,121/76,211,Never,1
+2244,21,Male,Hispanic,176,91,106/77,221,Never,0
+2730,54,Other,Caucasian,168,109,116/60,225,Former,1
+193,21,Male,Hispanic,195,113,136/68,152,Current,0
+1099,42,Female,Other,166,71,100/65,216,Former,0
+75,74,Other,Caucasian,150,72,114/72,234,Never,0
+2430,74,Other,Other,184,54,116/69,187,Never,1
+436,80,Male,African American,186,79,139/67,198,Never,1
+394,30,Male,Asian,194,106,133/73,221,Current,0
+576,51,Male,African American,200,102,91/88,249,Former,0
+1950,60,Male,Asian,171,68,100/69,247,Never,1
+903,25,Male,Caucasian,154,55,92/85,203,Former,0
+1266,40,Male,Hispanic,189,119,112/64,172,Never,1
+1231,43,Male,Other,156,97,108/64,227,Current,0
+1241,74,Other,Hispanic,177,89,104/82,158,Current,0
+2482,70,Female,Hispanic,159,103,140/66,218,Never,0
+1355,48,Other,Other,186,120,103/74,151,Current,0
+2264,68,Other,Other,189,87,113/67,189,Current,0
+69,30,Male,Other,179,76,118/73,196,Former,0
+1792,76,Male,Asian,169,105,96/78,160,Never,0
+363,21,Male,Hispanic,194,57,124/60,188,Current,0
+1573,55,Male,African American,172,108,127/66,246,Former,0
+13,80,Male,Other,186,117,133/64,201,Former,0
+1890,68,Female,Asian,155,100,108/73,176,Never,0
+426,73,Female,Hispanic,183,100,112/73,214,Former,0
+1337,38,Other,African American,186,84,121/90,234,Former,0
+2199,19,Male,African American,185,75,131/88,238,Never,0
+1325,25,Other,Other,156,69,117/68,151,Current,0
+1881,27,Female,Caucasian,186,75,107/73,170,Current,0
+235,55,Male,African American,193,109,120/75,242,Current,1
+1996,43,Male,Caucasian,162,73,120/65,241,Former,0
+382,79,Male,African American,168,107,132/79,155,Former,0
+2189,42,Other,Other,162,97,107/69,213,Former,0
+1918,52,Female,Asian,163,74,119/61,226,Never,0
+1217,63,Female,Hispanic,186,102,103/77,187,Current,1
+504,77,Female,Other,182,65,139/63,208,Current,0
+2993,51,Female,Caucasian,196,103,131/73,191,Former,0
+631,19,Female,Hispanic,168,70,118/85,190,Former,0
+291,30,Male,Asian,186,90,130/63,232,Current,1
+1320,56,Female,African American,186,98,122/67,199,Former,0
+160,27,Male,Hispanic,173,87,127/75,213,Former,0
+2707,58,Female,Caucasian,168,78,100/71,213,Current,0
+2717,45,Male,African American,157,115,115/72,200,Former,0
+2723,73,Female,Other,159,68,121/76,239,Never,0
+1209,37,Female,Other,175,112,94/87,180,Former,1
+1718,22,Male,Asian,169,53,125/75,165,Never,0
+350,20,Other,Caucasian,165,102,125/71,228,Former,0
+443,77,Female,Other,183,110,110/75,159,Never,0
+1561,78,Other,Other,159,95,90/65,205,Current,1
+231,18,Other,African American,157,119,132/86,155,Current,0
+2005,69,Female,Asian,171,99,133/88,165,Current,0
+2108,58,Male,Other,199,61,103/85,200,Former,0
+1680,75,Female,Other,183,50,107/72,166,Current,1
+1695,40,Other,Other,173,51,104/72,209,Never,1
+2554,38,Other,African American,177,101,109/74,207,Former,0
+2364,75,Female,Asian,170,101,128/65,205,Former,0
+977,41,Male,Other,174,55,134/71,206,Current,1
+2306,46,Other,African American,162,114,113/89,155,Never,0
+2983,82,Other,Hispanic,196,112,102/74,221,Current,1
+1659,71,Female,African American,162,88,107/89,160,Current,0
+530,90,Male,Asian,188,62,109/88,200,Former,0
+2765,63,Other,Caucasian,186,62,126/71,246,Current,0
+1358,48,Other,African American,190,114,135/69,180,Current,0
+949,38,Male,Other,169,58,132/87,184,Former,0
+2982,23,Other,Other,183,107,111/87,211,Current,0
+1929,47,Male,Other,157,66,130/74,213,Current,0
+1290,31,Male,Caucasian,165,92,102/64,219,Current,1
+2814,76,Other,Other,184,72,131/87,168,Never,0
+406,20,Female,African American,197,103,99/77,220,Current,1
+840,22,Other,Caucasian,153,87,102/84,243,Current,0
+2174,78,Other,Asian,151,113,99/60,237,Current,0
+1917,47,Male,Asian,195,103,122/71,160,Former,1
+2614,47,Female,Hispanic,178,113,111/66,197,Current,0
+1802,30,Male,Caucasian,176,60,112/77,198,Never,0
+1785,66,Male,Caucasian,200,72,102/89,219,Never,0
+1497,89,Other,Other,186,67,114/75,227,Never,0
+1790,70,Other,Other,188,51,108/71,218,Current,1
+215,88,Female,African American,194,75,135/79,232,Never,0
+2571,87,Other,Hispanic,159,114,109/61,183,Current,0
+500,32,Female,Asian,157,62,140/74,184,Never,1
+1022,36,Male,African American,176,72,122/88,231,Never,0
+24,78,Female,Caucasian,168,83,101/60,209,Former,0
+1062,59,Female,African American,193,94,97/85,188,Never,0
+210,49,Male,Other,150,81,116/68,246,Current,0
+1072,84,Other,Other,185,77,102/89,237,Current,0
+1482,58,Female,Asian,193,78,90/65,196,Never,0
+1755,23,Male,Other,180,109,109/89,156,Never,0
+1583,49,Other,African American,177,57,107/87,235,Current,0
+188,77,Female,African American,197,64,139/78,151,Never,0
+2479,36,Other,Hispanic,173,84,98/68,229,Never,0
+2293,34,Female,Hispanic,178,114,129/69,229,Former,0
+2136,35,Other,Hispanic,195,92,112/74,214,Former,0
+2776,34,Male,African American,171,75,131/77,207,Former,1
+98,21,Female,Caucasian,198,104,92/72,233,Never,0
+2218,81,Female,Asian,153,91,130/76,152,Never,0
+1327,54,Female,Asian,195,84,93/80,217,Former,0
+2659,76,Female,Hispanic,154,120,140/67,162,Current,1
+708,63,Female,Asian,188,62,129/69,171,Current,0
+1468,54,Female,African American,180,112,123/72,163,Never,1
+2400,86,Other,African American,160,80,116/90,200,Current,0
+2701,83,Male,Hispanic,171,84,112/74,250,Never,0
+978,47,Male,Caucasian,155,73,134/87,169,Never,1
+1089,85,Female,Other,161,69,131/68,241,Never,1
+2341,78,Other,Hispanic,197,96,118/69,168,Former,0
+2560,47,Female,Hispanic,162,74,96/90,203,Former,0
+2532,22,Male,Other,191,112,102/70,198,Current,0
+454,76,Other,Asian,181,64,132/80,249,Never,0
+2720,25,Male,African American,181,80,117/76,173,Never,1
+2475,59,Female,Hispanic,197,104,101/80,228,Current,0
+2977,50,Male,African American,183,90,112/74,191,Current,0
+1860,82,Other,Caucasian,196,85,120/86,153,Former,0
+2079,31,Female,Caucasian,160,72,131/88,199,Never,0
+627,34,Female,Other,181,112,90/61,183,Never,0
+2839,38,Other,Other,159,80,118/64,212,Current,0
+30,28,Other,Caucasian,190,86,110/70,165,Former,0
+32,27,Other,Hispanic,169,75,120/71,166,Current,0
+710,21,Male,Caucasian,155,89,129/83,221,Former,1
+1567,70,Male,Caucasian,173,118,91/86,185,Current,0
+1539,24,Female,Caucasian,161,84,120/76,157,Former,1
+1634,79,Male,Asian,156,92,118/80,215,Former,1
+2578,47,Other,Caucasian,162,93,132/64,210,Never,0
+1147,61,Other,African American,161,104,123/77,223,Former,0
+785,34,Other,African American,176,61,134/84,213,Former,0
+830,23,Other,Caucasian,193,63,140/65,151,Never,1
+577,86,Female,Asian,183,56,112/67,182,Former,1
+2547,70,Other,Asian,173,100,98/77,197,Current,0
+2440,73,Male,Hispanic,170,79,101/60,205,Never,0
+1340,56,Other,Hispanic,177,111,116/79,193,Never,0
+615,26,Female,Asian,163,98,132/80,163,Current,1
+2501,33,Male,African American,200,50,111/88,231,Former,0
+906,34,Male,Hispanic,163,79,128/72,231,Never,0
+1730,54,Other,Asian,193,85,113/85,192,Never,0
+2426,27,Other,Caucasian,188,87,140/77,164,Never,0
+1071,24,Female,African American,162,56,129/81,213,Never,0
+1832,87,Female,Other,156,79,137/79,229,Never,0
+1923,27,Male,Other,184,65,117/72,236,Former,0
+368,41,Other,Hispanic,154,100,126/87,168,Former,1
+705,84,Other,Hispanic,190,69,132/73,214,Never,0
+431,77,Male,Asian,179,114,120/64,198,Never,0
+1016,50,Other,African American,200,51,133/66,230,Never,0
+2041,75,Female,Hispanic,159,72,90/70,225,Former,1
+2431,39,Female,Hispanic,153,93,138/82,180,Current,0
+2557,71,Female,Other,178,99,94/87,241,Current,0
+419,61,Other,Hispanic,182,110,126/65,169,Never,0
+1064,71,Male,Hispanic,200,62,120/64,231,Current,0
+2555,50,Female,Other,168,57,104/87,182,Current,0
+1056,26,Other,Hispanic,177,54,137/80,215,Never,1
+1324,86,Female,Caucasian,184,107,136/78,151,Current,0
+1848,60,Female,Caucasian,165,71,132/90,160,Former,0
+1069,50,Male,Other,157,78,111/90,190,Never,0
+2083,34,Male,Hispanic,170,56,123/68,161,Current,0
+1601,84,Male,Caucasian,167,91,115/74,203,Former,0
+2696,35,Other,Caucasian,165,112,101/88,160,Never,1
+1856,72,Female,Asian,163,77,95/79,250,Current,1
+1097,39,Male,Asian,184,119,101/88,245,Former,0
+663,43,Male,Other,164,91,127/69,210,Never,0
+2460,73,Other,African American,184,81,97/85,156,Current,0
+2539,86,Male,Hispanic,188,52,100/74,196,Never,1
+2642,57,Male,Hispanic,188,77,125/90,234,Never,0
+428,72,Male,Asian,197,56,137/72,169,Current,0
+133,72,Female,Hispanic,175,62,133/82,249,Current,0
+1465,35,Female,Asian,189,79,114/60,198,Current,0
+2525,85,Other,Other,157,95,140/66,203,Former,0
+165,19,Male,Hispanic,178,118,90/73,206,Current,0
+2756,90,Male,African American,178,78,110/62,219,Never,0
+1452,21,Female,Other,188,76,113/90,161,Never,0
+1338,58,Female,Other,157,87,93/88,202,Former,0
+932,22,Male,Asian,160,97,101/63,198,Former,0
+860,71,Other,African American,150,117,104/90,224,Never,0
+2074,43,Male,African American,156,80,93/77,250,Never,0
+717,34,Female,African American,171,77,133/73,167,Never,0
+668,34,Female,Asian,198,72,129/77,242,Never,0
+2907,35,Female,African American,165,83,116/77,156,Current,0
+2001,67,Male,African American,163,101,101/86,202,Never,0
+2351,75,Male,Hispanic,181,68,102/78,200,Former,0
+1884,34,Other,Hispanic,196,97,107/70,155,Never,0
+1684,21,Female,Caucasian,177,77,104/84,184,Current,0
+2962,85,Female,Other,170,59,138/69,165,Current,0
+2674,39,Female,Asian,172,64,115/84,177,Never,1
+2129,68,Male,Hispanic,161,118,109/76,201,Current,0
+2217,32,Other,Other,172,89,104/62,193,Current,0
+1908,57,Other,Other,157,58,116/70,220,Never,0
+233,58,Male,African American,157,53,139/71,181,Current,0
+109,70,Female,African American,189,53,97/60,184,Former,1
+366,45,Female,Hispanic,182,61,105/69,179,Never,0
+261,54,Other,African American,164,68,113/84,165,Current,0
+688,23,Male,Other,186,116,138/76,207,Never,0
+1164,59,Other,African American,161,50,129/61,196,Never,0
+1568,82,Male,Asian,165,97,93/83,237,Former,0
+140,79,Female,Caucasian,155,86,125/77,198,Current,0
+638,81,Male,Asian,157,66,121/65,178,Never,0
+1173,60,Male,Asian,177,94,128/81,198,Former,1
+766,35,Male,African American,153,67,131/83,161,Current,0
+1367,73,Other,Caucasian,156,118,97/69,187,Former,0
+671,30,Female,Asian,181,110,133/81,197,Never,0
+1395,51,Other,Caucasian,183,111,130/72,190,Never,0
+1309,41,Male,Other,195,70,111/68,154,Former,1
+2003,33,Male,Caucasian,181,116,135/72,180,Never,0
+957,18,Other,Asian,190,68,101/89,154,Former,0
+2309,59,Male,African American,152,107,92/74,204,Current,0
+1879,40,Male,Asian,177,83,134/65,180,Never,0
+1201,36,Male,Caucasian,183,53,91/67,213,Never,0
+1699,79,Male,Hispanic,176,85,99/83,228,Former,0
+885,62,Female,Hispanic,177,98,116/66,244,Never,1
+692,33,Male,Other,176,116,106/70,195,Current,0
+1751,73,Other,Hispanic,194,108,105/82,209,Current,0
+2897,66,Other,Caucasian,164,51,96/77,200,Former,0
+1903,34,Male,Asian,173,99,129/61,230,Never,1
+2230,62,Male,Asian,180,105,128/61,239,Current,0
+1271,46,Other,African American,191,56,105/62,193,Former,0
+256,47,Male,Asian,180,117,139/77,174,Former,0
+2165,35,Male,Hispanic,188,61,106/72,163,Current,0
+1353,32,Female,Other,165,75,138/68,189,Former,0
+546,36,Female,African American,159,68,131/89,244,Former,0
+2384,34,Male,Caucasian,154,72,129/83,231,Current,0
+154,60,Male,Hispanic,192,54,100/78,199,Former,0
+20,90,Other,Hispanic,153,92,127/65,221,Current,0
+1245,75,Female,African American,196,84,114/72,150,Never,0
+412,40,Male,Other,171,67,105/77,238,Former,1
+348,30,Female,Other,171,110,108/81,150,Never,0
+1485,83,Male,Hispanic,180,66,116/70,212,Former,0
+468,89,Male,African American,187,62,103/82,238,Current,0
+2049,72,Other,African American,193,51,132/61,171,Former,0
+2782,33,Other,Caucasian,169,55,130/86,221,Current,0
+358,54,Female,Asian,179,89,136/88,202,Current,0
+1516,38,Other,Caucasian,195,80,123/61,216,Former,0
+2570,70,Other,Hispanic,193,81,125/84,150,Current,0
+2024,26,Other,Asian,170,55,116/81,191,Current,1
+1947,29,Male,Hispanic,153,74,101/84,216,Current,1
+1302,76,Other,Caucasian,170,116,92/73,179,Former,0
+553,33,Female,Hispanic,193,111,103/71,167,Current,0
+1808,45,Other,Hispanic,154,79,108/84,182,Former,0
+1945,77,Male,Asian,187,99,119/60,241,Current,0
+892,73,Other,Caucasian,183,89,121/62,195,Never,0
+928,70,Male,Caucasian,153,63,111/67,218,Former,0
+1715,67,Other,Other,191,70,128/68,232,Never,0
+122,65,Male,African American,170,68,135/75,205,Current,0
+2455,88,Other,Caucasian,174,105,137/71,192,Never,0
+2265,45,Male,Hispanic,175,113,91/62,164,Current,0
+792,18,Male,Asian,156,52,137/67,165,Former,0
+2150,31,Female,Other,163,87,133/80,240,Never,0
+303,70,Male,Other,198,62,104/85,248,Former,0
+1692,89,Female,Other,154,54,139/62,201,Never,0
+1017,82,Male,Asian,156,79,128/63,162,Former,0
+1937,41,Male,Hispanic,169,65,106/74,155,Former,1
+1122,18,Male,Caucasian,161,72,120/81,157,Current,0
+1198,22,Female,Asian,188,80,90/67,225,Never,0
+2180,51,Other,African American,183,77,98/90,192,Former,0
+714,65,Other,Caucasian,189,79,130/66,195,Former,1
+1405,55,Other,African American,195,71,106/80,171,Current,0
+1842,24,Male,Caucasian,163,111,103/72,220,Former,0
+2387,56,Male,Asian,156,57,121/66,176,Never,0
+1316,56,Other,African American,191,62,129/75,181,Former,0
+1086,58,Male,Caucasian,181,96,128/71,226,Never,0
+1132,82,Female,Caucasian,151,79,126/72,230,Never,1
+2927,77,Other,Caucasian,155,110,139/73,162,Current,0
+1944,84,Female,Asian,154,93,116/89,250,Never,0
+1081,77,Female,Caucasian,184,86,95/65,244,Never,1
+1854,28,Female,Other,150,120,91/89,176,Former,1
+1588,61,Other,Asian,174,118,116/81,174,Never,0
+38,33,Female,Hispanic,154,105,95/88,215,Former,0
+2138,57,Female,Other,153,51,117/79,183,Never,0
+2356,49,Male,Asian,196,75,127/60,166,Current,0
+2580,68,Female,African American,176,57,113/83,171,Former,0
+1377,61,Male,Hispanic,185,89,136/71,234,Current,0
+37,34,Female,African American,181,82,122/66,197,Current,0
+867,66,Female,Hispanic,162,118,134/86,199,Former,0
+2496,34,Other,Other,164,58,113/86,237,Former,0
+1982,36,Other,Asian,199,89,118/90,233,Former,1
+2324,78,Female,Other,166,89,128/68,187,Current,0
+2432,71,Female,Hispanic,182,87,119/74,197,Never,0
+2379,32,Other,Other,183,54,122/64,229,Former,0
+1057,46,Male,Hispanic,198,59,111/71,250,Never,0
+2093,37,Other,Caucasian,152,67,128/74,240,Current,1
+1495,66,Female,African American,160,57,90/71,185,Former,1
+1237,76,Other,Other,174,78,97/89,239,Never,0
+2900,47,Other,African American,161,80,106/77,226,Current,0
+2337,26,Female,African American,150,71,100/84,154,Former,0
+1014,37,Male,Hispanic,168,64,99/78,181,Never,0
+103,83,Male,Asian,177,62,106/84,245,Never,0
+2576,74,Male,African American,181,101,114/67,212,Former,0
+289,45,Female,Asian,167,110,116/77,210,Never,0
+1756,88,Male,Hispanic,189,89,120/79,219,Never,0
+2234,44,Male,Hispanic,169,91,110/72,223,Current,0
+1614,18,Female,Caucasian,173,104,131/88,250,Never,0
+1422,82,Other,Hispanic,157,62,119/86,214,Current,0
+2500,30,Other,Caucasian,156,70,140/75,215,Former,0
+2254,39,Male,Asian,186,82,114/83,215,Never,0
+1119,19,Male,Caucasian,198,95,108/71,210,Never,0
+2075,24,Female,Hispanic,175,98,140/78,249,Former,0
+1171,63,Male,Caucasian,172,116,124/82,245,Current,1
+2922,46,Other,African American,158,107,136/78,176,Current,1
+2757,57,Male,Caucasian,174,116,136/76,245,Never,0
+21,58,Female,African American,198,77,109/73,195,Former,0
+1054,48,Female,Asian,165,56,108/74,201,Current,1
+1504,77,Male,African American,192,70,94/64,158,Former,0
+2790,72,Female,Hispanic,155,71,97/86,189,Former,0
+914,77,Female,Asian,153,56,106/87,163,Current,0
+544,50,Male,African American,198,50,96/88,155,Former,0
+2406,28,Male,African American,158,112,125/84,150,Current,0
+151,47,Female,African American,184,78,129/76,223,Former,0
+2445,80,Other,Other,161,100,136/60,212,Never,0
+2375,52,Male,Asian,153,53,136/69,244,Never,0
+1505,72,Other,Other,179,94,120/88,187,Former,0
+2322,61,Female,Caucasian,167,81,133/82,154,Former,0
+817,21,Male,Other,176,78,138/75,190,Former,0
+1226,45,Female,Asian,175,66,121/81,225,Current,0
+2102,38,Male,African American,192,51,140/68,159,Former,0
+2629,24,Other,Caucasian,169,98,136/70,151,Former,0
+2245,88,Other,African American,161,52,132/85,172,Former,0
+2099,36,Male,Hispanic,192,106,116/79,231,Never,1
+36,37,Male,Hispanic,185,91,124/84,206,Never,1
+1517,41,Female,Hispanic,197,92,106/73,187,Current,0
+1729,20,Female,Other,196,94,101/75,211,Former,0
+392,55,Male,Asian,161,57,119/65,220,Current,1
+2457,67,Male,Asian,172,113,102/79,189,Current,0
+1148,27,Other,Caucasian,175,107,124/60,173,Current,0
+2952,81,Male,Other,163,114,130/60,234,Current,0
+2854,47,Male,Asian,183,87,106/65,155,Never,0
+2323,22,Male,Hispanic,185,52,106/61,226,Former,0
+891,34,Female,Other,158,95,118/89,241,Former,0
+636,51,Other,Other,157,50,108/76,234,Former,0
+1228,35,Other,Other,200,105,123/86,186,Current,0
+226,28,Female,Hispanic,177,75,124/68,155,Never,1
+684,27,Other,Hispanic,176,104,107/76,153,Former,0
+1872,89,Female,Asian,164,115,111/77,221,Former,0
+1256,86,Male,Asian,197,91,109/87,174,Current,0
+460,41,Male,Other,198,114,109/88,243,Former,0
+676,45,Other,African American,158,71,130/82,174,Current,0
+378,68,Other,African American,178,119,98/77,186,Current,0
+214,62,Other,Hispanic,184,103,115/60,158,Never,0
+831,43,Other,Caucasian,184,69,106/64,198,Current,0
+829,75,Female,Asian,157,106,131/68,151,Former,1
+955,24,Female,Asian,167,81,105/78,232,Current,0
+1518,31,Other,Caucasian,165,82,91/65,153,Never,0
+2420,35,Male,Asian,166,120,101/75,217,Current,0
+1169,25,Other,Asian,197,79,117/76,163,Never,0
+2017,25,Male,Hispanic,188,54,127/76,186,Current,0
+1,84,Female,Asian,173,87,101/84,240,Never,0
+276,80,Female,Caucasian,181,83,117/79,230,Never,0
+1767,46,Female,African American,164,73,101/65,191,Former,1
+1852,26,Female,Caucasian,164,73,111/90,163,Current,0
+679,37,Other,Hispanic,158,63,91/90,196,Former,0
+416,81,Other,Caucasian,189,95,102/64,192,Former,0
+1357,45,Other,Other,197,68,100/90,230,Never,0
+2015,55,Other,Caucasian,165,51,91/84,221,Never,0
+2846,79,Male,African American,172,53,126/77,164,Former,0
+2295,83,Other,Other,194,104,107/71,175,Current,1
+2778,18,Other,Other,166,88,111/77,186,Never,0
+1675,52,Male,African American,170,66,90/70,233,Former,0
+1869,78,Male,Hispanic,164,82,107/83,245,Never,0
+808,36,Other,African American,198,54,118/84,214,Former,0
+2275,31,Female,Hispanic,195,96,140/66,222,Current,0
+476,21,Male,African American,160,66,107/74,156,Former,0
+104,53,Other,Other,182,118,114/77,224,Current,0
+1103,68,Male,Other,178,118,115/72,234,Current,1
+1332,73,Other,Hispanic,176,54,109/84,235,Never,0
+791,73,Other,African American,163,116,123/79,213,Never,0
+743,81,Male,Caucasian,188,71,134/80,244,Current,1
+2433,25,Male,Caucasian,174,105,123/63,165,Current,1
+1584,83,Male,Asian,178,115,126/75,222,Current,0
+489,44,Male,Other,173,70,111/77,187,Never,0
+2357,45,Female,Caucasian,192,102,102/77,180,Never,0
+881,25,Other,African American,173,90,112/75,186,Current,0
+2179,60,Male,Asian,157,69,139/85,223,Former,0
+2239,34,Female,Hispanic,190,93,111/80,186,Never,0
+559,25,Male,Hispanic,164,53,123/69,195,Current,0
+1484,70,Other,Caucasian,156,62,124/82,157,Never,0
+593,24,Male,Other,159,98,112/72,173,Former,0
+2104,18,Other,Caucasian,197,89,121/90,162,Current,0
+1254,59,Other,Hispanic,171,64,92/77,216,Former,0
+2859,70,Other,Asian,150,113,115/63,180,Never,1
+2287,38,Other,Hispanic,169,54,91/79,235,Former,0
+1983,80,Male,Hispanic,173,70,101/87,225,Current,0
+1229,78,Other,Asian,173,75,107/71,173,Current,0
+2248,25,Male,African American,179,104,93/63,250,Never,1
+1722,64,Female,Other,161,120,93/69,153,Never,1
+2913,80,Other,Caucasian,155,115,100/66,233,Current,1
+828,24,Male,Hispanic,157,110,123/75,174,Former,0
+2103,36,Female,Caucasian,162,70,108/82,155,Never,0
+1018,65,Female,Other,157,108,118/89,244,Former,0
+990,29,Male,Caucasian,184,96,128/68,167,Never,0
+1223,79,Male,Asian,200,50,135/76,243,Former,1
+1116,51,Other,Caucasian,182,65,92/86,180,Never,0
+1586,66,Female,Hispanic,178,86,130/62,165,Never,0
+2477,38,Other,Caucasian,170,92,126/61,196,Never,0
+682,42,Female,Hispanic,173,85,100/81,219,Former,0
+793,56,Male,African American,151,104,99/90,175,Never,0
+2978,52,Other,Other,170,95,140/72,217,Never,0
+2744,25,Other,Asian,171,65,95/71,221,Never,0
+913,45,Male,Caucasian,174,77,132/85,182,Current,1
+1094,75,Other,Asian,195,110,126/61,241,Current,0
+72,21,Other,Other,198,91,134/78,191,Never,0
+800,75,Female,African American,191,85,135/72,222,Never,0
+1397,27,Female,Hispanic,200,101,129/77,150,Former,1
+2350,77,Male,Caucasian,180,106,93/77,223,Never,0
+2543,28,Female,Asian,199,80,126/66,216,Never,0
+1905,68,Female,Asian,196,53,119/69,206,Never,1
+1521,88,Female,Caucasian,178,103,90/77,186,Current,1
+1637,86,Other,Hispanic,150,113,104/82,212,Former,0
+1658,55,Female,Caucasian,154,52,136/81,225,Current,0
+1124,32,Other,Asian,179,103,139/85,246,Never,0
+661,42,Other,Caucasian,181,108,137/84,225,Never,0
+895,30,Female,Asian,182,108,140/85,193,Former,0
+2471,24,Female,Other,153,111,128/88,162,Never,1
+2853,21,Female,Caucasian,181,54,115/85,163,Former,0
+1667,46,Female,Other,191,59,129/62,209,Current,0
+1410,26,Female,Other,173,66,123/83,199,Former,0
+969,28,Female,Hispanic,191,56,91/88,219,Former,0
+2340,30,Female,Hispanic,180,56,121/67,212,Never,0
+2486,21,Other,Hispanic,174,92,126/61,240,Former,1
+1975,35,Female,Other,191,70,131/64,213,Never,0
+2876,83,Other,Other,159,55,106/77,171,Current,0
+1010,88,Male,Other,197,89,102/81,152,Current,0
+2395,66,Female,Asian,167,118,105/83,244,Current,1
+2745,60,Other,Asian,185,116,90/73,165,Never,1
+882,28,Female,Other,190,76,94/80,230,Never,0
+2503,49,Female,Other,178,119,118/62,226,Never,0
+2708,33,Male,Other,198,105,95/87,233,Current,0
+2380,90,Other,Caucasian,161,97,109/87,237,Never,0
+1287,21,Other,African American,153,101,101/90,185,Never,0
+252,60,Other,Caucasian,150,110,92/77,164,Current,0
+1005,52,Other,African American,196,91,121/80,236,Never,0
+524,43,Male,African American,161,91,114/60,196,Never,0
+591,68,Other,African American,199,100,120/74,206,Current,0
+1418,26,Female,Caucasian,184,90,96/81,153,Current,0
+2681,80,Female,Other,179,67,136/89,153,Never,0
+92,48,Other,African American,199,117,131/62,202,Never,0
+2652,70,Other,Hispanic,180,73,138/60,180,Former,1
+1412,28,Female,Caucasian,194,116,93/77,169,Current,0
+1702,21,Female,African American,184,104,103/86,231,Never,1
+379,26,Male,Hispanic,179,50,103/82,171,Former,0
+1048,82,Female,Other,186,100,114/76,214,Never,0
+2416,29,Other,African American,196,96,116/84,170,Current,0
+2636,76,Female,Hispanic,152,81,101/82,181,Former,0
+2725,90,Male,Other,183,100,112/88,184,Current,0
+1436,57,Male,Asian,161,73,107/63,192,Current,1
+1522,62,Female,African American,184,115,114/87,195,Current,0
+2410,25,Male,African American,159,63,116/67,222,Former,0
+2353,66,Male,Asian,195,115,129/72,215,Current,0
+2472,21,Female,Hispanic,169,85,92/88,248,Former,0
+600,75,Female,African American,177,106,119/67,164,Never,0
+2382,80,Other,African American,174,53,94/80,212,Former,0
+1768,64,Female,Hispanic,194,96,103/90,246,Former,0
+142,85,Female,Asian,170,51,113/71,212,Never,0
+2545,34,Female,Asian,165,117,93/76,207,Current,0
+2307,32,Other,African American,179,86,94/87,233,Current,0
+1727,41,Male,African American,150,52,125/63,227,Former,0
+219,87,Other,Caucasian,185,115,115/75,175,Never,0
+241,35,Male,Other,196,118,101/71,198,Former,1
+272,30,Other,Asian,191,63,107/77,241,Current,0
+1399,38,Male,Other,195,84,110/74,177,Current,0
+1694,87,Other,Hispanic,152,97,134/88,195,Former,0
+694,34,Female,Caucasian,164,67,92/72,221,Current,0
+1512,39,Male,Other,155,92,114/78,202,Never,0
+1454,31,Female,Caucasian,163,51,124/64,209,Current,0
+1142,20,Male,Hispanic,193,72,119/73,203,Never,1
+137,51,Male,Asian,186,113,109/77,173,Never,1
+106,57,Male,African American,155,56,102/66,179,Former,0
+1781,61,Female,African American,177,65,117/61,192,Current,0
+2013,58,Other,Caucasian,152,111,98/67,202,Former,0
+2263,50,Female,Asian,167,79,122/80,157,Never,0
+99,62,Other,African American,198,83,107/89,214,Former,0
+1330,61,Male,Asian,176,79,105/75,161,Former,0
+462,36,Other,Other,192,92,132/74,226,Former,0
+274,80,Male,Hispanic,195,61,95/68,233,Never,0
+1255,77,Other,Asian,186,65,105/76,220,Never,0
+162,77,Male,Other,175,83,119/69,228,Never,0
+352,52,Male,Caucasian,189,60,136/69,203,Former,0
+2873,67,Male,Asian,153,59,122/63,193,Former,0
+1032,42,Female,African American,194,70,134/65,200,Former,1
+1558,39,Female,Other,157,80,100/84,221,Current,1
+127,72,Female,Other,165,56,111/62,179,Current,0
+880,73,Female,Asian,197,110,101/87,247,Former,1
+967,76,Other,Caucasian,193,102,107/81,179,Current,0
+1607,76,Male,Asian,152,91,124/61,244,Former,1
+1242,59,Male,African American,177,115,93/62,172,Current,0
+508,66,Female,Hispanic,169,71,114/87,204,Current,1
+2768,30,Female,Caucasian,170,56,92/60,229,Current,0
+673,24,Male,Caucasian,159,109,118/82,167,Never,0
+2211,49,Male,Hispanic,199,98,110/80,211,Never,0
+465,23,Male,Other,181,100,124/71,160,Never,0
+52,34,Male,African American,166,68,92/87,165,Former,0
+45,72,Other,Asian,194,88,118/88,248,Current,0
+1281,44,Other,Other,200,93,112/82,167,Never,0
+15,86,Female,Asian,170,56,100/89,203,Current,0
+1861,74,Other,Hispanic,184,81,140/65,224,Never,0
+1818,84,Female,Hispanic,200,59,130/69,206,Never,1
+2310,26,Female,Hispanic,178,50,98/72,216,Former,0
+2857,78,Female,African American,181,110,103/76,215,Former,0
+2662,21,Other,African American,190,66,117/70,240,Current,0
+185,68,Male,Hispanic,200,67,98/88,196,Current,1
+704,28,Male,African American,174,117,102/70,160,Current,0
+1328,82,Female,Asian,163,112,123/63,214,Current,0
+421,37,Other,Hispanic,173,63,119/65,248,Current,1
+672,63,Other,Hispanic,182,106,129/84,247,Never,0
+2334,29,Female,Hispanic,165,52,100/78,199,Former,1
+1106,32,Male,Caucasian,199,99,91/72,232,Current,1
+2057,35,Male,Other,195,65,99/87,166,Current,0
+2419,25,Other,Caucasian,199,85,117/77,180,Former,0
+2834,21,Male,Other,196,51,90/68,248,Never,0
+121,71,Other,Caucasian,199,82,110/62,203,Former,0
+2279,21,Male,Caucasian,193,53,105/64,239,Current,0
+983,60,Other,Asian,164,58,116/63,159,Never,0
+2498,65,Female,Hispanic,197,103,125/66,232,Former,0
+1954,70,Female,Hispanic,185,82,118/63,171,Current,0
+2256,58,Female,Asian,176,59,129/76,168,Former,0
+3000,75,Other,African American,175,105,121/62,248,Current,1
+1744,79,Female,Other,172,104,128/61,236,Current,0
+295,64,Female,Asian,174,53,110/73,211,Former,0
+1749,64,Male,Caucasian,197,51,115/64,241,Current,1
+1580,39,Female,Caucasian,173,119,135/67,243,Current,1
+2202,64,Other,Hispanic,160,86,136/83,150,Never,0
+1544,66,Female,African American,185,88,132/71,165,Current,1
+2538,57,Other,Caucasian,161,99,98/86,234,Never,0
+1052,25,Female,African American,185,72,113/88,221,Never,0
+114,56,Female,Hispanic,169,71,102/79,201,Never,0
+2831,72,Male,Caucasian,150,110,106/66,216,Never,1
+2262,28,Female,Caucasian,160,62,90/67,152,Never,0
+689,53,Female,African American,186,97,106/72,230,Never,0
+1652,71,Female,African American,155,77,129/63,187,Former,1
+2969,38,Female,Hispanic,156,80,124/67,153,Current,0
+2269,23,Female,Other,152,92,102/86,244,Never,1
+667,48,Female,Hispanic,186,75,113/81,223,Current,0
+410,60,Male,Hispanic,161,50,105/74,181,Current,1
+572,38,Female,Hispanic,154,113,111/69,229,Never,1
+2492,20,Other,African American,199,102,123/73,219,Former,0
+1172,20,Other,Asian,196,102,135/60,243,Never,0
+1002,75,Other,Asian,156,66,102/83,192,Current,0
+1540,46,Other,Hispanic,164,119,105/77,161,Never,1
+2411,29,Female,Other,188,113,109/84,215,Never,0
+2634,67,Male,Caucasian,156,91,137/79,170,Current,0
+2390,72,Female,Hispanic,168,60,136/85,207,Former,0
+2167,41,Other,African American,150,100,126/72,237,Never,0
+2101,35,Male,Hispanic,158,67,98/69,247,Current,1
+391,77,Male,Other,186,50,114/87,164,Former,1
+1125,83,Male,Other,176,55,131/87,161,Never,1
+2605,74,Male,Hispanic,175,66,130/79,171,Never,0
+2519,57,Male,Asian,157,98,123/79,164,Former,0
+2964,74,Male,Other,157,67,130/71,197,Former,0
+924,61,Other,Hispanic,185,67,122/90,175,Current,0
+278,80,Female,Asian,156,93,123/69,220,Former,0
+275,90,Male,Asian,163,57,93/83,226,Current,0
+872,69,Female,Caucasian,176,111,115/84,172,Never,0
+935,22,Other,Other,165,61,138/85,240,Never,0
+1015,83,Male,African American,185,119,130/67,221,Former,0
+2494,65,Other,Hispanic,159,119,130/87,162,Former,1
+2201,50,Male,Hispanic,198,88,96/81,250,Never,0
+1391,32,Other,Hispanic,195,63,104/72,166,Never,0
+2226,67,Other,African American,182,75,105/66,178,Current,0
+1596,32,Male,Caucasian,164,90,90/68,218,Former,0
+205,55,Other,Caucasian,173,83,94/71,155,Never,0
+1303,23,Male,Caucasian,177,110,102/80,188,Former,0
+816,63,Other,Caucasian,189,94,105/74,156,Never,0
+351,40,Other,African American,164,74,114/82,159,Current,1
+2413,21,Other,Hispanic,188,108,130/75,218,Current,1
+2588,47,Female,Other,196,118,92/62,243,Former,0
+1259,47,Male,Other,187,56,125/63,159,Never,0
+1393,26,Other,Caucasian,181,106,135/78,182,Never,0
+1577,59,Other,Caucasian,162,82,103/90,212,Never,0
+556,89,Other,Hispanic,175,52,103/86,157,Never,0
+598,68,Female,Asian,173,64,129/74,245,Never,0
+248,46,Male,African American,197,98,108/75,196,Former,0
+1386,84,Female,African American,160,89,137/72,168,Never,0
+119,30,Male,Other,177,90,135/90,237,Current,0
+2391,80,Other,Hispanic,193,80,112/69,155,Current,0
+2905,25,Male,Asian,152,72,94/75,248,Former,0
+324,66,Other,Hispanic,167,112,107/67,196,Current,1
+1878,41,Other,Caucasian,168,110,137/78,207,Current,0
+2896,21,Other,Asian,198,101,112/89,158,Former,0
+2793,51,Other,African American,198,106,134/69,245,Former,0
+1759,28,Other,Hispanic,151,56,123/83,166,Never,0
+2442,35,Other,Caucasian,172,99,110/73,192,Current,0
+326,69,Male,Caucasian,171,105,117/89,245,Former,0
+1624,18,Male,African American,194,81,101/64,154,Current,0
+375,30,Female,Other,189,71,126/90,180,Former,0
+2691,71,Other,Caucasian,200,103,92/62,250,Never,0
+2961,24,Male,Asian,179,50,131/82,165,Current,0
+2986,52,Other,African American,198,51,100/89,230,Former,0
+1640,52,Other,Other,189,98,133/85,163,Current,0
+2517,31,Male,African American,177,103,120/64,218,Current,0
+763,49,Female,Asian,166,120,114/79,159,Former,0
+721,22,Male,African American,173,83,120/75,229,Current,0
+1591,39,Female,African American,162,67,133/76,232,Former,0
+115,87,Female,African American,167,52,102/70,217,Former,0
+629,18,Other,Hispanic,170,110,128/74,175,Former,0
+2124,45,Female,African American,179,80,90/87,217,Former,0
+1283,65,Female,Caucasian,184,120,110/79,167,Former,0
+2534,76,Other,Caucasian,187,78,136/75,235,Current,0
+1876,71,Male,African American,182,118,130/84,216,Current,0
+536,46,Female,African American,171,100,134/62,156,Former,0
+65,43,Female,Hispanic,200,60,96/86,247,Former,0
+1305,32,Other,Caucasian,164,61,114/73,179,Never,1
+535,61,Male,African American,174,70,121/80,232,Never,0
+1178,36,Other,Asian,173,92,138/70,232,Current,0
+1009,82,Female,African American,194,93,128/76,160,Former,0
+617,43,Other,Asian,159,92,110/90,182,Current,0
+2902,20,Other,Asian,158,119,96/74,212,Never,0
+371,49,Other,Caucasian,199,87,102/83,228,Never,0
+1067,46,Other,Asian,185,78,91/75,203,Former,0
+1451,65,Male,Asian,155,67,116/79,215,Current,0
+1461,45,Other,African American,192,106,127/81,217,Never,0
+505,74,Other,Hispanic,175,108,123/62,179,Never,0
+1042,64,Female,Hispanic,173,60,101/85,157,Never,1
+164,71,Female,Asian,156,54,130/69,216,Never,0
+2863,77,Female,Asian,168,60,115/84,222,Never,0
+76,69,Male,Asian,162,75,99/82,152,Never,0
+1190,88,Female,Asian,164,106,122/86,236,Current,0
+2684,38,Female,Asian,194,86,127/67,212,Current,0
+1066,18,Male,Other,156,82,108/64,192,Current,1
+1720,38,Other,Hispanic,199,54,104/89,242,Never,1
+575,53,Female,Other,186,110,94/68,230,Never,1
+1821,49,Male,Hispanic,163,70,101/67,187,Former,0
+735,26,Female,African American,186,70,102/74,170,Current,0
+2345,51,Male,African American,165,115,138/75,209,Current,0
+2987,52,Male,Other,196,67,116/67,230,Never,0
+2288,23,Female,African American,174,107,118/67,219,Current,0
+847,28,Female,Caucasian,170,55,95/78,231,Never,0
+369,72,Female,African American,160,89,115/77,157,Never,0
+2283,20,Female,Other,155,93,90/62,160,Never,0
+2675,36,Other,Other,198,62,132/85,190,Current,1
+2593,79,Female,African American,178,75,125/69,159,Never,0
+2801,84,Other,African American,161,106,109/90,224,Never,1
+1791,76,Other,Other,159,55,125/60,174,Former,0
+2609,86,Female,Other,180,101,94/81,156,Never,1
+89,18,Other,Asian,200,62,95/71,225,Current,0
+982,26,Other,Caucasian,159,95,124/85,200,Current,0
+541,55,Male,African American,187,108,111/87,167,Current,0
+2033,78,Other,Caucasian,188,66,140/64,237,Former,0
+170,72,Male,African American,171,118,105/66,183,Never,0
+2512,89,Male,Other,189,53,118/62,234,Current,0
+1137,60,Female,Caucasian,189,89,132/86,206,Never,0
+2903,75,Female,Asian,185,58,90/68,157,Current,0
+769,69,Female,African American,150,109,116/81,239,Never,0
+2491,82,Female,Asian,167,112,137/89,171,Current,0
+1820,20,Male,Asian,175,113,94/78,236,Current,1
+2653,85,Female,African American,197,64,129/72,221,Former,0
+628,79,Male,Hispanic,169,58,93/81,216,Never,0
+2763,69,Male,African American,166,80,129/82,219,Never,0
+232,21,Male,Other,196,80,137/62,155,Current,1
+1859,22,Other,Hispanic,178,115,96/80,182,Current,1
+1093,78,Female,Hispanic,174,90,112/75,206,Former,0
+2611,78,Female,Hispanic,169,53,139/67,178,Former,1
+1763,69,Female,Other,181,60,131/62,159,Never,1
+2647,85,Female,Other,174,66,104/67,192,Current,0
+1487,42,Female,African American,174,80,103/69,199,Former,1
+190,49,Female,Other,180,69,129/62,193,Current,0
+2754,77,Other,African American,170,117,132/82,219,Never,0
+1076,82,Female,Caucasian,195,59,126/78,250,Former,0
+894,47,Female,African American,162,89,126/64,204,Current,0
+532,90,Female,Hispanic,162,51,98/76,241,Current,0
+646,41,Male,Other,164,51,92/86,177,Former,0
+2396,45,Other,African American,162,67,124/82,179,Current,0
+2153,53,Other,Other,171,54,126/65,233,Never,1
+722,32,Female,Caucasian,188,114,115/65,193,Current,0
+1765,72,Female,Caucasian,185,91,133/83,150,Never,0
+1006,37,Other,Other,158,119,111/83,224,Never,0
+2456,82,Male,Caucasian,160,88,134/71,248,Former,0
+1111,20,Other,Caucasian,165,85,131/84,196,Current,0
+2252,19,Other,Asian,154,60,108/73,209,Current,0
+2541,85,Female,Other,197,96,110/75,195,Never,1
+5,26,Female,Hispanic,155,114,120/80,226,Current,0
+1656,39,Male,Asian,191,54,132/81,241,Former,0
+1762,39,Female,Hispanic,196,60,122/74,219,Former,0
+2470,46,Other,Other,200,105,93/69,232,Former,0
+877,33,Male,Asian,192,54,91/61,242,Never,0
+788,18,Female,Other,198,84,127/67,170,Former,0
+1252,22,Male,Caucasian,157,103,137/82,229,Former,0
+2452,52,Male,Other,188,84,100/73,227,Former,0
+612,70,Female,Hispanic,176,50,91/83,167,Never,0
+2975,25,Male,Hispanic,157,107,105/69,155,Former,0
+1931,32,Male,Hispanic,193,62,108/61,202,Current,0
+516,79,Other,Hispanic,163,77,125/78,187,Current,0
+1528,49,Other,Asian,188,72,120/84,197,Never,0
+1037,63,Female,Hispanic,151,106,128/83,158,Current,0
+455,49,Other,Asian,180,118,93/69,199,Former,0
+2349,59,Male,Caucasian,191,66,107/70,183,Never,0
+778,41,Male,Asian,195,58,125/62,235,Current,0
+1036,82,Other,African American,196,108,125/85,250,Current,0
+651,40,Female,Hispanic,165,108,139/74,166,Current,0
+260,67,Female,Caucasian,184,92,140/85,150,Current,0
+2843,57,Male,Other,154,100,113/65,220,Former,0
+652,33,Male,African American,172,68,133/82,216,Never,0
+1795,78,Female,Asian,151,53,114/89,152,Former,0
+172,84,Male,Hispanic,153,112,91/76,241,Never,0
+173,33,Female,Caucasian,173,106,127/86,170,Current,0
+2680,58,Female,Asian,151,115,133/71,219,Former,1
+339,89,Male,Asian,192,57,93/81,243,Former,0
+2722,23,Female,Other,169,99,140/65,242,Current,0
+310,50,Female,Asian,170,69,97/61,250,Current,0
+697,30,Male,Other,199,120,120/65,249,Former,0
+1074,79,Other,Hispanic,159,97,138/74,156,Never,0
+2070,71,Other,Hispanic,196,113,123/79,161,Current,0
+2444,71,Female,African American,195,111,108/74,221,Current,0
+1227,70,Other,African American,197,59,121/70,233,Never,0
+1398,72,Female,Other,172,64,139/69,169,Former,0
+2421,67,Male,Asian,150,51,112/72,207,Former,0
+1300,89,Male,African American,153,94,130/80,169,Current,0
+1867,68,Other,Hispanic,168,118,131/87,232,Former,1
+784,77,Male,African American,174,94,131/89,166,Never,1
+1264,18,Female,African American,196,120,95/89,175,Never,0
+1569,33,Female,African American,155,89,111/63,206,Former,0
+1389,37,Male,Hispanic,192,118,112/90,234,Never,0
+201,68,Other,African American,190,69,90/89,248,Former,1
+1725,74,Other,African American,169,64,105/61,178,Current,0
+2882,71,Female,Asian,170,55,121/65,193,Current,0
+2,87,Other,Asian,157,53,105/72,245,Former,1
+1007,64,Other,Caucasian,151,114,137/60,155,Former,0
+945,35,Female,African American,182,90,111/65,170,Current,1
+1757,88,Other,Asian,165,91,129/68,173,Current,1
+1133,62,Other,Hispanic,170,63,140/64,175,Never,0
+565,82,Male,African American,158,79,93/87,197,Current,0
+1467,31,Other,African American,180,89,96/62,182,Never,0
+823,75,Other,African American,179,97,117/82,163,Former,1
+2131,37,Male,Asian,159,88,131/70,210,Never,0
+300,22,Female,Other,164,65,110/83,158,Never,1
+2424,42,Female,Caucasian,154,96,91/71,203,Former,0
+775,85,Male,Other,199,98,106/87,199,Current,0
+2261,82,Male,Caucasian,153,79,129/89,249,Current,0
+976,50,Other,Hispanic,185,117,130/76,212,Current,0
+654,28,Female,African American,156,61,137/77,232,Former,0
+1883,71,Male,African American,161,89,128/77,158,Former,0
+2880,57,Male,African American,153,75,120/71,181,Never,0
+509,39,Male,Asian,160,115,126/73,247,Never,0
+435,90,Female,Hispanic,153,107,115/73,158,Never,0
+1321,82,Other,Asian,151,78,105/76,153,Current,0
+1952,58,Other,African American,161,85,106/68,188,Current,0
+2739,34,Female,Caucasian,155,73,115/77,191,Never,0
+1100,20,Female,African American,178,75,105/73,199,Current,0
+2549,31,Female,Caucasian,169,97,128/82,209,Current,0
+1617,56,Other,Caucasian,161,114,95/73,185,Former,1
+2328,63,Male,African American,174,111,93/75,186,Current,0
+182,66,Female,Caucasian,152,55,116/89,228,Never,1
+2343,36,Male,Caucasian,192,59,111/68,176,Current,1
+2548,69,Female,Hispanic,153,115,96/72,187,Former,0
+833,59,Male,Hispanic,199,112,105/69,232,Former,0
+557,57,Female,Caucasian,171,67,137/75,245,Never,1
+1092,26,Other,Caucasian,178,50,126/74,167,Current,0
+2443,63,Other,Asian,170,113,116/87,222,Former,1
+1572,75,Male,Caucasian,165,89,104/70,200,Former,0
+561,88,Other,Caucasian,150,81,128/83,223,Current,0
+814,69,Female,Other,199,66,128/63,232,Never,1
+2314,42,Male,Hispanic,167,99,139/60,246,Current,0
+473,37,Male,Asian,176,114,103/66,233,Former,0
+886,38,Female,Asian,159,82,101/60,209,Former,0
+422,38,Male,Other,178,117,130/72,162,Current,0
+1105,81,Female,African American,196,113,130/83,197,Never,0
+450,85,Male,Hispanic,159,66,136/63,201,Never,0
+2635,22,Female,Other,182,53,109/84,178,Never,0
+1050,49,Female,Hispanic,158,84,111/60,239,Never,0
+2059,47,Male,African American,167,109,139/64,162,Former,0
+2700,33,Other,Other,153,113,91/82,235,Current,0
+2979,18,Other,Caucasian,164,72,99/69,217,Former,0
+311,29,Male,Hispanic,191,83,91/83,226,Former,0
+1310,74,Male,Asian,162,109,133/69,150,Former,0
+669,27,Other,Asian,193,117,107/63,231,Never,0
+2769,46,Male,Asian,181,56,134/82,232,Never,0
+331,18,Female,Caucasian,196,106,118/62,234,Never,1
+2060,58,Other,Other,170,69,94/62,177,Never,0
+942,83,Other,African American,168,58,127/69,151,Never,0
+2168,30,Other,Caucasian,183,105,125/70,242,Former,1
+120,49,Male,Other,159,94,106/60,177,Former,0
+973,61,Other,African American,189,56,105/74,160,Never,0
+1407,25,Other,Hispanic,175,86,122/60,218,Current,0
+2995,79,Male,Caucasian,167,102,131/84,250,Current,0
+2333,58,Other,Other,182,108,114/67,242,Never,0
+2670,32,Male,Asian,153,66,105/63,194,Current,1
+1769,90,Male,Caucasian,161,79,127/66,248,Never,1
+1874,70,Female,Hispanic,159,94,93/87,174,Current,0
+2071,80,Male,Asian,199,81,105/78,232,Current,0
+579,59,Male,Caucasian,177,120,97/77,165,Never,0
+1162,45,Other,African American,194,55,101/86,185,Current,0
+2032,36,Male,Caucasian,154,85,113/70,247,Former,0
+448,29,Male,African American,158,100,98/79,204,Former,1
+941,24,Female,Caucasian,179,114,106/62,215,Current,0
+1372,77,Male,Asian,160,75,130/70,215,Current,0
+2386,89,Female,Other,165,56,130/62,167,Never,0
+2043,42,Female,Caucasian,153,113,94/70,208,Former,0
+2628,50,Other,Other,176,120,124/65,174,Current,0
+799,64,Other,Asian,185,119,99/90,163,Never,1
+921,31,Male,African American,156,53,121/76,189,Former,1
+2490,65,Female,Hispanic,175,100,104/80,167,Never,0
+583,25,Female,African American,181,91,129/70,164,Former,0
+1830,76,Female,Asian,198,52,92/87,157,Current,0
+2405,52,Other,African American,190,83,94/71,207,Never,0
+1833,55,Male,Caucasian,186,76,100/75,202,Former,0
+648,78,Female,Hispanic,189,74,116/82,239,Never,0
+2372,47,Male,Hispanic,164,63,140/90,191,Never,0
+2278,31,Male,Caucasian,183,94,105/75,156,Former,0
+2425,90,Female,Caucasian,180,94,99/84,184,Former,0
+1871,32,Other,Caucasian,174,102,125/67,243,Current,0
+1951,64,Female,Other,174,103,101/82,221,Current,0
+2959,75,Female,Caucasian,167,89,134/79,237,Never,0
+1404,24,Other,Caucasian,164,84,119/67,158,Current,0
+1706,27,Female,African American,195,91,105/87,231,Current,0
+1943,80,Other,Asian,160,109,106/63,172,Current,0
+1998,38,Female,Asian,181,102,109/77,158,Never,0
+623,79,Female,African American,189,108,114/88,234,Former,0
+1587,62,Male,Hispanic,155,78,113/87,168,Current,0
+2980,29,Other,Caucasian,191,104,110/78,250,Never,0
+850,50,Female,Caucasian,176,99,91/78,180,Current,0
+2999,83,Male,African American,159,93,101/74,191,Current,1
+259,55,Male,Hispanic,181,56,128/62,196,Never,0
+586,49,Male,Caucasian,194,98,112/89,232,Never,0
+2030,61,Other,Asian,183,88,112/75,189,Former,0
+1322,68,Female,African American,160,54,136/64,250,Former,0
+730,69,Female,Other,169,90,119/62,169,Never,1
+1602,90,Other,African American,190,69,115/83,223,Current,0
+398,25,Other,African American,171,65,123/85,228,Former,1
+174,46,Other,Asian,151,103,121/73,224,Never,0
+1849,45,Male,Hispanic,162,93,137/78,249,Never,0
+1932,42,Male,Other,152,92,129/75,173,Current,0
+2205,65,Other,Other,169,110,133/80,186,Current,0
+2145,56,Other,Hispanic,200,70,110/74,243,Current,0
+1177,70,Other,Asian,191,102,107/73,242,Current,0
+1359,48,Female,Caucasian,195,58,136/85,248,Current,0
+958,39,Male,Caucasian,173,98,131/77,207,Current,0
+594,42,Other,Asian,165,76,94/86,241,Current,0
+1500,30,Other,Hispanic,163,106,95/73,150,Former,0
+1593,77,Other,African American,152,108,123/66,214,Current,0
+2222,61,Male,Caucasian,166,101,104/70,249,Never,0
+1354,53,Female,African American,156,60,124/60,161,Former,1
+1350,44,Male,African American,165,72,129/88,186,Never,0
+414,40,Female,African American,152,83,129/76,224,Former,1
+2728,58,Female,Caucasian,167,110,102/63,157,Never,0
+856,65,Female,African American,199,60,120/70,198,Never,0
+2361,20,Female,Other,159,81,139/79,234,Current,1
+2631,74,Male,African American,168,85,127/69,209,Current,0
+2042,87,Other,Asian,171,57,112/74,150,Never,0
+596,24,Male,African American,173,110,140/64,177,Never,0
+1964,18,Other,Hispanic,173,62,121/84,192,Former,0
+2564,70,Other,Caucasian,173,107,139/75,217,Never,0
+2942,26,Female,Hispanic,190,89,99/70,240,Current,1
+2802,67,Female,Caucasian,158,119,115/78,221,Never,0
+2664,23,Male,Other,180,68,121/90,223,Current,0
+2009,69,Other,Caucasian,195,93,134/77,244,Never,0
+1970,39,Male,Caucasian,199,75,94/62,150,Never,1
+2819,22,Other,African American,157,92,118/74,223,Current,0
+153,78,Other,Asian,192,72,109/80,186,Never,0
+507,88,Other,Other,161,83,137/68,180,Former,0
+2820,74,Male,African American,187,56,119/68,155,Never,0
+2883,64,Female,Asian,159,82,134/90,239,Current,0
+2143,59,Female,Caucasian,175,81,139/62,167,Current,1
+1203,47,Male,Other,162,50,129/70,186,Never,0
+2338,46,Male,Other,155,79,101/68,152,Never,0
+2727,74,Other,Caucasian,158,105,123/90,179,Former,0
+2856,21,Male,Hispanic,170,62,132/65,238,Never,0
+237,78,Male,Hispanic,195,119,137/72,187,Current,0
+1352,59,Male,Other,189,58,135/64,174,Former,0
+2552,30,Male,Asian,193,112,123/69,198,Never,0
+329,57,Male,Hispanic,160,61,116/76,164,Former,0
+2232,87,Female,Hispanic,154,59,138/66,209,Current,0
+1907,32,Female,Hispanic,197,58,131/83,202,Never,0
+187,22,Female,Other,176,59,100/69,190,Never,0
+2112,63,Male,Hispanic,168,82,110/83,217,Former,0
+756,63,Male,Hispanic,170,118,96/68,173,Never,0
+843,83,Male,Other,152,116,119/76,227,Former,0
+2170,41,Male,Other,159,81,106/88,185,Former,0
+951,21,Other,Caucasian,200,93,92/68,181,Never,0
+2530,37,Male,Other,175,95,127/90,183,Former,0
+1191,90,Female,Hispanic,166,94,104/75,177,Current,0
+812,90,Other,Asian,160,75,128/83,236,Current,1
+543,38,Female,Asian,175,91,110/69,237,Never,0
+2954,76,Female,Asian,184,92,106/64,195,Former,0
+1789,68,Male,Caucasian,161,110,102/71,235,Former,1
+1249,74,Female,Hispanic,160,68,129/78,155,Never,0
+1224,19,Other,Asian,187,96,119/82,192,Former,1
+1130,30,Female,Other,168,89,136/63,164,Current,1
+570,24,Male,African American,152,93,112/83,182,Current,1
+2025,35,Male,Asian,166,59,133/83,231,Never,0
+2130,31,Female,Asian,195,68,134/66,211,Former,0
+2280,77,Male,African American,151,66,97/82,226,Never,0
+2134,83,Female,Asian,178,61,100/76,156,Current,0
+2446,78,Male,Hispanic,156,80,104/89,182,Former,0
+1743,84,Other,Asian,166,103,123/78,200,Current,0
+884,21,Female,Asian,153,64,102/72,202,Former,0
+863,72,Male,Asian,150,91,123/61,175,Never,0
+2992,81,Male,African American,178,100,128/75,231,Former,0
+2459,18,Other,African American,163,106,95/61,219,Former,1
+211,27,Female,Other,156,68,117/66,185,Current,0
+2948,78,Male,African American,183,111,121/63,177,Former,0
+1288,18,Female,Caucasian,160,109,120/88,187,Former,0
+2649,21,Male,Hispanic,165,114,133/75,211,Former,0
+2427,20,Other,African American,162,86,98/63,203,Never,0
+1033,63,Male,Hispanic,190,101,105/64,228,Former,0
+2938,49,Male,Hispanic,192,105,95/66,151,Never,0
+279,89,Other,Hispanic,171,97,120/76,190,Never,0
+2178,45,Male,Asian,166,69,128/64,239,Current,0
+2711,66,Female,Hispanic,185,74,101/74,184,Current,0
+1783,41,Male,African American,152,62,118/63,245,Current,0
+2746,46,Male,African American,187,112,108/81,152,Never,0
+846,63,Other,African American,165,91,115/72,164,Current,0
+901,62,Male,Hispanic,178,83,140/75,209,Former,0
+16,57,Female,Hispanic,180,59,124/62,219,Never,1
+1368,52,Other,Hispanic,153,64,124/82,234,Former,0
+1938,64,Other,Asian,192,119,106/60,158,Current,1
+2429,46,Female,Caucasian,188,59,134/74,236,Current,1
+459,70,Male,Hispanic,153,91,120/82,191,Current,1
+470,47,Other,Other,195,112,133/90,241,Former,0
+2523,49,Other,Other,152,90,135/61,226,Never,0
+2011,30,Male,Other,195,82,121/67,225,Never,0
+533,65,Female,Caucasian,173,73,139/75,181,Never,1
+1663,41,Other,African American,197,70,130/63,181,Never,0
+1213,31,Other,Other,189,58,114/71,166,Never,0
+724,68,Other,African American,151,94,127/76,173,Current,0
+2467,43,Female,Other,163,86,118/70,164,Never,0
+2127,52,Male,Asian,159,85,128/76,203,Never,0
+1053,20,Other,Asian,159,50,134/79,170,Former,0
+467,25,Female,Hispanic,187,73,115/81,161,Never,0
+2105,22,Female,Hispanic,190,80,107/80,153,Former,0
+887,72,Other,Hispanic,155,113,93/86,249,Never,0
+2401,20,Female,Caucasian,164,53,129/83,170,Former,0
+2317,26,Female,Caucasian,167,90,107/82,244,Current,1
+2468,55,Male,Hispanic,162,74,107/60,191,Never,0
+337,54,Other,Hispanic,178,66,119/63,179,Never,0
+2550,19,Other,Caucasian,159,102,128/64,178,Current,0
+2901,68,Male,Asian,182,110,129/72,190,Current,1
+2142,34,Male,Hispanic,174,68,139/69,248,Never,0
+1108,44,Female,African American,186,94,117/61,231,Former,0
+2289,73,Female,Other,193,88,94/85,165,Former,0
+845,57,Female,Hispanic,160,62,112/84,200,Current,0
+1001,83,Female,Hispanic,198,69,128/87,199,Never,0
+2126,74,Other,Other,154,67,129/70,208,Current,0
+1443,35,Female,Other,188,62,122/79,223,Never,1
+1698,81,Female,Caucasian,169,73,123/76,239,Former,0
+1775,61,Female,Asian,186,101,95/76,150,Never,1
+918,20,Male,Other,154,56,129/90,204,Former,1
+1369,34,Female,African American,181,83,107/83,172,Former,0
+2514,72,Female,Hispanic,182,70,115/82,190,Current,0
+1650,67,Female,Caucasian,182,67,122/71,191,Former,0
+2735,48,Male,Caucasian,189,104,96/68,212,Current,1
+649,81,Male,Hispanic,165,61,120/88,233,Former,0
+141,57,Male,Caucasian,184,108,103/83,161,Never,0
+2862,73,Female,Other,170,78,129/66,189,Never,0
+167,63,Other,Other,164,110,117/86,190,Former,0
+2373,77,Male,Asian,178,118,116/85,220,Former,1
+2187,62,Female,African American,197,64,122/88,204,Former,0
+2366,42,Male,Other,175,51,137/64,195,Former,0
+481,88,Male,Other,173,94,110/89,154,Never,0
+1815,49,Other,Asian,167,51,126/77,243,Former,1
+537,52,Other,Other,154,106,113/72,199,Current,0
+1230,46,Male,Asian,165,50,127/70,236,Current,0
+1088,76,Male,Caucasian,199,73,111/66,172,Current,0
+2643,47,Male,Other,182,73,137/87,233,Current,0
+2850,74,Other,African American,200,87,116/79,206,Current,1
+1253,21,Male,Hispanic,195,70,92/73,223,Current,1
+630,55,Female,Asian,185,117,123/63,152,Former,0
+198,71,Female,African American,174,53,139/76,169,Current,0
+1481,80,Male,African American,167,53,92/82,220,Never,0
+1061,21,Male,African American,156,89,120/89,162,Former,0
+2671,88,Female,African American,199,75,102/76,156,Current,0
+1527,81,Female,Hispanic,197,74,96/71,230,Current,0
+2606,31,Female,African American,196,61,96/81,217,Never,1
+2988,22,Male,Other,157,96,138/73,207,Never,0
+2791,20,Other,Other,189,75,110/77,244,Never,0
+2339,32,Female,Asian,182,54,119/68,187,Never,0
+1059,20,Female,Caucasian,198,116,125/83,238,Current,0
+1463,36,Other,African American,156,92,140/67,188,Former,0
+1406,31,Male,Other,190,79,128/66,226,Never,0
+245,86,Other,Other,199,107,125/73,172,Current,0
+820,75,Female,Caucasian,188,118,120/60,240,Never,0
+8,45,Male,Other,173,57,107/62,250,Former,0
+758,27,Male,Asian,162,88,122/67,228,Current,1
+1306,78,Other,Caucasian,155,103,107/86,239,Current,0
+2858,87,Female,Hispanic,157,68,117/80,241,Never,0
+2918,26,Female,Caucasian,153,65,139/83,185,Never,0
+327,63,Other,Asian,188,117,117/76,206,Former,0
+54,84,Female,Other,152,53,135/77,186,Never,1
+2463,84,Female,Asian,155,99,115/78,214,Former,0
+1313,73,Female,Asian,160,73,105/62,230,Former,0
+620,62,Female,Caucasian,167,117,120/71,226,Never,0
+1887,71,Other,Hispanic,175,92,130/61,185,Former,1
+849,39,Male,Other,158,50,120/86,203,Current,0
+1557,25,Female,Hispanic,175,99,134/88,156,Former,0
+869,30,Female,African American,175,101,91/67,220,Never,0
+1196,37,Male,Other,154,78,134/74,161,Former,0
+1479,87,Female,Other,173,51,116/72,161,Current,1
+1286,55,Other,Other,193,119,105/67,240,Former,0
+77,77,Female,African American,180,78,117/82,196,Former,0
+975,63,Female,Hispanic,172,116,133/71,164,Never,1
+2699,75,Female,Asian,164,111,130/82,174,Current,0
+875,48,Male,Other,175,65,112/71,240,Never,0
+1753,73,Male,Hispanic,169,63,107/89,241,Never,0
+2950,63,Female,Other,167,90,104/88,168,Current,0
+1488,21,Female,Other,163,77,135/81,224,Former,1
+132,89,Other,African American,185,77,105/74,167,Current,0
+2712,67,Male,Other,167,61,139/76,250,Current,0
+501,33,Male,Hispanic,180,60,93/83,176,Current,0
+1696,76,Female,Asian,160,76,102/82,242,Current,0
+487,67,Male,Other,193,85,113/72,196,Current,0
+1850,59,Other,Asian,164,75,110/61,177,Current,0
+889,48,Male,Hispanic,175,119,96/77,168,Current,1
+285,64,Other,Other,178,62,135/87,188,Former,0
+1387,26,Male,Caucasian,153,82,115/64,159,Never,0
+1078,22,Male,African American,158,115,135/90,194,Former,0
+744,37,Other,Asian,199,92,97/64,163,Never,0
+752,60,Female,Asian,188,84,97/76,195,Former,1
+1466,23,Male,Hispanic,180,71,119/78,218,Former,1
+1635,19,Female,Asian,160,99,111/61,228,Current,0
+2887,43,Male,Caucasian,172,85,135/89,171,Current,1
+2622,42,Female,Other,159,107,99/76,170,Current,1
+851,22,Male,African American,180,91,134/85,222,Never,0
+1682,86,Female,Hispanic,151,50,118/75,242,Former,1
+1927,24,Female,African American,161,105,90/70,159,Former,0
+116,55,Female,Asian,175,117,115/68,230,Current,0
+1380,32,Female,Caucasian,166,87,129/77,179,Current,0
+1275,74,Female,Other,186,63,112/86,218,Former,0
+2688,72,Other,Hispanic,169,73,96/83,236,Former,0
+1678,89,Other,Caucasian,196,100,109/79,173,Current,0
+587,25,Male,African American,169,57,128/71,228,Never,0
+2718,35,Male,Hispanic,184,98,140/79,166,Current,1
+451,65,Other,Other,153,93,103/63,231,Never,0
+2526,28,Female,Hispanic,198,115,105/75,168,Former,0
+156,19,Female,Hispanic,198,88,139/60,203,Current,0
+478,56,Other,Asian,167,53,114/72,220,Former,0
+60,31,Male,African American,180,78,109/85,232,Former,0
+223,32,Male,Hispanic,190,79,108/86,224,Never,0
+126,46,Male,Other,155,71,130/76,247,Current,0
+1151,84,Male,Asian,194,89,96/65,175,Former,0
+2274,59,Other,Other,184,117,118/60,183,Former,1
+1776,39,Female,Caucasian,176,116,109/73,186,Current,0
+1721,83,Other,Asian,150,120,103/79,248,Current,0
+2272,42,Male,Hispanic,157,66,132/63,162,Never,0
+519,77,Female,Hispanic,159,116,98/64,176,Current,1
+1537,24,Female,Other,157,58,112/71,191,Never,0
+2958,44,Female,Caucasian,154,76,102/71,195,Never,0
+2483,54,Other,Asian,181,52,107/76,221,Current,0
+2069,87,Other,Caucasian,189,88,111/74,235,Current,1
+81,22,Female,Caucasian,195,55,102/71,248,Former,0
+2536,80,Male,Caucasian,154,116,128/61,179,Never,0
+2971,24,Other,African American,191,115,118/64,197,Current,0
+2304,69,Other,Asian,165,70,117/60,151,Former,1
+424,77,Female,African American,164,63,101/86,237,Current,0
+143,87,Other,Caucasian,169,104,114/79,188,Current,0
+2063,57,Male,Asian,156,72,113/87,189,Former,0
+344,41,Male,Hispanic,184,87,106/90,176,Current,0
+2348,44,Other,Asian,198,92,95/80,154,Former,0
+916,37,Female,Caucasian,161,80,96/65,161,Former,0
+2599,63,Other,Other,187,58,94/70,167,Current,1
+2094,45,Female,Caucasian,154,119,117/68,150,Never,0
+844,36,Female,Asian,177,92,106/89,181,Never,1
+2679,88,Female,Caucasian,183,106,139/85,218,Never,0
+2347,65,Female,Caucasian,161,91,133/79,187,Former,0
+1899,85,Other,Other,151,105,134/84,150,Never,0
+2529,23,Other,Asian,161,71,107/64,190,Never,0
+68,46,Female,African American,192,90,120/70,177,Never,0
+90,82,Male,Caucasian,198,97,100/75,226,Former,1
+2602,64,Male,Other,164,59,139/77,211,Current,1
+1251,42,Other,Other,165,82,95/88,248,Former,1
+1748,41,Male,African American,197,61,104/73,170,Current,0
+1362,21,Other,Other,173,64,128/81,191,Former,1
+2141,58,Female,Hispanic,172,55,130/73,172,Never,0
+1344,84,Other,Other,170,119,100/88,161,Former,1
+2240,19,Male,African American,195,85,108/68,213,Never,0
+1644,23,Female,African American,161,58,124/69,192,Never,0
+1546,20,Male,Hispanic,168,83,137/69,197,Former,0
+1549,29,Male,African American,177,102,128/69,215,Never,0
+2006,88,Other,Caucasian,167,80,116/64,234,Former,0
+625,84,Female,African American,200,76,97/64,151,Former,1
+2989,38,Other,Other,192,102,132/67,237,Never,0
+1297,79,Male,African American,175,80,107/75,242,Current,0
+2743,44,Female,Caucasian,168,86,126/86,158,Current,0
+444,43,Other,Hispanic,181,115,137/83,212,Current,0
+1985,28,Other,Asian,160,119,131/64,217,Never,0
+2388,39,Other,Asian,176,69,109/89,220,Current,0
+192,73,Other,Other,162,76,138/85,195,Never,0
+998,22,Female,Other,180,111,108/70,202,Current,0
+2196,30,Female,African American,151,96,97/62,205,Never,1
+2149,83,Male,African American,181,110,128/75,191,Never,0
+1576,59,Other,Asian,154,57,97/83,243,Current,0
+2898,52,Female,Asian,172,86,108/79,184,Never,0
+163,88,Female,Asian,180,62,132/71,189,Former,0
+984,38,Male,African American,170,60,107/61,201,Current,0
+280,38,Other,Asian,163,70,121/81,193,Current,0
+1519,85,Male,Hispanic,169,63,120/79,173,Never,0
+740,50,Female,Asian,173,82,110/65,180,Current,1
+2064,29,Male,African American,176,65,98/64,216,Former,0
+2985,63,Other,Other,175,50,107/67,226,Former,1
+1314,57,Male,Other,157,106,109/60,202,Never,1
+1277,87,Female,Other,160,85,130/83,195,Never,1
+1649,57,Female,Hispanic,163,56,103/82,247,Never,0
+595,61,Female,Hispanic,199,96,97/61,227,Never,0
+1351,66,Other,Other,158,73,112/74,219,Current,0
+2156,23,Male,Other,152,80,139/87,247,Former,0
+2119,54,Male,African American,155,100,114/89,220,Former,0
+1746,35,Male,Other,184,102,112/74,244,Former,0
+1533,57,Female,Other,200,91,96/85,153,Current,0
+1021,68,Male,Caucasian,162,95,91/81,198,Former,1
+1083,85,Other,Hispanic,200,96,120/81,209,Never,0
+1940,79,Male,African American,176,73,126/63,198,Current,0
+2721,33,Other,Asian,173,83,121/65,237,Current,0
+2255,48,Other,Asian,150,72,107/70,173,Former,0
+605,47,Female,Other,193,113,114/66,157,Current,0
+1633,33,Other,Other,161,50,116/78,161,Never,0
+1402,35,Female,Caucasian,158,109,135/89,168,Never,0
+956,78,Female,African American,190,96,128/88,157,Former,0
+2147,21,Female,African American,177,73,105/89,206,Current,1
+1745,58,Male,Asian,162,118,103/76,211,Current,0
+2188,86,Female,Other,164,85,139/84,244,Never,0
+1155,37,Other,African American,188,100,115/68,228,Current,0
+1490,22,Female,Asian,184,98,96/80,204,Former,1
+2082,39,Female,Other,162,53,126/66,223,Former,0
+1312,18,Other,African American,198,69,137/83,198,Never,0
+1653,36,Other,Hispanic,193,90,91/88,152,Former,1
+497,63,Male,Other,180,61,123/66,159,Current,0
+1180,73,Other,Caucasian,161,82,132/75,182,Never,0
+221,19,Male,Other,183,58,126/84,171,Former,0
+2994,25,Other,Caucasian,189,91,99/72,166,Current,0
+307,90,Female,Hispanic,162,68,128/87,224,Former,0
+946,49,Female,Caucasian,170,104,99/89,217,Former,0
+498,73,Female,Hispanic,197,65,97/88,175,Former,0
+2847,34,Male,Hispanic,185,58,116/63,211,Current,0
+1570,24,Other,Hispanic,167,98,136/67,250,Current,0
+2936,62,Male,Hispanic,189,85,140/90,163,Former,0
+1285,45,Other,Asian,193,116,93/60,194,Current,0
+317,50,Female,African American,183,113,116/69,185,Never,0
+2302,61,Other,Hispanic,183,71,124/79,197,Current,0
+2516,65,Female,Hispanic,184,119,91/62,233,Current,0
+699,76,Male,Hispanic,178,90,120/67,211,Never,0
+1891,61,Other,Other,150,104,109/75,191,Never,0
+2448,47,Female,Other,167,77,130/74,205,Current,1
+2092,23,Male,Asian,164,96,103/60,198,Never,1
+2321,66,Male,Caucasian,185,103,131/61,241,Former,0
+2813,55,Female,Caucasian,178,74,125/80,250,Former,0
+2409,41,Male,Hispanic,185,107,108/90,219,Never,1
+2924,38,Male,Hispanic,190,118,133/71,203,Former,0
+962,37,Other,Other,163,56,131/74,157,Never,0
+2981,80,Male,African American,164,60,128/70,155,Current,0
+2318,55,Other,Asian,178,96,125/86,171,Current,0
+1374,50,Male,Hispanic,156,58,128/87,212,Former,0
+2148,53,Other,African American,170,68,128/62,176,Former,0
+1676,90,Other,Caucasian,195,88,134/68,186,Never,0
+2826,70,Female,Other,196,59,135/82,194,Never,0
+390,43,Male,Caucasian,162,99,92/76,186,Former,0
+1144,33,Female,Caucasian,156,50,103/60,160,Current,0
+418,86,Female,Caucasian,181,58,109/77,153,Current,0
+727,66,Male,Hispanic,161,92,139/62,169,Never,0
+1163,76,Male,Caucasian,162,85,106/77,183,Current,0
+57,64,Male,Caucasian,188,64,112/76,250,Current,0
+488,24,Female,Asian,194,120,117/83,211,Current,1
+795,22,Other,Other,177,59,90/77,202,Former,0
+1409,18,Female,Hispanic,181,93,140/84,217,Current,0
+2963,44,Other,Caucasian,181,114,136/77,173,Current,0
+558,25,Other,Asian,184,86,116/65,229,Never,0
+39,49,Male,Caucasian,168,59,108/70,247,Former,0
+2220,49,Female,Other,177,60,116/63,177,Never,0
+1677,28,Other,Other,189,114,111/80,248,Never,0
+2224,39,Male,Asian,171,113,93/61,226,Current,1
+388,29,Male,African American,174,83,135/75,241,Former,0
+218,50,Female,Other,183,104,99/71,159,Never,0
+746,84,Male,Other,165,73,100/83,218,Current,0
+1138,19,Male,Asian,160,95,97/68,160,Never,0
+1128,44,Female,Asian,193,53,116/79,247,Current,0
+1687,37,Male,Other,150,82,118/78,161,Former,0
+1963,88,Female,Hispanic,187,108,121/88,225,Current,0
+2940,41,Female,Caucasian,196,107,138/65,237,Current,1
+772,74,Male,African American,186,79,96/65,244,Current,0
+403,68,Male,Caucasian,166,92,101/71,230,Never,1
+2241,19,Female,African American,176,88,113/79,245,Former,0
+346,88,Female,Caucasian,169,93,113/87,249,Former,0
+1408,89,Male,Asian,178,107,124/81,221,Current,0
+1953,40,Other,Hispanic,167,59,109/78,246,Current,1
+2553,50,Other,Hispanic,197,118,98/83,203,Current,0
+1834,67,Male,Other,196,104,104/69,176,Former,0
+384,64,Other,Other,182,80,118/72,219,Former,1
+1685,43,Male,African American,174,100,111/61,230,Former,0
+2374,39,Male,Asian,200,108,124/87,239,Former,0
+639,88,Other,Asian,182,74,112/80,171,Current,0
+2243,32,Other,Hispanic,190,51,127/75,186,Current,1
+1562,45,Other,Hispanic,165,119,96/74,161,Former,0
+1958,81,Male,Asian,152,50,117/60,190,Never,1
+158,77,Female,African American,182,103,117/88,153,Never,0
+2966,31,Other,African American,160,115,119/90,207,Current,0
+2140,77,Other,Other,183,95,97/86,215,Former,1
+2088,45,Female,Hispanic,163,82,133/79,227,Never,0
+726,48,Other,Other,165,104,124/87,153,Current,0
+1444,80,Other,Other,189,102,90/71,158,Never,0
+2729,38,Female,Caucasian,150,63,131/72,235,Never,0
+2110,75,Female,Caucasian,155,64,102/75,207,Never,0
+1437,88,Female,Other,150,104,125/72,226,Current,0
+1012,19,Female,African American,173,97,101/60,220,Never,0
+554,63,Other,Other,193,119,119/85,236,Former,1
+1962,34,Male,Other,164,96,109/69,167,Current,0
+1847,40,Male,Other,199,72,91/66,157,Former,0
+2352,57,Male,Hispanic,169,107,134/90,189,Current,0
+1794,25,Male,African American,200,56,123/69,159,Current,0
+1496,34,Female,Asian,170,110,106/89,204,Current,0
+1726,69,Other,Hispanic,168,105,93/87,244,Current,0
+2672,82,Female,Caucasian,176,86,124/85,200,Current,0
+1728,41,Female,Other,182,94,102/63,229,Former,1
+1346,33,Female,Asian,171,65,110/89,153,Never,0
+1936,86,Other,Other,180,67,104/65,168,Never,0
+265,46,Male,Hispanic,200,51,123/76,184,Never,1
+2316,28,Male,African American,185,65,132/83,210,Never,0
+2162,46,Other,Other,154,105,116/86,233,Former,0
+2253,83,Other,Hispanic,180,89,132/74,194,Never,0
+1494,36,Male,Asian,187,77,133/79,215,Former,1
+1003,84,Female,Caucasian,180,70,98/82,176,Current,0
+2246,48,Other,Hispanic,160,63,100/82,218,Never,0
+723,49,Male,Asian,159,81,110/64,224,Current,1
+2319,61,Male,Other,187,54,116/89,179,Former,1
+621,87,Female,African American,167,50,109/79,230,Current,0
+1686,86,Male,Caucasian,167,82,115/68,156,Never,1
+2943,21,Male,Hispanic,189,76,90/62,202,Former,0
+2365,25,Other,Caucasian,164,95,128/76,197,Former,0
+1218,48,Male,Hispanic,162,61,138/65,218,Former,0
+1441,72,Other,African American,159,90,131/77,211,Current,1
+1877,38,Other,Hispanic,190,86,98/74,218,Never,0
+1292,25,Male,Hispanic,164,83,129/61,177,Former,0
+1175,59,Other,Asian,177,103,98/88,211,Former,0
+313,80,Other,Other,171,106,135/74,190,Former,0
+1626,84,Male,Other,154,81,123/62,181,Never,0
+578,29,Other,Hispanic,186,72,103/73,181,Former,1
+931,85,Other,Asian,174,111,119/86,161,Former,0
+356,46,Female,Caucasian,185,88,92/87,238,Former,0
+996,33,Female,Hispanic,183,63,114/68,239,Current,0
+852,23,Other,Caucasian,159,66,120/77,239,Former,0
+1336,86,Other,Hispanic,183,85,101/73,184,Current,0
+1348,18,Female,Hispanic,195,72,122/71,180,Former,0
+2837,31,Other,Asian,195,60,110/89,247,Former,0
+93,49,Female,Asian,187,87,124/65,193,Former,0
+2665,22,Female,Hispanic,154,110,113/82,189,Never,1
+1202,25,Male,Other,193,100,90/81,191,Former,0
+2759,62,Male,Asian,170,82,108/77,219,Never,1
+555,90,Female,Other,163,52,117/66,182,Never,0
+2651,59,Male,African American,179,81,120/81,228,Former,0
+184,78,Female,Caucasian,181,117,135/77,245,Current,0
+377,58,Other,Asian,158,65,97/87,167,Former,0
+1547,68,Female,Hispanic,181,103,108/89,175,Former,0
+2881,36,Other,African American,183,82,110/78,154,Never,1
+186,30,Other,Other,166,87,132/84,218,Current,0
+796,67,Other,Other,164,57,95/79,212,Former,0
+759,60,Other,Caucasian,167,119,94/73,247,Former,0
+2367,63,Other,Caucasian,161,74,107/71,186,Never,0
+1911,59,Other,Other,184,100,134/64,193,Never,0
+1898,28,Male,Caucasian,188,105,137/61,224,Never,0
+2161,26,Male,African American,177,92,99/77,167,Former,0
+607,34,Other,African American,195,112,128/75,169,Current,0
+2575,32,Other,Other,196,115,129/61,161,Never,0
+737,75,Female,Hispanic,199,58,104/77,162,Former,0
+539,65,Male,Caucasian,187,71,113/74,169,Current,0
+2107,88,Other,Caucasian,190,95,108/62,241,Former,1
+745,28,Male,African American,198,106,96/70,228,Current,0
+91,58,Male,Hispanic,180,77,128/67,203,Current,0
+268,31,Female,Asian,194,63,132/61,216,Never,0
+760,30,Other,Other,194,85,107/67,158,Current,1
+1013,75,Male,African American,170,106,124/81,167,Never,0
+1375,65,Male,Asian,178,82,92/76,210,Former,0
+1738,52,Other,Asian,172,62,116/68,152,Never,0
+442,85,Other,Asian,196,105,127/73,166,Former,0
+1473,29,Male,Other,171,91,128/85,193,Never,0
+655,23,Female,Other,176,99,110/68,246,Current,0
+2668,30,Female,Hispanic,197,71,96/73,183,Current,0
+1420,88,Male,Hispanic,160,90,130/60,218,Current,0
+659,75,Female,Hispanic,157,113,136/79,168,Never,1
+1472,53,Female,Other,160,66,132/78,191,Former,0
+2122,78,Female,Hispanic,179,100,97/62,154,Current,0
+2203,55,Other,Asian,160,87,139/76,247,Never,0
+718,77,Male,African American,187,112,120/80,247,Former,1
+135,43,Other,African American,183,52,116/65,173,Current,1
+2666,47,Male,Asian,186,118,137/88,224,Never,1
+2655,48,Male,Asian,160,94,101/73,204,Former,0
+2621,29,Female,Caucasian,174,98,132/70,220,Current,0
+738,56,Other,Other,161,69,139/62,240,Former,1
+1631,80,Female,African American,196,93,115/90,189,Current,0
+2305,86,Male,Caucasian,175,99,130/72,179,Current,0
+1828,59,Female,Hispanic,166,55,134/80,207,Never,0
+2229,34,Male,Hispanic,166,99,93/79,214,Never,0
+1724,55,Male,Caucasian,181,104,97/68,232,Former,1
+779,75,Female,Hispanic,177,114,135/65,189,Current,0
+2050,51,Male,African American,183,93,112/73,226,Current,0
+1615,64,Female,Caucasian,151,87,114/64,236,Former,0
+2657,59,Female,Caucasian,171,71,129/83,206,Former,0
+1008,34,Female,Hispanic,184,93,112/71,195,Never,0
+1909,27,Male,Asian,154,64,115/90,200,Never,1
+1910,29,Female,Other,161,100,128/70,244,Current,1
+11,52,Female,Caucasian,153,94,91/74,245,Former,0
+2741,58,Female,Caucasian,168,62,103/79,157,Never,1
+839,77,Female,African American,183,119,111/70,159,Former,1
+547,53,Male,Caucasian,152,50,133/66,198,Never,0
+2237,60,Other,Hispanic,188,115,126/66,250,Current,0
+157,54,Male,Asian,200,74,95/85,226,Former,0
+686,77,Other,Caucasian,167,108,111/70,243,Never,1
+1174,67,Male,Caucasian,170,95,132/66,227,Current,0
+1564,31,Male,Hispanic,172,95,95/74,203,Never,0
+2022,54,Other,Other,188,103,135/86,220,Current,1
+1520,63,Other,Hispanic,161,50,118/64,170,Current,0
+420,67,Other,Asian,156,114,91/83,178,Current,0
+568,48,Male,African American,160,120,136/76,236,Never,0
+2816,31,Other,Hispanic,188,91,109/85,221,Former,0
+1774,86,Female,Caucasian,192,99,120/65,222,Former,0
+2639,33,Female,African American,175,84,138/71,186,Current,0
+2097,70,Male,Caucasian,157,113,102/85,150,Never,0
+1232,32,Other,Asian,150,84,120/87,208,Current,0
+46,71,Male,African American,163,96,137/88,240,Current,0
+571,23,Female,Caucasian,174,61,129/67,249,Current,0
+320,54,Female,Hispanic,181,90,113/72,237,Former,0
+2726,80,Male,Hispanic,160,111,106/89,226,Former,0
+18,68,Female,African American,185,102,123/80,206,Current,0
+2086,29,Female,Hispanic,154,114,103/78,204,Current,0
+2535,75,Male,Asian,171,56,126/81,187,Never,1
+486,88,Female,African American,191,110,95/84,235,Current,0
+2667,28,Male,Other,162,119,105/64,195,Former,0
+2363,29,Female,Caucasian,154,73,125/72,179,Never,0
+55,27,Other,Caucasian,167,87,129/71,211,Current,0
+2173,84,Male,Caucasian,195,62,122/72,245,Never,0
+2414,81,Other,Asian,167,117,111/68,223,Former,0
+960,54,Male,Other,185,51,134/85,225,Never,0
+1113,45,Male,Asian,178,80,121/65,164,Former,0
+857,84,Other,Asian,163,51,137/62,201,Former,1
+1559,81,Female,Asian,160,97,93/69,205,Current,1
+2028,58,Other,Hispanic,178,92,101/77,175,Former,0
+1579,33,Female,African American,186,51,111/82,181,Former,1
+2892,66,Other,Hispanic,162,72,91/90,220,Former,0
+1761,24,Male,African American,164,77,129/81,232,Current,0
+1990,19,Female,Caucasian,195,82,122/88,170,Never,0
+2779,86,Other,Other,166,92,90/60,169,Never,1
+1194,33,Other,Asian,171,89,90/83,190,Never,0
+1421,56,Other,African American,176,52,122/90,183,Current,0
+934,34,Male,Caucasian,195,71,90/68,187,Never,1
+970,38,Female,Other,190,103,140/68,236,Former,0
+2185,84,Female,Asian,182,77,112/82,176,Former,0
+2114,20,Other,Other,191,72,112/73,239,Never,0
+2434,48,Other,Other,175,51,90/78,164,Never,0
+2753,50,Male,Asian,169,65,122/84,207,Current,0
+2397,71,Male,Hispanic,173,110,122/86,230,Former,0
+2845,60,Male,Hispanic,150,88,115/70,170,Current,0
+637,45,Male,Asian,160,69,124/66,155,Current,0
+2192,66,Female,Hispanic,179,87,101/68,210,Former,0
+1560,39,Female,Hispanic,189,50,92/81,173,Never,0
+993,21,Female,Asian,200,83,113/62,164,Former,0
+1060,48,Male,Caucasian,194,106,125/75,223,Current,1
+2607,32,Other,Other,153,96,126/61,198,Current,0
+1403,32,Female,Hispanic,170,54,129/87,163,Never,0
+2036,63,Male,Hispanic,172,59,94/67,239,Current,0
+2296,47,Other,Other,190,96,137/88,227,Never,0
+1989,74,Other,Asian,159,117,136/62,234,Never,1
+1475,87,Male,Hispanic,182,92,118/83,164,Former,0
+2811,84,Other,Hispanic,199,101,117/73,200,Former,0
+1208,21,Other,African American,185,70,113/80,223,Former,0
+1582,46,Female,Hispanic,150,75,131/75,209,Former,0
+1238,22,Female,Other,194,67,98/82,237,Former,0
+1195,87,Male,Other,187,111,110/86,207,Current,0
+1134,34,Other,Hispanic,159,119,118/68,210,Current,0
+1411,63,Male,Asian,164,110,120/64,171,Never,0
+2182,26,Other,African American,153,76,103/76,215,Never,0
+2683,21,Other,Caucasian,187,52,121/74,237,Former,0
+189,77,Male,Other,156,70,99/74,241,Never,1
+695,56,Male,Caucasian,191,117,120/85,173,Current,0
+2800,56,Other,Asian,186,100,112/67,248,Current,0
+1530,76,Male,African American,188,111,90/90,217,Former,0
+23,88,Male,Hispanic,179,107,122/64,218,Never,0
+2299,33,Other,African American,175,76,122/90,170,Former,0
+1153,38,Other,African American,191,81,92/73,184,Current,0
+1335,39,Other,Hispanic,196,61,119/60,171,Current,0
+1199,71,Male,Caucasian,157,75,111/68,227,Never,0
+1957,75,Other,Hispanic,165,59,100/79,177,Former,0
+2676,82,Male,Other,178,60,97/80,237,Never,1
+83,80,Male,Hispanic,176,103,111/76,219,Former,1
+361,71,Female,Other,178,64,131/76,178,Never,1
+169,52,Female,Hispanic,192,78,115/68,190,Current,0
+171,85,Female,Other,189,89,96/88,249,Never,0
+2613,86,Male,Caucasian,152,66,100/89,152,Never,0
+2216,39,Female,Asian,197,80,118/71,152,Never,0
+236,57,Other,Hispanic,164,52,104/82,207,Current,0
+262,51,Male,Caucasian,153,69,104/90,199,Former,0
+925,52,Female,Hispanic,167,68,111/87,167,Former,0
+2748,48,Female,Asian,186,60,113/86,160,Never,0
+1629,40,Male,Caucasian,160,103,109/73,179,Former,0
+196,41,Female,Asian,169,52,123/72,159,Never,0
+747,21,Other,African American,189,93,121/76,172,Never,0
+1638,66,Male,Hispanic,194,82,105/64,222,Former,1
+584,19,Female,African American,152,58,111/81,207,Never,0
+822,69,Female,Other,160,112,135/60,163,Former,1
+1433,27,Female,African American,197,110,124/75,214,Never,0
+1146,47,Female,Hispanic,150,76,111/61,206,Never,0
+1157,21,Other,Hispanic,150,111,129/67,157,Never,0
+948,77,Female,African American,184,52,130/68,165,Current,0
+1186,59,Other,Other,164,56,108/78,188,Never,0
+1239,39,Other,Hispanic,171,82,123/74,206,Current,1
+1507,27,Male,Hispanic,189,120,127/78,223,Never,0
+1385,39,Female,Hispanic,197,78,140/69,159,Never,0
+2487,33,Male,African American,192,118,100/65,189,Former,0
+1291,90,Male,Hispanic,192,83,122/64,194,Former,0
+2081,75,Male,Other,152,64,123/87,168,Former,0
+2038,41,Female,African American,191,116,94/89,221,Current,0
+2803,41,Other,Other,173,90,119/70,242,Never,0
+2616,53,Other,Caucasian,157,116,111/83,218,Never,0
+2792,20,Male,Other,180,79,91/67,217,Current,0
+2780,86,Female,Other,191,104,114/75,161,Never,0
+1986,64,Other,Other,179,119,106/79,157,Current,0
+1158,40,Male,Asian,158,62,124/62,224,Never,0
+890,26,Female,Asian,151,89,101/60,238,Current,1
+1149,53,Male,Asian,195,97,120/62,169,Current,1
+2186,32,Other,Asian,173,99,122/60,220,Former,0
+490,64,Other,Hispanic,177,85,134/67,166,Never,1
+2937,87,Other,Asian,199,61,93/86,242,Former,0
+2223,54,Other,Asian,192,103,127/74,188,Former,0
+312,23,Male,Caucasian,177,81,140/62,245,Former,0
+335,42,Female,African American,172,92,101/83,179,Never,0
+1280,40,Other,Hispanic,156,112,107/61,187,Former,0
+2874,79,Other,Asian,175,56,94/83,223,Current,1
+1150,38,Other,Other,169,57,111/79,186,Former,0
+859,34,Male,Hispanic,162,85,140/88,184,Current,1
+2957,65,Other,African American,168,98,133/76,227,Current,0
+879,53,Female,Caucasian,158,85,134/70,153,Former,0
+25,60,Male,Caucasian,167,62,123/81,239,Current,0
+959,44,Other,Caucasian,199,91,104/76,173,Former,0
+2939,39,Male,Hispanic,154,54,101/64,199,Former,0
+1136,63,Other,Other,186,103,129/82,223,Current,0
+1799,56,Other,African American,165,97,128/68,191,Never,0
+2654,44,Male,African American,191,70,119/72,162,Former,1
+1145,66,Other,Caucasian,164,90,93/74,191,Current,0
+1616,68,Male,Asian,177,109,93/63,249,Never,0
+4,43,Male,Other,185,76,111/77,165,Never,0
+1709,68,Other,Asian,183,108,97/62,193,Never,1
+253,30,Other,Caucasian,151,50,101/78,229,Current,0
+1268,30,Other,African American,163,111,92/79,236,Former,1
+2394,60,Other,African American,192,80,105/69,154,Former,0
+64,37,Male,Asian,193,54,99/86,223,Never,0
+2236,61,Male,Asian,173,83,118/62,230,Current,0
+494,33,Male,African American,186,70,99/87,212,Current,1
+2678,21,Female,Hispanic,162,76,103/81,216,Former,0
+2084,36,Other,Other,162,75,116/76,170,Never,0
+100,90,Other,Caucasian,150,82,130/85,196,Current,1
+645,29,Female,African American,171,64,112/80,212,Never,0
+112,36,Other,Asian,155,61,130/75,188,Never,1
+2326,89,Other,Hispanic,199,78,123/86,225,Former,0
+254,75,Other,Other,193,72,92/80,221,Current,0
+2215,64,Female,African American,178,99,126/84,200,Current,1
+741,86,Other,Asian,164,110,121/85,202,Former,1
+2661,50,Female,African American,151,100,93/69,164,Former,0
+1543,84,Male,Caucasian,196,106,107/72,225,Current,0
+940,39,Female,Caucasian,151,78,125/67,249,Current,1
+1102,34,Female,Caucasian,153,51,129/84,243,Current,0
+1594,82,Male,African American,163,115,91/88,243,Never,1
+400,63,Female,Other,170,114,98/79,171,Former,0
+1181,76,Female,Other,166,97,128/69,212,Former,0
+66,25,Female,Other,176,102,138/81,183,Never,0
+599,19,Male,Hispanic,179,74,114/90,195,Current,1
+2520,62,Female,Caucasian,167,98,99/61,191,Former,1
+2955,86,Other,African American,150,66,128/84,171,Current,1
+2267,59,Male,African American,183,118,140/65,163,Former,0
+2037,19,Male,African American,182,116,106/64,193,Never,0
+1641,51,Female,Hispanic,196,56,128/86,174,Current,0
+243,77,Male,Caucasian,183,82,115/81,202,Current,1
+634,27,Male,Asian,188,112,98/73,225,Never,0
+1023,30,Other,Caucasian,176,63,140/84,241,Current,0
+1835,38,Other,Hispanic,182,57,132/70,177,Never,0
+43,66,Female,Caucasian,169,101,131/66,190,Current,0
+2488,40,Male,African American,180,116,92/79,206,Former,1
+915,42,Male,Hispanic,193,114,133/66,248,Never,0
+2567,65,Female,Caucasian,199,105,122/81,240,Current,0
+963,81,Other,Other,181,82,136/61,177,Current,1
+1621,24,Male,Hispanic,153,103,135/67,223,Current,0
+909,68,Other,Asian,154,81,94/90,245,Never,0
+777,75,Male,Caucasian,183,118,123/61,224,Former,0
+2840,57,Male,Other,186,103,114/68,250,Former,0
+2686,75,Female,Hispanic,171,95,90/80,188,Current,0
+2953,57,Female,Asian,195,100,100/77,243,Never,0
+2303,71,Male,Caucasian,157,68,102/66,243,Former,0
+1590,24,Female,African American,179,57,137/67,225,Current,0
+666,68,Female,Other,165,118,104/85,179,Former,0
+2852,55,Female,Hispanic,182,50,102/60,154,Former,1
+1665,40,Male,Asian,164,73,95/89,231,Current,1
+2513,34,Male,Hispanic,153,86,137/69,190,Former,0
+2627,78,Other,Asian,192,65,104/77,232,Current,1
+1599,58,Female,Caucasian,161,62,96/78,169,Never,0
+1630,63,Other,Asian,157,73,138/67,227,Current,0
+2398,68,Other,Hispanic,162,58,129/61,217,Never,0
+1225,55,Male,Caucasian,159,108,105/74,230,Former,0
+2542,56,Other,Hispanic,173,50,90/61,205,Current,1
+1965,26,Male,Other,173,57,135/76,197,Never,0
+2783,77,Male,Caucasian,199,98,130/82,195,Current,0
+134,68,Male,Other,193,84,108/63,236,Current,0
+681,23,Other,Asian,176,63,115/81,197,Never,0
+88,25,Other,Other,197,92,98/90,191,Current,0
+798,42,Other,Caucasian,167,61,131/70,180,Former,0
+1733,65,Male,Other,185,77,91/90,160,Former,0
+1438,40,Female,Other,150,84,102/73,211,Never,0
+102,65,Male,African American,169,115,106/77,243,Current,0
+374,19,Other,Asian,185,52,136/60,178,Never,0
+2990,72,Other,African American,199,114,98/62,197,Never,0
+2615,58,Other,Other,168,53,94/85,236,Never,0
+2956,61,Female,Other,187,116,99/69,190,Former,0
+842,72,Female,Hispanic,168,116,103/72,181,Former,1
+1360,40,Other,Hispanic,168,113,111/90,202,Never,0
+209,59,Other,Hispanic,174,94,134/76,188,Former,0
+2404,27,Female,Other,177,66,94/64,213,Current,0
+804,24,Other,Other,164,93,139/67,191,Former,0
+2951,81,Female,Hispanic,164,57,123/86,187,Current,0
+1031,22,Female,Caucasian,199,104,120/73,163,Current,1
+1779,20,Other,Caucasian,184,105,132/80,208,Former,0
+479,23,Female,Other,180,83,97/60,222,Never,1
+2335,47,Other,Other,192,75,114/79,233,Current,0
+1273,59,Male,Asian,159,110,97/86,157,Current,1
+2598,29,Male,African American,152,63,121/89,249,Current,0
+680,29,Other,Asian,196,67,90/76,153,Former,0
+1670,63,Other,Hispanic,176,74,117/62,169,Never,0
+258,81,Other,Asian,199,59,131/61,239,Never,1
+1690,19,Other,African American,197,63,132/83,176,Never,0
+2325,64,Other,African American,190,72,135/67,224,Never,0
+417,22,Other,Hispanic,155,54,106/60,223,Former,1
+1523,45,Other,Asian,180,83,109/63,157,Former,1
+2640,58,Female,Hispanic,191,56,105/79,228,Current,0
+950,36,Male,Other,153,98,91/79,214,Never,1
+685,38,Male,Caucasian,200,102,115/75,211,Never,1
+309,18,Female,African American,184,103,138/67,178,Current,0
+183,29,Other,Other,173,89,104/80,170,Current,0
+1219,74,Male,Asian,185,77,123/84,171,Former,0
+2740,43,Female,African American,173,60,117/87,204,Never,0
+2320,78,Male,African American,154,72,96/67,217,Never,1
+1279,71,Male,Asian,182,102,97/73,169,Current,0
+1772,39,Male,Caucasian,196,118,103/78,167,Current,0
+1959,27,Male,Hispanic,191,77,128/79,200,Former,0
+2208,78,Female,African American,195,110,98/79,159,Current,1
+2574,83,Male,Asian,185,65,114/61,218,Former,0
+2842,33,Female,Hispanic,154,69,114/78,187,Current,1
+159,55,Male,Asian,156,52,127/82,167,Former,0
+2298,45,Male,Asian,170,66,93/78,211,Current,0
+1838,34,Other,Caucasian,186,89,113/67,186,Former,0
+2704,85,Female,African American,153,105,106/87,213,Never,0
+569,35,Female,Hispanic,158,62,113/78,249,Never,0
+1489,84,Male,Other,191,77,125/71,164,Never,0
+1366,29,Other,Hispanic,186,64,91/73,220,Current,0
+2597,26,Male,Asian,152,61,134/88,166,Current,0
+989,62,Other,Hispanic,155,81,93/81,223,Never,0
+438,60,Female,Caucasian,158,100,113/86,155,Never,1
+1458,54,Other,Asian,171,92,96/75,223,Never,0
+1446,87,Other,Hispanic,191,75,103/80,152,Former,0
+1585,43,Male,Other,175,55,110/63,184,Former,0
+338,59,Male,Hispanic,169,54,93/77,168,Never,0
+2151,55,Other,African American,172,93,101/81,171,Never,0
+566,39,Male,African American,163,89,95/65,239,Never,0
+825,24,Female,Other,151,51,99/72,162,Former,0
+2439,75,Male,Caucasian,167,51,92/88,158,Current,0
+2849,59,Female,Asian,179,58,100/62,205,Current,0
+35,86,Female,Hispanic,168,102,94/79,180,Current,0
+2646,28,Male,Hispanic,166,81,111/65,221,Former,0
+1969,48,Female,Other,196,80,103/80,211,Current,1
+2945,59,Male,African American,165,106,94/60,202,Former,0
+923,84,Other,African American,190,70,110/72,181,Current,0
+757,43,Female,African American,154,112,92/62,244,Never,0
+1846,22,Female,Caucasian,158,75,123/72,192,Current,0
+2447,49,Other,African American,175,78,128/68,177,Former,0
+1606,81,Other,Other,162,75,111/85,218,Former,0
+1070,68,Male,Asian,182,63,107/70,168,Current,0
+1851,56,Female,Asian,200,86,91/83,166,Never,0
+2089,39,Male,African American,167,97,98/61,198,Current,0
+56,82,Male,Caucasian,173,97,120/74,192,Former,1
+1782,88,Female,African American,182,68,126/86,213,Never,0
+2090,60,Female,Hispanic,181,75,108/66,232,Former,1
+282,71,Other,Asian,150,119,131/74,246,Current,0
+1096,86,Male,Asian,172,70,135/73,183,Current,0
+1311,64,Male,Other,168,112,90/80,194,Current,0
+225,85,Female,Caucasian,169,57,120/66,235,Current,1
+1780,27,Female,Asian,188,60,130/62,167,Former,1
+2007,57,Female,Other,180,77,112/76,205,Current,0
+1701,56,Other,Other,181,107,100/84,246,Current,0
+2872,50,Male,Caucasian,163,55,107/84,171,Current,0
+389,53,Male,Other,151,71,104/65,219,Current,0
+292,39,Female,Other,160,64,127/62,246,Current,0
+1080,41,Other,Other,192,98,93/66,194,Current,0
+1742,81,Male,African American,197,64,91/90,200,Current,1
+2663,81,Other,Caucasian,194,96,95/81,169,Former,0
+95,51,Female,Hispanic,193,51,123/84,170,Former,0
+2864,87,Male,Other,190,108,121/85,191,Current,0
+862,62,Other,Asian,195,57,90/74,209,Former,0
+1029,54,Female,Asian,157,66,116/67,238,Current,0
+2596,45,Female,Caucasian,189,63,103/64,169,Never,0
+316,66,Male,Hispanic,179,61,139/69,231,Former,0
+2169,21,Male,Hispanic,161,98,138/66,153,Current,0
+1112,36,Male,African American,166,117,104/61,204,Never,0
+1627,33,Other,Asian,151,85,106/69,212,Never,0
+1703,72,Female,Asian,179,112,95/68,209,Former,0
+719,73,Female,Asian,165,59,134/82,213,Current,0
+2312,89,Female,Hispanic,159,91,137/87,236,Former,0
+734,58,Female,Hispanic,160,117,110/64,246,Former,1
+2132,23,Other,Caucasian,173,84,109/68,248,Current,0
+854,48,Other,African American,186,86,112/63,165,Current,0
+701,55,Other,Other,166,99,120/77,225,Never,0
+238,54,Other,African American,181,91,131/76,205,Former,0
+1865,64,Male,Caucasian,174,99,123/60,198,Never,0
+653,83,Other,Hispanic,152,86,101/76,219,Former,0
+736,26,Other,Hispanic,152,62,140/88,192,Never,0
+1184,56,Female,Caucasian,168,102,111/60,223,Current,0
+2906,39,Other,Asian,155,94,97/62,182,Current,0
+2480,27,Female,Asian,150,61,127/69,161,Former,0
+2893,26,Male,African American,194,108,101/82,247,Never,0
+2579,45,Female,Caucasian,168,61,133/75,226,Never,1
+2910,75,Other,African American,172,120,108/63,215,Current,0
+2210,29,Male,Hispanic,153,57,126/82,209,Never,0
+2417,26,Male,Asian,177,53,119/60,192,Former,0
+273,68,Male,African American,157,118,129/60,186,Current,0
+2469,73,Other,Asian,198,92,108/62,155,Never,0
+51,70,Other,Hispanic,156,73,121/60,183,Former,0
+1480,33,Other,Caucasian,163,107,93/79,204,Never,0
+2650,44,Other,Other,198,51,109/66,172,Never,0
+181,26,Male,African American,155,107,101/66,202,Former,0
+748,54,Male,Asian,165,81,103/75,179,Former,0
+819,70,Female,Other,198,111,119/74,168,Current,0
+1205,23,Female,Hispanic,162,106,112/83,192,Never,0
+2742,50,Male,Asian,160,94,116/79,199,Never,0
+1647,42,Other,Hispanic,192,84,128/86,182,Never,0
+1597,67,Female,African American,163,86,106/82,182,Former,0
+1502,24,Female,Asian,168,69,110/82,209,Former,0
+2012,58,Female,African American,192,108,134/86,236,Current,0
+1906,29,Male,Hispanic,160,78,92/79,201,Current,0
+485,53,Female,Hispanic,159,93,133/64,230,Current,0
+1200,88,Female,Caucasian,162,119,128/82,193,Current,0
+563,20,Male,African American,171,52,90/71,234,Current,0

@@ -1,0 +1,65 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "delivery_delay_days",
+        "logistics_provider_customer_rating",
+        "order_date_gap",
+        "delivery_day_of_week",
+        "warehouse_avg_inventory_change",
+        "order_status_effect",
+        "distance_cost_ratio",
+        "logistics_delay_percent",
+        "multi_item_delay_proportion"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.330530576979621": {
+            "name": "delivery_delay_days",
+            "code": "import pandas as pd\n\ndef delivery_delay_days(row):\n    delivery_date = pd.to_datetime(row['delivery_date'])\n    scheduled_date = pd.to_datetime(row['scheduled_delivery_date'])\n    return (delivery_date - scheduled_date).days\n"
+        },
+        "0.23834050686179215": {
+            "name": "logistics_provider_customer_rating",
+            "code": "\n\ndef logistics_provider_customer_rating(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    provider_data = aux_dataframes['logistics_data_table.csv']\n    provider_rating = provider_data.loc[\n        provider_data['logistics_provider_id'] == row['logistics_provider_id'], 'customer_rating'\n    ]\n    return provider_rating.iloc[0] if not provider_rating.empty else None\n"
+        },
+        "0.047150036551259336": {
+            "name": "order_date_gap",
+            "code": "import pandas as pd\n\ndef order_date_gap(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    orders_data = aux_dataframes['order_details_table.csv']\n    order_date = orders_data.loc[\n        orders_data['order_id'] == row['order_id'], 'order_date'\n    ]\n    if not order_date.empty:\n        order_date = pd.to_datetime(order_date.iloc[0])\n        scheduled_date = pd.to_datetime(row['scheduled_delivery_date'])\n        return (scheduled_date - order_date).days\n    return None\n"
+        },
+        "0.028706423386054572": {
+            "name": "delivery_day_of_week",
+            "code": "import pandas as pd\n\ndef delivery_day_of_week(row):\n    return pd.to_datetime(row['delivery_date']).weekday()\n"
+        },
+        "0.02858477893213618": {
+            "name": "warehouse_avg_inventory_change",
+            "code": "\n\ndef warehouse_avg_inventory_change(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Retrieve the order details table\n    order_details = aux_dataframes['order_details_table.csv']\n    \n    # Retrieve the warehouse inventory table\n    warehouse_data = aux_dataframes['warehouse_inventory_table.csv']\n    \n    # Get the warehouse_id for the given order_id\n    warehouse_id = order_details.loc[\n        order_details['order_id'] == row['order_id'], 'warehouse_id'\n    ]\n    \n    # Check if warehouse_id exists\n    if warehouse_id.empty:\n        return None\n    \n    # Extract the first (and likely only) value of warehouse_id\n    warehouse_id = warehouse_id.iloc[0]\n    \n    # Filter the warehouse inventory table for the given warehouse_id\n    daily_changes = warehouse_data.loc[\n        warehouse_data['warehouse_id'] == warehouse_id, 'daily_inventory_change'\n    ]\n    \n    # Return the mean of daily inventory changes, or None if no data is available\n    return daily_changes.mean() if not daily_changes.empty else None\n"
+        },
+        "0.01231425258090317": {
+            "name": "order_status_effect",
+            "code": "\n\ndef order_status_effect(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    orders_data = aux_dataframes['order_details_table.csv']\n    status = orders_data.loc[orders_data['order_id'] == row['order_id'], 'order_status']\n    if not status.empty:\n        # Map statuses to likelihood of delay (arbitrary scores; optimize during modeling)\n        status_mapping = {'Pending': 0.8, 'Cancelled': 0.0, 'Completed': 0.3}\n        return status_mapping.get(status.iloc[0], 0.5)\n    return None\n"
+        },
+        "0.011851548511880555": {
+            "name": "distance_cost_ratio",
+            "code": "\n\ndef distance_cost_ratio(row):\n    return row['delivery_cost'] / row['distance_km'] if row['distance_km'] > 0 else 0\n"
+        },
+        "0.003358200438317925": {
+            "name": "logistics_delay_percent",
+            "code": "\n\ndef logistics_delay_percent(row, df_train: pd.DataFrame):\n    provider_id = row['logistics_provider_id']\n    current_delivery_date = row['delivery_date']\n    \n    # Filter the dataframe to include only rows with the same provider_id\n    # and delivery dates strictly before the current row's delivery date\n    provider_delays = df_train[\n        (df_train['logistics_provider_id'] == provider_id) &\n        (df_train['delivery_date'] < current_delivery_date)\n    ]\n    \n    total_deliveries = provider_delays.shape[0]\n    \n    if total_deliveries > 0:\n        # Calculate the delay percentage without including the current row\n        return provider_delays['delay_flag'].sum() / total_deliveries\n    \n    return 0\n"
+        },
+        "0": {
+            "name": "multi_item_delay_proportion",
+            "code": "\n\ndef multi_item_delay_proportion(row):\n    return row['proportion_of_multi_item_orders_delayed_in_the_past_year']\n"
+        }
+    },
+    "feature_descriptions": [
+        "delivery delay days",
+        "logistics provider customer rating",
+        "order date gap",
+        "delivery day of week",
+        "warehouse avg inventory change",
+        "order status effect",
+        "distance cost ratio",
+        "logistics delay percent",
+        "multi item delay proportion"
+    ]
+}

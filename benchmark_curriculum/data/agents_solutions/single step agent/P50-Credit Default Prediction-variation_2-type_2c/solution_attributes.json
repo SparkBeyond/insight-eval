@@ -1,0 +1,53 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "loan_to_income_ratio",
+        "region_default_risk",
+        "is_high_loan",
+        "time_since_application",
+        "recent_loan_borrower",
+        "calculate_age",
+        "loan_term_years"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.25738358684046775": {
+            "name": "loan_to_income_ratio",
+            "code": "import pandas as pd\n\ndef loan_to_income_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Get the customer demographics dataframe from aux_data\n    customer_demographics = aux_data.get('customer_demographics_table.csv')\n    \n    # Ensure the dataframe exists and is not empty\n    if customer_demographics is not None and not customer_demographics.empty:\n        # Look up the annual_income for the given customer_id\n        customer_info = customer_demographics[customer_demographics['customer_id'] == customer_id]\n        \n        # Ensure we found a matching customer and that annual_income is valid\n        if not customer_info.empty and pd.notnull(customer_info.iloc[0]['annual_income']):\n            annual_income = customer_info.iloc[0]['annual_income']\n            \n            # Calculate the loan-to-income ratio if annual_income > 0\n            if annual_income > 0:\n                return row['loan_amount'] / annual_income\n    \n    # Return None if any condition is not met\n    return None\n"
+        },
+        "0.15125830247980004": {
+            "name": "region_default_risk",
+            "code": "\n\ndef region_default_risk(row):\n    return row['region_based_default_statistics']\n"
+        },
+        "0.04094029718841988": {
+            "name": "is_high_loan",
+            "code": "import pandas as pd\n\ndef is_high_loan(row, threshold=50000):\n    if pd.notnull(row['loan_amount']):\n        return int(row['loan_amount'] > threshold)\n    return None\n"
+        },
+        "0.014236477372621919": {
+            "name": "time_since_application",
+            "code": "import datetime\nimport pandas as pd\n\ndef time_since_application(row):\n    from datetime import datetime\n    if pd.notnull(row['application_date']):\n        application_date = datetime.strptime(row['application_date'], \"%Y-%m-%d\")\n        today = datetime.today()\n        return (today - application_date).days\n    return None\n"
+        },
+        "0.014232613713886828": {
+            "name": "recent_loan_borrower",
+            "code": "import datetime\nimport pandas as pd\n\ndef recent_loan_borrower(row):\n    from datetime import datetime\n    if pd.notnull(row['application_date']):\n        application_date = datetime.strptime(row['application_date'], \"%Y-%m-%d\")\n        today = datetime.today()\n        return int((today - application_date).days <= 90)  # 90-day threshold\n    return None\n"
+        },
+        "0.007706114807299208": {
+            "name": "calculate_age",
+            "code": "import datetime\n\ndef calculate_age(row, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Get the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Access the customer_demographics_table.csv dataframe from aux_data\n    customer_df = aux_data['customer_demographics_table.csv']\n    \n    # Find the row in customer_df corresponding to the customer_id\n    customer_row = customer_df[customer_df['customer_id'] == customer_id]\n    \n    # Ensure the customer exists in the demographics table\n    if customer_row.empty:\n        raise ValueError(f\"Customer ID {customer_id} not found in customer_demographics_table.csv\")\n    \n    # Extract the date_of_birth for the customer\n    date_of_birth = customer_row.iloc[0]['date_of_birth']\n    \n    # Convert date_of_birth to a datetime object\n    birth_date = datetime.strptime(date_of_birth, \"%Y-%m-%d\")\n    \n    # Get today's date\n    today = datetime.today()\n    \n    # Calculate the age\n    age = today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))\n    \n    return age\n"
+        },
+        "0.004529196374259688": {
+            "name": "loan_term_years",
+            "code": "import pandas as pd\n\ndef loan_term_years(row):\n    if pd.notnull(row['loan_term_months']):\n        return row['loan_term_months'] / 12\n    return None\n"
+        }
+    },
+    "feature_descriptions": [
+        "loan to income ratio",
+        "region default risk",
+        "is high loan",
+        "time since application",
+        "recent loan borrower",
+        "calculate age",
+        "loan term years"
+    ]
+}

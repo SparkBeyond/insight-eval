@@ -1,0 +1,12 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "recent_transaction_amount"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "recent transaction amount"
+    ]
+}

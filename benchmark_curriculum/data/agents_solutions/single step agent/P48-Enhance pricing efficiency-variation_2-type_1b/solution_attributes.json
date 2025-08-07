@@ -1,0 +1,71 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "trend_adjusted_price",
+        "days_since_product_launch",
+        "cumulative_sales_by_product",
+        "discount_indicator",
+        "average_revenue_per_customer",
+        "seasonal_influence",
+        "product_revenue_per_unit",
+        "competitor_price_trend",
+        "is_peak_trend_period",
+        "historical_price_stddev"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.23771337870944764": {
+            "name": "trend_adjusted_price",
+            "code": "import pandas as pd\n\ndef trend_adjusted_price(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> float:\n    \"\"\"\n    Calculate the trend-adjusted price for a given row based on market trends.\n\n    Args:\n        row (pd.Series): A row of data containing 'sale_date' and 'sale_price'.\n        aux_dataframes (Dict[str, pd.DataFrame]): A dictionary of auxiliary dataframes, \n                                                  including 'market_trends_table'.\n\n    Returns:\n        float: The trend-adjusted price or the original sale price if no trends are active.\n    \"\"\"\n    # Check if 'market_trends_table' exists in aux_dataframes\n    if \"market_trends_table.csv\" not in aux_dataframes:\n        raise KeyError(\"'market_trends_table.csv' is missing from aux_dataframes.\")\n    \n    trends_df = aux_dataframes[\"market_trends_table.csv\"]\n    \n    # Validate that the required columns exist in the trends_df\n    required_columns = {\"start_date\", \"end_date\", \"impact_factor\"}\n    if not required_columns.issubset(trends_df.columns):\n        missing_columns = required_columns - set(trends_df.columns)\n        raise ValueError(f\"'market_trends_table.csv' is missing required columns: {missing_columns}\")\n    \n    # Ensure 'sale_date' exists in the row\n    if \"sale_date\" not in row:\n        raise KeyError(\"'sale_date' is missing from the input row.\")\n    \n    # Ensure 'sale_price' exists in the row\n    if \"sale_price\" not in row:\n        raise KeyError(\"'sale_price' is missing from the input row.\")\n    \n    # Convert sale_date to datetime\n    sale_date = pd.to_datetime(row[\"sale_date\"])\n    \n    # Convert start_date and end_date in trends_df to datetime\n    trends_df[\"start_date\"] = pd.to_datetime(trends_df[\"start_date\"])\n    trends_df[\"end_date\"] = pd.to_datetime(trends_df[\"end_date\"])\n    \n    # Filter active trends based on the sale_date\n    active_trends = trends_df[\n        (trends_df[\"start_date\"] <= sale_date) &\n        (trends_df[\"end_date\"] >= sale_date)\n    ]\n    \n    # Calculate the trend-adjusted price\n    if not active_trends.empty:\n        mean_impact = active_trends[\"impact_factor\"].mean()\n        return row[\"sale_price\"] * mean_impact\n    \n    # Return the original sale price if no active trends are found\n    return row[\"sale_price\"]\n"
+        },
+        "0.22036332685572962": {
+            "name": "days_since_product_launch",
+            "code": "import pandas as pd\n\ndef days_since_product_launch(row, df_train: pd.DataFrame):\n    product_sales = df_train[df_train[\"product_id\"] == row[\"product_id\"]]\n    if not product_sales.empty:\n        first_sale_date = pd.to_datetime(product_sales[\"sale_date\"].min())\n        sale_date = pd.to_datetime(row[\"sale_date\"])\n        return (sale_date - first_sale_date).days\n    return -1\n"
+        },
+        "0.20163313344540854": {
+            "name": "cumulative_sales_by_product",
+            "code": "import pandas as pd\n\ndef cumulative_sales_by_product(row, df_train: pd.DataFrame):\n    product_sales = df_train[(df_train[\"product_id\"] == row[\"product_id\"]) & \n                             (pd.to_datetime(df_train[\"sale_date\"]) < pd.to_datetime(row[\"sale_date\"]))]\n    return product_sales[\"quantity_sold\"].sum()\n"
+        },
+        "0.1474632928747057": {
+            "name": "discount_indicator",
+            "code": "\n\ndef discount_indicator(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if the key 'pricing_history_table.csv' exists in aux_dataframes\n    if \"pricing_history_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'pricing_history_table.csv' is missing from aux_dataframes.\")\n    \n    # Retrieve the pricing history dataframe\n    history_df = aux_dataframes[\"pricing_history_table.csv\"]\n    \n    # Validate that the required columns exist in the dataframe\n    required_columns = {\"product_id\", \"price\"}\n    if not required_columns.issubset(history_df.columns):\n        raise ValueError(f\"The dataframe 'pricing_history_table.csv' is missing required columns: {required_columns - set(history_df.columns)}\")\n    \n    # Filter the pricing history for the specific product\n    product_history = history_df[history_df[\"product_id\"] == row[\"product_id\"]]\n    \n    # If there is pricing history, calculate the average price and compare\n    if not product_history.empty:\n        avg_price = product_history[\"price\"].mean()\n        return 1 if row[\"sale_price\"] < avg_price else 0\n    \n    # If no pricing history exists, return 0\n    return 0\n"
+        },
+        "0.1286403062366724": {
+            "name": "average_revenue_per_customer",
+            "code": "\n\ndef average_revenue_per_customer(row, df_train: pd.DataFrame):\n    customer_sales = df_train[df_train[\"customer_id\"] == row[\"customer_id\"]]\n    if not customer_sales.empty:\n        return customer_sales[\"total_revenue\"].mean()\n    return 0\n"
+        },
+        "0.041086413943395926": {
+            "name": "seasonal_influence",
+            "code": "import pandas as pd\n\ndef seasonal_influence(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the key 'pricing_history_table.csv' exists in aux_data\n    if \"pricing_history_table.csv\" not in aux_data:\n        raise KeyError(\"'pricing_history_table.csv' is missing from aux_data\")\n\n    # Access the pricing history table\n    history_df = aux_data[\"pricing_history_table.csv\"]\n\n    # Ensure the required columns exist in the dataframe\n    required_columns = {\"product_id\", \"effective_date\", \"price_change_reason\"}\n    if not required_columns.issubset(history_df.columns):\n        raise KeyError(f\"The dataframe 'pricing_history_table.csv' is missing one or more required columns: {required_columns}\")\n\n    # Filter the pricing history for the given product_id and seasonal price changes\n    product_history = history_df[\n        (history_df[\"product_id\"] == row[\"product_id\"]) &\n        (history_df[\"price_change_reason\"] == \"seasonal\")\n    ]\n\n    # Convert dates to datetime and filter by sale_date\n    product_history = product_history[\n        pd.to_datetime(product_history[\"effective_date\"]) <= pd.to_datetime(row[\"sale_date\"])\n    ]\n\n    # Return 1 if there is a seasonal price change in the history, otherwise 0\n    return 1 if not product_history.empty else 0\n"
+        },
+        "0.036685679010668215": {
+            "name": "product_revenue_per_unit",
+            "code": "\n\ndef product_revenue_per_unit(row, df_train: pd.DataFrame):\n    product_sales = df_train[df_train[\"product_id\"] == row[\"product_id\"]]\n    total_revenue = product_sales[\"total_revenue\"].sum()\n    total_quantity = product_sales[\"quantity_sold\"].sum()\n    return total_revenue / total_quantity if total_quantity != 0 else 0\n"
+        },
+        "0.03127707191775117": {
+            "name": "competitor_price_trend",
+            "code": "import pandas as pd\n\ndef competitor_price_trend(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'competitor_pricing_table' exists in aux_dataframes\n    if \"competitor_pricing_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'competitor_pricing_table.csv' is missing from aux_dataframes.\")\n    \n    # Retrieve the competitor pricing table\n    competitor_df = aux_dataframes[\"competitor_pricing_table.csv\"]\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'product_id', 'competitor_price', 'date_recorded'}\n    if not required_columns.issubset(competitor_df.columns):\n        raise ValueError(f\"The dataframe 'competitor_pricing_table.csv' must contain the columns: {required_columns}\")\n    \n    # Filter rows for the given product_id\n    product_competitors = competitor_df[competitor_df[\"product_id\"] == row[\"product_id\"]]\n    \n    # Filter rows where the date_recorded is less than or equal to the sale_date\n    product_competitors = product_competitors[\n        pd.to_datetime(product_competitors[\"date_recorded\"]) <= pd.to_datetime(row[\"sale_date\"])\n    ]\n    \n    # Check if there are at least two records to calculate the trend\n    if len(product_competitors) >= 2:\n        # Sort by date_recorded to ensure chronological order\n        product_competitors = product_competitors.sort_values(by=\"date_recorded\")\n        \n        # Get the earliest and latest competitor prices\n        early_price = product_competitors.iloc[0][\"competitor_price\"]\n        late_price = product_competitors.iloc[-1][\"competitor_price\"]\n        \n        # Calculate the price trend\n        return (late_price - early_price) / early_price if early_price != 0 else 0\n    \n    # Return 0 if there are not enough records to calculate the trend\n    return 0\n"
+        },
+        "0.030551078089077508": {
+            "name": "is_peak_trend_period",
+            "code": "import pandas as pd\n\ndef is_peak_trend_period(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'market_trends_table.csv' is used, as per the provided aux_data structure\n    if \"market_trends_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'market_trends_table.csv' is missing in aux_dataframes.\")\n    \n    # Access the market trends dataframe\n    trends_df = aux_dataframes[\"market_trends_table.csv\"]\n    \n    # Ensure the required columns exist in the trends dataframe\n    required_columns = {\"start_date\", \"end_date\"}\n    if not required_columns.issubset(trends_df.columns):\n        raise ValueError(f\"The dataframe 'market_trends_table.csv' must contain the columns: {required_columns}\")\n    \n    # Convert dates to datetime for comparison\n    trends_df[\"start_date\"] = pd.to_datetime(trends_df[\"start_date\"])\n    trends_df[\"end_date\"] = pd.to_datetime(trends_df[\"end_date\"])\n    sale_date = pd.to_datetime(row[\"sale_date\"])\n    \n    # Filter active trends based on the sale_date\n    active_trends = trends_df[\n        (trends_df[\"start_date\"] <= sale_date) &\n        (trends_df[\"end_date\"] >= sale_date)\n    ]\n    \n    # Return 1 if there are active trends, otherwise 0\n    return 1 if not active_trends.empty else 0\n"
+        },
+        "0.014548929099389546": {
+            "name": "historical_price_stddev",
+            "code": "\n\ndef historical_price_stddev(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if the key 'pricing_history_table' exists in the aux_dataframes dictionary\n    if \"pricing_history_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'pricing_history_table.csv' is missing from aux_dataframes.\")\n    \n    # Retrieve the pricing history dataframe\n    history_df = aux_dataframes[\"pricing_history_table.csv\"]\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {\"product_id\", \"price\"}\n    if not required_columns.issubset(history_df.columns):\n        raise KeyError(f\"The dataframe 'pricing_history_table.csv' is missing required columns: {required_columns - set(history_df.columns)}\")\n    \n    # Filter the dataframe for the specific product_id\n    product_history = history_df[history_df[\"product_id\"] == row[\"product_id\"]]\n    \n    # Calculate and return the standard deviation of the price column if data exists\n    if not product_history.empty:\n        return product_history[\"price\"].std()\n    \n    # Return 0 if no pricing history is found for the product\n    return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "trend adjusted price",
+        "days since product launch",
+        "cumulative sales by product",
+        "discount indicator",
+        "average revenue per customer",
+        "seasonal influence",
+        "product revenue per unit",
+        "competitor price trend",
+        "is peak trend period",
+        "historical price stddev"
+    ]
+}

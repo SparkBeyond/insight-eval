@@ -1,0 +1,901 @@
+customer_id,age,gender,location,signup_date,recommended_plan
+3,79,Female,New Bryan,2024-02-13,0
+2052,24,Male,Patricialand,2021-02-27,0
+2053,42,Male,North Logan,2023-08-21,0
+6,25,Male,Watsonton,2024-07-18,1
+7,33,Female,Port Richardville,2022-10-27,0
+9,34,Female,West Donna,2024-08-23,0
+10,58,Female,Matthewton,2023-10-26,0
+12,26,Male,South Todd,2024-10-27,1
+2061,72,Female,Danielberg,2024-02-15,0
+14,39,Male,Lisaton,2020-10-25,0
+2062,33,Female,South Tiffanyberg,2021-11-22,0
+17,23,Female,Summersbury,2022-10-22,0
+2065,61,Male,East Stephanieville,2023-08-13,0
+19,61,Female,Brownmouth,2024-11-20,0
+2067,77,Male,Bauershire,2025-01-22,0
+2072,32,Female,South Stacy,2024-09-03,0
+26,73,Female,East Terriview,2021-05-13,1
+27,33,Male,Sullivantown,2022-08-31,0
+28,53,Male,Markville,2021-09-10,1
+2076,80,Female,New Edward,2022-12-14,0
+2077,65,Male,Fryehaven,2023-02-14,0
+2080,67,Female,Michaeltown,2022-04-14,0
+2085,25,Male,Blackside,2023-01-18,0
+2087,35,Male,Richardview,2021-03-15,0
+41,19,Female,Port Robert,2020-12-16,1
+42,65,Female,East Kathy,2024-04-07,0
+2091,70,Male,Charlotteton,2021-08-19,0
+47,19,Male,North Mercedes,2021-06-22,1
+2095,34,Female,Owensmouth,2023-09-24,0
+2096,29,Female,Turnerborough,2022-10-17,0
+2098,59,Male,Frankstad,2020-09-12,0
+2100,59,Female,Atkinsonland,2024-11-14,0
+53,76,Male,Lake Juliaberg,2023-04-16,0
+58,77,Female,Lake Marcoton,2024-04-27,0
+59,23,Female,Kaitlynland,2020-07-18,1
+61,60,Female,Port Mark,2021-03-04,1
+62,48,Male,Port Jamiehaven,2022-05-15,0
+2109,24,Female,Normanhaven,2024-03-15,0
+67,69,Female,South William,2023-08-23,1
+2115,33,Female,Kellyside,2023-03-16,0
+2116,58,Female,West Waynehaven,2022-04-29,1
+70,70,Female,Harrisonburgh,2020-07-13,0
+71,32,Female,Greenfurt,2020-01-15,0
+2117,80,Female,Estestown,2020-10-18,0
+73,22,Female,East William,2020-10-28,0
+2118,48,Female,South Tara,2023-04-28,0
+2123,28,Female,Torresberg,2022-02-16,1
+78,56,Male,Robinsonshire,2023-01-13,1
+80,21,Female,Kristiland,2021-11-01,0
+82,77,Male,New Jeremy,2024-08-26,0
+84,41,Male,West Shannon,2023-04-30,0
+2133,72,Male,South Kevin,2023-07-16,1
+86,37,Female,Alanton,2022-06-14,0
+87,40,Female,Williamport,2023-07-09,0
+2135,68,Female,Port Sherry,2024-08-22,0
+2137,18,Male,Jessicashire,2020-01-26,1
+94,52,Female,Vanessaside,2022-07-22,0
+96,36,Female,North Brett,2021-01-09,1
+97,29,Male,North Sarahside,2022-04-16,0
+2146,55,Female,West Latoya,2024-02-02,0
+101,35,Male,West Susan,2021-11-01,0
+105,57,Male,Jeffreytown,2020-12-27,0
+107,67,Male,Ashleychester,2021-09-29,0
+2155,28,Female,South Scott,2023-08-27,1
+2157,55,Female,Parkerville,2023-04-25,0
+110,72,Female,Laneland,2024-08-29,0
+2158,57,Female,New Marcus,2023-01-31,0
+2160,71,Male,South William,2021-12-23,1
+2164,27,Male,Port Dennisport,2021-02-27,0
+118,51,Female,Lake Ginabury,2024-03-08,0
+2166,77,Male,Stonemouth,2021-11-11,0
+2171,79,Female,East Kevin,2022-04-06,0
+124,77,Female,New Jean,2021-04-01,0
+2172,64,Female,New Lauraside,2020-09-15,0
+2175,78,Male,Reyesberg,2022-04-19,0
+2176,59,Female,Rosarioville,2020-02-08,0
+129,37,Male,Port Michellechester,2021-12-12,0
+130,48,Female,East Noah,2021-08-11,1
+131,26,Male,West Frederickberg,2021-09-21,1
+136,67,Male,New William,2022-12-03,0
+2190,41,Female,Port David,2020-11-07,0
+144,45,Female,South Charles,2022-04-18,0
+2193,48,Female,West Derrick,2020-10-11,0
+146,66,Male,Bakerport,2024-12-05,0
+147,36,Male,Lake Michaelchester,2024-11-20,0
+2194,34,Male,South Valerieport,2020-01-24,1
+149,50,Male,Gonzalesburgh,2022-08-17,0
+150,41,Male,Brittanyhaven,2024-06-07,0
+2195,50,Female,Fletcherfurt,2024-06-25,0
+152,39,Female,Sydneyview,2022-04-09,0
+155,33,Male,Lake Randall,2020-04-10,0
+2204,55,Female,East Robert,2022-05-26,0
+161,65,Female,North Brucefort,2024-07-27,0
+166,78,Female,South Christian,2024-03-13,0
+2219,65,Male,Marciafurt,2021-03-05,0
+175,18,Male,Silvafurt,2020-12-29,0
+176,73,Male,Ryanfurt,2023-11-05,0
+177,40,Female,New Sarahview,2021-10-17,0
+178,43,Female,Parkerborough,2024-08-06,0
+2227,60,Female,Paultown,2024-02-24,0
+180,62,Female,West Nicoleport,2023-09-19,0
+2233,64,Male,Stephanieshire,2021-12-12,1
+2235,28,Female,North Ian,2020-12-23,0
+2238,39,Female,West Angel,2021-08-16,1
+191,65,Female,West Ashleyberg,2022-03-14,0
+194,74,Female,Smithside,2021-06-20,0
+195,67,Female,Lake Stephenborough,2023-11-06,0
+197,42,Female,Melanieside,2023-02-27,0
+199,38,Female,New Katieview,2020-03-15,1
+200,77,Male,East Shannonbury,2024-12-28,1
+2247,30,Female,Annatown,2022-10-12,0
+2249,45,Female,New Kellymouth,2020-01-08,1
+2250,20,Male,Webbberg,2022-02-14,0
+204,44,Female,South Rachel,2020-10-08,1
+2257,69,Female,Margaretmouth,2024-12-18,0
+2259,25,Male,Warrenside,2022-01-04,0
+2260,55,Female,Davidchester,2020-09-22,0
+216,52,Female,East Stuartville,2022-08-30,0
+217,59,Female,Gregorytown,2024-10-03,0
+2266,67,Female,West Nicolefort,2022-04-13,0
+2271,38,Female,New Kaitlynview,2022-08-03,0
+224,35,Female,Lake Lauren,2020-09-05,1
+2273,29,Male,East Jenniferfurt,2020-03-08,0
+227,78,Male,Lake Maryland,2022-06-11,0
+229,20,Female,Port Brady,2023-04-09,0
+230,41,Female,Snydermouth,2024-09-09,0
+234,18,Male,North Lisabury,2024-10-30,0
+2282,27,Male,Adamview,2024-05-15,0
+2284,77,Female,Port Loriside,2023-04-20,0
+2285,33,Male,East Taylor,2020-12-08,0
+240,61,Female,North Crystal,2021-01-04,0
+242,53,Female,East Corymouth,2023-04-22,0
+244,19,Male,Whitefurt,2023-08-22,0
+2292,80,Female,North Catherine,2021-10-16,0
+2294,32,Male,Leefurt,2020-06-13,1
+249,37,Female,Andreaside,2022-12-16,0
+250,53,Male,Port Victoria,2024-09-03,1
+251,45,Male,Flemingville,2022-01-11,0
+2297,67,Male,Lindseyland,2020-05-06,0
+2300,26,Female,Connieville,2024-04-16,0
+2301,46,Male,Jamesmouth,2023-07-21,0
+257,77,Male,West Christy,2022-07-10,0
+263,61,Female,Paultown,2021-08-02,0
+2313,60,Female,Lake Robert,2023-12-02,0
+266,71,Male,Port Christopher,2020-03-13,0
+267,73,Female,South Christyville,2021-08-08,0
+2315,78,Female,Port Jonathan,2020-02-21,0
+269,68,Male,North Lauren,2024-10-19,0
+271,69,Male,Robertsonside,2023-04-01,1
+277,67,Male,Anthonymouth,2024-09-17,0
+281,48,Female,Marshallland,2023-12-13,0
+2329,74,Female,New Amber,2024-01-11,0
+283,57,Male,Turnerstad,2022-02-24,0
+2330,44,Male,Garyside,2024-12-18,0
+2332,33,Female,Jessicabury,2024-05-27,0
+286,31,Female,Katherinehaven,2021-01-24,0
+287,45,Female,Lewishaven,2022-06-08,0
+288,70,Female,West Brandon,2022-11-18,1
+2336,23,Male,Stevenhaven,2023-12-14,0
+296,42,Male,West Traceyhaven,2023-06-15,0
+297,52,Male,New Glendahaven,2023-07-27,1
+298,19,Female,West Kristy,2021-09-06,0
+2346,67,Female,Lake Tracyview,2024-11-15,0
+301,80,Female,Port Melaniemouth,2021-07-04,0
+304,70,Female,Stephenview,2021-09-22,1
+305,54,Female,Smithberg,2022-06-20,0
+306,77,Female,East Timothy,2023-12-01,0
+2354,55,Female,North Rebekah,2022-07-04,0
+2358,32,Male,Port Amberfort,2021-01-30,0
+314,42,Female,Robertstad,2021-05-03,0
+2362,31,Female,West Autumnfurt,2021-03-29,0
+319,38,Male,Ryanmouth,2022-10-27,1
+321,79,Female,Jacksonburgh,2023-12-06,0
+322,62,Female,South Stephenmouth,2023-06-09,0
+2371,45,Female,Randallton,2023-04-22,0
+328,24,Female,North Anita,2023-03-02,0
+2377,75,Male,Markmouth,2024-07-25,1
+330,38,Female,Kellyburgh,2020-10-17,0
+2378,20,Female,Rickytown,2021-08-05,0
+333,69,Female,Lindsayhaven,2023-10-19,1
+334,65,Male,Ortegaville,2022-10-10,1
+2383,28,Female,East Lisamouth,2022-07-07,0
+340,67,Female,Lake Danielleshire,2020-06-14,1
+2389,18,Male,Kristinmouth,2021-08-27,1
+342,50,Male,Gabriellashire,2024-06-17,0
+343,28,Male,Brownchester,2024-06-26,0
+2392,70,Female,Lake Michele,2020-01-23,0
+345,63,Female,North Sarahton,2021-11-14,0
+347,39,Female,New Gregory,2024-12-19,0
+2399,58,Female,Parksport,2022-01-23,0
+353,27,Female,North Michaelmouth,2024-04-25,1
+354,29,Female,Port Sydneyhaven,2022-11-03,0
+357,77,Female,Johnstonport,2022-06-23,0
+2407,64,Male,Henryton,2024-07-25,0
+2408,61,Female,Timothyborough,2020-01-29,0
+362,31,Male,Johnstonton,2023-12-28,1
+364,76,Female,Lake Robert,2022-10-21,0
+365,47,Female,Kennethmouth,2022-10-22,0
+2412,38,Male,Woodport,2024-01-05,0
+367,63,Female,Port Gregory,2024-12-26,0
+2415,53,Male,Mossville,2022-03-04,1
+370,64,Female,Sharonshire,2020-09-13,0
+372,23,Female,Port Bradley,2021-05-01,0
+373,55,Male,Hillshire,2021-05-28,0
+2422,52,Male,Christianshire,2024-06-16,1
+376,69,Female,South Calvinport,2022-09-27,1
+380,70,Female,Port James,2022-04-02,0
+2428,31,Female,Goldenton,2024-09-22,0
+385,19,Male,West Karen,2023-11-04,0
+387,67,Male,Albertmouth,2023-07-04,0
+2435,80,Female,Lake Courtney,2024-02-04,0
+2436,31,Male,Cowanville,2024-06-19,0
+2437,22,Female,Bondborough,2024-09-01,0
+2438,60,Female,Jasonberg,2021-12-23,0
+393,27,Female,Port Amanda,2020-06-07,0
+2441,32,Female,East Travisland,2022-08-05,0
+395,35,Male,Josephville,2024-02-08,0
+396,79,Female,South Mario,2021-10-16,0
+397,34,Female,West Tiffany,2024-05-08,0
+399,51,Male,Hensonfort,2024-04-25,1
+401,18,Male,Adamsburgh,2024-02-13,0
+2449,56,Female,Mackenzieport,2023-02-05,1
+2450,57,Female,Lake Melissa,2023-11-18,0
+2453,58,Female,West Alyssa,2024-02-28,1
+2454,27,Female,Wardville,2024-11-19,0
+407,62,Female,North Cynthia,2021-10-01,0
+409,20,Male,East Christinamouth,2022-10-11,0
+411,22,Female,Catherinefurt,2024-03-30,0
+413,43,Female,East Jennifer,2024-02-17,0
+2461,65,Female,North Kim,2022-08-05,0
+415,66,Female,Lisamouth,2022-07-11,0
+2464,51,Male,East Johnfort,2021-03-21,0
+2465,67,Female,New Michaelview,2022-06-28,0
+2466,48,Female,Patrickburgh,2023-08-26,0
+423,20,Female,East Pamela,2020-08-06,0
+425,57,Female,Hallbury,2023-05-30,0
+2473,42,Female,Port Kellychester,2020-01-08,0
+429,50,Male,West Stephen,2021-04-29,1
+430,41,Female,West Marisaport,2021-05-27,0
+2478,22,Male,West Tracyborough,2020-12-12,0
+432,67,Female,North Donna,2023-03-12,0
+2481,77,Female,Anthonyburgh,2022-01-10,0
+434,52,Male,West Candace,2024-10-01,1
+2484,66,Male,Stacyfurt,2022-08-16,1
+437,54,Male,New Levi,2024-09-28,1
+2485,32,Female,Port Jacquelineport,2021-09-12,0
+439,25,Male,Bobbymouth,2021-10-14,0
+440,23,Male,East Willie,2024-01-25,0
+2489,61,Male,West Marilynfort,2022-08-12,0
+445,22,Female,Lake Deanna,2022-03-29,0
+446,52,Female,Port Alexander,2020-04-25,1
+447,55,Male,Lake Michael,2022-11-20,0
+2493,63,Female,Gallegosview,2020-01-12,0
+2495,80,Female,Cisnerosfort,2020-08-22,0
+2497,57,Female,Darrellfurt,2022-08-26,0
+2502,42,Female,Edwardsville,2023-01-16,0
+456,57,Male,Jasonport,2024-02-26,0
+457,29,Male,West Jody,2021-03-21,0
+458,42,Male,Ruizburgh,2021-12-04,0
+2505,27,Female,West Nathan,2024-06-10,0
+2507,47,Male,Sabrinamouth,2023-01-09,0
+461,30,Female,East Kristenview,2024-08-07,0
+2510,51,Male,Shannonburgh,2021-02-02,0
+464,76,Female,North Paul,2023-04-15,0
+2515,79,Female,New Meganshire,2020-07-29,0
+469,78,Female,Stevenland,2024-11-12,0
+2518,21,Male,Priceland,2022-11-04,1
+471,55,Male,Tamaraton,2022-09-26,0
+2521,73,Female,Nolanstad,2020-10-14,1
+474,35,Female,Jenniferstad,2021-03-16,0
+475,80,Female,Johnathanhaven,2021-09-05,1
+2522,50,Male,West Michael,2020-06-11,0
+477,56,Female,Johnsonland,2022-05-02,0
+2528,21,Male,West Amy,2023-09-30,0
+483,61,Female,Lake James,2021-12-08,0
+484,47,Female,West Stephanie,2021-12-28,0
+2531,36,Male,South William,2020-12-09,1
+2533,59,Male,Jesusfurt,2020-01-18,0
+2537,77,Female,East Scott,2024-10-09,0
+491,28,Female,Kennethview,2020-12-04,0
+492,53,Female,North Taylorborough,2021-07-29,0
+493,78,Male,Lake Douglasburgh,2020-10-02,0
+2540,46,Male,Christyport,2020-08-10,1
+495,30,Male,East Chasebury,2024-12-15,1
+496,73,Male,Watersburgh,2020-11-01,0
+2546,46,Female,Mcintyrechester,2021-12-27,1
+499,33,Male,West Savannahfort,2021-01-20,0
+2551,56,Male,Leestad,2023-03-20,1
+2556,65,Male,Hoodburgh,2023-01-24,0
+2558,45,Male,Port Robertmouth,2022-10-03,0
+2559,38,Female,Spencerchester,2022-12-23,0
+512,21,Male,South Robert,2024-03-21,0
+2561,49,Female,Morenoville,2023-12-16,0
+514,60,Male,Billyshire,2020-06-20,0
+515,76,Male,Jonesmouth,2021-06-07,0
+2562,42,Female,North Michael,2023-06-19,0
+517,39,Female,Pattyfort,2021-05-27,1
+518,62,Male,Jeffreychester,2020-02-19,0
+2565,68,Female,Lake Christine,2024-05-22,1
+520,40,Female,Sanchezmouth,2021-08-25,0
+521,78,Male,New Scottton,2020-05-14,0
+2569,28,Male,Josephhaven,2024-07-31,1
+523,49,Male,South Elizabethberg,2022-06-19,0
+2572,26,Male,Lake Sherryburgh,2023-09-09,1
+525,32,Male,Jayland,2021-09-11,0
+2573,70,Female,Escobarberg,2024-08-15,0
+528,45,Female,Millerchester,2021-05-12,0
+2577,19,Male,Mahoneyberg,2024-06-14,1
+2581,40,Male,Bradleybury,2023-12-24,1
+534,76,Male,Michaelstad,2024-06-24,0
+2582,35,Male,Masonton,2023-10-20,1
+2583,64,Female,Lake Pamela,2021-04-22,1
+2584,58,Male,West Anthonyton,2022-07-11,0
+2585,55,Male,West Jesseborough,2021-07-12,0
+2586,78,Female,Port Michelleland,2024-02-20,0
+540,56,Male,New Williamview,2022-05-13,0
+2587,44,Male,South Wandaville,2023-05-27,1
+542,72,Female,South Christian,2022-03-01,1
+2589,41,Female,Maystad,2020-01-22,0
+2591,67,Male,Lake Richard,2023-06-19,0
+545,64,Female,Lake Michelle,2023-06-14,0
+548,30,Female,South Johnbury,2022-05-01,1
+549,73,Female,Lake Robertfort,2024-03-15,0
+550,66,Male,South Tinabury,2021-08-26,1
+551,53,Male,Weaverview,2021-05-25,0
+552,33,Female,Michelleborough,2021-11-26,0
+2600,75,Female,Port Penny,2020-07-22,1
+2601,35,Female,East Samuel,2024-11-03,0
+2604,26,Female,North Jessicatown,2023-08-12,1
+560,61,Male,New Steve,2021-11-30,1
+2610,29,Male,New Ashley,2024-11-12,1
+2612,41,Female,Jonathanview,2023-07-05,1
+2618,72,Female,Port Donnafurt,2020-05-29,1
+2619,27,Female,East Matthewshire,2022-12-11,0
+2620,37,Male,New Paulland,2020-07-10,0
+574,51,Male,East Caitlin,2022-10-20,0
+2625,30,Female,Ashleyside,2022-09-06,0
+2626,60,Female,Joyshire,2021-03-15,0
+580,45,Female,Toddport,2020-08-23,0
+582,33,Female,North Madisonmouth,2021-08-15,1
+2630,58,Male,West Brianstad,2020-03-23,0
+2632,46,Female,Andersonview,2022-02-09,1
+2633,60,Male,West Marcusborough,2022-09-10,0
+2637,32,Female,Allenstad,2022-07-14,1
+590,73,Male,Lake Wendyberg,2022-05-04,0
+2638,34,Male,East Denise,2021-02-12,0
+592,51,Female,Lake Jordan,2021-05-22,0
+2641,31,Male,Lake Heathermouth,2021-09-17,0
+2644,27,Male,South Angelachester,2021-02-04,0
+597,59,Male,Thomasmouth,2024-10-02,0
+2645,22,Female,Lake Jenniferborough,2020-06-04,0
+602,34,Male,Davidshire,2022-04-08,0
+603,32,Female,South Rachel,2021-05-29,0
+604,50,Female,Julieside,2023-09-10,1
+606,38,Male,Lake Bobby,2021-02-09,0
+608,39,Male,East George,2023-03-25,0
+2656,31,Male,South Amandabury,2022-04-10,0
+2658,78,Male,New Rebeccaport,2020-08-08,0
+611,45,Male,North Sarah,2024-10-26,0
+614,80,Female,Brooksburgh,2023-05-15,0
+616,47,Female,Williamchester,2020-10-19,0
+2669,27,Male,Taylorview,2023-10-01,0
+624,59,Male,West Joy,2022-10-10,1
+626,45,Female,Lindseyburgh,2020-03-11,0
+2677,76,Female,North David,2023-12-12,0
+633,27,Female,Port Terrance,2020-02-16,0
+2682,58,Female,Stevenville,2020-10-14,0
+635,61,Female,Port Christopherburgh,2021-12-17,0
+2685,42,Female,Michellemouth,2023-04-10,0
+2687,23,Female,South Vincent,2020-03-29,0
+640,72,Female,Cooperland,2024-06-07,0
+641,59,Female,East Claytonport,2023-03-02,1
+642,74,Female,Pamelamouth,2021-10-18,0
+2689,49,Female,North Anthony,2024-11-17,0
+644,76,Male,East Samantha,2023-04-15,0
+2690,26,Male,Brianburgh,2023-04-24,1
+2694,40,Female,Greenstad,2023-07-22,0
+647,79,Male,New Jimmy,2023-04-10,0
+2695,63,Male,New Diane,2021-10-01,0
+2697,70,Male,Port Mariabury,2024-03-26,0
+650,77,Male,North Gwendolyn,2022-07-11,0
+2703,79,Female,West Jessestad,2021-05-17,0
+656,36,Male,Terrybury,2022-09-10,0
+657,59,Female,New Nicholas,2024-03-25,0
+658,72,Male,East Melissaview,2024-12-26,0
+2705,49,Female,Lake William,2021-04-07,1
+660,54,Female,Lorifurt,2021-04-14,0
+2706,57,Male,Ewingburgh,2024-11-18,1
+2709,33,Male,Greenefort,2021-05-05,0
+664,58,Female,Karenburgh,2022-08-28,1
+2714,45,Female,Port Kristina,2022-02-06,0
+2715,66,Male,New Cassandra,2024-07-20,0
+2716,39,Female,South Samuel,2020-05-07,0
+2719,26,Male,Lake Ginafurt,2022-12-28,0
+675,77,Male,West Christinahaven,2025-01-06,0
+2724,29,Female,Antoniotown,2022-03-09,0
+677,44,Female,Jeremystad,2021-03-30,0
+678,23,Female,Walkershire,2023-05-09,1
+683,60,Female,Port Ann,2024-04-23,0
+2731,42,Female,Catherineville,2023-06-28,0
+2732,35,Male,South Christyberg,2020-09-28,1
+2734,47,Male,Pettymouth,2024-09-21,1
+687,78,Male,Williamville,2023-01-15,0
+2736,37,Female,West Johnside,2022-05-06,0
+2737,27,Male,Lake Amandamouth,2022-12-18,0
+690,77,Male,Leeton,2020-08-16,0
+696,32,Female,Graychester,2021-08-21,0
+2747,77,Female,Millerview,2022-05-15,0
+2749,64,Male,Davisside,2020-07-15,0
+702,38,Female,New Pamelafurt,2021-05-06,0
+703,28,Female,Alectown,2024-02-05,0
+2750,64,Male,North Seanbury,2022-07-03,0
+2751,57,Male,Lake Chadside,2022-01-06,0
+2752,63,Male,Rhondastad,2020-12-17,0
+707,79,Female,New Jonathan,2022-03-07,0
+2755,38,Male,Fredbury,2023-09-14,0
+709,43,Female,Lake Vincent,2023-08-08,0
+2758,65,Female,Wallfurt,2024-01-04,0
+712,23,Male,East Jamie,2023-11-26,0
+713,69,Female,Thompsonmouth,2024-01-03,0
+2760,57,Female,East Anthonychester,2023-06-13,1
+715,30,Female,Russoville,2024-06-21,0
+2761,74,Female,East William,2020-10-06,0
+2762,53,Female,South Peggyville,2021-03-01,0
+2764,76,Male,East Lindsey,2021-09-19,1
+720,65,Female,North Andreachester,2024-11-14,0
+2770,70,Female,North Brandon,2021-03-02,0
+2772,73,Male,Jeffreyberg,2020-08-09,0
+725,41,Female,New Jordan,2021-03-24,0
+2773,30,Female,Nancymouth,2021-10-11,0
+2774,49,Female,Lake Jamestown,2024-10-09,0
+728,59,Female,West Kimberly,2021-08-23,0
+729,19,Female,Phillipsfurt,2023-07-29,1
+2775,79,Male,Hugheston,2024-10-25,0
+731,55,Male,Masonfort,2024-01-01,0
+732,48,Female,South Kimfort,2023-03-10,1
+2777,76,Female,Christopherport,2020-10-27,0
+2781,69,Male,Cristinastad,2022-02-11,0
+2784,79,Female,Hartton,2021-07-19,0
+2785,54,Male,Jadeville,2023-04-28,1
+2786,73,Female,West Philip,2020-06-22,0
+739,41,Female,East Bradleyfort,2023-11-04,0
+2789,63,Female,Amyville,2023-02-23,0
+742,21,Female,Anthonyfurt,2022-06-15,0
+2794,25,Female,New Ronaldhaven,2023-09-27,0
+2795,21,Female,Johnfurt,2021-01-20,1
+749,75,Female,Barrettland,2020-10-24,0
+750,18,Female,South Josephstad,2022-09-13,1
+2797,62,Male,Lake Jennifermouth,2020-12-31,0
+2798,78,Female,Jameston,2024-12-23,1
+753,68,Male,Albertmouth,2020-03-15,0
+755,64,Male,Port Anna,2021-03-20,0
+2806,57,Male,Lukestad,2022-02-28,0
+2808,27,Female,Port Stephen,2023-09-02,0
+761,44,Female,New Jose,2020-08-30,0
+762,42,Female,Matthewland,2022-01-24,0
+2809,46,Male,West Michaelstad,2024-09-22,0
+764,20,Male,East Taylor,2022-03-01,0
+765,44,Male,Stacyborough,2022-01-07,0
+2812,64,Female,Steventown,2020-06-04,0
+767,68,Female,Johnathanbury,2022-10-03,0
+768,32,Male,West Kaylafurt,2020-11-07,0
+2815,62,Male,East Brandi,2021-02-17,0
+770,78,Female,Benjaminshire,2023-03-27,0
+2817,61,Male,West Ericbury,2024-11-28,1
+2818,21,Male,Goodwinmouth,2024-07-24,1
+773,43,Male,Smithbury,2020-12-25,1
+2821,58,Male,Clintonhaven,2021-08-15,0
+2822,28,Female,Bradleyhaven,2023-12-31,0
+2824,59,Female,Leebury,2021-05-29,0
+2825,58,Female,Kruegerton,2024-01-19,0
+2827,52,Male,North Jenna,2022-07-10,0
+780,49,Female,Jasonland,2022-01-14,1
+781,70,Male,East Jesseview,2023-06-09,0
+782,28,Female,Meredithshire,2024-05-24,0
+2828,54,Female,Port Holly,2025-01-18,0
+2829,64,Male,Port Christinaside,2021-05-23,0
+2830,50,Female,Shannonmouth,2020-01-14,0
+786,67,Male,Lake Danielhaven,2024-10-23,0
+2833,78,Female,Angelastad,2024-02-08,1
+2835,67,Male,Port Davidfurt,2020-10-29,0
+789,28,Male,Hendersonborough,2020-06-14,0
+2836,66,Female,Guerrerofort,2022-09-18,0
+2838,18,Male,Port Hannah,2023-08-29,1
+2841,60,Female,North Maurice,2021-07-07,1
+794,57,Male,East Lindahaven,2023-08-31,0
+2844,69,Male,Port Michaelshire,2022-03-13,1
+797,37,Female,West Elizabethtown,2020-04-09,0
+2848,28,Female,Sharonbury,2020-07-26,1
+801,65,Male,Tylerborough,2020-05-26,0
+2851,38,Male,East Johnhaven,2020-10-29,0
+805,63,Female,West Jacob,2024-05-02,0
+2855,44,Female,East Paul,2022-08-03,0
+809,24,Female,West Patricia,2020-09-02,0
+811,55,Female,New Shannonbury,2021-10-17,1
+2860,43,Female,Lake Anthony,2022-08-13,1
+2861,48,Female,Heatherfort,2021-07-08,0
+818,37,Male,Griffinfort,2022-05-05,1
+2866,60,Female,New Alexandraborough,2020-05-20,0
+2867,38,Female,Port Robertbury,2021-06-16,0
+2868,34,Male,North Amystad,2024-06-14,0
+2869,80,Male,Port Corey,2025-01-12,0
+2870,77,Female,Tinaview,2021-11-08,0
+824,49,Female,Stewartmouth,2022-05-12,0
+2871,56,Female,Bellland,2020-06-23,0
+826,37,Male,Smithmouth,2024-03-16,1
+827,76,Female,Port Jeremytown,2023-03-11,0
+2875,58,Female,Martinezmouth,2024-07-03,0
+2878,79,Male,North Annette,2022-05-16,0
+2879,67,Female,Timothyview,2021-02-24,0
+832,75,Male,West Allen,2020-12-05,0
+835,40,Female,West Ellen,2021-05-13,0
+2884,63,Female,Port Stephanie,2022-01-04,0
+837,64,Female,Lake Elaineborough,2020-07-11,0
+838,37,Female,New Jenniferfurt,2020-08-02,0
+2886,20,Female,Port Michaelhaven,2024-01-31,0
+2888,39,Female,Port Brianburgh,2021-11-20,0
+841,18,Female,Monicafort,2020-01-20,0
+2890,70,Male,Curryland,2022-09-29,0
+848,75,Female,Williamsonborough,2020-02-18,0
+855,36,Male,Carlport,2024-10-11,0
+2904,44,Male,West Brittanyland,2023-06-28,0
+858,77,Male,Matthewburgh,2020-11-03,0
+864,71,Male,Martinborough,2022-03-11,0
+2912,75,Female,Diaztown,2022-02-04,0
+2914,79,Female,Sarahberg,2024-09-30,1
+2915,19,Female,Hayesbury,2021-07-01,0
+868,61,Female,Pearsonmouth,2020-10-17,0
+2916,75,Female,New Mirandafort,2021-06-28,0
+2917,38,Female,North Davidmouth,2024-01-19,0
+871,22,Female,New Stacey,2021-02-06,0
+2919,79,Female,New Shawn,2020-09-20,0
+2920,68,Female,West Stephen,2024-01-09,0
+2923,46,Female,South Patriciastad,2020-09-11,0
+2925,54,Female,Ramirezmouth,2020-08-09,0
+2926,42,Female,Lake Linda,2020-10-05,0
+2930,73,Female,Navarroport,2022-10-18,1
+883,22,Female,Brendaside,2024-10-07,0
+2931,60,Male,Lake Catherine,2020-11-22,1
+2934,53,Male,Moodyton,2021-05-10,0
+2935,41,Female,Alecmouth,2020-08-26,0
+893,18,Female,Watkinsfurt,2021-01-29,0
+2941,38,Male,Charlesland,2020-04-27,0
+2944,77,Female,Michaelchester,2021-05-18,0
+897,63,Female,Billychester,2020-01-22,0
+898,52,Female,Kristenview,2021-11-03,0
+899,43,Male,Taylormouth,2020-08-05,0
+2947,27,Male,West Adam,2021-02-08,1
+2949,23,Female,Ericaside,2020-05-18,1
+902,63,Male,Codyview,2020-09-08,0
+904,48,Male,Smithstad,2020-11-27,0
+905,66,Male,Wallerview,2022-01-07,0
+907,52,Male,Johnfurt,2020-01-07,1
+908,62,Male,Lake Kaylaberg,2024-01-27,1
+911,49,Female,North Shawnberg,2021-05-05,0
+2960,39,Male,West Nicholastown,2023-09-25,0
+917,53,Male,East Robin,2021-06-27,0
+2965,30,Male,Lake Derrickmouth,2024-02-09,0
+919,23,Female,Port Alexis,2020-12-26,0
+920,40,Female,New Connor,2021-08-11,0
+2970,74,Male,Port Taylorport,2023-05-03,0
+2973,78,Female,Youngview,2022-07-28,1
+926,23,Male,West Stephen,2020-03-20,0
+927,28,Female,Martinbury,2022-11-18,0
+2974,75,Female,Port Danielmouth,2020-12-17,0
+929,26,Female,Port Maria,2022-09-15,0
+930,58,Male,West Zachary,2022-11-25,0
+2976,41,Male,South Josephburgh,2024-07-12,0
+936,49,Male,Jessebury,2022-11-11,0
+937,51,Female,Kathrynbury,2022-07-24,0
+938,18,Female,West Robertfort,2020-02-25,1
+2984,70,Female,Yolandachester,2020-12-25,0
+2991,70,Male,East Teresahaven,2021-09-03,1
+944,20,Female,North Alexandria,2024-04-27,0
+2996,31,Female,Carlosstad,2024-06-20,0
+952,77,Female,New Patricia,2020-11-26,0
+953,31,Female,Lindaberg,2020-01-02,0
+954,18,Female,Melissaton,2021-06-09,0
+961,33,Male,Port Garyside,2024-03-07,0
+964,65,Male,Jacksonville,2022-05-21,0
+965,20,Male,East Matthew,2024-02-29,1
+971,47,Male,Port James,2023-06-14,0
+974,52,Female,Kathrynmouth,2020-07-15,0
+981,32,Male,Timothymouth,2022-11-25,0
+985,18,Female,Port Victor,2022-04-21,0
+986,63,Female,East Daniel,2024-12-06,0
+987,69,Female,Jenniferfort,2020-09-19,0
+988,18,Female,Aguirreborough,2022-01-08,0
+992,72,Female,Klineport,2020-10-03,0
+995,59,Female,Michaelstad,2022-03-04,0
+1000,22,Female,Medinafurt,2023-05-01,0
+1004,40,Female,Russellfurt,2021-03-04,0
+1011,51,Female,North Lisaberg,2020-05-26,0
+1026,65,Female,Thomasberg,2022-04-14,0
+1028,78,Male,West Matthew,2023-02-06,0
+1035,41,Female,East Louismouth,2021-08-28,0
+1038,37,Female,East Kathrynview,2020-08-08,0
+1039,62,Female,East Elizabeth,2024-05-05,1
+1040,63,Male,West Cherylchester,2022-08-12,0
+1041,29,Male,West Christopher,2024-06-24,0
+1043,45,Female,Adamsberg,2024-03-11,1
+1044,19,Female,Ramirezberg,2022-08-27,1
+1046,73,Male,North Zachary,2022-06-20,0
+1047,64,Male,East Michael,2024-07-20,0
+1049,54,Male,Nancyview,2023-12-26,0
+1068,69,Male,Port Baileyshire,2022-05-06,0
+1073,77,Male,New Ericfort,2024-07-17,0
+1077,49,Male,North Anthony,2024-07-07,1
+1082,68,Male,Rickyton,2024-03-04,0
+1085,32,Male,North Zacharytown,2020-02-11,0
+1091,32,Female,Lake Kimberlyside,2020-10-19,0
+1098,72,Female,West Noahshire,2022-01-27,0
+1101,41,Male,North Eric,2021-05-12,1
+1109,37,Female,New Renee,2023-12-23,0
+1110,62,Female,Robbinsmouth,2021-11-01,0
+1114,61,Male,Jasonhaven,2024-06-22,0
+1115,73,Female,West Patrickport,2021-09-11,0
+1118,51,Male,South Christineshire,2020-09-04,0
+1120,30,Female,Garciatown,2024-09-13,0
+1121,63,Female,Port Crystalside,2021-12-21,0
+1123,61,Female,Robinsonhaven,2022-08-23,0
+1127,58,Male,Port Thomasland,2024-09-04,0
+1131,60,Female,Melissaland,2024-06-22,0
+1135,30,Male,Lake Kellymouth,2021-07-14,0
+1139,70,Female,Larsonport,2023-04-06,0
+1141,73,Male,Port Lorraine,2024-03-31,1
+1143,34,Male,Port Jameshaven,2021-07-08,0
+1152,70,Female,East Loriview,2023-04-14,0
+1156,69,Female,Michelleside,2023-10-30,0
+1159,39,Female,Padillachester,2024-07-31,0
+1160,48,Female,Loriville,2022-09-13,0
+1165,61,Female,East Rebeccamouth,2022-06-01,0
+1166,78,Male,Port Dillonton,2024-12-04,0
+1170,63,Female,Guyville,2023-01-22,0
+1176,43,Female,Connieberg,2020-09-18,0
+1179,68,Male,Tiffanyborough,2021-12-21,0
+1185,45,Female,Vancemouth,2024-11-24,0
+1188,20,Female,Ericbury,2020-06-15,0
+1189,70,Female,South Kylechester,2022-12-01,0
+1192,79,Male,Kelleyfurt,2024-12-24,0
+1197,26,Male,Saundersbury,2023-09-24,0
+1211,68,Female,Conwayhaven,2020-05-16,1
+1212,78,Male,Carriechester,2024-05-21,0
+1215,66,Male,New Miguelmouth,2024-09-23,1
+1220,41,Female,Meganfurt,2022-03-19,1
+1221,60,Male,Port Erica,2023-02-18,1
+1222,59,Female,East Michael,2022-10-02,0
+1233,34,Female,East Jeffrey,2021-01-28,1
+1234,44,Male,New Stevenfort,2020-02-01,0
+1236,69,Female,Port Coltonville,2021-07-15,0
+1244,64,Male,East Erika,2024-08-04,0
+1246,80,Male,West Charles,2023-01-25,0
+1247,70,Male,Port Tanya,2021-04-29,0
+1248,22,Female,East Ronald,2022-09-23,0
+1257,57,Male,Lake Robinville,2021-02-24,0
+1258,32,Female,Bruceside,2024-01-21,0
+1262,32,Female,Burgesschester,2024-01-04,0
+1265,40,Male,Lake Brandonland,2020-10-30,0
+1270,47,Male,West Cynthia,2020-04-09,0
+1274,61,Male,Jimenezmouth,2024-01-14,0
+1282,32,Male,Daveport,2020-05-04,0
+1289,59,Female,New Candaceville,2022-04-24,0
+1296,49,Female,Wagnershire,2020-06-04,0
+1298,63,Female,Johnburgh,2020-12-02,0
+1308,67,Female,New Toddfort,2023-11-11,0
+1315,52,Female,Chrischester,2021-10-15,0
+1319,48,Male,Santiagoland,2024-06-27,0
+1323,41,Female,Smithville,2020-03-20,0
+1326,60,Male,Thomasland,2023-09-10,0
+1329,54,Male,Jasminbury,2022-07-26,0
+1331,44,Female,South Waltermouth,2022-03-26,1
+1341,41,Male,Nashland,2023-05-08,0
+1342,69,Male,East Kevin,2021-12-20,0
+1343,43,Male,East Jane,2022-12-18,1
+1345,25,Male,Lake Russellfort,2024-07-23,1
+1363,67,Male,Ryanborough,2022-09-05,1
+1364,44,Male,Sanchezstad,2024-11-24,0
+1365,36,Male,East Jody,2022-12-28,0
+1376,64,Male,Timothyport,2020-07-30,0
+1379,40,Male,Haneyview,2023-12-19,0
+1381,50,Male,South Katrina,2022-10-25,0
+1383,40,Female,East Johnside,2022-01-29,1
+1384,70,Male,New Kyle,2023-12-19,1
+1388,28,Female,North Michaelmouth,2024-09-23,0
+1394,24,Male,Nelsonshire,2020-09-03,1
+1396,71,Male,South Timothyhaven,2024-12-03,0
+1400,58,Male,Seanborough,2023-05-03,1
+1401,39,Male,Fordhaven,2020-10-09,0
+1413,56,Male,Howardland,2022-04-06,0
+1414,34,Female,New Saraberg,2021-09-26,0
+1415,18,Male,East Stacy,2024-12-29,0
+1416,64,Male,Port Joshuabury,2024-09-13,0
+1417,49,Female,Brianport,2023-09-24,1
+1419,70,Male,Kellerchester,2020-08-21,0
+1424,28,Female,Angelaland,2025-01-22,1
+1428,46,Female,South Danielle,2021-11-24,1
+1429,53,Female,East Maryside,2022-11-25,0
+1430,65,Male,Smithfort,2022-05-08,0
+1431,37,Female,West Micheleland,2022-08-08,0
+1432,41,Female,East Paige,2022-12-31,0
+1434,34,Female,South Christopherstad,2024-05-30,0
+1435,64,Male,Rhodesville,2020-02-10,0
+1439,35,Female,Thorntonberg,2020-03-25,0
+1445,72,Female,North Daniel,2020-10-14,1
+1447,33,Female,Fishershire,2022-10-29,0
+1448,53,Female,Lake Timothy,2020-04-17,1
+1449,57,Female,Millerborough,2023-12-03,0
+1450,56,Male,Lake Kim,2023-10-07,0
+1456,57,Male,Vargasborough,2023-08-06,1
+1459,34,Male,Petertown,2020-02-21,0
+1460,75,Male,West Patricia,2022-05-12,0
+1464,54,Female,Matthewborough,2022-03-01,0
+1469,46,Female,Rivasview,2022-07-10,0
+1470,66,Male,New Charles,2021-04-04,0
+1471,32,Female,West Jonathanfort,2022-11-30,0
+1476,61,Male,Davidburgh,2020-01-07,0
+1477,48,Male,Danielmouth,2024-08-30,1
+1478,28,Female,Kingburgh,2023-12-11,0
+1483,22,Female,East Josephfurt,2024-11-01,0
+1491,62,Male,East Hannahfurt,2022-02-05,0
+1493,61,Male,North Robertborough,2020-06-20,0
+1499,53,Female,Ronaldland,2020-05-10,0
+1501,22,Male,West Matthewfurt,2020-09-07,0
+1506,37,Male,Jeremiahland,2024-08-08,0
+1509,71,Male,West Christy,2021-01-22,0
+1510,39,Female,Martinezchester,2021-10-14,0
+1511,55,Male,South Charles,2023-06-06,0
+1514,56,Female,New Kellyfurt,2023-04-07,0
+1515,37,Male,North Matthew,2022-02-20,0
+1529,40,Male,Lake William,2022-03-06,0
+1531,43,Male,Carterchester,2021-03-21,0
+1532,77,Female,Johnsonstad,2024-07-27,0
+1534,24,Male,New James,2022-09-02,0
+1535,34,Male,Whiteheadland,2021-07-31,0
+1541,64,Female,New Kennethfort,2021-12-02,0
+1542,69,Female,Simsland,2021-04-20,0
+1545,70,Female,Kelleyhaven,2022-05-02,0
+1548,55,Male,South Todd,2021-01-21,0
+1552,32,Male,South Markton,2023-01-01,0
+1553,44,Male,New Toddville,2022-08-09,0
+1554,54,Male,Leeshire,2024-02-14,0
+1555,37,Female,East Sarahshire,2022-08-07,0
+1563,25,Male,Lynnville,2023-02-20,0
+1565,57,Male,Heatherburgh,2023-11-13,1
+1575,65,Male,Alyssamouth,2022-06-28,0
+1578,56,Male,Lake Charlesmouth,2020-12-05,0
+1589,76,Male,New Amyfort,2023-02-16,0
+1595,18,Female,Millerland,2020-05-10,0
+1598,72,Male,West Williambury,2024-01-25,0
+1600,21,Female,Jasonfurt,2024-09-17,0
+1603,36,Female,Petersonport,2023-01-22,1
+1608,23,Male,East Tracy,2022-09-19,1
+1610,53,Female,Port Amandachester,2023-05-17,0
+1611,63,Female,Cathyland,2023-03-11,0
+1612,63,Female,Bergville,2024-07-30,0
+1618,72,Male,Westborough,2020-07-23,0
+1619,70,Male,Lake Bonnie,2020-12-22,1
+1620,24,Male,West Michaelville,2024-12-24,1
+1622,20,Female,New Michael,2024-09-15,0
+1623,38,Female,East Kristina,2022-08-21,0
+1625,42,Male,Grantport,2021-06-09,1
+1628,29,Male,Higginsborough,2020-08-29,0
+1632,18,Male,Wilsonstad,2022-09-14,0
+1636,18,Female,Starkport,2024-03-19,1
+1642,71,Male,North Erikborough,2021-12-09,0
+1643,50,Female,Knappport,2023-05-08,1
+1648,49,Male,West Samantha,2020-08-18,0
+1660,74,Female,Perezborough,2024-07-05,0
+1664,40,Male,Port Annestad,2021-04-06,0
+1669,42,Female,East Ericbury,2021-12-12,0
+1672,23,Female,North James,2020-04-12,0
+1673,65,Female,South Jasonbury,2022-03-20,0
+1681,66,Female,South Billyport,2024-10-15,0
+1683,36,Female,Lake Kelseyfort,2024-02-24,0
+1688,65,Female,Blackfurt,2023-09-12,0
+1689,27,Male,Zacharyhaven,2022-08-22,0
+1691,26,Female,Moorefort,2020-09-04,0
+1693,21,Female,Danieltown,2021-12-11,1
+1704,48,Female,Karenmouth,2023-09-13,0
+1705,22,Female,New Brianmouth,2021-04-18,0
+1708,75,Male,East Johnton,2023-02-11,1
+1710,62,Female,South Keithborough,2022-12-26,0
+1711,45,Female,Travismouth,2024-10-29,1
+1712,38,Female,Christianstad,2021-01-11,0
+1713,47,Male,Martinezshire,2020-11-03,0
+1714,29,Male,Douglastown,2023-12-15,0
+1716,78,Male,Janicehaven,2024-02-03,0
+1731,54,Female,Williamsborough,2023-10-14,1
+1735,30,Male,South Brandon,2023-01-08,1
+1736,39,Female,New Stephen,2025-01-04,1
+1737,72,Male,Port Rileyshire,2020-07-08,0
+1739,23,Male,New Lisaland,2020-05-26,0
+1740,34,Male,Jefftown,2021-07-05,1
+1741,73,Female,South Williamshire,2022-10-16,0
+1747,69,Female,Smithborough,2020-08-28,0
+1752,24,Male,South Kevinview,2022-03-23,0
+1758,76,Male,South Jorge,2020-11-27,1
+1760,51,Female,Port Jenniferborough,2022-10-18,1
+1766,66,Female,Kevinburgh,2023-05-08,0
+1770,58,Male,North Francisco,2021-02-04,0
+1771,29,Male,Johnsonhaven,2023-04-01,0
+1778,40,Female,Robertstad,2020-02-04,0
+1784,45,Male,New Shelbyborough,2021-04-03,0
+1788,75,Female,South Bryan,2023-09-23,0
+1796,62,Female,Jessicastad,2024-06-18,0
+1797,72,Female,North Carlos,2024-04-24,0
+1798,79,Male,Lake Nancy,2023-09-17,0
+1800,50,Female,New Theodore,2020-09-24,1
+1801,27,Female,South Jennifer,2021-09-18,0
+1803,54,Female,West Katie,2021-07-04,0
+1804,50,Male,North Jamesburgh,2022-06-01,0
+1805,74,Male,South Michael,2023-03-04,0
+1806,69,Female,New Jefffort,2024-07-31,0
+1809,20,Female,West Lorihaven,2020-07-02,0
+1811,37,Female,Port Christophermouth,2023-03-22,0
+1812,66,Female,Beckerville,2021-01-23,0
+1814,80,Female,West William,2024-10-30,0
+1817,45,Male,Vickiebury,2024-10-02,1
+1819,20,Male,South Joshua,2021-11-27,1
+1822,42,Male,North Randyton,2024-07-05,0
+1824,80,Female,New Robert,2023-10-21,0
+1825,23,Female,Bishopmouth,2023-08-14,0
+1827,37,Male,West Patricia,2021-01-13,0
+1831,34,Male,Gonzalezside,2024-09-25,0
+1836,57,Female,West Nicholasview,2024-12-18,1
+1837,51,Female,Port Dennis,2023-06-21,0
+1839,40,Male,Brandonchester,2021-10-11,0
+1843,68,Female,Lake Jeremyville,2022-04-02,0
+1844,75,Female,West Brittneyside,2024-07-20,0
+1845,74,Female,Smithshire,2023-12-06,0
+1853,58,Female,South Mikestad,2024-03-20,0
+1857,77,Female,Colemanshire,2020-04-28,0
+1858,35,Male,Port Anthony,2025-01-19,0
+1862,41,Male,North Christopher,2023-02-27,1
+1863,29,Female,Samanthamouth,2021-01-29,0
+1864,25,Male,New Kyle,2023-03-18,0
+1868,76,Male,South Samueltown,2020-12-30,0
+1870,23,Male,New Mistyport,2021-09-25,0
+1873,57,Female,New Robert,2024-10-28,0
+1875,67,Female,North Amy,2023-09-17,0
+1880,47,Male,Theresatown,2024-01-07,0
+1885,66,Female,Brownport,2024-04-24,0
+1886,31,Male,New Heatherborough,2022-11-21,0
+1888,37,Female,West Tammy,2023-01-12,0
+1892,30,Male,Tarabury,2021-11-06,0
+1893,62,Male,North Pamelaberg,2024-02-21,0
+1894,23,Female,Emilyland,2022-09-26,0
+1896,77,Male,East Annborough,2024-09-14,0
+1897,57,Female,North David,2022-07-11,0
+1901,71,Female,South David,2020-08-24,1
+1902,48,Male,East James,2023-10-29,0
+1904,49,Female,Port Cheryltown,2023-09-23,0
+1912,19,Female,Batesfort,2021-10-21,0
+1913,32,Female,Jenniferstad,2023-08-30,0
+1916,70,Female,Amyhaven,2023-09-04,0
+1919,38,Female,New Tara,2024-09-14,1
+1920,62,Female,North Shelbystad,2020-05-15,0
+1921,29,Male,Martinezton,2020-05-27,0
+1922,21,Female,East Nathan,2024-06-28,0
+1924,69,Male,Richardsland,2024-07-06,1
+1925,38,Female,Erichaven,2022-02-13,0
+1926,80,Female,Maysville,2022-02-24,0
+1928,30,Male,Georgeberg,2020-06-06,0
+1930,74,Female,Kelseystad,2023-08-22,0
+1935,63,Male,Cathyton,2020-01-21,0
+1948,21,Female,Frederickmouth,2020-05-17,0
+1949,65,Female,Lake Gwendolyn,2023-06-15,0
+1956,24,Female,South Robertfurt,2024-11-10,0
+1960,61,Female,North Ralph,2022-11-18,1
+1966,32,Male,Gordontown,2022-07-13,0
+1967,61,Male,Lisabury,2022-11-29,1
+1971,18,Female,Holdershire,2021-04-22,0
+1972,44,Male,East Susan,2021-12-18,0
+1976,37,Male,West Victoriahaven,2024-01-26,0
+1977,43,Female,West Jaclyn,2021-10-16,0
+1980,58,Female,New Ashley,2020-12-29,1
+1981,71,Female,Port Paul,2022-06-04,0
+1988,42,Male,Frederickfurt,2022-03-22,0
+1992,35,Male,Jesseport,2020-07-08,0
+1995,57,Male,Brooksshire,2021-07-30,0
+1997,64,Female,Brittanyberg,2025-01-09,0
+1999,54,Male,East Lisachester,2024-02-17,0
+2000,52,Male,Russellborough,2024-01-22,0
+2002,60,Male,Matthewtown,2023-10-25,0
+2004,45,Female,East Nicholas,2022-11-28,0
+2008,77,Male,Crystaltown,2023-09-17,1
+2010,76,Male,South Dakotaville,2023-09-10,0
+2014,52,Male,North Kristineville,2023-07-11,0
+2018,21,Male,Melissaton,2023-02-06,0
+2023,45,Female,Andrewsside,2024-10-04,0
+2027,53,Female,West Joshuaside,2024-06-22,1
+2029,59,Female,Travisside,2023-03-26,1
+2034,41,Female,South Teresa,2024-02-29,0
+2039,32,Male,Stuartmouth,2023-03-28,0
+2040,32,Female,Carlosport,2022-02-10,1
+2044,71,Female,West Crystal,2021-08-09,0
+2045,45,Female,Josephstad,2022-11-11,0
+2046,62,Male,Jessicashire,2023-01-02,0
+2047,77,Male,Phillipville,2021-09-27,0
+2048,61,Male,East Chelseatown,2023-04-20,0

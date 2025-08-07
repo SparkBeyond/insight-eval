@@ -1,0 +1,36 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "dependency_ratio",
+        "loan_frequency",
+        "credit_history_length",
+        "total_monthly_debt_payments",
+        "marital_status_dummy",
+        "loan_to_income_ratio",
+        "average_loan_amount",
+        "credit_score",
+        "loan_to_income_ratio_repeated_colname1",
+        "debt_to_income_ratio",
+        "employment_stability",
+        "credit_utilization",
+        "loan_tenure_length"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "dependency ratio",
+        "loan frequency",
+        "credit history length",
+        "total monthly debt payments",
+        "marital status dummy",
+        "loan to income ratio",
+        "average loan amount",
+        "credit score",
+        "loan to income ratio repeated colname1",
+        "debt to income ratio",
+        "employment stability",
+        "credit utilization",
+        "loan tenure length"
+    ]
+}

@@ -1,0 +1,257 @@
+2025-08-04 16:59:02,940 - benchmark - INFO - *** logging_config.set_logging_directory: Setup completed, logging to loggers ***
+2025-08-04 16:59:03,018 - benchmark - INFO - Successfully read Solution from folder /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2
+2025-08-04 16:59:03,018 - benchmark - INFO - evaluate_and_save_results: 
+problem_name: Late Shipment Prediction 
+solution_path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2 
+ground_truth_name: Late Shipment Prediction solved by ground_truth 
+  output_folder: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/evaluations_single_problem/Ex2
+
+
+2025-08-04 16:59:03,018 - benchmark - INFO - Calling evaluate
+2025-08-04 16:59:03,018 - benchmark - INFO - *** Starting evaluation for problem: Late Shipment Prediction ***
+2025-08-04 16:59:03,018 - benchmark - INFO - -----------------------------------------------------------------
+2025-08-04 16:59:03,019 - benchmark - INFO - solution_path=PosixPath('/Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2/Late Shipment Prediction')
+2025-08-04 16:59:03,019 - benchmark - INFO - Evaluating solution performance
+2025-08-04 16:59:03,921 - benchmark - INFO - Evaluating ground-truth performance
+2025-08-04 16:59:04,905 - benchmark - INFO - Evaluating ground-truth coverage
+2025-08-04 16:59:47,703 - benchmark - INFO - Evaluating coverage and target leak
+2025-08-04 17:00:13,254 - benchmark - INFO - **** Finished successfully processing problem: Late Shipment Prediction ***
+2025-08-04 17:00:13,254 - benchmark - INFO - ---------------------------------------------------------------------------
+2025-08-04 17:00:13,254 - benchmark - INFO - Evaluation completed
+2025-08-04 17:00:13,258 - benchmark - INFO - Done - See results under /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/evaluations_single_problem/Ex2
+2025-08-04 17:00:13,258 - benchmark.eval - INFO - Evaluation results of solution for problem: Ex2
+2025-08-04 17:00:13,258 - benchmark.eval - INFO - Problem path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/problems/Ex2
+2025-08-04 17:00:13,258 - benchmark.eval - INFO - Solution path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2
+2025-08-04 17:00:13,259 - benchmark.eval - INFO - Output path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/evaluations_single_problem/Ex2
+2025-08-04 17:00:13,259 - benchmark.eval - INFO - 
+Performance evaluation(for solution=Late Shipment Prediction solved by agent2):
+   performance: 0.8051082929609575, naive performance: 0.726243627497546, 
+   improvement: 0.07886466546341153
+2025-08-04 17:00:13,259 - benchmark.eval - INFO - 
+
+  Mean Correlation Coverage: 0.3680520132245514
+  Minimal Incremental Performance Coverage: 0.8318530128874957
+  Mean Predictive Coverage: nan
+  Mean Single Column Predictive Coverage : 0.30089073496985236
+2025-08-04 17:00:13,259 - benchmark.eval - INFO - Combined score: nan 
+ (0.5 * inclusive_performance + 0.5 * coverage - 1.0 * target_leak_score)
+2025-08-04 17:04:27,609 - benchmark - INFO - *** logging_config.set_logging_directory: Setup completed, logging to loggers ***
+2025-08-04 17:04:27,684 - benchmark - INFO - Successfully read Solution from folder /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2
+2025-08-04 17:04:27,685 - benchmark - INFO - evaluate_and_save_results: 
+problem_name: Late Shipment Prediction 
+solution_path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2 
+ground_truth_name: Late Shipment Prediction solved by ground_truth 
+  output_folder: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/evaluations_single_problem/Ex2
+
+
+2025-08-04 17:04:27,685 - benchmark - INFO - Calling evaluate
+2025-08-04 17:04:27,685 - benchmark - INFO - *** Starting evaluation for problem: Late Shipment Prediction ***
+2025-08-04 17:04:27,685 - benchmark - INFO - -----------------------------------------------------------------
+2025-08-04 17:04:27,685 - benchmark - INFO - solution_path=PosixPath('/Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2/Late Shipment Prediction')
+2025-08-04 17:04:27,685 - benchmark - INFO - Evaluating solution performance
+2025-08-04 17:04:28,554 - benchmark - INFO - Evaluating ground-truth performance
+2025-08-04 17:04:29,570 - benchmark - INFO - Evaluating ground-truth coverage
+2025-08-04 17:05:06,824 - benchmark.eval - ERROR - Error evaluating problem Late Shipment Prediction: _OptionalValidator.__call__() missing 2 required positional arguments: 'attr' and 'value'
+2025-08-04 17:05:06,825 - benchmark.eval - ERROR - Solution path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2/Late Shipment Prediction
+error message: Traceback (most recent call last):
+  File "/Users/spark/git/benchmarking-evaluation-framework/insight_eval/evaluation_framework/evaluators.py", line 683, in evaluate
+    gt_coverage_eval = evaluate_coverage_of_solution(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/spark/git/benchmarking-evaluation-framework/insight_eval/evaluation_framework/evaluators.py", line 266, in evaluate_coverage_of_solution
+    coverage_results = evaluate_coverage(
+                       ^^^^^^^^^^^^^^^^^^
+  File "/Users/spark/git/benchmarking-evaluation-framework/insight_eval/evaluation_framework/evaluators.py", line 384, in evaluate_coverage
+    return CoverageEvaluationResults(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<attrs generated init insight_eval.core_classes.coverage_evaluation_results.CoverageEvaluationResults>", line 5, in __init__
+    _setattr('mean_correlation_coverage', __attr_converter_mean_correlation_coverage(mean_correlation_coverage))
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: _OptionalValidator.__call__() missing 2 required positional arguments: 'attr' and 'value'
+
+2025-08-04 17:05:06,825 - benchmark.eval - ERROR - **** Exception while processing problem: Late Shipment Prediction ***
+2025-08-04 17:05:06,825 - benchmark.eval - ERROR - ---------------------------------------------------------------------
+2025-08-04 17:05:35,618 - benchmark - INFO - *** logging_config.set_logging_directory: Setup completed, logging to loggers ***
+2025-08-04 17:05:35,704 - benchmark - INFO - Successfully read Solution from folder /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2
+2025-08-04 17:05:35,704 - benchmark - INFO - evaluate_and_save_results: 
+problem_name: Late Shipment Prediction 
+solution_path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2 
+ground_truth_name: Late Shipment Prediction solved by ground_truth 
+  output_folder: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/evaluations_single_problem/Ex2
+
+
+2025-08-04 17:05:35,704 - benchmark - INFO - Calling evaluate
+2025-08-04 17:05:35,705 - benchmark - INFO - *** Starting evaluation for problem: Late Shipment Prediction ***
+2025-08-04 17:05:35,705 - benchmark - INFO - -----------------------------------------------------------------
+2025-08-04 17:05:35,705 - benchmark - INFO - solution_path=PosixPath('/Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2/Late Shipment Prediction')
+2025-08-04 17:05:35,705 - benchmark - INFO - Evaluating solution performance
+2025-08-04 17:05:36,634 - benchmark - INFO - Evaluating ground-truth performance
+2025-08-04 17:05:37,651 - benchmark - INFO - Evaluating ground-truth coverage
+2025-08-04 17:06:14,734 - benchmark - INFO - Evaluating coverage and target leak
+2025-08-04 17:06:39,259 - benchmark - INFO - **** Finished successfully processing problem: Late Shipment Prediction ***
+2025-08-04 17:06:39,260 - benchmark - INFO - ---------------------------------------------------------------------------
+2025-08-04 17:06:39,260 - benchmark - INFO - Evaluation completed
+2025-08-04 17:06:39,264 - benchmark - INFO - Done - See results under /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/evaluations_single_problem/Ex2
+2025-08-04 17:06:39,264 - benchmark.eval - INFO - Evaluation results of solution for problem: Ex2
+2025-08-04 17:06:39,264 - benchmark.eval - INFO - Problem path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/problems/Ex2
+2025-08-04 17:06:39,264 - benchmark.eval - INFO - Solution path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2
+2025-08-04 17:06:39,264 - benchmark.eval - INFO - Output path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/evaluations_single_problem/Ex2
+2025-08-04 17:06:39,264 - benchmark.eval - INFO - 
+Performance evaluation(for solution=Late Shipment Prediction solved by agent2):
+   performance: 0.8051082929609575, naive performance: 0.726243627497546, 
+   improvement: 0.07886466546341153
+2025-08-04 17:06:39,264 - benchmark.eval - INFO - 
+
+  Mean Correlation Coverage: 0.3680520132245514
+  Minimal Incremental Performance Coverage: 0.8318530128874957
+  Mean Predictive Coverage: nan
+  Mean Single Column Predictive Coverage : 0.30089073496985236
+2025-08-04 17:06:39,264 - benchmark.eval - INFO - Combined score: nan 
+ (0.5 * inclusive_performance + 0.5 * coverage - 1.0 * target_leak_score)
+2025-08-04 17:07:14,593 - benchmark - INFO - *** logging_config.set_logging_directory: Setup completed, logging to loggers ***
+2025-08-04 17:07:14,667 - benchmark - INFO - Successfully read Solution from folder /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2
+2025-08-04 17:07:14,667 - benchmark - INFO - evaluate_and_save_results: 
+problem_name: Late Shipment Prediction 
+solution_path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2 
+ground_truth_name: Late Shipment Prediction solved by ground_truth 
+  output_folder: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/evaluations_single_problem/Ex2
+
+
+2025-08-04 17:07:14,667 - benchmark - INFO - Calling evaluate
+2025-08-04 17:07:14,667 - benchmark - INFO - *** Starting evaluation for problem: Late Shipment Prediction ***
+2025-08-04 17:07:14,667 - benchmark - INFO - -----------------------------------------------------------------
+2025-08-04 17:07:14,667 - benchmark - INFO - solution_path=PosixPath('/Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2/Late Shipment Prediction')
+2025-08-04 17:07:14,667 - benchmark - INFO - Evaluating solution performance
+2025-08-04 17:07:15,583 - benchmark - INFO - Evaluating ground-truth performance
+2025-08-04 17:07:16,548 - benchmark - INFO - Evaluating ground-truth coverage
+2025-08-04 17:07:55,511 - benchmark - INFO - Evaluating coverage and target leak
+2025-08-04 17:08:18,865 - benchmark - INFO - **** Finished successfully processing problem: Late Shipment Prediction ***
+2025-08-04 17:08:18,865 - benchmark - INFO - ---------------------------------------------------------------------------
+2025-08-04 17:08:18,865 - benchmark - INFO - Evaluation completed
+2025-08-04 17:08:18,869 - benchmark - INFO - Done - See results under /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/evaluations_single_problem/Ex2
+2025-08-04 17:08:18,870 - benchmark.eval - INFO - Evaluation results of solution for problem: Ex2
+2025-08-04 17:08:18,870 - benchmark.eval - INFO - Problem path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/problems/Ex2
+2025-08-04 17:08:18,870 - benchmark.eval - INFO - Solution path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2
+2025-08-04 17:08:18,870 - benchmark.eval - INFO - Output path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/evaluations_single_problem/Ex2
+2025-08-04 17:08:18,870 - benchmark.eval - INFO - 
+Performance evaluation(for solution=Late Shipment Prediction solved by agent2):
+   performance: 0.8051082929609575, naive performance: 0.726243627497546, 
+   improvement: 0.07886466546341153
+2025-08-04 17:08:18,870 - benchmark.eval - INFO - 
+
+  Mean Correlation Coverage: 0.3680520132245514
+  Minimal Incremental Performance Coverage: 0.8318530128874957
+  Mean Predictive Coverage: nan
+  Mean Single Column Predictive Coverage : 0.30089073496985236
+2025-08-04 17:08:18,871 - benchmark.eval - INFO - Combined score: nan 
+ (0.5 * inclusive_performance + 0.5 * coverage - 1.0 * target_leak_score)
+2025-08-04 17:09:31,795 - benchmark - INFO - *** logging_config.set_logging_directory: Setup completed, logging to loggers ***
+2025-08-04 17:09:31,946 - benchmark - INFO - Successfully read Solution from folder /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2
+2025-08-04 17:09:31,946 - benchmark - INFO - evaluate_and_save_results: 
+problem_name: Late Shipment Prediction 
+solution_path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2 
+ground_truth_name: Late Shipment Prediction solved by ground_truth 
+  output_folder: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/evaluations_single_problem/Ex2
+
+
+2025-08-04 17:09:31,946 - benchmark - INFO - Calling evaluate
+2025-08-04 17:09:31,946 - benchmark - INFO - *** Starting evaluation for problem: Late Shipment Prediction ***
+2025-08-04 17:09:31,947 - benchmark - INFO - -----------------------------------------------------------------
+2025-08-04 17:09:31,947 - benchmark - INFO - solution_path=PosixPath('/Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2/Late Shipment Prediction')
+2025-08-04 17:09:31,947 - benchmark - INFO - Evaluating solution performance
+2025-08-04 17:09:33,790 - benchmark - INFO - Evaluating ground-truth performance
+2025-08-04 17:09:35,561 - benchmark - INFO - Evaluating ground-truth coverage
+2025-08-04 17:10:41,424 - benchmark - INFO - Evaluating coverage and target leak
+2025-08-04 17:11:31,303 - benchmark - INFO - **** Finished successfully processing problem: Late Shipment Prediction ***
+2025-08-04 17:11:31,303 - benchmark - INFO - ---------------------------------------------------------------------------
+2025-08-04 17:11:31,303 - benchmark - INFO - Evaluation completed
+2025-08-04 17:11:31,312 - benchmark - INFO - Done - See results under /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/evaluations_single_problem/Ex2
+2025-08-04 17:11:31,312 - benchmark.eval - INFO - Evaluation results of solution for problem: Ex2
+2025-08-04 17:11:31,312 - benchmark.eval - INFO - Problem path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/problems/Ex2
+2025-08-04 17:11:31,312 - benchmark.eval - INFO - Solution path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2
+2025-08-04 17:11:31,313 - benchmark.eval - INFO - Output path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/evaluations_single_problem/Ex2
+2025-08-04 17:11:31,313 - benchmark.eval - INFO - 
+Performance evaluation(for solution=Late Shipment Prediction solved by agent2):
+   performance: 0.8051082929609575, naive performance: 0.726243627497546, 
+   improvement: 0.07886466546341153
+2025-08-04 17:11:31,313 - benchmark.eval - INFO - 
+
+  Mean Correlation Coverage: 0.3680520132245514
+  Minimal Incremental Performance Coverage: 0.8318530128874957
+  Mean Predictive Coverage: nan
+  Mean Single Column Predictive Coverage : 0.30089073496985236
+2025-08-04 17:11:31,313 - benchmark.eval - INFO - Combined score: nan 
+ (0.5 * inclusive_performance + 0.5 * coverage - 1.0 * target_leak_score)
+2025-08-04 17:13:18,865 - benchmark - INFO - *** logging_config.set_logging_directory: Setup completed, logging to loggers ***
+2025-08-04 17:13:19,006 - benchmark - INFO - Successfully read Solution from folder /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2
+2025-08-04 17:13:19,007 - benchmark - INFO - evaluate_and_save_results: 
+problem_name: Late Shipment Prediction 
+solution_path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2 
+ground_truth_name: Late Shipment Prediction solved by ground_truth 
+  output_folder: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/evaluations_single_problem/Ex2
+
+
+2025-08-04 17:13:19,007 - benchmark - INFO - Calling evaluate
+2025-08-04 17:13:19,007 - benchmark - INFO - *** Starting evaluation for problem: Late Shipment Prediction ***
+2025-08-04 17:13:19,007 - benchmark - INFO - -----------------------------------------------------------------
+2025-08-04 17:13:19,007 - benchmark - INFO - solution_path=PosixPath('/Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2/Late Shipment Prediction')
+2025-08-04 17:13:19,007 - benchmark - INFO - Evaluating solution performance
+2025-08-04 17:13:20,707 - benchmark - INFO - Evaluating ground-truth performance
+2025-08-04 17:13:23,367 - benchmark - INFO - Evaluating ground-truth coverage
+2025-08-04 17:14:29,549 - benchmark - INFO - Evaluating coverage and target leak
+2025-08-04 17:15:23,116 - benchmark - INFO - **** Finished successfully processing problem: Late Shipment Prediction ***
+2025-08-04 17:15:23,116 - benchmark - INFO - ---------------------------------------------------------------------------
+2025-08-04 17:15:23,116 - benchmark - INFO - Evaluation completed
+2025-08-04 17:15:23,124 - benchmark - INFO - Done - See results under /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/evaluations_single_problem/Ex2
+2025-08-04 17:15:23,125 - benchmark.eval - INFO - Evaluation results of solution for problem: Ex2
+2025-08-04 17:15:23,125 - benchmark.eval - INFO - Problem path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/problems/Ex2
+2025-08-04 17:15:23,125 - benchmark.eval - INFO - Solution path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2
+2025-08-04 17:15:23,125 - benchmark.eval - INFO - Output path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/evaluations_single_problem/Ex2
+2025-08-04 17:15:23,125 - benchmark.eval - INFO - 
+Performance evaluation(for solution=Late Shipment Prediction solved by agent2):
+   performance: 0.8051082929609575, naive performance: 0.726243627497546, 
+   improvement: 0.07886466546341153
+2025-08-04 17:15:23,126 - benchmark.eval - INFO - 
+
+  Mean Correlation Coverage: 0.3680520132245514
+  Minimal Incremental Performance Coverage: 0.8318530128874957
+  Mean Predictive Coverage: nan
+  Mean Single Column Predictive Coverage : 0.30089073496985236
+2025-08-04 17:15:23,126 - benchmark.eval - INFO - Combined score: nan 
+ (0.5 * inclusive_performance + 0.5 * coverage - 1.0 * target_leak_score)
+2025-08-04 17:17:54,068 - benchmark - INFO - *** logging_config.set_logging_directory: Setup completed, logging to loggers ***
+2025-08-04 17:17:54,160 - benchmark - INFO - Successfully read Solution from folder /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2
+2025-08-04 17:17:54,161 - benchmark - INFO - evaluate_and_save_results: 
+problem_name: Late Shipment Prediction 
+solution_path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2 
+ground_truth_name: Late Shipment Prediction solved by ground_truth 
+  output_folder: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/evaluations_single_problem/Ex2
+
+
+2025-08-04 17:17:54,161 - benchmark - INFO - Calling evaluate
+2025-08-04 17:17:54,161 - benchmark - INFO - *** Starting evaluation for problem: Late Shipment Prediction ***
+2025-08-04 17:17:54,161 - benchmark - INFO - -----------------------------------------------------------------
+2025-08-04 17:17:54,161 - benchmark - INFO - solution_path=PosixPath('/Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2/Late Shipment Prediction')
+2025-08-04 17:17:54,161 - benchmark - INFO - Evaluating solution performance
+2025-08-04 17:17:55,105 - benchmark - INFO - Evaluating ground-truth performance
+2025-08-04 17:17:56,146 - benchmark - INFO - Evaluating ground-truth coverage
+2025-08-04 17:18:40,326 - benchmark - INFO - Evaluating coverage and target leak
+2025-08-04 17:19:20,876 - benchmark - INFO - **** Finished successfully processing problem: Late Shipment Prediction ***
+2025-08-04 17:19:20,876 - benchmark - INFO - ---------------------------------------------------------------------------
+2025-08-04 17:19:20,876 - benchmark - INFO - Evaluation completed
+2025-08-04 17:19:20,882 - benchmark - INFO - Done - See results under /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/evaluations_single_problem/Ex2
+2025-08-04 17:19:20,882 - benchmark.eval - INFO - Evaluation results of solution for problem: Ex2
+2025-08-04 17:19:20,882 - benchmark.eval - INFO - Problem path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/problems/Ex2
+2025-08-04 17:19:20,882 - benchmark.eval - INFO - Solution path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/agents_solutions/agent2/Ex2
+2025-08-04 17:19:20,882 - benchmark.eval - INFO - Output path: /Users/spark/git/benchmarking-evaluation-framework/insight_eval/batch_scripts/data/evaluations_single_problem/Ex2
+2025-08-04 17:19:20,882 - benchmark.eval - INFO - 
+Performance evaluation(for solution=Late Shipment Prediction solved by agent2):
+   performance: 0.8051082929609575, naive performance: 0.726243627497546, 
+   improvement: 0.07886466546341153
+2025-08-04 17:19:20,882 - benchmark.eval - INFO - 
+
+  Mean Correlation Coverage: 0.3680520132245514
+  Minimal Incremental Performance Coverage: 0.8318530128874957
+  Mean Predictive Coverage: nan
+  Mean Single Column Predictive Coverage : 0.30089073496985236
+2025-08-04 17:19:20,882 - benchmark.eval - INFO - Combined score: 0.6393599834785213 
+ (0.5 * inclusive_performance + 0.5 * coverage - 1.0 * target_leak_score)

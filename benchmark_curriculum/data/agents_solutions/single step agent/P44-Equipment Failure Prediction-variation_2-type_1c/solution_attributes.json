@@ -1,0 +1,107 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "equipment_failure_rate",
+        "avg_pressure",
+        "time_since_last_maintenance",
+        "time_gap_between_last_maintenances",
+        "days_since_last_issue_reported",
+        "equipment_lifespan",
+        "years_since_installation",
+        "avg_vibration",
+        "total_equipment_downtime",
+        "avg_equipment_repair_cost",
+        "maintenance_frequency_past_year",
+        "recent_temperature_avg",
+        "recent_temperature_variance",
+        "total_sensor_variance",
+        "maintenance_count",
+        "total_downtime_past_month"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.47710300581195214": {
+            "name": "equipment_failure_rate",
+            "code": "\n\ndef equipment_failure_rate(row, df_train: pd.DataFrame):\n    # Extract the equipment_id and maintenance_date for the current row\n    equipment_id = row['equipment_id']\n    maintenance_date = row['maintenance_date']\n    \n    # Filter the training data to include only rows with the same equipment_id\n    # and maintenance dates strictly before the current row's maintenance_date\n    equip_data = df_train[\n        (df_train['equipment_id'] == equipment_id) &\n        (df_train['maintenance_date'] < maintenance_date)\n    ]\n    \n    # If no prior data exists for the equipment, return 0\n    if equip_data.empty:\n        return 0\n    \n    # Calculate and return the mean failure rate for the filtered data\n    return equip_data['failure_recorded'].mean()\n"
+        },
+        "0.28097577236012505": {
+            "name": "avg_pressure",
+            "code": "\n\ndef avg_pressure(row, aux_dataframes: dict):\n    # Access the correct dataframe using the key 'sensor_data_table.csv'\n    sensor_data = aux_dataframes['sensor_data_table.csv']\n    \n    # Extract the equipment_id from the row\n    equipment_id = row['equipment_id']\n    \n    # Filter the sensor_data dataframe for the matching equipment_id and calculate the mean pressure\n    return sensor_data[sensor_data['equipment_id'] == equipment_id]['pressure'].mean()\n"
+        },
+        "0.08949729892573365": {
+            "name": "time_since_last_maintenance",
+            "code": "import pandas as pd\n\ndef time_since_last_maintenance(row, df_train: pd.DataFrame):\n    equipment_id = row['equipment_id']\n    date = pd.to_datetime(row['maintenance_date'])\n    same_equip_df = df_train[df_train['equipment_id'] == equipment_id]\n    same_equip_df['maintenance_date'] = pd.to_datetime(same_equip_df['maintenance_date'])\n    earlier_dates = same_equip_df[same_equip_df['maintenance_date'] < date]['maintenance_date']\n    if earlier_dates.empty:\n        return None  # No prior record\n    return (date - earlier_dates.max()).days\n"
+        },
+        "0.07438864278010257": {
+            "name": "time_gap_between_last_maintenances",
+            "code": "import pandas as pd\n\ndef time_gap_between_last_maintenances(row, df_train: pd.DataFrame):\n    equipment_id = row['equipment_id']\n    date = pd.to_datetime(row['maintenance_date'])\n    same_equipment_records = df_train[df_train['equipment_id'] == equipment_id]\n    maintenance_dates = pd.to_datetime(same_equipment_records['maintenance_date']).sort_values()\n    previous_maintenance_dates = maintenance_dates[maintenance_dates < date]\n    if len(previous_maintenance_dates) < 2:\n        return None  # Not enough maintenance events\n    return (previous_maintenance_dates.iloc[-1] - previous_maintenance_dates.iloc[-2]).days\n"
+        },
+        "0.07062081651664777": {
+            "name": "days_since_last_issue_reported",
+            "code": "import pandas as pd\n\ndef days_since_last_issue_reported(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the correct key is used to access the maintenance records dataframe\n    maintenance_records = aux_dataframes.get('maintenance_records_table.csv')\n    \n    # If the key is not found or the dataframe is None, return None\n    if maintenance_records is None:\n        return None\n    \n    equipment_id = row['equipment_id']\n    current_date = pd.to_datetime(row['maintenance_date'])\n    \n    # Filter the maintenance records for the given equipment_id\n    records = maintenance_records[maintenance_records['equipment_id'] == equipment_id]\n    \n    # If no records exist for the equipment, return None\n    if records.empty:\n        return None\n    \n    # Ensure the 'record_date' column is in datetime format\n    records['record_date'] = pd.to_datetime(records['record_date'])\n    \n    # Find the most recent issue date before the current maintenance date\n    most_recent_issue_date = records[records['record_date'] < current_date]['record_date'].max()\n    \n    # If no valid issue date is found, return None\n    if pd.isnull(most_recent_issue_date):\n        return None\n    \n    # Calculate the number of days since the most recent issue date\n    return (current_date - most_recent_issue_date).days\n"
+        },
+        "0.052277944402381864": {
+            "name": "equipment_lifespan",
+            "code": "import pandas as pd\n\ndef equipment_lifespan(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the key 'equipment_info_table.csv'\n    equipment_info = aux_data['equipment_info_table.csv']\n    \n    # Filter the dataframe to find the installation date for the given equipment_id\n    install_date = equipment_info[\n        equipment_info['equipment_id'] == row['equipment_id']\n    ]['installation_date'].values\n    \n    # If no installation date is found, return None\n    if len(install_date) == 0:\n        return None\n    \n    # Calculate the lifespan in days\n    return (pd.Timestamp('now') - pd.to_datetime(install_date[0])).days\n"
+        },
+        "0.050401365779275245": {
+            "name": "years_since_installation",
+            "code": "import pandas as pd\n\ndef years_since_installation(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the key 'equipment_info_table.csv'\n    equipment_info = aux_dataframes['equipment_info_table.csv']\n    \n    # Extract the equipment_id from the row\n    equipment_id = row['equipment_id']\n    \n    # Find the installation_date for the given equipment_id\n    install_date = equipment_info[equipment_info['equipment_id'] == equipment_id]['installation_date'].values\n    \n    # If no installation_date is found, return None\n    if len(install_date) == 0:\n        return None\n    \n    # Calculate the number of years since installation\n    return (pd.Timestamp('now') - pd.to_datetime(install_date[0])).days // 365\n"
+        },
+        "0.025943920174983842": {
+            "name": "avg_vibration",
+            "code": "\n\ndef avg_vibration(row, aux_dataframes: dict):\n    # Use the correct key for the sensor data\n    sensor_data = aux_dataframes['sensor_data_table.csv']\n    \n    # Extract the equipment_id from the row\n    equipment_id = row['equipment_id']\n    \n    # Calculate the average vibration for the given equipment_id\n    vibration_avg = sensor_data[sensor_data['equipment_id'] == equipment_id]['vibration'].mean()\n    \n    return vibration_avg\n"
+        },
+        "0.022835838738857868": {
+            "name": "total_equipment_downtime",
+            "code": "\n\ndef total_equipment_downtime(row, df_train: pd.DataFrame):\n    equipment_id = row['equipment_id']\n    total_downtime = df_train[df_train['equipment_id'] == equipment_id]['downtime_hours'].sum()\n    return total_downtime\n"
+        },
+        "0.016111849721142005": {
+            "name": "avg_equipment_repair_cost",
+            "code": "\n\ndef avg_equipment_repair_cost(row, df_train: pd.DataFrame):\n    equipment_id = row['equipment_id']\n    avg_cost = df_train[df_train['equipment_id'] == equipment_id]['cost'].mean()\n    return avg_cost\n"
+        },
+        "0.0149608958781491": {
+            "name": "maintenance_frequency_past_year",
+            "code": "import pandas as pd\n\ndef maintenance_frequency_past_year(row, df_train: pd.DataFrame):\n    equipment_id = row['equipment_id']\n    date = pd.to_datetime(row['maintenance_date'])\n    year_ago = date - pd.Timedelta(days=365)\n    past_maintenances = df_train[\n        (df_train['equipment_id'] == equipment_id) & \n        (pd.to_datetime(df_train['maintenance_date']) > year_ago) & \n        (pd.to_datetime(df_train['maintenance_date']) <= date)\n    ]\n    return past_maintenances.shape[0]\n"
+        },
+        "0.008202210934761964": {
+            "name": "recent_temperature_avg",
+            "code": "\n\ndef recent_temperature_avg(row, aux_dataframes: dict):\n    # Correct key for sensor data\n    sensor_data = aux_dataframes['sensor_data_table.csv']\n    \n    # Extract the equipment_id from the row\n    equipment_id = row['equipment_id']\n    \n    # Filter the sensor data for the given equipment_id\n    related_records = sensor_data[sensor_data['equipment_id'] == equipment_id]\n    \n    # If no related records are found, return None\n    if related_records.empty:\n        return None  # No sensor data for this equipment\n    \n    # Calculate and return the mean temperature\n    return related_records['temperature'].mean()\n"
+        },
+        "0.006919755704078714": {
+            "name": "recent_temperature_variance",
+            "code": "\n\ndef recent_temperature_variance(row, aux_dataframes: dict):\n    # Correct the key to match the actual key in aux_dataframes\n    sensor_data = aux_dataframes.get('sensor_data_table.csv')\n    \n    # Check if the sensor_data dataframe exists\n    if sensor_data is None:\n        raise KeyError(\"The key 'sensor_data_table.csv' is missing in aux_dataframes.\")\n    \n    equipment_id = row['equipment_id']\n    \n    # Filter the sensor_data dataframe for the relevant equipment_id\n    related_records = sensor_data[sensor_data['equipment_id'] == equipment_id]\n    \n    # If no related records are found, return None\n    if related_records.empty:\n        return None\n    \n    # Calculate and return the variance of the 'temperature' column\n    return related_records['temperature'].var()\n"
+        },
+        "0.0061275003083523655": {
+            "name": "total_sensor_variance",
+            "code": "\n\ndef total_sensor_variance(row, aux_dataframes: dict):\n    # Correct the key to match the provided aux_dataframes dictionary\n    sensor_data = aux_dataframes.get('sensor_data_table.csv')\n    \n    # Check if the sensor_data dataframe exists and is not None\n    if sensor_data is None:\n        raise KeyError(\"The key 'sensor_data_table.csv' is missing in aux_dataframes.\")\n    \n    equipment_id = row['equipment_id']\n    \n    # Filter the sensor data for the given equipment_id\n    equipment_sensor_data = sensor_data[sensor_data['equipment_id'] == equipment_id]\n    \n    # If no data is found for the equipment_id, return None\n    if equipment_sensor_data.empty:\n        return None\n    \n    # Calculate the total variance for temperature, pressure, and vibration\n    total_variance = (\n        equipment_sensor_data['temperature'].var() +\n        equipment_sensor_data['pressure'].var() +\n        equipment_sensor_data['vibration'].var()\n    )\n    \n    return total_variance\n"
+        },
+        "0.005362723803995565": {
+            "name": "maintenance_count",
+            "code": "\n\ndef maintenance_count(row, df_train: pd.DataFrame):\n    equipment_id = row['equipment_id']\n    return df_train[df_train['equipment_id'] == equipment_id].shape[0]\n"
+        },
+        "0.00527476556664497": {
+            "name": "total_downtime_past_month",
+            "code": "import pandas as pd\n\ndef total_downtime_past_month(row, df_train: pd.DataFrame):\n    equipment_id = row['equipment_id']\n    date = pd.to_datetime(row['maintenance_date'])\n    month_ago = date - pd.Timedelta(days=30)\n    total_downtime = df_train[\n        (df_train['equipment_id'] == equipment_id) &\n        (pd.to_datetime(df_train['maintenance_date']) > month_ago) &\n        (pd.to_datetime(df_train['maintenance_date']) <= date)\n    ]['downtime_hours'].sum()\n    return total_downtime\n"
+        }
+    },
+    "feature_descriptions": [
+        "equipment failure rate",
+        "avg pressure",
+        "time since last maintenance",
+        "time gap between last maintenances",
+        "days since last issue reported",
+        "equipment lifespan",
+        "years since installation",
+        "avg vibration",
+        "total equipment downtime",
+        "avg equipment repair cost",
+        "maintenance frequency past year",
+        "recent temperature avg",
+        "recent temperature variance",
+        "total sensor variance",
+        "maintenance count",
+        "total downtime past month"
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "total_missed_doses",
+        "time_since_last_admission",
+        "treatment_count",
+        "successful_treatment_proportion",
+        "icu_stay_indicator",
+        "encode_smoking_status",
+        "number_of_chronic_conditions",
+        "calculate_bmi",
+        "admission_duration"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.17166317204483209": {
+            "name": "total_missed_doses",
+            "code": "import numpy as np\n\ndef total_missed_doses(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the correct key is used to access the patient table\n    patient_data = aux_dataframes.get('patient_table.csv')\n    \n    # Check if the patient_data dataframe exists and is not None\n    if patient_data is not None:\n        # Filter the patient_data dataframe for the specific patient_id\n        patient_info = patient_data[patient_data['patient_id'] == row['patient_id']]\n        \n        # If the patient_info dataframe is not empty, calculate the total missed doses\n        if not patient_info.empty:\n            # Since 'missed_doses' is not in the patient_table.csv, we return the value from the row\n            return row['missed_doses']\n    \n    # If no data is found or the patient_table.csv is missing, return NaN\n    return np.nan\n"
+        },
+        "0.10582557826744916": {
+            "name": "time_since_last_admission",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef time_since_last_admission(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the admission table from aux_data\n    admission_table = aux_data['admission_table.csv']\n    \n    # Ensure the relevant columns are in datetime format\n    admission_table[\"admission_date\"] = pd.to_datetime(admission_table[\"admission_date\"])\n    admission_table[\"discharge_date\"] = pd.to_datetime(admission_table[\"discharge_date\"])\n    \n    # Extract patient_id and prescription_date from the input row\n    patient_id = row[\"patient_id\"]\n    prescription_date = pd.to_datetime(row[\"prescription_date\"])\n    \n    # Filter the admission table for the given patient_id\n    patient_admissions = admission_table[admission_table[\"patient_id\"] == patient_id]\n    \n    # Find admissions that occurred before the prescription_date\n    past_visits = patient_admissions[patient_admissions[\"admission_date\"] < prescription_date]\n    \n    # If there are past visits, calculate the time since the last discharge\n    if not past_visits.empty:\n        last_discharge_date = past_visits[\"discharge_date\"].max()\n        return (prescription_date - last_discharge_date).total_seconds() / (24 * 3600)\n    \n    # If no past visits, return NaN\n    return np.nan\n"
+        },
+        "0.0667855497533462": {
+            "name": "treatment_count",
+            "code": "\n\ndef treatment_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'treatment_table' exists in aux_dataframes\n    if 'treatment_table.csv' not in aux_dataframes:\n        raise KeyError(\"'treatment_table.csv' is missing from aux_dataframes\")\n    \n    # Access the treatment_table dataframe\n    treatment_data = aux_dataframes['treatment_table.csv']\n    \n    # Ensure the required columns exist in the treatment_table dataframe\n    required_columns = {'treatment_id', 'patient_id'}\n    if not required_columns.issubset(treatment_data.columns):\n        raise ValueError(f\"Missing required columns in treatment_table.csv: {required_columns - set(treatment_data.columns)}\")\n    \n    # Filter treatments for the given patient_id\n    treatments = treatment_data[treatment_data['patient_id'] == row['patient_id']]\n    \n    # Return the count of unique treatment IDs\n    return treatments['treatment_id'].nunique()\n"
+        },
+        "0.060751824517508594": {
+            "name": "successful_treatment_proportion",
+            "code": "\n\ndef successful_treatment_proportion(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'treatment_table' exists in aux_dataframes\n    if 'treatment_table.csv' not in aux_dataframes:\n        raise KeyError(\"'treatment_table.csv' is missing from aux_dataframes\")\n    \n    # Retrieve the treatment data\n    treatment_data = aux_dataframes['treatment_table.csv']\n    \n    # Ensure the required columns exist in the treatment data\n    required_columns = {'patient_id', 'treatment_outcome'}\n    if not required_columns.issubset(treatment_data.columns):\n        raise KeyError(f\"Missing required columns in 'treatment_table.csv': {required_columns - set(treatment_data.columns)}\")\n    \n    # Filter treatments for the given patient\n    patient_treatments = treatment_data[treatment_data['patient_id'] == row['patient_id']]\n    \n    # If there are treatments for the patient, calculate the proportion of successful treatments\n    if not patient_treatments.empty:\n        successful_treatments = patient_treatments[patient_treatments['treatment_outcome'] == 'Successful']\n        return successful_treatments.shape[0] / patient_treatments.shape[0]\n    \n    # If no treatments exist for the patient, return 0\n    return 0\n"
+        },
+        "0.03593605507516451": {
+            "name": "icu_stay_indicator",
+            "code": "\n\ndef icu_stay_indicator(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the admission table from aux_data\n    admission_table = aux_data.get('admission_table.csv')\n    \n    if admission_table is None:\n        raise ValueError(\"The 'admission_table.csv' is missing from aux_data.\")\n    \n    # Find the corresponding admission row for the given patient_id\n    patient_id = row['patient_id']\n    admission_row = admission_table[admission_table['patient_id'] == patient_id]\n    \n    if admission_row.empty:\n        # If no matching admission is found, return 0 (assuming no ICU stay)\n        return 0\n    \n    # Extract the 'icu_stay' value (assuming the latest admission is relevant)\n    icu_stay = admission_row.iloc[-1]['icu_stay']\n    \n    # Return the integer value of 'icu_stay'\n    return int(icu_stay)\n"
+        },
+        "0.021696670437568816": {
+            "name": "encode_smoking_status",
+            "code": "import numpy as np\n\ndef encode_smoking_status(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe from aux_dataframes\n    patient_data = aux_dataframes['patient_table.csv']\n    \n    # Filter the dataframe to find the row corresponding to the patient_id in the input row\n    patient_info = patient_data[patient_data['patient_id'] == row['patient_id']]\n    \n    # Check if the patient information exists\n    if not patient_info.empty:\n        # Extract the smoking status for the patient\n        smoking_status = patient_info['smoking_status'].iloc[0]\n        \n        # Map smoking status to numerical values\n        status_map = {\"Never\": 0, \"Former\": 1, \"Current\": 2}\n        \n        # Return the mapped value or NaN if the status is not in the map\n        return status_map.get(smoking_status, np.nan)\n    \n    # Return NaN if no patient information is found\n    return np.nan\n"
+        },
+        "0.01955466160568321": {
+            "name": "number_of_chronic_conditions",
+            "code": "import numpy as np\n\ndef number_of_chronic_conditions(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the key 'patient_table.csv'\n    patient_data = aux_dataframes['patient_table.csv']\n    \n    # Filter the dataframe to find the row corresponding to the given patient_id\n    patient_info = patient_data[patient_data['patient_id'] == row['patient_id']]\n    \n    # If a matching patient is found, return the 'chronic_conditions' value\n    if not patient_info.empty:\n        return patient_info['chronic_conditions'].iloc[0]\n    \n    # If no matching patient is found, return NaN\n    return np.nan\n"
+        },
+        "0.0038177883311320154": {
+            "name": "calculate_bmi",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef calculate_bmi(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the correct key is used to access the patient data\n    if 'patient_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'patient_table.csv' is missing in aux_dataframes.\")\n    \n    patient_data = aux_dataframes['patient_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'patient_id', 'weight', 'height'}\n    if not required_columns.issubset(patient_data.columns):\n        raise KeyError(f\"The dataframe 'patient_table.csv' is missing one or more required columns: {required_columns}\")\n    \n    # Filter the patient data for the given patient_id\n    patient_info = patient_data[patient_data['patient_id'] == row['patient_id']]\n    \n    if not patient_info.empty:\n        # Extract weight and height\n        weight = patient_info['weight'].iloc[0]\n        height = patient_info['height'].iloc[0]\n        \n        # Ensure weight and height are valid numbers\n        if pd.notna(weight) and pd.notna(height) and height > 0:\n            # Calculate BMI\n            return weight / ((height / 100) ** 2)\n    \n    # Return NaN if BMI cannot be calculated\n    return np.nan\n"
+        },
+        "0.001920657071773205": {
+            "name": "admission_duration",
+            "code": "import pandas as pd\n\ndef admission_duration(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the admission table from aux_data\n    admission_table = aux_data.get('admission_table.csv')\n    \n    if admission_table is None:\n        raise ValueError(\"admission_table.csv is missing from aux_data\")\n    \n    # Find the admission record for the given patient_id\n    patient_id = row['patient_id']\n    admission_record = admission_table[admission_table['patient_id'] == patient_id]\n    \n    if admission_record.empty:\n        raise ValueError(f\"No admission record found for patient_id {patient_id}\")\n    \n    # Assuming we take the first matching admission record\n    admission_date = pd.to_datetime(admission_record.iloc[0]['admission_date'])\n    discharge_date = pd.to_datetime(admission_record.iloc[0]['discharge_date'])\n    \n    # Calculate the duration in days\n    return (discharge_date - admission_date).total_seconds() / (24 * 3600)\n"
+        }
+    },
+    "feature_descriptions": [
+        "total missed doses",
+        "time since last admission",
+        "treatment count",
+        "successful treatment proportion",
+        "icu stay indicator",
+        "encode smoking status",
+        "number of chronic conditions",
+        "calculate bmi",
+        "admission duration"
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "campaign_conversion_rate",
+        "campaign_budget_per_customer",
+        "customer_interaction_density",
+        "customers_reached_per_budget",
+        "per_customer_marketing_efficiency",
+        "competitor_density_effect",
+        "spending_vs_online_interaction",
+        "avg_purchase_frequency",
+        "gdp_population_interaction"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.2847287086546538": {
+            "name": "campaign_conversion_rate",
+            "code": "\n\ndef campaign_conversion_rate(row, aux_dataframes: dict):\n    # Check if the key 'marketing_campaigns_table' exists in aux_dataframes\n    if \"marketing_campaigns_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'marketing_campaigns_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the marketing campaigns table\n    campaigns = aux_dataframes[\"marketing_campaigns_table.csv\"]\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'region_id', 'number_of_successful_conversions', 'number_of_customers_reached'}\n    if not required_columns.issubset(campaigns.columns):\n        raise ValueError(f\"The dataframe 'marketing_campaigns_table.csv' is missing required columns: {required_columns - set(campaigns.columns)}\")\n    \n    # Filter campaigns by the region_id in the current row\n    matching_region = campaigns[campaigns['region_id'] == row['region_id']]\n    \n    # Calculate the conversion rate if there are matching campaigns\n    if not matching_region.empty:\n        total_conversions = matching_region['number_of_successful_conversions'].sum()\n        total_reached = matching_region['number_of_customers_reached'].sum()\n        return total_conversions / total_reached if total_reached > 0 else 0\n    \n    # Return 0 if no matching campaigns are found\n    return 0\n"
+        },
+        "0.14118574552597193": {
+            "name": "campaign_budget_per_customer",
+            "code": "\n\ndef campaign_budget_per_customer(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'marketing_campaigns_table.csv' exists in aux_dataframes\n    if \"marketing_campaigns_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'marketing_campaigns_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the marketing campaigns table\n    campaigns = aux_dataframes[\"marketing_campaigns_table.csv\"]\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'region_id', 'budget', 'number_of_customers_reached'}\n    if not required_columns.issubset(campaigns.columns):\n        raise KeyError(f\"The dataframe 'marketing_campaigns_table.csv' is missing one or more required columns: {required_columns}\")\n    \n    # Filter campaigns by the region_id in the current row\n    matching_region = campaigns[campaigns['region_id'] == row['region_id']]\n    \n    # If there are matching campaigns, calculate the budget per customer\n    if not matching_region.empty:\n        total_budget = matching_region['budget'].sum()\n        total_reached = matching_region['number_of_customers_reached'].sum()\n        return total_budget / total_reached if total_reached > 0 else 0\n    \n    # If no matching campaigns, return 0\n    return 0\n"
+        },
+        "0.10357007492448153": {
+            "name": "customer_interaction_density",
+            "code": "\n\ndef customer_interaction_density(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'customer_behavior_table.csv' exists in aux_dataframes\n    if \"customer_behavior_table.csv\" not in aux_dataframes:\n        raise KeyError(\"'customer_behavior_table.csv' is missing from aux_dataframes\")\n    \n    # Access the customer behavior table\n    behavior_data = aux_dataframes[\"customer_behavior_table.csv\"]\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'region_id', 'online_interaction_time'}\n    if not required_columns.issubset(behavior_data.columns):\n        raise KeyError(f\"The dataframe 'customer_behavior_table.csv' is missing required columns: {required_columns - set(behavior_data.columns)}\")\n    \n    # Filter the behavior data for the matching region_id\n    matching_region = behavior_data[behavior_data['region_id'] == row['region_id']]\n    \n    # Calculate the customer interaction density\n    if not matching_region.empty:\n        return matching_region['online_interaction_time'].sum() / len(matching_region)\n    \n    # Return 0 if no matching region is found\n    return 0\n"
+        },
+        "0.05827291837410649": {
+            "name": "customers_reached_per_budget",
+            "code": "\n\ndef customers_reached_per_budget(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the key 'marketing_campaigns_table.csv' exists in aux_data\n    if \"marketing_campaigns_table.csv\" not in aux_data:\n        raise KeyError(\"The key 'marketing_campaigns_table.csv' is missing from aux_data.\")\n    \n    # Access the marketing campaigns table\n    campaigns = aux_data[\"marketing_campaigns_table.csv\"]\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'region_id', 'number_of_customers_reached', 'budget'}\n    if not required_columns.issubset(campaigns.columns):\n        raise ValueError(f\"The dataframe 'marketing_campaigns_table.csv' is missing one or more required columns: {required_columns}\")\n    \n    # Filter campaigns by the region_id in the current row\n    matching_region = campaigns[campaigns['region_id'] == row['region_id']]\n    \n    # If there are matching campaigns, calculate the customers reached per budget\n    if not matching_region.empty:\n        total_customers = matching_region['number_of_customers_reached'].sum()\n        total_budget = matching_region['budget'].sum()\n        return total_customers / total_budget if total_budget > 0 else 0\n    \n    # If no matching campaigns, return 0\n    return 0\n"
+        },
+        "0.051939429735608195": {
+            "name": "per_customer_marketing_efficiency",
+            "code": "\n\ndef per_customer_marketing_efficiency(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if the key 'marketing_campaigns_table' exists in aux_dataframes\n    if \"marketing_campaigns_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'marketing_campaigns_table.csv' is missing from aux_dataframes.\")\n    \n    # Retrieve the marketing campaigns table\n    campaigns = aux_dataframes[\"marketing_campaigns_table.csv\"]\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'region_id', 'budget', 'number_of_successful_conversions'}\n    if not required_columns.issubset(campaigns.columns):\n        raise ValueError(f\"The dataframe 'marketing_campaigns_table.csv' is missing one or more required columns: {required_columns}\")\n    \n    # Filter campaigns by the region_id in the current row\n    matching_region = campaigns[campaigns['region_id'] == row['region_id']]\n    \n    # Calculate marketing efficiency\n    if not matching_region.empty:\n        total_conversions = matching_region['number_of_successful_conversions'].sum()\n        if total_conversions > 0:\n            return matching_region['budget'].sum() / total_conversions\n        else:\n            return 0\n    return 0\n"
+        },
+        "0.04456469616799825": {
+            "name": "competitor_density_effect",
+            "code": "\n\ndef competitor_density_effect(row, aux_dataframes: dict):\n    # The 'number_of_competitors' and 'population' columns are in the row dataframe, not in aux_dataframes\n    num_competitors = row.get('number_of_competitors', 0)\n    population = row.get('population', 0)\n    \n    # Calculate the competitor density effect\n    return num_competitors / population if population > 0 else 0\n"
+        },
+        "0.03327730767529881": {
+            "name": "spending_vs_online_interaction",
+            "code": "\n\ndef spending_vs_online_interaction(row, aux_dataframes: dict):\n    # Check if 'customer_behavior_table' exists in aux_dataframes\n    if \"customer_behavior_table.csv\" not in aux_dataframes:\n        raise KeyError(\"'customer_behavior_table.csv' not found in aux_dataframes\")\n\n    # Access the customer behavior table\n    behavior_data = aux_dataframes[\"customer_behavior_table.csv\"]\n\n    # Ensure the required columns exist in the dataframe\n    required_columns = {'region_id', 'average_monthly_spending', 'online_interaction_time'}\n    if not required_columns.issubset(behavior_data.columns):\n        raise KeyError(f\"Missing required columns in 'customer_behavior_table.csv': {required_columns - set(behavior_data.columns)}\")\n\n    # Filter the data for the matching region\n    matching_region = behavior_data[behavior_data['region_id'] == row['region_id']]\n\n    # If there is data for the matching region, calculate the ratio\n    if not matching_region.empty:\n        avg_spending = matching_region['average_monthly_spending'].mean()\n        avg_online_time = matching_region['online_interaction_time'].mean()\n        return avg_spending / avg_online_time if avg_online_time > 0 else 0\n\n    # Return 0 if no matching region is found\n    return 0\n"
+        },
+        "0.021438459746343917": {
+            "name": "avg_purchase_frequency",
+            "code": "\n\ndef avg_purchase_frequency(row, aux_dataframes: dict):\n    # Access the customer_behavior_table dataframe using the correct key\n    behavior_data = aux_dataframes.get(\"customer_behavior_table.csv\")\n    \n    # Check if the dataframe exists and is not None\n    if behavior_data is not None:\n        # Filter the dataframe for the matching region_id\n        matching_region = behavior_data[behavior_data['region_id'] == row['region_id']]\n        \n        # If there are matching rows, calculate and return the mean purchase_frequency\n        if not matching_region.empty:\n            return matching_region['purchase_frequency'].mean()\n    \n    # Return 0 if no matching rows or if the dataframe is missing\n    return 0\n"
+        },
+        "0": {
+            "name": "gdp_population_interaction",
+            "code": "\n\ndef gdp_population_interaction(row, aux_dataframes: dict):\n    # Ensure the key 'regional_economics_table.csv' exists in aux_dataframes\n    if \"regional_economics_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'regional_economics_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the regional economics table\n    regional_economics = aux_dataframes[\"regional_economics_table.csv\"]\n    \n    # Ensure the required columns exist in the regional_economics dataframe\n    required_columns = {'region_id', 'gdp'}\n    if not required_columns.issubset(regional_economics.columns):\n        raise ValueError(f\"The dataframe 'regional_economics_table.csv' must contain the columns: {required_columns}\")\n    \n    # Find the matching region\n    matching_region = regional_economics[regional_economics['region_id'] == row['region_id']]\n    \n    # If a matching region is found, calculate GDP per population\n    if not matching_region.empty:\n        gdp = matching_region.iloc[0]['gdp']\n        population = row.get('population', None)  # Use the 'population' column from the input row\n        if population is not None and population > 0:\n            return gdp / population\n        else:\n            return 0  # Return 0 if population is missing or non-positive\n    \n    # If no matching region is found, return 0\n    return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "campaign conversion rate",
+        "campaign budget per customer",
+        "customer interaction density",
+        "customers reached per budget",
+        "per customer marketing efficiency",
+        "competitor density effect",
+        "spending vs online interaction",
+        "avg purchase frequency",
+        "gdp population interaction"
+    ]
+}

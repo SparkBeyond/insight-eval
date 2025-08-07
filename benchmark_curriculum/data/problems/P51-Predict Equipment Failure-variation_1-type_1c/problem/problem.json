@@ -1,0 +1,7 @@
+{
+    "target_column": "failure_risk_flag",
+    "description": "Identify equipment units with high risk of failure.",
+    "name": "Predict Equipment Failure",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Energy and utilities"
+}

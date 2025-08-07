@@ -1,0 +1,131 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "avg_discount_usage",
+        "product_store_discount_interaction",
+        "average_spend_per_customer",
+        "avg_discount_per_product",
+        "is_discounted",
+        "day_of_week",
+        "customer_store_interaction",
+        "is_previous_product_same",
+        "customer_category_diversity",
+        "customer_purchase_count",
+        "days_since_last_transaction",
+        "product_popularity",
+        "store_level_popularity",
+        "time_since_store_opening",
+        "product_category_popularity",
+        "store_category_popularity",
+        "median_spend_category",
+        "time_since_product_release",
+        "product_store_ratio",
+        "time_since_registration"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5313646447861388": {
+            "name": "avg_discount_usage",
+            "code": "\n\ndef avg_discount_usage(row, df_train: pd.DataFrame):\n    customer_id = row['customer_id']\n    # Use the correct column name 'discount_applied' instead of 'discount'\n    discounts = df_train[df_train['customer_id'] == customer_id]['discount_applied']\n    return discounts.mean()\n"
+        },
+        "0.24858892081463985": {
+            "name": "product_store_discount_interaction",
+            "code": "\n\ndef product_store_discount_interaction(row, df_train: pd.DataFrame):\n    product_id = row['product_id']\n    store_id = row['store_id']\n    \n    # Ensure the column name matches the actual column in the DataFrame\n    discounts = df_train[(df_train['product_id'] == product_id) & (df_train['store_id'] == store_id)]['discount_applied']\n    \n    # Return the mean of the discounts\n    return discounts.mean()\n"
+        },
+        "0.09771181414437632": {
+            "name": "average_spend_per_customer",
+            "code": "\n\ndef average_spend_per_customer(row, df_train: pd.DataFrame):\n    customer_id = row['customer_id']\n    # Use the correct column name 'purchase_amount' instead of 'spend'\n    spends = df_train[df_train['customer_id'] == customer_id]['purchase_amount']\n    return spends.mean()\n"
+        },
+        "0.08537391513596172": {
+            "name": "avg_discount_per_product",
+            "code": "\n\ndef avg_discount_per_product(row, df_train: pd.DataFrame):\n    product_id = row['product_id']\n    # Use the correct column name 'discount_applied' instead of 'discount'\n    discounts = df_train[df_train['product_id'] == product_id]['discount_applied']\n    return discounts.mean()\n"
+        },
+        "0.04187639503182702": {
+            "name": "is_discounted",
+            "code": "\n\ndef is_discounted(row):\n    return 1 if row['discount_applied'] > 0 else 0\n"
+        },
+        "0.03821297624325526": {
+            "name": "day_of_week",
+            "code": "import pandas as pd\n\ndef day_of_week(row):\n    purchase_date = pd.to_datetime(row['purchase_date'])\n    return purchase_date.weekday()\n"
+        },
+        "0.03602821390372715": {
+            "name": "customer_store_interaction",
+            "code": "\n\ndef customer_store_interaction(row, df_train: pd.DataFrame):\n    customer_id = row['customer_id']\n    store_id = row['store_id']\n    return df_train[(df_train['customer_id'] == customer_id) & (df_train['store_id'] == store_id)].shape[0]\n"
+        },
+        "0.03561096300363501": {
+            "name": "is_previous_product_same",
+            "code": "\n\ndef is_previous_product_same(row, df_train: pd.DataFrame):\n    customer_id = row['customer_id']\n    previous_transactions = df_train[df_train['customer_id'] == customer_id]\n    if previous_transactions.empty:\n        return 0\n    last_product = previous_transactions.loc[previous_transactions['purchase_date'].idxmax(), 'product_id']\n    return 1 if last_product == row['product_id'] else 0\n"
+        },
+        "0.029777999445262784": {
+            "name": "customer_category_diversity",
+            "code": "\n\ndef customer_category_diversity(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the product catalog dataframe\n    product_data = aux_dataframes['product_catalog_table.csv']\n    \n    # Extract the customer_id from the current row\n    customer_id = row['customer_id']\n    \n    # Get the list of product IDs purchased by the customer\n    products = df_train[df_train['customer_id'] == customer_id]['product_id']\n    \n    # Filter the product catalog to get the categories of the purchased products\n    categories = product_data[product_data['product_id'].isin(products)]['category']\n    \n    # Return the number of unique categories\n    return len(categories.unique())\n"
+        },
+        "0.027113547591915168": {
+            "name": "customer_purchase_count",
+            "code": "\n\ndef customer_purchase_count(row, df_train: pd.DataFrame):\n    customer_id = row['customer_id']\n    return df_train[df_train['customer_id'] == customer_id].shape[0]\n"
+        },
+        "0.02287626840924238": {
+            "name": "days_since_last_transaction",
+            "code": "import pandas as pd\n\ndef days_since_last_transaction(row, df_train: pd.DataFrame):\n    customer_id = row['customer_id']\n    purchase_date = pd.to_datetime(row['purchase_date'])\n    previous_transactions = df_train[df_train['customer_id'] == customer_id]\n    if previous_transactions.empty:\n        return None\n    last_date = pd.to_datetime(previous_transactions['purchase_date'].max())\n    return (purchase_date - last_date).days\n"
+        },
+        "0.022569700483652658": {
+            "name": "product_popularity",
+            "code": "\n\ndef product_popularity(row, df_train: pd.DataFrame):\n    product_id = row['product_id']\n    return df_train[df_train['product_id'] == product_id].shape[0]\n"
+        },
+        "0.013600002922877547": {
+            "name": "store_level_popularity",
+            "code": "\n\ndef store_level_popularity(row, df_train: pd.DataFrame):\n    store_id = row['store_id']\n    return df_train[df_train['store_id'] == store_id].shape[0]\n"
+        },
+        "0.012819251045297885": {
+            "name": "time_since_store_opening",
+            "code": "import pandas as pd\n\ndef time_since_store_opening(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    store_data = aux_dataframes['store_locations_table.csv']\n    opening_date = pd.to_datetime(store_data.loc[row['store_id'], 'opening_date'])\n    purchase_date = pd.to_datetime(row['purchase_date'])\n    return (purchase_date - opening_date).days\n"
+        },
+        "0.011750168529093996": {
+            "name": "product_category_popularity",
+            "code": "\n\ndef product_category_popularity(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the product catalog dataframe\n    product_data = aux_dataframes['product_catalog_table.csv']\n    \n    # Ensure 'product_id' is set as the index if needed\n    if 'product_id' not in product_data.index:\n        product_data = product_data.set_index('product_id')\n    \n    # Get the category of the product in the current row\n    category = product_data.loc[row['product_id'], 'category']\n    \n    # Find all products in the same category\n    products_in_category = product_data[product_data['category'] == category].index\n    \n    # Count the number of purchases in the training dataframe for products in the same category\n    return df_train[df_train['product_id'].isin(products_in_category)].shape[0]\n"
+        },
+        "0.009009797509325347": {
+            "name": "store_category_popularity",
+            "code": "\n\ndef store_category_popularity(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the product catalog DataFrame\n    product_data = aux_dataframes['product_catalog_table.csv']\n    \n    # Ensure the product_id column is set as the index\n    if 'product_id' in product_data.columns:\n        product_data = product_data.set_index('product_id')\n    \n    # Get the category of the product in the current row\n    try:\n        category = product_data.loc[row['product_id'], 'category']\n    except KeyError:\n        raise KeyError(f\"Product ID {row['product_id']} not found in product catalog.\")\n    \n    # Get the store ID from the current row\n    store_id = row['store_id']\n    \n    # Get all product IDs in the same category\n    products_in_category = product_data[product_data['category'] == category].index\n    \n    # Count the number of purchases in the same store and category\n    return df_train[(df_train['store_id'] == store_id) & (df_train['product_id'].isin(products_in_category))].shape[0]\n"
+        },
+        "0.007633041326234467": {
+            "name": "median_spend_category",
+            "code": "\n\ndef median_spend_category(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the product catalog dataframe\n    product_data = aux_dataframes['product_catalog_table.csv']\n    \n    # Get the category of the product in the current row\n    category = product_data.loc[product_data['product_id'] == row['product_id'], 'category']\n    \n    # Ensure the category exists (to avoid errors if the product_id is not found)\n    if category.empty:\n        raise ValueError(f\"Product ID {row['product_id']} not found in product catalog.\")\n    \n    # Extract the category value (since category is a Series, we take the first value)\n    category = category.iloc[0]\n    \n    # Get all products in the same category\n    products_in_category = product_data[product_data['category'] == category]['product_id']\n    \n    # Filter the training dataframe for spends on products in the same category\n    spends = df_train[df_train['product_id'].isin(products_in_category)]['purchase_amount']\n    \n    # Return the median spend\n    return spends.median()\n"
+        },
+        "0.007545021550765216": {
+            "name": "time_since_product_release",
+            "code": "import pandas as pd\n\ndef time_since_product_release(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    product_data = aux_dataframes['product_catalog_table.csv']\n    release_date = pd.to_datetime(product_data.loc[row['product_id'], 'release_date'])\n    purchase_date = pd.to_datetime(row['purchase_date'])\n    return (purchase_date - release_date).days\n"
+        },
+        "0.005846677918804668": {
+            "name": "product_store_ratio",
+            "code": "\n\ndef product_store_ratio(row, df_train: pd.DataFrame):\n    product_id = row['product_id']\n    store_id = row['store_id']\n    product_store_count = df_train[(df_train['product_id'] == product_id) & (df_train['store_id'] == store_id)].shape[0]\n    product_count = df_train[df_train['product_id'] == product_id].shape[0]\n    return product_store_count / product_count if product_count > 0 else 0\n"
+        },
+        "0": {
+            "name": "time_since_registration",
+            "code": "import pandas as pd\n\ndef time_since_registration(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Computes the days since a customer registered before making the purchase.\n    \n    Parameters:\n        row (pd.Series): The row of the dataset for which the feature is being calculated.\n        df_train (pd.DataFrame): The main training dataframe (not utilized in this feature).\n        aux_dataframes (Dict[str, pd.DataFrame]): Dictionary containing auxiliary dataframes keyed by their filenames.\n        \n    Returns:\n        int: Days between customer registration and purchase date.\n    \"\"\"\n    # Load the customer data table from auxiliary datasets\n    customer_data = aux_dataframes['customer_data_table.csv']\n    \n    # Ensure the dataset is indexed by customer_id for optimized lookup\n    if 'customer_id' not in customer_data.index:\n        customer_data.set_index('customer_id', inplace=True)\n    \n    # Extract customer's registration date from auxiliary dataset\n    registration_date = pd.to_datetime(customer_data.loc[row['customer_id'], 'registration_date'])\n    \n    # Extract the purchase date from the main dataset\n    purchase_date = pd.to_datetime(row['purchase_date'])\n    \n    # Compute days since registration\n    return (purchase_date - registration_date).days\n"
+        }
+    },
+    "feature_descriptions": [
+        "avg discount usage",
+        "product store discount interaction",
+        "average spend per customer",
+        "avg discount per product",
+        "is discounted",
+        "day of week",
+        "customer store interaction",
+        "is previous product same",
+        "customer category diversity",
+        "customer purchase count",
+        "days since last transaction",
+        "product popularity",
+        "store level popularity",
+        "time since store opening",
+        "product category popularity",
+        "store category popularity",
+        "median spend category",
+        "time since product release",
+        "product store ratio",
+        "time since registration"
+    ]
+}

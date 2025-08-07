@@ -1,0 +1,20 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "customer_return_rate",
+        "average_discount_received",
+        "average_category_rating",
+        "total_category_stock",
+        "customer_avg_discount"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "customer return rate",
+        "average discount received",
+        "average category rating",
+        "total category stock",
+        "customer avg discount"
+    ]
+}

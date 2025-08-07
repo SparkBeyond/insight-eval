@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "number_of_unresolved_support_requests_in_the_last_quarter",
+        "time_since_last_purchase",
+        "response_rate_to_marketing_campaigns_over_the_last_year"
+    ],
+    "features_descriptions": [
+        "number of unresolved support requests in the last quarter",
+        "time since last purchase",
+        "response rate to marketing campaigns over the last year"
+    ]
+}

@@ -1,0 +1,7 @@
+{
+    "target_column": "churn_flag",
+    "description": "Determine customers likely to stop purchasing products.",
+    "name": "Customer retention modeling",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Retail"
+}

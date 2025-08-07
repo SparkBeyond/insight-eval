@@ -1,0 +1,71 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "feedback_recency",
+        "average_feedback_rating",
+        "feedback_frequency",
+        "transaction_count",
+        "total_spend",
+        "loyalty_points_percentile",
+        "age",
+        "resolved_feedback_ratio",
+        "marketing_ctr",
+        "days_since_signup"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.2744192178375722": {
+            "name": "feedback_recency",
+            "code": "import datetime\nimport numpy as np\nimport pandas as pd\n\ndef calculate_days_difference(start_date, end_date):\n    if pd.isna(start_date) or pd.isna(end_date):\n        return np.nan\n    return (datetime.strptime(end_date, \"%Y-%m-%d\") - datetime.strptime(start_date, \"%Y-%m-%d\")).days\n\ndef feedback_recency(row, aux_dataframes):\n    feedback_df = aux_dataframes['customer_feedback_table.csv']\n    customer_feedbacks = feedback_df[feedback_df['customer_id'] == row['customer_id']]\n    if customer_feedbacks.empty:\n        return np.nan\n    latest_feedback_date = max(customer_feedbacks['feedback_date'])\n    return calculate_days_difference(latest_feedback_date, datetime.today().strftime('%Y-%m-%d'))\n"
+        },
+        "0.2540376917954416": {
+            "name": "average_feedback_rating",
+            "code": "\n\ndef average_feedback_rating(row, aux_dataframes):\n    feedback_df = aux_dataframes['customer_feedback_table.csv']\n    feedbacks = feedback_df[feedback_df['customer_id'] == row['customer_id']]\n    return feedbacks['feedback_rating'].mean()\n"
+        },
+        "0.20921514438160954": {
+            "name": "feedback_frequency",
+            "code": "\n\ndef feedback_frequency(row, aux_dataframes):\n    feedback_df = aux_dataframes['customer_feedback_table.csv']\n    return feedback_df[feedback_df['customer_id'] == row['customer_id']].shape[0]\n"
+        },
+        "0.10438459522072056": {
+            "name": "transaction_count",
+            "code": "\n\ndef transaction_count(row, aux_dataframes):\n    transactions_df = aux_dataframes['customer_transactions_table.csv']\n    return transactions_df[transactions_df['customer_id'] == row['customer_id']].shape[0]\n"
+        },
+        "0.10283363819343914": {
+            "name": "total_spend",
+            "code": "\n\ndef total_spend(row, aux_dataframes):\n    transactions_df = aux_dataframes['customer_transactions_table.csv']\n    customer_tx = transactions_df[transactions_df['customer_id'] == row['customer_id']]\n    return customer_tx['transaction_amount'].sum()\n"
+        },
+        "0.04196609451260073": {
+            "name": "loyalty_points_percentile",
+            "code": "import numpy as np\n\ndef loyalty_points_percentile(row, df_train: pd.DataFrame):\n    # Ensure the 'loyalty_points' column exists in df_train\n    if 'loyalty_points' not in df_train.columns:\n        raise ValueError(\"The dataframe does not contain the 'loyalty_points' column.\")\n    \n    # Calculate the maximum loyalty points, ensuring it's at least 1 to avoid division by zero\n    max_loyalty_points = max(df_train['loyalty_points'].max(), 1)\n    \n    # Calculate the percentile\n    percentile = np.nanpercentile(df_train['loyalty_points'], 100 * (row['loyalty_points'] / max_loyalty_points))\n    return percentile\n"
+        },
+        "0.03614554113766392": {
+            "name": "age",
+            "code": "import datetime\nimport pandas as pd\n\ndef age(row):\n    today = datetime.today()\n    dob = row['date_of_birth']\n    if pd.isna(dob):\n        return None\n    else:\n        return today.year - pd.to_datetime(dob).year\n"
+        },
+        "0.027297581992080575": {
+            "name": "resolved_feedback_ratio",
+            "code": "\n\ndef resolved_feedback_ratio(row, aux_dataframes):\n    feedback_df = aux_dataframes['customer_feedback_table.csv']\n    resolved_feedbacks = feedback_df[(feedback_df['customer_id'] == row['customer_id']) & (feedback_df['resolved'])]\n    total_feedbacks = feedback_df[feedback_df['customer_id'] == row['customer_id']]\n    return len(resolved_feedbacks) / len(total_feedbacks) if len(total_feedbacks) > 0 else 0\n"
+        },
+        "0.015709783160240583": {
+            "name": "marketing_ctr",
+            "code": "import numpy as np\n\ndef marketing_ctr(row, aux_dataframes):\n    marketing_df = aux_dataframes['marketing_interactions_table.csv']\n    customer_marketing = marketing_df[marketing_df['customer_id'] == row['customer_id']]\n    if customer_marketing.empty:\n        return np.nan\n    return customer_marketing['clicks'].sum() / customer_marketing.shape[0]\n"
+        },
+        "0.014403790642974987": {
+            "name": "days_since_signup",
+            "code": "import datetime\nimport numpy as np\nimport pandas as pd\n\ndef calculate_days_difference(start_date, end_date):\n    if pd.isna(start_date) or pd.isna(end_date):\n        return np.nan\n    return (datetime.strptime(end_date, \"%Y-%m-%d\") - datetime.strptime(start_date, \"%Y-%m-%d\")).days\n\ndef days_since_signup(row):\n    today = datetime.today()\n    signup_date = row['signup_date']\n    if pd.isna(signup_date):\n        return None\n    else:\n        return calculate_days_difference(signup_date, today.strftime('%Y-%m-%d'))\n"
+        }
+    },
+    "feature_descriptions": [
+        "feedback recency",
+        "average feedback rating",
+        "feedback frequency",
+        "transaction count",
+        "total spend",
+        "loyalty points percentile",
+        "age",
+        "resolved feedback ratio",
+        "marketing ctr",
+        "days since signup"
+    ]
+}

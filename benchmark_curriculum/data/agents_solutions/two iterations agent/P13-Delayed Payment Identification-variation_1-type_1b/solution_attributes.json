@@ -1,0 +1,26 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "total_transaction_amount",
+        "average_transaction_amount",
+        "transaction_count",
+        "customer_age",
+        "payment_due_delta",
+        "feedback_sentiment_score",
+        "income_bracket_flag",
+        "merchant_delay_rate"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "total transaction amount",
+        "average transaction amount",
+        "transaction count",
+        "customer age",
+        "payment due delta",
+        "feedback sentiment score",
+        "income bracket flag",
+        "merchant delay rate"
+    ]
+}

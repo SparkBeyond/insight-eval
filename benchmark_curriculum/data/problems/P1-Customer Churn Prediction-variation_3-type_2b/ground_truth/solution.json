@@ -1,0 +1,16 @@
+{
+    "enriched_column_names": [
+        "percentage_of_late_payments_from_total_payments_in_the_last_year",
+        "ratio_of_total_payment_amounts_to_the_number_of_bills_issued_in_the_last_6_months",
+        "frequency_of_customer_complaints_within_the_last_year",
+        "calls_to_customer_service_made_due_to_billing_issues_in_the_past_three_months",
+        "decrease_in_average_weekly_data_usage_over_the_past_quarter"
+    ],
+    "features_descriptions": [
+        "percentage of late payments from total payments in the last year",
+        "ratio of total payment amounts to the number of bills issued in the last 6 months",
+        "frequency of customer complaints within the last year",
+        "calls to customer service made due to billing issues in the past three months",
+        "decrease in average weekly data usage over the past quarter"
+    ]
+}

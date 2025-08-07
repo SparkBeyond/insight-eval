@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "number_of_products_used_decrease_over_the_last_year",
+        "decrease_in_loyalty_program_points_in_the_last_year",
+        "support_resolution_rate_in_the_last_6_months"
+    ],
+    "features_descriptions": [
+        "number of products used decrease over the last year",
+        "decrease in loyalty program points in the last year",
+        "support resolution rate in the last 6 months"
+    ]
+}

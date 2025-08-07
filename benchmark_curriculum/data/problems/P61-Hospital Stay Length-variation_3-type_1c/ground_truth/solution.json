@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "history_of_prior_hospitalizations_in_the_last_two_years",
+        "number_of_comorbid_chronic_conditions",
+        "age_of_the_patient_at_admission"
+    ],
+    "features_descriptions": [
+        "history of prior hospitalizations in the last two years",
+        "number of comorbid chronic conditions",
+        "age of the patient at admission"
+    ]
+}

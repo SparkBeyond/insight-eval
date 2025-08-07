@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "spike_in_energy_consumption_relative_to_the_baseline_over_the_last_month",
+        "higher_consumption_ratio_compared_to_similar_demographics_over_the_last_quarter",
+        "frequency_of_late_payments_in_the_last_six_billing_cycles"
+    ],
+    "features_descriptions": [
+        "spike in energy consumption relative to the baseline over the last month",
+        "higher consumption ratio compared to similar demographics over the last quarter",
+        "frequency of late payments in the last six billing cycles"
+    ]
+}

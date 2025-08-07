@@ -1,0 +1,18 @@
+{
+    "enriched_column_names": [
+        "average_satisfaction_score_provided_in_customer_feedback_in_the_past_1_year",
+        "number_of_times_a_user_clicked_on_advertisements_in_the_past_3_months",
+        "average_transaction_frequency_in_the_last_6_months",
+        "ratio_of_weekends_to_weekday_transactions_in_the_past_6_months",
+        "response_rate_to_marketing_emails_in_the_last_3_months",
+        "change_in_average_time_between_consecutive_purchases_over_the_past_year"
+    ],
+    "features_descriptions": [
+        "average satisfaction score provided in customer feedback in the past 1 year",
+        "number of times a user clicked on advertisements in the past 3 months",
+        "average transaction frequency in the last 6 months",
+        "ratio of weekends to weekday transactions in the past 6 months",
+        "response rate to marketing emails in the last 3 months",
+        "change in average time between consecutive purchases over the past year"
+    ]
+}

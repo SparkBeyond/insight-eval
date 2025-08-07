@@ -1,0 +1,7 @@
+{
+    "target_column": "over_limit",
+    "description": "Predict over-limit transactions to notify customers beforehand.",
+    "name": "Credit Limit Prediction",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Financial services"
+}

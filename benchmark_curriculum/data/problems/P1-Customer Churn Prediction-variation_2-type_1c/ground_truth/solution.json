@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "decrease_in_average_weekly_data_usage_over_the_past_quarter",
+        "ratio_of_total_payment_amounts_to_the_number_of_bills_issued_in_the_last_6_months",
+        "frequency_of_customer_complaints_within_the_last_year"
+    ],
+    "features_descriptions": [
+        "decrease in average weekly data usage over the past quarter",
+        "ratio of total payment amounts to the number of bills issued in the last 6 months",
+        "frequency of customer complaints within the last year"
+    ]
+}

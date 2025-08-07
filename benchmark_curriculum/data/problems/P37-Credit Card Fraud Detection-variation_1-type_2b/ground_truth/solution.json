@@ -1,0 +1,14 @@
+{
+    "enriched_column_names": [
+        "proportion_of_transactions_falling_into_an_irregular_transaction_type_category_over_the_last_month",
+        "transactions_made_outside_the_customer_s_usual_locations_in_the_past_week",
+        "frequency_of_transactions_at_high_risk_merchants_in_the_past_30_days",
+        "recorded_over_the_past_month"
+    ],
+    "features_descriptions": [
+        "proportion of transactions falling into an irregular transaction type category over the last month",
+        "transactions made outside the customer s usual locations in the past week",
+        "frequency of transactions at high risk merchants in the past 30 days",
+        "recorded over the past month"
+    ]
+}

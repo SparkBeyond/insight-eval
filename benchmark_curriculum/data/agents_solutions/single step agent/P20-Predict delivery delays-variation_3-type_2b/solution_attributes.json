@@ -1,0 +1,77 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "early_delivered_indicator",
+        "order_season",
+        "logistics_provider_delay_ratio",
+        "average_delay_duration",
+        "feedback_sentiment_score",
+        "customer_lifetime_value",
+        "high_delay_risk_supplier",
+        "order_to_warehouse_distance",
+        "mean_delivery_cost",
+        "delivery_distance_band",
+        "supplier_inventory_turnover"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.3601626696638833": {
+            "name": "early_delivered_indicator",
+            "code": "\n\ndef early_delivered_indicator(row):\n    \"\"\"\n    This function checks if a delivery was made earlier than the scheduled delivery time.\n    It returns 1 if the delivery was early, and 0 otherwise.\n\n    Args:\n        row (pd.Series): A row of a dataframe containing delivery information.\n\n    Returns:\n        int: 1 if the delivery was early, 0 otherwise.\n    \"\"\"\n    return int(row[\"delivery_date\"] < row[\"scheduled_delivery_date\"])\n"
+        },
+        "0.22410337957057458": {
+            "name": "order_season",
+            "code": "import pandas as pd\n\ndef order_season(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the 'delivery_date' column is parsed as a datetime object\n    if \"delivery_date\" in row and not isinstance(row[\"delivery_date\"], pd.Timestamp):\n        row[\"delivery_date\"] = pd.to_datetime(row[\"delivery_date\"])\n    \n    # Extract the month from the 'delivery_date' column\n    month = row[\"delivery_date\"].month\n    if month in [12, 1, 2]:\n        return \"winter\"\n    elif month in [3, 4, 5]:\n        return \"spring\"\n    elif month in [6, 7, 8]:\n        return \"summer\"\n    else:\n        return \"fall\"\n"
+        },
+        "0.15132701418029548": {
+            "name": "logistics_provider_delay_ratio",
+            "code": "\n\ndef logistics_provider_delay_ratio(row, df_train: pd.DataFrame):\n    logistics_provider_id = row[\"logistics_provider_id\"]\n    delivery_date = row[\"delivery_date\"]\n    \n    # Filter the dataframe to include only rows with the same logistics_provider_id\n    # and delivery dates earlier than the current row's delivery_date\n    provider_group = df_train[\n        (df_train[\"logistics_provider_id\"] == logistics_provider_id) &\n        (df_train[\"delivery_date\"] < delivery_date)\n    ]\n    \n    # If there are no past deliveries for this provider, return 0 to avoid division by zero\n    if len(provider_group) == 0:\n        return 0.0\n    \n    # Calculate the delay ratio for the provider based on past data\n    return provider_group[\"delay_flag\"].sum() / len(provider_group)\n"
+        },
+        "0.043253175704435265": {
+            "name": "average_delay_duration",
+            "code": "\n\ndef average_delay_duration(row, df_train: pd.DataFrame):\n    # Extract the logistics provider ID and delivery date for the current row\n    logistics_provider_id = row[\"logistics_provider_id\"]\n    delivery_date = row[\"delivery_date\"]\n    \n    # Filter the dataframe to include only rows with the same logistics provider\n    # and delivery dates earlier than the current row's delivery date\n    provider_group = df_train[\n        (df_train[\"logistics_provider_id\"] == logistics_provider_id) &\n        (df_train[\"delivery_date\"] < delivery_date)\n    ]\n    \n    # Calculate and return the mean delay_flag for the filtered group\n    # If the group is empty, return 0 (or another default value)\n    return provider_group[\"delay_flag\"].mean() if not provider_group.empty else 0\n"
+        },
+        "0.029809823623069696": {
+            "name": "feedback_sentiment_score",
+            "code": "\n\ndef feedback_sentiment_score(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculate the sentiment score for a given order based on customer feedback.\n\n    Args:\n        row (pd.Series): A row from the dataframe containing the 'order_id'.\n        aux_dataframes (Dict[str, pd.DataFrame]): A dictionary of auxiliary dataframes.\n\n    Returns:\n        float: The mean sentiment score (based on 'rating') for the given order_id, or 0 if no feedback exists.\n    \"\"\"\n    # Check if 'customer_feedback_table.csv' exists in aux_dataframes\n    if \"customer_feedback_table.csv\" not in aux_dataframes:\n        raise KeyError(\"'customer_feedback_table.csv' is missing from aux_dataframes.\")\n    \n    customer_feedback = aux_dataframes[\"customer_feedback_table.csv\"]\n    \n    # Check if 'rating' and 'order_id' columns exist in the customer_feedback dataframe\n    required_columns = {\"rating\", \"order_id\"}\n    if not required_columns.issubset(customer_feedback.columns):\n        raise KeyError(f\"Missing required columns {required_columns - set(customer_feedback.columns)} in 'customer_feedback_table.csv'.\")\n    \n    # Extract the order_id from the row\n    order_id = row[\"order_id\"]\n    \n    # Filter the customer_feedback dataframe for the given order_id\n    feedback_group = customer_feedback[customer_feedback[\"order_id\"] == order_id]\n    \n    # Return the mean rating (as sentiment score) if feedback exists, otherwise return 0\n    return feedback_group[\"rating\"].mean() if not feedback_group.empty else 0\n"
+        },
+        "0.019715064702549984": {
+            "name": "customer_lifetime_value",
+            "code": "\n\ndef customer_lifetime_value(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'customer_feedback_table.csv' exists in aux_dataframes\n    if \"customer_feedback_table.csv\" not in aux_dataframes:\n        raise KeyError(\"'customer_feedback_table.csv' not found in aux_dataframes\")\n    \n    # Check if 'order_details_table.csv' exists in aux_dataframes\n    if \"order_details_table.csv\" not in aux_dataframes:\n        raise KeyError(\"'order_details_table.csv' not found in aux_dataframes\")\n\n    # Get the customer_feedback_table and order_details_table DataFrames\n    customer_feedback = aux_dataframes[\"customer_feedback_table.csv\"]\n    order_details = aux_dataframes[\"order_details_table.csv\"]\n\n    # Ensure the required columns exist in the DataFrames\n    required_feedback_columns = {\"customer_id\", \"rating\"}\n    if not required_feedback_columns.issubset(customer_feedback.columns):\n        raise KeyError(f\"Missing required columns in customer_feedback_table: {required_feedback_columns - set(customer_feedback.columns)}\")\n    \n    required_order_columns = {\"order_id\", \"customer_id\"}\n    if not required_order_columns.issubset(order_details.columns):\n        raise KeyError(f\"Missing required columns in order_details_table: {required_order_columns - set(order_details.columns)}\")\n\n    # Extract the order_id from the row\n    order_id = row[\"order_id\"]\n\n    # Retrieve the customer_id using the order_id from the order_details_table\n    order_row = order_details[order_details[\"order_id\"] == order_id]\n    if order_row.empty:\n        raise ValueError(f\"No matching order_id {order_id} found in order_details_table\")\n    \n    customer_id = order_row.iloc[0][\"customer_id\"]\n\n    # Filter the customer_feedback DataFrame for the given customer_id\n    feedback_group = customer_feedback[customer_feedback[\"customer_id\"] == customer_id]\n\n    # Calculate and return the average rating (or 0 if no feedback exists)\n    return feedback_group[\"rating\"].mean() if not feedback_group.empty else 0\n"
+        },
+        "0.011450879969820393": {
+            "name": "high_delay_risk_supplier",
+            "code": "\n\ndef high_delay_risk_supplier(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'supplier_info_table' exists in aux_dataframes\n    if \"supplier_info_table.csv\" not in aux_dataframes:\n        raise KeyError(\"'supplier_info_table.csv' is missing from aux_dataframes\")\n    \n    # Check if 'order_details_table' exists in aux_dataframes\n    if \"order_details_table.csv\" not in aux_dataframes:\n        raise KeyError(\"'order_details_table.csv' is missing from aux_dataframes\")\n    \n    # Get the supplier_info_table and order_details_table dataframes\n    supplier_info = aux_dataframes[\"supplier_info_table.csv\"]\n    order_details = aux_dataframes[\"order_details_table.csv\"]\n    \n    # Check if the required columns exist in the supplier_info_table\n    required_supplier_columns = {\"supplier_id\", \"on_time_supply_rate\"}\n    if not required_supplier_columns.issubset(supplier_info.columns):\n        raise KeyError(f\"Missing required columns in supplier_info_table: {required_supplier_columns - set(supplier_info.columns)}\")\n    \n    # Check if the required columns exist in the order_details_table\n    required_order_columns = {\"order_id\", \"product_id\"}\n    if not required_order_columns.issubset(order_details.columns):\n        raise KeyError(f\"Missing required columns in order_details_table: {required_order_columns - set(order_details.columns)}\")\n    \n    # Extract the order_id from the row\n    order_id = row.get(\"order_id\")\n    if order_id is None:\n        raise KeyError(\"'order_id' is missing in the input row\")\n    \n    # Find the product_id for the given order_id\n    order_row = order_details[order_details[\"order_id\"] == order_id]\n    if order_row.empty:\n        raise ValueError(f\"No matching order_id found in order_details_table for order_id: {order_id}\")\n    \n    product_id = order_row[\"product_id\"].values[0]\n    \n    # Find the supplier_id for the given product_id in the supplier_info_table\n    supplier_group = supplier_info[supplier_info[\"supplier_id\"] == product_id]\n    \n    # Determine if the supplier is high risk based on on_time_supply_rate\n    # Assuming a threshold of 0.8 for high risk (this can be adjusted as needed)\n    high_risk_threshold = 0.8\n    if not supplier_group.empty:\n        on_time_supply_rate = supplier_group[\"on_time_supply_rate\"].values[0]\n        return 1 if on_time_supply_rate < high_risk_threshold else 0\n    \n    # If no matching supplier_id is found, return 0 (not high risk)\n    return 0\n"
+        },
+        "0.004936877400595656": {
+            "name": "order_to_warehouse_distance",
+            "code": "\n\ndef order_to_warehouse_distance(row):\n    return row[\"distance_km\"]\n"
+        },
+        "0.0016076825176386089": {
+            "name": "mean_delivery_cost",
+            "code": "\n\ndef mean_delivery_cost(row, df_train: pd.DataFrame):\n    logistics_provider_id = row[\"logistics_provider_id\"]\n    provider_group = df_train[df_train[\"logistics_provider_id\"] == logistics_provider_id]\n    return provider_group[\"delivery_cost\"].mean()\n"
+        },
+        "0.0004089606937019985": {
+            "name": "delivery_distance_band",
+            "code": "\n\ndef delivery_distance_band(row):\n    if row[\"distance_km\"] < 5:\n        return \"short\"\n    elif row[\"distance_km\"] < 20:\n        return \"medium\"\n    else:\n        return \"long\"\n"
+        },
+        "0": {
+            "name": "supplier_inventory_turnover",
+            "code": "\n\ndef supplier_inventory_turnover(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the correct key is used to access the supplier_info_table\n    supplier_info_key = \"supplier_info_table.csv\"\n    order_details_key = \"order_details_table.csv\"\n    \n    # Check if the required auxiliary dataframes are present\n    if supplier_info_key not in aux_dataframes:\n        raise KeyError(f\"'{supplier_info_key}' not found in aux_dataframes.\")\n    if order_details_key not in aux_dataframes:\n        raise KeyError(f\"'{order_details_key}' not found in aux_dataframes.\")\n    \n    supplier_info = aux_dataframes[supplier_info_key]\n    order_details = aux_dataframes[order_details_key]\n    \n    # Check if the required columns exist in the supplier_info_table\n    required_supplier_columns = {\"supplier_id\", \"total_supplies\", \"average_supply_time\"}\n    if not required_supplier_columns.issubset(supplier_info.columns):\n        raise KeyError(f\"Missing required columns in '{supplier_info_key}'. Required columns: {required_supplier_columns}\")\n    \n    # Check if the required columns exist in the order_details_table\n    required_order_columns = {\"order_id\"}  # Adjusted to match the actual columns\n    if not required_order_columns.issubset(order_details.columns):\n        raise KeyError(f\"Missing required columns in '{order_details_key}'. Required columns: {required_order_columns}\")\n    \n    # Extract order_id from the row\n    order_id = row.get(\"order_id\")\n    if order_id is None:\n        raise KeyError(\"'order_id' not found in the row.\")\n    \n    # Find the order_row corresponding to the order_id in the order_details_table\n    order_row = order_details[order_details[\"order_id\"] == order_id]\n    if order_row.empty:\n        return 0  # If no matching order_id is found, return 0\n    \n    # Since supplier_id is not available in order_details_table.csv, we cannot proceed further\n    # Return 0 as a fallback\n    return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "early delivered indicator",
+        "order season",
+        "logistics provider delay ratio",
+        "average delay duration",
+        "feedback sentiment score",
+        "customer lifetime value",
+        "high delay risk supplier",
+        "order to warehouse distance",
+        "mean delivery cost",
+        "delivery distance band",
+        "supplier inventory turnover"
+    ]
+}

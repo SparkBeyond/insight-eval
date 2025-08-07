@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "interest_score_in_green_initiatives_from_the_last_survey",
+        "proportion_of_renewable_energy_in_total_consumption_over_the_past_6_months",
+        "reduction_in_monthly_energy_usage_over_the_past_year"
+    ],
+    "features_descriptions": [
+        "interest score in green initiatives from the last survey",
+        "proportion of renewable energy in total consumption over the past 6 months",
+        "reduction in monthly energy usage over the past year"
+    ]
+}

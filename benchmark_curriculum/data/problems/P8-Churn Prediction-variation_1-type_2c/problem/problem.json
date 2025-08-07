@@ -1,0 +1,7 @@
+{
+    "target_column": "is_churned",
+    "description": "Identify customers likely to stop purchasing to develop retention strategies.",
+    "name": "Churn Prediction",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Retail"
+}

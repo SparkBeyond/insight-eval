@@ -1,0 +1,53 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "energy_consumption_variance",
+        "days_since_last_interaction",
+        "payment_to_energy_ratio",
+        "prop_complaints",
+        "prop_inquiries",
+        "most_common_complaint_type",
+        "most_common_channel"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.48301144522077993": {
+            "name": "energy_consumption_variance",
+            "code": "\n\ndef energy_consumption_variance(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Computes variance in energy consumption for the given customer.\n    Auxiliary data: energy_usage_history_table.csv\n    \"\"\"\n    # Correct the key to match the actual filename in aux_dataframes\n    energy = aux_dataframes['energy_usage_history_table.csv']\n    \n    # Filter data for the specific customer\n    filtered = energy[energy['customer_id'] == row['customer_id']]\n    \n    if filtered.empty:\n        # Return 0 if no data available\n        return 0\n    \n    # Calculate variance in energy consumption\n    return filtered['energy_consumed_kwh'].var()\n"
+        },
+        "0.06526441287065933": {
+            "name": "days_since_last_interaction",
+            "code": "import pandas as pd\nimport datetime\n\ndef days_since_last_interaction(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the provided aux_dataframes dictionary\n    interactions_key = 'customer_interaction_table.csv'\n    \n    # Check if the key exists in the aux_dataframes dictionary\n    if interactions_key not in aux_dataframes:\n        raise KeyError(f\"Key '{interactions_key}' not found in aux_dataframes.\")\n    \n    # Get the interactions dataframe\n    interactions = aux_dataframes[interactions_key]\n    \n    # Filter interactions for the given customer_id\n    filtered = interactions[interactions['customer_id'] == row['customer_id']]\n    \n    # If no interactions are found, return -1\n    if filtered.empty:\n        return -1\n    \n    # Convert interaction_date to datetime and find the most recent date\n    last_interaction_date = pd.to_datetime(filtered['interaction_date']).max()\n    \n    # Calculate the number of days since the last interaction\n    delta_days = (datetime.datetime.now() - last_interaction_date).days\n    \n    return delta_days\n"
+        },
+        "0.021181003960903805": {
+            "name": "payment_to_energy_ratio",
+            "code": "\n\ndef payment_to_energy_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct keys for the dataframes\n    payments = aux_dataframes['payment_history_table.csv']\n    energy = aux_dataframes['energy_usage_history_table.csv']\n    \n    # Filter and calculate the sum of payments for the given customer_id\n    payment_sum = payments[payments['customer_id'] == row['customer_id']]['amount_paid'].sum()\n    \n    # Filter and calculate the sum of energy usage for the given customer_id\n    energy_sum = energy[energy['customer_id'] == row['customer_id']]['energy_consumed_kwh'].sum()\n    \n    # Return the ratio, handling the case where energy_sum is 0\n    return payment_sum / energy_sum if energy_sum > 0 else 0\n"
+        },
+        "0.013718076085115626": {
+            "name": "prop_complaints",
+            "code": "\n\ndef prop_complaints(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct key for the customer interaction table\n    interactions = aux_dataframes['customer_interaction_table.csv']\n    \n    # Filter interactions for the given customer_id\n    filtered = interactions[interactions['customer_id'] == row['customer_id']]\n    \n    # If no interactions exist for the customer, return 0\n    if filtered.empty:\n        return 0\n    \n    # Count the number of complaints\n    complaint_count = filtered[filtered['interaction_type'] == 'Complaint'].shape[0]\n    \n    # Return the proportion of complaints\n    return complaint_count / len(filtered)\n"
+        },
+        "0.007858846523362505": {
+            "name": "prop_inquiries",
+            "code": "\n\ndef prop_inquiries(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct key for the customer interaction table\n    interactions = aux_dataframes['customer_interaction_table.csv']\n    \n    # Filter interactions for the given customer_id\n    filtered = interactions[interactions['customer_id'] == row['customer_id']]\n    \n    # If no interactions exist for the customer, return 0\n    if filtered.empty:\n        return 0\n    \n    # Count the number of 'Inquiry' interactions\n    inquiry_count = filtered[filtered['interaction_type'] == 'Inquiry'].shape[0]\n    \n    # Return the proportion of 'Inquiry' interactions\n    return inquiry_count / len(filtered)\n"
+        },
+        "-0.0009842514040518946": {
+            "name": "most_common_complaint_type",
+            "code": "\n\ndef most_common_complaint_type(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the customer complaints table\n    complaints = aux_dataframes['customer_complaints_table.csv']\n    \n    # Filter the complaints dataframe for the given customer_id\n    filtered = complaints[complaints['customer_id'] == row['customer_id']]\n    \n    # If no complaints exist for the customer, return None\n    if filtered.empty:\n        return None\n    \n    # Return the most common complaint type (mode)\n    return filtered['complaint_type'].mode()[0]\n"
+        },
+        "-0.0004966115552929029": {
+            "name": "most_common_channel",
+            "code": "\n\ndef most_common_channel(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the provided aux_dataframes dictionary\n    interactions = aux_dataframes['customer_interaction_table.csv']\n    \n    # Filter the interactions dataframe for the given customer_id\n    filtered = interactions[interactions['customer_id'] == row['customer_id']]\n    \n    # If no interactions are found, return None\n    if filtered.empty:\n        return None\n    \n    # Return the most common interaction channel\n    return filtered['interaction_channel'].mode()[0]\n"
+        }
+    },
+    "feature_descriptions": [
+        "energy consumption variance",
+        "days since last interaction",
+        "payment to energy ratio",
+        "prop complaints",
+        "prop inquiries",
+        "most common complaint type",
+        "most common channel"
+    ]
+}

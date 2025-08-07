@@ -1,0 +1,107 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "shipment_weight_normalized_by_route_distance",
+        "carrier_avg_delay_from_auxiliary",
+        "carrier_fleet_utilization_ratio",
+        "average_carrier_delay",
+        "delay_actual_vs_planned_arrival",
+        "weather_avg_precipitation",
+        "weather_avg_wind_speed",
+        "is_heavy_shipment",
+        "transit_hub_flag",
+        "priority_flag",
+        "route_distance_category",
+        "shipping_duration_actual_vs_planned",
+        "is_weekend_departure",
+        "carrier_normalized_weight_deliveries",
+        "shipping_time_window",
+        "weather_deviation_from_average"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.14548887037178534": {
+            "name": "shipment_weight_normalized_by_route_distance",
+            "code": "\n\ndef shipment_weight_normalized_by_route_distance(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the route_table.csv dataframe from aux_dataframes\n    routes = aux_dataframes['route_table.csv']\n    \n    # Use the correct column name for distance: 'distance_km'\n    route_distance = routes.loc[routes['route_id'] == row['route_id'], 'distance_km'].values[0]\n    \n    # Normalize shipment weight by route distance, avoiding division by zero\n    return row['shipment_weight'] / (route_distance if route_distance != 0 else 1)\n"
+        },
+        "0.10741999219597675": {
+            "name": "carrier_avg_delay_from_auxiliary",
+            "code": "\n\ndef carrier_avg_delay_from_auxiliary(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    carriers = aux_dataframes['carrier_table.csv']\n    \n    # Filter the carrier table for the matching carrier_id\n    carrier_info = carriers[carriers['carrier_id'] == row['carrier_id']]\n    \n    if not carrier_info.empty:\n        # Use the 'on_time_performance_rate' to estimate average delay\n        # Assuming that lower on-time performance rate corresponds to higher delays\n        on_time_rate = carrier_info['on_time_performance_rate'].values[0]\n        \n        # Example logic: Convert on-time performance rate to average delay hours\n        # Assuming 100% on-time performance means 0 delay, and lower rates mean more delay\n        avg_delay_hours = (100 - on_time_rate) / 10  # Example: 10% deviation = 1 hour delay\n        return avg_delay_hours\n    else:\n        return 0  # Default for missing data\n"
+        },
+        "0.0877187295678966": {
+            "name": "carrier_fleet_utilization_ratio",
+            "code": "\n\ndef carrier_fleet_utilization_ratio(row, df_train: pd.DataFrame):\n    total_shipments = df_train['carrier_id'].value_counts()\n    carrier_shipments = total_shipments.get(row['carrier_id'], 0)\n    return carrier_shipments / total_shipments.sum()\n"
+        },
+        "0.07925010003419276": {
+            "name": "average_carrier_delay",
+            "code": "import pandas as pd\n\ndef average_carrier_delay(row, df_train: pd.DataFrame):\n    # Ensure the 'delay' column is calculated in df_train\n    if 'delay' not in df_train.columns:\n        df_train['delay'] = (\n            pd.to_datetime(df_train['actual_arrival_date']) - \n            pd.to_datetime(df_train['planned_arrival_date'])\n        ).dt.total_seconds() / 3600  # Convert delay to hours\n\n    # Calculate the mean delay for the given carrier_id\n    mean_delay = df_train[df_train['carrier_id'] == row['carrier_id']]['delay'].mean()\n    return mean_delay if pd.notnull(mean_delay) else 0\n"
+        },
+        "0.07661445218028627": {
+            "name": "delay_actual_vs_planned_arrival",
+            "code": "import pandas as pd\n\ndef delay_actual_vs_planned_arrival(row):\n    # Ensure the column names match the dataframe\n    actual_arrival = pd.to_datetime(row['actual_arrival_date'])\n    planned_arrival = pd.to_datetime(row['planned_arrival_date'])\n    \n    # Calculate the delay in hours\n    return (actual_arrival - planned_arrival).total_seconds() / 3600\n"
+        },
+        "0.06141207336155989": {
+            "name": "weather_avg_precipitation",
+            "code": "import pandas as pd\n\ndef weather_avg_precipitation(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the weather and route dataframes from aux_dataframes\n    weather = aux_dataframes['weather_table.csv']\n    route = aux_dataframes['route_table.csv']\n    \n    # Get the route details for the current row's route_id\n    route_details = route[route['route_id'] == row['route_id']]\n    \n    # Ensure the route details exist\n    if route_details.empty:\n        return 0  # If no route details are found, return 0\n    \n    # Extract departure and arrival cities\n    departure_city = route_details.iloc[0]['origin']\n    arrival_city = route_details.iloc[0]['destination']\n    \n    # Convert 'date_time' in weather to date only for comparison\n    weather['date'] = pd.to_datetime(weather['date_time']).dt.date\n    shipping_date = pd.to_datetime(row['planned_departure_date']).date()\n    \n    # Filter the weather data based on the shipping date and locations\n    filtered_weather = weather[\n        (weather['date'] == shipping_date) & \n        ((weather['location'] == departure_city) | \n         (weather['location'] == arrival_city))\n    ]\n    \n    # Return the average precipitation or 0 if no data is found\n    return filtered_weather['precipitation_mm'].mean() if not filtered_weather.empty else 0\n"
+        },
+        "0.06052130433813386": {
+            "name": "weather_avg_wind_speed",
+            "code": "import pandas as pd\n\ndef weather_avg_wind_speed(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the necessary dataframes from aux_dataframes\n    weather = aux_dataframes['weather_table.csv']\n    routes = aux_dataframes['route_table.csv']\n    \n    # Get the route information for the current row\n    route_info = routes[routes['route_id'] == row['route_id']]\n    if route_info.empty:\n        # If the route_id is not found, return 0\n        return 0\n    \n    # Extract departure and arrival cities\n    departure_city = route_info.iloc[0]['origin']\n    arrival_city = route_info.iloc[0]['destination']\n    \n    # Ensure the date format matches between the two dataframes\n    # Convert 'planned_departure_date' to date only (if it's a datetime)\n    shipping_date = pd.to_datetime(row['planned_departure_date']).date()\n    \n    # Filter the weather dataframe based on the shipping date and locations\n    filtered_weather = weather[\n        (pd.to_datetime(weather['date']).dt.date == shipping_date) &  # Match the date\n        ((weather['location'] == departure_city) |  # Match departure city\n         (weather['location'] == arrival_city))     # Match arrival city\n    ]\n    \n    # Return the average wind speed if the filtered dataframe is not empty\n    return filtered_weather['wind_speed_kmh'].mean() if not filtered_weather.empty else 0\n"
+        },
+        "0.04709490718847573": {
+            "name": "is_heavy_shipment",
+            "code": "\n\ndef is_heavy_shipment(row):\n    return 1 if row['shipment_weight'] > 500 else 0\n"
+        },
+        "0.044273014760717544": {
+            "name": "transit_hub_flag",
+            "code": "\n\ndef transit_hub_flag(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the route_table.csv dataframe from aux_dataframes\n    routes = aux_dataframes['route_table.csv']\n    \n    # Check if the route_id exists in the routes dataframe\n    if row['route_id'] in routes['route_id'].values:\n        # Retrieve the transit_hub_count for the given route_id\n        transit_hub_count = routes.loc[routes['route_id'] == row['route_id'], 'transit_hub_count'].values[0]\n        # Return 1 if transit_hub_count is greater than 0, otherwise return 0\n        return 1 if transit_hub_count > 0 else 0\n    else:\n        # If the route_id is not found, return 0 as a default\n        return 0\n"
+        },
+        "0.03774805623106423": {
+            "name": "priority_flag",
+            "code": "\n\ndef priority_flag(row):\n    return 1 if row['shipment_priority'] == \"High\" else 0\n"
+        },
+        "0.03117696290824945": {
+            "name": "route_distance_category",
+            "code": "\n\ndef route_distance_category(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the route_table.csv DataFrame from aux_dataframes\n    routes = aux_dataframes['route_table.csv']\n    \n    # Retrieve the distance_km for the given route_id\n    route_distance = routes.loc[routes['route_id'] == row['route_id'], 'distance_km'].values[0]\n    \n    # Categorize the route distance\n    if route_distance < 100:\n        return \"short\"\n    elif 100 <= route_distance <= 500:\n        return \"medium\"\n    else:\n        return \"long\"\n"
+        },
+        "0.01170146203209754": {
+            "name": "shipping_duration_actual_vs_planned",
+            "code": "import pandas as pd\n\ndef shipping_duration_actual_vs_planned(row: pd.Series) -> float:\n    # Ensure the datetime columns are parsed correctly\n    actual_departure = pd.to_datetime(row['actual_departure_date'])\n    planned_departure = pd.to_datetime(row['planned_departure_date'])\n    \n    # Calculate the difference in hours\n    return (actual_departure - planned_departure).total_seconds() / 3600\n"
+        },
+        "0.0098069955846293": {
+            "name": "is_weekend_departure",
+            "code": "import pandas as pd\n\ndef is_weekend_departure(row):\n    # Convert the 'planned_departure_date' column to a datetime object\n    departure_date = pd.to_datetime(row['planned_departure_date'])\n    # Check if the day of the week is Saturday (5) or Sunday (6)\n    return 1 if departure_date.weekday() >= 5 else 0\n"
+        },
+        "0.000616581543885208": {
+            "name": "carrier_normalized_weight_deliveries",
+            "code": "\n\ndef carrier_normalized_weight_deliveries(row, df_train: pd.DataFrame):\n    carrier_data = df_train[df_train['carrier_id'] == row['carrier_id']]\n    total_weight = carrier_data['shipment_weight'].sum()\n    total_deliveries = len(carrier_data)\n    return total_weight / (total_deliveries if total_deliveries != 0 else 1)\n"
+        },
+        "0.0005219620283903881": {
+            "name": "shipping_time_window",
+            "code": "import datetime\n\ndef shipping_time_window(row: pd.Series) -> str:\n    # Use the correct column name 'planned_departure_date'\n    departure_hour = datetime.datetime.strptime(row['planned_departure_date'], '%Y-%m-%d %H:%M:%S.%f').hour\n    if 6 <= departure_hour < 12:\n        return \"Morning\"\n    elif 12 <= departure_hour < 18:\n        return \"Afternoon\"\n    elif 18 <= departure_hour < 24:\n        return \"Evening\"\n    else:\n        return \"Night\"\n"
+        },
+        "0": {
+            "name": "weather_deviation_from_average",
+            "code": "import pandas as pd\n\ndef weather_deviation_from_average(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the weather and route tables from the auxiliary dataframes\n    weather = aux_dataframes['weather_table.csv']\n    route_table = aux_dataframes['route_table.csv']\n    \n    # Ensure the date column in the weather table matches the format of the planned_departure_date\n    weather['date'] = pd.to_datetime(weather['date']).dt.date\n    shipping_date = pd.to_datetime(row['planned_departure_date']).date()\n    \n    # Look up the departure and arrival cities using the route_id\n    route_info = route_table[route_table['route_id'] == row['route_id']]\n    if route_info.empty:\n        # If the route_id is not found, return 0 as a default\n        return 0\n    \n    departure_city = route_info.iloc[0]['origin']\n    arrival_city = route_info.iloc[0]['destination']\n    \n    # Filter the weather data for the relevant shipping date and locations\n    today_weather = weather[\n        (weather['date'] == shipping_date) & \n        ((weather['location'] == departure_city) | \n         (weather['location'] == arrival_city))\n    ]\n    \n    # If weather data is available, calculate deviations\n    if not today_weather.empty:\n        avg_precipitation = today_weather['precipitation_mm'].mean()\n        avg_wind_speed = today_weather['wind_speed_kmh'].mean()\n        historical_avg_precipitation = today_weather['historical_avg_precipitation'].mean()\n        historical_avg_wind_speed = today_weather['historical_avg_wind_speed'].mean()\n        \n        deviation_precipitation = avg_precipitation - historical_avg_precipitation\n        deviation_wind_speed = avg_wind_speed - historical_avg_wind_speed\n        \n        # Return the aggregate deviation as a feature\n        return deviation_precipitation + deviation_wind_speed\n    \n    # Default return value for missing weather data\n    return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "shipment weight normalized by route distance",
+        "carrier avg delay from auxiliary",
+        "carrier fleet utilization ratio",
+        "average carrier delay",
+        "delay actual vs planned arrival",
+        "weather avg precipitation",
+        "weather avg wind speed",
+        "is heavy shipment",
+        "transit hub flag",
+        "priority flag",
+        "route distance category",
+        "shipping duration actual vs planned",
+        "is weekend departure",
+        "carrier normalized weight deliveries",
+        "shipping time window",
+        "weather deviation from average"
+    ]
+}

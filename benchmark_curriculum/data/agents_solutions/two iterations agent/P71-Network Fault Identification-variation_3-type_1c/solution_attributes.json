@@ -1,0 +1,30 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "days_since_last_maintenance",
+        "time_since_last_check",
+        "time_since_last_maintenance",
+        "avg_maintenance_frequency",
+        "device_average_severity",
+        "avg_maintenance_duration",
+        "hour_of_day_repeated_colname1",
+        "hour_of_day",
+        "day_of_week",
+        "day_of_week_repeated_colname1"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "days since last maintenance",
+        "time since last check",
+        "time since last maintenance",
+        "avg maintenance frequency",
+        "device average severity",
+        "avg maintenance duration",
+        "hour of day repeated colname1",
+        "hour of day",
+        "day of week",
+        "day of week repeated colname1"
+    ]
+}

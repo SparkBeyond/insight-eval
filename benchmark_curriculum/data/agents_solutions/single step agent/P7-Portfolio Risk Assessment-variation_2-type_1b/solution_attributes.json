@@ -1,0 +1,47 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "feature_client_specific_risk_to_return",
+        "feature_total_investments_controlled",
+        "feature_sector_investment_consistency",
+        "feature_high_impact_trend_exposure",
+        "feature_avg_return_by_sector",
+        "feature_economic_shocks_adjustment"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.37552325053336544": {
+            "name": "feature_client_specific_risk_to_return",
+            "code": "\n\ndef feature_client_specific_risk_to_return(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the relevant DataFrames from aux_dataframes\n    client_df = aux_dataframes['client_profiles_table.csv']\n    portfolio_df = aux_dataframes['portfolio_history_table.csv']\n\n    # Ensure the 'client_id' column exists in the client DataFrame\n    if 'client_id' not in client_df.columns:\n        raise KeyError(\"'client_id' column is missing in the client_profiles_table.csv DataFrame.\")\n\n    # Ensure the 'portfolio_id' column exists in the portfolio DataFrame\n    if 'portfolio_id' not in portfolio_df.columns:\n        raise KeyError(\"'portfolio_id' column is missing in the portfolio_history_table.csv DataFrame.\")\n\n    # Filter the client DataFrame for the specific client_id in the row\n    client = client_df[client_df['client_id'] == row['client_id']]\n\n    # Check if the client exists in the client DataFrame\n    if not client.empty:\n        # Extract the risk appetite for the client\n        risk_appetite = client.iloc[0]['risk_appetite']\n\n        # Map non-integer risk appetite values to numeric equivalents\n        risk_appetite_mapping = {\n            'Low': 1,\n            'Medium': 2,\n            'High': 3\n        }\n\n        # Convert risk_appetite to a numeric value\n        if isinstance(risk_appetite, str):\n            risk_appetite = risk_appetite_mapping.get(risk_appetite, 0)  # Default to 0 if not found\n        else:\n            try:\n                risk_appetite = int(risk_appetite)\n            except ValueError:\n                risk_appetite = 0  # Default to 0 if conversion fails\n\n        # Filter the portfolio DataFrame for the specific portfolio_id in the row\n        portfolios = portfolio_df[portfolio_df['portfolio_id'] == row['portfolio_id']]\n\n        # Check if there are portfolios for the client\n        if not portfolios.empty:\n            # Calculate the average return rate\n            avg_return = portfolios['return_rate'].mean()\n\n            # Calculate and return the risk-to-return ratio\n            return avg_return / (risk_appetite + 1)\n\n    # Return 0 if no valid data is found\n    return 0\n"
+        },
+        "0.3440273872161417": {
+            "name": "feature_total_investments_controlled",
+            "code": "\n\ndef feature_total_investments_controlled(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the portfolio history DataFrame from aux_dataframes\n    portfolio_df = aux_dataframes['portfolio_history_table.csv']\n    \n    # Check if the 'portfolio_id' column exists in the portfolio_df\n    if 'portfolio_id' not in portfolio_df.columns:\n        raise KeyError(\"'portfolio_id' column is missing in portfolio_history_table.csv\")\n    \n    # Match the portfolio_id from the row with the portfolio_id in portfolio_df\n    matching_portfolios = portfolio_df[portfolio_df['portfolio_id'] == row['portfolio_id']]\n    \n    # If there are matching portfolios, sum the 'return_rate' column\n    if not matching_portfolios.empty:\n        if 'return_rate' in matching_portfolios.columns:\n            return matching_portfolios['return_rate'].sum()\n        else:\n            raise KeyError(\"'return_rate' column is missing in portfolio_history_table.csv\")\n    \n    # If no matching portfolios are found, return 0\n    return 0\n"
+        },
+        "0.14452854075991184": {
+            "name": "feature_sector_investment_consistency",
+            "code": "\n\ndef feature_sector_investment_consistency(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    portfolio_history_df = aux_dataframes['portfolio_history_table.csv']\n    \n    # Filter portfolio history by the portfolio_id in the current row\n    client_portfolios = portfolio_history_df[portfolio_history_df['portfolio_id'] == row['portfolio_id']]\n    \n    # Check if there are any matching portfolios\n    if not client_portfolios.empty:\n        # Assuming 'sector_focus' is in the input DataFrame (df_train), calculate unique sectors\n        unique_sectors = df_train[df_train['portfolio_id'].isin(client_portfolios['portfolio_id'])]['sector_focus'].nunique()\n        return 1 / unique_sectors if unique_sectors > 0 else 0\n    \n    # Return 0 if no matching portfolios are found\n    return 0\n"
+        },
+        "0.023037587616215834": {
+            "name": "feature_high_impact_trend_exposure",
+            "code": "\n\ndef feature_high_impact_trend_exposure(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    trend_df = aux_dataframes['investment_trends_table.csv']\n    # Filter trends based on the sector of the portfolio\n    client_trends = trend_df[trend_df['sector'] == row['sector_focus']]\n    if not client_trends.empty:\n        # Count the number of trends with an impact_score > 0.8\n        return (client_trends['impact_score'] > 0.8).sum()\n    return 0\n"
+        },
+        "0.015349201401441177": {
+            "name": "feature_avg_return_by_sector",
+            "code": "\n\ndef feature_avg_return_by_sector(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the sector focus for the current row\n    sector = row.get('sector_focus')\n    \n    # Ensure the sector is not None or empty\n    if sector:\n        # Filter the training dataframe for rows with the same sector focus\n        sector_portfolios = df_train[df_train['sector_focus'] == sector]\n        \n        # Check if there are any portfolios in the same sector\n        if not sector_portfolios.empty:\n            # Calculate and return the average return for the sector\n            return sector_portfolios['average_return'].mean()\n    \n    # Return 0 if no sector focus is found or no matching portfolios exist\n    return 0\n"
+        },
+        "0": {
+            "name": "feature_economic_shocks_adjustment",
+            "code": "\n\ndef feature_economic_shocks_adjustment(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    economic_df = aux_dataframes['economic_indicators_table.csv']\n    recent_shocks = economic_df[(economic_df['date'] > '2022-01-01') & (economic_df['trend'] == 'Decreasing')]\n    return recent_shocks['value'].sum()\n"
+        }
+    },
+    "feature_descriptions": [
+        "feature client specific risk to return",
+        "feature total investments controlled",
+        "feature sector investment consistency",
+        "feature high impact trend exposure",
+        "feature avg return by sector",
+        "feature economic shocks adjustment"
+    ]
+}

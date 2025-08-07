@@ -1,0 +1,107 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "membership_count",
+        "is_active_member",
+        "total_membership_duration",
+        "is_gold_member",
+        "trial_count",
+        "num_basic_trials",
+        "is_customer_retrying",
+        "num_premium_trials",
+        "is_trial_converted",
+        "avg_trial_gap",
+        "days_since_signup",
+        "signup_year",
+        "days_since_last_trial",
+        "signup_month",
+        "most_recent_membership_type",
+        "age_group"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5311065364872779": {
+            "name": "membership_count",
+            "code": "\n\ndef membership_count(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    membership_data = aux_dataframes['membership_data_table.csv']\n    return membership_data[membership_data['customer_id'] == row['customer_id']].shape[0]\n"
+        },
+        "0.32230719682107517": {
+            "name": "is_active_member",
+            "code": "\n\ndef is_active_member(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    membership_data = aux_dataframes['membership_data_table.csv']\n    customer_id = row['customer_id']\n    active_member = membership_data.query('customer_id == @customer_id and membership_status == \"active\"')\n    return 1 if not active_member.empty else 0\n"
+        },
+        "0.3223071968210742": {
+            "name": "total_membership_duration",
+            "code": "import pandas as pd\nimport datetime\n\ndef total_membership_duration(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    membership_data = aux_dataframes['membership_data_table.csv']\n    customer_id = row['customer_id']\n    memberships = membership_data.query('customer_id == @customer_id and membership_status == \"active\"')\n    if memberships.empty:\n        return 0\n    return (datetime.now() - pd.to_datetime(memberships['membership_id'].max())).days  # Simplified\n"
+        },
+        "0.2973075643892903": {
+            "name": "is_gold_member",
+            "code": "\n\ndef is_gold_member(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    membership_data = aux_dataframes['membership_data_table.csv']\n    customer_id = row['customer_id']\n    recent_membership = membership_data.query('customer_id == @customer_id and membership_type == \"gold\"')\n    return 1 if not recent_membership.empty else 0\n"
+        },
+        "0.2859728917523787": {
+            "name": "trial_count",
+            "code": "\n\ndef trial_count(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    trial_data = aux_dataframes['trial_data_table.csv']\n    return trial_data[trial_data['customer_id'] == row['customer_id']].shape[0]\n"
+        },
+        "0.2082661369307965": {
+            "name": "num_basic_trials",
+            "code": "\n\ndef num_basic_trials(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    trial_data = aux_dataframes['trial_data_table.csv']\n    return trial_data.query('customer_id == @row.customer_id and trial_type == \"basic\"').shape[0]\n"
+        },
+        "0.20244398464791136": {
+            "name": "is_customer_retrying",
+            "code": "\n\ndef is_customer_retrying(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    trial_data = aux_dataframes['trial_data_table.csv']\n    membership_data = aux_dataframes['membership_data_table.csv']\n    customer_id = row['customer_id']\n    has_expired_trial = not trial_data.query('customer_id == @customer_id and trial_status == \"expired\"').empty\n    has_expired_membership = not membership_data.query('customer_id == @customer_id and membership_status == \"expired\"').empty\n    return 1 if has_expired_trial or has_expired_membership else 0\n"
+        },
+        "0.19529498111956292": {
+            "name": "num_premium_trials",
+            "code": "\n\ndef num_premium_trials(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    trial_data = aux_dataframes['trial_data_table.csv']\n    return trial_data.query('customer_id == @row.customer_id and trial_type == \"premium\"').shape[0]\n"
+        },
+        "0.16075722503740744": {
+            "name": "is_trial_converted",
+            "code": "\n\ndef is_trial_converted(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    trial_data = aux_dataframes['trial_data_table.csv']\n    customer_id = row['customer_id']\n    recent_trial = trial_data.query('customer_id == @customer_id').sort_values('trial_start_date').tail(1)\n    if recent_trial.empty:\n        return 0\n    return 1 if recent_trial.iloc[0]['trial_status'] == 'converted' else 0\n"
+        },
+        "0.11175396742252011": {
+            "name": "avg_trial_gap",
+            "code": "import pandas as pd\n\ndef avg_trial_gap(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    trial_data = aux_dataframes['trial_data_table.csv']\n    customer_id = row['customer_id']\n    trial_dates = trial_data[trial_data['customer_id'] == customer_id]['trial_start_date']\n    trial_dates = pd.to_datetime(trial_dates).sort_values()\n    if len(trial_dates) < 2:\n        return None\n    return (trial_dates.diff().dt.days.mean())\n"
+        },
+        "0.03029639679754159": {
+            "name": "days_since_signup",
+            "code": "import datetime\n\ndef days_since_signup(row):\n    return (datetime.strptime('2023-10-01', '%Y-%m-%d') - datetime.strptime(row['signup_date'], '%Y-%m-%d')).days\n"
+        },
+        "0.02900022432772275": {
+            "name": "signup_year",
+            "code": "import datetime\n\ndef signup_year(row):\n    return datetime.strptime(row['signup_date'], '%Y-%m-%d').year\n"
+        },
+        "0.023181769424391506": {
+            "name": "days_since_last_trial",
+            "code": "import pandas as pd\nimport datetime\n\ndef days_since_last_trial(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    trial_data = aux_dataframes['trial_data_table.csv']\n    customer_id = row['customer_id']\n    latest_trial = trial_data.query('customer_id == @customer_id').sort_values('trial_start_date').tail(1)\n    if latest_trial.empty:\n        return None\n    return (datetime.strptime('2023-10-01', '%Y-%m-%d') - pd.to_datetime(latest_trial.iloc[0]['trial_start_date'])).days\n"
+        },
+        "0.007984449002790479": {
+            "name": "signup_month",
+            "code": "import datetime\n\ndef signup_month(row):\n    return datetime.strptime(row['signup_date'], '%Y-%m-%d').month\n"
+        },
+        "-0.0013018633430161852": {
+            "name": "most_recent_membership_type",
+            "code": "\n\ndef most_recent_membership_type(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    membership_data = aux_dataframes['membership_data_table.csv']\n    customer_id = row['customer_id']\n    customer_memberships = membership_data[membership_data['customer_id'] == customer_id]\n    if not customer_memberships.empty:\n        return customer_memberships.iloc[-1]['membership_type']\n    return None\n"
+        },
+        "-0.0008068964068008722": {
+            "name": "age_group",
+            "code": "\n\ndef age_group(row):\n    age = row['age']\n    if age < 25:\n        return 'Under 25'\n    elif age < 40:\n        return '25-39'\n    elif age < 60:\n        return '40-59'\n    else:\n        return '60+'\n"
+        }
+    },
+    "feature_descriptions": [
+        "membership count",
+        "is active member",
+        "total membership duration",
+        "is gold member",
+        "trial count",
+        "num basic trials",
+        "is customer retrying",
+        "num premium trials",
+        "is trial converted",
+        "avg trial gap",
+        "days since signup",
+        "signup year",
+        "days since last trial",
+        "signup month",
+        "most recent membership type",
+        "age group"
+    ]
+}

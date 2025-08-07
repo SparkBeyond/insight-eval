@@ -1,0 +1,24 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "abnormal_test_count",
+        "most_recent_test",
+        "lab_test_count",
+        "test_result_trend",
+        "significant_test_results",
+        "mean_hba1c",
+        "fasting_glucose"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "abnormal test count",
+        "most recent test",
+        "lab test count",
+        "test result trend",
+        "significant test results",
+        "mean hba1c",
+        "fasting glucose"
+    ]
+}

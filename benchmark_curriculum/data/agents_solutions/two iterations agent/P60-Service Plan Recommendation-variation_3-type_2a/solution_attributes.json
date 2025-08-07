@@ -1,0 +1,107 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "total_data_consumed",
+        "total_call_duration",
+        "call_peak_days",
+        "total_sms_sent",
+        "sms_peak_days",
+        "recent_usage_trend",
+        "max_data_single_day",
+        "max_call_duration_single_day",
+        "avg_data_consumed",
+        "location_encoding",
+        "avg_call_duration",
+        "stddev_call_duration",
+        "signup_year",
+        "gender_binary",
+        "signup_month",
+        "age_group"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5942071635051521": {
+            "name": "total_data_consumed",
+            "code": "\n\ndef total_data_consumed(row, df_train, aux_dataframes):\n    usage_df = aux_dataframes['usage_data_table.csv']\n    customer_usage = usage_df.loc[usage_df['customer_id'] == row['customer_id']]\n    return customer_usage['data_consumed'].sum()\n"
+        },
+        "0.5109112948442757": {
+            "name": "total_call_duration",
+            "code": "\n\ndef total_call_duration(row, df_train, aux_dataframes):\n    usage_df = aux_dataframes['usage_data_table.csv']\n    customer_usage = usage_df.loc[usage_df['customer_id'] == row['customer_id']]\n    return customer_usage['call_duration'].sum()\n"
+        },
+        "0.4777155219198351": {
+            "name": "call_peak_days",
+            "code": "\n\ndef call_peak_days(row, df_train, aux_dataframes):\n    usage_df = aux_dataframes['usage_data_table.csv']\n    customer_usage = usage_df.loc[usage_df['customer_id'] == row['customer_id']]\n    return (customer_usage['call_duration'] > 120).sum()\n"
+        },
+        "0.46046052378436725": {
+            "name": "total_sms_sent",
+            "code": "\n\ndef total_sms_sent(row, df_train, aux_dataframes):\n    usage_df = aux_dataframes['usage_data_table.csv']\n    customer_usage = usage_df.loc[usage_df['customer_id'] == row['customer_id']]\n    return customer_usage['sms_sent'].sum()\n"
+        },
+        "0.3710413113217384": {
+            "name": "sms_peak_days",
+            "code": "\n\ndef sms_peak_days(row, df_train, aux_dataframes):\n    usage_df = aux_dataframes['usage_data_table.csv']\n    customer_usage = usage_df.loc[usage_df['customer_id'] == row['customer_id']]\n    return (customer_usage['sms_sent'] > 50).sum()\n"
+        },
+        "0.353915470555478": {
+            "name": "recent_usage_trend",
+            "code": "import pandas as pd\n\ndef recent_usage_trend(row, df_train, aux_dataframes):\n    usage_df = aux_dataframes['usage_data_table.csv']\n    customer_usage = usage_df.loc[(usage_df['customer_id'] == row['customer_id']) &\n                                  (pd.to_datetime(usage_df['date']) > pd.to_datetime('2025-01-15'))]\n    if customer_usage.empty:\n        return 0\n    return customer_usage['data_consumed'].sum()\n"
+        },
+        "0.31137743938238577": {
+            "name": "max_data_single_day",
+            "code": "\n\ndef max_data_single_day(row, df_train, aux_dataframes):\n    usage_df = aux_dataframes['usage_data_table.csv']\n    customer_usage = usage_df.loc[usage_df['customer_id'] == row['customer_id']]\n    return customer_usage['data_consumed'].max()\n"
+        },
+        "0.2610873388257641": {
+            "name": "max_call_duration_single_day",
+            "code": "\n\ndef max_call_duration_single_day(row, df_train, aux_dataframes):\n    usage_df = aux_dataframes['usage_data_table.csv']\n    customer_usage = usage_df.loc[usage_df['customer_id'] == row['customer_id']]\n    return customer_usage['call_duration'].max()\n"
+        },
+        "0.17915186865427185": {
+            "name": "avg_data_consumed",
+            "code": "\n\ndef avg_data_consumed(row, df_train, aux_dataframes):\n    usage_df = aux_dataframes['usage_data_table.csv']\n    customer_usage = usage_df.loc[usage_df['customer_id'] == row['customer_id']]\n    return customer_usage['data_consumed'].mean()\n"
+        },
+        "0.15303292624760545": {
+            "name": "location_encoding",
+            "code": "\n\ndef location_encoding(row, df_train):\n    location_counts = df_train['location'].value_counts(normalize=True)\n    return location_counts.get(row['location'], 0)\n"
+        },
+        "0.08083903322083431": {
+            "name": "avg_call_duration",
+            "code": "\n\ndef avg_call_duration(row, df_train, aux_dataframes):\n    usage_df = aux_dataframes['usage_data_table.csv']\n    customer_usage = usage_df.loc[usage_df['customer_id'] == row['customer_id']]\n    return customer_usage['call_duration'].mean()\n"
+        },
+        "0.03403267521524729": {
+            "name": "stddev_call_duration",
+            "code": "\n\ndef stddev_call_duration(row, df_train, aux_dataframes):\n    usage_df = aux_dataframes['usage_data_table.csv']\n    customer_usage = usage_df.loc[usage_df['customer_id'] == row['customer_id']]\n    return customer_usage['call_duration'].std()\n"
+        },
+        "0.03231498917966986": {
+            "name": "signup_year",
+            "code": "import pandas as pd\n\ndef signup_year(row):\n    return pd.to_datetime(row['signup_date']).year\n"
+        },
+        "0.01583264423455264": {
+            "name": "gender_binary",
+            "code": "\n\ndef gender_binary(row):\n    return 1 if row['gender'] == 'Male' else 0\n"
+        },
+        "0.01537962274142582": {
+            "name": "signup_month",
+            "code": "import pandas as pd\n\ndef signup_month(row):\n    return pd.to_datetime(row['signup_date']).month\n"
+        },
+        "-8.90465672074292e-05": {
+            "name": "age_group",
+            "code": "\n\ndef age_group(row):\n    if row['age'] < 18:\n        return 'child'\n    elif row['age'] < 35:\n        return 'young_adult'\n    elif row['age'] < 60:\n        return 'middle_aged'\n    else:\n        return 'senior'\n"
+        }
+    },
+    "feature_descriptions": [
+        "total data consumed",
+        "total call duration",
+        "call peak days",
+        "total sms sent",
+        "sms peak days",
+        "recent usage trend",
+        "max data single day",
+        "max call duration single day",
+        "avg data consumed",
+        "location encoding",
+        "avg call duration",
+        "stddev call duration",
+        "signup year",
+        "gender binary",
+        "signup month",
+        "age group"
+    ]
+}

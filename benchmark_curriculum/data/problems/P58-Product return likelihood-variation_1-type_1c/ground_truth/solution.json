@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "price_sensitivity_based_on_discounts_in_the_last_6_months",
+        "return_rate_by_customer_location_in_the_last_year",
+        "impact_of_proximity_to_store_location_on_returns"
+    ],
+    "features_descriptions": [
+        "price sensitivity based on discounts in the last 6 months",
+        "return rate by customer location in the last year",
+        "impact of proximity to store location on returns"
+    ]
+}

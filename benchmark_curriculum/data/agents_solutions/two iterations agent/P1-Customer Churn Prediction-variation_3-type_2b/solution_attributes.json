@@ -1,0 +1,36 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "payment_failure_count",
+        "last_payment_recency",
+        "total_payments_made",
+        "days_since_last_ticket",
+        "avg_resolution_time_repeated_colname1",
+        "avg_payment_amount",
+        "support_interaction_count",
+        "percent_issues_resolved",
+        "avg_resolution_time",
+        "unresolved_support_ratio",
+        "total_support_tickets",
+        "total_services_used",
+        "total_minutes_used"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "payment failure count",
+        "last payment recency",
+        "total payments made",
+        "days since last ticket",
+        "avg resolution time repeated colname1",
+        "avg payment amount",
+        "support interaction count",
+        "percent issues resolved",
+        "avg resolution time",
+        "unresolved support ratio",
+        "total support tickets",
+        "total services used",
+        "total minutes used"
+    ]
+}

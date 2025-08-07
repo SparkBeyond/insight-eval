@@ -1,0 +1,101 @@
+store_id,store_name,address,city,state,zip_code,opening_date
+1,Griffin-Anderson,"6809 Michelle Ville Apt. 224
+Davisville, SD 56410",Annafort,Hawaii,87665,2023-06-19
+2,Miller PLC,"88875 Hernandez Parkway
+Ramseyfort, MP 25571",Hansenburgh,Nevada,92222,2024-06-22
+3,"Stewart, Cuevas and Tran","860 Hall Lake Suite 820
+Lake Sandra, MP 35899",New Rachel,Florida,55213,2021-03-13
+4,"Johnson, Fitzgerald and Patel","PSC 6729, Box 6369
+APO AE 66672",North Miguel,Missouri,37199,2021-08-19
+5,"Kent, Dean and Spencer","6977 Khan Cliff
+Lucasmouth, NH 08506",New Markfurt,Florida,3983,2022-07-20
+6,Williams Ltd,"515 James Points
+Anthonymouth, TX 47385",West Tonya,North Dakota,861,2021-02-13
+7,Young-Kramer,"29952 Buckley Cliffs
+Gordonfurt, NE 65620",Port Davidport,Ohio,11200,2021-12-31
+8,Howard Group,"09852 West Highway
+Lake Ginafurt, OR 00836",Hayleyland,Nevada,10463,2021-06-11
+9,"Mitchell, Bates and Haas","Unit 6563 Box 0494
+DPO AE 75383",Haleymouth,Arizona,58673,2020-12-30
+10,Anderson-Fox,"6408 Ryan Squares
+Lake Tiffany, AL 03751",Williammouth,Pennsylvania,48122,2023-10-20
+11,Williams and Sons,"490 Copeland Cliffs
+Sheilaland, ID 73036",New Robert,Wyoming,34211,2021-01-10
+12,Garza-Hanson,"0312 Baird Flat Apt. 319
+Floresshire, MA 23689",Liuville,Vermont,75749,2020-12-03
+13,Coleman Inc,"122 Conway Drive Apt. 588
+Ryanmouth, WI 94089",East Rick,New Mexico,44020,2024-12-14
+14,Yu Ltd,"79487 Matthew Isle Suite 701
+Joannville, MP 04669",Lake Amandamouth,Pennsylvania,33022,2023-12-13
+15,Dunn PLC,"009 Aaron Squares Apt. 457
+Lake Carlos, TN 68126",Andrewstad,Vermont,30427,2025-03-03
+16,"Cobb, Lewis and Edwards","76370 Robert Crest Apt. 483
+West Christopher, TN 13459",Kevinshire,Alaska,59078,2023-06-15
+17,"Sims, Macdonald and Clark","073 Jean Run Suite 502
+Thomasmouth, AS 71677",Armstrongfurt,Colorado,53838,2021-05-01
+18,Ferrell-Green,"55641 Maria Track
+Davisside, CT 54013",East Kyleview,Alabama,13328,2022-05-15
+19,Snyder Group,"186 Taylor Turnpike
+Rhondastad, ID 23978",New Helen,West Virginia,77736,2020-01-26
+20,"Ibarra, Martinez and Horton","6688 Kevin Lake
+Lake Charlene, KY 92840",New Joanna,Kentucky,68106,2024-08-02
+21,"Miller, Lopez and Garcia","1948 Wall Wall Suite 509
+Jordanport, NJ 13329",East Davidtown,Kansas,4494,2023-01-03
+22,"Ayers, Allen and Rivera","238 Edward Row
+West Kimberly, VA 09515",Mosleyville,Iowa,54143,2022-09-10
+23,Harris-Rivera,"2891 Gregory Locks
+Michaelchester, WY 41403",Andreabury,Utah,91659,2020-04-20
+24,"Smith, Esparza and Ayers","358 Shirley Ports
+Coxburgh, MD 45357",West Zacharyton,Mississippi,82595,2020-09-10
+25,Osborne-Wilson,"5571 Jessica Extension
+Adamsborough, AL 06485",Hallview,Colorado,16703,2022-07-29
+26,"Keller, Gibson and Herrera","8453 Grimes Drive
+Port Christopherberg, UT 59065",Nancymouth,Minnesota,1187,2023-04-09
+27,Mitchell Ltd,"0315 Hughes Street
+South Matthewberg, ME 45117",North Carloschester,New Mexico,11263,2020-09-17
+28,Lowery LLC,"012 David Grove
+South Angela, PR 18564",Brendabury,Arkansas,63293,2022-09-20
+29,White PLC,"9495 Hernandez Highway Apt. 922
+Kathleenfort, IN 07912",Cynthiachester,New Mexico,78438,2023-09-15
+30,"Smith, Ruiz and Cole","048 Dylan Meadows Apt. 353
+Lake Susanfurt, IN 62690",New Frankfurt,Connecticut,12755,2023-09-24
+31,"Duncan, Booker and Fernandez","38571 Barrett Ports
+East Michael, WY 14052",Leeberg,Minnesota,20714,2023-01-03
+32,Myers-Tucker,"99362 Michelle Expressway
+Jesseville, AK 16221",East Steve,Montana,74139,2020-03-16
+33,"Macdonald, Soto and Ballard","689 Boyd Causeway
+Lake Crystalbury, NE 52357",New James,Ohio,52868,2020-09-06
+34,Golden-Robinson,"97390 Pamela Flat Suite 008
+Natashabury, UT 44790",Lake Joshuashire,Oregon,87356,2024-11-20
+35,Bennett-Thompson,"7120 Jonathan Valley
+Travisbury, MS 81606",Meganport,North Carolina,85462,2022-02-12
+36,"Gomez, Patterson and Guerrero","876 Bruce River Apt. 570
+Williamston, MI 35342",Jeromestad,Nevada,49242,2022-12-13
+37,Williams-Lee,"002 Cardenas Wells Apt. 760
+Joshuaton, MI 48075",West Sarahport,Colorado,49178,2020-11-04
+38,Lopez PLC,"19861 Lauren Extension Suite 994
+Hawkinsland, UT 64666",Gibsonberg,Texas,94928,2021-04-06
+39,"Woods, Davis and Jones","39553 Wheeler Unions Apt. 293
+Deleonberg, VA 29612",Kelleymouth,Hawaii,11717,2025-02-15
+40,"Williams, Moore and Walker","161 Mccullough Center Apt. 789
+Quinnbury, DC 51595",South Richard,North Dakota,15180,2020-05-15
+41,Barton Group,"98579 Burns Haven Apt. 814
+New Tamaraland, WV 15285",Gutierrezfurt,Delaware,88083,2023-06-25
+42,"Cardenas, Cruz and Keith","9170 Lauren Summit Suite 655
+East Cherylborough, IL 91337",Lake Christy,Connecticut,93453,2022-08-25
+43,"Woods, Hamilton and Lopez","09098 Tran Stream
+Mandymouth, ID 41988",West Kevinmouth,Montana,34830,2024-11-10
+44,Austin and Sons,"7929 Brooke Underpass Apt. 542
+West Joseph, TX 40063",Lisaborough,Michigan,15256,2022-06-21
+45,Wood-Jensen,"001 Richard Loaf Apt. 667
+North Dale, MN 78691",Natalietown,Louisiana,5525,2025-02-18
+46,Alvarez-Cannon,"PSC 6479, Box 1704
+APO AE 20969",Pamelaside,Michigan,73585,2021-02-05
+47,Shepherd-Love,"Unit 6405 Box 6430
+DPO AA 13839",Candacefurt,New Mexico,66826,2021-04-15
+48,Harris PLC,"6504 Christopher Knolls
+Leeside, OR 54257",Woodfort,Colorado,45637,2023-03-03
+49,Phillips Ltd,"9103 Brock Causeway Apt. 089
+Port Sabrinabury, DE 61887",North Greggfurt,Iowa,50107,2024-05-31
+50,"Joseph, Hayes and Liu","206 James Mall Apt. 330
+West Vincent, TX 07646",West Michelle,Montana,16038,2022-05-10

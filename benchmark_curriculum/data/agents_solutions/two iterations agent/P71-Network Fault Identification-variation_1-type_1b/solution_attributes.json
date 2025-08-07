@@ -1,0 +1,34 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "last_maintenance_days",
+        "days_since_last_check",
+        "hour_of_day",
+        "month",
+        "maintenance_duration_mean",
+        "day_of_week",
+        "health_uptime",
+        "performance_device_std",
+        "device_severity_mean",
+        "performance_device_mean",
+        "maintenance_count",
+        "emergency_maintenance_count"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "last maintenance days",
+        "days since last check",
+        "hour of day",
+        "month",
+        "maintenance duration mean",
+        "day of week",
+        "health uptime",
+        "performance device std",
+        "device severity mean",
+        "performance device mean",
+        "maintenance count",
+        "emergency maintenance count"
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "avg_days_per_top_up_type",
+        "total_amount_due",
+        "gender_encoding",
+        "service_plan_encoding",
+        "payment_to_due_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.043263100730534854": {
+            "name": "avg_days_per_top_up_type",
+            "code": "import pandas as pd\n\ndef avg_days_per_top_up_type(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculates average days between consecutive top-ups grouped by top-up type.\n    \"\"\"\n    # Access the top-up activation history table\n    topup_data = aux_dataframes[\"top_up_activation_history_table.csv\"]\n    \n    # Filter the data for the specific customer\n    customer_topup_data = topup_data[topup_data[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # If no data is available for the customer, return None\n    if customer_topup_data.empty:\n        return None\n    \n    # Convert the activation_date column to datetime\n    customer_topup_data[\"activation_date\"] = pd.to_datetime(customer_topup_data[\"activation_date\"])\n    \n    # Sort the data by activation_date\n    customer_topup_data = customer_topup_data.sort_values(\"activation_date\")\n    \n    # Calculate the difference in days between consecutive top-ups\n    customer_topup_data[\"days_diff\"] = customer_topup_data[\"activation_date\"].diff().dt.days\n    \n    # Group by top_up_type and calculate the mean of days_diff, then take the overall mean\n    avg_days = customer_topup_data.groupby(\"top_up_type\")[\"days_diff\"].mean().mean()\n    \n    return avg_days\n"
+        },
+        "0.009429994724500337": {
+            "name": "total_amount_due",
+            "code": "\n\ndef total_amount_due(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculates total amount_due using the auxiliary 'billing_history_table.csv' data.\n    \"\"\"\n    billing_data = aux_dataframes[\"billing_history_table.csv\"]\n    customer_data = billing_data[billing_data[\"customer_id\"] == row[\"customer_id\"]]\n    total_due = customer_data[\"amount_due\"].sum()\n    return total_due\n"
+        },
+        "0.007588860179616822": {
+            "name": "gender_encoding",
+            "code": "\n\ndef gender_encoding(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Encodes gender from the main dataframe (df_train).\n    Male \u2192 1, Female \u2192 0, Other/Unknown \u2192 None\n    \"\"\"\n    # Extract gender from the current row of the main dataframe\n    gender = row.get(\"gender\", None)\n    \n    # Encode gender: Male \u2192 1, Female \u2192 0, Other/Unknown \u2192 None\n    return 1 if gender == \"Male\" else 0 if gender == \"Female\" else None\n"
+        },
+        "0.006408024003049602": {
+            "name": "service_plan_encoding",
+            "code": "import pandas as pd\n\ndef service_plan_encoding(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Encodes service plans ('basic', 'standard', 'premium') into numerical values.\n    \"\"\"\n    # Mapping of service plans to numerical values\n    service_map = {\"basic\": 1, \"standard\": 2, \"premium\": 3}\n    \n    # Attempt to retrieve the top-up activation history dataframe\n    topup_data = aux_dataframes.get(\"top_up_activation_history_table.csv\", pd.DataFrame())\n    \n    # Check if the customer exists in the top-up activation history\n    customer_data = topup_data[topup_data[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # If customer data exists, try to extract the service plan (if available)\n    if not customer_data.empty:\n        # If the service plan column exists in the auxiliary dataframe, use it\n        if \"service_plan\" in customer_data.columns:\n            service_plan = customer_data[\"service_plan\"].iloc[0]\n        else:\n            # If the service plan column does not exist, fall back to the input row's service_plan\n            service_plan = row.get(\"service_plan\", None)\n    else:\n        # If no customer data exists, fall back to the input row's service_plan\n        service_plan = row.get(\"service_plan\", None)\n    \n    # Normalize the service plan to lowercase and map it to a numerical value\n    if service_plan:\n        service_plan = service_plan.lower()\n    \n    return service_map.get(service_plan, None)\n"
+        },
+        "0": {
+            "name": "payment_to_due_ratio",
+            "code": "\n\ndef payment_to_due_ratio(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculates the average ratio of payments made to due amounts using 'billing_history_table.csv'.\n    \"\"\"\n    billing_data = aux_dataframes[\"billing_history_table.csv\"]\n    customer_data = billing_data[billing_data[\"customer_id\"] == row[\"customer_id\"]]\n    if customer_data.empty:\n        return None\n    # Corrected column name from 'payment_amount' to 'amount_paid'\n    ratio = (customer_data[\"amount_paid\"] / customer_data[\"amount_due\"]).mean()  # Avg ratio\n    return ratio\n"
+        }
+    },
+    "feature_descriptions": [
+        "avg days per top up type",
+        "total amount due",
+        "gender encoding",
+        "service plan encoding",
+        "payment to due ratio"
+    ]
+}

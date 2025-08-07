@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "number_of_prescribed_medications_in_the_prior_30_days",
+        "number_of_prior_hospitalizations_within_the_last_year",
+        "average_length_of_stay_for_prior_admissions_in_the_past_2_years"
+    ],
+    "features_descriptions": [
+        "number of prescribed medications in the prior 30 days",
+        "number of prior hospitalizations within the last year",
+        "average length of stay for prior admissions in the past 2 years"
+    ]
+}

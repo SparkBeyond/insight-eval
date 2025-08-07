@@ -1,0 +1,14 @@
+{
+    "enriched_column_names": [
+        "response_rate_to_marketing_campaigns_over_the_last_year",
+        "decline_in_monthly_website_activity_time_over_the_last_3_months",
+        "frequency_of_purchases_in_the_last_6_months",
+        "time_since_last_purchase"
+    ],
+    "features_descriptions": [
+        "response rate to marketing campaigns over the last year",
+        "decline in monthly website activity time over the last 3 months",
+        "frequency of purchases in the last 6 months",
+        "time since last purchase"
+    ]
+}

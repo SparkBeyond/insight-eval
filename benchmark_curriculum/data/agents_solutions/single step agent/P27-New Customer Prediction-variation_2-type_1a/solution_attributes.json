@@ -1,0 +1,59 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "regional_campaign_avg_customers",
+        "regional_campaign_conversion_rate",
+        "spending_per_purchase",
+        "inflation_linked_interaction",
+        "competitors_to_population_ratio",
+        "urbanization_rate",
+        "gdp_adjusted_spending",
+        "gender_encoded"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5612752039689288": {
+            "name": "regional_campaign_avg_customers",
+            "code": "\n\ndef regional_campaign_avg_customers(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the marketing campaigns dataframe using the correct key\n    campaigns_data = aux_dataframes[\"marketing_campaigns_table.csv\"]\n    \n    # Filter campaigns for the specific region\n    region_campaigns = campaigns_data[campaigns_data[\"region_id\"] == row[\"region_id\"]]\n    \n    # If there are campaigns for the region, calculate the mean of 'number_of_customers_reached'\n    if not region_campaigns.empty:\n        return region_campaigns[\"number_of_customers_reached\"].mean()\n    \n    # If no campaigns exist for the region, return 0\n    return 0\n"
+        },
+        "0.5471768327955302": {
+            "name": "regional_campaign_conversion_rate",
+            "code": "\n\ndef regional_campaign_conversion_rate(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the provided aux_data dictionary\n    campaigns_data = aux_dataframes[\"marketing_campaigns_table.csv\"]\n    \n    # Filter campaigns for the specific region\n    region_campaigns = campaigns_data[campaigns_data[\"region_id\"] == row[\"region_id\"]]\n    \n    # Check if there are campaigns for the region\n    if not region_campaigns.empty:\n        # Calculate total customers reached and total conversions\n        total_customers_reached = region_campaigns[\"number_of_customers_reached\"].sum()\n        total_conversions = region_campaigns[\"number_of_successful_conversions\"].sum()\n        \n        # Avoid division by zero\n        if total_customers_reached > 0:\n            return total_conversions / total_customers_reached\n    \n    # Return 0 if no campaigns or no customers reached\n    return 0\n"
+        },
+        "0.07082109418502464": {
+            "name": "spending_per_purchase",
+            "code": "\n\ndef spending_per_purchase(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure we are working with the correct dataframe\n    customer_behavior_df = aux_data.get('customer_behavior_table.csv')\n    \n    if customer_behavior_df is not None:\n        # Find the corresponding row in the customer_behavior_table.csv dataframe\n        customer_row = customer_behavior_df[customer_behavior_df['region_id'] == row['region_id']]\n        \n        if not customer_row.empty:\n            # Extract the first matching row\n            customer_row = customer_row.iloc[0]\n            \n            # Perform the calculation\n            if customer_row['purchase_frequency'] > 0:\n                return customer_row['average_monthly_spending'] / customer_row['purchase_frequency']\n    \n    # Default return value if no match or invalid data\n    return 0\n"
+        },
+        "0.043413242794245306": {
+            "name": "inflation_linked_interaction",
+            "code": "\n\ndef inflation_linked_interaction(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the key 'customer_behavior_table.csv'\n    customer_behavior = aux_data[\"customer_behavior_table.csv\"]\n    \n    # Filter the customer_behavior dataframe for the matching region_id\n    region_inflation = customer_behavior[customer_behavior[\"region_id\"] == row[\"region_id\"]][\"online_interaction_time\"]\n    \n    # Check if the filtered dataframe is not empty\n    if not region_inflation.empty:\n        # Return the product of online_interaction_time and inflation_rate\n        return row[\"average_spending_per_customer\"] * region_inflation.iloc[0]\n    \n    # Return 0 if no matching region_id is found\n    return 0\n"
+        },
+        "0.04138551432236368": {
+            "name": "competitors_to_population_ratio",
+            "code": "\n\ndef competitors_to_population_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_data\n    regional_economics = aux_data[\"regional_economics_table.csv\"]\n    \n    # Filter the regional_economics dataframe for the matching region_id\n    region_data = regional_economics[regional_economics[\"region_id\"] == row[\"region_id\"]]\n    \n    # Check if the filtered data is not empty and if the population is greater than 0\n    if not region_data.empty and row[\"population\"] > 0:\n        # Calculate the ratio using the number_of_competitors from the row\n        return row[\"number_of_competitors\"] / row[\"population\"]\n    \n    # Return 0 if the conditions are not met\n    return 0\n"
+        },
+        "0.022401496126980787": {
+            "name": "urbanization_rate",
+            "code": "\n\ndef urbanization_rate(row, aux_data: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_data\n    regional_economics = aux_data[\"regional_economics_table.csv\"]\n    \n    # Check if the 'urbanization_rate' column exists in the dataframe\n    if \"urbanization_rate\" not in regional_economics.columns:\n        # If the column is missing, return a default value or raise an error\n        # Here, we choose to return 0 as the default value\n        return 0\n    \n    # Filter the dataframe for the matching region_id\n    rate = regional_economics[regional_economics[\"region_id\"] == row[\"region_id\"]][\"urbanization_rate\"]\n    \n    # Return the urbanization rate if found, otherwise return 0\n    if not rate.empty:\n        return rate.iloc[0]\n    return 0\n"
+        },
+        "0.02227215480607869": {
+            "name": "gdp_adjusted_spending",
+            "code": "\n\ndef gdp_adjusted_spending(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the key 'regional_economics_table.csv'\n    gdp_data = aux_data[\"regional_economics_table.csv\"]\n    \n    # Filter the GDP data for the specific region_id in the row\n    region_gdp = gdp_data[gdp_data[\"region_id\"] == row[\"region_id\"]][\"gdp\"]\n    \n    # Check if the region_gdp is not empty and the GDP value is not zero\n    if not region_gdp.empty and region_gdp.iloc[0] != 0:\n        # Return the adjusted spending\n        return row[\"average_spending_per_customer\"] / region_gdp.iloc[0]\n    \n    # Return 0 if no valid GDP data is found or GDP is zero\n    return 0\n"
+        },
+        "0": {
+            "name": "gender_encoded",
+            "code": "\n\ndef gender_encoded(row, aux_data: Dict[str, pd.DataFrame]):\n    # Check if the 'customer_behavior_table.csv' dataframe exists in aux_data\n    if \"customer_behavior_table.csv\" in aux_data:\n        customer_behavior_df = aux_data[\"customer_behavior_table.csv\"]\n        \n        # Check if the 'gender' column exists in the 'customer_behavior_table.csv' dataframe\n        if \"gender\" in customer_behavior_df.columns:\n            # Ensure the row contains the 'gender' column\n            if \"gender\" in row:\n                gender_map = {\"Male\": 0, \"Female\": 1, \"Other\": 2}\n                return gender_map.get(row[\"gender\"], -1)\n            else:\n                # Return a default value or handle the case where the row does not have 'gender'\n                return -1\n        else:\n            raise KeyError(\"The 'gender' column is missing from the 'customer_behavior_table.csv' dataframe.\")\n    else:\n        raise KeyError(\"'customer_behavior_table.csv' is missing from the aux_data dictionary.\")\n"
+        }
+    },
+    "feature_descriptions": [
+        "regional campaign avg customers",
+        "regional campaign conversion rate",
+        "spending per purchase",
+        "inflation linked interaction",
+        "competitors to population ratio",
+        "urbanization rate",
+        "gdp adjusted spending",
+        "gender encoded"
+    ]
+}

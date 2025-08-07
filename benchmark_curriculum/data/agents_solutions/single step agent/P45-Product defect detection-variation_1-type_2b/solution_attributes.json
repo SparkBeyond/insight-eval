@@ -1,0 +1,125 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "time_since_last_defect",
+        "inspectors_experience",
+        "total_defects_per_product",
+        "avg_inspection_time_category",
+        "rolling_avg_inspection_score",
+        "defect_rate_per_product",
+        "product_release_age",
+        "avg_inspection_duration",
+        "avg_inspection_score",
+        "avg_defect_severity",
+        "inspector_specialization",
+        "inspections_per_product",
+        "inspector_certifications_count",
+        "total_defects_by_inspector",
+        "manufacturer_popularity",
+        "inspector_inspection_defect_ratio",
+        "total_inspections_by_inspector",
+        "avg_resolution_time",
+        "product_energy_efficiency"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.16456557873469488": {
+            "name": "time_since_last_defect",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef time_since_last_defect(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure we are using the correct dataframe for defect history\n    defect_history = aux_data['product_defect_history_table.csv']\n    \n    # Filter the defect history for the same product_id and non-null defect_date\n    product_defects = defect_history[\n        (defect_history['product_id'] == row['product_id']) & \n        (defect_history['defect_date'].notna())\n    ]\n    \n    # If no defects are found, return NaN\n    if product_defects.empty:\n        return np.nan\n    \n    # Find the most recent defect date\n    last_defect = pd.to_datetime(product_defects['defect_date']).max()\n    \n    # Calculate the time difference in days between inspection_date and last_defect\n    return (pd.to_datetime(row['inspection_date']) - last_defect).days\n"
+        },
+        "0.15798745079287504": {
+            "name": "inspectors_experience",
+            "code": "\n\ndef inspectors_experience(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the inspector_id from the row\n    inspector_id = row['inspector_id']\n    \n    # Get the inspection_team_table dataframe from aux_data\n    inspection_team_table = aux_data['inspection_team_table.csv']\n    \n    # Find the row in the inspection_team_table where the inspector_id matches\n    inspector_data = inspection_team_table[inspection_team_table['inspector_id'] == inspector_id]\n    \n    # If a match is found, return the years_of_experience; otherwise, return None\n    if not inspector_data.empty:\n        return inspector_data.iloc[0]['years_of_experience']\n    else:\n        return None\n"
+        },
+        "0.14184775685644638": {
+            "name": "total_defects_per_product",
+            "code": "\n\ndef total_defects_per_product(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the product_defect_history_table.csv dataframe from aux_data\n    defect_history_df = aux_data['product_defect_history_table.csv']\n    \n    # Filter the defect history dataframe for the given product_id and count the defects\n    return defect_history_df[(defect_history_df['product_id'] == row['product_id']) & (defect_history_df['defect_id'].notna())].shape[0]\n"
+        },
+        "0.13916719863943366": {
+            "name": "avg_inspection_time_category",
+            "code": "import numpy as np\n\ndef avg_inspection_time_category(row, df_train: pd.DataFrame):\n    # Use the correct column name 'product_category' instead of 'product_category_x'\n    category_times = df_train[df_train['product_category'] == row['product_category']]['inspection_duration_minutes']\n    return category_times.mean() if not category_times.empty else np.nan\n"
+        },
+        "0.10275043584904961": {
+            "name": "rolling_avg_inspection_score",
+            "code": "import numpy as np\n\ndef rolling_avg_inspection_score(row, df_train: pd.DataFrame):\n    product_inspections = df_train[df_train['product_id'] == row['product_id']].sort_values(by='inspection_date')\n    idx = product_inspections[product_inspections['inspection_id'] == row['inspection_id']].index[0]\n    return product_inspections.loc[:idx, 'inspection_score'][:-1].mean() if idx > 0 else np.nan\n"
+        },
+        "0.10141203063689597": {
+            "name": "defect_rate_per_product",
+            "code": "\n\ndef defect_rate_per_product(row, df_train: pd.DataFrame):\n    # Filter for the same product_id\n    inspections = df_train[df_train['product_id'] == row['product_id']]\n    \n    # Exclude the current row by ensuring the inspection_id is different\n    inspections = inspections[inspections['inspection_id'] != row['inspection_id']]\n    \n    # Exclude future data by only considering inspections with an earlier inspection_date\n    inspections = inspections[inspections['inspection_date'] < row['inspection_date']]\n    \n    # If no valid inspections remain, return 0\n    if inspections.empty:\n        return 0\n    \n    # Calculate and return the mean defective_flag for the remaining inspections\n    return inspections['defective_flag'].mean()\n"
+        },
+        "0.07269433709753058": {
+            "name": "product_release_age",
+            "code": "import pandas as pd\n\ndef product_release_age(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the product_id from the row\n    product_id = row['product_id']\n    \n    # Look up the release_date for the product_id in the product_features_table\n    product_features_table = aux_data['product_features_table.csv']\n    product_info = product_features_table[product_features_table['product_id'] == product_id]\n    \n    # Ensure the product_id exists in the product_features_table\n    if product_info.empty:\n        raise ValueError(f\"Product ID {product_id} not found in product_features_table.csv\")\n    \n    # Extract the release_date\n    release_date = pd.to_datetime(product_info.iloc[0]['release_date'])\n    \n    # Extract the inspection_date from the row\n    inspection_date = pd.to_datetime(row['inspection_date'])\n    \n    # Calculate the difference in days\n    return (inspection_date - release_date).days\n"
+        },
+        "0.05562714988791569": {
+            "name": "avg_inspection_duration",
+            "code": "\n\ndef avg_inspection_duration(row, df_train: pd.DataFrame):\n    return df_train[df_train['product_id'] == row['product_id']]['inspection_duration_minutes'].mean()\n"
+        },
+        "0.051464151092533106": {
+            "name": "avg_inspection_score",
+            "code": "\n\ndef avg_inspection_score(row, df_train: pd.DataFrame):\n    return df_train[df_train['product_id'] == row['product_id']]['inspection_score'].mean()\n"
+        },
+        "0.0504021419398846": {
+            "name": "avg_defect_severity",
+            "code": "import numpy as np\n\ndef avg_defect_severity(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure we are using the correct dataframe from aux_data\n    product_defect_history = aux_data['product_defect_history_table.csv']\n    \n    # Filter the product_defect_history dataframe for the relevant product_id and non-null severity_level\n    product_severity = product_defect_history[\n        (product_defect_history['product_id'] == row['product_id']) & \n        (product_defect_history['severity_level'].notna())\n    ]['severity_level']\n    \n    # Return the mean severity level or NaN if no matching rows are found\n    return product_severity.mean() if not product_severity.empty else np.nan\n"
+        },
+        "0.04951819594281871": {
+            "name": "inspector_specialization",
+            "code": "\n\ndef inspector_specialization(row, aux_data: Dict[str, pd.DataFrame]):\n    # Get the inspection_team_table dataframe from aux_data\n    inspection_team_table = aux_data['inspection_team_table.csv']\n    \n    # Find the team_specialization for the given inspector_id\n    inspector_id = row['inspector_id']\n    team_specialization = inspection_team_table.loc[\n        inspection_team_table['inspector_id'] == inspector_id, 'team_specialization'\n    ]\n    \n    # If the inspector_id is not found, handle it gracefully\n    if team_specialization.empty:\n        raise ValueError(f\"Inspector ID {inspector_id} not found in inspection_team_table.\")\n    \n    # Use the first match (assuming inspector_id is unique)\n    team_specialization_value = team_specialization.iloc[0]\n    \n    # Return the hash of the team_specialization modulo 100\n    return hash(team_specialization_value) % 100\n"
+        },
+        "0.03882598676100069": {
+            "name": "inspections_per_product",
+            "code": "\n\ndef inspections_per_product(row, df_train: pd.DataFrame):\n    return df_train[df_train['product_id'] == row['product_id']].shape[0]\n"
+        },
+        "0.03794645059533844": {
+            "name": "inspector_certifications_count",
+            "code": "\n\ndef inspector_certifications_count(row, aux_data: Dict[str, pd.DataFrame]):\n    # Get the inspector_id from the row\n    inspector_id = row['inspector_id']\n    \n    # Access the inspection_team_table.csv dataframe from aux_data\n    inspection_team_df = aux_data['inspection_team_table.csv']\n    \n    # Find the row in the inspection_team_table.csv dataframe corresponding to the inspector_id\n    inspector_row = inspection_team_df[inspection_team_df['inspector_id'] == inspector_id]\n    \n    # If the inspector_id is not found, return 0\n    if inspector_row.empty:\n        return 0\n    \n    # Get the certifications column for the inspector\n    certifications = inspector_row.iloc[0]['certifications']\n    \n    # Count the number of certifications by splitting the string on commas\n    return len(certifications.split(','))\n"
+        },
+        "0.03793689319784804": {
+            "name": "total_defects_by_inspector",
+            "code": "\n\ndef total_defects_by_inspector(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe from aux_data\n    defect_history_df = aux_data['product_defect_history_table.csv']\n    \n    # Filter the dataframe for defects reported by the inspector\n    # Note: 'reported_by' corresponds to the inspector_id in the defect history table\n    return defect_history_df[\n        (defect_history_df['reported_by'] == row['inspector_id']) & \n        (defect_history_df['defect_id'].notna())\n    ].shape[0]\n"
+        },
+        "0.018439482369081245": {
+            "name": "manufacturer_popularity",
+            "code": "\n\ndef manufacturer_popularity(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Access the product_features_table.csv dataframe from aux_data\n    product_features = aux_data['product_features_table.csv']\n    \n    # Get the manufacturer for the given product_id in the row\n    product_id = row['product_id']\n    manufacturer = product_features.loc[product_features['product_id'] == product_id, 'manufacturer']\n    \n    # If the manufacturer exists, calculate its popularity\n    if not manufacturer.empty:\n        manufacturer_name = manufacturer.iloc[0]\n        return product_features[product_features['manufacturer'] == manufacturer_name].shape[0]\n    \n    # If the manufacturer is not found, return 0\n    return 0\n"
+        },
+        "0.017180881356534734": {
+            "name": "inspector_inspection_defect_ratio",
+            "code": "\n\ndef inspector_inspection_defect_ratio(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Calculate the total number of inspections performed by the inspector\n    total_inspections = df_train[df_train['inspector_id'] == row['inspector_id']].shape[0]\n    # Calculate the total number of defects reported by the inspector\n    defects_reported = total_defects_by_inspector(row, df_train, aux_data)\n    # Return the defect ratio\n    return defects_reported / total_inspections if total_inspections > 0 else 0\n\ndef total_defects_by_inspector(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Access the product_defect_history_table.csv dataframe\n    defect_history_df = aux_data['product_defect_history_table.csv']\n    # Count the number of defects reported by the inspector\n    return defect_history_df[defect_history_df['reported_by'] == row['inspector_id']].shape[0]\n"
+        },
+        "0.012993340400683522": {
+            "name": "total_inspections_by_inspector",
+            "code": "\n\ndef total_inspections_by_inspector(row, df_train: pd.DataFrame):\n    return df_train[df_train['inspector_id'] == row['inspector_id']].shape[0]\n"
+        },
+        "0.011613581821889199": {
+            "name": "avg_resolution_time",
+            "code": "import numpy as np\n\ndef avg_resolution_time(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe from aux_data\n    defect_history_df = aux_data['product_defect_history_table.csv']\n    \n    # Filter rows where product_id matches and resolution_time_days is not null\n    resolution_times = defect_history_df[\n        (defect_history_df['product_id'] == row['product_id']) & \n        (defect_history_df['resolution_time_days'].notna())\n    ]['resolution_time_days']\n    \n    # Return the mean resolution time or NaN if no valid entries exist\n    return resolution_times.mean() if not resolution_times.empty else np.nan\n"
+        },
+        "0.010661456690120722": {
+            "name": "product_energy_efficiency",
+            "code": "\n\ndef product_energy_efficiency(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the product_id from the row\n    product_id = row['product_id']\n    \n    # Get the product_features_table dataframe from aux_data\n    product_features_table = aux_data.get('product_features_table.csv')\n    \n    # Check if the product_features_table exists and is not empty\n    if product_features_table is not None and not product_features_table.empty:\n        # Find the row in product_features_table corresponding to the product_id\n        product_row = product_features_table[product_features_table['product_id'] == product_id]\n        \n        # If the product_row exists, extract the energy_efficiency_rating\n        if not product_row.empty:\n            energy_efficiency_rating = product_row.iloc[0]['energy_efficiency_rating']\n            \n            # Map the energy_efficiency_rating to its corresponding value\n            mapping = {'A': 3, 'B': 2, 'C': 1, 'D': 0}\n            return mapping.get(energy_efficiency_rating, -1)\n    \n    # Return -1 if the product_id is not found or energy_efficiency_rating is missing\n    return -1\n"
+        }
+    },
+    "feature_descriptions": [
+        "time since last defect",
+        "inspectors experience",
+        "total defects per product",
+        "avg inspection time category",
+        "rolling avg inspection score",
+        "defect rate per product",
+        "product release age",
+        "avg inspection duration",
+        "avg inspection score",
+        "avg defect severity",
+        "inspector specialization",
+        "inspections per product",
+        "inspector certifications count",
+        "total defects by inspector",
+        "manufacturer popularity",
+        "inspector inspection defect ratio",
+        "total inspections by inspector",
+        "avg resolution time",
+        "product energy efficiency"
+    ]
+}

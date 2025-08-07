@@ -1,0 +1,71 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "total_maintenance_cost",
+        "total_maintenance_count",
+        "equipment_age",
+        "warranty_remaining_years",
+        "time_since_last_maintenance",
+        "std_vibration_level",
+        "max_vibration_level",
+        "recent_maintenance_cost",
+        "avg_downtime",
+        "temperature_group_deviation"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.1277380606142159": {
+            "name": "total_maintenance_cost",
+            "code": "\n\ndef total_maintenance_cost(row, aux_dataframes: dict):\n    # Correct the key to match the actual key in aux_dataframes\n    maintenance_df = aux_dataframes['maintenance_logs_table.csv']\n    \n    # Extract the equipment_id from the row\n    equipment_id = row['equipment_id']\n    \n    # Filter the maintenance logs for the given equipment_id and sum the maintenance costs\n    return maintenance_df[maintenance_df['equipment_id'] == equipment_id]['maintenance_cost'].sum()\n"
+        },
+        "0.12685282835845904": {
+            "name": "total_maintenance_count",
+            "code": "\n\ndef total_maintenance_count(row, aux_dataframes: dict):\n    equipment_id = row['equipment_id']\n    # Use the correct key for the maintenance logs dataframe\n    maintenance_df = aux_dataframes['maintenance_logs_table.csv']\n    # Ensure the dataframe contains the expected column 'equipment_id'\n    if 'equipment_id' not in maintenance_df.columns:\n        raise KeyError(\"The 'maintenance_logs_table.csv' dataframe does not contain the 'equipment_id' column.\")\n    # Return the count of maintenance records for the given equipment_id\n    return maintenance_df[maintenance_df['equipment_id'] == equipment_id].shape[0]\n"
+        },
+        "0.07509202925300458": {
+            "name": "equipment_age",
+            "code": "import datetime\n\ndef equipment_age(row, aux_data: Dict[str, pd.DataFrame]):\n    from datetime import datetime\n    \n    # Extract the equipment_id from the row\n    equipment_id = row['equipment_id']\n    \n    # Get the equipment_specs_table dataframe from aux_data\n    equipment_specs_df = aux_data['equipment_specs_table.csv']\n    \n    # Find the installation_date for the given equipment_id\n    installation_date_str = equipment_specs_df.loc[\n        equipment_specs_df['equipment_id'] == equipment_id, 'installation_date'\n    ].values[0]\n    \n    # Convert installation_date to a datetime object\n    installation_date = datetime.strptime(installation_date_str, \"%Y-%m-%d\")\n    \n    # Define the static current date\n    current_date = datetime.strptime(\"2025-04-01\", \"%Y-%m-%d\")\n    \n    # Calculate the age in years\n    return (current_date - installation_date).days / 365.0\n"
+        },
+        "0.06198583019226336": {
+            "name": "warranty_remaining_years",
+            "code": "import datetime\n\ndef warranty_remaining_years(row, aux_data: Dict[str, pd.DataFrame]):\n    # Get the equipment_specs_table dataframe from aux_data\n    equipment_specs = aux_data['equipment_specs_table.csv']\n    \n    # Find the row in equipment_specs that matches the equipment_id\n    equipment_id = row['equipment_id']\n    equipment_info = equipment_specs[equipment_specs['equipment_id'] == equipment_id]\n    \n    # If no matching equipment_id is found, return 0 (no warranty remaining)\n    if equipment_info.empty:\n        return 0\n    \n    # Extract warranty_period and installation_date\n    warranty_period = equipment_info.iloc[0]['warranty_period']\n    installation_date = equipment_info.iloc[0]['installation_date']\n    \n    # Calculate equipment age\n    installation_date = datetime.datetime.strptime(installation_date, \"%Y-%m-%d\")\n    current_date = datetime.datetime.strptime(\"2025-04-01\", \"%Y-%m-%d\")  # Example static current date\n    equipment_age = (current_date - installation_date).days / 365.0\n    \n    # Calculate remaining warranty years\n    return max(0, warranty_period - equipment_age)\n"
+        },
+        "0.030085978665706763": {
+            "name": "time_since_last_maintenance",
+            "code": "import pandas as pd\n\ndef time_since_last_maintenance(row, aux_data: Dict[str, pd.DataFrame]):\n    equipment_id = row['equipment_id']\n    \n    # Correct the key to match the provided aux_data structure\n    maintenance_df = aux_data['maintenance_logs_table.csv']\n    \n    # Filter the maintenance logs for the given equipment_id\n    recent_maintenance = maintenance_df[maintenance_df['equipment_id'] == equipment_id].sort_values('maintenance_date').tail(1)\n    \n    if not recent_maintenance.empty:\n        # Convert the last maintenance date to a datetime object\n        last_maintenance_date = pd.to_datetime(recent_maintenance['maintenance_date'].values[0])\n        \n        # Use a static current date for illustration\n        current_date = pd.to_datetime(\"2025-04-01\")\n        \n        # Calculate the difference in days\n        return (current_date - last_maintenance_date).days\n    \n    # Return None if no maintenance records are found\n    return None\n"
+        },
+        "0.02883902038783304": {
+            "name": "std_vibration_level",
+            "code": "\n\ndef std_vibration_level(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the equipment_id from the row\n    equipment_id = row['equipment_id']\n    \n    # Filter the main dataframe (df_train) for rows with the same equipment_id\n    equipment_rows = df_train[df_train['equipment_id'] == equipment_id]\n    \n    # Calculate and return the standard deviation of the vibration_level column\n    return equipment_rows['vibration_level'].std()\n"
+        },
+        "0.024777710765297077": {
+            "name": "max_vibration_level",
+            "code": "\n\ndef max_vibration_level(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the correct key is used to access the environmental conditions dataframe\n    environmental_df_key = 'environmental_conditions_table.csv'\n    \n    # Check if the key exists in the aux_dataframes dictionary\n    if environmental_df_key not in aux_dataframes:\n        raise KeyError(f\"Key '{environmental_df_key}' not found in aux_dataframes.\")\n    \n    environmental_df = aux_dataframes[environmental_df_key]\n    \n    # Check if the 'vibration_level' column exists in the row\n    if 'vibration_level' not in row:\n        raise KeyError(\"'vibration_level' column not found in the input row.\")\n    \n    # Return the vibration level from the row\n    return row['vibration_level']\n"
+        },
+        "0.01917949244554604": {
+            "name": "recent_maintenance_cost",
+            "code": "\n\ndef recent_maintenance_cost(row, aux_dataframes: dict):\n    # Extract the equipment_id from the row\n    equipment_id = row['equipment_id']\n    \n    # Access the maintenance logs dataframe using the correct key\n    maintenance_df = aux_dataframes['maintenance_logs_table.csv']\n    \n    # Filter the maintenance logs for the given equipment_id and sort by maintenance_date\n    recent_maintenance = maintenance_df[maintenance_df['equipment_id'] == equipment_id].sort_values('maintenance_date').tail(1)\n    \n    # Return the maintenance cost of the most recent maintenance, or 0 if no maintenance records exist\n    return recent_maintenance['maintenance_cost'].values[0] if not recent_maintenance.empty else 0\n"
+        },
+        "0.0092278039697192": {
+            "name": "avg_downtime",
+            "code": "\n\ndef avg_downtime(row, aux_dataframes: dict):\n    # Extract the equipment_id from the row\n    equipment_id = row['equipment_id']\n    \n    # Access the maintenance logs dataframe using the correct key\n    maintenance_df = aux_dataframes['maintenance_logs_table.csv']\n    \n    # Filter rows in the maintenance logs dataframe for the given equipment_id\n    equipment_rows = maintenance_df[maintenance_df['equipment_id'] == equipment_id]\n    \n    # Calculate and return the mean downtime_duration\n    return equipment_rows['downtime_duration'].mean()\n"
+        },
+        "0": {
+            "name": "temperature_group_deviation",
+            "code": "\n\ndef temperature_group_deviation(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Load auxiliary data\n    environmental_df = aux_dataframes['environmental_conditions_table.csv']\n    specs_df = aux_dataframes['equipment_specs_table.csv']\n    \n    # Identify the group of the current equipment\n    equipment_id = row['equipment_id']\n    current_specs = specs_df[specs_df['equipment_id'] == equipment_id]\n    \n    if current_specs.empty:\n        return 0  # Return 0 if the equipment_id is not found in the specs_df\n    \n    # Group other equipment with the same group_id\n    group_id = current_specs['group_id'].values[0] if 'group_id' in current_specs.columns else None\n    if group_id is None:\n        return 0  # Return 0 if group_id is not available\n    \n    similar_group_ids = specs_df[specs_df['group_id'] == group_id]['equipment_id']\n    \n    # Calculate average temperature for this group\n    group_temps = environmental_df[environmental_df['equipment_id'].isin(similar_group_ids)]['temperature']\n    avg_group_temp = group_temps.mean()\n    \n    # Calculate the current temperature\n    latest_temp_row = environmental_df[environmental_df['equipment_id'] == equipment_id].tail(1)\n    if latest_temp_row.empty:\n        return 0  # Return 0 if no temperature data is available for the equipment_id\n    \n    latest_temp = latest_temp_row['temperature'].values[0]\n    \n    # Find the deviation\n    return latest_temp - avg_group_temp\n"
+        }
+    },
+    "feature_descriptions": [
+        "total maintenance cost",
+        "total maintenance count",
+        "equipment age",
+        "warranty remaining years",
+        "time since last maintenance",
+        "std vibration level",
+        "max vibration level",
+        "recent maintenance cost",
+        "avg downtime",
+        "temperature group deviation"
+    ]
+}

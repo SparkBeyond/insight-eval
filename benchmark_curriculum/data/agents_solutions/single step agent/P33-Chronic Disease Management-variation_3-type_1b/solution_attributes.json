@@ -1,0 +1,65 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "num_abnormal_tests",
+        "num_family_conditions",
+        "num_diagnoses",
+        "is_female",
+        "is_male",
+        "is_other_gender",
+        "avg_test_value",
+        "compute_age",
+        "has_condition"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.26365497631040336": {
+            "name": "num_abnormal_tests",
+            "code": "\n\ndef num_abnormal_tests(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the lab results dataframe from aux_data\n    lab_results_df = aux_data.get('lab_results_table.csv')\n    \n    # Check if the dataframe exists and contains the required columns\n    if lab_results_df is not None and 'patient_id' in lab_results_df.columns and 'abnormal_flag' in lab_results_df.columns:\n        # Group by patient_id and sum the abnormal_flag column\n        abnormal_counts = lab_results_df.groupby('patient_id')['abnormal_flag'].sum()\n        # Return the count for the specific patient_id in the row, defaulting to 0 if not found\n        return abnormal_counts.get(row['patient_id'], 0)\n    else:\n        # If the dataframe or required columns are missing, return 0\n        return 0\n"
+        },
+        "0.09871821377261186": {
+            "name": "num_family_conditions",
+            "code": "\n\ndef num_family_conditions(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe from aux_data\n    family_history_df = aux_data.get('family_history_details_table.csv')\n    \n    # Check if the dataframe exists and is not empty\n    if family_history_df is None or family_history_df.empty:\n        return 0\n    \n    # Group by 'patient_id' and count the number of 'relation' entries\n    family_conditions = family_history_df.groupby('patient_id')['relation'].count()\n    \n    # Return the count for the given patient_id, defaulting to 0 if not found\n    return family_conditions.get(row['patient_id'], 0)\n"
+        },
+        "0.0750259688949282": {
+            "name": "num_diagnoses",
+            "code": "\n\ndef num_diagnoses(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the 'previous_diagnoses_table.csv' dataframe from aux_data\n    df_train = aux_data['previous_diagnoses_table.csv']\n    \n    # Group by 'patient_id' and count the number of diagnoses\n    diagnosis_counts = df_train.groupby('patient_id')['condition_diagnosed'].count()\n    \n    # Return the count for the given patient_id, defaulting to 0 if not found\n    return diagnosis_counts.get(row['patient_id'], 0)\n"
+        },
+        "0.01758357778794772": {
+            "name": "is_female",
+            "code": "\n\ndef is_female(row):\n    return 1 if row['gender'] == 'Female' else 0\n"
+        },
+        "0.010797072170411766": {
+            "name": "is_male",
+            "code": "\n\ndef is_male(row):\n    return 1 if row['gender'] == 'Male' else 0\n"
+        },
+        "0.006773816034878901": {
+            "name": "is_other_gender",
+            "code": "\n\ndef is_other_gender(row):\n    return 1 if row['gender'] == 'Other' else 0\n"
+        },
+        "0.0067344702424008895": {
+            "name": "avg_test_value",
+            "code": "\n\ndef avg_test_value(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the lab results dataframe from aux_data\n    lab_results_df = aux_data.get('lab_results_table.csv')\n    \n    # Check if the dataframe exists and has the required columns\n    if lab_results_df is not None and 'patient_id' in lab_results_df.columns and 'result_value' in lab_results_df.columns:\n        # Calculate the average test value for each patient\n        average_test_value = lab_results_df.groupby('patient_id')['result_value'].mean().fillna(0)\n        # Return the average test value for the given patient_id in the row\n        return average_test_value.get(row['patient_id'], 0)\n    else:\n        # If the dataframe or required columns are missing, return 0\n        return 0\n"
+        },
+        "0.0008965926889631102": {
+            "name": "compute_age",
+            "code": "import pandas as pd\nimport datetime\n\ndef compute_age(row):\n    if pd.notnull(row['date_of_birth']):\n        birth_year = pd.to_datetime(row['date_of_birth']).year\n        current_year = datetime.now().year\n        return current_year - birth_year\n    return None\n"
+        },
+        "0": {
+            "name": "has_condition",
+            "code": "\n\ndef has_condition(row: pd.Series, condition_keywords: List[str], aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Extract the relevant dataframe from aux_data\n    df_train = aux_data['previous_diagnoses_table.csv']\n    \n    # Filter the dataframe for the specific patient_id\n    patient_conditions = df_train[df_train['patient_id'] == row['patient_id']]['condition_diagnosed']\n    \n    # Check if any of the condition keywords match the patient's conditions\n    for condition in patient_conditions:\n        if any(keyword.lower() in str(condition).lower() for keyword in condition_keywords):\n            return 1\n    return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "num abnormal tests",
+        "num family conditions",
+        "num diagnoses",
+        "is female",
+        "is male",
+        "is other gender",
+        "avg test value",
+        "compute age",
+        "has condition"
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "call_duration",
+        "avg_signal_strength_repeated_colname1",
+        "outages_before_call",
+        "is_during_outage"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "call duration",
+        "avg signal strength repeated colname1",
+        "outages before call",
+        "is during outage"
+    ]
+}

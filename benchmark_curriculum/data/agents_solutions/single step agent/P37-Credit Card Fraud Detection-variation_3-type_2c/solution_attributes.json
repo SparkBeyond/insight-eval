@@ -1,0 +1,77 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "customer_average_monthly_spend",
+        "customer_transaction_frequency",
+        "merchant_risk_level_encoded",
+        "merchant_average_transaction_amount",
+        "above_merchant_average_flag",
+        "days_since_last_login",
+        "merchant_transaction_count",
+        "account_balance_to_credit_limit_ratio",
+        "transaction_hour",
+        "transaction_day",
+        "transaction_time_of_day"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.12612847925840504": {
+            "name": "customer_average_monthly_spend",
+            "code": "\n\ndef customer_average_monthly_spend(row, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Extract the account_id from the row\n    account_id = row['account_id']\n    \n    # Get the account_details_table dataframe\n    account_details_table = aux_data['account_details_table.csv']\n    \n    # Look up the customer_id using the account_id\n    customer_id = account_details_table.loc[\n        account_details_table['account_id'] == account_id, 'customer_id'\n    ].values\n    \n    # If no customer_id is found, return 0\n    if len(customer_id) == 0:\n        return 0\n    \n    # Extract the first (and only) customer_id\n    customer_id = customer_id[0]\n    \n    # Get the customer_behavior_table dataframe\n    customer_behavior_table = aux_data['customer_behavior_table.csv']\n    \n    # Look up the average_monthly_spend using the customer_id\n    avg_spend = customer_behavior_table.loc[\n        customer_behavior_table['customer_id'] == customer_id, 'average_monthly_spend'\n    ].values\n    \n    # Return the average_monthly_spend if found, otherwise return 0\n    return float(avg_spend[0]) if len(avg_spend) > 0 else 0\n"
+        },
+        "0.11969679063179016": {
+            "name": "customer_transaction_frequency",
+            "code": "\n\ndef customer_transaction_frequency(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the account_id from the row\n    account_id = row['account_id']\n    \n    # Get the account_details_table dataframe\n    account_details = aux_data['account_details_table.csv']\n    \n    # Lookup the customer_id using the account_id\n    customer_id = account_details.loc[account_details['account_id'] == account_id, 'customer_id'].values\n    \n    # If customer_id is found, proceed to find the transaction frequency\n    if len(customer_id) > 0:\n        customer_id = customer_id[0]\n        # Get the customer_behavior_table dataframe\n        customer_behavior = aux_data['customer_behavior_table.csv']\n        \n        # Lookup the transaction_frequency using the customer_id\n        frequency = customer_behavior.loc[customer_behavior['customer_id'] == customer_id, 'transaction_frequency'].values\n        \n        # Return the transaction frequency if found, otherwise return 0\n        return int(frequency[0]) if len(frequency) > 0 else 0\n    else:\n        # If no customer_id is found, return 0\n        return 0\n"
+        },
+        "0.11424829640227312": {
+            "name": "merchant_risk_level_encoded",
+            "code": "\n\ndef merchant_risk_level_encoded(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> int:\n    # Define the risk levels mapping\n    risk_levels = {'low': 1, 'medium': 2, 'high': 3}\n    \n    # Check if 'merchant_details_table.csv' exists in aux_dataframes\n    if 'merchant_details_table.csv' not in aux_dataframes:\n        raise KeyError(\"'merchant_details_table.csv' is missing from aux_dataframes\")\n    \n    # Get the merchant details dataframe\n    merchant_data = aux_dataframes['merchant_details_table.csv']\n    \n    # Ensure the required columns exist in the merchant details dataframe\n    required_columns = {'merchant_id', 'risk_level'}\n    if not required_columns.issubset(merchant_data.columns):\n        raise KeyError(f\"Missing required columns in 'merchant_details_table.csv': {required_columns - set(merchant_data.columns)}\")\n    \n    # Extract the merchant_id from the row\n    merchant_id = row['merchant_id']\n    \n    # Filter the merchant_data to find the risk level for the given merchant_id\n    risk = merchant_data.loc[merchant_data['merchant_id'] == merchant_id, 'risk_level'].values\n    \n    # Return the encoded risk level or 0 if the merchant_id is not found\n    return risk_levels.get(risk[0], 0) if len(risk) > 0 else 0\n"
+        },
+        "0.05074445194769906": {
+            "name": "merchant_average_transaction_amount",
+            "code": "\n\ndef merchant_average_transaction_amount(row, df_train):\n    merchant_id = row['merchant_id']\n    merchant_transactions = df_train[df_train['merchant_id'] == merchant_id]['transaction_amount']\n    return merchant_transactions.mean() if len(merchant_transactions) > 0 else 0\n"
+        },
+        "0.032532383719882305": {
+            "name": "above_merchant_average_flag",
+            "code": "\n\ndef above_merchant_average_flag(row, df_train):\n    merchant_id = row['merchant_id']\n    transaction_amount = row['transaction_amount']\n    merchant_transactions = df_train[df_train['merchant_id'] == merchant_id]['transaction_amount']\n    merchant_avg = merchant_transactions.mean() if len(merchant_transactions) > 0 else 0\n    return int(transaction_amount > merchant_avg)\n"
+        },
+        "0.014075750393496454": {
+            "name": "days_since_last_login",
+            "code": "import datetime\n\ndef days_since_last_login(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> int:\n    from datetime import datetime\n    \n    # Extract account_id from the row\n    account_id = row['account_id']\n    \n    # Get the account_details_table dataframe\n    account_details = aux_dataframes['account_details_table.csv']\n    \n    # Map account_id to customer_id\n    customer_id = account_details.loc[account_details['account_id'] == account_id, 'customer_id'].values\n    \n    # If no customer_id is found, return 0\n    if len(customer_id) == 0:\n        return 0\n    \n    # Extract the customer_id\n    customer_id = customer_id[0]\n    \n    # Get the customer_behavior_table dataframe\n    customer_data = aux_dataframes['customer_behavior_table.csv']\n    \n    # Find the last login date for the customer_id\n    last_login = customer_data.loc[customer_data['customer_id'] == customer_id, 'last_login_date'].values\n    \n    # If no last login date is found, return 0\n    if len(last_login) == 0:\n        return 0\n    \n    # Parse the last login date\n    last_login_date = datetime.strptime(last_login[0], '%Y-%m-%d')\n    \n    # Calculate the number of days since the last login\n    return (datetime.now() - last_login_date).days\n"
+        },
+        "0.009821514761050741": {
+            "name": "merchant_transaction_count",
+            "code": "\n\ndef merchant_transaction_count(row, df_train):\n    merchant_id = row['merchant_id']\n    count = df_train[df_train['merchant_id'] == merchant_id].shape[0]\n    return count\n"
+        },
+        "0.009052041462950225": {
+            "name": "account_balance_to_credit_limit_ratio",
+            "code": "\n\ndef account_balance_to_credit_limit_ratio(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> float:\n    # Check if 'account_details_table.csv' exists in aux_dataframes\n    if 'account_details_table.csv' not in aux_dataframes:\n        raise KeyError(\"'account_details_table.csv' is missing from aux_dataframes\")\n    \n    # Get the account details dataframe\n    account_data = aux_dataframes['account_details_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'account_id', 'current_balance', 'credit_limit'}\n    if not required_columns.issubset(account_data.columns):\n        raise KeyError(f\"The dataframe 'account_details_table.csv' is missing one or more required columns: {required_columns}\")\n    \n    # Extract the account_id from the row\n    account_id = row['account_id']\n    \n    # Filter the account details for the given account_id\n    account = account_data.loc[account_data['account_id'] == account_id]\n    \n    # Check if the account exists and has valid data\n    if not account.empty:\n        current_balance = account['current_balance'].values[0]\n        credit_limit = account['credit_limit'].values[0]\n        \n        # Ensure credit_limit is greater than 0 to avoid division by zero\n        if credit_limit > 0:\n            return current_balance / credit_limit\n    \n    # Return 0 if no match is found or credit_limit is invalid\n    return 0.0\n"
+        },
+        "0.003384699190558262": {
+            "name": "transaction_hour",
+            "code": "import datetime\n\ndef transaction_hour(row):\n    from datetime import datetime\n    transaction_date = datetime.strptime(row['transaction_date'], '%Y-%m-%d %H:%M:%S.%f')\n    return transaction_date.hour\n"
+        },
+        "0.0009004977372291475": {
+            "name": "transaction_day",
+            "code": "import datetime\n\ndef transaction_day(row):\n    from datetime import datetime\n    transaction_date = datetime.strptime(row['transaction_date'], '%Y-%m-%d %H:%M:%S.%f')\n    return transaction_date.weekday()  # Day of the week (0=Monday, 6=Sunday).\n"
+        },
+        "0.0007563266290714354": {
+            "name": "transaction_time_of_day",
+            "code": "import datetime\n\ndef transaction_hour(row):\n    from datetime import datetime\n    transaction_date = datetime.strptime(row['transaction_date'], '%Y-%m-%d %H:%M:%S.%f')\n    return transaction_date.hour\n\ndef transaction_time_of_day(row):\n    hour = transaction_hour(row)\n    if 6 <= hour < 12:\n        return \"morning\"\n    elif 12 <= hour < 18:\n        return \"afternoon\"\n    elif 18 <= hour < 24:\n        return \"evening\"\n    else:\n        return \"night\"\n"
+        }
+    },
+    "feature_descriptions": [
+        "customer average monthly spend",
+        "customer transaction frequency",
+        "merchant risk level encoded",
+        "merchant average transaction amount",
+        "above merchant average flag",
+        "days since last login",
+        "merchant transaction count",
+        "account balance to credit limit ratio",
+        "transaction hour",
+        "transaction day",
+        "transaction time of day"
+    ]
+}

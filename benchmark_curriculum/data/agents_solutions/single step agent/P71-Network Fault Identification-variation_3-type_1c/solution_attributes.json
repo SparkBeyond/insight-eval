@@ -1,0 +1,125 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "time_elapsed_first_log",
+        "severity_performance_interaction",
+        "fault_time_to_total_log_span",
+        "time_since_last_fault",
+        "fault_rate",
+        "recent_maintenance_flag",
+        "prior_fault_count",
+        "weighted_faults",
+        "severity_weighted_fault_rate",
+        "rolling_perf_metric",
+        "device_age_in_days",
+        "time_since_installation_in_years",
+        "recent_fault_frequency",
+        "recent_faults_7_days",
+        "device_error_count",
+        "avg_performance_metric",
+        "error_code_frequency",
+        "unique_error_codes",
+        "exceeds_threshold_flag"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.29136802812944623": {
+            "name": "time_elapsed_first_log",
+            "code": "import pandas as pd\n\ndef time_elapsed_first_log(row, df_train: pd.DataFrame):\n    # Ensure the column names match the actual dataframe\n    first_log = df_train[df_train['device_id'] == row['device_id']]['timestamp'].min()\n    if pd.isna(first_log):\n        return -1\n    return (pd.to_datetime(row['timestamp']) - pd.to_datetime(first_log)).days\n"
+        },
+        "0.18659352384969882": {
+            "name": "severity_performance_interaction",
+            "code": "\n\ndef severity_performance_interaction(row):\n    # Map severity levels to numerical values\n    severity_mapping = {'high': 3, 'medium': 2, 'low': 1}\n    \n    # Get the numerical severity value\n    severity_value = severity_mapping.get(row['severity_level'], 0)  # Default to 0 if severity_level is not found\n    \n    # Return the product of severity value and performance metric\n    return severity_value * row['performance_metric']\n"
+        },
+        "0.16094656904140495": {
+            "name": "fault_time_to_total_log_span",
+            "code": "import pandas as pd\n\ndef fault_time_to_total_log_span(row, df_train: pd.DataFrame):\n    # Filter logs for the specific device_id\n    device_logs = df_train[df_train['device_id'] == row['device_id']]\n    if device_logs.empty:\n        return 0\n    \n    # Filter logs where fault_detected is 1\n    fault_logs = device_logs[device_logs['fault_detected'] == 1]\n    if fault_logs.empty:\n        return 0\n    \n    # Calculate the total log span and fault log span\n    total_span = (pd.to_datetime(device_logs['timestamp'].max()) - pd.to_datetime(device_logs['timestamp'].min())).days\n    fault_span = (pd.to_datetime(fault_logs['timestamp'].max()) - pd.to_datetime(fault_logs['timestamp'].min())).days\n    \n    # Return the ratio of fault span to total span, or 0 if total_span is 0\n    return fault_span / total_span if total_span > 0 else 0\n"
+        },
+        "0.15555955670920601": {
+            "name": "time_since_last_fault",
+            "code": "import pandas as pd\n\ndef time_since_last_fault(row, df_train: pd.DataFrame):\n    # Use the correct column name 'timestamp' instead of 'log_timestamp'\n    last_fault = df_train[\n        (df_train['device_id'] == row['device_id']) & \n        (df_train['fault_detected'] == 1) & \n        (df_train['timestamp'] < row['timestamp'])\n    ]['timestamp'].max()\n    \n    if pd.isna(last_fault):\n        return -1  # Assign -1 if no prior fault\n    return (pd.to_datetime(row['timestamp']) - pd.to_datetime(last_fault)).days\n"
+        },
+        "0.15076384540234633": {
+            "name": "fault_rate",
+            "code": "\n\ndef fault_rate(row, df_train: pd.DataFrame):\n    # Filter the training data to only include rows with the same device_id\n    # and timestamps earlier than the current row's timestamp\n    past_data = df_train[\n        (df_train['device_id'] == row['device_id']) & \n        (df_train['timestamp'] < row['timestamp'])\n    ]\n    \n    # Calculate the total logs for the device up to the current row's timestamp\n    total_logs = past_data.shape[0]\n    \n    # If there are no past logs, return 0\n    if total_logs == 0:\n        return 0\n    \n    # Calculate the total faults for the device up to the current row's timestamp\n    total_faults = past_data['fault_detected'].sum()\n    \n    # Return the fault rate\n    return total_faults / total_logs\n"
+        },
+        "0.12219987278009879": {
+            "name": "recent_maintenance_flag",
+            "code": "import pandas as pd\n\ndef recent_maintenance_flag(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Check if a device had any recent maintenance activity in the last 30 days.\n    Uses the 'maintenance_records_table.csv' from the auxiliary dataframes.\n    \"\"\"\n    maintenance_df = aux_dataframes['maintenance_records_table.csv']\n    # Ensure 'maintenance_date' is in datetime format\n    maintenance_df['maintenance_date'] = pd.to_datetime(maintenance_df['maintenance_date'])\n    \n    # Get the last maintenance date for the device\n    last_maintenance = maintenance_df[maintenance_df['device_id'] == row['device_id']]['maintenance_date'].max()\n    \n    # Calculate the cutoff date for recent maintenance\n    maintenance_cutoff = pd.to_datetime(row['timestamp']) - pd.Timedelta(days=30)\n    \n    # Check if the last maintenance date is within the last 30 days\n    if pd.isna(last_maintenance):\n        return 0  # No maintenance logged for the device\n    return int(last_maintenance > maintenance_cutoff)\n"
+        },
+        "0.10853523376554323": {
+            "name": "prior_fault_count",
+            "code": "\n\ndef prior_fault_count(row, df_train: pd.DataFrame):\n    \"\"\"\n    Calculate the count of prior faults for the same device before the current row's timestamp,\n    excluding the current row to prevent target leakage.\n    \"\"\"\n    # Filter the dataframe to include only rows with the same device_id and timestamps strictly before the current row's timestamp\n    prior_rows = df_train[(df_train['device_id'] == row['device_id']) & \n                          (df_train['timestamp'] < row['timestamp'])]\n    \n    # Sum the 'fault_detected' column for the filtered rows\n    return prior_rows['fault_detected'].sum()\n"
+        },
+        "0.10790235084084505": {
+            "name": "weighted_faults",
+            "code": "\n\ndef weighted_faults(row, df_train: pd.DataFrame):\n    # Filter rows where the device_id matches and the timestamp is earlier than the current row's timestamp\n    prior_logs = df_train[(df_train['device_id'] == row['device_id']) & (df_train['timestamp'] < row['timestamp'])]\n    \n    # Avoid division by zero by ensuring 'error_severity' is not zero\n    # Assuming 'severity_level' maps to numeric values for calculation\n    severity_mapping = {'low': 1, 'medium': 2, 'high': 3}\n    prior_logs['error_severity'] = prior_logs['severity_level'].map(severity_mapping)\n    \n    # Calculate the weighted faults\n    return sum(prior_logs['fault_detected'] / prior_logs['error_severity'])\n"
+        },
+        "0.057173891140409994": {
+            "name": "severity_weighted_fault_rate",
+            "code": "\n\ndef severity_weighted_fault_rate(row, df_train: pd.DataFrame):\n    # Map severity levels to numerical values\n    severity_mapping = {'low': 1, 'medium': 2, 'high': 3}\n    \n    # Ensure the 'severity_level' column is mapped to numerical values\n    if 'severity_level' in df_train.columns:\n        df_train['severity_numeric'] = df_train['severity_level'].map(severity_mapping)\n    else:\n        raise KeyError(\"The column 'severity_level' is missing in the provided DataFrame.\")\n    \n    # Filter faults for the specific device_id and where fault_detected is 1\n    faults = df_train[(df_train['device_id'] == row['device_id']) & (df_train['fault_detected'] == 1)]\n    \n    # If no faults are found, return 0\n    if faults.empty:\n        return 0\n    \n    # Calculate the severity-weighted fault rate\n    return (faults['severity_numeric'] * faults['fault_detected']).sum() / len(faults)\n"
+        },
+        "0.04398119869142123": {
+            "name": "rolling_perf_metric",
+            "code": "\n\ndef rolling_perf_metric(row, df_train: pd.DataFrame):\n    # Filter rows with the same device_id and earlier timestamps\n    prior_logs = df_train[(df_train['device_id'] == row['device_id']) & (df_train['timestamp'] < row['timestamp'])]\n    # Return the mean of the performance_metric if prior_logs is not empty, otherwise return the current row's performance_metric\n    return prior_logs['performance_metric'].mean() if not prior_logs.empty else row['performance_metric']\n"
+        },
+        "0.03167993155630588": {
+            "name": "device_age_in_days",
+            "code": "import pandas as pd\n\ndef device_age_in_days(row, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Extract the device_id from the row\n    device_id = row['device_id']\n    \n    # Look up the install_date from the appropriate auxiliary data\n    if 'device_health_table.csv' in aux_data:\n        device_health_df = aux_data['device_health_table.csv']\n        \n        # Ensure the device_id exists in the auxiliary data\n        if device_id in device_health_df['device_id'].values:\n            # Retrieve the install_date for the given device_id\n            install_date = device_health_df.loc[\n                device_health_df['device_id'] == device_id, 'last_check_date'\n            ].iloc[0]\n            \n            # Calculate the age in days\n            return (pd.Timestamp.now() - pd.to_datetime(install_date)).days\n    \n    # If no install_date is found, return a default value (e.g., -1)\n    return -1\n"
+        },
+        "0.03167993155630587": {
+            "name": "time_since_installation_in_years",
+            "code": "import pandas as pd\n\ndef time_since_installation_in_years(row, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Extract the device_id from the row\n    device_id = row['device_id']\n    \n    # Get the device_health_table dataframe from aux_data\n    device_health_table = aux_data.get('device_health_table.csv')\n    \n    if device_health_table is None:\n        raise ValueError(\"The 'device_health_table.csv' is missing from aux_data.\")\n    \n    # Find the row in the device_health_table corresponding to the device_id\n    device_row = device_health_table[device_health_table['device_id'] == device_id]\n    \n    if device_row.empty:\n        raise ValueError(f\"No matching device_id {device_id} found in 'device_health_table.csv'.\")\n    \n    # Assuming 'last_check_date' is the closest proxy for 'install_date'\n    install_date = pd.to_datetime(device_row.iloc[0]['last_check_date'])\n    \n    # Calculate the time since installation in years\n    return (pd.Timestamp.now() - install_date).days / 365\n"
+        },
+        "0.015949179246301636": {
+            "name": "recent_fault_frequency",
+            "code": "import pandas as pd\n\ndef recent_fault_frequency(row, df_train: pd.DataFrame):\n    # Convert the timestamp of the current row to a datetime object\n    current_time = pd.to_datetime(row['timestamp'])\n    \n    # Calculate the timestamp for 30 days ago\n    thirty_days_ago = current_time - pd.Timedelta(days=30)\n    \n    # Filter the dataframe to include only rows where:\n    # 1. The device_id matches the current row's device_id\n    # 2. The fault_detected is 1 (indicating a fault was detected)\n    # 3. The timestamp is within the last 30 days but strictly before the current row's timestamp\n    filtered_df = df_train[\n        (df_train['device_id'] == row['device_id']) &\n        (df_train['fault_detected'] == 1) &\n        (pd.to_datetime(df_train['timestamp']) >= thirty_days_ago) &\n        (pd.to_datetime(df_train['timestamp']) < current_time)  # Exclude the current row and future data\n    ]\n    \n    # Return the count of faults detected in the filtered dataframe\n    return filtered_df['fault_detected'].sum()\n"
+        },
+        "0.014705217605918012": {
+            "name": "recent_faults_7_days",
+            "code": "import pandas as pd\n\ndef recent_faults_7_days(row, df_train: pd.DataFrame):\n    # Convert the current row's timestamp to a datetime object\n    current_timestamp = pd.to_datetime(row['timestamp'])\n    \n    # Calculate the timestamp for 7 days ago\n    seven_days_ago = current_timestamp - pd.Timedelta(days=7)\n    \n    # Filter the dataframe to include only rows:\n    # 1. With the same device_id as the current row\n    # 2. Where fault_detected is 1 (indicating a fault)\n    # 3. Where the timestamp is within the 7-day window prior to the current row's timestamp\n    # 4. Exclude the current row itself to avoid target leakage\n    moving_window_faults = df_train[\n        (df_train['device_id'] == row['device_id']) & \n        (df_train['fault_detected'] == 1) & \n        (pd.to_datetime(df_train['timestamp']) >= seven_days_ago) & \n        (pd.to_datetime(df_train['timestamp']) < current_timestamp)  # Exclude future data and the current row\n    ]\n    \n    # Return the count of faults in the 7-day window\n    return moving_window_faults.shape[0]\n"
+        },
+        "0.013988308686341242": {
+            "name": "device_error_count",
+            "code": "\n\ndef device_error_count(row, df_train: pd.DataFrame):\n    return df_train[df_train['device_id'] == row['device_id']].shape[0]\n"
+        },
+        "0.008609111475367623": {
+            "name": "avg_performance_metric",
+            "code": "\n\ndef avg_performance_metric(row, df_train: pd.DataFrame):\n    return df_train[df_train['device_id'] == row['device_id']]['performance_metric'].mean()\n"
+        },
+        "0.007889769973601943": {
+            "name": "error_code_frequency",
+            "code": "\n\ndef error_code_frequency(row, df_train: pd.DataFrame):\n    return df_train[df_train['error_code'] == row['error_code']].shape[0]\n"
+        },
+        "3.3983475920182546e-05": {
+            "name": "unique_error_codes",
+            "code": "\n\ndef unique_error_codes(row, df_train: pd.DataFrame):\n    return df_train[df_train['device_id'] == row['device_id']]['error_code'].nunique()\n"
+        },
+        "0": {
+            "name": "exceeds_threshold_flag",
+            "code": "\n\ndef exceeds_threshold_flag(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Check if the device's performance metric exceeds the defined threshold.\n    Uses the 'network_thresholds_table.csv' from the auxiliary dataframes.\n    \"\"\"\n    thresholds_df = aux_dataframes['network_thresholds_table.csv']\n    \n    # Filter the thresholds DataFrame for the specific device type\n    threshold_row = thresholds_df[thresholds_df['device_type'] == row['device_id']]\n    \n    # Check if a threshold exists for the device\n    if threshold_row.empty:\n        return 0  # No threshold information for this device\n    \n    # Extract the threshold value\n    threshold = threshold_row['threshold_value'].values[0]\n    \n    # Compare the performance metric with the threshold\n    return int(row['performance_metric'] > threshold)\n"
+        }
+    },
+    "feature_descriptions": [
+        "time elapsed first log",
+        "severity performance interaction",
+        "fault time to total log span",
+        "time since last fault",
+        "fault rate",
+        "recent maintenance flag",
+        "prior fault count",
+        "weighted faults",
+        "severity weighted fault rate",
+        "rolling perf metric",
+        "device age in days",
+        "time since installation in years",
+        "recent fault frequency",
+        "recent faults 7 days",
+        "device error count",
+        "avg performance metric",
+        "error code frequency",
+        "unique error codes",
+        "exceeds threshold flag"
+    ]
+}

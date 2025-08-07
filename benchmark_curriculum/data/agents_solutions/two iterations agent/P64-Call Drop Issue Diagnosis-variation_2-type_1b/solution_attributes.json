@@ -1,0 +1,36 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "call_duration",
+        "feedback_count",
+        "avg_signal_strength_repeated_colname1",
+        "total_outage_duration",
+        "is_during_outage",
+        "device_popularity",
+        "signal_health_index",
+        "call_start_temperature",
+        "avg_humidity",
+        "num_network_outages",
+        "max_signal_strength",
+        "avg_wind_speed",
+        "min_signal_strength"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "call duration",
+        "feedback count",
+        "avg signal strength repeated colname1",
+        "total outage duration",
+        "is during outage",
+        "device popularity",
+        "signal health index",
+        "call start temperature",
+        "avg humidity",
+        "num network outages",
+        "max signal strength",
+        "avg wind speed",
+        "min signal strength"
+    ]
+}

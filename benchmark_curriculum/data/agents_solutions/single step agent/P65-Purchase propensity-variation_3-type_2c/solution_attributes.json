@@ -1,0 +1,95 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "total_transactions",
+        "total_spent",
+        "total_promotions",
+        "avg_transaction_amount",
+        "promotion_response_rate",
+        "promotions_responded",
+        "high_demand_search_ratio",
+        "age",
+        "total_searches",
+        "location",
+        "most_searched_category",
+        "income_bracket",
+        "gender",
+        "dominant_category"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.3652079859456656": {
+            "name": "total_transactions",
+            "code": "\n\ndef total_transactions(row, df_train: pd.DataFrame, aux_dataframes: dict):\n    page_activity_df = aux_dataframes['page_activity_table.csv']\n    customer_transactions = page_activity_df[page_activity_df['customer_id'] == row['customer_id']]\n    return customer_transactions.shape[0]\n"
+        },
+        "0.11746337500876192": {
+            "name": "total_spent",
+            "code": "\n\ndef total_spent(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe for transaction history\n    transaction_history_df = aux_data['transaction_history_table.csv']\n    \n    # Filter transactions for the given customer_id\n    customer_transactions = transaction_history_df[transaction_history_df['customer_id'] == row['customer_id']]\n    \n    # Sum the transaction amounts for the customer\n    return customer_transactions['transaction_amount'].sum()\n"
+        },
+        "0.08291196316691878": {
+            "name": "total_promotions",
+            "code": "\n\ndef total_promotions(row, df_train: pd.DataFrame, aux_dataframes: dict):\n    transaction_history_df = aux_dataframes['transaction_history_table.csv']\n    customer_promotions = transaction_history_df[transaction_history_df['customer_id'] == row['customer_id']]\n    return customer_promotions.shape[0]\n"
+        },
+        "0.08047578560997715": {
+            "name": "avg_transaction_amount",
+            "code": "\n\ndef avg_transaction_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct dataframe for transaction data\n    transaction_history_df = aux_dataframes['transaction_history_table.csv']\n    \n    # Filter transactions for the given customer_id\n    customer_transactions = transaction_history_df[transaction_history_df['customer_id'] == row['customer_id']]\n    \n    # Calculate and return the mean transaction amount, or 0.0 if no transactions exist\n    return customer_transactions['transaction_amount'].mean() if not customer_transactions.empty else 0.0\n"
+        },
+        "0.06567026604094894": {
+            "name": "promotion_response_rate",
+            "code": "\n\ndef promotion_response_rate(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Use the correct dataframe for promotion data\n    promotion_data_df = aux_data['promotion_data_table.csv']\n    \n    # Filter promotions for the specific customer\n    customer_promotions = promotion_data_df[promotion_data_df['customer_id'] == row['customer_id']]\n    \n    # Calculate total promotions and responded promotions\n    total_promotions = customer_promotions.shape[0]\n    promotions_responded = customer_promotions['promotion_response'].sum()\n    \n    # Return the response rate or 0.0 if no promotions exist\n    return promotions_responded / total_promotions if total_promotions > 0 else 0.0\n"
+        },
+        "0.06545456283990359": {
+            "name": "promotions_responded",
+            "code": "\n\ndef promotions_responded(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Use the correct dataframe: 'promotion_data_table.csv'\n    promotion_data_df = aux_data['promotion_data_table.csv']\n    \n    # Filter the dataframe for the given customer_id\n    customer_promotions = promotion_data_df[promotion_data_df['customer_id'] == row['customer_id']]\n    \n    # Sum the 'promotion_response' column\n    return customer_promotions['promotion_response'].sum()\n"
+        },
+        "0.060410361770545644": {
+            "name": "high_demand_search_ratio",
+            "code": "\n\ndef high_demand_search_ratio(row):\n    return row['search_activity_in_high_demand_categories_compared_to_overall_categories']\n"
+        },
+        "0.02706945606452834": {
+            "name": "age",
+            "code": "\n\ndef age(row, df_train: pd.DataFrame, aux_dataframes: dict):\n    promotion_data_df = aux_dataframes['customer_demographics_table.csv']\n    customer_demo = promotion_data_df[promotion_data_df['customer_id'] == row['customer_id']]\n    return customer_demo['age'].iloc[0] if not customer_demo.empty else None\n"
+        },
+        "0.009946424678701148": {
+            "name": "total_searches",
+            "code": "\n\ndef total_searches(row, df_train: pd.DataFrame, aux_dataframes: dict):\n    search_history_df = aux_dataframes['search_history_table.csv']\n    customer_searches = search_history_df[search_history_df['customer_id'] == row['customer_id']]\n    return customer_searches.shape[0]\n"
+        },
+        "0.005551911033070178": {
+            "name": "location",
+            "code": "\n\ndef location(row, df_train: pd.DataFrame, aux_dataframes: dict):\n    promotion_data_df = aux_dataframes['customer_demographics_table.csv']\n    customer_demo = promotion_data_df[promotion_data_df['customer_id'] == row['customer_id']]\n    return customer_demo['location'].iloc[0] if not customer_demo.empty else None\n"
+        },
+        "0.003523572299897859": {
+            "name": "most_searched_category",
+            "code": "\n\ndef most_searched_category(row, df_train: pd.DataFrame, aux_dataframes: dict):\n    search_history_df = aux_dataframes['search_history_table.csv']\n    customer_searches = search_history_df[search_history_df['customer_id'] == row['customer_id']]\n    return customer_searches['category_searched'].mode()[0] if not customer_searches.empty else 'None'\n"
+        },
+        "-0.0008563619468604511": {
+            "name": "income_bracket",
+            "code": "\n\ndef income_bracket(row, df_train: pd.DataFrame, aux_dataframes: dict):\n    promotion_data_df = aux_dataframes['customer_demographics_table.csv']\n    customer_demo = promotion_data_df[promotion_data_df['customer_id'] == row['customer_id']]\n    return customer_demo['income_bracket'].iloc[0] if not customer_demo.empty else None\n"
+        },
+        "0.0005997130602088951": {
+            "name": "gender",
+            "code": "\n\ndef gender(row, df_train: pd.DataFrame, aux_dataframes: dict):\n    promotion_data_df = aux_dataframes['customer_demographics_table.csv']\n    customer_demo = promotion_data_df[promotion_data_df['customer_id'] == row['customer_id']]\n    return customer_demo['gender'].iloc[0] if not customer_demo.empty else None\n"
+        },
+        "0.00011912153780024859": {
+            "name": "dominant_category",
+            "code": "\n\ndef dominant_category(row, df_train: pd.DataFrame, aux_dataframes: dict):\n    # Access the correct dataframe containing 'product_category'\n    transaction_history_df = aux_dataframes['transaction_history_table.csv']\n    \n    # Filter transactions for the given customer_id\n    customer_transactions = transaction_history_df[transaction_history_df['customer_id'] == row['customer_id']]\n    \n    # Return the most frequent product category if transactions exist, otherwise return 'None'\n    return customer_transactions['product_category'].mode()[0] if not customer_transactions.empty else 'None'\n"
+        }
+    },
+    "feature_descriptions": [
+        "total transactions",
+        "total spent",
+        "total promotions",
+        "avg transaction amount",
+        "promotion response rate",
+        "promotions responded",
+        "high demand search ratio",
+        "age",
+        "total searches",
+        "location",
+        "most searched category",
+        "income bracket",
+        "gender",
+        "dominant category"
+    ]
+}

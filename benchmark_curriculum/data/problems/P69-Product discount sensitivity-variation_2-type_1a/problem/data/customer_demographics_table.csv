@@ -1,0 +1,1001 @@
+customer_id,age,gender,location,income_level
+1,62,Female,Stevenland,Low
+2,28,Male,Swansonstad,Medium
+3,23,Male,South Katieville,High
+4,29,Female,Lake Josephberg,Medium
+5,48,Female,Tamaraton,Low
+6,57,Male,Port Mary,High
+7,27,Other,Robintown,Low
+8,20,Female,Johnsonborough,Medium
+9,75,Male,Port Davidburgh,Medium
+10,53,Other,Paulstad,Low
+11,24,Male,Jenniferstad,Medium
+12,35,Other,Lake Karen,Low
+13,51,Other,South Christinaport,Low
+14,56,Female,Jacobmouth,Medium
+15,34,Other,Lake Jackieview,Low
+16,31,Female,New Joelborough,High
+17,28,Other,New Melvinchester,Medium
+18,29,Other,East Brenda,High
+19,32,Male,Johnsonland,High
+20,79,Female,Obrienchester,Low
+21,48,Other,Hugheshaven,Low
+22,21,Other,Carrollmouth,High
+23,74,Male,West Rebeccaport,Low
+24,41,Male,Alexanderton,Low
+25,52,Male,Welchstad,High
+26,51,Female,Birdstad,High
+27,76,Male,Sullivanborough,Low
+28,61,Male,East Alisonland,High
+29,35,Male,Timothystad,High
+30,75,Male,Port Timothy,Low
+31,31,Other,Lake Kevin,High
+32,68,Other,New Christina,Medium
+33,74,Male,New Sarahville,Medium
+34,68,Female,Kimberlyborough,High
+35,63,Other,Martinbury,High
+36,74,Female,Boonemouth,Low
+37,54,Other,Graveston,Medium
+38,44,Male,Harpershire,High
+39,28,Other,South Michaelfurt,High
+40,57,Male,West Amyborough,Low
+41,70,Female,Josephchester,Low
+42,47,Male,Benjaminton,Low
+43,30,Female,West Stephen,Medium
+44,52,Female,South Brittany,Low
+45,38,Other,Carpentertown,Low
+46,29,Male,Heatherville,High
+47,20,Female,New Shawn,High
+48,29,Female,Michelleland,Low
+49,33,Female,Lake Caitlinburgh,Medium
+50,58,Other,Beckyburgh,Medium
+51,73,Female,Cristinafurt,Low
+52,25,Female,Markview,High
+53,45,Male,Port Julia,Low
+54,41,Female,North Pamelafort,Low
+55,30,Male,West George,Medium
+56,52,Female,Charleston,High
+57,38,Other,West Isaac,Low
+58,50,Other,Lake Victoria,Low
+59,36,Other,Sarahview,Low
+60,19,Other,North Arthur,Low
+61,54,Female,South Emily,High
+62,32,Female,East Chasebury,High
+63,74,Male,Samuelbury,High
+64,37,Male,New Austinhaven,Low
+65,34,Other,Watersburgh,Medium
+66,55,Male,New Michael,High
+67,31,Other,Dennisshire,High
+68,40,Male,Wallaceside,Low
+69,40,Other,South Rachel,High
+70,51,Other,New Joseph,High
+71,65,Male,Delgadoshire,Low
+72,60,Female,Port David,High
+73,44,Other,Velezfort,Low
+74,76,Other,West Patricia,High
+75,39,Male,North Donna,Medium
+76,45,Female,Leonfurt,High
+77,60,Female,Chapmanshire,Medium
+78,68,Other,South Jasonside,Medium
+79,23,Male,Fostertown,Medium
+80,40,Other,Port Brian,Low
+81,56,Male,Kylemouth,Medium
+82,67,Other,Lake Terrance,High
+83,72,Female,New Larryside,Medium
+84,44,Male,Robertside,Medium
+85,38,Other,East Samueltown,High
+86,43,Male,Sylvialand,Medium
+87,20,Other,South Tanya,Low
+88,26,Female,East Jefferyfurt,High
+89,34,Other,New Christinatown,Medium
+90,35,Female,New Jessica,High
+91,19,Male,South Seanmouth,High
+92,34,Female,Allenbury,High
+93,39,Female,East Cynthiamouth,High
+94,20,Other,North Nicholasberg,Medium
+95,66,Other,Silvahaven,High
+96,49,Other,Michaelhaven,High
+97,56,Other,East Davidton,Medium
+98,51,Female,Jamesborough,High
+99,45,Other,East Kevin,Low
+100,29,Other,Lake Erin,Medium
+101,74,Other,North Laurenbury,Medium
+102,34,Other,Youngburgh,High
+103,47,Female,Lake Patty,High
+104,34,Other,South Robert,Medium
+105,56,Female,West Ashleyton,Medium
+106,45,Female,East Anthonystad,Medium
+107,50,Other,Rachelberg,Low
+108,72,Other,West Billyshire,High
+109,74,Other,New Johnton,Medium
+110,79,Other,West Megan,High
+111,63,Male,South Matthewside,Medium
+112,55,Other,Cookeland,Medium
+113,52,Male,East Ronaldchester,Medium
+114,49,Female,Mallorymouth,Medium
+115,69,Male,Pattyfort,Medium
+116,44,Female,Tylershire,Low
+117,54,Male,Jonesview,High
+118,42,Female,East Mckenzie,Medium
+119,52,Male,Johnsonfort,High
+120,72,Other,Kevinton,High
+121,38,Other,Johnfort,High
+122,76,Male,Lake Stevenburgh,Low
+123,36,Other,South John,Medium
+124,57,Male,Nguyenton,Low
+125,62,Female,South Anaside,Low
+126,32,Male,New Scottton,Low
+127,52,Male,West Glenberg,High
+128,49,Other,Frankview,Low
+129,47,Other,Port Jasminechester,High
+130,64,Male,South Elizabethberg,Low
+131,77,Other,Parkerport,High
+132,18,Male,South Georgemouth,Low
+133,56,Other,Dannytown,High
+134,53,Female,Jayland,Medium
+135,32,Female,Ebonyville,High
+136,71,Other,Walkershire,Low
+137,54,Female,Andrewbury,Medium
+138,73,Female,North Holly,Medium
+139,32,Female,Saraton,Low
+140,25,Other,East Larrystad,Low
+141,57,Male,Millerchester,Low
+142,74,Male,Lydiachester,Low
+143,76,Female,Edwardview,Low
+144,66,Female,Kevinland,Low
+145,40,Male,Meganborough,Medium
+146,58,Female,Lake Richardmouth,High
+147,55,Male,Millsberg,High
+148,39,Female,Castillomouth,Medium
+149,18,Other,West Angela,Medium
+150,52,Other,New Michael,Low
+151,56,Other,Roseton,Medium
+152,77,Female,New Dylan,Medium
+153,24,Other,Richardchester,High
+154,27,Male,Lake Jonathan,High
+155,22,Male,North Mary,High
+156,46,Male,Port Christinafurt,Medium
+157,50,Other,Michaelstad,Medium
+158,25,Other,North Catherineton,Medium
+159,47,Female,East Michael,Medium
+160,35,Other,Sparksborough,High
+161,20,Female,Port Mary,Medium
+162,56,Male,Ashleystad,Low
+163,33,Other,Baileyport,High
+164,44,Male,Lorimouth,Low
+165,25,Male,North Stephaniemouth,Medium
+166,34,Other,South Sheila,High
+167,53,Female,South Rebecca,High
+168,20,Male,South Samantha,High
+169,70,Other,Cowanbury,High
+170,39,Male,Lake Arthurton,Low
+171,71,Male,Lake Joseph,Low
+172,51,Other,Lake Jack,Low
+173,19,Male,Lake Tomfurt,Medium
+174,67,Other,New Megan,Low
+175,23,Other,Lake Kristaberg,High
+176,43,Male,Millerchester,High
+177,73,Female,Shawfurt,Medium
+178,32,Male,Glennport,High
+179,30,Male,Bennettton,High
+180,39,Female,New Henry,High
+181,54,Other,Phillipshaven,Medium
+182,70,Male,Lake Michelle,Low
+183,76,Male,Lake Travis,Medium
+184,41,Other,Hernandezfurt,Low
+185,70,Female,Port Elaine,Medium
+186,30,Female,Hesshaven,Medium
+187,65,Female,Stewartburgh,High
+188,47,Other,Mitchellland,High
+189,35,Other,Joshuamouth,Medium
+190,41,Male,South Johnbury,High
+191,38,Male,Perkinsfort,High
+192,66,Female,Lake Robertfort,High
+193,31,Other,Smithtown,High
+194,54,Other,Lake Brian,Low
+195,63,Male,West Brenda,High
+196,28,Female,Victorfurt,High
+197,54,Female,Weaverview,Low
+198,47,Other,Reneeberg,High
+199,43,Female,Port Kathrynport,Low
+200,73,Male,South Elaine,Medium
+201,37,Other,East Johnfort,Medium
+202,18,Other,East David,High
+203,77,Other,Port Kimberly,Medium
+204,74,Other,Triciamouth,Low
+205,55,Female,Stacieburgh,Low
+206,32,Female,East Terriberg,Low
+207,25,Male,Davisstad,High
+208,27,Male,West Clintonshire,Medium
+209,69,Other,Bowmanshire,Medium
+210,52,Male,West Robert,High
+211,32,Male,West Elizabethfort,High
+212,52,Other,Carolside,Low
+213,77,Female,Jamestown,Medium
+214,26,Other,Cherylburgh,Medium
+215,49,Male,Johnhaven,High
+216,37,Female,Monicashire,High
+217,64,Male,Wellsmouth,Medium
+218,51,Male,Kochview,Low
+219,46,Female,Joshuaberg,Low
+220,24,Female,Mckenzieberg,Low
+221,22,Male,Donaldhaven,High
+222,47,Other,Elizabethbury,High
+223,57,Male,North Edwin,Medium
+224,42,Female,Jacobtown,High
+225,44,Male,West Paul,High
+226,36,Male,South Nancy,Low
+227,19,Female,Harveytown,Low
+228,68,Male,West Michelefort,Low
+229,52,Female,South Kevin,Medium
+230,19,Female,North Emilyhaven,High
+231,31,Other,Port Hollymouth,Low
+232,40,Female,Burkeborough,Medium
+233,73,Other,Barnettfurt,Low
+234,80,Male,Annahaven,Low
+235,35,Male,North Matthewtown,Medium
+236,72,Female,Chavezshire,Low
+237,66,Other,South Linda,High
+238,66,Other,Perezview,Medium
+239,18,Male,Port Stephaniemouth,High
+240,76,Male,East Jacqueline,Medium
+241,69,Female,Port Michaelberg,Medium
+242,51,Other,North Calvin,Medium
+243,47,Female,Taylorshire,Low
+244,50,Female,South Joelton,Low
+245,41,Male,Kendraview,High
+246,50,Other,North Keithview,Medium
+247,55,Other,East Jorge,High
+248,18,Other,New James,Medium
+249,55,Female,South Alexville,Medium
+250,63,Female,Port Sharon,Medium
+251,36,Male,East Caitlin,High
+252,70,Male,Willieborough,Low
+253,47,Male,Deniseberg,Medium
+254,58,Female,South Christopherland,Low
+255,71,Female,Perkinschester,High
+256,65,Female,Lake Laurenhaven,Medium
+257,26,Female,Angelashire,High
+258,55,Male,South Melindahaven,Medium
+259,74,Other,Courtneyfurt,High
+260,30,Other,Alexandrafurt,Low
+261,49,Female,Tapialand,High
+262,66,Other,Laurenstad,Low
+263,52,Other,Pearsonberg,Medium
+264,78,Other,North Michael,Medium
+265,27,Female,West Erin,High
+266,79,Female,Deannaburgh,Medium
+267,30,Female,Lake Natashabury,Medium
+268,29,Male,North Madisonmouth,Low
+269,23,Female,Markbury,Low
+270,18,Other,Williamschester,Medium
+271,61,Male,Thomasfort,Low
+272,18,Other,South Hannah,Low
+273,57,Female,Johnsonbury,Medium
+274,27,Other,South Rebeccaview,Low
+275,69,Other,Lake Bryceview,Low
+276,55,Female,Mcintoshburgh,Low
+277,35,Female,Laurenbury,Medium
+278,20,Female,Wiseberg,Medium
+279,48,Female,North Ericstad,Medium
+280,57,Other,Lake Heather,Medium
+281,31,Other,Williamsburgh,High
+282,74,Female,Armstrongchester,High
+283,74,Male,North Catherine,Low
+284,61,Male,Lake Amberport,Medium
+285,42,Other,South Lynnchester,Medium
+286,39,Female,Nguyentown,Medium
+287,52,Male,South Joel,Low
+288,73,Other,West Robertshire,High
+289,42,Female,Port Jacquelinemouth,High
+290,75,Other,Cochranbury,Medium
+291,39,Female,Taylorborough,High
+292,54,Female,Coopermouth,High
+293,57,Female,Hebertchester,High
+294,32,Male,South Jenniferberg,High
+295,65,Male,New Amy,Medium
+296,57,Other,Lake Rossfurt,High
+297,26,Male,Jaimetown,High
+298,77,Other,Shaffermouth,Medium
+299,28,Other,Jasonmouth,Medium
+300,39,Female,Castroborough,High
+301,46,Female,Lake Susanbury,Low
+302,63,Female,Breannafort,Low
+303,38,Male,Sharonchester,Low
+304,18,Male,Port Michael,Low
+305,66,Other,Port Carolynville,Medium
+306,53,Female,South Travis,Medium
+307,37,Male,Faulknerstad,High
+308,22,Male,Kerrfurt,High
+309,38,Male,Frenchside,Low
+310,45,Other,New Jeremy,Low
+311,23,Male,South Joe,Low
+312,32,Female,Stephanieshire,Low
+313,80,Other,Port Michael,High
+314,51,Other,East Robert,Medium
+315,79,Female,Karenside,High
+316,19,Female,Port Hannahhaven,High
+317,36,Male,Davidshire,Low
+318,54,Other,Brownview,High
+319,46,Female,South Rachel,Low
+320,64,Other,Kevinfort,Medium
+321,42,Female,Julieside,Low
+322,50,Other,Hicksmouth,High
+323,41,Male,East Teresaton,Medium
+324,63,Female,New Annette,High
+325,60,Other,Alexanderberg,High
+326,54,Male,New Jefferyview,Medium
+327,36,Male,Kaylaside,Low
+328,71,Female,Anthonybury,Low
+329,36,Female,Stewartbury,Medium
+330,75,Male,North Jefferyborough,Low
+331,69,Other,East Wendy,Low
+332,60,Male,East Scott,Low
+333,38,Female,Darlenefort,Medium
+334,60,Female,Cookfort,Low
+335,27,Other,New Kimberlyport,High
+336,20,Other,New Paul,Medium
+337,75,Male,North Sarah,Low
+338,26,Other,Saraland,Medium
+339,58,Other,Jennifertown,Low
+340,30,Other,West Maryview,High
+341,52,Male,Howellfurt,High
+342,34,Male,Lindaborough,Medium
+343,70,Male,Lisamouth,Low
+344,61,Male,Joshuaside,Low
+345,44,Other,Danielleberg,High
+346,57,Female,West Kaylabury,Low
+347,67,Male,Lindsayfurt,Medium
+348,76,Other,Hendersonview,Low
+349,20,Female,Port Pamelachester,High
+350,28,Female,East Adrian,High
+351,45,Female,Sullivanfort,High
+352,73,Male,Castrotown,Low
+353,53,Other,Stephenmouth,Medium
+354,47,Other,Dorothyshire,Medium
+355,54,Male,Marcoview,Low
+356,50,Other,North Sarashire,High
+357,67,Other,Larsonview,Low
+358,78,Other,Jacksonshire,Medium
+359,65,Female,Jonathanside,Medium
+360,73,Male,Stoutmouth,Low
+361,80,Female,Richmondton,High
+362,38,Other,Vegaside,Low
+363,78,Other,Lake Sydneyberg,Low
+364,58,Female,Crawfordfort,Medium
+365,41,Male,North Jenniferchester,Medium
+366,35,Other,Matthewstad,Medium
+367,64,Male,North Lisaburgh,Low
+368,68,Male,Lake Gregory,High
+369,55,Male,Joyside,High
+370,24,Male,East Michaelbury,High
+371,21,Other,North Randy,High
+372,53,Other,West Stephanieton,Low
+373,65,Female,Lindseyburgh,Medium
+374,56,Male,North Roberthaven,Medium
+375,59,Female,West Jasonfurt,High
+376,32,Female,East Angelaside,Medium
+377,74,Female,Whitechester,Medium
+378,22,Other,Sheppardbury,Medium
+379,60,Female,Saraville,High
+380,35,Female,Johnsonmouth,High
+381,51,Male,Thomasfort,Low
+382,71,Male,Nortonport,High
+383,69,Female,East Alex,Medium
+384,77,Other,Joanneshire,Medium
+385,69,Male,Paulside,Medium
+386,68,Other,Port Rachel,Low
+387,74,Other,Christensenborough,High
+388,56,Other,Wadeton,High
+389,23,Male,Brendabury,High
+390,37,Female,West Susan,Low
+391,44,Female,Williamhaven,Low
+392,49,Female,Port Christopherburgh,Low
+393,29,Male,Roseborough,High
+394,49,Other,Sallytown,High
+395,40,Male,Littlechester,Low
+396,66,Other,Jessicaberg,Low
+397,72,Male,West Joseph,Medium
+398,21,Other,Rosefort,High
+399,63,Female,Port Patriciaton,Medium
+400,60,Other,Jeffreyburgh,High
+401,24,Other,Keithville,Low
+402,79,Male,Garrettfurt,Medium
+403,20,Other,Joyland,High
+404,42,Other,New Alexisbury,Medium
+405,66,Female,Lake Jessicaborough,Low
+406,62,Male,North Melindaside,Low
+407,72,Other,Burtonville,High
+408,19,Female,Pamelamouth,Low
+409,62,Male,Jamesmouth,Medium
+410,66,Other,Brownhaven,High
+411,56,Male,Richardsonborough,High
+412,28,Other,West Deborah,Low
+413,74,Male,Kellyview,Low
+414,39,Female,West Gina,Low
+415,46,Other,Lake James,Low
+416,20,Female,Seanchester,Medium
+417,26,Female,South Tanyaside,High
+418,38,Male,Boydmouth,High
+419,40,Male,West Lisa,Medium
+420,80,Male,New Jimmy,Low
+421,78,Male,West John,Low
+422,21,Male,Jaychester,High
+423,35,Other,Lake Tammy,High
+424,24,Other,East Briana,Medium
+425,48,Other,Suarezfort,High
+426,69,Male,Ryanstad,Medium
+427,70,Other,Joelfort,Medium
+428,69,Female,Lake Vanessaview,Medium
+429,36,Male,Michellemouth,Medium
+430,37,Male,North Kyle,Low
+431,46,Other,North Derrickstad,Medium
+432,50,Male,Timothyburgh,Medium
+433,58,Other,Port Jonathanhaven,Medium
+434,70,Other,Mooreburgh,High
+435,28,Female,North Michael,Low
+436,50,Female,West Donald,High
+437,50,Other,South Dawn,High
+438,44,Male,North Michael,Medium
+439,73,Other,East Juan,High
+440,53,Female,South Dawnview,Low
+441,44,Male,Campbellbury,Low
+442,69,Other,South Amber,Low
+443,67,Other,East Christinatown,Medium
+444,24,Female,Hessmouth,Medium
+445,21,Female,East Melissaview,Medium
+446,31,Other,Markshire,High
+447,80,Female,Garciaberg,Medium
+448,63,Male,East Allison,High
+449,19,Female,New Ivanton,High
+450,75,Female,Lorifurt,Low
+451,38,Male,Alyssamouth,Medium
+452,60,Female,Hooperberg,High
+453,41,Female,Robertmouth,Low
+454,52,Other,Lake Davidfurt,Medium
+455,56,Male,Floydburgh,Medium
+456,40,Female,West Shawnton,High
+457,42,Female,Williamston,High
+458,34,Female,Hannahbury,Low
+459,71,Other,West Alexismouth,Medium
+460,77,Male,Karenburgh,High
+461,35,Other,Dustinchester,High
+462,21,Male,South Johnshire,Medium
+463,27,Female,East Vanessa,High
+464,53,Other,East Stephanie,High
+465,78,Male,Lake Ronaldville,Low
+466,63,Female,Williammouth,High
+467,63,Other,Schroederbury,Low
+468,57,Male,South Kevinshire,Low
+469,43,Male,East Kimberly,Medium
+470,54,Male,Kimfort,Medium
+471,76,Male,Randallhaven,Low
+472,75,Other,Jonathanchester,Medium
+473,48,Female,Nathanmouth,Medium
+474,37,Other,East Jason,Low
+475,32,Male,Marilynfort,Low
+476,64,Male,Langfurt,Medium
+477,24,Male,Bartonshire,Low
+478,33,Female,Lake Christianton,Low
+479,26,Other,Gonzalezburgh,Low
+480,54,Male,East Karen,High
+481,49,Other,Kendramouth,Medium
+482,50,Male,East Dakotaland,Medium
+483,46,Male,Port Sue,Low
+484,47,Male,Garciaton,High
+485,62,Female,Lake William,High
+486,21,Male,East Wendy,Medium
+487,69,Male,Lake Anthony,Low
+488,62,Female,New Matthew,High
+489,40,Male,Lake Catherine,Low
+490,56,Female,Jeremystad,Low
+491,80,Female,New Jessica,Medium
+492,33,Other,South Latasha,Low
+493,54,Female,Walkershire,Medium
+494,57,Female,Aprilside,Medium
+495,76,Other,New Leslie,Medium
+496,78,Female,Port Kathy,Medium
+497,67,Other,Brownland,Low
+498,18,Other,North Janet,Medium
+499,50,Other,Marvinchester,High
+500,31,Other,Matthewport,Medium
+501,32,Male,Dannystad,Medium
+502,33,Female,Jilltown,Medium
+503,64,Male,North Keithborough,Medium
+504,62,Male,West Melissa,High
+505,39,Female,Port Ann,Low
+506,76,Male,North Elizabethfort,Medium
+507,55,Other,Maldonadoshire,High
+508,59,Other,Sarahfort,High
+509,24,Female,Kevinstad,Low
+510,80,Male,Lake Robertmouth,High
+511,53,Male,West Jacobborough,High
+512,66,Male,Johnland,Low
+513,40,Other,Williamsland,High
+514,27,Male,West James,Medium
+515,79,Male,New Curtis,Medium
+516,19,Female,Gabrielleton,Low
+517,57,Other,Kaylaland,Low
+518,62,Female,Hodgesmouth,High
+519,22,Female,Lake Christineview,High
+520,20,Female,Jesusborough,Low
+521,47,Male,Walkerport,Low
+522,75,Male,South James,Medium
+523,48,Male,North Georgeburgh,High
+524,37,Female,New Raymondbury,Low
+525,42,Other,South Laura,Low
+526,62,Female,Jenniferfurt,Medium
+527,66,Female,South Kevintown,Medium
+528,25,Other,New Christophermouth,Low
+529,32,Male,Lake Debraside,Medium
+530,45,Male,Kimberlyfurt,High
+531,48,Other,East Tiffany,Low
+532,23,Female,East Deniseland,Medium
+533,71,Other,East Diana,Low
+534,22,Female,New Christophermouth,Medium
+535,37,Male,Richardsonfort,Medium
+536,64,Other,Shawchester,Low
+537,80,Other,Robinfort,Low
+538,19,Female,South Pedrotown,Low
+539,74,Female,Buckbury,Low
+540,21,Male,North Natalie,High
+541,29,Male,Flemingview,High
+542,80,Other,South Jeremyfort,Low
+543,39,Female,Andersonborough,Low
+544,80,Female,North Jacob,High
+545,69,Other,West Elizabeth,Medium
+546,75,Male,North Desireetown,High
+547,71,Other,Adamsside,Medium
+548,79,Male,East Michael,Medium
+549,61,Female,Rowehaven,Low
+550,43,Other,New Pamelafurt,High
+551,41,Male,Monicaborough,High
+552,36,Female,Catherineport,Low
+553,58,Female,Lake Alexanderchester,Low
+554,56,Male,Harrisland,High
+555,59,Male,New Justinburgh,Low
+556,74,Other,West Jenniferland,High
+557,42,Other,Lake Davidport,Medium
+558,48,Female,Jordanhaven,Low
+559,29,Male,West Kathryn,Low
+560,58,Female,Orozcoshire,Medium
+561,30,Other,New Brooke,Low
+562,46,Female,New Jonathan,Low
+563,44,Other,Hillborough,Medium
+564,33,Male,Lake Heather,Low
+565,36,Other,East Michaelport,High
+566,28,Female,Lake Christopherburgh,High
+567,31,Other,Saundersmouth,Low
+568,57,Female,East Oscar,Low
+569,44,Female,Deniseberg,Low
+570,68,Other,New James,High
+571,24,Female,Lake Kelseymouth,Medium
+572,31,Female,Clarkburgh,High
+573,26,Other,East Shawn,Medium
+574,80,Other,Ritaview,Low
+575,80,Female,Port Robertport,High
+576,70,Female,Krystalside,High
+577,24,Female,South Virginiaview,Medium
+578,40,Female,East Joseph,Low
+579,34,Other,Kathyton,Medium
+580,68,Female,East Travisfurt,Low
+581,54,Female,Port Apriltown,High
+582,33,Female,Jamesshire,Medium
+583,54,Other,Jordanberg,High
+584,40,Male,New Sheena,Low
+585,33,Other,Fergusonberg,Low
+586,69,Male,Dalebury,Medium
+587,80,Female,South Tiffanyport,Low
+588,28,Male,East Anthonyberg,High
+589,26,Female,New Richard,High
+590,78,Female,Colemanburgh,Medium
+591,63,Female,Port Anthonyside,High
+592,32,Other,Owenland,High
+593,42,Other,New Nicolefort,High
+594,49,Male,Perkinsbury,High
+595,46,Other,North Christinafurt,High
+596,18,Male,New Matthewfurt,Low
+597,77,Other,Jonathanborough,High
+598,24,Male,West Christophermouth,Medium
+599,35,Male,West Maria,Low
+600,57,Other,Belindaside,High
+601,37,Other,North Joyce,Medium
+602,43,Other,Phillipsview,High
+603,39,Male,Glassburgh,High
+604,56,Other,Jessicafort,High
+605,67,Female,South Gregory,Medium
+606,34,Other,East Christinaton,Medium
+607,78,Male,Port Samantha,High
+608,69,Other,Ryanport,Medium
+609,50,Female,Franklinhaven,Medium
+610,78,Male,Dudleyhaven,Medium
+611,51,Male,West Kimberly,High
+612,22,Male,Taylormouth,Low
+613,69,Male,Phillipsfurt,Medium
+614,73,Male,Amyfurt,Low
+615,57,Female,West Paul,Low
+616,60,Female,Phamhaven,Low
+617,73,Other,South Kelly,Medium
+618,44,Other,Melissafort,Low
+619,33,Female,Clarkeberg,Low
+620,66,Female,Port Latoya,Medium
+621,36,Other,Schroederfort,Low
+622,25,Female,South Kelly,High
+623,24,Female,North Thomas,High
+624,45,Other,Isaacfort,Medium
+625,44,Other,Barbaraport,Low
+626,37,Other,Reginaldton,High
+627,49,Male,Rodriguezton,Low
+628,61,Other,Franciscoborough,High
+629,55,Male,Farleyfort,High
+630,79,Female,Port Rubenmouth,High
+631,60,Male,Millerfurt,Medium
+632,25,Female,Hawkinsshire,High
+633,25,Male,New Daniel,High
+634,46,Other,Port Denisemouth,Low
+635,47,Male,East Bradleyfort,Low
+636,21,Other,Barbarastad,High
+637,52,Other,South Brian,Medium
+638,51,Female,East Katherinehaven,Low
+639,45,Female,Robinsonfort,Low
+640,28,Other,Sherrichester,Low
+641,54,Female,South John,Medium
+642,78,Other,Anthonyfurt,Medium
+643,38,Female,Potterchester,High
+644,76,Other,Greenefort,Low
+645,36,Male,Ellisbury,Medium
+646,75,Female,Ruizton,High
+647,22,Female,Smithchester,High
+648,20,Other,North David,Medium
+649,53,Female,Kristenville,Medium
+650,56,Female,Hamiltonburgh,Medium
+651,73,Female,Sawyertown,Medium
+652,56,Female,West Christinemouth,High
+653,60,Male,South Nathan,Medium
+654,56,Male,West Gregoryburgh,High
+655,29,Other,New Nicolefort,Low
+656,60,Male,West Tracey,Low
+657,68,Male,Yanghaven,High
+658,28,Other,Lake Marilyntown,Medium
+659,77,Male,South Craig,High
+660,66,Male,Barrettland,High
+661,41,Male,Port Courtney,Medium
+662,77,Female,South Josephstad,Low
+663,20,Other,Lake Kyle,High
+664,51,Other,Lake Benjaminburgh,High
+665,38,Other,Wilsonfort,Low
+666,75,Male,Lopezmouth,Medium
+667,51,Other,Jeanview,Low
+668,35,Female,South Debbietown,Medium
+669,75,Female,Billyshire,Medium
+670,25,Female,Lake Danielburgh,Medium
+671,39,Male,Lake Brendaton,Medium
+672,76,Male,West Drew,High
+673,30,Male,Port Anna,Medium
+674,32,Female,Port Sherry,Low
+675,50,Other,Hayschester,High
+676,18,Female,Port Karinamouth,Medium
+677,70,Other,South Kellifort,Low
+678,50,Female,West Dawn,Low
+679,46,Female,Lake Michaelhaven,Medium
+680,35,Other,Michaelfort,Medium
+681,45,Female,Gibsontown,High
+682,36,Male,Port Robert,Low
+683,28,Male,East Stephanie,High
+684,29,Other,Schmidtland,Medium
+685,60,Female,Kimberlyhaven,High
+686,60,Other,Gonzalezberg,Low
+687,29,Female,Michaelburgh,Medium
+688,52,Male,Amberborough,High
+689,66,Female,Stevenburgh,Low
+690,53,Other,Matthewland,Low
+691,63,Male,Patrickhaven,Low
+692,68,Female,North Kennethland,High
+693,25,Female,North Shelly,High
+694,75,Male,East Taylor,Low
+695,66,Female,Hurstchester,Medium
+696,77,Female,Mcmillanport,Medium
+697,36,Male,South John,Low
+698,23,Other,Port Rebecca,Low
+699,76,Male,Lake Aprilhaven,Medium
+700,33,Other,Thomasport,High
+701,54,Other,Murphybury,Low
+702,47,Male,Shawnfort,Low
+703,31,Female,Port Lisa,High
+704,80,Male,Kaylafurt,High
+705,75,Female,West Amanda,Low
+706,79,Male,East Mark,Medium
+707,31,Other,Wilsonshire,High
+708,79,Other,West Arthurmouth,Low
+709,28,Other,North Ashleyborough,High
+710,33,Other,East Jeremyland,Low
+711,58,Other,Michelleport,High
+712,37,Male,East Laurie,Low
+713,74,Other,North Timothy,Low
+714,41,Male,Nolanview,High
+715,22,Other,Rodriguezfurt,Low
+716,68,Male,New Johnton,High
+717,49,Female,Lake Susan,Medium
+718,39,Female,Daymouth,High
+719,21,Male,Port Hollyberg,High
+720,51,Female,South Anita,Low
+721,52,Other,Melissahaven,High
+722,19,Other,Davisport,High
+723,41,Other,Marcfurt,High
+724,25,Other,New George,High
+725,38,Female,Nicoleville,High
+726,34,Other,North Barbaraport,High
+727,72,Female,Lake Pedroside,Low
+728,26,Male,Joshuabury,Low
+729,80,Male,South Matthewfurt,Low
+730,55,Female,Jasonland,High
+731,25,Female,Howardbury,Medium
+732,47,Male,North Stacytown,High
+733,47,Female,East Andrew,Low
+734,53,Male,East Tanner,Low
+735,80,Male,Sarahview,Medium
+736,23,Other,New Michelle,Medium
+737,54,Other,North Alicia,High
+738,73,Male,Huntport,Low
+739,44,Other,Maybury,Low
+740,55,Other,Tinamouth,Medium
+741,80,Other,North Shawnfort,High
+742,68,Other,Riverston,High
+743,19,Male,Aaronmouth,High
+744,25,Female,East Annahaven,Medium
+745,44,Female,Port Christina,High
+746,43,Male,New Stacychester,Low
+747,52,Other,Haneymouth,High
+748,71,Female,Scottside,High
+749,26,Female,New Drewshire,Low
+750,49,Female,Lake Miguel,Medium
+751,64,Male,Petersonborough,Medium
+752,35,Female,Hendersonborough,Medium
+753,38,Other,West Brianville,High
+754,73,Male,Davisborough,High
+755,26,Other,Rossbury,High
+756,76,Male,Lake Brenda,High
+757,79,Female,Ruthport,High
+758,23,Female,Stevefort,High
+759,27,Female,East Sheenafurt,Low
+760,70,Female,East Richard,Low
+761,30,Other,Millerfort,Medium
+762,50,Male,Goodwinville,High
+763,60,Female,Daleville,Medium
+764,24,Other,New Antoniomouth,Medium
+765,39,Female,North Jamie,Low
+766,47,Male,North Karen,Low
+767,56,Female,Mezastad,Medium
+768,41,Male,Janetton,Medium
+769,72,Female,Chasebury,Medium
+770,78,Male,Benjaminton,High
+771,48,Female,Elizabethtown,High
+772,60,Other,Lake Ashleychester,High
+773,77,Other,Johnsonshire,Low
+774,27,Other,West Roger,High
+775,76,Female,Port Lisa,High
+776,39,Male,Andrewchester,Medium
+777,53,Female,Juliestad,High
+778,40,Other,Thompsonfurt,Low
+779,64,Male,Lake Tabithaburgh,Low
+780,30,Male,Jillianstad,Low
+781,38,Male,Campbellland,High
+782,56,Male,Williamborough,Low
+783,53,Female,Lake Crystalborough,Low
+784,69,Other,Waltonchester,High
+785,71,Other,New Jocelyn,Low
+786,66,Male,South Kellyville,Medium
+787,67,Male,South Sandra,Medium
+788,36,Other,Mariahstad,High
+789,32,Male,Paulfurt,Low
+790,45,Other,Lewisburgh,High
+791,80,Female,Melindaberg,Low
+792,57,Male,Jacobmouth,Low
+793,78,Male,Pattersonchester,Medium
+794,30,Female,South Brianburgh,Medium
+795,63,Female,East Jasonland,Low
+796,74,Other,South Deborahland,High
+797,47,Female,Mcintoshside,Low
+798,28,Female,New Douglasland,High
+799,29,Female,West Marcusport,Medium
+800,67,Female,North Rebecca,High
+801,67,Male,Port Julieview,High
+802,43,Other,West Scott,High
+803,28,Female,Samuelside,Medium
+804,65,Male,New Kyleland,Medium
+805,22,Other,Brandyfort,High
+806,66,Other,Holmesberg,Medium
+807,31,Male,New Shannonbury,High
+808,37,Other,Ianborough,Medium
+809,27,Other,Saraberg,High
+810,22,Male,Hallville,Low
+811,21,Female,Kylemouth,Medium
+812,26,Male,Lauraborough,High
+813,53,Other,Fordfort,Medium
+814,43,Male,Perrystad,Medium
+815,78,Other,Port Karen,High
+816,27,Male,Mariahport,Medium
+817,60,Other,East Gregory,Medium
+818,78,Other,East Jenniferchester,High
+819,44,Female,Linville,Medium
+820,76,Male,Port Ronaldchester,High
+821,43,Female,North Jodimouth,Medium
+822,59,Male,Portertown,Low
+823,58,Female,North Jamesmouth,High
+824,24,Male,Michaeltown,Medium
+825,26,Other,Griffinfort,Medium
+826,70,Other,Richardsonville,Medium
+827,21,Male,Lopezport,High
+828,53,Male,East Adamshire,Low
+829,22,Other,North Kristymouth,Low
+830,49,Female,New Brooke,High
+831,54,Female,Brettshire,High
+832,69,Other,Hardingchester,Medium
+833,76,Female,Cuevasshire,High
+834,51,Male,Mercerfort,High
+835,77,Male,Lake Courtney,High
+836,34,Other,North Stephen,Low
+837,51,Female,Port Jeremy,High
+838,43,Female,Waltersburgh,High
+839,73,Female,Smithburgh,Low
+840,35,Male,Port Jeremiahburgh,High
+841,55,Other,Stewartmouth,High
+842,55,Male,Maciasfurt,Medium
+843,65,Female,Caseyland,Medium
+844,57,Other,Lake Lauren,Low
+845,45,Other,Lake Stephenview,Medium
+846,43,Other,East Willie,Medium
+847,66,Male,Andrewbury,Medium
+848,27,Female,Jessicatown,High
+849,28,Male,West Kayla,High
+850,63,Female,Kelliport,Medium
+851,47,Male,New Martinborough,Low
+852,60,Male,North Patrick,High
+853,73,Male,Lake Kristen,Low
+854,19,Male,South Robert,Medium
+855,75,Male,Port Brandonville,Medium
+856,31,Other,East Albert,Medium
+857,67,Male,Staffordhaven,Low
+858,76,Male,Port Danielle,Medium
+859,59,Male,Allenburgh,Medium
+860,23,Male,North Ian,Medium
+861,63,Male,Jonesville,High
+862,25,Female,West Natasha,Medium
+863,38,Male,Port Ronald,High
+864,72,Male,East Christinaton,High
+865,70,Male,Greenview,High
+866,65,Male,West Cynthia,Low
+867,35,Female,East Juan,Low
+868,22,Male,Vanessashire,Medium
+869,65,Other,Oliviachester,Low
+870,63,Male,Smithtown,Medium
+871,58,Male,North Erinborough,Low
+872,54,Other,North Travisport,Low
+873,72,Male,Carlosfort,High
+874,58,Other,New Jenniferfurt,Low
+875,56,Male,Port Karenside,High
+876,50,Other,Lake Kelli,Low
+877,53,Female,West Philip,Medium
+878,36,Other,West Cherylside,Low
+879,52,Male,New Tamara,High
+880,24,Female,Port Joseph,Medium
+881,75,Other,Hillberg,High
+882,67,Female,Monicafort,High
+883,60,Other,Port Curtisborough,Low
+884,76,Other,East Erinton,Low
+885,73,Female,Taylormouth,High
+886,42,Female,Joneston,Medium
+887,68,Other,West Johnside,Low
+888,66,Male,Marvinfurt,Medium
+889,51,Female,North Williamview,Low
+890,51,Other,Perryview,Medium
+891,40,Female,South Tracy,Low
+892,78,Female,East Allisonview,Low
+893,48,Female,Yangfort,Low
+894,28,Other,Huffland,Low
+895,39,Other,Johnsonmouth,Low
+896,62,Other,West Rachel,Low
+897,52,Male,South Michaeltown,Low
+898,65,Female,North Joshuatown,High
+899,36,Male,New Thomasberg,Low
+900,74,Other,North Jennifer,Medium
+901,45,Female,West Kennethton,Medium
+902,71,Male,Port Christopher,Low
+903,78,Male,South Carlosstad,Low
+904,35,Female,North Kristen,Low
+905,47,Female,Gregoryland,Medium
+906,54,Female,West James,High
+907,28,Male,East Catherineland,Medium
+908,27,Other,West Megan,Low
+909,73,Male,Wallacebury,Medium
+910,55,Female,South Tanya,High
+911,41,Female,Fitzgeraldtown,High
+912,50,Female,Port Jeremiahbury,Medium
+913,27,Male,North Jonathan,Medium
+914,25,Male,South Shelbyhaven,Medium
+915,22,Female,Charlesbury,High
+916,18,Other,Port Keith,Medium
+917,24,Other,Sherryhaven,Low
+918,26,Other,New Sandramouth,Low
+919,65,Male,Rodriguezland,Low
+920,74,Male,New Scott,Low
+921,48,Male,East Elizabeth,High
+922,53,Male,East Tara,Medium
+923,28,Female,New Louis,High
+924,18,Other,East Gabriel,Low
+925,37,Other,Bryanchester,Low
+926,44,Other,New Nicholas,Low
+927,50,Female,East Michael,Low
+928,50,Other,Matthewmouth,Medium
+929,25,Male,Martintown,Medium
+930,71,Other,Davidburgh,Low
+931,26,Other,New Kyleview,Low
+932,40,Other,Dustinside,Low
+933,25,Other,New Patrickhaven,Low
+934,80,Other,New Andresmouth,Low
+935,63,Female,West Johnchester,Medium
+936,55,Female,North Samantha,Medium
+937,21,Other,Stephenstad,Medium
+938,50,Male,Michaelchester,Medium
+939,19,Female,Port Tammy,Medium
+940,59,Other,South Arthur,High
+941,19,Other,South Jeremyport,High
+942,77,Male,South Joannview,Medium
+943,62,Female,East Brittney,Low
+944,26,Other,South Thomasstad,Medium
+945,55,Female,South Alanstad,Low
+946,43,Female,East Roberta,Medium
+947,67,Female,Kimberlyton,Medium
+948,50,Male,West Pamelafurt,Medium
+949,35,Female,Mooreborough,Low
+950,71,Male,Port Markhaven,Low
+951,42,Male,South Whitney,Medium
+952,56,Male,New Anita,Low
+953,78,Female,Lake Vanessashire,Medium
+954,70,Other,Port Ashleyport,High
+955,64,Other,Victoriastad,Medium
+956,23,Male,Lake Alexanderberg,High
+957,21,Female,New Brandon,Medium
+958,60,Male,Brownfort,Low
+959,70,Other,Kington,Medium
+960,70,Other,North Robert,High
+961,62,Female,South Christina,High
+962,26,Male,Maymouth,High
+963,73,Other,Bradleymouth,High
+964,70,Female,New Robert,High
+965,28,Male,Port Anthony,High
+966,22,Female,Port Michael,Low
+967,65,Other,West Jasonton,Medium
+968,80,Other,Colontown,Medium
+969,50,Other,Hornebury,Low
+970,23,Other,South Laurenchester,High
+971,37,Male,West Brian,High
+972,33,Other,New Cheryl,Medium
+973,53,Male,South Ryanton,Low
+974,22,Male,New Wendyburgh,High
+975,67,Female,Annchester,High
+976,37,Male,Ericaton,Medium
+977,29,Male,North Pamelaborough,Medium
+978,25,Female,Meganborough,Low
+979,53,Female,East Robert,High
+980,18,Female,Lucerofort,High
+981,43,Other,Sherriburgh,Low
+982,29,Female,East Shaneville,High
+983,18,Female,Bonniefort,Low
+984,45,Female,Lake Andrewstad,High
+985,62,Male,Benjaminstad,High
+986,71,Other,Maryville,Low
+987,51,Other,Brendaside,High
+988,48,Female,Archerburgh,Medium
+989,79,Male,North Maureen,Medium
+990,69,Female,Mayoton,High
+991,19,Male,Scottbury,Low
+992,45,Other,North Christophershire,Low
+993,69,Male,Lake Toni,Medium
+994,59,Other,Port Christina,Medium
+995,19,Other,Haydenville,Medium
+996,73,Other,South Edward,High
+997,61,Female,Seanberg,Medium
+998,24,Female,South Anamouth,Low
+999,71,Female,East Garyfort,High
+1000,26,Female,Josephland,High

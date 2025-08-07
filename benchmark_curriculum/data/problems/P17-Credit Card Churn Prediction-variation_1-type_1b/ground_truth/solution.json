@@ -1,0 +1,20 @@
+{
+    "enriched_column_names": [
+        "number_of_marketing_campaigns_responded_to_in_the_last_quarter",
+        "average_spending_per_transaction_in_the_past_year",
+        "change_in_monthly_payment_amounts_over_the_last_year",
+        "proportion_of_income_spent_using_credit_cards_monthly",
+        "frequency_of_customer_service_interactions_in_the_last_6_months",
+        "past_late_payment_frequency_in_the_last_year",
+        "change_in_transaction_amount_trend_over_the_last_24_months"
+    ],
+    "features_descriptions": [
+        "number of marketing campaigns responded to in the last quarter",
+        "average spending per transaction in the past year",
+        "change in monthly payment amounts over the last year",
+        "proportion of income spent using credit cards monthly",
+        "frequency of customer service interactions in the last 6 months",
+        "past late payment frequency in the last year",
+        "change in transaction amount trend over the last 24 months"
+    ]
+}

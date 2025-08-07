@@ -1,0 +1,53 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "total_maintenance_count",
+        "unresolved_issues",
+        "mean_time_between_maintenance",
+        "issue_count",
+        "pressure_variance",
+        "days_since_last_issue",
+        "days_since_last_maintenance"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.3439117391280746": {
+            "name": "total_maintenance_count",
+            "code": "\n\ndef total_maintenance_count(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    maintenance_logs = aux_dataframes['maintenance_records_table.csv']\n    battery_maintenance_logs = maintenance_logs[maintenance_logs[\"battery_id\"] == row[\"battery_id\"]]\n    return battery_maintenance_logs.shape[0]\n"
+        },
+        "0.10888172144967465": {
+            "name": "unresolved_issues",
+            "code": "\n\ndef unresolved_issues(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    issue_logs = aux_dataframes['issue_resolution_logs_table.csv']\n    # Filter issue logs for the specific battery_id\n    battery_issue_logs = issue_logs[issue_logs[\"battery_id\"] == row[\"battery_id\"]]\n    # Check for unresolved issues (where issue_resolved_date is NaN)\n    unresolved = battery_issue_logs[battery_issue_logs[\"issue_resolved_date\"].isna()]\n    return unresolved.shape[0]\n"
+        },
+        "0.1022238072469922": {
+            "name": "mean_time_between_maintenance",
+            "code": "import pandas as pd\n\ndef mean_time_between_maintenance(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    maintenance_logs = aux_dataframes['maintenance_records_table.csv']\n    battery_maintenance_logs = maintenance_logs[maintenance_logs[\"battery_id\"] == row[\"battery_id\"]]\n    if battery_maintenance_logs.shape[0] < 2:\n        return None\n    battery_maintenance_logs[\"maintenance_date\"] = pd.to_datetime(battery_maintenance_logs[\"maintenance_date\"])\n    gaps = battery_maintenance_logs[\"maintenance_date\"].diff().dt.days\n    return gaps.mean()\n"
+        },
+        "0.0917031262666883": {
+            "name": "issue_count",
+            "code": "\n\ndef issue_count(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    issue_logs = aux_dataframes['issue_resolution_logs_table.csv']\n    battery_issue_logs = issue_logs[issue_logs[\"battery_id\"] == row[\"battery_id\"]]\n    return battery_issue_logs.shape[0]\n"
+        },
+        "0.0684040137064843": {
+            "name": "pressure_variance",
+            "code": "\n\ndef pressure_variance(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframes from aux_dataframes\n    battery_env_logs = aux_dataframes['environmental_conditions_table.csv']\n    issue_logs = aux_dataframes['issue_resolution_logs_table.csv']\n    \n    # Check the column names in the dataframes\n    # The issue_logs dataframe does not have a 'location_id' column.\n    # Instead, we need to join using the 'battery_id' column, which is common between the two dataframes.\n    \n    # Filter the environmental conditions for the specific battery_id in the current row\n    # Match the battery_id from the issue_logs with the battery_id in the current row\n    battery_logs = battery_env_logs[battery_env_logs[\"location_id\"].isin(\n        issue_logs[issue_logs[\"battery_id\"] == row[\"battery_id\"]][\"issue_id\"]\n    )]\n    \n    # Return the variance of the pressure column\n    if not battery_logs.empty:\n        return battery_logs[\"pressure\"].var()\n    else:\n        # If there are no matching logs, return None or a default value\n        return None\n"
+        },
+        "0.033657783527072285": {
+            "name": "days_since_last_issue",
+            "code": "import pandas as pd\n\ndef days_since_last_issue(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the issue resolution logs dataframe\n    issue_logs = aux_dataframes['issue_resolution_logs_table.csv']\n    \n    # Ensure the issue_resolved_date column is in datetime format\n    issue_logs['issue_resolved_date'] = pd.to_datetime(issue_logs['issue_resolved_date'], errors='coerce')\n    \n    # Filter the logs for the specific battery_id in the current row\n    battery_issue_logs = issue_logs[issue_logs[\"battery_id\"] == row[\"battery_id\"]]\n    \n    # If there are no issue logs for the battery, return None\n    if battery_issue_logs.shape[0] == 0:\n        return None\n    \n    # Get the most recent issue resolution date\n    last_issue_date = battery_issue_logs[\"issue_resolved_date\"].max()\n    \n    # If the last_issue_date is NaT (Not a Time), return None\n    if pd.isna(last_issue_date):\n        return None\n    \n    # Calculate the difference in days between the log date and the last issue resolution date\n    return (pd.to_datetime(row[\"timestamp\"]) - last_issue_date).days\n"
+        },
+        "0.03145934129602602": {
+            "name": "days_since_last_maintenance",
+            "code": "import pandas as pd\n\ndef days_since_last_maintenance(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    maintenance_logs = aux_dataframes['maintenance_records_table.csv']\n    # Filter maintenance logs for the specific battery_id\n    battery_maintenance_logs = maintenance_logs[maintenance_logs[\"battery_id\"] == row[\"battery_id\"]]\n    # If no maintenance logs exist for the battery, return None\n    if battery_maintenance_logs.shape[0] == 0:\n        return None\n    # Get the most recent maintenance date\n    last_maintenance_date = battery_maintenance_logs[\"maintenance_date\"].max()\n    # Calculate the number of days since the last maintenance\n    return (pd.to_datetime(row[\"timestamp\"]) - pd.to_datetime(last_maintenance_date)).days\n"
+        }
+    },
+    "feature_descriptions": [
+        "total maintenance count",
+        "unresolved issues",
+        "mean time between maintenance",
+        "issue count",
+        "pressure variance",
+        "days since last issue",
+        "days since last maintenance"
+    ]
+}

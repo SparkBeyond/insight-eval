@@ -1,0 +1,26 @@
+{
+    "enriched_column_names": [
+        "recurring_issues_reported_in_support",
+        "total_billing_amount_unpaid_in_the_past_year",
+        "frequency_of_overdue_payments_in_the_last_year",
+        "trend_in_monthly_billing_amounts_for_the_past_year",
+        "time_since_last_support_ticket_resolution",
+        "monthly_usage_drop_percentage_in_the_past_six_months",
+        "support_ticket_to_usage_ratio_over_six_months",
+        "number_of_unresolved_support_tickets_within_a_year",
+        "peak_usage_time_deviation",
+        "usage_diversity_number_of_unique_action_types_in_the_last_quarter"
+    ],
+    "features_descriptions": [
+        "recurring issues reported in support",
+        "total billing amount unpaid in the past year",
+        "frequency of overdue payments in the last year",
+        "trend in monthly billing amounts for the past year",
+        "time since last support ticket resolution",
+        "monthly usage drop percentage in the past six months",
+        "support ticket to usage ratio over six months",
+        "number of unresolved support tickets within a year",
+        "peak usage time deviation",
+        "usage diversity number of unique action types in the last quarter"
+    ]
+}

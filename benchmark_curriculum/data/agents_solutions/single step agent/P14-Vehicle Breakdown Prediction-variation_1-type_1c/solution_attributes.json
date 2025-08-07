@@ -1,0 +1,83 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "breakdown_history_rate",
+        "past_breakdown_frequency",
+        "engine_temp_deviation",
+        "avg_fuel_efficiency",
+        "most_frequent_route",
+        "average_time_deviation",
+        "idle_percentage",
+        "stop_count_per_route",
+        "avg_distance_between_stops",
+        "avg_trip_duration",
+        "total_trips_completed",
+        "overloading_events"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.8042133041091662": {
+            "name": "breakdown_history_rate",
+            "code": "import pandas as pd\n\ndef breakdown_history_rate(row, df_train):\n    vehicle_id = row['vehicle_id']\n    rate = df_train[df_train['vehicle_id'] == vehicle_id]['will_breakdown'].mean()\n    return rate if not pd.isna(rate) else 0.0\n"
+        },
+        "0.7558319099353483": {
+            "name": "past_breakdown_frequency",
+            "code": "\n\ndef past_breakdown_frequency(row, df_train):\n    vehicle_id = row['vehicle_id']\n    breakdown_count = df_train[(df_train['vehicle_id'] == vehicle_id) & (df_train['will_breakdown'] == 1)].shape[0]\n    return breakdown_count\n"
+        },
+        "0.04576742941460027": {
+            "name": "engine_temp_deviation",
+            "code": "\n\ndef engine_temp_deviation(row, aux_data: Dict[str, pd.DataFrame]):\n    # Correct the key to match the expected key in aux_data\n    vehicle_id = row['vehicle_id']\n    if 'vehicle_performance_data.csv' not in aux_data:\n        raise KeyError(\"The key 'vehicle_performance_data.csv' is missing in aux_data.\")\n    \n    vehicle_perf = aux_data['vehicle_performance_data.csv']\n    \n    # Ensure the dataframe has the expected columns\n    required_columns = {'vehicle_id', 'engine_temperature'}\n    if not required_columns.issubset(vehicle_perf.columns):\n        raise ValueError(f\"The dataframe 'vehicle_performance_data.csv' is missing required columns: {required_columns - set(vehicle_perf.columns)}\")\n    \n    # Filter the dataframe for the specific vehicle_id\n    temperatures = vehicle_perf[vehicle_perf['vehicle_id'] == vehicle_id]['engine_temperature']\n    \n    # Calculate the deviation if there are temperatures available\n    if len(temperatures) > 0:\n        deviation = abs(temperatures.max() - temperatures.mean())\n        return deviation\n    \n    # Return 0 if no temperatures are available\n    return 0\n"
+        },
+        "0.0350278807722546": {
+            "name": "avg_fuel_efficiency",
+            "code": "\n\ndef avg_fuel_efficiency(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> float:\n    # Ensure the key 'vehicle_performance_data.csv' exists in aux_dataframes\n    if 'vehicle_performance_data.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'vehicle_performance_data.csv' is missing in aux_dataframes.\")\n    \n    # Access the vehicle performance data\n    vehicle_perf = aux_dataframes['vehicle_performance_data.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'vehicle_id', 'fuel_efficiency'}\n    if not required_columns.issubset(vehicle_perf.columns):\n        raise ValueError(f\"The dataframe 'vehicle_performance_data.csv' is missing required columns: {required_columns - set(vehicle_perf.columns)}\")\n    \n    # Extract the vehicle_id from the row\n    vehicle_id = row['vehicle_id']\n    \n    # Filter the dataframe for the specific vehicle_id\n    fuel_efficiency = vehicle_perf[vehicle_perf['vehicle_id'] == vehicle_id]['fuel_efficiency']\n    \n    # Return the mean fuel efficiency or None if no data is available\n    return fuel_efficiency.mean() if not fuel_efficiency.empty else None\n"
+        },
+        "0.03319945899503987": {
+            "name": "most_frequent_route",
+            "code": "\n\ndef most_frequent_route(row, aux_data: Dict[str, pd.DataFrame]):\n    vehicle_id = row['vehicle_id']\n    \n    # Access the logistic_routes dataframe using the correct key\n    logistic_routes = aux_data['logistic_routes.csv']\n    \n    # Filter the dataframe for the given vehicle_id\n    vehicle_routes = logistic_routes[logistic_routes['vehicle_id'] == vehicle_id]\n    \n    # Check if the filtered dataframe is not empty\n    if not vehicle_routes.empty:\n        # Find the most frequent route_id using mode()\n        frequent_route = vehicle_routes['route_id'].mode().iloc[0]\n        return frequent_route\n    \n    # Return None if no routes are found for the vehicle_id\n    return None\n"
+        },
+        "0.02362803977434922": {
+            "name": "average_time_deviation",
+            "code": "\n\ndef average_time_deviation(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> float:\n    # Check if 'logistic_routes.csv' exists in aux_dataframes\n    if 'logistic_routes.csv' not in aux_dataframes:\n        return 0.0  # Return 0.0 if the key is missing\n    \n    # Get the logistic_routes dataframe\n    logistic_routes = aux_dataframes['logistic_routes.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'vehicle_id', 'actual_duration', 'planned_duration'}\n    if not required_columns.issubset(logistic_routes.columns):\n        return 0.0  # Return 0.0 if required columns are missing\n    \n    # Extract the vehicle_id from the row\n    vehicle_id = row['vehicle_id']\n    \n    # Filter the logistic_routes dataframe for the given vehicle_id\n    vehicle_routes = logistic_routes[logistic_routes['vehicle_id'] == vehicle_id]\n    \n    # Check if the filtered dataframe is not empty\n    if not vehicle_routes.empty:\n        # Calculate the deviation\n        deviation = vehicle_routes['actual_duration'] - vehicle_routes['planned_duration']\n        return deviation.mean()  # Return the mean deviation\n    \n    # Return 0.0 if no routes are found for the vehicle_id\n    return 0.0\n"
+        },
+        "0.01588964209931395": {
+            "name": "idle_percentage",
+            "code": "import pandas as pd\n\ndef idle_percentage(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    import pandas as pd\n\n    # Ensure the key 'vehicle_performance_data.csv' exists in aux_dataframes\n    if 'vehicle_performance_data.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'vehicle_performance_data.csv' is missing from aux_dataframes.\")\n    \n    # Access the vehicle performance data\n    vehicle_data = aux_dataframes['vehicle_performance_data.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'vehicle_id', 'idle_time', 'distance_traveled', 'average_speed'}\n    if not required_columns.issubset(vehicle_data.columns):\n        raise KeyError(f\"The dataframe 'vehicle_performance_data.csv' is missing one or more required columns: {required_columns}\")\n    \n    # Extract the vehicle_id from the row\n    vehicle_id = row['vehicle_id']\n    \n    # Check if the vehicle_id exists in the vehicle_data dataframe\n    if vehicle_id in vehicle_data['vehicle_id'].values:\n        # Filter the dataframe for the specific vehicle_id\n        vehicle_info = vehicle_data[vehicle_data['vehicle_id'] == vehicle_id]\n        \n        # Calculate total_time as idle_time + (distance_traveled / average_speed)\n        # Avoid division by zero for average_speed\n        vehicle_info = vehicle_info.copy()  # Avoid SettingWithCopyWarning\n        vehicle_info['calculated_total_time'] = vehicle_info.apply(\n            lambda x: x['idle_time'] + (x['distance_traveled'] / x['average_speed'] if x['average_speed'] > 0 else 0),\n            axis=1\n        )\n        \n        # Calculate idle percentage\n        total_idle_time = vehicle_info['idle_time'].sum()\n        total_time = vehicle_info['calculated_total_time'].sum()\n        \n        # Avoid division by zero\n        if total_time > 0:\n            idle_pct = total_idle_time / total_time\n            return idle_pct\n        else:\n            return 0.0\n    else:\n        # If the vehicle_id is not found, return 0.0\n        return 0.0\n"
+        },
+        "0.015065121189624334": {
+            "name": "stop_count_per_route",
+            "code": "\n\ndef stop_count_per_route(row, aux_data: Dict[str, pd.DataFrame]):\n    vehicle_id = row['vehicle_id']\n    \n    # Access the correct dataframe using the correct key\n    logistic_routes = aux_data['logistic_routes.csv']\n    \n    # Filter the dataframe for the given vehicle_id\n    route_stops = logistic_routes[logistic_routes['vehicle_id'] == vehicle_id]['number_of_stops']\n    \n    # Return the mean of the number_of_stops or 0 if no routes are found\n    return route_stops.mean() if len(route_stops) > 0 else 0\n"
+        },
+        "0.010748036308143936": {
+            "name": "avg_distance_between_stops",
+            "code": "\n\ndef avg_distance_between_stops(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the logistic_routes dataframe using the correct key\n    logistic_routes = aux_data['logistic_routes.csv']\n    \n    # Filter the dataframe for the specific vehicle_id\n    vehicle_data = logistic_routes[logistic_routes['vehicle_id'] == row['vehicle_id']]\n    \n    # Check if the filtered dataframe is not empty\n    if not vehicle_data.empty:\n        # Use the correct column name for distances\n        distances = vehicle_data['route_distance']\n        \n        # Calculate and return the average distance between stops\n        return distances.mean() if len(distances) > 1 else distances.sum()\n    \n    # Return 0 if no data is found for the vehicle_id\n    return 0\n"
+        },
+        "0.0061881992710301": {
+            "name": "avg_trip_duration",
+            "code": "\n\ndef avg_trip_duration(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the vehicle_id from the row\n    vehicle_id = row['vehicle_id']\n    \n    # Access the logistic_routes.csv dataframe from aux_data\n    logistic_routes_df = aux_data['logistic_routes.csv']\n    \n    # Filter the dataframe for the given vehicle_id and calculate the mean of actual_duration\n    avg_duration = logistic_routes_df[logistic_routes_df['vehicle_id'] == vehicle_id]['actual_duration'].mean()\n    \n    return avg_duration\n"
+        },
+        "0.0053965377719434925": {
+            "name": "total_trips_completed",
+            "code": "\n\ndef total_trips_completed(row, df_train):\n    vehicle_id = row['vehicle_id']\n    trips = df_train[df_train['vehicle_id'] == vehicle_id].shape[0]\n    return trips\n"
+        },
+        "0": {
+            "name": "overloading_events",
+            "code": "\n\ndef overloading_events(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the vehicle performance data using the correct key\n    vehicle_perf = aux_dataframes['vehicle_performance_data.csv']\n    \n    # Filter the data for the specific vehicle_id\n    vehicle_data = vehicle_perf[vehicle_perf['vehicle_id'] == row['vehicle_id']]\n    \n    # Ensure the necessary column 'load_weight' exists\n    if 'load_weight' not in vehicle_data.columns:\n        raise KeyError(\"Required column 'load_weight' is missing in the vehicle performance data.\")\n    \n    # Since 'max_capacity' is not in the provided columns, we need to handle it.\n    # For this example, let's assume a default max capacity of 10000 (you can adjust this as needed).\n    max_capacity = 10000  # Default max capacity in the absence of the column\n    \n    # Calculate the number of overloading events\n    return (vehicle_data['load_weight'] > max_capacity).sum()\n"
+        }
+    },
+    "feature_descriptions": [
+        "breakdown history rate",
+        "past breakdown frequency",
+        "engine temp deviation",
+        "avg fuel efficiency",
+        "most frequent route",
+        "average time deviation",
+        "idle percentage",
+        "stop count per route",
+        "avg distance between stops",
+        "avg trip duration",
+        "total trips completed",
+        "overloading events"
+    ]
+}

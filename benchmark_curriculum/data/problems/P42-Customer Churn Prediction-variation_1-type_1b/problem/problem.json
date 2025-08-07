@@ -1,0 +1,7 @@
+{
+    "target_column": "churn_flag",
+    "description": "Identify customers likely to churn based on usage and billing data.",
+    "name": "Customer Churn Prediction",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Telecommunications"
+}

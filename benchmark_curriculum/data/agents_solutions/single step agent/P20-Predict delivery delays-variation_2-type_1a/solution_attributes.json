@@ -1,0 +1,47 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "multi_item_delay_rate",
+        "average_supply_time",
+        "average_daily_change",
+        "average_customer_rating",
+        "delayed_order_proportion",
+        "delivery_distance_cost_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.2383405068617922": {
+            "name": "multi_item_delay_rate",
+            "code": "\n\ndef multi_item_delay_rate(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the correct dataframe is used\n    delivery_df = aux_dataframes.get('logistics_data_table.csv')\n    \n    # Check if the dataframe exists and is not empty\n    if delivery_df is None or delivery_df.empty:\n        return 0\n    \n    # Filter the dataframe for the relevant logistics provider\n    warehouse_deliveries = delivery_df[delivery_df['logistics_provider_id'] == row['logistics_provider_id']]\n    \n    # Check if there are any matching rows\n    if warehouse_deliveries.empty:\n        return 0\n    \n    # Calculate the mean customer rating as a proxy for delay rate\n    delayed = warehouse_deliveries['customer_rating'].mean()\n    \n    return delayed\n"
+        },
+        "0.0356893826909105": {
+            "name": "average_supply_time",
+            "code": "\n\ndef average_supply_time(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct key for the supplier_info_table\n    supplier_df = aux_dataframes['supplier_info_table.csv']\n    \n    # Filter the supplier_df based on the correct column\n    supplier_info = supplier_df[supplier_df['supplier_id'] == row['order_id']]\n    \n    # Return the average supply time or 0 if no matching supplier is found\n    return supplier_info['average_supply_time'].mean() if not supplier_info.empty else 0\n"
+        },
+        "0.02858477893213616": {
+            "name": "average_daily_change",
+            "code": "\n\ndef average_daily_change(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the order_id from the row\n    order_id = row['order_id']\n    \n    # Get the order_details_table from aux_data\n    order_details_table = aux_data['order_details_table.csv']\n    \n    # Find the warehouse_id corresponding to the order_id\n    warehouse_id = order_details_table.loc[order_details_table['order_id'] == order_id, 'warehouse_id']\n    \n    # If no warehouse_id is found, return None\n    if warehouse_id.empty:\n        return None\n    \n    # Extract the first (and likely only) warehouse_id\n    warehouse_id = warehouse_id.iloc[0]\n    \n    # Get the warehouse_inventory_table from aux_data\n    warehouse_inventory_table = aux_data['warehouse_inventory_table.csv']\n    \n    # Filter the warehouse_inventory_table for the given warehouse_id\n    warehouse_changes = warehouse_inventory_table[warehouse_inventory_table['warehouse_id'] == warehouse_id]['daily_inventory_change']\n    \n    # Return the mean of the daily_inventory_change\n    return warehouse_changes.mean()\n"
+        },
+        "0.011230862951180646": {
+            "name": "average_customer_rating",
+            "code": "\n\ndef average_customer_rating(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if required auxiliary dataframes exist\n    if 'customer_feedback_table.csv' not in aux_dataframes:\n        raise KeyError(\"'customer_feedback_table.csv' not found in aux_dataframes\")\n    if 'order_details_table.csv' not in aux_dataframes:\n        raise KeyError(\"'order_details_table.csv' not found in aux_dataframes\")\n    \n    # Get the required DataFrames\n    feedback_df = aux_dataframes['customer_feedback_table.csv']\n    order_details_df = aux_dataframes['order_details_table.csv']\n    \n    # Ensure the required columns exist in the DataFrames\n    feedback_required_columns = {'feedback_id', 'rating'}\n    if not feedback_required_columns.issubset(feedback_df.columns):\n        raise KeyError(f\"Missing required columns in 'customer_feedback_table.csv': {feedback_required_columns - set(feedback_df.columns)}\")\n    \n    order_details_required_columns = {'order_id', 'warehouse_id'}\n    if not order_details_required_columns.issubset(order_details_df.columns):\n        raise KeyError(f\"Missing required columns in 'order_details_table.csv': {order_details_required_columns - set(order_details_df.columns)}\")\n    \n    # Map the order_id from the row to the corresponding warehouse_id\n    order_id = row['order_id']\n    warehouse_row = order_details_df[order_details_df['order_id'] == order_id]\n    \n    if warehouse_row.empty:\n        # If no matching warehouse_id is found, return 0\n        return 0\n    \n    warehouse_id = warehouse_row.iloc[0]['warehouse_id']\n    \n    # Filter the feedback DataFrame for the relevant warehouse_id\n    relevant_orders = feedback_df[feedback_df['feedback_id'] == warehouse_id]['rating']\n    \n    # Return the average rating or 0 if no relevant orders are found\n    return relevant_orders.mean() if not relevant_orders.empty else 0\n"
+        },
+        "0.010915626006605582": {
+            "name": "delayed_order_proportion",
+            "code": "\n\ndef delayed_order_proportion(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the required dataframes exist in the aux_dataframes dictionary\n    if 'customer_feedback_table.csv' not in aux_dataframes:\n        raise KeyError(\"'customer_feedback_table.csv' not found in aux_dataframes\")\n    if 'order_details_table.csv' not in aux_dataframes:\n        raise KeyError(\"'order_details_table.csv' not found in aux_dataframes\")\n\n    # Access the required dataframes\n    feedback_df = aux_dataframes['customer_feedback_table.csv']\n    order_details_df = aux_dataframes['order_details_table.csv']\n\n    # Map the order_id from the input row to the warehouse_id using order_details_table\n    order_id = row['order_id']\n    warehouse_id_row = order_details_df[order_details_df['order_id'] == order_id]\n\n    # If the order_id is not found in the order_details_table, return 0\n    if warehouse_id_row.empty:\n        return 0\n\n    # Extract the warehouse_id\n    warehouse_id = warehouse_id_row.iloc[0]['warehouse_id']\n\n    # Calculate the total orders and delayed orders for the given warehouse_id\n    total_orders = feedback_df[feedback_df['customer_id'] == warehouse_id].shape[0]\n    delayed_orders = feedback_df[\n        (feedback_df['customer_id'] == warehouse_id) & (feedback_df['was_delayed'])\n    ].shape[0]\n\n    # Calculate the proportion of delayed orders\n    return delayed_orders / total_orders if total_orders != 0 else 0\n"
+        },
+        "0.0032377102825570056": {
+            "name": "delivery_distance_cost_ratio",
+            "code": "\n\ndef delivery_distance_cost_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if 'warehouse_inventory_table.csv' not in aux_dataframes:\n        raise KeyError(\"'warehouse_inventory_table.csv' not found in aux_dataframes\")\n\n    # Load the warehouse inventory table\n    delivery_df = aux_dataframes['warehouse_inventory_table.csv']\n\n    # Filter the dataframe based on the warehouse_id\n    delivery_info = delivery_df[delivery_df['warehouse_id'] == row['logistics_provider_id']]\n\n    # Calculate the mean of the distance-to-cost ratio\n    if not delivery_info.empty:\n        return (delivery_info['current_stock'] / (delivery_info['daily_inventory_change'] + 1e-6)).mean()\n    else:\n        return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "multi item delay rate",
+        "average supply time",
+        "average daily change",
+        "average customer rating",
+        "delayed order proportion",
+        "delivery distance cost ratio"
+    ]
+}

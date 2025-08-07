@@ -1,0 +1,95 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "avg_monthly_spend_to_transaction_ratio",
+        "merchant_risk_normalized_amount",
+        "merchant_risk_level",
+        "days_since_last_login",
+        "credit_limit_to_transaction_ratio",
+        "is_frequency_near_median",
+        "credit_to_balance_ratio",
+        "account_status",
+        "transaction_to_balance_ratio",
+        "transaction_day_of_week",
+        "transaction_hour",
+        "account_age",
+        "merchant_category",
+        "is_merchant_location"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.15959921521959358": {
+            "name": "avg_monthly_spend_to_transaction_ratio",
+            "code": "\n\ndef avg_monthly_spend_to_transaction_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the relevant dataframes from the aux_data dictionary\n    account_details = aux_data['account_details_table.csv']\n    customer_behavior = aux_data['customer_behavior_table.csv']\n    \n    # Get the customer_id for the given account_id in the row\n    customer_id = account_details.loc[account_details['account_id'] == row['account_id'], 'customer_id']\n    \n    # Check if customer_id is not empty\n    if not customer_id.empty:\n        # Get the average_monthly_spend for the customer_id\n        avg_monthly_spend = customer_behavior.loc[customer_behavior['customer_id'] == customer_id.values[0], 'average_monthly_spend']\n        \n        # Check if avg_monthly_spend is not empty\n        if not avg_monthly_spend.empty:\n            # Calculate and return the ratio\n            return row['transaction_amount'] / avg_monthly_spend.values[0]\n    \n    # Return None if any of the required data is missing\n    return None\n"
+        },
+        "0.1194621791169964": {
+            "name": "merchant_risk_normalized_amount",
+            "code": "\n\ndef merchant_risk_level(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the merchant details table\n    merchant_details = aux_dataframes['merchant_details_table.csv']\n    # Fetch the risk level for the given merchant_id\n    risk_level = merchant_details.loc[merchant_details['merchant_id'] == row['merchant_id'], 'risk_level']\n    # Map risk levels to numeric values\n    risk_mapping = {'low': 0, 'medium': 1, 'high': 2}\n    # Return the mapped risk level or -1 if not found\n    if not risk_level.empty:\n        return risk_mapping.get(risk_level.values[0], -1)\n    return -1\n\ndef merchant_risk_normalized_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the risk level for the merchant\n    risk_level = merchant_risk_level(row, aux_dataframes)\n    # If the risk level is valid, return the normalized amount\n    if risk_level >= 0:\n        return risk_level * row['transaction_amount']\n    # Otherwise, return None\n    return None\n"
+        },
+        "0.10971267020117745": {
+            "name": "merchant_risk_level",
+            "code": "\n\ndef merchant_risk_level(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct key for the merchant details dataframe\n    merchant_details = aux_dataframes['merchant_details_table.csv']\n    \n    # Extract the risk level for the given merchant_id\n    risk_level = merchant_details.loc[merchant_details['merchant_id'] == row['merchant_id'], 'risk_level']\n    \n    # Map risk levels to numeric values\n    risk_mapping = {'low': 0, 'medium': 1, 'high': 2}\n    \n    # Check if the risk level is not empty and return the corresponding value\n    if not risk_level.empty:\n        return risk_mapping.get(risk_level.values[0], -1)\n    \n    # Return -1 if no risk level is found\n    return -1\n"
+        },
+        "0.08763584334537562": {
+            "name": "days_since_last_login",
+            "code": "import datetime\n\ndef days_since_last_login(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframes using the keys in aux_data\n    account_details = aux_data['account_details_table.csv']\n    customer_behavior = aux_data['customer_behavior_table.csv']\n    \n    # Get the customer_id for the given account_id\n    customer_id = account_details.loc[account_details['account_id'] == row['account_id'], 'customer_id']\n    \n    if not customer_id.empty:\n        # Get the last login date for the customer_id\n        last_login_date = customer_behavior.loc[customer_behavior['customer_id'] == customer_id.values[0], 'last_login_date']\n        \n        if not last_login_date.empty:\n            # Parse the dates\n            last_login = datetime.datetime.strptime(last_login_date.values[0], '%Y-%m-%d')\n            transaction_date = datetime.datetime.strptime(row['transaction_date'], '%Y-%m-%d %H:%M:%S.%f')\n            \n            # Calculate the difference in days\n            return (transaction_date - last_login).days\n    \n    # Return None if no valid data is found\n    return None\n"
+        },
+        "0.04658423714341769": {
+            "name": "credit_limit_to_transaction_ratio",
+            "code": "\n\ndef credit_limit_to_transaction_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'account_details_table.csv' exists in aux_dataframes\n    if 'account_details_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'account_details_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the account_details dataframe\n    account_details = aux_dataframes['account_details_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'account_id', 'credit_limit'}\n    if not required_columns.issubset(account_details.columns):\n        raise KeyError(f\"The dataframe 'account_details_table.csv' is missing one or more required columns: {required_columns}\")\n    \n    # Get the credit limit for the given account_id\n    credit_limit = account_details.loc[account_details['account_id'] == row['account_id'], 'credit_limit']\n    \n    # Check if credit_limit is found and not empty\n    if not credit_limit.empty:\n        return row['transaction_amount'] / credit_limit.values[0]\n    \n    # Return None if no credit limit is found\n    return None\n"
+        },
+        "0.03210164834199215": {
+            "name": "is_frequency_near_median",
+            "code": "\n\ndef is_frequency_near_median(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframes from the aux_data dictionary\n    account_details = aux_data['account_details_table.csv']\n    customer_behavior = aux_data['customer_behavior_table.csv']\n    \n    # Get the customer_id for the given account_id in the row\n    customer_id = account_details.loc[account_details['account_id'] == row['account_id'], 'customer_id']\n    \n    if not customer_id.empty:\n        # Get the transaction frequency for the customer_id\n        transaction_frequency = customer_behavior.loc[customer_behavior['customer_id'] == customer_id.values[0], 'transaction_frequency']\n        \n        if not transaction_frequency.empty:\n            # Calculate the median transaction frequency\n            median_frequency = customer_behavior['transaction_frequency'].median()\n            \n            # Check if the transaction frequency is within 10% of the median\n            return 1 if median_frequency * 0.9 <= transaction_frequency.values[0] <= median_frequency * 1.1 else 0\n    \n    # Return 0 if no valid customer_id or transaction_frequency is found\n    return 0\n"
+        },
+        "0.016627571668299805": {
+            "name": "credit_to_balance_ratio",
+            "code": "\n\ndef credit_to_balance_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'account_details_table.csv' exists in aux_dataframes\n    if 'account_details_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'account_details_table.csv' is missing in aux_dataframes.\")\n    \n    # Get the account_details dataframe\n    account_details = aux_dataframes['account_details_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'account_id', 'credit_limit', 'current_balance'}\n    if not required_columns.issubset(account_details.columns):\n        raise KeyError(f\"The dataframe 'account_details_table.csv' is missing one or more required columns: {required_columns}\")\n    \n    # Filter the account_details dataframe for the given account_id\n    account_id = row['account_id']\n    account_data = account_details[account_details['account_id'] == account_id]\n    \n    # Check if the account_id exists in the dataframe\n    if account_data.empty:\n        return None\n    \n    # Extract credit_limit and current_balance\n    credit_limit = account_data['credit_limit'].values[0]\n    current_balance = account_data['current_balance'].values[0]\n    \n    # Ensure credit_limit is greater than 0 to avoid division by zero\n    if credit_limit > 0:\n        return current_balance / credit_limit\n    \n    return None\n"
+        },
+        "0.012957453859291958": {
+            "name": "account_status",
+            "code": "\n\ndef account_status(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key to access the account_details dataframe\n    account_details = aux_dataframes['account_details_table.csv']\n    \n    # Check if the account_id exists in the account_details dataframe and if its status is 'active'\n    status = account_details.loc[account_details['account_id'] == row['account_id'], 'account_status']\n    \n    # Return 1 if the account is active, otherwise return 0\n    return 1 if not status.empty and status.values[0] == 'active' else 0\n"
+        },
+        "0.009993725073677524": {
+            "name": "transaction_to_balance_ratio",
+            "code": "\n\ndef transaction_to_balance_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the account_details dataframe using the correct key\n    account_details = aux_data['account_details_table.csv']\n    \n    # Filter the account_details dataframe to find the current_balance for the given account_id\n    current_balance = account_details.loc[account_details['account_id'] == row['account_id'], 'current_balance']\n    \n    # Check if the current_balance is not empty and greater than 0\n    if not current_balance.empty and current_balance.values[0] > 0:\n        # Calculate and return the transaction to balance ratio\n        return row['transaction_amount'] / current_balance.values[0]\n    \n    # Return None if the current_balance is empty or not greater than 0\n    return None\n"
+        },
+        "0.00859489481474348": {
+            "name": "transaction_day_of_week",
+            "code": "import datetime\n\ndef transaction_day_of_week(row):\n    transaction_date = datetime.strptime(row['transaction_date'], '%Y-%m-%d %H:%M:%S.%f')\n    return transaction_date.weekday()\n"
+        },
+        "0.005683245053930726": {
+            "name": "transaction_hour",
+            "code": "import datetime\n\ndef transaction_hour(row):\n    transaction_date = datetime.strptime(row['transaction_date'], '%Y-%m-%d %H:%M:%S.%f')\n    return transaction_date.hour\n"
+        },
+        "0.0023863927451168226": {
+            "name": "account_age",
+            "code": "import datetime\n\ndef account_age(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the account details dataframe using the correct key\n    account_details = aux_data['account_details_table.csv']\n    \n    # Filter the account details dataframe to find the matching account_id\n    account_open_date = account_details.loc[account_details['account_id'] == row['account_id'], 'account_open_date']\n    \n    # Check if the account_open_date is not empty\n    if not account_open_date.empty:\n        # Parse the account_open_date and transaction_date strings into datetime objects\n        open_date = datetime.datetime.strptime(account_open_date.values[0], '%Y-%m-%d')\n        transaction_date = datetime.datetime.strptime(row['transaction_date'], '%Y-%m-%d %H:%M:%S.%f')\n        \n        # Calculate the difference in days between the transaction date and the account open date\n        return (transaction_date - open_date).days\n    \n    # Return None if no matching account_id is found\n    return None\n"
+        },
+        "0.0007169408311031855": {
+            "name": "merchant_category",
+            "code": "\n\ndef merchant_category(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct key for the merchant details dataframe\n    merchant_details = aux_dataframes['merchant_details_table.csv']\n    \n    # Filter the merchant_details dataframe to find the matching merchant_id\n    category = merchant_details.loc[merchant_details['merchant_id'] == row['merchant_id'], 'merchant_category']\n    \n    # Check if the category is not empty and return the first value, otherwise return None\n    if not category.empty:\n        return category.values[0]\n    return None\n"
+        },
+        "0": {
+            "name": "is_merchant_location",
+            "code": "\n\ndef is_merchant_location(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the merchant details dataframe\n    merchant_details = aux_dataframes['merchant_details_table.csv']\n    \n    # Filter the merchant_details dataframe to find the location for the given merchant_id\n    merchant_location = merchant_details.loc[merchant_details['merchant_id'] == row['merchant_id'], 'location']\n    \n    # Check if the merchant_location is not empty and compare it with the row's location\n    if not merchant_location.empty:\n        return 1 if row['location'] == merchant_location.values[0] else 0\n    \n    # Return 0 if no matching merchant_id is found\n    return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "avg monthly spend to transaction ratio",
+        "merchant risk normalized amount",
+        "merchant risk level",
+        "days since last login",
+        "credit limit to transaction ratio",
+        "is frequency near median",
+        "credit to balance ratio",
+        "account status",
+        "transaction to balance ratio",
+        "transaction day of week",
+        "transaction hour",
+        "account age",
+        "merchant category",
+        "is merchant location"
+    ]
+}

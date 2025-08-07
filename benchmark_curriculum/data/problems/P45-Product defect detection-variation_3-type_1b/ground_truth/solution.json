@@ -1,0 +1,18 @@
+{
+    "enriched_column_names": [
+        "change_in_inspection_scores_over_the_last_6_months",
+        "team_specialization_match_to_product_category",
+        "weight_anomalies_compared_to_product_specifications",
+        "days_since_the_last_defect_report_for_the_same_product_category",
+        "historical_defect_rate_for_the_manufacturer_over_the_past_year",
+        "average_inspection_score_for_similar_products_within_the_last_quarter"
+    ],
+    "features_descriptions": [
+        "change in inspection scores over the last 6 months",
+        "team specialization match to product category",
+        "weight anomalies compared to product specifications",
+        "days since the last defect report for the same product category",
+        "historical defect rate for the manufacturer over the past year",
+        "average inspection score for similar products within the last quarter"
+    ]
+}

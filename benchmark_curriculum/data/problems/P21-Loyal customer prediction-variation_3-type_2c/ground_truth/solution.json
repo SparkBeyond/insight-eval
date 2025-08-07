@@ -1,0 +1,18 @@
+{
+    "enriched_column_names": [
+        "resolution_rate_for_support_tickets_in_the_last_year",
+        "frequency_of_customer_interactions_with_support_over_the_last_year",
+        "customer_engagement_rate_with_proactive_offers",
+        "response_rates_to_marketing_campaigns_in_the_last_six_months",
+        "average_transaction_value_of_a_customer_in_the_past_6_months",
+        "decrease_in_transaction_frequency_month_over_month"
+    ],
+    "features_descriptions": [
+        "resolution rate for support tickets in the last year",
+        "frequency of customer interactions with support over the last year",
+        "customer engagement rate with proactive offers",
+        "response rates to marketing campaigns in the last six months",
+        "average transaction value of a customer in the past 6 months",
+        "decrease in transaction frequency month over month"
+    ]
+}

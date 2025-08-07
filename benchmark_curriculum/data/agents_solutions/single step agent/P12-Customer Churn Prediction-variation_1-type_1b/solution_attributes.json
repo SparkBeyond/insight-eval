@@ -1,0 +1,71 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "total_transaction_amount",
+        "successful_transactions",
+        "avg_transaction_amount",
+        "total_support_interactions",
+        "failed_transaction_percentage",
+        "normalized_spend_by_age",
+        "avg_response_time",
+        "total_campaigns",
+        "avg_engagement_level",
+        "resolved_fraction"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.18849586168205837": {
+            "name": "total_transaction_amount",
+            "code": "\n\ndef total_transaction_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the one in aux_dataframes\n    transaction_df = aux_dataframes[\"transaction_log_table.csv\"]\n    customer_id = row['customer_id']\n    \n    # Ensure the column names match the expected structure\n    if 'customer_id' in transaction_df.columns and 'transaction_amount' in transaction_df.columns:\n        return transaction_df[transaction_df['customer_id'] == customer_id]['transaction_amount'].sum()\n    else:\n        raise KeyError(\"The required columns 'customer_id' or 'transaction_amount' are missing in the transaction dataframe.\")\n"
+        },
+        "0.09574474350257998": {
+            "name": "successful_transactions",
+            "code": "\n\ndef successful_transactions(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the transaction log dataframe using the correct key\n    transaction_df = aux_dataframes[\"transaction_log_table.csv\"]\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the dataframe for the given customer_id and successful transactions\n    successful_count = transaction_df[\n        (transaction_df['customer_id'] == customer_id) & \n        (transaction_df['transaction_status'] == \"Successful\")\n    ].shape[0]\n    \n    return successful_count\n"
+        },
+        "0.05331856867153174": {
+            "name": "avg_transaction_amount",
+            "code": "\n\ndef avg_transaction_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_dataframes\n    transaction_df = aux_dataframes[\"transaction_log_table.csv\"]\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the transaction dataframe for the given customer_id\n    filtered = transaction_df[transaction_df['customer_id'] == customer_id]\n    \n    # Return the mean of the transaction_amount column, or 0 if no transactions exist\n    return filtered['transaction_amount'].mean() if not filtered.empty else 0\n"
+        },
+        "0.03781343605557353": {
+            "name": "total_support_interactions",
+            "code": "\n\ndef total_support_interactions(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the one in aux_dataframes\n    support_df = aux_dataframes[\"support_interactions_table.csv\"]\n    customer_id = row['customer_id']\n    # Filter the dataframe for the given customer_id and return the count of rows\n    return support_df[support_df['customer_id'] == customer_id].shape[0]\n"
+        },
+        "0.03545193664157966": {
+            "name": "failed_transaction_percentage",
+            "code": "\n\ndef failed_transaction_percentage(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the transaction log dataframe using the correct key\n    transaction_df = aux_data[\"transaction_log_table.csv\"]\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Calculate the total number of transactions for the customer\n    total_transactions = transaction_df[transaction_df['customer_id'] == customer_id].shape[0]\n    \n    # Calculate the number of failed transactions for the customer\n    failed_count = transaction_df[\n        (transaction_df['customer_id'] == customer_id) & \n        (transaction_df['transaction_status'] == \"Failed\")\n    ].shape[0]\n    \n    # Return the percentage of failed transactions, or 0 if there are no transactions\n    return failed_count / total_transactions if total_transactions > 0 else 0\n"
+        },
+        "0.023413503099979454": {
+            "name": "normalized_spend_by_age",
+            "code": "\n\ndef normalized_spend_by_age(row):\n    return row['total_spend'] / row['age'] if row['age'] > 0 else 0\n"
+        },
+        "0.022787926366769625": {
+            "name": "avg_response_time",
+            "code": "\n\ndef avg_response_time(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct key for the support interactions dataframe\n    support_df = aux_data[\"support_interactions_table.csv\"]\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the dataframe for the given customer_id and calculate the mean response time\n    return support_df[support_df['customer_id'] == customer_id]['response_time'].mean()\n"
+        },
+        "0.02179414831841033": {
+            "name": "total_campaigns",
+            "code": "\n\ndef total_campaigns(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key to access the marketing campaigns dataframe\n    marketing_df = aux_dataframes[\"marketing_campaigns_table.csv\"]\n    customer_id = row['customer_id']\n    # Filter the dataframe for the given customer_id and return the count of rows\n    return marketing_df[marketing_df['customer_id'] == customer_id].shape[0]\n"
+        },
+        "0.019674429467342207": {
+            "name": "avg_engagement_level",
+            "code": "\n\ndef avg_engagement_level(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key to access the marketing campaigns dataframe\n    marketing_df = aux_dataframes[\"marketing_campaigns_table.csv\"]\n    customer_id = row['customer_id']\n    engagement_mapping = {'Low': 1, 'Medium': 2, 'High': 3}\n    \n    # Filter the marketing campaigns dataframe for the given customer_id\n    filtered_campaigns = marketing_df[marketing_df['customer_id'] == customer_id]\n    \n    # If there are matching campaigns, calculate the average engagement level\n    if not filtered_campaigns.empty:\n        return filtered_campaigns['engagement_level'].map(engagement_mapping).mean()\n    \n    # If no campaigns are found, return 0\n    return 0\n"
+        },
+        "0.010588735062215558": {
+            "name": "resolved_fraction",
+            "code": "\n\ndef resolved_fraction(row, aux_data: Dict[str, pd.DataFrame]):\n    # Correct key for the support interactions dataframe\n    support_df = aux_data[\"support_interactions_table.csv\"]\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the support interactions dataframe for the relevant customer\n    relevant_issues = support_df[support_df['customer_id'] == customer_id]\n    \n    # Count the number of resolved issues\n    resolved_count = relevant_issues[relevant_issues['resolution_status'] == \"Resolved\"].shape[0]\n    \n    # Count the total number of issues\n    total_issues = relevant_issues.shape[0]\n    \n    # Return the fraction of resolved issues, or 0 if there are no issues\n    return resolved_count / total_issues if total_issues > 0 else 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "total transaction amount",
+        "successful transactions",
+        "avg transaction amount",
+        "total support interactions",
+        "failed transaction percentage",
+        "normalized spend by age",
+        "avg response time",
+        "total campaigns",
+        "avg engagement level",
+        "resolved fraction"
+    ]
+}

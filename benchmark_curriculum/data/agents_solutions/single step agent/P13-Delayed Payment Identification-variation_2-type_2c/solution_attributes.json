@@ -1,0 +1,77 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "customer_income_bracket",
+        "years_since_registration",
+        "transaction_count",
+        "customer_age",
+        "customer_credit_score",
+        "total_transaction_amount",
+        "due_date_month",
+        "payment_weekday",
+        "payment_due_duration",
+        "avg_transaction_amount",
+        "is_overdue"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5560408721768624": {
+            "name": "customer_income_bracket",
+            "code": "\n\ndef customer_income_bracket(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"Retrieve the income bracket of the customer.\"\"\"\n    # Extract the customer dataframe from aux_data\n    customer_df = aux_data.get(\"customer_data_table.csv\")\n    \n    # Check if the customer dataframe exists\n    if customer_df is None:\n        raise ValueError(\"Customer data table is missing from aux_data.\")\n    \n    # Filter the customer dataframe to find the matching customer_id\n    customer_details = customer_df[customer_df[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Return the income bracket if the customer exists, otherwise return \"Unknown\"\n    return customer_details.iloc[0][\"income_bracket\"] if not customer_details.empty else \"Unknown\"\n"
+        },
+        "0.06059636205618918": {
+            "name": "years_since_registration",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef years_since_registration(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"Calculate the number of years since the customer registered.\"\"\"\n    # Extract the customer data table from aux_data\n    customer_df = aux_data.get(\"customer_data_table.csv\")\n    \n    # Check if the customer data table exists\n    if customer_df is None:\n        raise ValueError(\"Customer data table is missing from aux_data.\")\n    \n    # Filter the customer data for the specific customer_id\n    customer_details = customer_df[customer_df[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # If no matching customer is found, return NaN\n    if customer_details.empty:\n        return np.nan\n    \n    # Parse the registration date\n    registration_date = pd.to_datetime(customer_details.iloc[0][\"registration_date\"])\n    \n    # Get the current date\n    today = pd.Timestamp.today()\n    \n    # Calculate the number of years since registration\n    return (today - registration_date).days / 365.25\n"
+        },
+        "0.04298993744185058": {
+            "name": "transaction_count",
+            "code": "\n\ndef transaction_count(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"Count of transactions for the customer.\"\"\"\n    # Extract the transaction DataFrame from aux_data\n    transaction_df = aux_data['transaction_data_table.csv']\n    \n    # Filter transactions for the given customer_id\n    customer_transactions = transaction_df[transaction_df['customer_id'] == row['customer_id']]\n    \n    # Return the count of transactions\n    return customer_transactions.shape[0] if not customer_transactions.empty else 0\n"
+        },
+        "0.041303776664758866": {
+            "name": "customer_age",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef customer_age(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"Calculate the age of the customer.\"\"\"\n    # Extract the customer data table from aux_data\n    customer_df = aux_data.get(\"customer_data_table.csv\")\n    \n    # Check if customer_df is None or empty\n    if customer_df is None or customer_df.empty:\n        return np.nan\n    \n    # Filter the customer_df to find the row corresponding to the customer_id\n    customer_details = customer_df[customer_df[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # If no matching customer is found, return NaN\n    if customer_details.empty:\n        return np.nan\n    \n    # Extract the date_of_birth and calculate the age\n    date_of_birth = pd.to_datetime(customer_details.iloc[0][\"date_of_birth\"])\n    today = pd.Timestamp.today()  # Use pandas Timestamp for consistency\n    age = today.year - date_of_birth.year - ((today.month, today.day) < (date_of_birth.month, date_of_birth.day))\n    \n    return age\n"
+        },
+        "0.03458532747021751": {
+            "name": "customer_credit_score",
+            "code": "import numpy as np\n\ndef customer_credit_score(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> float:\n    \"\"\"Retrieve the credit score of the customer.\"\"\"\n    # Retrieve the customer dataframe from aux_data\n    customer_df = aux_data['customer_data_table.csv']\n    \n    # Filter the dataframe to find the row corresponding to the customer_id\n    customer_details = customer_df[customer_df[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Return the credit score if the customer exists, otherwise return NaN\n    return customer_details.iloc[0][\"credit_score\"] if not customer_details.empty else np.nan\n"
+        },
+        "0.028205368431614346": {
+            "name": "total_transaction_amount",
+            "code": "\n\ndef total_transaction_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"Total transaction amount for the customer.\"\"\"\n    # Extract the transaction dataframe from aux_data\n    transaction_df = aux_data['transaction_data_table.csv']\n    \n    # Filter transactions for the given customer_id\n    customer_transactions = transaction_df[transaction_df['customer_id'] == row['customer_id']]\n    \n    # Return the sum of transaction amounts or 0 if no transactions exist\n    return customer_transactions['transaction_amount'].sum() if not customer_transactions.empty else 0\n"
+        },
+        "0.025012791957700477": {
+            "name": "due_date_month",
+            "code": "import pandas as pd\n\ndef due_date_month(row):\n    \"\"\"Extract the month from the due date.\"\"\"\n    due_date = pd.to_datetime(row[\"due_date\"])\n    return due_date.month\n"
+        },
+        "0.021913786960742122": {
+            "name": "payment_weekday",
+            "code": "import pandas as pd\n\ndef payment_weekday(row):\n    \"\"\"Extract the day of the week from payment date (0=Monday, 6=Sunday).\"\"\"\n    payment_date = pd.to_datetime(row[\"payment_date\"])\n    return payment_date.weekday()\n"
+        },
+        "0.010185629964341768": {
+            "name": "payment_due_duration",
+            "code": "import pandas as pd\n\ndef payment_due_duration(row):\n    \"\"\"Calculate the number of days between payment date and due date.\"\"\"\n    payment_date = pd.to_datetime(row[\"payment_date\"])\n    due_date = pd.to_datetime(row[\"due_date\"])\n    return (payment_date - due_date).days\n"
+        },
+        "0.009438190759995238": {
+            "name": "avg_transaction_amount",
+            "code": "\n\ndef avg_transaction_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"Average transaction amount for the customer.\"\"\"\n    # Extract the transaction dataframe from aux_data\n    transaction_df = aux_data['transaction_data_table.csv']\n    \n    # Filter transactions for the given customer_id\n    customer_transactions = transaction_df[transaction_df['customer_id'] == row['customer_id']]\n    \n    # Return the mean transaction amount or 0 if no transactions exist\n    return customer_transactions['transaction_amount'].mean() if not customer_transactions.empty else 0\n"
+        },
+        "0": {
+            "name": "is_overdue",
+            "code": "import pandas as pd\n\ndef is_overdue(row):\n    \"\"\"Flag if the payment occurred after the due date.\"\"\"\n    payment_date = pd.to_datetime(row[\"payment_date\"])\n    due_date = pd.to_datetime(row[\"due_date\"])\n    return int(payment_date > due_date)\n"
+        }
+    },
+    "feature_descriptions": [
+        "customer income bracket",
+        "years since registration",
+        "transaction count",
+        "customer age",
+        "customer credit score",
+        "total transaction amount",
+        "due date month",
+        "payment weekday",
+        "payment due duration",
+        "avg transaction amount",
+        "is overdue"
+    ]
+}

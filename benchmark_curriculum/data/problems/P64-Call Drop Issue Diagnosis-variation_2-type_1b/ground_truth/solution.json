@@ -1,0 +1,18 @@
+{
+    "enriched_column_names": [
+        "concurrent_calls_within_the_same_area",
+        "duration_of_network_outages_affecting_areas_of_active_calls",
+        "average_session_length_before_a_drop_occurs",
+        "call_drop_history_of_individual_devices",
+        "feedback_score_indicating_connectivity_issues",
+        "average_signal_drop_rate_during_calls"
+    ],
+    "features_descriptions": [
+        "concurrent calls within the same area",
+        "duration of network outages affecting areas of active calls",
+        "average session length before a drop occurs",
+        "call drop history of individual devices",
+        "feedback score indicating connectivity issues",
+        "average signal drop rate during calls"
+    ]
+}

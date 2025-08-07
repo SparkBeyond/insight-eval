@@ -1,0 +1,71 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "average_transaction_amount",
+        "total_transaction_amount",
+        "stddev_transaction_amount",
+        "days_since_signup",
+        "unique_product_categories",
+        "has_made_transaction",
+        "customer_age",
+        "transaction_count",
+        "preferred_payment_method",
+        "gender_encoding"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5812876251258686": {
+            "name": "average_transaction_amount",
+            "code": "import numpy as np\n\ndef average_transaction_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transaction_data = aux_dataframes['transaction_data_table.csv']\n    customer_transactions = transaction_data[transaction_data['customer_id'] == row['customer_id']]\n    if len(customer_transactions) == 0:\n        return np.nan\n    return customer_transactions['amount'].mean()\n"
+        },
+        "0.2570233404093438": {
+            "name": "total_transaction_amount",
+            "code": "\n\ndef total_transaction_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transaction_data = aux_dataframes['transaction_data_table.csv']\n    customer_transactions = transaction_data[transaction_data['customer_id'] == row['customer_id']]\n    return customer_transactions['amount'].sum()\n"
+        },
+        "0.14598445739204746": {
+            "name": "stddev_transaction_amount",
+            "code": "import numpy as np\n\ndef stddev_transaction_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transaction_data = aux_dataframes['transaction_data_table.csv']\n    customer_transactions = transaction_data[transaction_data['customer_id'] == row['customer_id']]\n    if len(customer_transactions) == 0:\n        return np.nan\n    return customer_transactions['amount'].std()\n"
+        },
+        "0.09281550801277723": {
+            "name": "days_since_signup",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef days_since_signup(row):\n    if pd.isnull(row['signup_date']):\n        return np.nan\n    signup_date = pd.to_datetime(row['signup_date'])\n    return (pd.to_datetime(\"today\") - signup_date).days\n"
+        },
+        "0.06635274197094301": {
+            "name": "unique_product_categories",
+            "code": "\n\ndef unique_product_categories(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transaction_data = aux_dataframes['transaction_data_table.csv']\n    customer_transactions = transaction_data[transaction_data['customer_id'] == row['customer_id']]\n    return customer_transactions['product_category'].nunique()\n"
+        },
+        "0.042437073318268584": {
+            "name": "has_made_transaction",
+            "code": "\n\ndef has_made_transaction(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transaction_data = aux_dataframes['transaction_data_table.csv']\n    customer_transactions = transaction_data[transaction_data['customer_id'] == row['customer_id']]\n    return 1 if len(customer_transactions) > 0 else 0\n"
+        },
+        "0.02791340845286338": {
+            "name": "customer_age",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef customer_age(row):\n    if pd.isnull(row['birth_date']):\n        return np.nan\n    birth_year = pd.to_datetime(row['birth_date']).year\n    return pd.to_datetime(\"today\").year - birth_year\n"
+        },
+        "0.01696744389235796": {
+            "name": "transaction_count",
+            "code": "\n\ndef transaction_count(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transaction_data = aux_dataframes['transaction_data_table.csv']\n    customer_transactions = transaction_data[transaction_data['customer_id'] == row['customer_id']]\n    return len(customer_transactions)\n"
+        },
+        "0.0010218289442915918": {
+            "name": "preferred_payment_method",
+            "code": "import numpy as np\n\ndef preferred_payment_method(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transaction_data = aux_dataframes['transaction_data_table.csv']\n    customer_transactions = transaction_data[transaction_data['customer_id'] == row['customer_id']]\n    if len(customer_transactions) == 0:\n        return np.nan\n    return customer_transactions['payment_method'].mode().iloc[0]\n"
+        },
+        "0.0005887594056573267": {
+            "name": "gender_encoding",
+            "code": "\n\ndef gender_encoding(row):\n    return 1 if row['gender'] == 'Male' else 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "average transaction amount",
+        "total transaction amount",
+        "stddev transaction amount",
+        "days since signup",
+        "unique product categories",
+        "has made transaction",
+        "customer age",
+        "transaction count",
+        "preferred payment method",
+        "gender encoding"
+    ]
+}

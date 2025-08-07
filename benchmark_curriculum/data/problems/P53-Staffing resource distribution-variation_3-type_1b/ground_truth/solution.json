@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "branch_performance_metrics",
+        "customer_traffic_patterns",
+        "financial_performance_indicators"
+    ],
+    "features_descriptions": [
+        "branch performance metrics",
+        "customer traffic patterns",
+        "financial performance indicators"
+    ]
+}

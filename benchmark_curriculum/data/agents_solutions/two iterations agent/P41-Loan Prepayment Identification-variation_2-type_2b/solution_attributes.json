@@ -1,0 +1,38 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "annual_income_to_loan_value_ratio",
+        "monthly_installment",
+        "loan_term_years",
+        "loan_to_collateral",
+        "loan_issue_year",
+        "customer_age_repeated_colname1",
+        "failed_payment_ratio",
+        "days_late_or_early",
+        "successful_payments_count",
+        "variance_payment",
+        "loan_issue_month",
+        "loan_type_encoding",
+        "employment_status_encoding",
+        "financial_dependency_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "annual income to loan value ratio",
+        "monthly installment",
+        "loan term years",
+        "loan to collateral",
+        "loan issue year",
+        "customer age repeated colname1",
+        "failed payment ratio",
+        "days late or early",
+        "successful payments count",
+        "variance payment",
+        "loan issue month",
+        "loan type encoding",
+        "employment status encoding",
+        "financial dependency ratio"
+    ]
+}

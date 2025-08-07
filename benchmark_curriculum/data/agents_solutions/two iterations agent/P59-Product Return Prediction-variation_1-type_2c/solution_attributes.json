@@ -1,0 +1,22 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "is_repeat_customer",
+        "temporal_return_trend",
+        "customer_total_return_rate",
+        "purchase_day",
+        "customer_avg_purchase_amount",
+        "avg_purchase_channel_amount"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "is repeat customer",
+        "temporal return trend",
+        "customer total return rate",
+        "purchase day",
+        "customer avg purchase amount",
+        "avg purchase channel amount"
+    ]
+}

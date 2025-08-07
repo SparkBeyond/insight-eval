@@ -1,0 +1,83 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "remaining_warranty_days",
+        "calculate_date_diff",
+        "days_since_last_support",
+        "days_since_last_service",
+        "average_usage_duration",
+        "total_data_consumed",
+        "high_severity",
+        "fault_type_encoding",
+        "unresolved_support_ratio",
+        "service_count",
+        "total_service_costs",
+        "income_level_mapping"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.3981633756193297": {
+            "name": "remaining_warranty_days",
+            "code": "import pandas as pd\n\ndef remaining_warranty_days(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    device_df = aux_dataframes['device_attributes_table.csv']\n    device_id = row['device_id']\n    purchase_row = device_df[device_df['device_id'] == device_id]\n    if not purchase_row.empty:\n        purchase_date = pd.to_datetime(purchase_row.iloc[0]['purchase_date'])\n        warranty_days = purchase_row.iloc[0]['warranty_period']\n        expiry_date = purchase_date + pd.Timedelta(days=warranty_days)\n        return calculate_date_diff(expiry_date, row['report_date'])\n    return None\n\ndef calculate_date_diff(later_date, earlier_date):\n    later_date = pd.to_datetime(later_date)\n    earlier_date = pd.to_datetime(earlier_date)\n    return (later_date - earlier_date).days\n"
+        },
+        "0.397933709694097": {
+            "name": "calculate_date_diff",
+            "code": "import pandas as pd\n\ndef calculate_date_diff(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> int:\n    \"\"\"\n    Calculate the difference in days between the report_date in the row and the purchase_date\n    of the device from the device_attributes_table.csv in aux_data.\n\n    Args:\n        row (pd.Series): A row from the dataframe containing the report_date and device_id.\n        aux_data (Dict[str, pd.DataFrame]): A dictionary mapping filenames to dataframes.\n\n    Returns:\n        int: The difference in days between the report_date and the purchase_date.\n    \"\"\"\n    # Extract the device_id and report_date from the row\n    device_id = row['device_id']\n    report_date = pd.to_datetime(row['report_date'])\n\n    # Get the device_attributes_table from aux_data\n    device_attributes_table = aux_data['device_attributes_table.csv']\n\n    # Find the purchase_date for the given device_id\n    purchase_date = device_attributes_table.loc[\n        device_attributes_table['device_id'] == device_id, 'purchase_date'\n    ].iloc[0]\n\n    # Convert purchase_date to datetime\n    purchase_date = pd.to_datetime(purchase_date)\n\n    # Calculate the difference in days\n    return (report_date - purchase_date).days\n"
+        },
+        "0.3536361092918537": {
+            "name": "days_since_last_support",
+            "code": "import pandas as pd\n\ndef calculate_date_diff(later_date, earlier_date):\n    later_date = pd.to_datetime(later_date)\n    earlier_date = pd.to_datetime(earlier_date)\n    return (later_date - earlier_date).days\n\ndef days_since_last_support(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_df = aux_dataframes['technical_support_logs_table.csv']\n    device_id = row['device_id']\n    support_records = support_df[support_df['device_id'] == device_id]\n    if not support_records.empty:\n        last_support_date = support_records['support_date'].max()\n        return calculate_date_diff(row['report_date'], last_support_date)\n    return None\n"
+        },
+        "0.2780147909232311": {
+            "name": "days_since_last_service",
+            "code": "import pandas as pd\n\ndef days_since_last_service(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    service_df = aux_dataframes['service_history_table.csv']\n    device_id = row['device_id']\n    service_records = service_df[service_df['device_id'] == device_id]\n    if not service_records.empty:\n        last_service_date = service_records['service_date'].max()\n        return calculate_date_diff(row['report_date'], last_service_date)\n    return None\n\ndef calculate_date_diff(later_date, earlier_date):\n    later_date = pd.to_datetime(later_date)\n    earlier_date = pd.to_datetime(earlier_date)\n    return (later_date - earlier_date).days\n"
+        },
+        "0.07114722024600821": {
+            "name": "average_usage_duration",
+            "code": "\n\ndef average_usage_duration(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_df = aux_dataframes['customer_device_usage_table.csv']\n    device_id = row['device_id']\n    device_usage = usage_df[usage_df['device_id'] == device_id]\n    return device_usage['usage_duration'].mean()\n"
+        },
+        "0.054783085361235474": {
+            "name": "total_data_consumed",
+            "code": "\n\ndef total_data_consumed(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_df = aux_dataframes['customer_device_usage_table.csv']\n    device_id = row['device_id']\n    device_usage = usage_df[usage_df['device_id'] == device_id]\n    return device_usage['data_consumed'].sum()\n"
+        },
+        "0.04328994909981128": {
+            "name": "high_severity",
+            "code": "\n\ndef high_severity(row):\n    return 1 if row['severity_level'] == 'high' else 0\n"
+        },
+        "0.031151127941425157": {
+            "name": "fault_type_encoding",
+            "code": "\n\ndef fault_type_encoding(row):\n    fault_mapping = {'hardware': 0, 'software': 1}  # Add more fault types if available\n    return fault_mapping.get(row['fault_type'], -1)\n"
+        },
+        "0.01803401987357151": {
+            "name": "unresolved_support_ratio",
+            "code": "\n\ndef unresolved_support_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_df = aux_dataframes['technical_support_logs_table.csv']\n    device_id = row['device_id']\n    support_records = support_df[support_df['device_id'] == device_id]\n    if not support_records.empty:\n        unresolved_issues = support_records[support_records['issue_resolved'] == False].shape[0]\n        return unresolved_issues / support_records.shape[0]\n    return None\n"
+        },
+        "0.00957175782817576": {
+            "name": "service_count",
+            "code": "\n\ndef service_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    service_df = aux_dataframes['service_history_table.csv']\n    device_id = row['device_id']\n    return service_df[service_df['device_id'] == device_id].shape[0]\n"
+        },
+        "0.0029908117244016887": {
+            "name": "total_service_costs",
+            "code": "\n\ndef total_service_costs(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    service_df = aux_dataframes['service_history_table.csv']\n    device_id = row['device_id']\n    service_records = service_df[service_df['device_id'] == device_id]\n    return service_records['service_cost'].sum()\n"
+        },
+        "0.0008029874851328192": {
+            "name": "income_level_mapping",
+            "code": "\n\ndef income_level_mapping(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    demographics_df = aux_dataframes['customer_demographics_table.csv']\n    customer_id = row['device_id']  # Assuming device_id can identify customer indirectly\n    customer = demographics_df[demographics_df['customer_id'] == customer_id]\n    if not customer.empty:\n        income_level = customer.iloc[0]['income_level']\n        income_mapping = {'low': 0, 'medium': 1, 'high': 2}\n        return income_mapping.get(income_level, -1)\n    return None\n"
+        }
+    },
+    "feature_descriptions": [
+        "remaining warranty days",
+        "calculate date diff",
+        "days since last support",
+        "days since last service",
+        "average usage duration",
+        "total data consumed",
+        "high severity",
+        "fault type encoding",
+        "unresolved support ratio",
+        "service count",
+        "total service costs",
+        "income level mapping"
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "total_complaints",
+        "avg_daily_energy_usage",
+        "engagement_rate",
+        "avg_satisfaction_after_resolution",
+        "total_marketing_engagements",
+        "percentage_bills_overdue",
+        "avg_bill_amount",
+        "percentage_complaints_resolved",
+        "campaign_engagement_diversity",
+        "total_bills_paid",
+        "account_age",
+        "avg_payment_delay",
+        "membership_length"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "total complaints",
+        "avg daily energy usage",
+        "engagement rate",
+        "avg satisfaction after resolution",
+        "total marketing engagements",
+        "percentage bills overdue",
+        "avg bill amount",
+        "percentage complaints resolved",
+        "campaign engagement diversity",
+        "total bills paid",
+        "account age",
+        "avg payment delay",
+        "membership length"
+    ]
+}

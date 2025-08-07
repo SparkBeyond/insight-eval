@@ -1,0 +1,26 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "feature_loan_count",
+        "feature_total_collateral_value",
+        "annual_income_to_loan_value_ratio",
+        "loan_amount_log",
+        "feature_average_loan_amount",
+        "customer_age",
+        "feature_average_loan_term",
+        "loan_term_years"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "feature loan count",
+        "feature total collateral value",
+        "annual income to loan value ratio",
+        "loan amount log",
+        "feature average loan amount",
+        "customer age",
+        "feature average loan term",
+        "loan term years"
+    ]
+}

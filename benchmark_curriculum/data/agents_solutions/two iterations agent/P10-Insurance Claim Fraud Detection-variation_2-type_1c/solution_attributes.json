@@ -1,0 +1,34 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "days_since_last_payment",
+        "days_since_last_claim",
+        "trend_of_claims",
+        "premium_per_year",
+        "claim_age",
+        "policyholder_age",
+        "approval_ratio",
+        "number_of_claims",
+        "frequent_failed_payments",
+        "region_grouping",
+        "investigation_frequency",
+        "is_high_premium"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "days since last payment",
+        "days since last claim",
+        "trend of claims",
+        "premium per year",
+        "claim age",
+        "policyholder age",
+        "approval ratio",
+        "number of claims",
+        "frequent failed payments",
+        "region grouping",
+        "investigation frequency",
+        "is high premium"
+    ]
+}

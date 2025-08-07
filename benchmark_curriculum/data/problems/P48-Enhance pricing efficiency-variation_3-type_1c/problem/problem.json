@@ -1,0 +1,7 @@
+{
+    "target_column": "SalesVolume",
+    "description": "Optimize pricing strategies to increase sales and revenue in power production.",
+    "name": "Enhance pricing efficiency",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Power production"
+}

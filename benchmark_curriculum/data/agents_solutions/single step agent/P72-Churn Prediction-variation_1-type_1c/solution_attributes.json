@@ -1,0 +1,77 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "feedback_channel_diversity",
+        "total_feedback_score",
+        "recency_of_last_transaction",
+        "last_transaction_amount",
+        "num_campaigns_engaged_aux",
+        "high_value_transactions_count",
+        "customer_lifetime_value",
+        "mean_transactions_per_month",
+        "frequent_feedback_channel_aux",
+        "most_active_day",
+        "refunded_to_successful_ratio_aux"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.22926355319131864": {
+            "name": "feedback_channel_diversity",
+            "code": "\n\ndef feedback_channel_diversity(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    df_feedback = aux_dataframes[\"customer_feedback_table.csv\"]\n    customer_feedback = df_feedback[df_feedback[\"customer_id\"] == row[\"customer_id\"]]\n    if len(customer_feedback) == 0:\n        return 0\n    return customer_feedback['feedback_channel'].nunique()\n"
+        },
+        "0.17264678901813302": {
+            "name": "total_feedback_score",
+            "code": "\n\ndef total_feedback_score(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    df_feedback = aux_dataframes[\"customer_feedback_table.csv\"]\n    customer_feedback = df_feedback[df_feedback[\"customer_id\"] == row[\"customer_id\"]]\n    if \"feedback_score\" not in customer_feedback.columns:\n        return 0\n    return customer_feedback[\"feedback_score\"].sum()\n"
+        },
+        "0.05443461386956435": {
+            "name": "recency_of_last_transaction",
+            "code": "import pandas as pd\n\ndef recency_of_last_transaction(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the transaction history dataframe from the auxiliary data\n    df_transactions = aux_dataframes[\"transaction_history_table.csv\"]\n    \n    # Filter transactions for the specific customer\n    customer_transactions = df_transactions[df_transactions['customer_id'] == row['customer_id']]\n    \n    # If the customer has no transactions, return None\n    if len(customer_transactions) == 0:\n        return None\n    \n    # Get the date of the last transaction for the customer\n    last_transaction = pd.to_datetime(customer_transactions['transaction_date']).max()\n    \n    # Get the latest transaction date in the dataset\n    dataset_latest_time = pd.to_datetime(df_transactions['transaction_date']).max()\n    \n    # Calculate the difference in days between the latest dataset time and the last transaction\n    return (dataset_latest_time - last_transaction).days\n"
+        },
+        "0.04656965389211502": {
+            "name": "last_transaction_amount",
+            "code": "\n\ndef last_transaction_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the transaction history dataframe from the auxiliary dataframes\n    df_transactions = aux_dataframes[\"transaction_history_table.csv\"]\n    \n    # Filter transactions for the specific customer\n    customer_transactions = df_transactions[df_transactions[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # If no transactions exist for the customer, return 0\n    if len(customer_transactions) == 0:\n        return 0\n    \n    # Sort transactions by the correct column name 'transaction_date' in descending order\n    last_transaction = customer_transactions.sort_values(by=\"transaction_date\", ascending=False).iloc[0]\n    \n    # Return the transaction amount of the most recent transaction\n    return last_transaction[\"transaction_amount\"]\n"
+        },
+        "0.03181104740626665": {
+            "name": "num_campaigns_engaged_aux",
+            "code": "\n\ndef num_campaigns_engaged_aux(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    df_campaigns = aux_dataframes[\"marketing_campaigns_table.csv\"]\n    customer_campaigns = df_campaigns[df_campaigns[\"customer_id\"] == row[\"customer_id\"]]\n    return len(customer_campaigns)\n"
+        },
+        "0.02907807452708797": {
+            "name": "high_value_transactions_count",
+            "code": "\n\ndef high_value_transactions_count(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    df_transactions = aux_dataframes[\"transaction_history_table.csv\"]\n    customer_transactions = df_transactions[df_transactions['customer_id'] == row['customer_id']]\n    threshold = 1000  # Example threshold\n    return len(customer_transactions[customer_transactions['transaction_amount'] > threshold])\n"
+        },
+        "0.023475430328044913": {
+            "name": "customer_lifetime_value",
+            "code": "\n\ndef customer_lifetime_value(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the transaction history dataframe\n    df_transactions = aux_dataframes[\"transaction_history_table.csv\"]\n    \n    # Filter transactions for the specific customer\n    customer_transactions = df_transactions[df_transactions[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Sum the transaction amounts for the customer\n    total_transaction_amount = customer_transactions[\"transaction_amount\"].sum()\n    \n    return total_transaction_amount\n"
+        },
+        "0.010089228769007554": {
+            "name": "mean_transactions_per_month",
+            "code": "import pandas as pd\n\ndef mean_transactions_per_month(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the transaction history dataframe\n    df_transactions = aux_dataframes[\"transaction_history_table.csv\"]\n    \n    # Filter transactions for the specific customer\n    customer_transactions = df_transactions[df_transactions['customer_id'] == row['customer_id']]\n    \n    # If no transactions exist for the customer, return 0\n    if len(customer_transactions) == 0:\n        return 0\n    \n    # Convert transaction_date to datetime if not already in datetime format\n    if not pd.api.types.is_datetime64_any_dtype(customer_transactions['transaction_date']):\n        customer_transactions['transaction_date'] = pd.to_datetime(customer_transactions['transaction_date'])\n    \n    # Calculate the timespan in months\n    timespan_months = (customer_transactions['transaction_date'].max() - customer_transactions['transaction_date'].min()).days / 30\n    \n    # Calculate and return the mean transactions per month\n    return len(customer_transactions) / timespan_months if timespan_months > 0 else 0\n"
+        },
+        "0.002023784476182011": {
+            "name": "frequent_feedback_channel_aux",
+            "code": "\n\ndef frequent_feedback_channel_aux(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    df_feedback = aux_dataframes[\"customer_feedback_table.csv\"]\n    customer_feedback = df_feedback[df_feedback[\"customer_id\"] == row[\"customer_id\"]]\n    if len(customer_feedback) == 0:\n        return None\n    return customer_feedback[\"feedback_channel\"].value_counts().idxmax()\n"
+        },
+        "0.0002214876205844929": {
+            "name": "most_active_day",
+            "code": "import pandas as pd\n\ndef most_active_day(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the transaction history dataframe\n    df_transactions = aux_dataframes[\"transaction_history_table.csv\"]\n    \n    # Filter transactions for the specific customer\n    customer_transactions = df_transactions[df_transactions['customer_id'] == row['customer_id']]\n    \n    # If no transactions exist for the customer, return None\n    if len(customer_transactions) == 0:\n        return None\n    \n    # Ensure the 'transaction_date' column is in datetime format\n    if not pd.api.types.is_datetime64_any_dtype(customer_transactions['transaction_date']):\n        customer_transactions['transaction_date'] = pd.to_datetime(customer_transactions['transaction_date'])\n    \n    # Find the most active day of the week\n    return customer_transactions['transaction_date'].dt.day_name().value_counts().idxmax()\n"
+        },
+        "0": {
+            "name": "refunded_to_successful_ratio_aux",
+            "code": "\n\ndef refunded_to_successful_ratio_aux(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the transaction history dataframe from the auxiliary data\n    df_transactions = aux_dataframes[\"transaction_history_table.csv\"]\n    \n    # Filter transactions for the specific customer\n    customer_transactions = df_transactions[df_transactions[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Count the number of refunded transactions\n    num_refunded = len(customer_transactions[customer_transactions[\"transaction_type\"] == \"Refunded\"])\n    \n    # Count the number of successful transactions\n    num_successful = len(customer_transactions[customer_transactions[\"transaction_type\"] == \"Successful\"])\n    \n    # Avoid division by zero\n    if num_successful == 0:\n        return 0\n    \n    # Calculate and return the ratio\n    return num_refunded / num_successful\n"
+        }
+    },
+    "feature_descriptions": [
+        "feedback channel diversity",
+        "total feedback score",
+        "recency of last transaction",
+        "last transaction amount",
+        "num campaigns engaged aux",
+        "high value transactions count",
+        "customer lifetime value",
+        "mean transactions per month",
+        "frequent feedback channel aux",
+        "most active day",
+        "refunded to successful ratio aux"
+    ]
+}

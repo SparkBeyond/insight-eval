@@ -1,0 +1,7 @@
+{
+    "target_column": "default_flag",
+    "description": "Identify customers likely to miss utility payments.",
+    "name": "Customer Defaults Detection",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Energy and utilities"
+}

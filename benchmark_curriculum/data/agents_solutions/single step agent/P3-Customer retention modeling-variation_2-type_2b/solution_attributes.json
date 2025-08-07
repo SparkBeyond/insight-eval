@@ -1,0 +1,89 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "unresolved_tickets",
+        "count_overdue_payments",
+        "total_support_tickets",
+        "payment_completion_rate",
+        "ticket_to_usage_ratio",
+        "avg_billing_amount",
+        "avg_ticket_resolution_time",
+        "customer_tenure",
+        "total_usage_duration",
+        "billing_amount_variance",
+        "customer_age",
+        "avg_usage_duration",
+        "action_type_distribution"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.16767312958461983": {
+            "name": "unresolved_tickets",
+            "code": "\n\ndef unresolved_tickets(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct key for the support tickets dataframe\n    tickets_df = aux_dataframes['support_tickets_table.csv']\n    \n    # Filter tickets for the specific customer\n    customer_tickets = tickets_df[tickets_df['customer_id'] == row['customer_id']]\n    \n    # Filter unresolved tickets (where ticket_status is not 'Resolved')\n    unresolved = customer_tickets[customer_tickets['ticket_status'] != 'Resolved']\n    \n    # Return the count of unresolved tickets\n    return len(unresolved)\n"
+        },
+        "0.14144289548977768": {
+            "name": "count_overdue_payments",
+            "code": "\n\ndef count_overdue_payments(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_dataframes\n    billing_df = aux_dataframes['billing_data_table.csv']\n    \n    # Filter the billing data for the specific customer\n    customer_billing = billing_df[billing_df['customer_id'] == row['customer_id']]\n    \n    # Count the number of overdue payments\n    return (customer_billing['payment_status'] == 'Overdue').sum()\n"
+        },
+        "0.13947924471301623": {
+            "name": "total_support_tickets",
+            "code": "\n\ndef total_support_tickets(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct key for the support tickets dataframe\n    tickets_df = aux_dataframes['support_tickets_table.csv']\n    \n    # Filter tickets for the given customer_id\n    customer_tickets = tickets_df[tickets_df['customer_id'] == row['customer_id']]\n    \n    # Return the count of tickets\n    return len(customer_tickets)\n"
+        },
+        "0.13009123552997903": {
+            "name": "payment_completion_rate",
+            "code": "\n\ndef payment_completion_rate(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the one in aux_dataframes\n    billing_df = aux_dataframes['billing_data_table.csv']\n    \n    # Filter the billing data for the specific customer\n    customer_billing = billing_df[billing_df['customer_id'] == row['customer_id']]\n    \n    # Calculate the total number of bills and the number of completed (paid) bills\n    total_bills = len(customer_billing)\n    completed_bills = len(customer_billing[customer_billing['payment_status'] == 'Paid'])\n    \n    # Handle the case where there are no bills to avoid division by zero\n    if total_bills == 0:\n        return 0\n    \n    # Return the payment completion rate\n    return completed_bills / total_bills\n"
+        },
+        "0.0697002349381682": {
+            "name": "ticket_to_usage_ratio",
+            "code": "\n\ndef ticket_to_usage_ratio(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correcting the keys to match the provided aux_data dictionary\n    tickets_df = aux_dataframes['support_tickets_table.csv']\n    usage_df = aux_dataframes['usage_data_table.csv']\n    \n    # Filtering the dataframes for the specific customer_id\n    customer_tickets = tickets_df[tickets_df['customer_id'] == row['customer_id']]\n    customer_usage = usage_df[usage_df['customer_id'] == row['customer_id']]\n    \n    # Calculating the counts\n    usage_count = len(customer_usage)\n    ticket_count = len(customer_tickets)\n    \n    # Handling the case where usage_count is 0 to avoid division by zero\n    if usage_count == 0:\n        return 0\n    \n    # Returning the ticket-to-usage ratio\n    return ticket_count / usage_count\n"
+        },
+        "0.047588291330984495": {
+            "name": "avg_billing_amount",
+            "code": "\n\ndef avg_billing_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key to access the billing data\n    billing_df = aux_dataframes['billing_data_table.csv']\n    \n    # Filter the billing data for the specific customer_id\n    customer_billing = billing_df[billing_df['customer_id'] == row['customer_id']]\n    \n    # If no billing records exist for the customer, return 0\n    if customer_billing.empty:\n        return 0\n    \n    # Calculate and return the average billing amount\n    return customer_billing['billing_amount'].mean()\n"
+        },
+        "0.025059147654085262": {
+            "name": "avg_ticket_resolution_time",
+            "code": "import pandas as pd\n\ndef avg_ticket_resolution_time(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the support tickets data\n    tickets_df = aux_dataframes['support_tickets_table.csv']\n    \n    # Filter tickets for the specific customer\n    customer_tickets = tickets_df[tickets_df['customer_id'] == row['customer_id']]\n    \n    # Drop rows where 'resolution_date' is NaN (unresolved tickets)\n    resolved_tickets = customer_tickets.dropna(subset=['resolution_date'])\n    \n    # If no resolved tickets exist, return 0\n    if len(resolved_tickets) == 0:\n        return 0\n    \n    # Convert 'ticket_date' and 'resolution_date' to datetime\n    resolved_tickets['ticket_date'] = pd.to_datetime(resolved_tickets['ticket_date'])\n    resolved_tickets['resolution_date'] = pd.to_datetime(resolved_tickets['resolution_date'])\n    \n    # Calculate the average resolution time in days\n    avg_resolution_time = (resolved_tickets['resolution_date'] - resolved_tickets['ticket_date']).mean().days\n    \n    return avg_resolution_time\n"
+        },
+        "0.018297888640149324": {
+            "name": "customer_tenure",
+            "code": "import datetime\n\ndef customer_tenure(row):\n    signup_date = datetime.strptime(row['signup_date'], \"%Y-%m-%d %H:%M:%S.%f\")\n    today_date = datetime.now()\n    return (today_date - signup_date).days\n"
+        },
+        "0.018117562900385614": {
+            "name": "total_usage_duration",
+            "code": "\n\ndef total_usage_duration(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_dataframes\n    usage_df = aux_dataframes['usage_data_table.csv']\n    \n    # Filter the usage data for the specific customer_id\n    customer_usage = usage_df[usage_df['customer_id'] == row['customer_id']]\n    \n    # Return the sum of the 'duration_minutes' column\n    return customer_usage['duration_minutes'].sum()\n"
+        },
+        "0.017950330812619555": {
+            "name": "billing_amount_variance",
+            "code": "\n\ndef billing_amount_variance(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key to access the billing data\n    billing_df = aux_dataframes['billing_data_table.csv']\n    \n    # Filter the billing data for the specific customer_id\n    customer_billing = billing_df[billing_df['customer_id'] == row['customer_id']]\n    \n    # If no billing data exists for the customer, return 0\n    if customer_billing.empty:\n        return 0\n    \n    # Return the variance of the billing_amount column\n    return customer_billing['billing_amount'].var()\n"
+        },
+        "0.012469823700805129": {
+            "name": "customer_age",
+            "code": "import datetime\n\ndef customer_age(row):\n    dob = datetime.strptime(row['date_of_birth'], \"%Y-%m-%d\")\n    today_date = datetime.now()\n    return today_date.year - dob.year - ((today_date.month, today_date.day) < (dob.month, dob.day))\n"
+        },
+        "0.005040940904081205": {
+            "name": "avg_usage_duration",
+            "code": "\n\ndef avg_usage_duration(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_dataframes\n    usage_df = aux_dataframes['usage_data_table.csv']\n    \n    # Filter the usage data for the specific customer_id\n    customer_usage = usage_df[usage_df['customer_id'] == row['customer_id']]\n    \n    # If no usage data exists for the customer, return 0\n    if customer_usage.empty:\n        return 0\n    \n    # Calculate and return the average duration in minutes\n    return customer_usage['duration_minutes'].mean()\n"
+        },
+        "0": {
+            "name": "action_type_distribution",
+            "code": "\n\ndef action_type_distribution(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_dataframes\n    usage_df = aux_dataframes['usage_data_table.csv']\n    \n    # Filter the usage data for the specific customer\n    customer_usage = usage_df[usage_df['customer_id'] == row['customer_id']]\n    \n    # Calculate the distribution of action types\n    distribution = customer_usage['action_type'].value_counts(normalize=True).to_dict()\n    \n    return distribution\n"
+        }
+    },
+    "feature_descriptions": [
+        "unresolved tickets",
+        "count overdue payments",
+        "total support tickets",
+        "payment completion rate",
+        "ticket to usage ratio",
+        "avg billing amount",
+        "avg ticket resolution time",
+        "customer tenure",
+        "total usage duration",
+        "billing amount variance",
+        "customer age",
+        "avg usage duration",
+        "action type distribution"
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "avg_resolved_call_duration",
+        "technical_issue_percentage",
+        "days_since_signup",
+        "resolution_to_unresolution_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.08177604068151176": {
+            "name": "avg_resolved_call_duration",
+            "code": "\n\ndef avg_resolved_call_duration(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    cust_id = row[\"customer_id\"]\n    \n    # Get the support call logs dataframe from aux_data\n    support_call_logs = aux_data.get(\"support_call_logs_table.csv\")\n    \n    # Ensure the dataframe is not None and has the expected columns\n    if support_call_logs is None or not {\"customer_id\", \"issue_resolved\", \"call_duration_minutes\"}.issubset(support_call_logs.columns):\n        raise ValueError(\"The required data or columns are missing in 'support_call_logs_table.csv'\")\n    \n    # Filter the dataframe for the given customer_id and resolved issues\n    customer_calls = support_call_logs[(support_call_logs[\"customer_id\"] == cust_id) & (support_call_logs[\"issue_resolved\"])]\n    \n    # If no calls are found, return 0\n    if customer_calls.empty:\n        return 0\n    \n    # Calculate and return the average call duration\n    return customer_calls[\"call_duration_minutes\"].mean()\n"
+        },
+        "0.021818471118304855": {
+            "name": "technical_issue_percentage",
+            "code": "\n\ndef technical_issue_percentage(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Access the support_call_logs_table.csv dataframe from aux_data\n    support_call_logs = aux_data.get('support_call_logs_table.csv')\n    \n    # Ensure the dataframe exists and is not None\n    if support_call_logs is None:\n        raise ValueError(\"The 'support_call_logs_table.csv' dataframe is missing from aux_data.\")\n    \n    # Extract the customer_id from the row\n    cust_id = row[\"customer_id\"]\n    \n    # Filter the support_call_logs dataframe for the specific customer_id\n    customer_calls = support_call_logs[support_call_logs[\"customer_id\"] == cust_id]\n    \n    # If no calls are found for the customer, return 0\n    if customer_calls.empty:\n        return 0\n    \n    # Count the number of technical issues\n    technical_issues = len(customer_calls[customer_calls[\"issue_type\"] == \"Technical\"])\n    \n    # Calculate and return the percentage of technical issues\n    return technical_issues / len(customer_calls)\n"
+        },
+        "0.0016962625517769091": {
+            "name": "days_since_signup",
+            "code": "import pandas as pd\nimport datetime\n\ndef days_since_signup(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the signup_date from the row\n    if \"signup_date\" not in row:\n        raise KeyError(\"The column 'signup_date' is missing in the input row.\")\n    \n    signup_date = row[\"signup_date\"]\n    \n    # Convert the signup_date to a datetime object\n    try:\n        signup_date = pd.to_datetime(signup_date)\n    except Exception as e:\n        raise ValueError(f\"Error converting 'signup_date' to datetime: {e}\")\n    \n    # Calculate the number of days since signup\n    days_since = (datetime.datetime.now() - signup_date).days\n    return days_since\n"
+        },
+        "0": {
+            "name": "resolution_to_unresolution_ratio",
+            "code": "import numpy as np\n\ndef resolution_to_unresolution_ratio(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe from aux_data\n    if 'support_call_logs_table.csv' not in aux_data:\n        raise ValueError(\"The required 'support_call_logs_table.csv' is missing from aux_data.\")\n    \n    support_call_logs = aux_data['support_call_logs_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'customer_id', 'issue_resolved'}\n    if not required_columns.issubset(support_call_logs.columns):\n        raise ValueError(f\"The dataframe 'support_call_logs_table.csv' must contain the columns: {required_columns}\")\n    \n    # Get the customer_id from the row\n    cust_id = row[\"customer_id\"]\n    \n    # Filter the support_call_logs dataframe for the specific customer\n    customer_calls = support_call_logs[support_call_logs[\"customer_id\"] == cust_id]\n    \n    # If no calls are found for the customer, return 0\n    if customer_calls.empty:\n        return 0\n    \n    # Calculate the number of resolved and unresolved issues\n    resolved = len(customer_calls[customer_calls[\"issue_resolved\"] == True])\n    unresolved = len(customer_calls[customer_calls[\"issue_resolved\"] == False])\n    \n    # Handle the case where there are no unresolved issues\n    if unresolved == 0:\n        return np.inf  # Infinite ratio if no unresolved issues\n    \n    # Return the resolution-to-unresolution ratio\n    return resolved / unresolved\n"
+        }
+    },
+    "feature_descriptions": [
+        "avg resolved call duration",
+        "technical issue percentage",
+        "days since signup",
+        "resolution to unresolution ratio"
+    ]
+}

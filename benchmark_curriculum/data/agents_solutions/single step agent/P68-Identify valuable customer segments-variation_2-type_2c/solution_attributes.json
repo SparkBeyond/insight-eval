@@ -1,0 +1,23 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "total_sales_amount",
+        "sale_recency"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.1388112783242528": {
+            "name": "total_sales_amount",
+            "code": "\n\ndef total_sales_amount(row, df_train: pd.DataFrame):\n    try:\n        return df_train[df_train['customer_id'] == row['customer_id']]['sale_amount'].sum()\n    except:\n        return None\n"
+        },
+        "0.02027288024340256": {
+            "name": "sale_recency",
+            "code": "import pandas as pd\n\ndef sale_recency(row, ref_date=pd.Timestamp('2024-01-01')):\n    try:\n        return (ref_date - pd.to_datetime(row['sale_date'])).days\n    except:\n        return None\n"
+        }
+    },
+    "feature_descriptions": [
+        "total sales amount",
+        "sale recency"
+    ]
+}

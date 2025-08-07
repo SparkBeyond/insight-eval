@@ -1,0 +1,32 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "total_impressions",
+        "gdp_unemployment_ratio",
+        "month_of_year",
+        "demand_volatility_by_day",
+        "normalized_quantity_sold",
+        "product_total_sales",
+        "marketing_spend_impact",
+        "product_avg_price",
+        "day_of_week",
+        "temperature_on_sale_date",
+        "product_recent_quantity_trend"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "total impressions",
+        "gdp unemployment ratio",
+        "month of year",
+        "demand volatility by day",
+        "normalized quantity sold",
+        "product total sales",
+        "marketing spend impact",
+        "product avg price",
+        "day of week",
+        "temperature on sale date",
+        "product recent quantity trend"
+    ]
+}

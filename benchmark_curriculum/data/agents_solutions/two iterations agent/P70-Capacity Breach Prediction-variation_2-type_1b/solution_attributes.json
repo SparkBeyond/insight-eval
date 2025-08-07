@@ -1,0 +1,101 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "feature_facility_age",
+        "feature_average_maintenance_cost",
+        "feature_maintenance_cost_per_output",
+        "feature_month",
+        "feature_high_maintenance",
+        "feature_yearly_rolling_downtime",
+        "feature_quarter",
+        "feature_average_downtime",
+        "feature_day_of_week",
+        "feature_downtime_ratio",
+        "feature_normalized_output",
+        "feature_year",
+        "feature_facility_type",
+        "feature_season",
+        "feature_peak_demand"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.12479106929224312": {
+            "name": "feature_facility_age",
+            "code": "import numpy as np\nimport pandas as pd\n\ndef feature_facility_age(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    facilities_df = aux_dataframes['energy_facilities_table.csv']\n    facility_info = facilities_df[facilities_df['facility_id'] == row['facility_id']]\n    if not facility_info.empty:\n        commission_date = pd.to_datetime(facility_info.iloc[0]['commission_date'])\n        return (pd.to_datetime(row['date']) - commission_date).days / 365\n    else:\n        return np.nan\n"
+        },
+        "0.07500253800612586": {
+            "name": "feature_average_maintenance_cost",
+            "code": "\n\ndef feature_average_maintenance_cost(row, df_train: pd.DataFrame):\n    facility_data = df_train[df_train['facility_id'] == row['facility_id']]\n    return facility_data['maintenance_cost'].mean()\n"
+        },
+        "0.042473669493749665": {
+            "name": "feature_maintenance_cost_per_output",
+            "code": "\n\ndef feature_maintenance_cost_per_output(row):\n    if row['energy_output'] > 0:\n        return row['maintenance_cost'] / row['energy_output']\n    else:\n        return 0\n"
+        },
+        "0.031409525185209716": {
+            "name": "feature_month",
+            "code": "import pandas as pd\n\ndef feature_month(row):\n    return pd.to_datetime(row['date']).month\n"
+        },
+        "0.030969349227633662": {
+            "name": "feature_high_maintenance",
+            "code": "\n\ndef feature_high_maintenance(row):\n    return int(row['maintenance_cost'] > 5000)\n"
+        },
+        "0.02211832655747054": {
+            "name": "feature_yearly_rolling_downtime",
+            "code": "import numpy as np\n\ndef feature_yearly_rolling_downtime(row, df_train: pd.DataFrame):\n    facility_data = df_train[df_train['facility_id'] == row['facility_id']]\n    facility_data = facility_data.sort_values('date')\n    facility_data['rolling_mean'] = facility_data['downtime_hours'].rolling(365, min_periods=1).mean()\n    rolling_value = facility_data[facility_data['metric_id'] == row['metric_id']]['rolling_mean']\n    return rolling_value.values[0] if not rolling_value.empty else np.nan\n"
+        },
+        "0.021416699114408126": {
+            "name": "feature_quarter",
+            "code": "import pandas as pd\n\ndef feature_quarter(row):\n    return pd.to_datetime(row['date']).quarter\n"
+        },
+        "0.016225021172180915": {
+            "name": "feature_average_downtime",
+            "code": "\n\ndef feature_average_downtime(row, df_train: pd.DataFrame):\n    facility_data = df_train[df_train['facility_id'] == row['facility_id']]\n    return facility_data['downtime_hours'].mean()\n"
+        },
+        "0.015128318578472594": {
+            "name": "feature_day_of_week",
+            "code": "import pandas as pd\n\ndef feature_day_of_week(row):\n    return pd.to_datetime(row['date']).dayofweek\n"
+        },
+        "0.014589564016440296": {
+            "name": "feature_downtime_ratio",
+            "code": "\n\ndef feature_downtime_ratio(row):\n    if row['capacity_utilization'] > 0:\n        return row['downtime_hours'] / row['capacity_utilization']\n    else:\n        return 0\n"
+        },
+        "0.013785376888928277": {
+            "name": "feature_normalized_output",
+            "code": "\n\ndef feature_normalized_output(row):\n    return row['energy_output'] / row['capacity_utilization'] if row['capacity_utilization'] > 0 else 0\n"
+        },
+        "0.0068811257450841256": {
+            "name": "feature_year",
+            "code": "import pandas as pd\n\ndef feature_year(row):\n    return pd.to_datetime(row['date']).year\n"
+        },
+        "0.0022236520475921173": {
+            "name": "feature_facility_type",
+            "code": "\n\ndef feature_facility_type(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    facilities_df = aux_dataframes['energy_facilities_table.csv']\n    facility_info = facilities_df[facilities_df['facility_id'] == row['facility_id']]\n    if not facility_info.empty:\n        return facility_info.iloc[0]['facility_type']\n    else:\n        return 'unknown'\n"
+        },
+        "0.0011105070162191755": {
+            "name": "feature_season",
+            "code": "import pandas as pd\n\ndef feature_season(row):\n    month = pd.to_datetime(row['date']).month\n    if month in [12, 1, 2]:\n        return 'winter'\n    elif month in [3, 4, 5]:\n        return 'spring'\n    elif month in [6, 7, 8]:\n        return 'summer'\n    else:\n        return 'fall'\n"
+        },
+        "0.00011663178822130035": {
+            "name": "feature_peak_demand",
+            "code": "\n\ndef feature_peak_demand(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    demand_df = aux_dataframes['energy_demand_table.csv']\n    demand_on_date = demand_df[(demand_df['facility_id'] == row['facility_id']) & (demand_df['date'] == row['date'])]\n    if not demand_on_date.empty:\n        return int(demand_on_date.iloc[0]['peak_demand'])\n    else:\n        return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "feature facility age",
+        "feature average maintenance cost",
+        "feature maintenance cost per output",
+        "feature month",
+        "feature high maintenance",
+        "feature yearly rolling downtime",
+        "feature quarter",
+        "feature average downtime",
+        "feature day of week",
+        "feature downtime ratio",
+        "feature normalized output",
+        "feature year",
+        "feature facility type",
+        "feature season",
+        "feature peak demand"
+    ]
+}

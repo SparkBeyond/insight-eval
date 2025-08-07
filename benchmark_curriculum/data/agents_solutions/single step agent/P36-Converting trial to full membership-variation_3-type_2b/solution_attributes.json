@@ -1,0 +1,83 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "active_membership_status",
+        "membership_type_gold",
+        "membership_type_platinum",
+        "total_trials",
+        "num_converted_trials",
+        "num_premium_trials",
+        "num_active_trials",
+        "trial_success_rate",
+        "days_since_signup",
+        "age_at_signup",
+        "preferred_trial_type",
+        "avg_trial_length"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.3223071968210748": {
+            "name": "active_membership_status",
+            "code": "\n\ndef active_membership_status(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Check if there is any active membership for this customer.\"\"\"\n    membership_data = aux_dataframes['membership_data_table.csv']\n    customer_memberships = membership_data[membership_data['customer_id'] == row['customer_id']]\n    return 1 if 'active' in customer_memberships['membership_status'].values else 0\n"
+        },
+        "0.2973075643892914": {
+            "name": "membership_type_gold",
+            "code": "\n\ndef membership_type_gold(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Binary feature indicating if the customer is associated with a gold membership.\"\"\"\n    membership_data = aux_dataframes['membership_data_table.csv']\n    gold_memberships = membership_data[\n        (membership_data['customer_id'] == row['customer_id']) &\n        (membership_data['membership_type'] == 'gold')\n    ]\n    return 1 if len(gold_memberships) > 0 else 0\n"
+        },
+        "0.2880837354921113": {
+            "name": "membership_type_platinum",
+            "code": "\n\ndef membership_type_platinum(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Binary feature indicating if the customer is associated with a platinum membership.\"\"\"\n    membership_data = aux_dataframes['membership_data_table.csv']\n    platinum_memberships = membership_data[\n        (membership_data['customer_id'] == row['customer_id']) &\n        (membership_data['membership_type'] == 'platinum')\n    ]\n    return 1 if len(platinum_memberships) > 0 else 0\n"
+        },
+        "0.28597289175237955": {
+            "name": "total_trials",
+            "code": "\n\ndef total_trials(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Calculate the total number of trials a customer has participated in.\"\"\"\n    customer_trials = aux_dataframes['trial_data_table.csv']\n    return len(customer_trials[customer_trials['customer_id'] == row['customer_id']])\n"
+        },
+        "0.27321453986782585": {
+            "name": "num_converted_trials",
+            "code": "\n\ndef num_converted_trials(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Calculate the total number of converted trials for a customer.\"\"\"\n    customer_trials = aux_dataframes['trial_data_table.csv']\n    converted_trials = customer_trials[\n        (customer_trials['customer_id'] == row['customer_id']) &\n        (customer_trials['trial_status'] == 'converted')\n    ]\n    return len(converted_trials)\n"
+        },
+        "0.19529498111956353": {
+            "name": "num_premium_trials",
+            "code": "\n\ndef num_premium_trials(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Calculate the number of premium trials a customer has participated in.\"\"\"\n    customer_trials = aux_dataframes['trial_data_table.csv']\n    premium_trials = customer_trials[\n        (customer_trials['customer_id'] == row['customer_id']) &\n        (customer_trials['trial_type'] == 'premium')\n    ]\n    return len(premium_trials)\n"
+        },
+        "0.14281697987988204": {
+            "name": "num_active_trials",
+            "code": "\n\ndef num_active_trials(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Calculate the number of active trials a customer has.\"\"\"\n    customer_trials = aux_dataframes['trial_data_table.csv']\n    active_trials = customer_trials[\n        (customer_trials['customer_id'] == row['customer_id']) &\n        (customer_trials['trial_status'] == 'active')\n    ]\n    return len(active_trials)\n"
+        },
+        "0.13081777281348": {
+            "name": "trial_success_rate",
+            "code": "\n\ndef trial_success_rate(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Calculate the success (conversion) rate of trials per customer.\"\"\"\n    customer_trials = aux_dataframes['trial_data_table.csv']\n    trials = customer_trials[customer_trials['customer_id'] == row['customer_id']]\n    if len(trials) == 0:\n        return None\n    return len(trials[trials['trial_status'] == 'converted']) / len(trials)\n"
+        },
+        "0.030296396797541647": {
+            "name": "days_since_signup",
+            "code": "import pandas as pd\nimport datetime\n\ndef days_since_signup(row):\n    \"\"\"Calculate the number of days since a customer signed up.\"\"\"\n    today = datetime.now()\n    if pd.isnull(row['signup_date']):\n        return None\n    # Convert signup_date to a datetime object\n    signup_date = pd.to_datetime(row['signup_date'])\n    return (today - signup_date).days\n"
+        },
+        "0.009240239077098287": {
+            "name": "age_at_signup",
+            "code": "\n\ndef age_at_signup(row):\n    \"\"\"Return the age of the customer at signup.\"\"\"\n    return row['age']\n"
+        },
+        "-0.0003981110689572631": {
+            "name": "preferred_trial_type",
+            "code": "\n\ndef preferred_trial_type(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Determine the most frequent trial type a customer participated in.\"\"\"\n    customer_trials = aux_dataframes['trial_data_table.csv']\n    trials = customer_trials[customer_trials['customer_id'] == row['customer_id']]\n    if len(trials) == 0:\n        return None\n    return trials['trial_type'].mode()[0]  # Returns the most frequent trial type\n"
+        },
+        "0": {
+            "name": "avg_trial_length",
+            "code": "\n\ndef avg_trial_length(row, df_train: pd.DataFrame):\n    \"\"\"Return average trial duration (if available); simulated default of 30 days.\"\"\"\n    return 30  # Example estimated value due to lack of explicit duration data.\n"
+        }
+    },
+    "feature_descriptions": [
+        "active membership status",
+        "membership type gold",
+        "membership type platinum",
+        "total trials",
+        "num converted trials",
+        "num premium trials",
+        "num active trials",
+        "trial success rate",
+        "days since signup",
+        "age at signup",
+        "preferred trial type",
+        "avg trial length"
+    ]
+}

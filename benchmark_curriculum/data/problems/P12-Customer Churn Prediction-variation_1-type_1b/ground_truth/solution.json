@@ -1,0 +1,14 @@
+{
+    "enriched_column_names": [
+        "average_spend_per_transaction_in_the_last_quarter",
+        "number_of_failed_transactions_in_the_last_3_months",
+        "number_of_unique_services_used_in_the_last_year",
+        "escalated_complaints_in_the_last_6_months"
+    ],
+    "features_descriptions": [
+        "average spend per transaction in the last quarter",
+        "number of failed transactions in the last 3 months",
+        "number of unique services used in the last year",
+        "escalated complaints in the last 6 months"
+    ]
+}

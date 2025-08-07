@@ -1,0 +1,16 @@
+{
+    "enriched_column_names": [
+        "frequency_of_calls_to_unknown_recipients_in_the_last_month",
+        "ratio_of_flagged_spam_calls_to_total_calls_for_users_registered_within_1_year",
+        "percentage_of_calls_involving_known_recipients_that_are_flagged_as_spam",
+        "ratio_of_calls_made_during_suspect_time_windows_over_the_last_6_months",
+        "average_duration_of_suspicious_calls_made_to_multiple_unique_recipients_within_a_given_week"
+    ],
+    "features_descriptions": [
+        "frequency of calls to unknown recipients in the last month",
+        "ratio of flagged spam calls to total calls for users registered within 1 year",
+        "percentage of calls involving known recipients that are flagged as spam",
+        "ratio of calls made during suspect time windows over the last 6 months",
+        "average duration of suspicious calls made to multiple unique recipients within a given week"
+    ]
+}

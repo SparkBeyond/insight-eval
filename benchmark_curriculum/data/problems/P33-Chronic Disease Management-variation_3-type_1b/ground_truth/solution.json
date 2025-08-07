@@ -1,0 +1,14 @@
+{
+    "enriched_column_names": [
+        "frequency_of_abnormal_lab_test_results_in_the_past_18_months",
+        "dietary_quality_index_score_over_the_last_6_months",
+        "family_history_impact_score_over_the_past_5_years",
+        "changes_in_physical_activity_level_over_the_last_year"
+    ],
+    "features_descriptions": [
+        "frequency of abnormal lab test results in the past 18 months",
+        "dietary quality index score over the last 6 months",
+        "family history impact score over the past 5 years",
+        "changes in physical activity level over the last year"
+    ]
+}

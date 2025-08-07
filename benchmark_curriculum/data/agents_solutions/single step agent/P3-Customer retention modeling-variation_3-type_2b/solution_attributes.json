@@ -1,0 +1,131 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "ticket_frequency",
+        "proportion_overdue_payments",
+        "last_billing_amount",
+        "customer_age",
+        "average_resolution_time",
+        "average_payment_delay",
+        "gender_binary",
+        "average_activity_spending",
+        "last_ticket_status",
+        "region_category",
+        "customer_status_numeric",
+        "last_session_duration",
+        "days_since_signup",
+        "total_activity_duration",
+        "billing_frequency",
+        "total_billing_amount",
+        "usage_frequency",
+        "most_frequent_issue_type",
+        "most_frequent_action_type",
+        "unresolved_ticket_count"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.10500762638754159": {
+            "name": "ticket_frequency",
+            "code": "\n\ndef ticket_frequency(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_data = aux_dataframes['support_tickets_table.csv']\n    return support_data[support_data['customer_id'] == row['customer_id']].shape[0]\n"
+        },
+        "0.09553838154333058": {
+            "name": "proportion_overdue_payments",
+            "code": "\n\ndef proportion_overdue_payments(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_data = aux_dataframes['billing_data_table.csv']\n    customer_bills = billing_data[billing_data['customer_id'] == row['customer_id']]\n    overdue_count = (customer_bills['payment_status'] == 'Overdue').sum()\n    return overdue_count / len(customer_bills) if len(customer_bills) > 0 else 0\n"
+        },
+        "0.05392574989693856": {
+            "name": "last_billing_amount",
+            "code": "\n\ndef last_billing_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_data = aux_dataframes['billing_data_table.csv']\n    # Filter the billing data for the specific customer_id\n    customer_bills = billing_data[billing_data['customer_id'] == row['customer_id']].sort_values(by='billing_date')\n    # Return the last billing amount or 0 if no bills exist\n    return customer_bills['billing_amount'].iloc[-1] if not customer_bills.empty else 0\n"
+        },
+        "0.04219362850670977": {
+            "name": "customer_age",
+            "code": "import pandas as pd\nimport datetime\n\ndef customer_age(row):\n    from datetime import datetime\n    today = datetime.today()\n    birth_date = pd.to_datetime(row['date_of_birth'])\n    return today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))\n"
+        },
+        "0.04158033667419833": {
+            "name": "average_resolution_time",
+            "code": "import pandas as pd\n\ndef average_resolution_time(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_data = aux_dataframes['support_tickets_table.csv']\n    \n    # Ensure the resolution_time_days column is calculated\n    if 'resolution_time_days' not in support_data.columns:\n        support_data['ticket_date'] = pd.to_datetime(support_data['ticket_date'])\n        support_data['resolution_date'] = pd.to_datetime(support_data['resolution_date'])\n        support_data['resolution_time_days'] = (support_data['resolution_date'] - support_data['ticket_date']).dt.days\n    \n    # Filter resolved tickets for the given customer_id\n    resolved_tickets = support_data[\n        (support_data['customer_id'] == row['customer_id']) & \n        (support_data['ticket_status'] == 'Resolved')\n    ]\n    \n    # Return the average resolution time or 0 if no resolved tickets exist\n    return resolved_tickets['resolution_time_days'].mean() if not resolved_tickets.empty else 0\n"
+        },
+        "0.036526016270153484": {
+            "name": "average_payment_delay",
+            "code": "import pandas as pd\n\ndef average_payment_delay(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_data = aux_dataframes['billing_data_table.csv']\n    \n    # Ensure the necessary columns exist\n    if 'billing_date' not in billing_data.columns or 'payment_date' not in billing_data.columns:\n        raise KeyError(\"The required columns 'billing_date' and 'payment_date' are not present in the billing data.\")\n    \n    # Filter the billing data for the specific customer\n    customer_billing_data = billing_data[billing_data['customer_id'] == row['customer_id']]\n    \n    # Calculate payment delays (convert dates to datetime if not already)\n    customer_billing_data['billing_date'] = pd.to_datetime(customer_billing_data['billing_date'])\n    customer_billing_data['payment_date'] = pd.to_datetime(customer_billing_data['payment_date'])\n    \n    # Calculate the delay in days\n    customer_billing_data['payment_delay_days'] = (customer_billing_data['payment_date'] - customer_billing_data['billing_date']).dt.days\n    \n    # Return the average payment delay\n    return customer_billing_data['payment_delay_days'].mean()\n"
+        },
+        "0.035158318046808724": {
+            "name": "gender_binary",
+            "code": "\n\ndef gender_binary(row):\n    return 1 if row['gender'] == 'Male' else 0\n"
+        },
+        "0.024872874868331146": {
+            "name": "average_activity_spending",
+            "code": "\n\ndef average_activity_spending(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes['usage_data_table.csv']\n    customer_usage = usage_data[usage_data['customer_id'] == row['customer_id']]\n    if not customer_usage.empty:\n        return customer_usage['amount_spent'].mean()\n    return 0\n"
+        },
+        "0.020743520621561484": {
+            "name": "last_ticket_status",
+            "code": "\n\ndef last_ticket_status(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the support tickets dataframe\n    support_data = aux_dataframes['support_tickets_table.csv']\n    \n    # Filter the support tickets for the given customer_id\n    customer_tickets = support_data[support_data['customer_id'] == row['customer_id']].sort_values(by='ticket_date')\n    \n    # Return the last ticket's status if tickets exist, otherwise return None\n    return customer_tickets['ticket_status'].iloc[-1] if not customer_tickets.empty else None\n"
+        },
+        "0.01820697787501682": {
+            "name": "region_category",
+            "code": "\n\ndef region_category(row):\n    regions = {'North': 1, 'South': 2, 'East': 3, 'West': 4}  # Example encoding\n    return regions.get(row['region'], 0)\n"
+        },
+        "0.016615928187678083": {
+            "name": "customer_status_numeric",
+            "code": "\n\ndef customer_status_numeric(row):\n    statuses = {'Active': 1, 'Inactive': 2, 'Suspended': 3}\n    return statuses.get(row['customer_status'], 0)\n"
+        },
+        "0.012646074171843739": {
+            "name": "last_session_duration",
+            "code": "\n\ndef last_session_duration(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes['usage_data_table.csv']\n    # Filter the usage data for the specific customer\n    customer_sessions = usage_data[usage_data['customer_id'] == row['customer_id']].sort_values(by='usage_date')\n    # Return the duration of the last session or 0 if no sessions exist\n    return customer_sessions['duration_minutes'].iloc[-1] if not customer_sessions.empty else 0\n"
+        },
+        "0.008110010193453053": {
+            "name": "days_since_signup",
+            "code": "import pandas as pd\nimport datetime\n\ndef days_since_signup(row):\n    from datetime import datetime\n    today = datetime.today()\n    sign_up_date = pd.to_datetime(row['signup_date'])\n    return (today - sign_up_date).days\n"
+        },
+        "0.006268928350764744": {
+            "name": "total_activity_duration",
+            "code": "\n\ndef total_activity_duration(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes['usage_data_table.csv']\n    return usage_data[usage_data['customer_id'] == row['customer_id']]['duration_minutes'].sum()\n"
+        },
+        "0.0028480929448338925": {
+            "name": "billing_frequency",
+            "code": "\n\ndef billing_frequency(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_data = aux_dataframes['billing_data_table.csv']\n    return billing_data[billing_data['customer_id'] == row['customer_id']].shape[0]\n"
+        },
+        "0.00252167842867166": {
+            "name": "total_billing_amount",
+            "code": "\n\ndef total_billing_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_data = aux_dataframes['billing_data_table.csv']\n    # Use the correct column name 'billing_amount' instead of 'amount'\n    return billing_data[billing_data['customer_id'] == row['customer_id']]['billing_amount'].sum()\n"
+        },
+        "0.001930651186402569": {
+            "name": "usage_frequency",
+            "code": "\n\ndef usage_frequency(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes['usage_data_table.csv']\n    return usage_data[usage_data['customer_id'] == row['customer_id']].shape[0]\n"
+        },
+        "0.0013891921548112585": {
+            "name": "most_frequent_issue_type",
+            "code": "\n\ndef most_frequent_issue_type(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_data = aux_dataframes['support_tickets_table.csv']\n    customer_tickets = support_data[support_data['customer_id'] == row['customer_id']]\n    if not customer_tickets.empty:\n        return customer_tickets['issue_type'].value_counts().idxmax()\n    return None\n"
+        },
+        "0.0009829368528282423": {
+            "name": "most_frequent_action_type",
+            "code": "\n\ndef most_frequent_action_type(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes['usage_data_table.csv']\n    customer_usage = usage_data[usage_data['customer_id'] == row['customer_id']]\n    if not customer_usage.empty:\n        return customer_usage['action_type'].value_counts().idxmax()\n    return None\n"
+        },
+        "0": {
+            "name": "unresolved_ticket_count",
+            "code": "\n\ndef unresolved_ticket_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_data = aux_dataframes['support_tickets_table.csv']\n    # Filter for unresolved tickets using the correct column name 'ticket_status'\n    unresolved = support_data[\n        (support_data['customer_id'] == row['customer_id']) & \n        (support_data['ticket_status'] == 'Unresolved')\n    ]\n    return unresolved.shape[0]\n"
+        }
+    },
+    "feature_descriptions": [
+        "ticket frequency",
+        "proportion overdue payments",
+        "last billing amount",
+        "customer age",
+        "average resolution time",
+        "average payment delay",
+        "gender binary",
+        "average activity spending",
+        "last ticket status",
+        "region category",
+        "customer status numeric",
+        "last session duration",
+        "days since signup",
+        "total activity duration",
+        "billing frequency",
+        "total billing amount",
+        "usage frequency",
+        "most frequent issue type",
+        "most frequent action type",
+        "unresolved ticket count"
+    ]
+}

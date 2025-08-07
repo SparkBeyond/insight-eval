@@ -1,0 +1,53 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "churn_rate_by_account_status",
+        "last_transaction_days",
+        "total_transactions",
+        "avg_transaction_amount",
+        "is_senior",
+        "days_since_signup",
+        "enrollment_to_first_tx"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.05770983927947276": {
+            "name": "churn_rate_by_account_status",
+            "code": "\n\ndef churn_rate_by_account_status(row, df_train):\n    # Exclude the current row from the calculation to prevent target leakage\n    df_train_excluded = df_train[df_train['customer_id'] != row['customer_id']]\n    \n    # Group by 'account_status' and calculate the mean churn rate\n    account_status_group = df_train_excluded.groupby('account_status')['churned'].mean()\n    \n    # Return the churn rate for the row's account_status, defaulting to 0 if not found\n    return account_status_group.get(row['account_status'], 0)\n"
+        },
+        "0.028040214441038085": {
+            "name": "last_transaction_days",
+            "code": "import pandas as pd\nimport datetime\n\ndef last_transaction_days(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the transaction history dataframe from aux_dataframes\n    transactions = aux_dataframes['transaction_history_table.csv']\n    \n    # Filter transactions for the specific customer_id\n    customer_tx = transactions[transactions['customer_id'] == row['customer_id']]\n    \n    # Check if there are any transactions for the customer\n    if not customer_tx.empty:\n        # Convert the 'transaction_date' column to datetime\n        customer_tx['transaction_date'] = pd.to_datetime(customer_tx['transaction_date'])\n        \n        # Get the most recent transaction date\n        last_tx_date = customer_tx['transaction_date'].max()\n        \n        # Calculate the difference in days between today and the last transaction date\n        return (datetime.datetime.today() - last_tx_date).days\n    \n    # Return -1 if no transactions are found\n    return -1\n"
+        },
+        "0.017823417816112033": {
+            "name": "total_transactions",
+            "code": "\n\ndef total_transactions(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    transactions = aux_dataframes['transaction_history_table.csv']\n    customer_tx = transactions[transactions['customer_id'] == row['customer_id']]\n    return len(customer_tx)\n"
+        },
+        "0.010970090659948362": {
+            "name": "avg_transaction_amount",
+            "code": "\n\ndef avg_transaction_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    transactions = aux_dataframes['transaction_history_table.csv']\n    customer_tx = transactions[transactions['customer_id'] == row['customer_id']]\n    return customer_tx['transaction_amount'].mean() if not customer_tx.empty else 0\n"
+        },
+        "0.00773426944203998": {
+            "name": "is_senior",
+            "code": "\n\ndef is_senior(row):\n    return int(row['age'] > 60)\n"
+        },
+        "0.004620329549692176": {
+            "name": "days_since_signup",
+            "code": "import datetime\n\ndef days_since_signup(row: Dict[str, any]) -> int:\n    # Parse the signup_date from the row\n    signup_date = datetime.datetime.strptime(row['signup_date'], '%Y-%m-%d')\n    # Get the current date\n    current_date = datetime.datetime.today()\n    # Calculate the difference in days\n    return (current_date - signup_date).days\n"
+        },
+        "0": {
+            "name": "enrollment_to_first_tx",
+            "code": "\n\ndef enrollment_to_first_tx(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_support = aux_dataframes['customer_support_interactions_table.csv']\n    transactions = aux_dataframes['transaction_history_table.csv']\n    loyalty_row = customer_support[customer_support['customer_id'] == row['customer_id']]\n    if not loyalty_row.empty:\n        enrollment_date = parse_date(loyalty_row.iloc[0]['enrollment_date'])\n        customer_tx = transactions[transactions['customer_id'] == row['customer_id']]\n        if not customer_tx.empty:\n            first_tx_date = min(customer_tx['transaction_date'].map(parse_date))\n            return (first_tx_date - enrollment_date).days\n    return -1\n"
+        }
+    },
+    "feature_descriptions": [
+        "churn rate by account status",
+        "last transaction days",
+        "total transactions",
+        "avg transaction amount",
+        "is senior",
+        "days since signup",
+        "enrollment to first tx"
+    ]
+}

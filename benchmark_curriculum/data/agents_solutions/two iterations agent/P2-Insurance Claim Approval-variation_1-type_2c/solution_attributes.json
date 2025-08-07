@@ -1,0 +1,24 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "claim_approval_rate",
+        "number_of_denied_claims",
+        "policy_duration_days",
+        "count_previous_claims",
+        "interaction_frequency",
+        "avg_claim_amount",
+        "avg_payment_completion_rate"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "claim approval rate",
+        "number of denied claims",
+        "policy duration days",
+        "count previous claims",
+        "interaction frequency",
+        "avg claim amount",
+        "avg payment completion rate"
+    ]
+}

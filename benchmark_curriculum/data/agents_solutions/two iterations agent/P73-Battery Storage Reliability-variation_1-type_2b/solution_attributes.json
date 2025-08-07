@@ -1,0 +1,40 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "mean_temperature_past_week",
+        "days_since_last_maintenance_refined",
+        "recent_voltage_spike",
+        "issue_resolution_duration_refined",
+        "humidity_variance_past_week",
+        "maintenance_frequency",
+        "total_maintenance_cost_to_date",
+        "average_maintenance_cost",
+        "is_weekend",
+        "time_since_last_issue",
+        "days_since_issue_report_refined",
+        "average_issue_duration",
+        "total_maintenance_cost",
+        "load_to_operating_time_ratio",
+        "time_since_last_maintenance"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "mean temperature past week",
+        "days since last maintenance refined",
+        "recent voltage spike",
+        "issue resolution duration refined",
+        "humidity variance past week",
+        "maintenance frequency",
+        "total maintenance cost to date",
+        "average maintenance cost",
+        "is weekend",
+        "time since last issue",
+        "days since issue report refined",
+        "average issue duration",
+        "total maintenance cost",
+        "load to operating time ratio",
+        "time since last maintenance"
+    ]
+}

@@ -1,0 +1,77 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "days_since_last_transaction",
+        "days_since_last_support",
+        "transactions_per_year",
+        "total_transaction_count",
+        "total_support_tickets",
+        "average_transaction_amount",
+        "avg_response_time",
+        "unresolved_tickets_count",
+        "days_since_last_campaign",
+        "success_rate",
+        "days_since_signup"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.305743430622537": {
+            "name": "days_since_last_transaction",
+            "code": "import datetime\n\ndef parse_date(date_str):\n    return datetime.strptime(date_str, \"%Y-%m-%d\")\n\ndef days_since_last_transaction(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    transactions = aux_dataframes['transaction_log_table.csv']\n    customer_transactions = transactions[transactions['customer_id'] == row['customer_id']]\n    if customer_transactions.empty:\n        return None\n    last_transaction_date = customer_transactions['transaction_date'].max()\n    return (datetime.now() - parse_date(last_transaction_date)).days\n"
+        },
+        "0.1687656289475031": {
+            "name": "days_since_last_support",
+            "code": "import datetime\nimport pandas as pd\n\ndef days_since_last_support(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the support interactions dataframe\n    support_interactions = aux_dataframes['support_interactions_table.csv']\n    \n    # Filter interactions for the specific customer\n    customer_interactions = support_interactions[support_interactions['customer_id'] == row['customer_id']]\n    \n    # If no interactions exist for the customer, return None\n    if customer_interactions.empty:\n        return None\n    \n    # Ensure the 'interaction_date' column is in datetime format\n    if not pd.api.types.is_datetime64_any_dtype(customer_interactions['interaction_date']):\n        customer_interactions['interaction_date'] = pd.to_datetime(customer_interactions['interaction_date'])\n    \n    # Get the most recent interaction date\n    last_support_date = customer_interactions['interaction_date'].max()\n    \n    # Calculate the number of days since the last support interaction\n    return (datetime.now() - last_support_date).days\n"
+        },
+        "0.15799798892135428": {
+            "name": "transactions_per_year",
+            "code": "import datetime\n\ndef parse_date(date_str):\n    return datetime.strptime(date_str, \"%Y-%m-%d\")\n\ndef transactions_per_year(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    transactions = aux_dataframes['transaction_log_table.csv']\n    customer_transactions = transactions[transactions['customer_id'] == row['customer_id']]\n    if customer_transactions.empty:\n        return 0\n    first_transaction_date = parse_date(customer_transactions['transaction_date'].min())\n    tenure_years = max((datetime.now() - first_transaction_date).days / 365.25, 1)\n    return len(customer_transactions) / tenure_years\n"
+        },
+        "0.1563470802064067": {
+            "name": "total_transaction_count",
+            "code": "\n\ndef total_transaction_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    transactions = aux_dataframes['transaction_log_table.csv']\n    customer_transactions = transactions[transactions['customer_id'] == row['customer_id']]\n    return len(customer_transactions)\n"
+        },
+        "0.07978826598806696": {
+            "name": "total_support_tickets",
+            "code": "\n\ndef total_support_tickets(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_interactions = aux_dataframes['support_interactions_table.csv']\n    customer_interactions = support_interactions[support_interactions['customer_id'] == row['customer_id']]\n    return len(customer_interactions)\n"
+        },
+        "0.05433850464547772": {
+            "name": "average_transaction_amount",
+            "code": "\n\ndef average_transaction_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    transactions = aux_dataframes['transaction_log_table.csv']\n    customer_transactions = transactions[transactions['customer_id'] == row['customer_id']]\n    if customer_transactions.empty:\n        return 0\n    return customer_transactions['transaction_amount'].mean()\n"
+        },
+        "0.04549104191962694": {
+            "name": "avg_response_time",
+            "code": "\n\ndef avg_response_time(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    interactions = aux_dataframes['support_interactions_table.csv']\n    customer_interactions = interactions[interactions['customer_id'] == row['customer_id']]\n    if customer_interactions.empty:\n        return 0\n    return customer_interactions['response_time'].mean()\n"
+        },
+        "0.03521777325565069": {
+            "name": "unresolved_tickets_count",
+            "code": "\n\ndef unresolved_tickets_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_interactions = aux_dataframes['support_interactions_table.csv']\n    customer_interactions = support_interactions[\n        (support_interactions['customer_id'] == row['customer_id']) & \n        (support_interactions['resolution_status'] == 'Unresolved')\n    ]\n    return len(customer_interactions)\n"
+        },
+        "0.008481324935957194": {
+            "name": "days_since_last_campaign",
+            "code": "import datetime\n\ndef parse_date(date_str):\n    return datetime.strptime(date_str, \"%Y-%m-%d\")\n\ndef days_since_last_campaign(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    campaigns = aux_dataframes['marketing_campaigns_table.csv']\n    customer_campaigns = campaigns[campaigns['customer_id'] == row['customer_id']]\n    if customer_campaigns.empty:\n        return None\n    last_campaign_date = customer_campaigns['campaign_date'].max()\n    return (datetime.now() - parse_date(last_campaign_date)).days\n"
+        },
+        "0.003003492064092079": {
+            "name": "success_rate",
+            "code": "\n\ndef success_rate(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    transactions = aux_dataframes['transaction_log_table.csv']\n    customer_transactions = transactions[transactions['customer_id'] == row['customer_id']]\n    if customer_transactions.empty:\n        return 0\n    successful = customer_transactions[customer_transactions['transaction_status'] == 'Successful']\n    return len(successful) / len(customer_transactions) if len(customer_transactions) > 0 else 0\n"
+        },
+        "0.0025008406837896554": {
+            "name": "days_since_signup",
+            "code": "import datetime\n\ndef parse_date(date_str):\n    return datetime.strptime(date_str, \"%Y-%m-%d\")\n\ndef days_since_signup(row):\n    return (datetime.now() - parse_date(row['signup_date'])).days\n"
+        }
+    },
+    "feature_descriptions": [
+        "days since last transaction",
+        "days since last support",
+        "transactions per year",
+        "total transaction count",
+        "total support tickets",
+        "average transaction amount",
+        "avg response time",
+        "unresolved tickets count",
+        "days since last campaign",
+        "success rate",
+        "days since signup"
+    ]
+}

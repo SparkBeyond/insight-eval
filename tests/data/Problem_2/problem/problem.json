@@ -1,0 +1,14 @@
+{
+    "target_column": "is_churned",
+    "description": "no description",
+    "name": "Churn Prediction",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "minority_class_dict": {
+        "train_size": 2100,
+        "test_size": 900,
+        "train_minority_class_count": 450,
+        "test_minority_class_count": 168,
+        "train_minority_class_support": 0.21428571428571427,
+        "test_minority_class_support": 0.18666666666666668
+    }
+}

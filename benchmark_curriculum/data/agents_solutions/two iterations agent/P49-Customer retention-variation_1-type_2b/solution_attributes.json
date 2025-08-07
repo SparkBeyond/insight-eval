@@ -1,0 +1,71 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "days_since_last_order",
+        "order_count",
+        "latest_order_status",
+        "loyalty_to_spent_ratio",
+        "days_since_last_login",
+        "cancelled_order_count",
+        "days_since_signup",
+        "most_purchased_category",
+        "avg_spent_per_order",
+        "avg_order_quantity"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.249892069783363": {
+            "name": "days_since_last_order",
+            "code": "import pandas as pd\n\ndef days_since_last_order(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    orders = aux_dataframes[\"orders_table.csv\"]\n    customer_orders = orders[orders[\"customer_id\"] == row[\"customer_id\"]]\n    if not customer_orders.empty:\n        most_recent_order = pd.to_datetime(customer_orders[\"order_date\"]).max()\n        today = pd.to_datetime(\"2024-10-01\")\n        return (today - most_recent_order).days\n    return -1  # No orders\n"
+        },
+        "0.13863547081168226": {
+            "name": "order_count",
+            "code": "\n\ndef order_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    orders = aux_dataframes[\"orders_table.csv\"]\n    customer_orders = orders[orders[\"customer_id\"] == row[\"customer_id\"]]\n    return len(customer_orders)\n"
+        },
+        "0.06381711348283547": {
+            "name": "latest_order_status",
+            "code": "\n\ndef latest_order_status(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    orders = aux_dataframes[\"orders_table.csv\"]\n    customer_orders = orders[orders[\"customer_id\"] == row[\"customer_id\"]]\n    if not customer_orders.empty:\n        return customer_orders.sort_values(\"order_date\", ascending=False)[\"order_status\"].iloc[0]\n    return \"No orders\"\n"
+        },
+        "0.04179279258960644": {
+            "name": "loyalty_to_spent_ratio",
+            "code": "\n\ndef loyalty_to_spent_ratio(row):\n    return row[\"loyalty_points\"] / row[\"total_spent\"] if row[\"total_spent\"] > 0 else 0\n"
+        },
+        "0.04166602179968017": {
+            "name": "days_since_last_login",
+            "code": "import datetime\n\ndef days_since_last_login(row):\n    today = datetime.strptime(\"2024-10-01\", \"%Y-%m-%d\")  # Reference date\n    last_login = datetime.strptime(row[\"last_login_date\"], \"%Y-%m-%d\")\n    return (today - last_login).days\n"
+        },
+        "0.03173173108453408": {
+            "name": "cancelled_order_count",
+            "code": "\n\ndef cancelled_order_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    orders = aux_dataframes[\"orders_table.csv\"]\n    cancelled_orders = orders[(orders[\"customer_id\"] == row[\"customer_id\"]) & (orders[\"order_status\"] == \"Cancelled\")]\n    return len(cancelled_orders)\n"
+        },
+        "0.016147685316467247": {
+            "name": "days_since_signup",
+            "code": "import datetime\n\ndef days_since_signup(row):\n    today = datetime.strptime(\"2024-10-01\", \"%Y-%m-%d\")  # Reference date\n    signup_date = datetime.strptime(row[\"signup_date\"], \"%Y-%m-%d\")\n    return (today - signup_date).days\n"
+        },
+        "0.006159378794950654": {
+            "name": "most_purchased_category",
+            "code": "\n\ndef most_purchased_category(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    orders = aux_dataframes[\"orders_table.csv\"]\n    products_in_orders = aux_dataframes[\"products_in_orders_table.csv\"]\n    product_info = aux_dataframes[\"product_info_table.csv\"]\n    customer_orders = orders[orders[\"customer_id\"] == row[\"customer_id\"]]\n    merged = customer_orders.merge(products_in_orders, on=\"order_id\").merge(product_info, on=\"product_id\")\n    if not merged.empty:\n        return merged[\"category\"].value_counts().idxmax()\n    return \"None\"\n"
+        },
+        "0.004043799069320285": {
+            "name": "avg_spent_per_order",
+            "code": "\n\ndef avg_spent_per_order(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    orders = aux_dataframes[\"orders_table.csv\"]\n    customer_orders = orders[orders[\"customer_id\"] == row[\"customer_id\"]]\n    return row[\"total_spent\"] / len(customer_orders) if len(customer_orders) > 0 else 0\n"
+        },
+        "0.0014944584182113184": {
+            "name": "avg_order_quantity",
+            "code": "\n\ndef avg_order_quantity(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    orders_table = aux_dataframes[\"orders_table.csv\"]\n    products_in_orders_table = aux_dataframes[\"products_in_orders_table.csv\"]\n    customer_orders = orders_table[orders_table[\"customer_id\"] == row[\"customer_id\"]]\n    customer_product_orders = products_in_orders_table[products_in_orders_table[\"order_id\"].isin(customer_orders[\"order_id\"])]\n    return customer_product_orders[\"quantity\"].sum() / len(customer_orders) if len(customer_orders) > 0 else 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "days since last order",
+        "order count",
+        "latest order status",
+        "loyalty to spent ratio",
+        "days since last login",
+        "cancelled order count",
+        "days since signup",
+        "most purchased category",
+        "avg spent per order",
+        "avg order quantity"
+    ]
+}

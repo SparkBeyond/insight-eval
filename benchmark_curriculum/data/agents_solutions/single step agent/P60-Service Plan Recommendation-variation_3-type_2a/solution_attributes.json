@@ -1,0 +1,65 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "total_data_consumed",
+        "total_call_duration",
+        "total_sms_sent",
+        "avg_data_consumed",
+        "avg_call_duration",
+        "avg_sms_sent",
+        "signup_year",
+        "signup_month",
+        "signup_weekday"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5909823996866561": {
+            "name": "total_data_consumed",
+            "code": "\n\ndef total_data_consumed(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the usage_data_table.csv dataframe from aux_data\n    df_usage = aux_data['usage_data_table.csv']\n    \n    # Filter the dataframe for the specific customer_id in the row\n    customer_usage = df_usage[df_usage['customer_id'] == row['customer_id']]\n    \n    # Return the sum of data_consumed for the customer, or 0 if no usage data exists\n    return customer_usage['data_consumed'].sum() if not customer_usage.empty else 0\n"
+        },
+        "0.5109112948442763": {
+            "name": "total_call_duration",
+            "code": "\n\ndef total_call_duration(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the usage data table from aux_data\n    df_usage = aux_data['usage_data_table.csv']\n    \n    # Filter the usage data for the specific customer_id\n    customer_usage = df_usage[df_usage['customer_id'] == row['customer_id']]\n    \n    # Return the total call duration for the customer, or 0 if no usage data exists\n    return customer_usage['call_duration'].sum() if not customer_usage.empty else 0\n"
+        },
+        "0.4604605237843676": {
+            "name": "total_sms_sent",
+            "code": "\n\ndef total_sms_sent(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the usage_data_table.csv DataFrame from aux_data\n    df_usage = aux_data['usage_data_table.csv']\n    \n    # Filter the DataFrame for the specific customer_id\n    customer_usage = df_usage[df_usage['customer_id'] == row['customer_id']]\n    \n    # Return the total SMS sent for the customer, or 0 if no usage data exists\n    return customer_usage['sms_sent'].sum() if not customer_usage.empty else 0\n"
+        },
+        "0.20277587801266622": {
+            "name": "avg_data_consumed",
+            "code": "\n\ndef avg_data_consumed(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the usage_data_table DataFrame from aux_data\n    df_usage = aux_data['usage_data_table.csv']\n    \n    # Filter the DataFrame for the specific customer_id\n    customer_usage = df_usage[df_usage['customer_id'] == row['customer_id']]\n    \n    # Return the average data consumed or 0 if no usage data exists\n    return customer_usage['data_consumed'].mean() if not customer_usage.empty else 0\n"
+        },
+        "0.11597416087585448": {
+            "name": "avg_call_duration",
+            "code": "\n\ndef avg_call_duration(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the usage data table from aux_data\n    df_usage = aux_data['usage_data_table.csv']\n    \n    # Filter the usage data for the specific customer_id\n    customer_usage = df_usage[df_usage['customer_id'] == row['customer_id']]\n    \n    # Return the average call duration or 0 if no data is available\n    return customer_usage['call_duration'].mean() if not customer_usage.empty else 0\n"
+        },
+        "0.05504452947815641": {
+            "name": "avg_sms_sent",
+            "code": "\n\ndef avg_sms_sent(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the usage_data_table.csv DataFrame from aux_data\n    df_usage = aux_data['usage_data_table.csv']\n    \n    # Filter the DataFrame for the specific customer_id\n    customer_usage = df_usage[df_usage['customer_id'] == row['customer_id']]\n    \n    # Return the average SMS sent or 0 if no data is available\n    return customer_usage['sms_sent'].mean() if not customer_usage.empty else 0\n"
+        },
+        "0.03231498917966999": {
+            "name": "signup_year",
+            "code": "import pandas as pd\n\ndef signup_year(row):\n    # Convert the 'signup_date' string to a datetime object\n    signup_date = pd.to_datetime(row['signup_date'])\n    # Return the year from the datetime object\n    return signup_date.year\n"
+        },
+        "0.01537962274142584": {
+            "name": "signup_month",
+            "code": "import pandas as pd\n\ndef signup_month(row):\n    # Convert the 'signup_date' string to a datetime object\n    signup_date = pd.to_datetime(row['signup_date'], errors='coerce')\n    # Return the month if the conversion was successful, otherwise return None\n    return signup_date.month if signup_date is not pd.NaT else None\n"
+        },
+        "0.004640487654914835": {
+            "name": "signup_weekday",
+            "code": "import pandas as pd\n\ndef signup_weekday(row):\n    # Convert the 'signup_date' string to a datetime object\n    signup_date = pd.to_datetime(row['signup_date'])\n    # Return the weekday (0=Monday, 6=Sunday)\n    return signup_date.weekday()\n"
+        }
+    },
+    "feature_descriptions": [
+        "total data consumed",
+        "total call duration",
+        "total sms sent",
+        "avg data consumed",
+        "avg call duration",
+        "avg sms sent",
+        "signup year",
+        "signup month",
+        "signup weekday"
+    ]
+}

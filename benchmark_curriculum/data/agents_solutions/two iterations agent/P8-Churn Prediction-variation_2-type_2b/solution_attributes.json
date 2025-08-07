@@ -1,0 +1,38 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "support_ticket_count",
+        "unresolved_support_ticket_percentage",
+        "response_count",
+        "total_transaction_amount",
+        "feedback_count",
+        "total_clicks",
+        "total_transactions",
+        "avg_feedback_rating",
+        "transaction_monthly_count",
+        "average_ticket_priority",
+        "unresolved_feedback_count",
+        "support_ticket_count_repeated_colname1",
+        "feedback_count_repeated_colname1",
+        "total_transaction_amount_repeated_colname1"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "support ticket count",
+        "unresolved support ticket percentage",
+        "response count",
+        "total transaction amount",
+        "feedback count",
+        "total clicks",
+        "total transactions",
+        "avg feedback rating",
+        "transaction monthly count",
+        "average ticket priority",
+        "unresolved feedback count",
+        "support ticket count repeated colname1",
+        "feedback count repeated colname1",
+        "total transaction amount repeated colname1"
+    ]
+}

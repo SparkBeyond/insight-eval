@@ -1,0 +1,95 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "high_engine_temperature_flag",
+        "time_since_last_maintenance",
+        "vehicle_specific_breakdown_rate",
+        "speed_vs_distance_ratio",
+        "load_weight_per_distance",
+        "maintenance_last_impact_score",
+        "excess_duration",
+        "season_flag",
+        "stop_density",
+        "low_fuel_efficiency_flag",
+        "idle_time_proportion",
+        "avg_vehicle_performance_compare",
+        "day_night_flag",
+        "recurring_route_factor"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.32310605821465727": {
+            "name": "high_engine_temperature_flag",
+            "code": "import pandas as pd\n\ndef high_engine_temperature_flag(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the vehicle_id and maintenance_date from the row\n    vehicle_id = row[\"vehicle_id\"]\n    maintenance_date = pd.to_datetime(row[\"maintenance_date\"])\n    \n    # Get the vehicle performance data from aux_data\n    performance_data = aux_data.get(\"vehicle_performance_data.csv\")\n    \n    if performance_data is None:\n        raise ValueError(\"vehicle_performance_data.csv is missing from aux_data\")\n    \n    # Filter the performance data for the given vehicle_id and date\n    relevant_data = performance_data[\n        (performance_data[\"vehicle_id\"] == vehicle_id) &\n        (pd.to_datetime(performance_data[\"date\"]) <= maintenance_date)\n    ]\n    \n    # Check if there are any records with engine_temperature > 90\n    if not relevant_data.empty and (relevant_data[\"engine_temperature\"] > 90).any():\n        return 1  # High engine temperature flag\n    else:\n        return 0  # No high engine temperature flag\n"
+        },
+        "0.28323875563545486": {
+            "name": "time_since_last_maintenance",
+            "code": "import pandas as pd\n\ndef time_since_last_maintenance(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the vehicle performance data\n    performance_df = aux_dataframes[\"vehicle_performance_data.csv\"]\n    \n    # Filter the performance data for the specific vehicle\n    maintenance_records = performance_df.loc[performance_df[\"vehicle_id\"] == row[\"vehicle_id\"]]\n    \n    # Ensure the 'date' column is parsed as datetime and find the most recent date\n    last_maintenance_date = pd.to_datetime(maintenance_records[\"date\"]).max()\n    \n    # Parse the current row's date as datetime\n    current_date = pd.to_datetime(row[\"maintenance_date\"])\n    \n    # Calculate the difference in days\n    return (current_date - last_maintenance_date).days if pd.notnull(last_maintenance_date) else None\n"
+        },
+        "0.251891038885372": {
+            "name": "vehicle_specific_breakdown_rate",
+            "code": "\n\ndef vehicle_specific_breakdown_rate(row, df_train: pd.DataFrame):\n    # Filter data for the same vehicle\n    vehicle_data = df_train[df_train[\"vehicle_id\"] == row[\"vehicle_id\"]]\n    \n    # Exclude the current row to prevent target leakage\n    vehicle_data = vehicle_data[vehicle_data[\"maintenance_id\"] != row[\"maintenance_id\"]]\n    \n    # Exclude data from the future to prevent data leakage\n    vehicle_data = vehicle_data[vehicle_data[\"maintenance_date\"] < row[\"maintenance_date\"]]\n    \n    # Calculate the breakdown rate\n    if len(vehicle_data) > 0:\n        breakdown_rate = vehicle_data[\"will_breakdown\"].mean()\n    else:\n        # If no historical data is available, return a default value (e.g., 0.0)\n        breakdown_rate = 0.0\n    \n    return breakdown_rate\n"
+        },
+        "0.19457026054518": {
+            "name": "speed_vs_distance_ratio",
+            "code": "import pandas as pd\n\ndef speed_vs_distance_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the required columns exist in the row\n    if \"vehicle_id\" not in row or \"maintenance_date\" not in row:\n        return 0  # Return 0 if required columns are missing\n\n    # Extract the vehicle_id and maintenance_date from the row\n    vehicle_id = row[\"vehicle_id\"]\n    maintenance_date = pd.to_datetime(row[\"maintenance_date\"])\n\n    # Get the vehicle performance data from aux_data\n    if \"vehicle_performance_data.csv\" not in aux_data:\n        return 0  # Return 0 if the required auxiliary data is missing\n\n    vehicle_performance_data = aux_data[\"vehicle_performance_data.csv\"]\n\n    # Filter the performance data for the given vehicle_id and before the maintenance_date\n    relevant_data = vehicle_performance_data[\n        (vehicle_performance_data[\"vehicle_id\"] == vehicle_id) &\n        (pd.to_datetime(vehicle_performance_data[\"date\"]) <= maintenance_date)\n    ]\n\n    # If no relevant data is found, return 0\n    if relevant_data.empty:\n        return 0\n\n    # Calculate the speed vs distance ratio for the most recent entry\n    most_recent_entry = relevant_data.sort_values(by=\"date\", ascending=False).iloc[0]\n    distance = most_recent_entry[\"distance_traveled\"]\n    average_speed = most_recent_entry[\"average_speed\"]\n\n    # Avoid division by zero\n    return average_speed / distance if distance > 0 else 0\n"
+        },
+        "0.03460752110445812": {
+            "name": "load_weight_per_distance",
+            "code": "\n\ndef load_weight_per_distance(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the required dataframe is available in aux_data\n    if \"vehicle_performance_data.csv\" not in aux_data:\n        raise ValueError(\"The required 'vehicle_performance_data.csv' is missing from aux_data.\")\n    \n    # Get the vehicle performance data\n    vehicle_performance_data = aux_data[\"vehicle_performance_data.csv\"]\n    \n    # Find the corresponding vehicle's performance data\n    vehicle_id = row[\"vehicle_id\"]\n    vehicle_data = vehicle_performance_data[vehicle_performance_data[\"vehicle_id\"] == vehicle_id]\n    \n    # If no matching data is found, return 0\n    if vehicle_data.empty:\n        return 0\n    \n    # Calculate load_weight_per_distance for the first matching record\n    load_weight = vehicle_data.iloc[0][\"load_weight\"]\n    distance_traveled = vehicle_data.iloc[0][\"distance_traveled\"]\n    \n    # Avoid division by zero\n    return load_weight / distance_traveled if distance_traveled > 0 else 0\n"
+        },
+        "0.02946797392057816": {
+            "name": "maintenance_last_impact_score",
+            "code": "\n\ndef maintenance_last_impact_score(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the correct key is used to access the vehicle performance data\n    performance_df = aux_dataframes[\"vehicle_performance_data.csv\"]\n    \n    # Filter the performance data for the specific vehicle_id\n    maintenance_records = performance_df.loc[performance_df[\"vehicle_id\"] == row[\"vehicle_id\"]]\n    \n    # Check if there are enough records to calculate the mean of the last 3 maintenance costs\n    if maintenance_records.empty or len(maintenance_records) < 3:\n        # If not enough records, return the maintenance cost as is\n        return row[\"maintenance_cost\"]\n    \n    # Calculate the mean of the last 3 maintenance costs\n    recent_maintenance_costs = maintenance_records[\"fuel_efficiency\"].tail(3).mean()\n    \n    # Return the difference between the current maintenance cost and the recent average\n    return row[\"maintenance_cost\"] - recent_maintenance_costs\n"
+        },
+        "0.01834342200244922": {
+            "name": "excess_duration",
+            "code": "\n\ndef excess_duration(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure we are working with the correct dataframe\n    logistic_routes_df = aux_data.get(\"logistic_routes.csv\")\n    \n    if logistic_routes_df is None:\n        raise ValueError(\"The 'logistic_routes.csv' dataframe is missing from aux_data.\")\n    \n    # Find the corresponding row in the logistic_routes_df using the vehicle_id\n    vehicle_id = row[\"vehicle_id\"]\n    matching_row = logistic_routes_df[logistic_routes_df[\"vehicle_id\"] == vehicle_id]\n    \n    if matching_row.empty:\n        raise ValueError(f\"No matching row found in 'logistic_routes.csv' for vehicle_id {vehicle_id}.\")\n    \n    # Extract planned_duration and actual_duration\n    planned_duration = matching_row.iloc[0][\"planned_duration\"]\n    actual_duration = matching_row.iloc[0][\"actual_duration\"]\n    \n    # Calculate and return the excess duration\n    return actual_duration - planned_duration\n"
+        },
+        "0.01396210301375933": {
+            "name": "season_flag",
+            "code": "import pandas as pd\n\ndef season_flag(row, aux_data: Dict[str, pd.DataFrame] = None):\n    # Use the correct column name \"maintenance_date\" instead of \"date\"\n    month = pd.to_datetime(row[\"maintenance_date\"]).month\n    if month in [12, 1, 2]:  # Winter\n        return \"winter\"\n    elif month in [3, 4, 5]:  # Spring\n        return \"spring\"\n    elif month in [6, 7, 8]:  # Summer\n        return \"summer\"\n    else:  # Fall\n        return \"fall\"\n"
+        },
+        "0.010876638994076636": {
+            "name": "stop_density",
+            "code": "\n\ndef stop_density(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct key to access the logistic_routes dataframe\n    route_df = aux_dataframes[\"logistic_routes.csv\"]\n    \n    # Use 'vehicle_id' to filter the dataframe for the specific vehicle\n    vehicle_routes = route_df[route_df[\"vehicle_id\"] == row[\"vehicle_id\"]]\n    \n    # Calculate total stops and total distance using the correct column names\n    total_stops = vehicle_routes[\"number_of_stops\"].sum()\n    total_distance = vehicle_routes[\"route_distance\"].sum()\n    \n    # Return the stop density, handling division by zero\n    return total_stops / total_distance if total_distance > 0 else 0\n"
+        },
+        "0.007725393039368994": {
+            "name": "low_fuel_efficiency_flag",
+            "code": "\n\ndef low_fuel_efficiency_flag(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if \"vehicle_performance_data.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'vehicle_performance_data.csv' is missing from aux_dataframes.\")\n    \n    # Get the vehicle performance data\n    performance_df = aux_dataframes[\"vehicle_performance_data.csv\"]\n    \n    # Ensure the required columns exist in the DataFrame\n    required_columns = {\"vehicle_id\", \"fuel_efficiency\"}\n    if not required_columns.issubset(performance_df.columns):\n        raise ValueError(f\"The DataFrame 'vehicle_performance_data.csv' is missing required columns: {required_columns - set(performance_df.columns)}\")\n    \n    # Filter the performance data for the specific vehicle_id\n    vehicle_id = row[\"vehicle_id\"]\n    vehicle_data = performance_df[performance_df[\"vehicle_id\"] == vehicle_id]\n    \n    # Handle the case where no data is available for the vehicle_id\n    if vehicle_data.empty:\n        raise ValueError(f\"No performance data found for vehicle_id: {vehicle_id}\")\n    \n    # Calculate the average fuel efficiency for the vehicle\n    avg_efficiency = vehicle_data[\"fuel_efficiency\"].mean()\n    \n    # Get the most recent fuel efficiency for the vehicle\n    # Assuming the most recent record is determined by the 'date' column\n    vehicle_data = vehicle_data.sort_values(by=\"date\", ascending=False)\n    most_recent_fuel_efficiency = vehicle_data.iloc[0][\"fuel_efficiency\"]\n    \n    # Return 1 if the most recent fuel efficiency is less than 80% of the average, otherwise 0\n    return int(most_recent_fuel_efficiency < avg_efficiency * 0.8)\n"
+        },
+        "0.0074216436218968946": {
+            "name": "idle_time_proportion",
+            "code": "\n\ndef idle_time_proportion(row):\n    # Use 'maintenance_duration' and 'mileage_at_maintenance' as example columns\n    total_time = row.get(\"mileage_at_maintenance\", 0)\n    idle_time = row.get(\"maintenance_duration\", 0)\n    return idle_time / total_time if total_time > 0 else 0\n"
+        },
+        "0.00048706049986243095": {
+            "name": "avg_vehicle_performance_compare",
+            "code": "\n\ndef avg_vehicle_performance_compare(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Compare the current vehicle's performance metrics to the fleet's average in the auxiliary data.\n    \"\"\"\n    # Ensure the key 'vehicle_performance_data.csv' exists in aux_dataframes\n    if \"vehicle_performance_data.csv\" not in aux_dataframes:\n        raise KeyError(\"'vehicle_performance_data.csv' is missing from aux_dataframes.\")\n    \n    performance_df = aux_dataframes[\"vehicle_performance_data.csv\"]\n    \n    # Ensure the required columns exist in the DataFrame\n    required_columns = {\"vehicle_id\", \"fuel_efficiency\", \"average_speed\", \"idle_time\"}\n    if not required_columns.issubset(performance_df.columns):\n        raise ValueError(f\"The DataFrame 'vehicle_performance_data.csv' must contain the columns: {required_columns}\")\n    \n    # Calculate a performance score for each row in the DataFrame\n    # Example formula: performance_score = (fuel_efficiency * 0.5) + (average_speed * 0.3) - (idle_time * 0.2)\n    performance_df[\"performance_score\"] = (\n        (performance_df[\"fuel_efficiency\"] * 0.5) +\n        (performance_df[\"average_speed\"] * 0.3) -\n        (performance_df[\"idle_time\"] * 0.2)\n    )\n    \n    # Calculate the vehicle's average performance score\n    vehicle_id = row[\"vehicle_id\"]\n    vehicle_data = performance_df[performance_df[\"vehicle_id\"] == vehicle_id]\n    \n    if vehicle_data.empty:\n        raise ValueError(f\"No performance data found for vehicle_id: {vehicle_id}\")\n    \n    vehicle_avg = vehicle_data[\"performance_score\"].mean()\n    \n    # Calculate the overall fleet average performance score\n    overall_avg = performance_df[\"performance_score\"].mean()\n    \n    # Return the difference between the vehicle's average and the fleet's average\n    return vehicle_avg - overall_avg\n"
+        },
+        "-0.0004766511525784445": {
+            "name": "day_night_flag",
+            "code": "import pandas as pd\n\ndef day_night_flag(row: pd.Series) -> str:\n    \"\"\"\n    Determines whether the given timestamp in the row corresponds to day or night.\n\n    Args:\n        row (pd.Series): A row of a dataframe containing a 'maintenance_date' column.\n\n    Returns:\n        str: 'day' if the time is between 6 AM and 6 PM, otherwise 'night'.\n    \"\"\"\n    # Parse the 'maintenance_date' column to extract the hour\n    hour = pd.to_datetime(row[\"maintenance_date\"]).hour\n    # Return 'night' if the hour is before 6 AM or after 6 PM, otherwise 'day'\n    return \"night\" if hour < 6 or hour > 18 else \"day\"\n"
+        },
+        "0": {
+            "name": "recurring_route_factor",
+            "code": "import numpy as np\n\ndef recurring_route_factor(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the 'logistic_routes.csv' dataframe exists in aux_data\n    if 'logistic_routes.csv' not in aux_data:\n        raise ValueError(\"The required 'logistic_routes.csv' dataframe is missing from aux_data.\")\n    \n    # Get the logistic_routes dataframe\n    logistic_routes = aux_data['logistic_routes.csv']\n    \n    # Ensure the 'route_id' column exists in the logistic_routes dataframe\n    if 'route_id' not in logistic_routes.columns:\n        raise ValueError(\"The 'route_id' column is missing from the 'logistic_routes.csv' dataframe.\")\n    \n    # Check if the row contains a 'route_id' key\n    if 'route_id' not in row:\n        # If 'route_id' is not present, return a default value (e.g., 0)\n        return 0.0\n    \n    # Calculate the occurrences of the route_id in the logistic_routes dataframe\n    route_occurrences = logistic_routes[logistic_routes[\"route_id\"] == row[\"route_id\"]].shape[0]\n    \n    # Return the log1p of the occurrences\n    return np.log1p(route_occurrences)\n"
+        }
+    },
+    "feature_descriptions": [
+        "high engine temperature flag",
+        "time since last maintenance",
+        "vehicle specific breakdown rate",
+        "speed vs distance ratio",
+        "load weight per distance",
+        "maintenance last impact score",
+        "excess duration",
+        "season flag",
+        "stop density",
+        "low fuel efficiency flag",
+        "idle time proportion",
+        "avg vehicle performance compare",
+        "day night flag",
+        "recurring route factor"
+    ]
+}

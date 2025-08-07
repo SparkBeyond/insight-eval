@@ -1,0 +1,83 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "total_number_of_tickets",
+        "billing_related_tickets",
+        "timely_billing_payment_ratio",
+        "peak_hour_usage",
+        "active_days_count",
+        "total_data_usage",
+        "avg_resolution_time",
+        "avg_data_usage_per_session",
+        "total_billing_amount",
+        "average_payment_delay",
+        "average_billing_amount",
+        "high_priority_tickets_percentage"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5343804565772702": {
+            "name": "total_number_of_tickets",
+            "code": "\n\ndef total_number_of_tickets(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_data = aux_dataframes['support_tickets_table.csv']\n    total_tickets = support_data[support_data['customer_id'] == row['customer_id']]\n    return len(total_tickets)\n"
+        },
+        "0.3359370625070656": {
+            "name": "billing_related_tickets",
+            "code": "\n\ndef billing_related_tickets(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_data = aux_dataframes['support_tickets_table.csv']\n    billing_tickets = support_data[(support_data['customer_id'] == row['customer_id']) & (support_data['issue_type'] == 'Billing')]\n    return len(billing_tickets)\n"
+        },
+        "0.08933254293312724": {
+            "name": "timely_billing_payment_ratio",
+            "code": "import pandas as pd\n\ndef timely_billing_payment_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_data = aux_dataframes['billing_data_table.csv']\n    \n    # Filter billing data for the specific customer\n    customer_bills = billing_data[billing_data['customer_id'] == row['customer_id']]\n    \n    # Calculate the billing due date as 30 days after the billing date\n    customer_bills['billing_due_date'] = pd.to_datetime(customer_bills['billing_date']) + pd.Timedelta(days=30)\n    \n    # Convert payment_date to datetime for comparison\n    customer_bills['payment_date'] = pd.to_datetime(customer_bills['payment_date'], errors='coerce')\n    \n    # Identify timely payments\n    timely_payments = customer_bills[customer_bills['payment_date'] <= customer_bills['billing_due_date']]\n    \n    # Calculate the ratio of timely payments\n    return len(timely_payments) / len(customer_bills) if len(customer_bills) > 0 else 0\n"
+        },
+        "0.03483658479440965": {
+            "name": "peak_hour_usage",
+            "code": "import pandas as pd\n\ndef peak_hour_usage(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the usage data table\n    usage_data = aux_dataframes['usage_data_table.csv']\n    \n    # Filter the usage data for the specific customer\n    customer_usage = usage_data[usage_data['customer_id'] == row['customer_id']]\n    \n    # Ensure 'usage_date' is in datetime format\n    customer_usage['usage_date'] = pd.to_datetime(customer_usage['usage_date'])\n    \n    # Extract the hour from the 'usage_date' column\n    customer_usage['hour'] = customer_usage['usage_date'].dt.hour\n    \n    # Calculate peak usage (9 AM to 9 PM inclusive)\n    peak_usage = customer_usage[(customer_usage['hour'] >= 9) & (customer_usage['hour'] <= 21)]['amount_spent'].sum()\n    \n    # Calculate total usage\n    total_usage = customer_usage['amount_spent'].sum()\n    \n    # Return the ratio of peak usage to total usage, or 0 if total usage is 0\n    return peak_usage / total_usage if total_usage > 0 else 0\n"
+        },
+        "0.027590273926774298": {
+            "name": "active_days_count",
+            "code": "\n\ndef active_days_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes['usage_data_table.csv']\n    # Use the correct column name 'usage_date' instead of 'date'\n    active_days = usage_data[usage_data['customer_id'] == row['customer_id']]['usage_date'].nunique()\n    return active_days\n"
+        },
+        "0.021727890006347922": {
+            "name": "total_data_usage",
+            "code": "\n\ndef total_data_usage(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the usage data table from the aux_dataframes dictionary\n    usage_data = aux_dataframes['usage_data_table.csv']\n    \n    # Calculate the total amount spent by the customer\n    total_usage = usage_data[usage_data['customer_id'] == row['customer_id']]['amount_spent'].sum()\n    \n    return total_usage\n"
+        },
+        "0.011650446046036331": {
+            "name": "avg_resolution_time",
+            "code": "import pandas as pd\n\ndef avg_resolution_time(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Load the support tickets dataframe\n    support_data = aux_dataframes['support_tickets_table.csv']\n    \n    # Ensure 'ticket_date' and 'resolution_date' are in datetime format\n    support_data['ticket_date'] = pd.to_datetime(support_data['ticket_date'], errors='coerce')\n    support_data['resolution_date'] = pd.to_datetime(support_data['resolution_date'], errors='coerce')\n    \n    # Filter tickets for the given customer_id\n    customer_tickets = support_data[support_data['customer_id'] == row['customer_id']]\n    \n    # Calculate resolution time in days\n    resolution_time = (customer_tickets['resolution_date'] - customer_tickets['ticket_date']).dt.days\n    \n    # Return the average resolution time\n    return resolution_time.mean()\n"
+        },
+        "0.011405143106068518": {
+            "name": "avg_data_usage_per_session",
+            "code": "\n\ndef avg_data_usage_per_session(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes['usage_data_table.csv']\n    # Calculate the average 'amount_spent' for the given customer_id\n    avg_usage = usage_data[usage_data['customer_id'] == row['customer_id']]['amount_spent'].mean()\n    return avg_usage\n"
+        },
+        "0.009867496069683174": {
+            "name": "total_billing_amount",
+            "code": "\n\ndef total_billing_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_data = aux_dataframes['billing_data_table.csv']\n    total_amount = billing_data[billing_data['customer_id'] == row['customer_id']]['billing_amount'].sum()\n    return total_amount\n"
+        },
+        "0.004934075315570433": {
+            "name": "average_payment_delay",
+            "code": "import pandas as pd\n\ndef average_payment_delay(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the billing data\n    billing_data = aux_dataframes['billing_data_table.csv']\n    \n    # Ensure 'billing_date' and 'payment_date' are in datetime format\n    billing_data['billing_date'] = pd.to_datetime(billing_data['billing_date'], errors='coerce')\n    billing_data['payment_date'] = pd.to_datetime(billing_data['payment_date'], errors='coerce')\n    \n    # Filter the billing data for the specific customer\n    customer_bills = billing_data[billing_data['customer_id'] == row['customer_id']]\n    \n    # Calculate the delay in days\n    delay = (customer_bills['payment_date'] - customer_bills['billing_date']).dt.days\n    \n    # Return the average delay\n    return delay.mean()\n"
+        },
+        "0.0027855767997675544": {
+            "name": "average_billing_amount",
+            "code": "\n\ndef average_billing_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_data = aux_dataframes['billing_data_table.csv']\n    avg_amount = billing_data[billing_data['customer_id'] == row['customer_id']]['billing_amount'].mean()\n    return avg_amount\n"
+        },
+        "0": {
+            "name": "high_priority_tickets_percentage",
+            "code": "\n\ndef high_priority_tickets_percentage(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Load the support tickets data\n    support_data = aux_dataframes['support_tickets_table.csv']\n    \n    # Filter tickets for the specific customer\n    customer_tickets = support_data[support_data['customer_id'] == row['customer_id']]\n    \n    # Define high-priority tickets based on 'issue_type' being 'Critical'\n    high_priority_tickets = customer_tickets[customer_tickets['issue_type'] == 'Critical']\n    \n    # Calculate the total number of tickets for the customer\n    total_tickets = len(customer_tickets)\n    \n    # Return the percentage of high-priority tickets\n    return len(high_priority_tickets) / total_tickets if total_tickets > 0 else 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "total number of tickets",
+        "billing related tickets",
+        "timely billing payment ratio",
+        "peak hour usage",
+        "active days count",
+        "total data usage",
+        "avg resolution time",
+        "avg data usage per session",
+        "total billing amount",
+        "average payment delay",
+        "average billing amount",
+        "high priority tickets percentage"
+    ]
+}

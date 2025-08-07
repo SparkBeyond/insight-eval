@@ -1,0 +1,7 @@
+{
+    "target_column": "is_late",
+    "description": "Determine if a customer is likely to stop shopping.",
+    "name": "Late Shipment Prediction",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Retail"
+}

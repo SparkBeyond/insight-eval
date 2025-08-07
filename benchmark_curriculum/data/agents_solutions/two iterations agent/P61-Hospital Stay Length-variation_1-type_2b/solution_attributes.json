@@ -1,0 +1,28 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "days_till_first_treatment",
+        "has_diabetes",
+        "admission_year",
+        "number_of_prior_surgeries",
+        "patient_age_at_admission",
+        "gender_encoding",
+        "risk_of_complications",
+        "ethnicity_encoding",
+        "total_length_of_stay"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "days till first treatment",
+        "has diabetes",
+        "admission year",
+        "number of prior surgeries",
+        "patient age at admission",
+        "gender encoding",
+        "risk of complications",
+        "ethnicity encoding",
+        "total length of stay"
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "total_transaction_amount",
+        "transaction_count",
+        "unique_product_categories",
+        "days_since_signup",
+        "average_transaction_amount",
+        "customer_age",
+        "has_made_transaction",
+        "stddev_transaction_amount",
+        "customer_last_transaction_days"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "total transaction amount",
+        "transaction count",
+        "unique product categories",
+        "days since signup",
+        "average transaction amount",
+        "customer age",
+        "has made transaction",
+        "stddev transaction amount",
+        "customer last transaction days"
+    ]
+}

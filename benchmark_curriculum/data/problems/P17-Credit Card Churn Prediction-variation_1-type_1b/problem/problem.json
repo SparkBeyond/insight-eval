@@ -1,0 +1,7 @@
+{
+    "target_column": "Churned",
+    "description": "Predict customers likely to stop using their credit cards.",
+    "name": "Credit Card Churn Prediction",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Financial services"
+}

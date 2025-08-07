@@ -1,0 +1,77 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "region_level_fraud_ratio",
+        "support_interaction_frequency",
+        "total_refund_amount",
+        "total_failed_payments",
+        "total_transaction_amount",
+        "recency_last_transaction",
+        "avg_time_between_transactions",
+        "proportion_failed_payments",
+        "std_transaction_amount",
+        "avg_support_resolution_time",
+        "average_transaction_amount"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.8756526284173938": {
+            "name": "region_level_fraud_ratio",
+            "code": "\n\ndef region_level_fraud_ratio(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    profiles = aux_dataframes[\"customer_profiles_table.csv\"]\n    \n    # Ensure the 'region' column exists in the profiles DataFrame\n    if \"region\" not in profiles.columns:\n        # Derive 'region' from the 'address' column (example: extract region from address)\n        # This is a placeholder logic; replace it with the actual logic for extracting the region\n        profiles[\"region\"] = profiles[\"address\"].apply(lambda x: x.split(\",\")[-1].strip() if pd.notnull(x) else \"Unknown\")\n    \n    # Merge df_train with profiles to get the region for each customer\n    merged_df = df_train.merge(profiles, on=\"customer_id\", how=\"left\")\n    \n    # Calculate the mean fraud_flag for each region\n    region_fraud_counts = merged_df.groupby(\"region\")[\"fraud_flag\"].mean()\n    \n    # Get the region of the current customer\n    customer_region = profiles.loc[profiles[\"customer_id\"] == row[\"customer_id\"], \"region\"]\n    \n    # If the customer has no region, return 0.0\n    if customer_region.empty:\n        return 0.0\n    \n    # Get the fraud ratio for the customer's region\n    return region_fraud_counts.get(customer_region.iloc[0], 0.0)\n"
+        },
+        "0.6898404398413374": {
+            "name": "support_interaction_frequency",
+            "code": "\n\ndef support_interaction_frequency(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    support = aux_dataframes[\"support_interactions_table.csv\"]\n    customer_support = support[support[\"customer_id\"] == row[\"customer_id\"]]\n    return len(customer_support)\n"
+        },
+        "0.07087164237934557": {
+            "name": "total_refund_amount",
+            "code": "\n\ndef total_refund_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transactions = aux_dataframes[\"customer_transactions_table.csv\"]\n    customer_transactions = transactions[transactions[\"customer_id\"] == row[\"customer_id\"]]\n    refund_transactions = customer_transactions[customer_transactions[\"transaction_type\"] == \"refund\"]\n    return refund_transactions[\"transaction_amount\"].sum()\n"
+        },
+        "0.06480143003803236": {
+            "name": "total_failed_payments",
+            "code": "\n\ndef total_failed_payments(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    payments = aux_dataframes[\"payment_history_table.csv\"]\n    customer_payments = payments[payments[\"customer_id\"] == row[\"customer_id\"]]\n    return (customer_payments[\"status\"] == \"failed\").sum()\n"
+        },
+        "0.049948057178780855": {
+            "name": "total_transaction_amount",
+            "code": "\n\ndef total_transaction_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transactions = aux_dataframes[\"customer_transactions_table.csv\"]\n    customer_transactions = transactions[transactions[\"customer_id\"] == row[\"customer_id\"]]\n    return customer_transactions[\"transaction_amount\"].sum()\n"
+        },
+        "0.029171172165615513": {
+            "name": "recency_last_transaction",
+            "code": "import pandas as pd\nimport datetime\n\ndef recency_last_transaction(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transactions = aux_dataframes[\"customer_transactions_table.csv\"]\n    customer_transactions = transactions[transactions[\"customer_id\"] == row[\"customer_id\"]]\n    last_transaction_date = pd.to_datetime(customer_transactions[\"transaction_date\"]).max()\n    return (datetime.now() - last_transaction_date).days\n"
+        },
+        "0.010132648746764955": {
+            "name": "avg_time_between_transactions",
+            "code": "import pandas as pd\n\ndef avg_time_between_transactions(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transactions = aux_dataframes[\"customer_transactions_table.csv\"]\n    customer_transactions = transactions[transactions[\"customer_id\"] == row[\"customer_id\"]]\n    customer_transactions_sorted = customer_transactions.sort_values(\"transaction_date\")\n    transaction_times = pd.to_datetime(customer_transactions_sorted[\"transaction_date\"])\n    time_differences = transaction_times.diff().dt.total_seconds().dropna()\n    return time_differences.mean()\n"
+        },
+        "0.009595224574530463": {
+            "name": "proportion_failed_payments",
+            "code": "\n\ndef proportion_failed_payments(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the payment history table\n    payment_history = aux_dataframes[\"payment_history_table.csv\"]\n    \n    # Filter payments for the specific customer\n    customer_payments = payment_history[payment_history[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Total number of payments\n    total_payments = len(customer_payments)\n    \n    # Count failed payments (assuming 'status' column contains \"failed\" for failed payments)\n    failed_payments = (customer_payments[\"status\"] == \"failed\").sum()\n    \n    # Calculate the proportion of failed payments\n    return failed_payments / total_payments if total_payments > 0 else 0.0\n"
+        },
+        "0.007163400537648394": {
+            "name": "std_transaction_amount",
+            "code": "\n\ndef std_transaction_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transactions = aux_dataframes[\"customer_transactions_table.csv\"]\n    customer_transactions = transactions[transactions[\"customer_id\"] == row[\"customer_id\"]]\n    return customer_transactions[\"transaction_amount\"].std()\n"
+        },
+        "0.00643786190455534": {
+            "name": "avg_support_resolution_time",
+            "code": "import pandas as pd\n\ndef avg_support_resolution_time(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the support interactions table from the auxiliary dataframes\n    support = aux_dataframes[\"support_interactions_table.csv\"]\n    \n    # Filter the support interactions for the specific customer\n    customer_support = support[support[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Ensure 'response_time' is used as the resolution time column\n    # Convert 'response_time' to numeric if it's not already\n    resolution_time = pd.to_numeric(customer_support[\"response_time\"], errors='coerce')\n    \n    # Calculate the average resolution time in seconds\n    return resolution_time.mean()\n"
+        },
+        "0.00022867089671310472": {
+            "name": "average_transaction_amount",
+            "code": "\n\ndef average_transaction_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transactions = aux_dataframes[\"customer_transactions_table.csv\"]\n    customer_transactions = transactions[transactions[\"customer_id\"] == row[\"customer_id\"]]\n    return customer_transactions[\"transaction_amount\"].mean()\n"
+        }
+    },
+    "feature_descriptions": [
+        "region level fraud ratio",
+        "support interaction frequency",
+        "total refund amount",
+        "total failed payments",
+        "total transaction amount",
+        "recency last transaction",
+        "avg time between transactions",
+        "proportion failed payments",
+        "std transaction amount",
+        "avg support resolution time",
+        "average transaction amount"
+    ]
+}

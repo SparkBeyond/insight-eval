@@ -1,0 +1,29 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "avg_species_yield",
+        "field_yield_deviation",
+        "avg_species_height"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.7218809245681314": {
+            "name": "avg_species_yield",
+            "code": "\n\ndef avg_species_yield(row, df_train: pd.DataFrame):\n    # Filter the dataframe for rows where the species matches the current row's species\n    # and exclude the current row itself to prevent target leakage\n    species_yields = df_train[(df_train['species'] == row['species']) & \n                              (df_train.index != row.name)]['PlantYield']\n    \n    # Return the mean of the yields if the filtered dataframe is not empty, otherwise return None\n    return species_yields.mean() if not species_yields.empty else None\n"
+        },
+        "0.6291879933282676": {
+            "name": "field_yield_deviation",
+            "code": "\n\ndef field_yield_deviation(row, df_train: pd.DataFrame):\n    \"\"\"\n    Calculate the standard deviation of PlantYield for the same species, \n    excluding the current row to prevent target leakage.\n    \n    Args:\n        row (pd.Series): The current row of the dataframe.\n        df_train (pd.DataFrame): The training dataframe containing the data.\n        \n    Returns:\n        float: The standard deviation of PlantYield for the same species, \n               excluding the current row. Returns None if no data is available.\n    \"\"\"\n    # Ensure the column names are consistent with the provided data\n    if 'PlantYield' not in df_train.columns:\n        raise KeyError(\"The required column 'PlantYield' is missing in the dataframe.\")\n    \n    if 'species' not in df_train.columns:\n        raise KeyError(\"The required column 'species' is missing in the dataframe.\")\n    \n    # Filter the dataframe for the specific species (or another grouping column)\n    # Exclude the current row to prevent target leakage\n    field_yields = df_train[(df_train['species'] == row['species']) & \n                            (df_train.index != row.name)]['PlantYield']\n    \n    # Return the standard deviation of the yields, or None if no data is available\n    return field_yields.std() if not field_yields.empty else None\n"
+        },
+        "0.26372983473342054": {
+            "name": "avg_species_height",
+            "code": "\n\ndef avg_species_height(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the harvest records dataframe\n    harvest_data = aux_dataframes['harvest_records_table.csv']\n    \n    # Filter the records for the species in the current row\n    species_records = harvest_data[harvest_data['species'] == row['species']]\n    \n    # Return the mean height of the species\n    return species_records['yield_kg'].mean()\n"
+        }
+    },
+    "feature_descriptions": [
+        "avg species yield",
+        "field yield deviation",
+        "avg species height"
+    ]
+}

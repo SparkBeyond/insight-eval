@@ -1,0 +1,14 @@
+{
+    "enriched_column_names": [
+        "age_of_devices_exceeding_warranty_period",
+        "frequency_of_device_error_reports_in_the_past_quarter",
+        "average_daily_usage_duration_for_the_last_month",
+        "percentage_of_devices_serviced_at_least_once_in_the_past_year"
+    ],
+    "features_descriptions": [
+        "age of devices exceeding warranty period",
+        "frequency of device error reports in the past quarter",
+        "average daily usage duration for the last month",
+        "percentage of devices serviced at least once in the past year"
+    ]
+}

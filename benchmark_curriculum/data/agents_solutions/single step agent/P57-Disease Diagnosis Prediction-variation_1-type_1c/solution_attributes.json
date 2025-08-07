@@ -1,0 +1,125 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "test_count",
+        "test_severity_combined",
+        "recent_test_flag",
+        "has_high_severity_symptoms",
+        "average_test_score",
+        "symptom_severity_mean",
+        "unique_symptom_count",
+        "severity_adjusted_health_index",
+        "presence_of_symptom",
+        "is_high_income",
+        "gender_flag",
+        "calculate_age",
+        "employment_status_flag",
+        "is_long_registration",
+        "time_since_symptom_onset",
+        "education_bin",
+        "age_group",
+        "income_education_interaction",
+        "patient_location_indicator"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5071253149683844": {
+            "name": "test_count",
+            "code": "\n\ndef test_count(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> int:\n    # Use the correct key to access the test results dataframe\n    test_results_df = aux_dataframes['test_results_data_table.csv']\n    # Filter the dataframe for the given patient_id and return the count of rows\n    return test_results_df[test_results_df['patient_id'] == row['patient_id']].shape[0]\n"
+        },
+        "0.34158813813256633": {
+            "name": "test_severity_combined",
+            "code": "\n\ndef test_severity_combined(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct keys to access the dataframes\n    symptoms_df = aux_dataframes['symptoms_data_table.csv']\n    tests_df = aux_dataframes['test_results_data_table.csv']\n    \n    # Filter the symptoms dataframe for the given patient_id and calculate total severity\n    total_severity = symptoms_df[symptoms_df['patient_id'] == row['patient_id']]['severity'].sum()\n    \n    # Filter the tests dataframe for the given patient_id and count the number of tests\n    total_tests = tests_df[tests_df['patient_id'] == row['patient_id']].shape[0]\n    \n    # Return the product of total severity and total tests\n    return total_severity * total_tests\n"
+        },
+        "0.2104536016368116": {
+            "name": "recent_test_flag",
+            "code": "import pandas as pd\n\ndef recent_test_flag(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> int:\n    # Correct the key to match the provided aux_dataframes dictionary\n    test_results_df = aux_dataframes['test_results_data_table.csv']\n    \n    # Filter the test results for the given patient_id\n    recent_tests = test_results_df[test_results_df['patient_id'] == row['patient_id']]['test_date']\n    \n    # If no test results are found, return 0\n    if recent_tests.empty:\n        return 0\n    \n    # Convert test_date to datetime and find the most recent test date\n    recent_date = pd.to_datetime(recent_tests).max()\n    \n    # Check if the most recent test date is within the last 365 days\n    return 1 if (pd.Timestamp.now() - recent_date).days <= 365 else 0\n"
+        },
+        "0.07461773424110789": {
+            "name": "has_high_severity_symptoms",
+            "code": "import pandas as pd\n\ndef has_high_severity_symptoms(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct key for the symptoms data\n    symptoms_df = aux_dataframes['symptoms_data_table.csv']\n    \n    # Filter the symptoms data for the given patient_id\n    patient_symptoms = symptoms_df[symptoms_df['patient_id'] == row['patient_id']]\n    \n    # Get the maximum severity for the patient\n    max_severity = patient_symptoms['severity'].max()\n    \n    # Return 1 if max_severity is not NaN and is >= 7, otherwise return 0\n    return 1 if pd.notna(max_severity) and max_severity >= 7 else 0\n"
+        },
+        "0.0699814322104128": {
+            "name": "average_test_score",
+            "code": "\n\ndef average_test_score(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correcting the key to match the provided aux_dataframes dictionary\n    test_results_df = aux_dataframes['test_results_data_table.csv']\n    \n    # Filtering the test results for the specific patient\n    patient_scores = test_results_df[test_results_df['patient_id'] == row['patient_id']]['result_value']\n    \n    # Returning the mean of the scores if not empty, otherwise None\n    return patient_scores.mean() if not patient_scores.empty else None\n"
+        },
+        "0.04739714184796488": {
+            "name": "symptom_severity_mean",
+            "code": "\n\ndef symptom_severity_mean(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the symptoms data using the correct key\n    symptoms_df = aux_data['symptoms_data_table.csv']\n    \n    # Filter the symptoms data for the given patient_id\n    severities = symptoms_df[symptoms_df['patient_id'] == row['patient_id']]['severity']\n    \n    # Return the mean severity if there are any records, otherwise return None\n    return severities.mean() if not severities.empty else None\n"
+        },
+        "0.0472728840777264": {
+            "name": "unique_symptom_count",
+            "code": "\n\ndef unique_symptom_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct key for the symptoms data\n    symptoms_df = aux_dataframes['symptoms_data_table.csv']\n    # Filter the symptoms data for the given patient_id and count unique symptom names\n    return symptoms_df[symptoms_df['patient_id'] == row['patient_id']]['symptom_name'].nunique()\n"
+        },
+        "0.037003774162798486": {
+            "name": "severity_adjusted_health_index",
+            "code": "\n\ndef severity_adjusted_health_index(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct key for the symptoms data\n    symptoms_df = aux_dataframes['symptoms_data_table.csv']\n    \n    # Filter the symptoms data for the specific patient\n    df_patient = symptoms_df[symptoms_df['patient_id'] == row['patient_id']]\n    \n    # Calculate the severity-adjusted health index\n    return (df_patient['severity'] * df_patient['duration_days']).sum()\n"
+        },
+        "0.028638127118206343": {
+            "name": "presence_of_symptom",
+            "code": "\n\ndef presence_of_symptom(row, aux_dataframes: Dict[str, pd.DataFrame], symptom_name='Nausea'):\n    # Use the correct key for the symptoms data\n    symptoms_df = aux_dataframes['symptoms_data_table.csv']\n    \n    # Check if the symptom_name exists for the given patient_id\n    return 1 if symptom_name in symptoms_df[symptoms_df['patient_id'] == row['patient_id']]['symptom_name'].values else 0\n"
+        },
+        "0.02576694901038044": {
+            "name": "is_high_income",
+            "code": "\n\ndef is_high_income(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the demographic data table from aux_data\n    demographic_data = aux_data['demographic_data_table.csv']\n    \n    # Find the income_level for the given patient_id\n    patient_id = row['patient_id']\n    income_level = demographic_data.loc[demographic_data['patient_id'] == patient_id, 'income_level']\n    \n    # Check if income_level is 'High' and return 1 if true, otherwise return 0\n    if not income_level.empty and income_level.iloc[0] == 'High':\n        return 1\n    else:\n        return 0\n"
+        },
+        "0.018498788052838458": {
+            "name": "gender_flag",
+            "code": "\n\ndef gender_flag(row):\n    return 1 if row['gender'] == 'Male' else 0\n"
+        },
+        "0.01586944362531637": {
+            "name": "calculate_age",
+            "code": "import pandas as pd\n\ndef calculate_age(row):\n    current_year = pd.Timestamp.now().year\n    birth_year = pd.to_datetime(row['date_of_birth']).year\n    return current_year - birth_year\n"
+        },
+        "0.01042359528760959": {
+            "name": "employment_status_flag",
+            "code": "\n\ndef employment_status_flag(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the demographic data table\n    demographic_data = aux_data['demographic_data_table.csv']\n    \n    # Find the employment status for the given patient_id\n    patient_id = row['patient_id']\n    employment_status_series = demographic_data.loc[\n        demographic_data['patient_id'] == patient_id, 'employment_status'\n    ]\n    \n    # Ensure we handle cases where multiple or no rows are returned\n    if employment_status_series.empty:\n        # If no matching patient_id is found, return 0 (default to not employed)\n        return 0\n    elif len(employment_status_series) > 1:\n        # If multiple rows are found, raise an error or handle appropriately\n        raise ValueError(f\"Multiple employment statuses found for patient_id {patient_id}\")\n    \n    # Extract the single value from the series\n    employment_status = employment_status_series.iloc[0]\n    \n    # Return 1 if employed, otherwise 0\n    return 1 if employment_status == 'Employed' else 0\n"
+        },
+        "0.008077832403520353": {
+            "name": "is_long_registration",
+            "code": "import pandas as pd\n\ndef is_long_registration(row):\n    registration_date = pd.to_datetime(row['registration_date'])\n    return 1 if (pd.Timestamp.now() - registration_date).days > 3 * 365 else 0\n"
+        },
+        "0.006044885273692116": {
+            "name": "time_since_symptom_onset",
+            "code": "import pandas as pd\n\ndef time_since_symptom_onset(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct key for the symptoms data\n    symptoms_df = aux_data['symptoms_data_table.csv']\n    \n    # Filter the symptoms dataframe for the given patient_id\n    onset_dates = pd.to_datetime(symptoms_df[symptoms_df['patient_id'] == row['patient_id']]['onset_date'])\n    \n    # Check if there are no onset dates for the patient\n    if onset_dates.empty:\n        return None\n    \n    # Calculate the time since the most recent symptom onset\n    return (pd.Timestamp.now() - onset_dates.max()).days\n"
+        },
+        "0.0008004590388626109": {
+            "name": "education_bin",
+            "code": "\n\ndef education_bin(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the demographic data table from aux_data\n    demographic_data = aux_data['demographic_data_table.csv']\n    \n    # Get the patient_id from the current row\n    patient_id = row['patient_id']\n    \n    # Find the corresponding row in the demographic data table for this patient_id\n    patient_data = demographic_data[demographic_data['patient_id'] == patient_id]\n    \n    # If no matching patient_id is found, return \"Low\" as a default\n    if patient_data.empty:\n        return \"Low\"\n    \n    # Get the education_level for the patient\n    education_level = patient_data.iloc[0]['education_level']\n    \n    # Map the education_level to the appropriate bin\n    if education_level == \"Doctorate\":\n        return \"High\"\n    elif education_level in [\"Master's\", \"Bachelor's\"]:\n        return \"Medium\"\n    else:\n        return \"Low\"\n"
+        },
+        "-0.0005415836188313872": {
+            "name": "age_group",
+            "code": "import pandas as pd\n\ndef calculate_age(row):\n    current_year = pd.Timestamp.now().year\n    birth_year = pd.to_datetime(row['date_of_birth']).year\n    return current_year - birth_year\n\ndef age_group(row):\n    age = calculate_age(row)\n    if age < 18:\n        return \"Child\"\n    elif age < 60:\n        return \"Adult\"\n    else:\n        return \"Senior\"\n"
+        },
+        "-0.0004578110813622249": {
+            "name": "income_education_interaction",
+            "code": "\n\ndef income_education_interaction(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the demographic data table\n    demographic_data = aux_data['demographic_data_table.csv']\n    \n    # Find the corresponding row in the demographic data using patient_id\n    patient_id = row['patient_id']\n    demographic_row = demographic_data[demographic_data['patient_id'] == patient_id]\n    \n    # Check if the patient_id exists in the demographic data\n    if demographic_row.empty:\n        return None  # Return None if no matching patient_id is found\n    \n    # Extract income_level and education_level\n    income_level = demographic_row.iloc[0]['income_level']\n    education_level = demographic_row.iloc[0]['education_level']\n    \n    # Return the interaction of income_level and education_level\n    return f\"{income_level}_{education_level}\"\n"
+        },
+        "0.0002604519022288976": {
+            "name": "patient_location_indicator",
+            "code": "\n\ndef patient_location_indicator(row, aux_data: Dict[str, pd.DataFrame]):\n    # Use the correct key to access the demographic data\n    demographics_df = aux_data['demographic_data_table.csv']\n    \n    # Filter the demographics dataframe for the given patient_id\n    loc = demographics_df[demographics_df['patient_id'] == row['patient_id']]\n    \n    # Check if the filtered dataframe is empty\n    if loc.empty:\n        return None\n    \n    # Return the city and state in the required format\n    return f\"{loc['city'].iloc[0]}_{loc['state'].iloc[0]}\"\n"
+        }
+    },
+    "feature_descriptions": [
+        "test count",
+        "test severity combined",
+        "recent test flag",
+        "has high severity symptoms",
+        "average test score",
+        "symptom severity mean",
+        "unique symptom count",
+        "severity adjusted health index",
+        "presence of symptom",
+        "is high income",
+        "gender flag",
+        "calculate age",
+        "employment status flag",
+        "is long registration",
+        "time since symptom onset",
+        "education bin",
+        "age group",
+        "income education interaction",
+        "patient location indicator"
+    ]
+}

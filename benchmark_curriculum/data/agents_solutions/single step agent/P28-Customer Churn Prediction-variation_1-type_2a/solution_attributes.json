@@ -1,0 +1,125 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "total_complaints",
+        "std_energy_usage",
+        "average_complaint_resolution_time",
+        "high_urgency_interaction_proportion",
+        "complaint_resolution_rate",
+        "recent_energy_consumption_trend",
+        "interaction_frequency",
+        "is_senior",
+        "number_of_payments",
+        "variation_in_monthly_fee",
+        "customer_tenure",
+        "unresolved_complaints_fraction",
+        "average_monthly_energy_usage",
+        "high_payment_deviation_indicator",
+        "late_payment_indicator",
+        "region_churn_rate",
+        "average_monthly_payment",
+        "preferred_interaction_channel",
+        "interaction_to_complaint_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.21498952278838182": {
+            "name": "total_complaints",
+            "code": "\n\ndef total_complaints(row, df_train, aux_dataframes):\n    complaints = aux_dataframes['customer_complaints_table.csv']\n    customer_complaints = complaints[complaints['customer_id'] == row['customer_id']]\n    return len(customer_complaints)\n"
+        },
+        "0.14797387005331053": {
+            "name": "std_energy_usage",
+            "code": "\n\ndef std_energy_usage(row, df_train, aux_dataframes):\n    energy_usage = aux_dataframes['energy_usage_history_table.csv']\n    customer_energy = energy_usage[energy_usage['customer_id'] == row['customer_id']]\n    if len(customer_energy) > 0:\n        return customer_energy['energy_consumed_kwh'].std()\n    return 0\n"
+        },
+        "0.10923580801010978": {
+            "name": "average_complaint_resolution_time",
+            "code": "\n\ndef average_complaint_resolution_time(row, df_train, aux_dataframes):\n    complaints = aux_dataframes['customer_complaints_table.csv']\n    customer_complaints = complaints[complaints['customer_id'] == row['customer_id']]\n    if len(customer_complaints) > 0:\n        return customer_complaints['resolution_time_days'].mean()\n    return 0\n"
+        },
+        "0.08670107680542669": {
+            "name": "high_urgency_interaction_proportion",
+            "code": "\n\ndef high_urgency_interaction_proportion(row, df_train, aux_dataframes):\n    interactions = aux_dataframes['customer_interaction_table.csv']\n    customer_interactions = interactions[interactions['customer_id'] == row['customer_id']]\n    if len(customer_interactions) > 0:\n        high_urgency_count = len(customer_interactions[customer_interactions['urgency_level'] == 'High'])\n        return high_urgency_count / len(customer_interactions)\n    return 0\n"
+        },
+        "0.08603835581591812": {
+            "name": "complaint_resolution_rate",
+            "code": "\n\ndef complaint_resolution_rate(row, df_train, aux_dataframes):\n    complaints = aux_dataframes['customer_complaints_table.csv']\n    customer_complaints = complaints[complaints['customer_id'] == row['customer_id']]\n    if len(customer_complaints) > 0:\n        resolved_count = len(customer_complaints[customer_complaints['resolved']])\n        return resolved_count / len(customer_complaints)\n    return 0\n"
+        },
+        "0.06986361721770375": {
+            "name": "recent_energy_consumption_trend",
+            "code": "import numpy as np\n\ndef recent_energy_consumption_trend(row, df_train, aux_dataframes):\n    energy_usage = aux_dataframes['energy_usage_history_table.csv']\n    customer_energy = energy_usage[energy_usage['customer_id'] == row['customer_id']].sort_values(by='usage_date')\n    if len(customer_energy) > 1:\n        trend = np.polyfit(range(len(customer_energy)), customer_energy['energy_consumed_kwh'], 1)[0]\n        return trend\n    return 0\n"
+        },
+        "0.05721018667989952": {
+            "name": "interaction_frequency",
+            "code": "\n\ndef interaction_frequency(row, df_train, aux_dataframes):\n    interactions = aux_dataframes['customer_interaction_table.csv']\n    customer_interactions = interactions[interactions['customer_id'] == row['customer_id']]\n    return len(customer_interactions)\n"
+        },
+        "0.0486765948467365": {
+            "name": "is_senior",
+            "code": "\n\ndef is_senior(row):\n    return 1 if row['customer_age'] > 60 else 0\n"
+        },
+        "0.04621956424296739": {
+            "name": "number_of_payments",
+            "code": "\n\ndef number_of_payments(row, df_train, aux_dataframes):\n    payments = aux_dataframes['payment_history_table.csv']\n    customer_payments = payments[payments['customer_id'] == row['customer_id']]\n    return len(customer_payments)\n"
+        },
+        "0.04328294710009003": {
+            "name": "variation_in_monthly_fee",
+            "code": "\n\ndef variation_in_monthly_fee(row, df_train):\n    overall_avg_fee = df_train['monthly_fee'].mean()\n    return row['monthly_fee'] - overall_avg_fee\n"
+        },
+        "0.042809924139092674": {
+            "name": "customer_tenure",
+            "code": "import pandas as pd\nimport datetime\n\ndef customer_tenure(row):\n    creation_date = pd.to_datetime(row['account_creation_date'])\n    today = datetime.datetime.today()  # Corrected to use datetime.datetime.today()\n    tenure_days = (today - creation_date).days\n    return tenure_days\n"
+        },
+        "0.03961099442499409": {
+            "name": "unresolved_complaints_fraction",
+            "code": "\n\ndef unresolved_complaints_fraction(row, df_train, aux_dataframes):\n    complaints = aux_dataframes['customer_complaints_table.csv']\n    customer_complaints = complaints[complaints['customer_id'] == row['customer_id']]\n    if len(customer_complaints) > 0:\n        unresolved_count = len(customer_complaints[~customer_complaints['resolved']])\n        return unresolved_count / len(customer_complaints)\n    return 0\n"
+        },
+        "0.038248583222011315": {
+            "name": "average_monthly_energy_usage",
+            "code": "\n\ndef average_monthly_energy_usage(row, df_train, aux_dataframes):\n    energy_usage = aux_dataframes['energy_usage_history_table.csv']\n    customer_energy = energy_usage[energy_usage['customer_id'] == row['customer_id']]\n    if len(customer_energy) > 0:\n        return customer_energy['energy_consumed_kwh'].mean()\n    return 0\n"
+        },
+        "0.015453173749825735": {
+            "name": "high_payment_deviation_indicator",
+            "code": "\n\ndef high_payment_deviation_indicator(row, df_train, aux_dataframes):\n    payments = aux_dataframes['payment_history_table.csv']\n    customer_payments = payments[payments['customer_id'] == row['customer_id']]['amount_paid']\n    if len(customer_payments) > 0:\n        avg_payment = customer_payments.mean()\n        std_dev = customer_payments.std()\n        if abs(row['monthly_fee'] - avg_payment) > 2 * std_dev:  # Outlier threshold at \u00b12 std devs\n            return 1\n    return 0\n"
+        },
+        "0.010407431871145593": {
+            "name": "late_payment_indicator",
+            "code": "import pandas as pd\n\ndef late_payment_indicator(row, df_train, aux_dataframes):\n    payments = aux_dataframes['payment_history_table.csv']\n    customer_payments = payments[payments['customer_id'] == row['customer_id']].sort_values(by='payment_date')\n    if len(customer_payments) > 1:\n        customer_payments['payment_date'] = pd.to_datetime(customer_payments['payment_date'])\n        time_differences = customer_payments['payment_date'].diff().dt.days[1:]\n        if time_differences.mean() > 30:  # Assuming monthly payments are due every 30 days\n            return 1\n    return 0\n"
+        },
+        "0.010398326348127712": {
+            "name": "region_churn_rate",
+            "code": "\n\ndef region_churn_rate(row, df_train):\n    # Extract the region and account creation date of the current row\n    region = row['region']\n    account_creation_date = row['account_creation_date']\n    \n    # Filter the training data to include only rows from the same region\n    # and with account creation dates earlier than or equal to the current row's date\n    region_customers = df_train[\n        (df_train['region'] == region) & \n        (df_train['account_creation_date'] <= account_creation_date)\n    ]\n    \n    # Exclude the current row from the calculation to prevent target leakage\n    region_customers = region_customers[region_customers['customer_id'] != row['customer_id']]\n    \n    # Calculate and return the mean churn rate for the filtered region customers\n    return region_customers['churn_flag'].mean() if not region_customers.empty else 0.0\n"
+        },
+        "0.004032310374579313": {
+            "name": "average_monthly_payment",
+            "code": "\n\ndef average_monthly_payment(row, df_train, aux_dataframes):\n    payments = aux_dataframes['payment_history_table.csv']\n    customer_payments = payments[payments['customer_id'] == row['customer_id']]\n    if len(customer_payments) > 0:\n        return customer_payments['amount_paid'].mean()\n    return 0\n"
+        },
+        "0.0009780659918295909": {
+            "name": "preferred_interaction_channel",
+            "code": "\n\ndef preferred_interaction_channel(row, df_train, aux_dataframes):\n    interactions = aux_dataframes['customer_interaction_table.csv']\n    customer_interactions = interactions[interactions['customer_id'] == row['customer_id']]\n    if len(customer_interactions) > 0:\n        return customer_interactions['interaction_channel'].mode()[0]\n    return 'None'\n"
+        },
+        "0": {
+            "name": "interaction_to_complaint_ratio",
+            "code": "import numpy as np\n\ndef interaction_to_complaint_ratio(row, df_train, aux_dataframes):\n    interactions = aux_dataframes['customer_interaction_table.csv']\n    complaints = aux_dataframes['customer_complaints_table.csv']\n    \n    customer_interactions = interactions[interactions['customer_id'] == row['customer_id']]\n    customer_complaints = complaints[complaints['customer_id'] == row['customer_id']]\n    \n    num_interactions = len(customer_interactions)\n    num_complaints = len(customer_complaints)\n    \n    if num_complaints > 0:\n        return num_interactions / num_complaints\n    return np.inf if num_interactions > 0 else 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "total complaints",
+        "std energy usage",
+        "average complaint resolution time",
+        "high urgency interaction proportion",
+        "complaint resolution rate",
+        "recent energy consumption trend",
+        "interaction frequency",
+        "is senior",
+        "number of payments",
+        "variation in monthly fee",
+        "customer tenure",
+        "unresolved complaints fraction",
+        "average monthly energy usage",
+        "high payment deviation indicator",
+        "late payment indicator",
+        "region churn rate",
+        "average monthly payment",
+        "preferred interaction channel",
+        "interaction to complaint ratio"
+    ]
+}

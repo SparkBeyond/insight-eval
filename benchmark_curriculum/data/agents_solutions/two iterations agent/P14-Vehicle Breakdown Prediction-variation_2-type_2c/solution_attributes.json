@@ -1,0 +1,38 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "avg_cost_last_3_months",
+        "avg_load_weight",
+        "total_maintenance_cost",
+        "downtime_ratio",
+        "route_efficiency_ratio",
+        "efficiency_drop_severity",
+        "planned_vs_actual_route",
+        "avg_engine_temperature",
+        "vehicle_performance_health_index",
+        "total_night_operations",
+        "avg_high_diff_route_ratio",
+        "frequency_of_challenging_routes",
+        "maintenance_frequency",
+        "temperature_adjusted_performance"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "avg cost last 3 months",
+        "avg load weight",
+        "total maintenance cost",
+        "downtime ratio",
+        "route efficiency ratio",
+        "efficiency drop severity",
+        "planned vs actual route",
+        "avg engine temperature",
+        "vehicle performance health index",
+        "total night operations",
+        "avg high diff route ratio",
+        "frequency of challenging routes",
+        "maintenance frequency",
+        "temperature adjusted performance"
+    ]
+}

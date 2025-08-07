@@ -1,0 +1,26 @@
+{
+    "enriched_column_names": [
+        "average_number_of_complaints_per_customer_in_the_past_year",
+        "decrease_in_satisfaction_rating_over_the_last_year",
+        "energy_conservation_level_compared_to_similar_customers",
+        "switching_to_alternative_energy_sources_reported_in_surveys",
+        "engagement_with_marketing_campaigns_in_the_last_quarter",
+        "promotional_campaign_participation_rate",
+        "resolution_time_for_complaints_in_the_past_year",
+        "number_of_complaint_submissions_in_the_last_quarter",
+        "frequency_of_late_bill_payments_in_the_last_6_months",
+        "volume_of_energy_consumption_in_peak_hours_over_the_last_month"
+    ],
+    "features_descriptions": [
+        "average number of complaints per customer in the past year",
+        "decrease in satisfaction rating over the last year",
+        "energy conservation level compared to similar customers",
+        "switching to alternative energy sources reported in surveys",
+        "engagement with marketing campaigns in the last quarter",
+        "promotional campaign participation rate",
+        "resolution time for complaints in the past year",
+        "number of complaint submissions in the last quarter",
+        "frequency of late bill payments in the last 6 months",
+        "volume of energy consumption in peak hours over the last month"
+    ]
+}

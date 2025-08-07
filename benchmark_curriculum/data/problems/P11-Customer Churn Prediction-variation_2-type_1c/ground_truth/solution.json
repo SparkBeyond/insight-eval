@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "monthly_payment_timeliness",
+        "annual_increase_in_customer_support_calls",
+        "top_up_activity_decline_over_last_3_months"
+    ],
+    "features_descriptions": [
+        "monthly payment timeliness",
+        "annual increase in customer support calls",
+        "top up activity decline over last 3 months"
+    ]
+}

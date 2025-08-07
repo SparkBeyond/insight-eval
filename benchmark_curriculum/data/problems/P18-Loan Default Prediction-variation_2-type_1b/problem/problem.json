@@ -1,0 +1,7 @@
+{
+    "target_column": "defaulted",
+    "description": "Identify borrowers likely to default on their loans.",
+    "name": "Loan Default Prediction",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Financial services"
+}

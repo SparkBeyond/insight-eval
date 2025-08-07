@@ -1,0 +1,71 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "compute_policy_duration",
+        "ratio_approved_claims",
+        "time_since_last_interaction",
+        "count_historical_claims",
+        "time_since_last_payment",
+        "transform_claim_status",
+        "get_incident_type_count",
+        "compute_policyholder_age",
+        "time_since_claim",
+        "avg_payment_amount"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5965007707171005": {
+            "name": "compute_policy_duration",
+            "code": "import pandas as pd\n\ndef compute_policy_duration(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe: 'policyholder_details_table.csv'\n    policyholder_details = aux_data['policyholder_details_table.csv']\n    \n    # Filter the dataframe to find the row corresponding to the policyholder_id\n    dob_row = policyholder_details[policyholder_details['policyholder_id'] == row['policyholder_id']]\n    \n    # Check if the row exists\n    if not dob_row.empty:\n        # Extract and parse the start and end dates\n        start_date = pd.to_datetime(dob_row.iloc[0]['policy_start_date'], errors='coerce')\n        end_date = pd.to_datetime(dob_row.iloc[0]['policy_end_date'], errors='coerce')\n        \n        # Calculate the duration in days if both dates are valid\n        if pd.notnull(start_date) and pd.notnull(end_date):\n            return (end_date - start_date).days\n        else:\n            return None\n    return None\n"
+        },
+        "0.10417818151758171": {
+            "name": "ratio_approved_claims",
+            "code": "\n\ndef ratio_approved_claims(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    claim_records = aux_dataframes['historical_claim_records_table.csv']\n    records = claim_records[claim_records['policyholder_id'] == row['policyholder_id']]\n    approved = records[records['claim_status'] == 'approved'].shape[0]\n    total = records.shape[0]\n    return approved / total if total > 0 else 0\n"
+        },
+        "0.05411064216504718": {
+            "name": "time_since_last_interaction",
+            "code": "import pandas as pd\n\ndef time_since_last_interaction(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    interaction_logs = aux_dataframes['customer_interaction_logs_table.csv']\n    interactions = interaction_logs[interaction_logs['policyholder_id'] == row['policyholder_id']]\n    if not interactions.empty:\n        last_interaction_date = pd.to_datetime(interactions['interaction_date']).max()\n        return (pd.Timestamp.now() - last_interaction_date).days if pd.notnull(last_interaction_date) else None\n    return None\n"
+        },
+        "0.03869208727138747": {
+            "name": "count_historical_claims",
+            "code": "\n\ndef count_historical_claims(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    claim_records = aux_dataframes['historical_claim_records_table.csv']\n    return claim_records[claim_records['policyholder_id'] == row['policyholder_id']].shape[0]\n"
+        },
+        "0.02524807289133812": {
+            "name": "time_since_last_payment",
+            "code": "import pandas as pd\n\ndef time_since_last_payment(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    payment_history = aux_dataframes['payment_history_table.csv']\n    payments = payment_history[payment_history['policyholder_id'] == row['policyholder_id']]\n    if not payments.empty:\n        last_payment_date = pd.to_datetime(payments['payment_date']).max()\n        return (pd.Timestamp.now() - last_payment_date).days if pd.notnull(last_payment_date) else None\n    return None\n"
+        },
+        "0.022288545856032013": {
+            "name": "transform_claim_status",
+            "code": "\n\ndef transform_claim_status(row):\n    status_mapping = {\"approved\": 1, \"pending\": 0, \"denied\": -1}\n    return status_mapping.get(row['claim_status'], 0)\n"
+        },
+        "0.020372176501788245": {
+            "name": "get_incident_type_count",
+            "code": "\n\ndef get_incident_type_count(row, aux_dataframes: Dict[str, pd.DataFrame], incident_type='accident'):\n    incident_details = aux_dataframes['incident_details_table.csv']\n    incidents = incident_details[(incident_details['policyholder_id'] == row['policyholder_id']) & \n                                 (incident_details['incident_type'] == incident_type)]\n    return incidents.shape[0]\n"
+        },
+        "0.0096730197800158": {
+            "name": "compute_policyholder_age",
+            "code": "import pandas as pd\n\ndef compute_policyholder_age(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe containing policyholder details\n    policyholder_details = aux_data['policyholder_details_table.csv']\n    \n    # Filter the dataframe to find the row corresponding to the policyholder_id\n    dob_row = policyholder_details[policyholder_details['policyholder_id'] == row['policyholder_id']]\n    \n    # Check if the row exists and extract the date_of_birth\n    if not dob_row.empty:\n        date_of_birth = pd.to_datetime(dob_row.iloc[0]['date_of_birth'], errors='coerce')\n        # Calculate the age in years if date_of_birth is valid\n        return (pd.Timestamp.now() - date_of_birth).days // 365 if pd.notnull(date_of_birth) else None\n    \n    # Return None if no matching policyholder_id is found\n    return None\n"
+        },
+        "0.005296265607180759": {
+            "name": "time_since_claim",
+            "code": "import pandas as pd\n\ndef time_since_claim(row, df_train: pd.DataFrame):\n    claim_date = pd.to_datetime(row['claim_date'], errors='coerce')\n    max_date = pd.to_datetime(df_train['claim_date'], errors='coerce').max()\n    return (max_date - claim_date).days if pd.notnull(claim_date) else None\n"
+        },
+        "0.0013936965707589167": {
+            "name": "avg_payment_amount",
+            "code": "\n\ndef avg_payment_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    payment_history = aux_dataframes['payment_history_table.csv']\n    payments = payment_history[payment_history['policyholder_id'] == row['policyholder_id']]\n    return payments['payment_amount'].mean() if not payments.empty else 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "compute policy duration",
+        "ratio approved claims",
+        "time since last interaction",
+        "count historical claims",
+        "time since last payment",
+        "transform claim status",
+        "get incident type count",
+        "compute policyholder age",
+        "time since claim",
+        "avg payment amount"
+    ]
+}

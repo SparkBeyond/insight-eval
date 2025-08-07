@@ -1,0 +1,7 @@
+{
+    "target_column": "disease_diagnosis",
+    "description": "Determine if a patient is diagnosed with a disease.",
+    "name": "Disease Diagnosis Prediction",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Healthcare"
+}

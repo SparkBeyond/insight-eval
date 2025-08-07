@@ -1,0 +1,16 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "rolling_average_return",
+        "cumulative_return_rate",
+        "historical_portfolio_returns_volatility"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "rolling average return",
+        "cumulative return rate",
+        "historical portfolio returns volatility"
+    ]
+}

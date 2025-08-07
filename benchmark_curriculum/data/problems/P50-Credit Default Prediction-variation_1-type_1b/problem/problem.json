@@ -1,0 +1,7 @@
+{
+    "target_column": "DefaultStatus",
+    "description": "Identify customers who may default on their loans.",
+    "name": "Credit Default Prediction",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Financial services"
+}

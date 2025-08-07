@@ -1,0 +1,95 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "issue_resolution_rate",
+        "avg_monthly_usage",
+        "total_support_calls",
+        "time_since_last_call",
+        "total_support_call_duration",
+        "customer_age",
+        "avg_call_duration",
+        "customer_tenure",
+        "account_status_indicator",
+        "state_region",
+        "most_frequent_issue_type",
+        "plan_type_indicator",
+        "signup_channel_indicator",
+        "last_call_resolution_status"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.3631293199397082": {
+            "name": "issue_resolution_rate",
+            "code": "\n\ndef issue_resolution_rate(row, aux_data: Dict[str, pd.DataFrame]):\n    # Use the correct key for the support call logs dataframe\n    support_calls = aux_data['support_call_logs_table.csv']\n    \n    # Filter the support calls for the given customer_id\n    customer_calls = support_calls[support_calls['customer_id'] == row['customer_id']]\n    \n    # Calculate and return the mean of the 'issue_resolved' column, or 0 if no calls exist\n    return customer_calls['issue_resolved'].mean() if not customer_calls.empty else 0\n"
+        },
+        "0.03845158090484551": {
+            "name": "avg_monthly_usage",
+            "code": "\n\ndef avg_monthly_usage(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the key 'usage_history_table.csv'\n    usage_history = aux_data['usage_history_table.csv']\n    \n    # Filter the dataframe for the specific customer_id\n    customer_usage = usage_history[usage_history['customer_id'] == row['customer_id']]\n    \n    # Calculate and return the average of 'total_minutes_used', or 0 if no data exists\n    return customer_usage['total_minutes_used'].mean() if not customer_usage.empty else 0\n"
+        },
+        "0.03718001639898474": {
+            "name": "total_support_calls",
+            "code": "\n\ndef total_support_calls(row, aux_dataframes: Dict[str, pd.DataFrame]) -> int:\n    # Access the correct dataframe using the key 'support_call_logs_table.csv'\n    support_calls = aux_dataframes['support_call_logs_table.csv']\n    \n    # Filter the dataframe for rows where 'customer_id' matches the current row's 'customer_id'\n    customer_calls = support_calls[support_calls['customer_id'] == row['customer_id']]\n    \n    # Return the count of such rows\n    return len(customer_calls)\n"
+        },
+        "0.03353309897482519": {
+            "name": "time_since_last_call",
+            "code": "import datetime\n\ndef time_since_last_call(row, aux_dataframes):\n    # Correct key for the support call logs dataframe\n    support_calls = aux_dataframes['support_call_logs_table.csv']\n    \n    # Filter the support calls for the specific customer\n    customer_calls = support_calls[support_calls['customer_id'] == row['customer_id']]\n    \n    if not customer_calls.empty:\n        # Parse the last call date correctly\n        last_call_date = datetime.strptime(customer_calls.iloc[-1]['call_date'], '%Y-%m-%d %H:%M:%S.%f')\n        \n        # Use the fixed current date\n        current_date = datetime(2024, 12, 31)\n        \n        # Calculate the difference in days\n        return (current_date - last_call_date).days\n    \n    # Return -1 if no calls are found\n    return -1\n"
+        },
+        "0.02446318817303372": {
+            "name": "total_support_call_duration",
+            "code": "\n\ndef total_support_call_duration(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Compute the total support call duration for a given customer.\n    Uses the 'support_call_logs_table.csv' auxiliary dataset.\n    \"\"\"\n    # Access the relevant auxiliary dataset\n    if 'support_call_logs_table.csv' not in aux_data:\n        raise KeyError(\"The key 'support_call_logs_table.csv' is not found in the auxiliary data.\")\n    \n    support_calls = aux_data['support_call_logs_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'customer_id', 'call_duration_minutes'}\n    if not required_columns.issubset(support_calls.columns):\n        raise ValueError(f\"The dataframe 'support_call_logs_table.csv' is missing required columns: {required_columns - set(support_calls.columns)}\")\n    \n    # Filter records specific to the customer's ID\n    customer_calls = support_calls[support_calls['customer_id'] == row['customer_id']]\n    \n    # Sum the call durations if there are any, else return 0\n    total_duration = customer_calls['call_duration_minutes'].sum() if not customer_calls.empty else 0\n    \n    return total_duration\n"
+        },
+        "0.013989586579422465": {
+            "name": "customer_age",
+            "code": "import datetime\n\ndef customer_age(row):\n    date_of_birth = datetime.strptime(row['date_of_birth'], '%Y-%m-%d')\n    current_date = datetime(2024, 12, 31)\n    age_years = current_date.year - date_of_birth.year - ((current_date.month, current_date.day) < (date_of_birth.month, date_of_birth.day))\n    return age_years\n"
+        },
+        "0.009602450848645886": {
+            "name": "avg_call_duration",
+            "code": "\n\ndef avg_call_duration(row, aux_data: Dict[str, pd.DataFrame]):\n    # Use the correct key to access the support call logs dataframe\n    support_calls = aux_data['support_call_logs_table.csv']\n    \n    # Filter the support calls for the given customer_id\n    customer_calls = support_calls[support_calls['customer_id'] == row['customer_id']]\n    \n    # Return the average call duration or 0 if no calls exist\n    return customer_calls['call_duration_minutes'].mean() if not customer_calls.empty else 0\n"
+        },
+        "0.004418391938897135": {
+            "name": "customer_tenure",
+            "code": "import datetime\n\ndef customer_tenure(row):\n    signup_date = datetime.strptime(row['signup_date'], '%Y-%m-%d')\n    current_date = datetime(2024, 12, 31)  # Cutoff date\n    tenure_months = (current_date.year - signup_date.year) * 12 + (current_date.month - signup_date.month)\n    return tenure_months\n"
+        },
+        "0.002455437079637357": {
+            "name": "account_status_indicator",
+            "code": "\n\ndef account_status_indicator(row):\n    return row['account_status']  # Encoded automatically by ML pipeline\n"
+        },
+        "-0.0009806844158022354": {
+            "name": "state_region",
+            "code": "\n\ndef state_region(row):\n    return state_to_region.get(row['state'], 'Unknown')  # Encode region\n"
+        },
+        "0.0007695264082765441": {
+            "name": "most_frequent_issue_type",
+            "code": "\n\ndef most_frequent_issue_type(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct key in the aux_data dictionary\n    support_calls = aux_data['support_call_logs_table.csv']\n    \n    # Filter the support calls for the given customer_id\n    customer_calls = support_calls[support_calls['customer_id'] == row['customer_id']]\n    \n    # Return the most frequent issue type or 'Unknown' if no calls exist\n    return customer_calls['issue_type'].mode().iloc[0] if not customer_calls.empty else 'Unknown'\n"
+        },
+        "-0.0004767712796645007": {
+            "name": "plan_type_indicator",
+            "code": "\n\ndef plan_type_indicator(row):\n    return row['plan_type']  # Encoded automatically by ML pipeline\n"
+        },
+        "-0.0003341219814341212": {
+            "name": "signup_channel_indicator",
+            "code": "\n\ndef signup_channel_indicator(row):\n    return row['signup_channel']  # Encoded automatically by ML pipeline\n"
+        },
+        "0": {
+            "name": "last_call_resolution_status",
+            "code": "\n\ndef last_call_resolution_status(row, aux_data: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_data\n    support_calls = aux_data['support_call_logs_table.csv']\n    \n    # Filter the support calls for the given customer_id\n    customer_calls = support_calls[support_calls['customer_id'] == row['customer_id']]\n    \n    # Return the 'issue_resolved' status of the last call, or False if no calls exist\n    return customer_calls.iloc[-1]['issue_resolved'] if not customer_calls.empty else False\n"
+        }
+    },
+    "feature_descriptions": [
+        "issue resolution rate",
+        "avg monthly usage",
+        "total support calls",
+        "time since last call",
+        "total support call duration",
+        "customer age",
+        "avg call duration",
+        "customer tenure",
+        "account status indicator",
+        "state region",
+        "most frequent issue type",
+        "plan type indicator",
+        "signup channel indicator",
+        "last call resolution status"
+    ]
+}

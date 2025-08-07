@@ -1,0 +1,22 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "total_purchases",
+        "engagement_response_rate",
+        "unresolved_tickets",
+        "recency_of_last_purchase",
+        "avg_purchase_amount_repeated_colname1",
+        "avg_purchase_amount"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "total purchases",
+        "engagement response rate",
+        "unresolved tickets",
+        "recency of last purchase",
+        "avg purchase amount repeated colname1",
+        "avg purchase amount"
+    ]
+}

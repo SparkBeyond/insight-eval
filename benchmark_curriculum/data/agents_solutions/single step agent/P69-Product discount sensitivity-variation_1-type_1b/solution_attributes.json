@@ -1,0 +1,35 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "product_average_discounted_price",
+        "revenue_contribution_by_gender_aux",
+        "customer_age_group_income",
+        "product_purchase_frequency"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.054048341918217": {
+            "name": "product_average_discounted_price",
+            "code": "\n\ndef product_average_discounted_price(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the product information table\n    product_info = aux_dataframes['product_information_table.csv']\n    \n    # Extract the product_id from the current row\n    product_id = row['product_id']\n    \n    # Filter the product information table for the given product_id\n    product_list = product_info[product_info['product_id'] == product_id]\n    \n    # Check if the product exists in the product information table\n    if product_list.shape[0] > 0:\n        # Calculate the discounted price for the product\n        # Assuming the discount percentage is in the input dataframe (row)\n        discount_percentage = row['discount_percentage'] / 100  # Convert percentage to decimal\n        discounted_prices = product_list['base_price'] * (1 - discount_percentage)\n        \n        # Return the average discounted price\n        return discounted_prices.mean()\n    \n    # If the product_id is not found, return None\n    return None\n"
+        },
+        "0.026638798719875935": {
+            "name": "revenue_contribution_by_gender_aux",
+            "code": "\n\ndef revenue_contribution_by_gender_aux(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    sales_history = aux_dataframes['sales_history_table.csv']\n    customer_demo = aux_dataframes['customer_demographics_table.csv']\n    product_info = aux_dataframes['product_information_table.csv']\n    customer_id = row['customer_id']\n    \n    # Retrieve the customer gender\n    customer_info = customer_demo[customer_demo['customer_id'] == customer_id]\n    if customer_info.empty:\n        return None\n    gender = customer_info.iloc[0]['gender']\n    \n    # Merge sales history with product information to calculate revenue\n    sales_with_prices = sales_history.merge(product_info, on='product_id', how='left')\n    sales_with_prices['revenue'] = sales_with_prices['base_price']  # Assuming revenue is based on base_price\n    \n    # Calculate total revenue\n    total_revenue = sales_with_prices['revenue'].sum()\n    if total_revenue == 0:  # Avoid division by zero\n        return None\n    \n    # Merge sales history with customer demographics to associate gender with sales\n    sales_with_customer_info = sales_with_prices.merge(customer_demo, on='customer_id', how='left')\n    \n    # Calculate revenue contribution by gender\n    gender_revenue = sales_with_customer_info.groupby('gender')['revenue'].sum()\n    \n    if gender in gender_revenue.index:\n        return gender_revenue[gender] / total_revenue\n    return None\n"
+        },
+        "0.0053452246693368455": {
+            "name": "customer_age_group_income",
+            "code": "\n\ndef customer_age_group_income(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    demographics = aux_dataframes['customer_demographics_table.csv']\n    customer_id = row['customer_id']\n    matched = demographics[demographics['customer_id'] == customer_id]\n    if not matched.empty:\n        return matched.iloc[0]['income_level']\n    return None\n"
+        },
+        "0.0032834994583206007": {
+            "name": "product_purchase_frequency",
+            "code": "\n\ndef product_purchase_frequency(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    sales_history = aux_dataframes['sales_history_table.csv']\n    product_id = row['product_id']\n    product_sales_count = sales_history[sales_history['product_id'] == product_id].shape[0]\n    return product_sales_count\n"
+        }
+    },
+    "feature_descriptions": [
+        "product average discounted price",
+        "revenue contribution by gender aux",
+        "customer age group income",
+        "product purchase frequency"
+    ]
+}

@@ -1,0 +1,113 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "peak_usage_ratio",
+        "total_late_payments",
+        "std_billing_amount",
+        "avg_billing_amount",
+        "weather_condition_during_consumption",
+        "energy_consumption_past_month",
+        "region_theft_rate",
+        "hour_of_day",
+        "humidity_level",
+        "week_of_year",
+        "payment_behavior_ratio",
+        "mean_reading_difference",
+        "avg_wind_speed",
+        "day_of_week",
+        "avg_temperature",
+        "days_since_signup",
+        "days_since_last_billing"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.19195835624511082": {
+            "name": "peak_usage_ratio",
+            "code": "\n\ndef peak_usage_ratio(row):\n    return row['energy_used_kwh'] / (row['peak_usage'] + 1e-5)\n"
+        },
+        "0.09274486281192025": {
+            "name": "total_late_payments",
+            "code": "\n\ndef total_late_payments(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_data = aux_dataframes[\"billing_information_table.csv\"]\n    late_payments = billing_data[billing_data['customer_id'] == row['customer_id']]['late_payment_fee']\n    return late_payments.gt(0).sum()\n"
+        },
+        "0.08729626586466463": {
+            "name": "std_billing_amount",
+            "code": "\n\ndef std_billing_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_data = aux_dataframes[\"billing_information_table.csv\"]\n    customer_bills = billing_data[billing_data['customer_id'] == row['customer_id']]['billing_amount']\n    return customer_bills.std() if len(customer_bills) > 1 else 0\n"
+        },
+        "0.0508815327710358": {
+            "name": "avg_billing_amount",
+            "code": "\n\ndef avg_billing_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_data = aux_dataframes[\"billing_information_table.csv\"]\n    customer_bills = billing_data[billing_data['customer_id'] == row['customer_id']]['billing_amount']\n    return customer_bills.mean() if len(customer_bills) > 0 else 0\n"
+        },
+        "0.042460770103604654": {
+            "name": "weather_condition_during_consumption",
+            "code": "import pandas as pd\n\ndef weather_condition_during_consumption(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the weather data table from the auxiliary dataframes\n    weather_data = aux_dataframes[\"weather_data_table.csv\"]\n    \n    # Ensure the 'timestamp' column in weather_data is in datetime format\n    weather_data['timestamp'] = pd.to_datetime(weather_data['timestamp'])\n    \n    # Convert the row's timestamp to a pandas Timestamp\n    timestamp = pd.to_datetime(row['timestamp'])\n    \n    # Find the row in weather_data with the closest timestamp\n    condition_row = weather_data.iloc[(weather_data['timestamp'] - timestamp).abs().argsort()[:1]]\n    \n    # Extract the weather condition from the closest row\n    condition = condition_row['weather_condition'].values[0]\n    \n    # Map the weather condition to a numeric value\n    weather_mapping = {\"Sunny\": 1, \"Cloudy\": 2, \"Rainy\": 3, \"Snowy\": 4}\n    \n    # Return the mapped value, defaulting to 0 if the condition is not in the mapping\n    return weather_mapping.get(condition, 0)\n"
+        },
+        "0.039301836699924764": {
+            "name": "energy_consumption_past_month",
+            "code": "import pandas as pd\n\ndef energy_consumption_past_month(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    meter_data = aux_dataframes[\"meter_readings_table.csv\"]\n    customer_readings = meter_data[meter_data['customer_id'] == row['customer_id']]\n    current_date = pd.to_datetime(row['timestamp'])\n    past_month = current_date - pd.DateOffset(months=1)\n    recent_readings = customer_readings[(pd.to_datetime(customer_readings['timestamp']) > past_month) &\n                                        (pd.to_datetime(customer_readings['timestamp']) <= current_date)]\n    return recent_readings['meter_reading_kwh'].sum()\n"
+        },
+        "0.03397308648418254": {
+            "name": "region_theft_rate",
+            "code": "\n\ndef region_theft_rate(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculate the theft rate for the region of the given customer, excluding the current row to prevent target leakage.\n    \n    Args:\n        row (pd.Series): The current row being processed.\n        df_train (pd.DataFrame): The training dataset.\n        aux_dataframes (Dict[str, pd.DataFrame]): A dictionary of auxiliary dataframes, including customer profiles.\n    \n    Returns:\n        float: The theft rate for the region, excluding the current row.\n    \"\"\"\n    # Get the customer profiles DataFrame from the auxiliary data\n    customer_profiles = aux_dataframes.get(\"customer_profile_table.csv\")\n    \n    # Ensure the customer_profiles DataFrame exists and has the required columns\n    if customer_profiles is None or 'customer_id' not in customer_profiles.columns or 'region' not in customer_profiles.columns:\n        raise ValueError(\"The customer_profile_table.csv is missing or does not have the required columns: 'customer_id' and 'region'\")\n    \n    # Merge df_train with customer_profiles to include the 'region' column if not already present\n    if 'region' not in df_train.columns:\n        df_train = df_train.merge(customer_profiles[['customer_id', 'region']], on='customer_id', how='left')\n    \n    # Ensure the df_train DataFrame has the required columns after the merge\n    if 'region' not in df_train.columns or 'energy_theft_detected' not in df_train.columns or 'timestamp' not in df_train.columns:\n        raise ValueError(\"The df_train DataFrame does not have the required columns: 'region', 'energy_theft_detected', and 'timestamp'\")\n    \n    # Get the region for the given customer_id\n    customer_id = row['customer_id']\n    region_row = customer_profiles.loc[customer_profiles['customer_id'] == customer_id, 'region']\n    \n    # Handle cases where the customer_id is not found\n    if region_row.empty:\n        raise ValueError(f\"Customer ID {customer_id} not found in customer_profile_table.csv\")\n    \n    # Extract the region value\n    region = region_row.values[0]\n    \n    # Filter the training data to include only rows from the same region\n    region_data = df_train[df_train['region'] == region]\n    \n    # Exclude the current row to prevent target leakage\n    region_data = region_data[region_data['consumption_id'] != row['consumption_id']]\n    \n    # Exclude rows with timestamps later than the current row to prevent data leakage from the future\n    region_data = region_data[region_data['timestamp'] <= row['timestamp']]\n    \n    # If no data exists for the region after filtering, return a default value (e.g., 0 or NaN)\n    if region_data.empty:\n        return 0  # or use `return float('nan')` if you prefer NaN\n    \n    # Calculate the theft rate for the region\n    theft_rate = region_data['energy_theft_detected'].mean()\n    return theft_rate\n"
+        },
+        "0.03033243058404448": {
+            "name": "hour_of_day",
+            "code": "import pandas as pd\n\ndef hour_of_day(row):\n    return pd.to_datetime(row['timestamp']).hour\n"
+        },
+        "0.021401178087540353": {
+            "name": "humidity_level",
+            "code": "import pandas as pd\n\ndef humidity_level(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    weather_data = aux_dataframes[\"weather_data_table.csv\"]\n    timestamp = pd.to_datetime(row['timestamp'])\n    condition_row = weather_data.iloc[(weather_data['timestamp'] - timestamp).abs().argsort()[:1]]\n    return condition_row['humidity'].values[0]\n"
+        },
+        "0.0181355035915803": {
+            "name": "week_of_year",
+            "code": "import pandas as pd\n\ndef week_of_year(row):\n    return pd.to_datetime(row['timestamp']).isocalendar().week\n"
+        },
+        "0.013708328294671435": {
+            "name": "payment_behavior_ratio",
+            "code": "\n\ndef payment_behavior_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_data = aux_dataframes[\"billing_information_table.csv\"]\n    customer_bills = billing_data[billing_data['customer_id'] == row['customer_id']]\n    total_bills = len(customer_bills)\n    if total_bills == 0:\n        return 0\n    paid_bills = len(customer_bills[customer_bills['payment_status'] == 'Paid'])\n    return paid_bills / total_bills\n"
+        },
+        "0.01254624976839185": {
+            "name": "mean_reading_difference",
+            "code": "\n\ndef mean_reading_difference(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    meter_data = aux_dataframes[\"meter_readings_table.csv\"]\n    readings = meter_data[meter_data['customer_id'] == row['customer_id']]['reading_difference']\n    return readings.mean()\n"
+        },
+        "0.012460272522848825": {
+            "name": "avg_wind_speed",
+            "code": "import pandas as pd\n\ndef avg_wind_speed(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    weather_data = aux_dataframes[\"weather_data_table.csv\"]\n    timestamp = pd.to_datetime(row['timestamp'])\n    condition_row = weather_data.iloc[(weather_data['timestamp'] - timestamp).abs().argsort()[:1]]\n    return condition_row['wind_speed_kmh'].mean()\n"
+        },
+        "0.009212496327419072": {
+            "name": "day_of_week",
+            "code": "import pandas as pd\n\ndef day_of_week(row):\n    return pd.to_datetime(row['timestamp']).weekday()\n"
+        },
+        "0.0030298634548174327": {
+            "name": "avg_temperature",
+            "code": "import pandas as pd\n\ndef avg_temperature(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    weather_data = aux_dataframes[\"weather_data_table.csv\"]\n    timestamp = pd.to_datetime(row['timestamp'])\n    condition_row = weather_data.iloc[(weather_data['timestamp'] - timestamp).abs().argsort()[:1]]\n    return condition_row['temperature_celsius'].mean()\n"
+        },
+        "0.0011749831521681686": {
+            "name": "days_since_signup",
+            "code": "import pandas as pd\n\ndef days_since_signup(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_profiles = aux_dataframes[\"customer_profile_table.csv\"]\n    signup_date = pd.to_datetime(\n        customer_profiles.loc[customer_profiles['customer_id'] == row['customer_id'], 'signup_date'].values[0]\n    )\n    current_date = pd.to_datetime(row['timestamp'])\n    return (current_date - signup_date).days\n"
+        },
+        "0": {
+            "name": "days_since_last_billing",
+            "code": "import pandas as pd\n\ndef days_since_last_billing(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_data = aux_dataframes[\"billing_information_table.csv\"]\n    customer_bills = billing_data[billing_data['customer_id'] == row['customer_id']]\n    current_date = pd.to_datetime(row['timestamp'])\n    last_billing_date = pd.to_datetime(customer_bills['billing_date']).max()\n    return (current_date - last_billing_date).days if not pd.isnull(last_billing_date) else float(\"inf\")\n"
+        }
+    },
+    "feature_descriptions": [
+        "peak usage ratio",
+        "total late payments",
+        "std billing amount",
+        "avg billing amount",
+        "weather condition during consumption",
+        "energy consumption past month",
+        "region theft rate",
+        "hour of day",
+        "humidity level",
+        "week of year",
+        "payment behavior ratio",
+        "mean reading difference",
+        "avg wind speed",
+        "day of week",
+        "avg temperature",
+        "days since signup",
+        "days since last billing"
+    ]
+}

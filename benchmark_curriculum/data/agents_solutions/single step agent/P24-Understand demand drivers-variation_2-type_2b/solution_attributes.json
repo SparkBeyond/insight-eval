@@ -1,0 +1,131 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "consumer_confidence_index",
+        "inflation_rate",
+        "unemployment_rate",
+        "avg_gdp_growth",
+        "gdp_per_unit_revenue",
+        "total_clicks_on_sale_day",
+        "total_impressions_on_sale_day",
+        "active_campaigns_count",
+        "active_marketing_budget",
+        "sale_day_precipitation",
+        "log_total_revenue",
+        "sale_day_temperature",
+        "temp_humidity_index",
+        "is_weekend",
+        "approx_profit_margin",
+        "sale_day_humidity",
+        "is_summer_season",
+        "revenue_per_unit",
+        "price_per_unit",
+        "month_of_sale"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.6625060171489032": {
+            "name": "consumer_confidence_index",
+            "code": "\n\ndef consumer_confidence_index(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    economic_data = aux_dataframes['economic_table.csv']\n    confidence = economic_data[economic_data['date'] == row['date']]['consumer_confidence_index']\n    return confidence.mean() if not confidence.empty else 0.0\n"
+        },
+        "0.5517710532580885": {
+            "name": "inflation_rate",
+            "code": "\n\ndef inflation_rate(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    economic_data = aux_dataframes['economic_table.csv']\n    inflation = economic_data[economic_data['date'] == row['date']]['inflation_rate']\n    return inflation.mean() if not inflation.empty else 0.0\n"
+        },
+        "0.5456777093999838": {
+            "name": "unemployment_rate",
+            "code": "\n\ndef unemployment_rate(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    economic_data = aux_dataframes['economic_table.csv']\n    unemployment = economic_data[economic_data['date'] == row['date']]['unemployment_rate']\n    return unemployment.mean() if not unemployment.empty else 0.0\n"
+        },
+        "0.5318596206041162": {
+            "name": "avg_gdp_growth",
+            "code": "\n\ndef avg_gdp_growth(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    economic_data = aux_dataframes['economic_table.csv']\n    gdp = economic_data[economic_data['date'] == row['date']]['gdp_growth']\n    return gdp.mean() if not gdp.empty else 0.0\n"
+        },
+        "0.1524670611669804": {
+            "name": "gdp_per_unit_revenue",
+            "code": "\n\ndef avg_gdp_growth(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    economic_data = aux_dataframes['economic_table.csv']\n    gdp = economic_data[economic_data['date'] == row['date']]['gdp_growth']\n    return gdp.mean() if not gdp.empty else 0.0\n\ndef gdp_per_unit_revenue(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    gdp = avg_gdp_growth(row, df_train, aux_dataframes)\n    revenue = row['total_revenue']\n    return gdp / revenue if revenue > 0 else 0.0\n"
+        },
+        "0.12235349678324833": {
+            "name": "total_clicks_on_sale_day",
+            "code": "\n\ndef total_clicks_on_sale_day(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    marketing_data = aux_dataframes['marketing_table.csv']\n    active_campaigns = marketing_data[\n        (marketing_data['start_date'] <= row['date']) & (marketing_data['end_date'] >= row['date'])\n    ]\n    return active_campaigns['clicks'].sum() if not active_campaigns.empty else 0\n"
+        },
+        "0.1207495508777389": {
+            "name": "total_impressions_on_sale_day",
+            "code": "\n\ndef total_impressions_on_sale_day(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    marketing_data = aux_dataframes['marketing_table.csv']\n    active_campaigns = marketing_data[\n        (marketing_data['start_date'] <= row['date']) & (marketing_data['end_date'] >= row['date'])\n    ]\n    return active_campaigns['impressions'].sum() if not active_campaigns.empty else 0\n"
+        },
+        "0.11931518893868077": {
+            "name": "active_campaigns_count",
+            "code": "\n\ndef active_campaigns_count(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    marketing_data = aux_dataframes['marketing_table.csv']\n    active_campaigns = marketing_data[\n        (marketing_data['start_date'] <= row['date']) & (marketing_data['end_date'] >= row['date'])\n    ]\n    return len(active_campaigns)\n"
+        },
+        "0.11388335004955515": {
+            "name": "active_marketing_budget",
+            "code": "\n\ndef active_marketing_budget(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    marketing_data = aux_dataframes['marketing_table.csv']\n    active_campaigns = marketing_data[\n        (marketing_data['start_date'] <= row['date']) & (marketing_data['end_date'] >= row['date'])\n    ]\n    return active_campaigns['budget'].sum() if not active_campaigns.empty else 0.0\n"
+        },
+        "0.07476075386597963": {
+            "name": "sale_day_precipitation",
+            "code": "\n\ndef sale_day_precipitation(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    weather_data = aux_dataframes['weather_table.csv']\n    precipitation = weather_data[weather_data['date'] == row['date']]['precipitation']\n    return precipitation.mean() if not precipitation.empty else None\n"
+        },
+        "0.04067531801517164": {
+            "name": "log_total_revenue",
+            "code": "import numpy as np\n\ndef log_total_revenue(row):\n    revenue = row['total_revenue']\n    return np.log1p(revenue)\n"
+        },
+        "0.03857545623585884": {
+            "name": "sale_day_temperature",
+            "code": "\n\ndef sale_day_temperature(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    weather_data = aux_dataframes['weather_table.csv']\n    temperature = weather_data[weather_data['date'] == row['date']]['temperature']\n    return temperature.mean() if not temperature.empty else None\n"
+        },
+        "0.0288542242447141": {
+            "name": "temp_humidity_index",
+            "code": "\n\ndef temp_humidity_index(row, df_train, aux_dataframes):\n    temp = sale_day_temperature(row, df_train, aux_dataframes)\n    humidity = sale_day_humidity(row, df_train, aux_dataframes)\n    return temp * humidity if temp and humidity else None\n\ndef sale_day_humidity(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    weather_data = aux_dataframes['weather_table.csv']\n    humidity = weather_data[weather_data['date'] == row['date']]['humidity']\n    return humidity.mean() if not humidity.empty else None\n\ndef sale_day_temperature(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    weather_data = aux_dataframes['weather_table.csv']\n    temperature = weather_data[weather_data['date'] == row['date']]['temperature']\n    return temperature.mean() if not temperature.empty else None\n"
+        },
+        "0.01851033754791899": {
+            "name": "is_weekend",
+            "code": "import pandas as pd\n\ndef is_weekend(row):\n    # Ensure the 'date' column is a datetime object\n    date = pd.to_datetime(row['date'])\n    # Check if the day is Saturday (5) or Sunday (6)\n    return 1 if date.weekday() in [5, 6] else 0\n"
+        },
+        "0.011408814198450214": {
+            "name": "approx_profit_margin",
+            "code": "\n\ndef approx_profit_margin(row):\n    revenue = row['total_revenue']\n    quantity = row['quantity_sold']\n    # Approximation can have further refinement\n    return (revenue - quantity) / revenue if revenue > 0 else 0.0\n"
+        },
+        "0.009828018741827536": {
+            "name": "sale_day_humidity",
+            "code": "\n\ndef sale_day_humidity(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    weather_data = aux_dataframes['weather_table.csv']\n    humidity = weather_data[weather_data['date'] == row['date']]['humidity']\n    return humidity.mean() if not humidity.empty else None\n"
+        },
+        "0.006634515084373303": {
+            "name": "is_summer_season",
+            "code": "import pandas as pd\n\ndef is_summer_season(row):\n    # Ensure the 'date' column is converted to a datetime object\n    date = pd.to_datetime(row['date'])\n    month = date.month\n    return 1 if month in [6, 7, 8] else 0\n"
+        },
+        "0.003436752815687191": {
+            "name": "revenue_per_unit",
+            "code": "\n\ndef revenue_per_unit(row):\n    revenue = row['total_revenue']\n    quantity = row['quantity_sold']\n    return revenue / quantity if quantity > 0 else 0.0\n"
+        },
+        "0.0034367528156871835": {
+            "name": "price_per_unit",
+            "code": "\n\ndef price_per_unit(row):\n    return row['price_per_unit']\n"
+        },
+        "0.0022753644904594406": {
+            "name": "month_of_sale",
+            "code": "import pandas as pd\n\ndef month_of_sale(row):\n    # Ensure the 'date' is converted to a datetime object\n    date = pd.to_datetime(row['date'])\n    return date.month\n"
+        }
+    },
+    "feature_descriptions": [
+        "consumer confidence index",
+        "inflation rate",
+        "unemployment rate",
+        "avg gdp growth",
+        "gdp per unit revenue",
+        "total clicks on sale day",
+        "total impressions on sale day",
+        "active campaigns count",
+        "active marketing budget",
+        "sale day precipitation",
+        "log total revenue",
+        "sale day temperature",
+        "temp humidity index",
+        "is weekend",
+        "approx profit margin",
+        "sale day humidity",
+        "is summer season",
+        "revenue per unit",
+        "price per unit",
+        "month of sale"
+    ]
+}

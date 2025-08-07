@@ -1,0 +1,16 @@
+{
+    "enriched_column_names": [
+        "mean_time_between_two_consecutive_maintenance_activities",
+        "total_reported_issues_in_the_last_operation_year",
+        "variance_in_load_capacity_over_the_past_year",
+        "average_resolution_time_of_issues_reported_about_the_battery",
+        "proportion_of_operating_time_under_high_load_conditions"
+    ],
+    "features_descriptions": [
+        "mean time between two consecutive maintenance activities",
+        "total reported issues in the last operation year",
+        "variance in load capacity over the past year",
+        "average resolution time of issues reported about the battery",
+        "proportion of operating time under high load conditions"
+    ]
+}

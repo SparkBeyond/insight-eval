@@ -1,0 +1,83 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "lab_results_abnormal_ratio",
+        "family_history_count",
+        "prev_diagnoses_chronic_disease_count",
+        "lifestyle_physical_activity",
+        "lab_results_variance",
+        "lifestyle_diet_type",
+        "lifestyle_smoking_status",
+        "lifestyle_alcohol_consumption",
+        "gender_encoded",
+        "family_history_min_age_onset",
+        "age",
+        "family_history_severity_mean"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.24397088239833895": {
+            "name": "lab_results_abnormal_ratio",
+            "code": "\n\ndef lab_results_abnormal_ratio(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    lab_results = aux_dataframes['lab_results_table.csv']\n    relevant = lab_results[lab_results['patient_id'] == row['patient_id']]\n    abnormal_count = relevant[relevant['abnormal_flag'] == True].shape[0]\n    total_count = relevant.shape[0]\n    return abnormal_count / total_count if total_count > 0 else 0\n"
+        },
+        "0.08426384369693475": {
+            "name": "family_history_count",
+            "code": "\n\ndef family_history_count(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    family_history = aux_dataframes['family_history_details_table.csv']\n    return family_history[family_history['patient_id'] == row['patient_id']].shape[0]\n"
+        },
+        "0.06017715836885126": {
+            "name": "prev_diagnoses_chronic_disease_count",
+            "code": "\n\ndef prev_diagnoses_chronic_disease_count(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    chronic_conditions = ['Heart Disease', 'Hypertension', 'Diabetes', 'Asthma']  # Example list.\n    prev_diag = aux_dataframes['previous_diagnoses_table.csv']\n    relevant = prev_diag[prev_diag['patient_id'] == row['patient_id']]\n    return relevant[relevant['condition_diagnosed'].isin(chronic_conditions)].shape[0]\n"
+        },
+        "0.038080418510253906": {
+            "name": "lifestyle_physical_activity",
+            "code": "import numpy as np\n\ndef lifestyle_physical_activity(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    lifestyle = aux_dataframes['lifestyle_information_table.csv']\n    relevant = lifestyle[lifestyle['patient_id'] == row['patient_id']]\n    return relevant['physical_activity_level'].values[0] if not relevant.empty else np.nan\n"
+        },
+        "0.03516615165247721": {
+            "name": "lab_results_variance",
+            "code": "\n\ndef lab_results_variance(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    lab_results = aux_dataframes['lab_results_table.csv']\n    relevant = lab_results[lab_results['patient_id'] == row['patient_id']]\n    return relevant['result_value'].var() if not relevant['result_value'].isna().all() else 0\n"
+        },
+        "0.03018543032472851": {
+            "name": "lifestyle_diet_type",
+            "code": "import numpy as np\n\ndef lifestyle_diet_type(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    diet_map = {'Vegan': 0, 'Vegetarian': 1, 'Non-Vegetarian': 2}\n    lifestyle = aux_dataframes['lifestyle_information_table.csv']\n    relevant = lifestyle[lifestyle['patient_id'] == row['patient_id']]\n    return diet_map[relevant['dietary_habits'].values[0]] if not relevant.empty else np.nan\n"
+        },
+        "0.018562215962516133": {
+            "name": "lifestyle_smoking_status",
+            "code": "import numpy as np\n\ndef lifestyle_smoking_status(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    smoker_map = {'Never': 0, 'Former': 1, 'Current': 2}\n    lifestyle = aux_dataframes['lifestyle_information_table.csv']\n    relevant = lifestyle[lifestyle['patient_id'] == row['patient_id']]\n    return smoker_map[relevant['smoking_status'].values[0]] if not relevant.empty else np.nan\n"
+        },
+        "0.011896522754733366": {
+            "name": "lifestyle_alcohol_consumption",
+            "code": "import numpy as np\n\ndef lifestyle_alcohol_consumption(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    lifestyle = aux_dataframes['lifestyle_information_table.csv']\n    relevant = lifestyle[lifestyle['patient_id'] == row['patient_id']]\n    return relevant['alcohol_consumption'].values[0] if not relevant.empty else np.nan\n"
+        },
+        "0.011622945254948367": {
+            "name": "gender_encoded",
+            "code": "\n\ndef gender_encoded(row):\n    return 1 if row['gender'] == 'Female' else 0\n"
+        },
+        "0.001843677201545923": {
+            "name": "family_history_min_age_onset",
+            "code": "import numpy as np\n\ndef family_history_min_age_onset(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    family_history = aux_dataframes['family_history_details_table.csv']\n    relevant = family_history[family_history['patient_id'] == row['patient_id']]\n    return relevant['age_of_onset'].min() if not relevant['age_of_onset'].isna().all() else np.nan\n"
+        },
+        "0.001553264520182567": {
+            "name": "age",
+            "code": "\n\ndef age(row):\n    return 2024 - int(row['date_of_birth'].split(\"-\")[0])  # Assuming current year is 2024.\n"
+        },
+        "0": {
+            "name": "family_history_severity_mean",
+            "code": "\n\ndef family_history_severity_mean(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    family_history = aux_dataframes['family_history_details_table.csv']\n    relevant = family_history[family_history['patient_id'] == row['patient_id']]\n    return relevant['severity'].mean() if not relevant['severity'].isna().all() else 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "lab results abnormal ratio",
+        "family history count",
+        "prev diagnoses chronic disease count",
+        "lifestyle physical activity",
+        "lab results variance",
+        "lifestyle diet type",
+        "lifestyle smoking status",
+        "lifestyle alcohol consumption",
+        "gender encoded",
+        "family history min age onset",
+        "age",
+        "family history severity mean"
+    ]
+}

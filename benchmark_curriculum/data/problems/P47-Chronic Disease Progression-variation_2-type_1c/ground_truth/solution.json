@@ -1,0 +1,14 @@
+{
+    "enriched_column_names": [
+        "medication_nonadherence_rate_over_the_last_year",
+        "frequency_of_hospital_visits_in_the_last_year",
+        "presence_of_comorbid_conditions",
+        "trend_of_lab_test_results_over_the_last_5_years"
+    ],
+    "features_descriptions": [
+        "medication nonadherence rate over the last year",
+        "frequency of hospital visits in the last year",
+        "presence of comorbid conditions",
+        "trend of lab test results over the last 5 years"
+    ]
+}

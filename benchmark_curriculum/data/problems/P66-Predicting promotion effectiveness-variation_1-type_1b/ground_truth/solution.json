@@ -1,0 +1,16 @@
+{
+    "enriched_column_names": [
+        "competitor_pricing_changes_during_the_campaign",
+        "average_spending_per_customer_during_the_promotion_timeframe",
+        "frequency_of_repeated_purchases_by_customers_during_the_promotion_window",
+        "sales_lift_percentage_during_promotion_compared_to_the_previous_period",
+        "weather_impact_during_promotion_periods"
+    ],
+    "features_descriptions": [
+        "competitor pricing changes during the campaign",
+        "average spending per customer during the promotion timeframe",
+        "frequency of repeated purchases by customers during the promotion window",
+        "sales lift percentage during promotion compared to the previous period",
+        "weather impact during promotion periods"
+    ]
+}

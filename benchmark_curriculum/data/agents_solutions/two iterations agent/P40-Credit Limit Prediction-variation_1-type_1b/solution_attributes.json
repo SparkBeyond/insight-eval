@@ -1,0 +1,53 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "repayment_to_spending_ratio",
+        "income_utilization_rate",
+        "remaining_balance_ratio",
+        "spending_diff",
+        "scaled_credit_score",
+        "days_since_last_transaction",
+        "high_value_transaction_frequency"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.26586388833122165": {
+            "name": "repayment_to_spending_ratio",
+            "code": "\n\ndef repayment_to_spending_ratio(row):\n    return row['repayment_to_spending_ratio_in_the_last_year']\n"
+        },
+        "0.07218927451043429": {
+            "name": "income_utilization_rate",
+            "code": "import pandas as pd\n\ndef income_utilization_rate(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the personal demographics table from aux_data\n    demographics_df = aux_data['personal_demographics_table.csv']\n    \n    # Get the cardholder_id from the current row\n    cardholder_id = row['cardholder_id']\n    \n    # Find the annual income for the given cardholder_id\n    # Use .get() to handle cases where the cardholder_id is not found\n    annual_income = demographics_df.loc[\n        demographics_df['cardholder_id'] == cardholder_id, 'annual_income'\n    ].squeeze()  # .squeeze() converts a single-value Series to a scalar\n    \n    # If the cardholder_id is not found, assume annual_income is 0\n    if pd.isna(annual_income):\n        annual_income = 0\n    \n    # Calculate the income utilization rate\n    if annual_income == 0:\n        return 0\n    return row['total_spent_last_month'] / (annual_income + 1)\n"
+        },
+        "0.04143616675886714": {
+            "name": "remaining_balance_ratio",
+            "code": "\n\ndef remaining_balance_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the cardholder_id from the row\n    cardholder_id = row['cardholder_id']\n    \n    # Get the credit_repayment_table.csv dataframe from aux_data\n    credit_repayment_df = aux_data.get('credit_repayment_table.csv')\n    \n    # Check if the dataframe exists and is not empty\n    if credit_repayment_df is None or credit_repayment_df.empty:\n        return None\n    \n    # Filter the dataframe for the given cardholder_id\n    cardholder_data = credit_repayment_df[credit_repayment_df['cardholder_id'] == cardholder_id]\n    \n    # If no data is found for the cardholder, return None\n    if cardholder_data.empty:\n        return None\n    \n    # Calculate the remaining_balance_ratio for the most recent repayment (if multiple rows exist)\n    # Assuming the most recent repayment is determined by the 'repayment_date'\n    most_recent_repayment = cardholder_data.sort_values(by='repayment_date', ascending=False).iloc[0]\n    \n    # Check if repayment_amount is zero to avoid division by zero\n    if most_recent_repayment['repayment_amount'] == 0:\n        return None\n    \n    # Calculate and return the remaining_balance_ratio\n    return most_recent_repayment['remaining_balance'] / most_recent_repayment['repayment_amount']\n"
+        },
+        "0.014775926770682296": {
+            "name": "spending_diff",
+            "code": "\n\ndef spending_diff(row):\n    return row['total_spent_last_month'] - row['average_monthly_spent']\n"
+        },
+        "0.006958955898735467": {
+            "name": "scaled_credit_score",
+            "code": "\n\ndef scaled_credit_score(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the cardholder_id from the row\n    cardholder_id = row['cardholder_id']\n    \n    # Access the credit_scores_table.csv dataframe from aux_data\n    credit_scores_df = aux_data['credit_scores_table.csv']\n    \n    # Find the credit score for the given cardholder_id\n    credit_score_row = credit_scores_df[credit_scores_df['cardholder_id'] == cardholder_id]\n    \n    # Check if a credit score exists for the cardholder\n    if not credit_score_row.empty:\n        # Extract the credit score (assuming the latest score is needed if there are multiple entries)\n        credit_score = credit_score_row.sort_values(by='score_date', ascending=False).iloc[0]['credit_score']\n        \n        # Scale the credit score\n        return credit_score / 850\n    else:\n        # Return None or a default value if no credit score is found\n        return None\n"
+        },
+        "0.006641672988848377": {
+            "name": "days_since_last_transaction",
+            "code": "import pandas as pd\n\ndef days_since_last_transaction(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the transaction history table from aux_data\n    transaction_history = aux_data.get('transaction_history_table.csv')\n    \n    if transaction_history is None:\n        raise ValueError(\"Transaction history table is missing from aux_data.\")\n    \n    # Get the cardholder_id from the row\n    cardholder_id = row['cardholder_id']\n    \n    # Filter the transaction history for the given cardholder_id\n    cardholder_transactions = transaction_history[transaction_history['cardholder_id'] == cardholder_id]\n    \n    if cardholder_transactions.empty:\n        # If no transactions are found, return None\n        return None\n    \n    # Get the most recent transaction date for the cardholder\n    most_recent_transaction_date = pd.to_datetime(cardholder_transactions['transaction_date']).max()\n    \n    # Get the score_date from the row\n    score_date = pd.to_datetime(row.get('last_login_date'))  # Assuming 'last_login_date' is the equivalent of 'score_date'\n    \n    if pd.isna(most_recent_transaction_date) or pd.isna(score_date):\n        return None\n    \n    # Calculate the difference in days\n    return (score_date - most_recent_transaction_date).days\n"
+        },
+        "0": {
+            "name": "high_value_transaction_frequency",
+            "code": "\n\ndef high_value_transaction_frequency(row):\n    return row['frequency_of_high_value_purchases_above_1000_in_last_6_months']\n"
+        }
+    },
+    "feature_descriptions": [
+        "repayment to spending ratio",
+        "income utilization rate",
+        "remaining balance ratio",
+        "spending diff",
+        "scaled credit score",
+        "days since last transaction",
+        "high value transaction frequency"
+    ]
+}

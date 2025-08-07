@@ -1,0 +1,41 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "smoking_abnormal_interaction",
+        "ethnicity_abnormal_rate",
+        "bmi_gender_interaction",
+        "bmi_category",
+        "age_group"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.044638491994478155": {
+            "name": "smoking_abnormal_interaction",
+            "code": "\n\ndef smoking_abnormal_interaction(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"Smoking abnormality interaction rates.\"\"\"\n    # Extract the relevant dataframes from aux_data\n    lab_tests_info = aux_data['lab_tests_info_table.csv']\n    lab_tests = aux_data['lab_tests_table.csv']\n    \n    # Merge lab_tests with lab_tests_info to get normal range columns\n    lab_tests = lab_tests.merge(\n        lab_tests_info[['test_type', 'normal_range_min', 'normal_range_max']],\n        on='test_type',\n        how='left'\n    )\n    \n    # Create a new column to determine if the test result is abnormal\n    lab_tests['test_abnormality'] = (\n        (lab_tests['test_result'] < lab_tests['normal_range_min']) |\n        (lab_tests['test_result'] > lab_tests['normal_range_max'])\n    ).astype(int)\n    \n    # Merge the smoking_status from df_train into lab_tests\n    lab_tests = lab_tests.merge(\n        df_train[['patient_id', 'smoking_status']],\n        on='patient_id',\n        how='left'\n    )\n    \n    # Group by smoking_status and calculate the abnormality rate\n    interaction_rate = lab_tests.groupby('smoking_status')['test_abnormality'].mean()\n    \n    # Return the interaction rate for the smoking_status of the given row\n    return interaction_rate.get(row['smoking_status'], 0)\n"
+        },
+        "0.027147474879612235": {
+            "name": "ethnicity_abnormal_rate",
+            "code": "\n\ndef ethnicity_abnormal_rate(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"Ethnicity-based abnormal test rate.\"\"\"\n    # Load the relevant dataframes from aux_data\n    lab_tests_info = aux_data['lab_tests_info_table.csv']\n    lab_tests = aux_data['lab_tests_table.csv']\n    \n    # Merge lab_tests with lab_tests_info to get normal range for each test\n    merged = lab_tests.merge(\n        lab_tests_info,\n        left_on='test_type',\n        right_on='test_type',\n        how='left'\n    )\n    \n    # Determine if each test result is abnormal\n    merged['is_abnormal'] = ~merged['test_result'].between(\n        merged['normal_range_min'], merged['normal_range_max'], inclusive='both'\n    )\n    \n    # Merge ethnicity information from df_train with the test data\n    merged = merged.merge(\n        df_train[['patient_id', 'ethnicity']],\n        left_on='patient_id',\n        right_on='patient_id',\n        how='left'\n    )\n    \n    # Calculate the abnormal test rate for each ethnicity\n    abnormal_test_rate = merged.groupby('ethnicity')['is_abnormal'].mean()\n    \n    # Return the abnormal test rate for the ethnicity of the given row\n    return abnormal_test_rate.get(row['ethnicity'], 0)\n"
+        },
+        "0.02256751723898006": {
+            "name": "bmi_gender_interaction",
+            "code": "import pandas as pd\n\ndef bmi_gender_interaction(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"Abnormal test rate based on BMI and gender.\"\"\"\n    # Extract auxiliary data\n    lab_tests_info = aux_data['lab_tests_info_table.csv']\n    lab_tests = aux_data['lab_tests_table.csv']\n    \n    # Merge lab tests with their normal ranges\n    lab_tests = lab_tests.merge(\n        lab_tests_info[['test_type', 'normal_range_min', 'normal_range_max']],\n        on='test_type',\n        how='left'\n    )\n    \n    # Determine if a test result is abnormal\n    lab_tests['test_abnormality'] = (\n        (lab_tests['test_result'] < lab_tests['normal_range_min']) |\n        (lab_tests['test_result'] > lab_tests['normal_range_max'])\n    ).astype(int)\n    \n    # Aggregate abnormality data at the patient level\n    abnormality_summary = lab_tests.groupby('patient_id')['test_abnormality'].mean().reset_index()\n    abnormality_summary.rename(columns={'test_abnormality': 'abnormality_rate'}, inplace=True)\n    \n    # Merge the abnormality rate back into df_train\n    df_train = df_train.merge(abnormality_summary, on='patient_id', how='left')\n    df_train['abnormality_rate'].fillna(0, inplace=True)  # Fill missing values with 0\n    \n    # Ensure 'bmi_category' column exists in df_train\n    if 'bmi_category' not in df_train.columns:\n        # Define BMI categories\n        bins = [0, 18.5, 24.9, 29.9, float('inf')]\n        labels = ['Underweight', 'Normal weight', 'Overweight', 'Obese']\n        df_train['bmi_category'] = pd.cut(df_train['bmi'], bins=bins, labels=labels, right=True)\n    \n    # Group by 'bmi_category' and 'gender' and calculate abnormal test rate\n    interaction_rate = df_train.groupby(['bmi_category', 'gender'])['abnormality_rate'].mean()\n    \n    # Get the BMI category for the current row\n    bins = [0, 18.5, 24.9, 29.9, float('inf')]\n    labels = ['Underweight', 'Normal weight', 'Overweight', 'Obese']\n    row_bmi_category = pd.cut([row['bmi']], bins=bins, labels=labels, right=True)[0]\n    \n    # Return the interaction rate for the row's BMI category and gender\n    return interaction_rate.get((row_bmi_category, row['gender']), 0)\n"
+        },
+        "-0.0003704017010968119": {
+            "name": "bmi_category",
+            "code": "\n\ndef bmi_category(row):\n    \"\"\"Categorizes BMI.\"\"\"\n    if row['bmi'] < 18.5:\n        return \"Underweight\"\n    elif 18.5 <= row['bmi'] < 25:\n        return \"Normal\"\n    elif 25 <= row['bmi'] < 30:\n        return \"Overweight\"\n    else:\n        return \"Obese\"\n"
+        },
+        "-0.00021144851415266785": {
+            "name": "age_group",
+            "code": "\n\ndef age_group(row):\n    \"\"\"Categorizes Age into groups.\"\"\"\n    if row['age'] < 18:\n        return \"Child\"\n    elif 18 <= row['age'] < 40:\n        return \"Adult\"\n    elif 40 <= row['age'] < 60:\n        return \"Middle-Aged\"\n    else:\n        return \"Senior\"\n"
+        }
+    },
+    "feature_descriptions": [
+        "smoking abnormal interaction",
+        "ethnicity abnormal rate",
+        "bmi gender interaction",
+        "bmi category",
+        "age group"
+    ]
+}

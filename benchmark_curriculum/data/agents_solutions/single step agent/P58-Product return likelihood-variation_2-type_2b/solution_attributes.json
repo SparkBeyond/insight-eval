@@ -1,0 +1,131 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "is_high_discount",
+        "discount_effectiveness",
+        "customer_state_return_rate",
+        "customer_lifetime_value",
+        "customer_average_spend",
+        "customer_registration_days",
+        "price_per_unit",
+        "product_rating_effectiveness",
+        "avg_store_return_rate",
+        "time_since_product_release",
+        "is_weekend_purchase",
+        "customer_product_interaction_count",
+        "category_price_variance",
+        "store_popularity",
+        "frequent_purchase_customer",
+        "store_customer_purchase_variance",
+        "store_opening_days",
+        "avg_product_return_rate",
+        "avg_category_return_rate",
+        "high_quantity_purchase"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.2400732880245954": {
+            "name": "is_high_discount",
+            "code": "\n\ndef is_high_discount(row):\n    return int(row['discount_applied'] * 100 > 30)\n"
+        },
+        "0.16310581074748143": {
+            "name": "discount_effectiveness",
+            "code": "\n\ndef discount_effectiveness(row, df_train: pd.DataFrame):\n    # Filter out rows with the same discount_applied but exclude the current row\n    # and ensure no future data is used by filtering based on purchase_date\n    past_data = df_train[\n        (df_train['discount_applied'] == row['discount_applied']) & \n        (df_train['purchase_date'] < row['purchase_date'])\n    ]\n    \n    # If no past data is available, return a default value (e.g., 0.0 or NaN)\n    if past_data.empty:\n        return 0.0  # or np.nan if you prefer\n    \n    # Calculate the mean return_flag from the filtered past data\n    return past_data['return_flag'].mean()\n"
+        },
+        "0.14344403260536973": {
+            "name": "customer_state_return_rate",
+            "code": "\n\ndef customer_state_return_rate(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculate the return rate for the state of the customer in the given row,\n    excluding the current row and ensuring no future data is used.\n    \n    Args:\n        row (pd.Series): The row of the dataframe being processed.\n        df_train (pd.DataFrame): The training dataframe containing historical data.\n        aux_data (Dict[str, pd.DataFrame]): Auxiliary data, including customer information.\n    \n    Returns:\n        float: The return rate for the customer's state, or None if not calculable.\n    \"\"\"\n    # Get the customer_id and purchase_date from the row\n    customer_id = row['customer_id']\n    purchase_date = row['purchase_date']\n    \n    # Look up the customer's state using the aux_data dictionary\n    customer_data = aux_data['customer_data_table.csv']\n    customer_state = customer_data.loc[customer_data['customer_id'] == customer_id, 'state']\n    \n    # If the customer_id is not found, return None\n    if customer_state.empty:\n        return None\n    \n    # Extract the state value\n    customer_state = customer_state.iloc[0]\n    \n    # Filter the customer_data to get all customers in the same state\n    customers_in_state = customer_data[customer_data['state'] == customer_state]['customer_id']\n    \n    # Filter the training dataframe for rows with the same state and earlier purchase dates\n    state_data = df_train[\n        (df_train['customer_id'].isin(customers_in_state)) &  # Same state\n        (df_train['purchase_date'] < purchase_date)          # Only past data\n    ]\n    \n    # Calculate and return the mean of the 'return_flag' column, excluding the current row\n    return state_data['return_flag'].mean() if not state_data.empty else None\n"
+        },
+        "0.10408495387050352": {
+            "name": "customer_lifetime_value",
+            "code": "\n\ndef customer_lifetime_value(row, df_train: pd.DataFrame):\n    # Filter the dataframe for the given customer_id\n    customer_data = df_train[df_train['customer_id'] == row['customer_id']]\n    # Sum the purchase_amount column to calculate the lifetime value\n    return customer_data['purchase_amount'].sum()\n"
+        },
+        "0.09680225358039331": {
+            "name": "customer_average_spend",
+            "code": "\n\ndef customer_average_spend(row, df_train: pd.DataFrame):\n    # Filter the DataFrame for the specific customer_id\n    customer_data = df_train[df_train['customer_id'] == row['customer_id']]\n    \n    # Calculate and return the mean of the 'purchase_amount' column\n    return customer_data['purchase_amount'].mean()\n"
+        },
+        "0.0781567734482674": {
+            "name": "customer_registration_days",
+            "code": "import pandas as pd\n\ndef customer_registration_days(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Get the customer_data_table dataframe from aux_data\n    customer_data = aux_data['customer_data_table.csv']\n    \n    # Find the registration date for the given customer_id\n    registration_date = customer_data.loc[customer_data['customer_id'] == customer_id, 'registration_date']\n    \n    # Ensure registration_date is not empty\n    if registration_date.empty:\n        raise ValueError(f\"Customer ID {customer_id} not found in customer_data_table.csv\")\n    \n    # Convert registration_date to a datetime object\n    registration_date = pd.to_datetime(registration_date.values[0])\n    \n    # Convert transaction_date (purchase_date) to a datetime object\n    transaction_date = pd.to_datetime(row['purchase_date'])\n    \n    # Calculate the difference in days\n    return (transaction_date - registration_date).days\n"
+        },
+        "0.05955574680122913": {
+            "name": "price_per_unit",
+            "code": "\n\ndef price_per_unit(row):\n    return row['purchase_amount'] / row['quantity'] if row['quantity'] > 0 else 0\n"
+        },
+        "0.0528944566638214": {
+            "name": "product_rating_effectiveness",
+            "code": "\n\ndef product_rating_effectiveness(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'product_catalog_table.csv' exists in aux_dataframes\n    if 'product_catalog_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'product_catalog_table.csv' is missing from aux_dataframes.\")\n    \n    # Get the product catalog dataframe\n    product_data = aux_dataframes['product_catalog_table.csv']\n    \n    # Ensure the 'product_id' column exists in the product catalog dataframe\n    if 'product_id' not in product_data.columns or 'average_rating' not in product_data.columns:\n        raise KeyError(\"The required columns 'product_id' or 'average_rating' are missing from the product catalog dataframe.\")\n    \n    # Set the index to 'product_id' for efficient lookup\n    product_data = product_data.set_index('product_id')\n    \n    # Check if the product_id in the row exists in the product catalog\n    if row['product_id'] not in product_data.index:\n        raise KeyError(f\"Product ID {row['product_id']} not found in the product catalog.\")\n    \n    # Retrieve the average rating for the product\n    product_rating = product_data.loc[row['product_id'], 'average_rating']\n    \n    return product_rating\n"
+        },
+        "0.050497945552117944": {
+            "name": "avg_store_return_rate",
+            "code": "\n\ndef avg_store_return_rate(row, df_train: pd.DataFrame):\n    # Filter data for the same store, excluding the current row and future data\n    store_data = df_train[\n        (df_train['store_id'] == row['store_id']) & \n        (df_train['purchase_date'] < row['purchase_date'])  # Exclude future data\n    ]\n    \n    # If no past data exists for the store, return a default value (e.g., 0 or NaN)\n    if store_data.empty:\n        return 0  # Or use np.nan if you prefer\n    \n    # Calculate the mean return_flag for the store\n    return store_data['return_flag'].mean()\n"
+        },
+        "0.05048486169042151": {
+            "name": "time_since_product_release",
+            "code": "import pandas as pd\n\ndef time_since_product_release(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if 'product_catalog_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'product_catalog_table.csv' is missing from aux_dataframes.\")\n    \n    # Retrieve the product catalog dataframe\n    product_data = aux_dataframes['product_catalog_table.csv']\n    \n    # Ensure the required columns exist in the product catalog dataframe\n    if 'product_id' not in product_data.columns or 'release_date' not in product_data.columns:\n        raise KeyError(\"The required columns 'product_id' and 'release_date' are missing from the product catalog dataframe.\")\n    \n    # Ensure the product_id exists in the product catalog\n    if row['product_id'] not in product_data['product_id'].values:\n        raise KeyError(f\"Product ID {row['product_id']} not found in the product catalog.\")\n    \n    # Convert release_date and purchase_date to datetime\n    product_release_date = pd.to_datetime(product_data.set_index('product_id').loc[row['product_id'], 'release_date'])\n    transaction_date = pd.to_datetime(row['purchase_date'])  # Corrected column name\n    \n    # Calculate the difference in days\n    return (transaction_date - product_release_date).days\n"
+        },
+        "0.04504733505997396": {
+            "name": "is_weekend_purchase",
+            "code": "import pandas as pd\n\ndef is_weekend_purchase(row: pd.Series, aux_data: Dict[str, pd.DataFrame] = None) -> int:\n    purchase_date = pd.to_datetime(row['purchase_date'])\n    return int(purchase_date.weekday() >= 5)\n"
+        },
+        "0.02144833292072331": {
+            "name": "customer_product_interaction_count",
+            "code": "\n\ndef customer_product_interaction_count(row, df_train: pd.DataFrame):\n    customer_product_data = df_train[\n        (df_train['customer_id'] == row['customer_id']) &\n        (df_train['product_id'] == row['product_id'])\n    ]\n    return len(customer_product_data)\n"
+        },
+        "0.007338485855374869": {
+            "name": "category_price_variance",
+            "code": "\n\ndef category_price_variance(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Access the product catalog table from aux_data\n    product_catalog = aux_data['product_catalog_table.csv']\n    \n    # Merge df_train with the product catalog to get the category and price for each product\n    df_train = df_train.merge(product_catalog[['product_id', 'category', 'price']], on='product_id', how='left')\n    \n    # Calculate the total price for each row in df_train\n    df_train['total_price'] = df_train['quantity'] * df_train['price']\n    \n    # Get the category of the current row's product\n    product_category = product_catalog.loc[product_catalog['product_id'] == row['product_id'], 'category'].values[0]\n    \n    # Filter the dataframe to include only rows with the same category\n    category_data = df_train[df_train['category'] == product_category]\n    \n    # Return the standard deviation of the total price for the category\n    return category_data['total_price'].std()\n"
+        },
+        "0.007300757795468299": {
+            "name": "store_popularity",
+            "code": "\n\ndef store_popularity(row, df_train: pd.DataFrame):\n    store_data = df_train[df_train['store_id'] == row['store_id']]\n    return len(store_data)\n"
+        },
+        "0.00597323083257139": {
+            "name": "frequent_purchase_customer",
+            "code": "\n\ndef frequent_purchase_customer(row, df_train: pd.DataFrame):\n    customer_data = df_train[df_train['customer_id'] == row['customer_id']]\n    return int(len(customer_data) >= 5)\n"
+        },
+        "0.004593541304054863": {
+            "name": "store_customer_purchase_variance",
+            "code": "\n\ndef store_customer_purchase_variance(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Filter the dataframe for the specific store_id in the current row\n    store_customer_data = df_train[df_train['store_id'] == row['store_id']]\n    \n    # Group by 'customer_id' and calculate the variance of 'purchase_amount'\n    # Then, calculate the mean of these variances\n    return store_customer_data.groupby('customer_id')['purchase_amount'].var().mean()\n"
+        },
+        "0.00342473570514459": {
+            "name": "store_opening_days",
+            "code": "import pandas as pd\n\ndef store_opening_days(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'store_locations_table.csv' is used correctly\n    if 'store_locations_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'store_locations_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the store_locations_table dataframe\n    store_data = aux_dataframes['store_locations_table.csv']\n    \n    # Ensure the required columns exist in the store_data dataframe\n    if 'store_id' not in store_data.columns or 'opening_date' not in store_data.columns:\n        raise KeyError(\"The required columns 'store_id' and 'opening_date' are missing from the store_locations_table.csv dataframe.\")\n    \n    # Ensure the row contains the 'store_id' and 'purchase_date' columns\n    if 'store_id' not in row or 'purchase_date' not in row:\n        raise KeyError(\"The row is missing the required columns 'store_id' or 'purchase_date'.\")\n    \n    # Convert the opening_date and purchase_date to datetime\n    store_opening_date = pd.to_datetime(store_data.set_index('store_id').loc[row['store_id'], 'opening_date'])\n    purchase_date = pd.to_datetime(row['purchase_date'])\n    \n    # Calculate the difference in days\n    return (purchase_date - store_opening_date).days\n"
+        },
+        "0.0031949012057681963": {
+            "name": "avg_product_return_rate",
+            "code": "\n\ndef avg_product_return_rate(row, df_train: pd.DataFrame):\n    # Filter the dataframe to include only rows with the same product_id\n    # and exclude the current row (to prevent target leakage)\n    # Also exclude rows with purchase_date after the current row's purchase_date (to prevent future data leakage)\n    product_data = df_train[\n        (df_train['product_id'] == row['product_id']) & \n        (df_train['purchase_id'] != row['purchase_id']) & \n        (df_train['purchase_date'] <= row['purchase_date'])\n    ]\n    \n    # If no valid rows are left, return a default value (e.g., 0.0)\n    if product_data.empty:\n        return 0.0\n    \n    # Calculate and return the mean of the return_flag column\n    return product_data['return_flag'].mean()\n"
+        },
+        "0.001411420941047535": {
+            "name": "avg_category_return_rate",
+            "code": "\n\ndef avg_category_return_rate(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Get the product catalog DataFrame from aux_data\n    product_catalog = aux_data['product_catalog_table.csv']\n    \n    # Merge df_train with product_catalog to get the 'category' column\n    df_train_with_category = df_train.merge(product_catalog[['product_id', 'category']], on='product_id', how='left')\n    \n    # Get the category of the current row\n    category = product_catalog.loc[product_catalog['product_id'] == row['product_id'], 'category'].values[0]\n    \n    # Filter the DataFrame for the same category\n    category_data = df_train_with_category[df_train_with_category['category'] == category]\n    \n    # Exclude the current row to prevent target leakage\n    category_data = category_data[category_data.index != row.name]\n    \n    # Exclude rows with purchase_date in the future to prevent data leakage\n    category_data = category_data[category_data['purchase_date'] <= row['purchase_date']]\n    \n    # Return the mean of the 'return_flag' column for the filtered category\n    # Handle cases where there are no valid rows to calculate the mean\n    if category_data.empty:\n        return 0  # or np.nan, depending on how you want to handle this case\n    return category_data['return_flag'].mean()\n"
+        },
+        "0": {
+            "name": "high_quantity_purchase",
+            "code": "\n\ndef high_quantity_purchase(row):\n    return int(row['quantity'] > 10)\n"
+        }
+    },
+    "feature_descriptions": [
+        "is high discount",
+        "discount effectiveness",
+        "customer state return rate",
+        "customer lifetime value",
+        "customer average spend",
+        "customer registration days",
+        "price per unit",
+        "product rating effectiveness",
+        "avg store return rate",
+        "time since product release",
+        "is weekend purchase",
+        "customer product interaction count",
+        "category price variance",
+        "store popularity",
+        "frequent purchase customer",
+        "store customer purchase variance",
+        "store opening days",
+        "avg product return rate",
+        "avg category return rate",
+        "high quantity purchase"
+    ]
+}

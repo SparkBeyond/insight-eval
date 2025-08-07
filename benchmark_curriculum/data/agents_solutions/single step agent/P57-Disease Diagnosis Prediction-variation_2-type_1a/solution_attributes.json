@@ -1,0 +1,119 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "total_test_abnormalities",
+        "time_since_latest_test",
+        "average_test_value",
+        "symptom_severity_sum",
+        "num_symptoms_reported",
+        "income_level_indicator",
+        "average_symptom_severity",
+        "chronic_symptom_severity_sum",
+        "test_severity_ratio",
+        "chronic_symptom_duration",
+        "average_test_abnormality_ratio",
+        "symptom_chronic_rate",
+        "gender_binary",
+        "most_frequent_symptom",
+        "frequent_symptom_pair",
+        "age",
+        "employment_status_indicator",
+        "education_level_indicator"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.31202861101399454": {
+            "name": "total_test_abnormalities",
+            "code": "\n\ndef total_test_abnormalities(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    test_results = aux_dataframes[\"test_results_data_table.csv\"]\n    \n    # Filter test results for the given patient_id\n    patient_tests = test_results[test_results[\"patient_id\"] == row[\"patient_id\"]]\n    \n    # Since 'is_abnormal' does not exist, we return the total number of tests for the patient\n    return len(patient_tests)\n"
+        },
+        "0.27763300230975824": {
+            "name": "time_since_latest_test",
+            "code": "import pandas as pd\n\ndef time_since_latest_test(row, aux_dataframes: Dict[str, pd.DataFrame]):\n       test_results = aux_dataframes[\"test_results_data_table.csv\"]\n       patient_tests = test_results[test_results[\"patient_id\"] == row[\"patient_id\"]]\n       if not patient_tests.empty:\n           latest_test_date = pd.to_datetime(patient_tests[\"test_date\"]).max()\n           return (pd.Timestamp.today() - latest_test_date).days\n       return None\n"
+        },
+        "0.1372593763320562": {
+            "name": "average_test_value",
+            "code": "\n\ndef average_test_value(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    test_results = aux_dataframes[\"test_results_data_table.csv\"]\n    # Use the correct column name 'result_value' instead of 'test_value'\n    patient_tests = test_results[test_results[\"patient_id\"] == row[\"patient_id\"]][\"result_value\"]\n    return patient_tests.mean() if not patient_tests.empty else None\n"
+        },
+        "0.1290893691920636": {
+            "name": "symptom_severity_sum",
+            "code": "\n\ndef symptom_severity_sum(row, aux_dataframes: Dict[str, pd.DataFrame]):\n       symptoms_data = aux_dataframes[\"symptoms_data_table.csv\"]\n       patient_severities = symptoms_data[symptoms_data[\"patient_id\"] == row[\"patient_id\"]][\"severity\"]\n       return patient_severities.sum() if not patient_severities.empty else None\n"
+        },
+        "0.12015612480730892": {
+            "name": "num_symptoms_reported",
+            "code": "\n\ndef num_symptoms_reported(row, aux_dataframes: Dict[str, pd.DataFrame]):\n       symptoms_data = aux_dataframes[\"symptoms_data_table.csv\"]\n       patient_symptoms = symptoms_data[symptoms_data[\"patient_id\"] == row[\"patient_id\"]]\n       return len(patient_symptoms)\n"
+        },
+        "0.11909576716236787": {
+            "name": "income_level_indicator",
+            "code": "\n\ndef income_level_indicator(row, aux_dataframes: Dict[str, pd.DataFrame]):\n       demographic_data = aux_dataframes[\"demographic_data_table.csv\"]\n       income_map = {\"Low\": 1, \"Medium\": 2, \"High\": 3}\n       income_level = demographic_data.loc[demographic_data[\"patient_id\"] == row[\"patient_id\"], \"income_level\"].values\n       return income_map.get(income_level[0], 0) if len(income_level) > 0 else 0\n"
+        },
+        "0.10410670674203817": {
+            "name": "average_symptom_severity",
+            "code": "\n\ndef average_symptom_severity(row, aux_dataframes: Dict[str, pd.DataFrame]):\n       symptoms_data = aux_dataframes[\"symptoms_data_table.csv\"]\n       patient_severities = symptoms_data[symptoms_data[\"patient_id\"] == row[\"patient_id\"]][\"severity\"]\n       return patient_severities.mean() if not patient_severities.empty else None\n"
+        },
+        "0.07555369218446344": {
+            "name": "chronic_symptom_severity_sum",
+            "code": "\n\ndef chronic_symptom_severity_sum(row, aux_dataframes: Dict[str, pd.DataFrame]):\n       symptoms_data = aux_dataframes[\"symptoms_data_table.csv\"]\n       patient_symptoms = symptoms_data[symptoms_data[\"patient_id\"] == row[\"patient_id\"]]\n       chronic_symptoms = patient_symptoms[patient_symptoms[\"duration_days\"] > 14]\n       return chronic_symptoms[\"severity\"].sum() if not chronic_symptoms.empty else 0\n"
+        },
+        "0.07388337301992708": {
+            "name": "test_severity_ratio",
+            "code": "\n\ndef test_severity_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the test results dataframe from the aux_dataframes dictionary\n    test_results = aux_dataframes[\"test_results_data_table.csv\"]\n    \n    # Filter the test results for the specific patient\n    patient_tests = test_results[test_results[\"patient_id\"] == row[\"patient_id\"]]\n    \n    # Define the severity threshold\n    severity_threshold = 10  # Adjust based on the context of abnormal test values\n    \n    # Count the number of severe tests (where result_value > severity_threshold)\n    severe_tests = len(patient_tests[patient_tests[\"result_value\"] > severity_threshold])\n    \n    # Count the total number of tests for the patient\n    total_tests = len(patient_tests)\n    \n    # Return the ratio of severe tests to total tests, or 0 if no tests are available\n    return severe_tests / total_tests if total_tests > 0 else 0\n"
+        },
+        "0.05609739964156122": {
+            "name": "chronic_symptom_duration",
+            "code": "\n\ndef chronic_symptom_duration(row, aux_dataframes: Dict[str, pd.DataFrame]):\n       symptoms_data = aux_dataframes[\"symptoms_data_table.csv\"]\n       patient_symptoms = symptoms_data[symptoms_data[\"patient_id\"] == row[\"patient_id\"]]\n       chronic_symptoms = patient_symptoms[patient_symptoms[\"duration_days\"] > 14]\n       return len(chronic_symptoms)\n"
+        },
+        "0.04385589291093002": {
+            "name": "average_test_abnormality_ratio",
+            "code": "\n\ndef average_test_abnormality_ratio(row, aux_dataframes: Dict[str, pd.DataFrame], threshold: float = 0.0):\n    \"\"\"\n    Calculate the average test abnormality ratio for a given patient.\n\n    Args:\n        row: A row from the main dataframe (e.g., a Series object).\n        aux_dataframes: A dictionary mapping filenames to pandas DataFrames.\n        threshold: A float value used to determine if a test result is abnormal.\n\n    Returns:\n        The ratio of abnormal tests to total tests for the given patient.\n    \"\"\"\n    # Get the test results dataframe\n    test_results = aux_dataframes[\"test_results_data_table.csv\"]\n    \n    # Filter test results for the specific patient\n    patient_tests = test_results[test_results[\"patient_id\"] == row[\"patient_id\"]]\n    \n    # Calculate the total number of tests\n    total_tests = len(patient_tests)\n    \n    # Determine abnormal tests based on the threshold\n    abnormal_tests = len(patient_tests[patient_tests[\"result_value\"] > threshold])\n    \n    # Return the ratio of abnormal tests to total tests, or 0 if no tests exist\n    return abnormal_tests / total_tests if total_tests > 0 else 0\n"
+        },
+        "0.01796781059998747": {
+            "name": "symptom_chronic_rate",
+            "code": "\n\ndef symptom_chronic_rate(row, aux_dataframes: Dict[str, pd.DataFrame]):\n       symptoms_data = aux_dataframes[\"symptoms_data_table.csv\"]\n       patient_symptoms = symptoms_data[symptoms_data[\"patient_id\"] == row[\"patient_id\"]]\n       chronic_symptoms = patient_symptoms[patient_symptoms[\"duration_days\"] > 14]\n       return len(chronic_symptoms) / len(patient_symptoms) if len(patient_symptoms) > 0 else 0\n"
+        },
+        "0.01351460549669369": {
+            "name": "gender_binary",
+            "code": "\n\ndef gender_binary(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if the gender column exists in the input row\n    if \"gender\" in row:\n        return 1 if row[\"gender\"] == \"Female\" else 0\n    else:\n        # If gender is not in the row, fallback to demographic_data_table.csv\n        demographic_data = aux_dataframes[\"demographic_data_table.csv\"]\n        if \"gender\" in demographic_data.columns:\n            gender = demographic_data.loc[demographic_data[\"patient_id\"] == row[\"patient_id\"], \"gender\"].values\n            return 1 if len(gender) > 0 and gender[0] == \"Female\" else 0\n        else:\n            raise KeyError(\"The 'gender' column is missing in both the input row and the demographic_data_table.csv DataFrame.\")\n"
+        },
+        "-0.0018321224282278337": {
+            "name": "most_frequent_symptom",
+            "code": "\n\ndef most_frequent_symptom(row, aux_dataframes: Dict[str, pd.DataFrame]):\n       symptoms_data = aux_dataframes[\"symptoms_data_table.csv\"]\n       patient_symptoms = symptoms_data[symptoms_data[\"patient_id\"] == row[\"patient_id\"]][\"symptom_name\"]\n       return patient_symptoms.mode().iloc[0] if not patient_symptoms.empty else None\n"
+        },
+        "0.001745889017463309": {
+            "name": "frequent_symptom_pair",
+            "code": "\n\ndef frequent_symptom_pair(row, aux_dataframes: Dict[str, pd.DataFrame]):\n       symptoms_data = aux_dataframes[\"symptoms_data_table.csv\"]\n       patient_symptoms = symptoms_data[symptoms_data[\"patient_id\"] == row[\"patient_id\"]][\"symptom_name\"]\n       symptom_counts = patient_symptoms.value_counts()\n       if len(symptom_counts) >= 2:\n           return f\"{symptom_counts.index[0]}_{symptom_counts.index[1]}\"\n       elif len(symptom_counts) == 1:\n           return symptom_counts.index[0]\n       else:\n           return None\n"
+        },
+        "0.0015293781564788408": {
+            "name": "age",
+            "code": "import pandas as pd\nimport datetime\n\ndef age(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if the required columns exist in the row dataframe\n    if \"date_of_birth\" not in row:\n        raise KeyError(\"The row dataframe must contain a 'date_of_birth' column.\")\n    \n    # Convert the date_of_birth to datetime\n    try:\n        date_of_birth = pd.to_datetime(row[\"date_of_birth\"])\n    except Exception as e:\n        raise ValueError(f\"Error converting 'date_of_birth' to datetime: {e}\")\n    \n    # Get today's date\n    today = datetime.datetime.today()\n    \n    # Calculate the age\n    age_value = today.year - date_of_birth.year - ((today.month, today.day) < (date_of_birth.month, date_of_birth.day))\n    \n    return age_value\n"
+        },
+        "2.8419689451553154e-05": {
+            "name": "employment_status_indicator",
+            "code": "\n\ndef employment_status_indicator(row, aux_dataframes: Dict[str, pd.DataFrame]):\n       demographic_data = aux_dataframes[\"demographic_data_table.csv\"]\n       employment_status = demographic_data.loc[demographic_data[\"patient_id\"] == row[\"patient_id\"], \"employment_status\"].values\n       return employment_status[0] if len(employment_status) > 0 else None\n"
+        },
+        "0": {
+            "name": "education_level_indicator",
+            "code": "\n\ndef education_level_indicator(row, aux_dataframes: Dict[str, pd.DataFrame]):\n       demographic_data = aux_dataframes[\"demographic_data_table.csv\"]\n       education_map = {\"Primary\": 1, \"Secondary\": 2, \"Tertiary\": 3}\n       education = demographic_data.loc[demographic_data[\"patient_id\"] == row[\"patient_id\"], \"education_level\"].values\n       return education_map.get(education[0], 0) if len(education) > 0 else 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "total test abnormalities",
+        "time since latest test",
+        "average test value",
+        "symptom severity sum",
+        "num symptoms reported",
+        "income level indicator",
+        "average symptom severity",
+        "chronic symptom severity sum",
+        "test severity ratio",
+        "chronic symptom duration",
+        "average test abnormality ratio",
+        "symptom chronic rate",
+        "gender binary",
+        "most frequent symptom",
+        "frequent symptom pair",
+        "age",
+        "employment status indicator",
+        "education level indicator"
+    ]
+}

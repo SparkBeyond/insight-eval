@@ -1,0 +1,107 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "spend_last_6_months",
+        "last_transaction_days_ago",
+        "transaction_count",
+        "last_support_interaction_days_ago",
+        "avg_transaction_amount",
+        "marketing_overlap",
+        "support_ticket_count",
+        "avg_response_time",
+        "sum_offer_values",
+        "marketing_impact_churned",
+        "marketing_campaign_count",
+        "average_engagement_level",
+        "customer_tenure",
+        "preferred_service_type",
+        "preferred_issue_type",
+        "technical_issue_count"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5597467724818792": {
+            "name": "spend_last_6_months",
+            "code": "import pandas as pd\n\ndef spend_last_6_months(row, aux_data: Dict[str, pd.DataFrame]):\n    transaction_df = aux_data['transaction_log_table.csv']\n    cutoff_date = pd.Timestamp.now() - pd.Timedelta(days=180)\n    \n    # Filter transactions for the specific customer and within the last 6 months\n    user_transactions = transaction_df[\n        (transaction_df['customer_id'] == row['customer_id']) & \n        (pd.to_datetime(transaction_df['transaction_date']) >= cutoff_date)\n    ]\n    \n    # Sum the transaction amounts\n    return user_transactions['transaction_amount'].sum()\n"
+        },
+        "0.3900314495156085": {
+            "name": "last_transaction_days_ago",
+            "code": "import pandas as pd\n\ndef last_transaction_days_ago(row, aux_data: Dict[str, pd.DataFrame]):\n    transaction_df = aux_data['transaction_log_table.csv']\n    user_transactions = transaction_df[transaction_df['customer_id'] == row['customer_id']]\n    if not user_transactions.empty:\n        last_transaction_date = pd.to_datetime(user_transactions['transaction_date'].max())\n        return (pd.Timestamp.now() - last_transaction_date).days\n    return -1  # Return -1 if no transactions have occurred\n"
+        },
+        "0.1839966699658496": {
+            "name": "transaction_count",
+            "code": "\n\ndef transaction_count(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the transaction log dataframe\n    transaction_df = aux_data['transaction_log_table.csv']\n    \n    # Use the correct column name 'customer_id' instead of 'user_id'\n    count = transaction_df[transaction_df['customer_id'] == row['customer_id']].shape[0]\n    \n    return count\n"
+        },
+        "0.05608411172072451": {
+            "name": "last_support_interaction_days_ago",
+            "code": "import pandas as pd\n\ndef last_support_interaction_days_ago(row, aux_data: Dict[str, pd.DataFrame]):\n    support_df = aux_data['support_interactions_table.csv']\n    user_support = support_df[support_df['customer_id'] == row['customer_id']]\n    if not user_support.empty:\n        last_interaction_date = pd.to_datetime(user_support['interaction_date'].max())\n        return (pd.Timestamp.now() - last_interaction_date).days\n    return -1  # Return -1 if no support interactions have occurred\n"
+        },
+        "0.05331856867153181": {
+            "name": "avg_transaction_amount",
+            "code": "\n\ndef avg_transaction_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the transaction log dataframe\n    transaction_df = aux_data['transaction_log_table.csv']\n    \n    # Filter transactions for the given customer_id\n    user_transactions = transaction_df[transaction_df['customer_id'] == row['customer_id']]\n    \n    # Calculate and return the average transaction amount, or 0 if no transactions exist\n    return user_transactions['transaction_amount'].mean() if not user_transactions.empty else 0\n"
+        },
+        "0.0382993446661479": {
+            "name": "marketing_overlap",
+            "code": "import pandas as pd\n\ndef marketing_overlap(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the relevant dataframes from aux_data\n    marketing_df = aux_data['marketing_campaigns_table.csv']\n    transaction_df = aux_data['transaction_log_table.csv']\n    \n    # Filter campaigns and transactions for the given customer_id\n    user_campaigns = marketing_df[marketing_df['customer_id'] == row['customer_id']]\n    user_transactions = transaction_df[transaction_df['customer_id'] == row['customer_id']]\n\n    overlap_count = 0\n    # Iterate through each campaign for the user\n    for _, campaign in user_campaigns.iterrows():\n        # Parse the campaign date (assuming it's a single date, not a range)\n        campaign_date = pd.to_datetime(campaign['campaign_date'])\n        \n        # Filter transactions that occurred on the same date as the campaign\n        overlap_transactions = user_transactions[\n            pd.to_datetime(user_transactions['transaction_date']) == campaign_date\n        ]\n        # Count the overlapping transactions\n        overlap_count += overlap_transactions.shape[0]\n    \n    return overlap_count\n"
+        },
+        "0.037813436055573545": {
+            "name": "support_ticket_count",
+            "code": "\n\ndef support_ticket_count(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the support interactions dataframe\n    support_df = aux_data['support_interactions_table.csv']\n    \n    # Filter the dataframe for rows where 'customer_id' matches the row's 'customer_id'\n    return support_df[support_df['customer_id'] == row['customer_id']].shape[0]\n"
+        },
+        "0.0355463636694174": {
+            "name": "avg_response_time",
+            "code": "import pandas as pd\n\ndef avg_response_time(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the support interactions dataframe\n    support_df = aux_data['support_interactions_table.csv']\n    \n    # Filter the dataframe for the specific customer_id in the current row\n    user_support = support_df[support_df['customer_id'] == row['customer_id']]\n    \n    # Check if there are any support interactions for the customer\n    if not user_support.empty:\n        # Calculate the average response time in days\n        return (pd.to_datetime(user_support['interaction_date']) - pd.to_datetime(user_support['response_time'])).dt.days.mean()\n    \n    # Return 0 if no support interactions are found\n    return 0\n"
+        },
+        "0.02355868576197399": {
+            "name": "sum_offer_values",
+            "code": "\n\ndef sum_offer_values(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> float:\n    # Access the marketing campaigns dataframe\n    marketing_df = aux_dataframes['marketing_campaigns_table.csv']\n    \n    # Filter the dataframe for the specific customer_id\n    user_campaigns = marketing_df[marketing_df['customer_id'] == row['customer_id']]\n    \n    # Sum the offer values for the filtered rows, or return 0 if no rows match\n    return user_campaigns['offer_value'].sum() if not user_campaigns.empty else 0\n"
+        },
+        "0.022609714234407084": {
+            "name": "marketing_impact_churned",
+            "code": "\n\ndef marketing_impact_churned(row, df_train, aux_dataframes):\n    # Access the marketing campaigns dataframe from aux_dataframes\n    marketing_df = aux_dataframes['marketing_campaigns_table.csv']\n    \n    # Map engagement levels to numeric values\n    engagement_mapping = {'Low': 1, 'Medium': 2, 'High': 3}\n    marketing_df['engagement_level_numeric'] = marketing_df['engagement_level'].map(engagement_mapping)\n    \n    # Filter the marketing dataframe for the specific customer_id\n    user_campaigns = marketing_df[marketing_df['customer_id'] == row['customer_id']]\n    \n    # Check if the user has participated in any campaigns\n    if user_campaigns.shape[0] > 0:\n        # Filter the training dataframe for churned users\n        churned_users = df_train[df_train['churned'] == 1]\n        \n        # Calculate the average engagement level of churned users\n        avg_engagement_churned = churned_users['total_spend'].mean()\n        \n        # Calculate the difference between the user's average engagement level and the churned users' average\n        return user_campaigns['engagement_level_numeric'].mean() - avg_engagement_churned\n    \n    # If the user has not participated in any campaigns, return 0\n    return 0\n"
+        },
+        "0.02179414831841036": {
+            "name": "marketing_campaign_count",
+            "code": "\n\ndef marketing_campaign_count(row, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Access the marketing campaigns dataframe\n    marketing_df = aux_data['marketing_campaigns_table.csv']\n    \n    # Count the number of rows in the marketing dataframe where customer_id matches\n    count = marketing_df[marketing_df['customer_id'] == row['customer_id']].shape[0]\n    \n    return count\n"
+        },
+        "0.01967442946734218": {
+            "name": "average_engagement_level",
+            "code": "\n\ndef average_engagement_level(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the marketing campaigns dataframe\n    marketing_df = aux_data['marketing_campaigns_table.csv']\n    \n    # Filter the dataframe for the current customer's campaigns\n    user_campaigns = marketing_df[marketing_df['customer_id'] == row['customer_id']]\n    \n    # Check if the engagement_level column exists and is not empty\n    if user_campaigns.empty or 'engagement_level' not in user_campaigns.columns:\n        return 0\n    \n    # Map engagement levels to numeric values\n    engagement_mapping = {'Low': 1, 'Medium': 2, 'High': 3}\n    user_campaigns['engagement_level_numeric'] = user_campaigns['engagement_level'].map(engagement_mapping)\n    \n    # Calculate and return the average engagement level, or 0 if no valid numeric values exist\n    return user_campaigns['engagement_level_numeric'].mean() if not user_campaigns['engagement_level_numeric'].isna().all() else 0\n"
+        },
+        "0.0016789488606486717": {
+            "name": "customer_tenure",
+            "code": "import pandas as pd\n\ndef customer_tenure(row):\n    # Calculate tenure using the 'signup_date' column\n    tenure = (pd.Timestamp.now() - pd.to_datetime(row['signup_date'])).days\n    return tenure\n"
+        },
+        "-0.00010539810507026459": {
+            "name": "preferred_service_type",
+            "code": "\n\ndef preferred_service_type(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the transaction log dataframe\n    transaction_df = aux_data['transaction_log_table.csv']\n    \n    # Filter transactions for the given customer_id\n    user_transactions = transaction_df[transaction_df['customer_id'] == row['customer_id']]\n    \n    # Return the most frequent service_type or None if no transactions exist\n    return user_transactions['service_type'].mode().iloc[0] if not user_transactions.empty else None\n"
+        },
+        "-8.302343680433033e-05": {
+            "name": "preferred_issue_type",
+            "code": "\n\ndef preferred_issue_type(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the support interactions dataframe\n    support_df = aux_data['support_interactions_table.csv']\n    \n    # Filter the dataframe for the current customer's interactions\n    user_support = support_df[support_df['customer_id'] == row['customer_id']]\n    \n    # Return the most common issue type if there are interactions, otherwise return None\n    return user_support['issue_type'].mode().iloc[0] if not user_support.empty else None\n"
+        },
+        "0": {
+            "name": "technical_issue_count",
+            "code": "\n\ndef technical_issue_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_df = aux_dataframes['support_interactions_table.csv']\n    # Use 'customer_id' instead of 'user_id'\n    technical_issues = support_df[(support_df['customer_id'] == row['customer_id']) & \n                                  (support_df['issue_type'] == 'technical')]\n    return technical_issues.shape[0]\n"
+        }
+    },
+    "feature_descriptions": [
+        "spend last 6 months",
+        "last transaction days ago",
+        "transaction count",
+        "last support interaction days ago",
+        "avg transaction amount",
+        "marketing overlap",
+        "support ticket count",
+        "avg response time",
+        "sum offer values",
+        "marketing impact churned",
+        "marketing campaign count",
+        "average engagement level",
+        "customer tenure",
+        "preferred service type",
+        "preferred issue type",
+        "technical issue count"
+    ]
+}

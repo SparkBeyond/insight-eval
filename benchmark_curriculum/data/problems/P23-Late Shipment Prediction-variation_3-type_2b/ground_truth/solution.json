@@ -1,0 +1,28 @@
+{
+    "enriched_column_names": [
+        "average_shipment_distance_covered_in_a_route",
+        "average_planned_shipment_duration_compared_to_actual_duration",
+        "average_lead_time_for_shipments_per_route",
+        "weather_impact_score_during_planned_shipment_windows",
+        "weather_unpredictability_score_for_shipment_routes",
+        "frequency_of_delays_from_a_carrier_in_the_last_6_months",
+        "rate_of_rush_shipments_in_the_last_quarter",
+        "historical_incident_record_on_shipment_routes",
+        "maintenance_frequency_of_carriers",
+        "shipment_capacity_utilization_rates",
+        "average_transit_hub_count_per_shipment_route"
+    ],
+    "features_descriptions": [
+        "average shipment distance covered in a route",
+        "average planned shipment duration compared to actual duration",
+        "average lead time for shipments per route",
+        "weather impact score during planned shipment windows",
+        "weather unpredictability score for shipment routes",
+        "frequency of delays from a carrier in the last 6 months",
+        "rate of rush shipments in the last quarter",
+        "historical incident record on shipment routes",
+        "maintenance frequency of carriers",
+        "shipment capacity utilization rates",
+        "average transit hub count per shipment route"
+    ]
+}

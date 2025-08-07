@@ -1,0 +1,40 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "total_support_tickets",
+        "total_data_usage",
+        "total_payments",
+        "mean_monthly_data_usage",
+        "total_call_duration",
+        "avg_resolution_time",
+        "call_drop_rate",
+        "unresolved_tickets_repeated_colname1",
+        "billing_tickets_proportion",
+        "issue_to_usage_ratio",
+        "unresolved_tickets",
+        "total_sms_count",
+        "recency_support_ticket",
+        "avg_payment_amount",
+        "call_to_sms_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "total support tickets",
+        "total data usage",
+        "total payments",
+        "mean monthly data usage",
+        "total call duration",
+        "avg resolution time",
+        "call drop rate",
+        "unresolved tickets repeated colname1",
+        "billing tickets proportion",
+        "issue to usage ratio",
+        "unresolved tickets",
+        "total sms count",
+        "recency support ticket",
+        "avg payment amount",
+        "call to sms ratio"
+    ]
+}

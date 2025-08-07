@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "number_of_late_payments_over_90_days_in_the_past_year",
+        "previous_loan_default_count",
+        "income_stability_over_the_past_12_months"
+    ],
+    "features_descriptions": [
+        "number of late payments over 90 days in the past year",
+        "previous loan default count",
+        "income stability over the past 12 months"
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "enriched_column_names": [
+        "change_in_purchase_diversity_for_customers_with_flagged_feedback",
+        "rate_of_feedback_mentioning_keywords_labeled_as_negative",
+        "response_time_to_support_tickets_flagged_as_negative",
+        "negative_feedback_repetition_rate_for_customers",
+        "average_session_duration_of_customers_who_provided_feedback",
+        "satisfaction_levels_from_purchase_feedback_in_the_last_month"
+    ],
+    "features_descriptions": [
+        "change in purchase diversity for customers with flagged feedback",
+        "rate of feedback mentioning keywords labeled as negative",
+        "response time to support tickets flagged as negative",
+        "negative feedback repetition rate for customers",
+        "average session duration of customers who provided feedback",
+        "satisfaction levels from purchase feedback in the last month"
+    ]
+}

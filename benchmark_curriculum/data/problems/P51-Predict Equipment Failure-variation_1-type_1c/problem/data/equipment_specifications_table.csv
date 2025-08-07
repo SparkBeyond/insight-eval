@@ -1,0 +1,501 @@
+equipment_id,equipment_type,manufacturer,model,purchase_date,design_lifespan_years
+1,Pump,"Perry, Turner and Diaz",Model-2841,2024-07-22,18
+2,Compressor,Cruz Ltd,Model-6485,2021-10-14,16
+3,Compressor,"Landry, Morales and Murillo",Model-0232,2024-03-17,10
+4,Pump,"Hansen, Moses and Clark",Model-8114,2019-06-24,13
+5,Generator,"Case, Wells and Davies",Model-2685,2015-07-24,5
+6,Generator,Armstrong-Prince,Model-5075,2021-03-08,17
+7,Pump,Parrish and Sons,Model-1833,2020-08-25,18
+8,Compressor,Brown-Brown,Model-4398,2020-09-17,15
+9,Pump,Wright LLC,Model-5525,2016-04-27,17
+10,Generator,"Lane, Nelson and Smith",Model-5074,2020-02-13,6
+11,Generator,Daniel LLC,Model-4170,2021-08-04,11
+12,Generator,"Parks, Powell and Dennis",Model-9623,2025-05-03,11
+13,Compressor,Rhodes and Sons,Model-0845,2023-06-28,8
+14,Pump,Martin Group,Model-1446,2020-03-08,7
+15,Compressor,"Miller, Fields and Allen",Model-8492,2023-05-25,18
+16,Generator,Hardy Group,Model-9673,2020-12-02,20
+17,Pump,"Sims, Jones and Stevens",Model-3375,2023-07-31,9
+18,Pump,George-Nixon,Model-9986,2015-12-02,18
+19,Pump,Brandt-Jackson,Model-8395,2019-01-23,15
+20,Generator,Turner LLC,Model-7918,2016-06-08,18
+21,Compressor,Lee PLC,Model-8277,2019-11-02,6
+22,Pump,"Taylor, Dunn and Chavez",Model-4420,2023-08-24,16
+23,Generator,Rogers-Murphy,Model-0418,2022-01-20,20
+24,Compressor,Johnson Group,Model-4931,2023-03-01,5
+25,Compressor,Gibson and Sons,Model-0616,2024-12-10,12
+26,Generator,"Ryan, Lopez and Ryan",Model-4558,2021-03-12,11
+27,Generator,Sullivan-Smith,Model-5104,2018-08-20,16
+28,Generator,Cook PLC,Model-3747,2016-08-17,13
+29,Generator,Jones Group,Model-4375,2016-08-30,13
+30,Generator,"Rollins, Cobb and Hernandez",Model-4167,2020-08-30,9
+31,Compressor,Norman-Munoz,Model-2822,2021-03-31,14
+32,Compressor,Snyder-Marks,Model-4619,2017-09-28,15
+33,Generator,"Hernandez, Young and Kelley",Model-8782,2018-04-08,15
+34,Generator,Simpson PLC,Model-3501,2018-09-24,13
+35,Compressor,Jordan PLC,Model-6321,2024-09-09,5
+36,Generator,Roberts Group,Model-5224,2018-06-19,16
+37,Generator,Dorsey-Palmer,Model-2614,2017-10-02,19
+38,Pump,Stephens LLC,Model-6641,2018-06-17,13
+39,Compressor,"Harris, Stewart and Johnson",Model-9905,2022-02-17,6
+40,Pump,Powell-Bishop,Model-4726,2017-07-06,11
+41,Compressor,Nash Ltd,Model-3361,2019-12-09,13
+42,Generator,Kelly PLC,Model-2977,2023-07-10,20
+43,Generator,Anderson Group,Model-6366,2020-03-29,9
+44,Compressor,"Norton, Murphy and Cruz",Model-3270,2020-02-11,20
+45,Pump,Marks-Santos,Model-1270,2018-01-10,17
+46,Generator,Gonzalez LLC,Model-2014,2019-10-17,11
+47,Compressor,Nolan PLC,Model-4846,2020-07-21,9
+48,Pump,"Johnson, Holland and Fletcher",Model-4891,2022-06-04,8
+49,Generator,Phillips-Bell,Model-7381,2015-10-26,6
+50,Pump,Mendoza-Murphy,Model-7530,2021-05-23,14
+51,Compressor,Bailey and Sons,Model-6198,2024-12-20,15
+52,Generator,Reeves Inc,Model-7238,2023-06-21,10
+53,Compressor,Gregory LLC,Model-0911,2016-10-14,7
+54,Pump,Parker Ltd,Model-4495,2020-11-27,14
+55,Compressor,Davis-Smith,Model-7158,2022-11-30,17
+56,Compressor,"Stevens, Cannon and Harrell",Model-1874,2021-06-16,7
+57,Pump,Hardy PLC,Model-2150,2023-11-29,7
+58,Pump,"Gregory, Sawyer and Goodman",Model-1160,2020-04-10,12
+59,Generator,Gutierrez-Hines,Model-4939,2020-05-25,13
+60,Pump,Guzman-Ingram,Model-3535,2020-02-03,10
+61,Compressor,Oliver and Sons,Model-8737,2019-09-27,6
+62,Pump,Williamson-Gonzalez,Model-1304,2015-11-22,20
+63,Pump,Oneill-Ward,Model-6608,2020-12-23,17
+64,Compressor,Johnson PLC,Model-5952,2025-03-19,12
+65,Pump,Willis-Keller,Model-9349,2019-10-22,18
+66,Pump,Rodriguez-Johnson,Model-2782,2022-07-26,19
+67,Generator,"Smith, Smith and Reyes",Model-6143,2017-05-29,19
+68,Generator,"Smith, Ayers and Mcdonald",Model-2736,2022-05-19,12
+69,Compressor,Page-Huang,Model-7121,2017-11-10,15
+70,Generator,Collins LLC,Model-8945,2019-11-22,16
+71,Pump,"Myers, Chavez and Hurst",Model-2833,2016-06-04,5
+72,Pump,Wilson-Williams,Model-5533,2020-06-11,18
+73,Generator,Kirk PLC,Model-9907,2024-08-12,15
+74,Pump,Joseph Ltd,Model-7665,2020-07-30,10
+75,Pump,Perkins-Cameron,Model-0011,2021-08-17,12
+76,Pump,Cannon-Lamb,Model-0242,2023-06-17,15
+77,Compressor,"Martin, Cross and Peterson",Model-5739,2019-12-20,10
+78,Generator,Banks-Weber,Model-6329,2021-05-16,14
+79,Compressor,Marshall-Collins,Model-0852,2025-01-19,16
+80,Compressor,Johnson-Dennis,Model-4115,2021-03-31,7
+81,Pump,"Clark, Rasmussen and Burnett",Model-5279,2020-02-18,8
+82,Pump,Olsen Group,Model-3936,2015-09-05,5
+83,Generator,Patrick and Sons,Model-8169,2017-11-11,10
+84,Compressor,Garza-Patel,Model-5725,2025-01-08,19
+85,Compressor,Hill-Sheppard,Model-7476,2023-05-14,9
+86,Pump,Boyd and Sons,Model-6503,2021-11-15,20
+87,Compressor,Webb Inc,Model-9548,2019-01-11,5
+88,Compressor,Neal-Johnson,Model-0716,2023-08-09,13
+89,Generator,Banks-Luna,Model-9394,2018-02-10,5
+90,Compressor,"Mitchell, Frederick and Olsen",Model-0450,2022-05-26,15
+91,Compressor,"Walker, Nicholson and Craig",Model-0519,2023-01-26,11
+92,Generator,Johnson-Evans,Model-4838,2015-06-20,13
+93,Generator,Davis-Mack,Model-9488,2020-09-14,5
+94,Generator,"Carpenter, Gilbert and Evans",Model-9279,2021-11-13,8
+95,Compressor,Rodriguez-Martin,Model-0333,2019-02-01,14
+96,Pump,Vasquez-Smith,Model-6879,2022-07-13,11
+97,Generator,"Martin, Wong and Rivera",Model-6808,2019-06-21,5
+98,Compressor,Salazar Inc,Model-1045,2021-07-06,12
+99,Pump,White PLC,Model-9361,2023-09-11,5
+100,Compressor,"Lewis, Scott and Taylor",Model-8284,2024-04-26,8
+101,Compressor,Burton LLC,Model-8665,2021-03-31,6
+102,Pump,"Warner, Wright and Evans",Model-6423,2021-06-01,6
+103,Generator,"Daniels, Walker and Schroeder",Model-3585,2022-02-25,13
+104,Compressor,Marshall-Ross,Model-6423,2015-10-08,16
+105,Compressor,Hudson-Russell,Model-3258,2023-05-01,18
+106,Compressor,Harding-Wright,Model-3311,2024-02-01,5
+107,Pump,Edwards-Richmond,Model-0328,2016-10-27,15
+108,Generator,Johnson-Robinson,Model-6914,2018-08-15,6
+109,Pump,Hood-Watson,Model-3527,2019-09-12,14
+110,Compressor,Jackson Group,Model-0091,2018-10-18,15
+111,Generator,Graves-Riley,Model-9554,2024-11-25,15
+112,Generator,Graham PLC,Model-2053,2016-09-18,12
+113,Compressor,Jackson PLC,Model-0679,2017-11-10,14
+114,Compressor,Jones-Johnson,Model-0929,2016-04-13,8
+115,Compressor,"Harris, Greer and Rojas",Model-0792,2017-02-15,12
+116,Generator,Nash Group,Model-1805,2023-06-13,18
+117,Compressor,Gonzalez-Baxter,Model-7838,2022-06-26,11
+118,Compressor,Hayes and Sons,Model-6776,2016-05-20,16
+119,Generator,"Maxwell, Fields and Jackson",Model-9441,2022-02-24,11
+120,Pump,Dominguez PLC,Model-0622,2023-12-05,9
+121,Compressor,Watson Inc,Model-4640,2025-02-08,7
+122,Compressor,Andrews-Turner,Model-2838,2016-03-05,19
+123,Pump,Carpenter PLC,Model-4576,2019-07-07,17
+124,Pump,Sanchez Group,Model-0740,2016-03-16,9
+125,Pump,"Gardner, Thompson and Beasley",Model-4018,2019-12-26,9
+126,Generator,Swanson PLC,Model-8645,2015-07-15,15
+127,Compressor,Hensley-Lucas,Model-0466,2021-06-29,14
+128,Compressor,Martinez-King,Model-8336,2020-06-09,7
+129,Pump,Hernandez Inc,Model-1522,2018-10-12,12
+130,Generator,Henderson-Fleming,Model-3369,2023-01-14,9
+131,Generator,Haas Group,Model-0778,2024-08-07,18
+132,Pump,"Morales, Crawford and Mejia",Model-4750,2024-07-04,15
+133,Pump,Lewis Ltd,Model-8901,2019-07-31,19
+134,Pump,Nelson-Everett,Model-4636,2017-06-10,9
+135,Compressor,Gilbert PLC,Model-6253,2016-12-28,12
+136,Compressor,Mcdowell-Brown,Model-5244,2024-02-27,13
+137,Pump,Robinson-Stevens,Model-0296,2019-11-16,11
+138,Compressor,Sosa-Hernandez,Model-8576,2024-09-03,5
+139,Pump,Smith Ltd,Model-6406,2023-08-31,8
+140,Compressor,Perez-Everett,Model-5319,2018-02-09,20
+141,Generator,"Mcdonald, Hood and Waters",Model-3866,2024-04-26,18
+142,Generator,"Carter, Stewart and Smith",Model-2713,2019-11-30,17
+143,Generator,Matthews-Porter,Model-1120,2024-09-04,10
+144,Generator,Davis LLC,Model-6719,2025-02-22,14
+145,Generator,Mcdonald-Compton,Model-9844,2020-03-18,14
+146,Compressor,Beck LLC,Model-6645,2024-11-07,19
+147,Compressor,Morton LLC,Model-8802,2020-01-16,9
+148,Generator,"Smith, Gonzales and Contreras",Model-8335,2020-12-23,13
+149,Compressor,"Vargas, Sparks and Lawrence",Model-8376,2023-07-29,17
+150,Compressor,Morales-Mitchell,Model-8067,2024-07-21,9
+151,Compressor,"Padilla, Sweeney and Nelson",Model-4736,2017-12-05,8
+152,Pump,Jones-Miller,Model-3583,2017-05-23,13
+153,Generator,"Schmidt, Garza and Parker",Model-1836,2024-09-12,11
+154,Generator,Pham-Madden,Model-8160,2019-01-30,16
+155,Pump,"Alexander, Benitez and Moore",Model-3406,2020-04-16,18
+156,Compressor,"Bowen, Johnson and Elliott",Model-7143,2022-01-06,13
+157,Generator,Hamilton Ltd,Model-8556,2024-05-20,14
+158,Compressor,"Woodward, Goodwin and Roberts",Model-0970,2018-04-01,11
+159,Compressor,Rodriguez and Sons,Model-0108,2024-12-14,5
+160,Generator,Smith-Hancock,Model-4624,2018-04-19,6
+161,Compressor,Miller PLC,Model-3112,2016-03-07,20
+162,Compressor,Thompson-Jenkins,Model-6500,2023-08-25,18
+163,Pump,Sellers-Mcdaniel,Model-9189,2019-01-29,13
+164,Pump,"Torres, Chen and Robinson",Model-7617,2022-08-15,14
+165,Compressor,"Nichols, Clark and Miller",Model-2253,2016-05-22,10
+166,Compressor,"Baker, Keller and Ryan",Model-0786,2023-08-19,11
+167,Generator,Phillips Ltd,Model-7621,2023-03-03,11
+168,Compressor,Bowers Ltd,Model-7391,2016-12-18,11
+169,Generator,Murray Ltd,Model-3497,2021-08-27,17
+170,Generator,"Miller, Sawyer and Ford",Model-4984,2020-01-29,19
+171,Pump,Tate-Lambert,Model-8383,2022-12-18,11
+172,Compressor,Bradley-Allen,Model-6740,2017-08-16,9
+173,Pump,"Lopez, Cox and Pierce",Model-7963,2023-06-26,20
+174,Pump,Patton and Sons,Model-7566,2022-12-21,19
+175,Pump,Cooper-Smith,Model-6192,2017-12-08,7
+176,Generator,"Wright, Taylor and Osborn",Model-6436,2025-05-13,12
+177,Compressor,"Hernandez, Henson and Ballard",Model-2928,2021-11-21,17
+178,Generator,Burns LLC,Model-5464,2020-07-14,17
+179,Compressor,Warner-Mccoy,Model-2047,2022-01-17,20
+180,Compressor,Perry-Gomez,Model-6102,2021-03-31,12
+181,Compressor,Mcclain LLC,Model-8127,2023-02-22,17
+182,Generator,"Davis, Wood and Thompson",Model-7405,2022-08-05,10
+183,Compressor,Mcconnell-Cox,Model-2575,2024-12-26,5
+184,Compressor,Monroe and Sons,Model-5025,2024-04-22,8
+185,Compressor,Young PLC,Model-5153,2021-09-01,20
+186,Generator,"Ward, Cantrell and Mayo",Model-3957,2019-03-08,10
+187,Compressor,"Bailey, Petersen and Holmes",Model-7319,2015-06-07,5
+188,Compressor,Ortiz Inc,Model-1591,2024-08-03,20
+189,Generator,Harris-Brown,Model-8354,2015-08-08,11
+190,Generator,Garrison Inc,Model-5337,2020-07-04,13
+191,Generator,Munoz Ltd,Model-7866,2015-08-06,6
+192,Generator,"Dunn, Perez and Gonzalez",Model-9991,2021-10-23,14
+193,Compressor,Cisneros-Lee,Model-9018,2015-07-11,6
+194,Generator,Rios LLC,Model-6479,2020-07-21,14
+195,Pump,Gomez Inc,Model-8918,2020-07-03,13
+196,Pump,Gonzalez-Reese,Model-0271,2022-02-18,14
+197,Pump,York-Simmons,Model-0398,2022-09-05,17
+198,Pump,Lane and Sons,Model-4021,2021-09-02,13
+199,Pump,Martin PLC,Model-1273,2025-03-27,6
+200,Pump,Short-Boone,Model-1554,2021-10-09,5
+201,Pump,Anderson-Ford,Model-4073,2022-02-04,14
+202,Pump,Jordan Group,Model-3840,2021-01-11,7
+203,Pump,"Wade, Matthews and Rodriguez",Model-3262,2017-01-05,6
+204,Compressor,Francis-Wiggins,Model-6360,2022-02-21,14
+205,Pump,"Fitzgerald, Anderson and Norris",Model-4792,2015-05-25,16
+206,Compressor,"Gallagher, Martinez and Payne",Model-0303,2023-07-23,11
+207,Pump,"Allen, Figueroa and Williams",Model-5021,2022-06-05,8
+208,Generator,Sanchez-Ellis,Model-2387,2021-01-24,16
+209,Compressor,Flynn-Jackson,Model-7771,2018-06-22,20
+210,Compressor,Perez-Lamb,Model-3717,2015-07-13,15
+211,Compressor,"Payne, Gray and Carter",Model-4275,2024-11-27,16
+212,Generator,"Reynolds, Webb and Crawford",Model-1517,2019-09-20,5
+213,Pump,Singleton-Jones,Model-5062,2021-07-11,8
+214,Compressor,Williams Ltd,Model-8256,2020-01-31,9
+215,Compressor,"Jenkins, Morales and Garcia",Model-1270,2016-08-05,8
+216,Pump,"Oconnor, Long and Russell",Model-4206,2017-01-15,7
+217,Generator,Bullock-Patel,Model-8786,2017-02-14,17
+218,Generator,Thompson-Trujillo,Model-3034,2020-02-16,19
+219,Generator,"Chase, Yang and Harding",Model-0344,2022-11-09,11
+220,Pump,Robinson Group,Model-4754,2016-04-21,19
+221,Generator,"Russo, Bates and Evans",Model-4329,2017-05-29,13
+222,Generator,Simmons LLC,Model-0402,2022-09-07,8
+223,Generator,"Anderson, Murphy and Brown",Model-7081,2017-04-19,9
+224,Compressor,Manning Inc,Model-8029,2025-04-10,12
+225,Compressor,Montes Ltd,Model-8208,2016-01-13,14
+226,Compressor,Young Group,Model-1113,2015-12-17,15
+227,Pump,Moreno-Hampton,Model-3630,2017-03-28,5
+228,Compressor,"Haynes, Lopez and Sanchez",Model-8678,2018-07-17,7
+229,Compressor,Rios Ltd,Model-9427,2020-04-28,5
+230,Pump,"Davis, Chandler and Osborne",Model-4085,2023-03-25,19
+231,Generator,Rodriguez PLC,Model-2325,2023-01-17,15
+232,Pump,Esparza LLC,Model-3102,2017-09-14,15
+233,Pump,Strickland-Brown,Model-7245,2019-01-27,19
+234,Generator,Marks LLC,Model-3645,2019-02-14,20
+235,Generator,Lopez Group,Model-0884,2020-08-08,19
+236,Compressor,"Ferguson, Dunn and Torres",Model-5969,2024-01-22,8
+237,Pump,White Ltd,Model-1441,2022-01-19,9
+238,Generator,"Garza, Weaver and Larson",Model-3063,2019-08-22,15
+239,Pump,Schultz-Fleming,Model-4304,2020-02-04,6
+240,Generator,Lopez Inc,Model-0215,2021-11-27,11
+241,Compressor,Herrera-Martin,Model-2318,2024-02-06,18
+242,Generator,"Johnson, Rodriguez and White",Model-6114,2024-10-09,8
+243,Compressor,"Aguilar, Gonzalez and Lewis",Model-0937,2018-03-03,6
+244,Compressor,Porter Group,Model-9997,2017-10-12,18
+245,Compressor,Martinez Ltd,Model-8467,2020-05-08,13
+246,Pump,Mooney Ltd,Model-5848,2019-07-25,12
+247,Pump,"Ford, Brooks and Dixon",Model-5285,2017-06-02,17
+248,Pump,"Knox, Glass and Fleming",Model-1622,2021-02-10,9
+249,Pump,"Valencia, Harris and Moss",Model-0870,2018-11-15,12
+250,Compressor,Cochran-Adams,Model-8030,2023-04-10,12
+251,Pump,Obrien-Miller,Model-9915,2020-12-04,15
+252,Compressor,"Mccann, Vargas and Dodson",Model-4664,2024-10-20,15
+253,Generator,"Chambers, Gonzalez and Johnson",Model-5652,2020-02-01,8
+254,Generator,"Lopez, Chang and Wright",Model-9783,2020-02-18,19
+255,Generator,Anderson-Conrad,Model-4476,2020-10-09,19
+256,Compressor,"Baker, French and Frazier",Model-9198,2020-10-13,16
+257,Compressor,Cochran Inc,Model-4951,2021-10-20,6
+258,Generator,Gregory LLC,Model-8219,2016-03-17,8
+259,Generator,Spencer and Sons,Model-4088,2021-10-10,5
+260,Compressor,"Garza, Wood and Powers",Model-8545,2019-03-26,6
+261,Compressor,Edwards Group,Model-6184,2021-11-27,16
+262,Compressor,Griffin LLC,Model-8544,2019-07-13,17
+263,Pump,"Irwin, Adams and Willis",Model-5498,2022-07-01,6
+264,Pump,"Gonzalez, Mccullough and Larsen",Model-0357,2022-03-31,5
+265,Generator,"Barber, Price and Perez",Model-5183,2025-03-19,15
+266,Pump,Jones LLC,Model-1533,2015-10-22,15
+267,Pump,Valentine Group,Model-6162,2021-07-11,10
+268,Compressor,Walker LLC,Model-5110,2016-03-25,15
+269,Pump,Walters Ltd,Model-6887,2024-02-22,12
+270,Compressor,Bell PLC,Model-3085,2018-09-26,19
+271,Compressor,Rojas-Cunningham,Model-7329,2023-11-23,8
+272,Generator,Garcia-Singleton,Model-3944,2018-08-18,5
+273,Generator,Mendoza and Sons,Model-8963,2017-08-14,19
+274,Pump,Sullivan-Rogers,Model-2100,2023-05-23,9
+275,Pump,Cabrera Ltd,Model-4097,2024-09-07,19
+276,Pump,Smith Group,Model-3167,2023-01-28,5
+277,Generator,"Rogers, Haynes and Robbins",Model-5785,2017-11-16,10
+278,Compressor,Wilkins Inc,Model-6209,2020-05-29,17
+279,Pump,"Mullen, Haney and Williams",Model-7714,2025-01-30,17
+280,Generator,Wright-Moore,Model-7644,2021-11-10,13
+281,Generator,Hobbs-Taylor,Model-8740,2021-08-05,11
+282,Generator,Simmons-Hernandez,Model-4777,2024-10-15,5
+283,Pump,Ross-Myers,Model-2187,2024-11-24,19
+284,Compressor,"Rodriguez, Moore and Nelson",Model-8306,2022-03-09,9
+285,Compressor,Howell Group,Model-3587,2019-02-19,12
+286,Compressor,Ramirez-Ramirez,Model-3509,2021-04-27,16
+287,Compressor,Brown-Miller,Model-3621,2024-06-05,19
+288,Compressor,Hooper-Vazquez,Model-6675,2022-01-09,7
+289,Generator,"Rose, Hicks and Griffin",Model-9536,2021-08-22,8
+290,Generator,"Garcia, Savage and Nash",Model-3407,2024-11-26,20
+291,Generator,Fisher Inc,Model-4208,2017-04-15,14
+292,Generator,Rodgers Ltd,Model-3060,2022-09-01,13
+293,Pump,Jones-Ferguson,Model-8129,2021-04-16,13
+294,Compressor,Joyce-Holmes,Model-8510,2018-11-01,19
+295,Compressor,"Parks, Robertson and Pope",Model-8993,2018-03-20,17
+296,Generator,Tyler-Rivera,Model-2333,2017-01-22,19
+297,Compressor,Clark-Harrell,Model-3949,2019-03-01,10
+298,Pump,Acevedo Inc,Model-3950,2022-11-29,11
+299,Generator,"York, Evans and Williams",Model-2815,2024-04-16,8
+300,Generator,"Brown, Lowe and Blake",Model-2501,2019-05-03,16
+301,Generator,Mcknight Group,Model-7854,2018-09-08,6
+302,Generator,"Phillips, Calderon and Richard",Model-5399,2016-09-28,16
+303,Compressor,"Reynolds, Allen and Martinez",Model-4219,2022-03-23,12
+304,Generator,Castillo LLC,Model-4326,2017-03-23,10
+305,Generator,Bullock-Paul,Model-7868,2023-02-26,5
+306,Compressor,"Cummings, Turner and Ward",Model-7024,2019-10-14,6
+307,Pump,"Hall, Garcia and Gonzalez",Model-9149,2018-09-02,19
+308,Compressor,Mitchell-Smith,Model-8238,2024-12-02,18
+309,Compressor,Chavez-Foley,Model-0139,2019-06-13,19
+310,Pump,Jensen-Morrison,Model-8333,2019-03-31,6
+311,Generator,Thompson Inc,Model-0914,2019-07-30,7
+312,Generator,Baker-Anderson,Model-3986,2017-06-01,10
+313,Compressor,"Lewis, Lane and Burke",Model-2213,2022-06-26,17
+314,Pump,"Taylor, Allen and Keith",Model-4036,2016-03-21,6
+315,Generator,Johnson-Benson,Model-7507,2023-11-18,14
+316,Generator,Moore PLC,Model-4647,2020-12-12,15
+317,Pump,Oconnor-Russell,Model-6190,2024-02-13,10
+318,Pump,"Barton, Ochoa and Morris",Model-2123,2022-05-16,15
+319,Compressor,Jennings-Raymond,Model-7971,2021-11-19,20
+320,Generator,Santos and Sons,Model-8671,2017-11-14,19
+321,Compressor,Krause Group,Model-0804,2022-12-12,18
+322,Generator,Smith and Sons,Model-2559,2022-05-18,10
+323,Pump,Robertson PLC,Model-4425,2021-11-03,18
+324,Compressor,"Crane, Lewis and Bowman",Model-8134,2017-09-21,19
+325,Pump,"Gonzalez, Castro and Weber",Model-1609,2023-12-08,14
+326,Pump,Stone Group,Model-1692,2019-11-18,6
+327,Pump,Kelly-Osborne,Model-2246,2020-10-22,15
+328,Generator,Howe LLC,Model-1190,2018-01-11,15
+329,Generator,Cook-Sanchez,Model-0439,2021-12-12,5
+330,Pump,"Stone, Green and Moyer",Model-7886,2022-01-11,14
+331,Generator,Kelley LLC,Model-9909,2018-04-05,7
+332,Compressor,"Mueller, Brandt and Beck",Model-0031,2025-05-07,8
+333,Pump,"Montgomery, Jackson and Sosa",Model-4494,2022-05-18,11
+334,Generator,"Watson, Brooks and Moore",Model-5211,2023-11-06,16
+335,Generator,Sanders-Lee,Model-8284,2023-03-24,20
+336,Pump,Miller Group,Model-7032,2018-10-21,20
+337,Compressor,Yang PLC,Model-1978,2022-04-25,9
+338,Compressor,"Cobb, Montgomery and Gonzalez",Model-0671,2016-12-18,20
+339,Generator,"Hubbard, Mcclain and Gilmore",Model-7906,2015-12-10,12
+340,Compressor,Mcclure-Young,Model-5259,2020-05-25,5
+341,Generator,Brooks-Copeland,Model-7310,2024-09-10,11
+342,Pump,Wood and Sons,Model-3506,2019-10-19,7
+343,Compressor,"Alvarez, Greene and Campbell",Model-4292,2021-03-29,12
+344,Compressor,"Hooper, Davis and Martinez",Model-6847,2022-07-19,13
+345,Pump,Martin-Meyers,Model-0232,2020-10-24,14
+346,Pump,"Osborne, Harris and Anderson",Model-3996,2015-10-12,10
+347,Compressor,Nguyen-Davis,Model-9061,2019-01-11,19
+348,Generator,Bell Inc,Model-7281,2018-02-18,15
+349,Compressor,Smith and Sons,Model-4612,2023-06-24,13
+350,Generator,"Davis, Richardson and Hale",Model-6811,2018-09-04,20
+351,Compressor,"Miller, Estes and Hunter",Model-4682,2022-05-13,19
+352,Compressor,Williams and Sons,Model-9833,2015-09-07,5
+353,Pump,"Lowe, Brown and Goodman",Model-5918,2023-06-06,10
+354,Compressor,Johnston-Hodges,Model-7175,2024-04-10,15
+355,Generator,"Nguyen, Parrish and Bishop",Model-2591,2019-01-16,11
+356,Pump,"Dennis, Larson and Nolan",Model-8066,2018-08-22,6
+357,Compressor,Brown-Davis,Model-6114,2022-03-09,14
+358,Generator,Ward PLC,Model-9908,2016-08-14,16
+359,Compressor,"Huerta, Cobb and Hernandez",Model-4147,2020-09-30,16
+360,Pump,Hernandez LLC,Model-3628,2020-11-22,14
+361,Pump,"Jenkins, Harper and Nelson",Model-0789,2018-04-17,12
+362,Generator,Berg-Sanchez,Model-5552,2018-12-16,12
+363,Generator,"Wilson, Lopez and Brennan",Model-7517,2017-03-03,20
+364,Generator,Hayes and Sons,Model-2366,2018-01-13,18
+365,Generator,Owens-Rodriguez,Model-2395,2024-10-06,17
+366,Pump,"Taylor, Patel and Hayes",Model-2725,2020-02-09,16
+367,Pump,Jordan and Sons,Model-0498,2021-03-23,12
+368,Pump,"Alvarez, Foster and Moore",Model-4079,2016-06-29,13
+369,Compressor,"Howard, Taylor and Pineda",Model-0871,2015-09-24,14
+370,Pump,Smith-Marks,Model-4861,2020-05-14,6
+371,Generator,Fernandez-Davis,Model-5878,2023-11-17,13
+372,Pump,Carroll-Hernandez,Model-9969,2024-06-02,16
+373,Generator,Banks PLC,Model-0319,2023-05-30,12
+374,Pump,Perkins Group,Model-5172,2024-07-10,9
+375,Pump,Martin and Sons,Model-8786,2023-05-05,19
+376,Generator,Williams Ltd,Model-2136,2017-04-07,15
+377,Generator,Simmons-Hebert,Model-3123,2023-08-08,16
+378,Generator,Vargas-Pena,Model-7626,2019-07-02,11
+379,Compressor,"Sanders, Butler and Simmons",Model-8711,2019-11-13,13
+380,Pump,Bryant and Sons,Model-5062,2016-11-29,11
+381,Pump,Garcia-Ochoa,Model-7352,2018-04-02,5
+382,Compressor,May Ltd,Model-4714,2024-09-08,18
+383,Generator,"Ruiz, Wyatt and Nielsen",Model-9094,2020-06-20,13
+384,Pump,Yates Group,Model-4587,2015-10-17,13
+385,Pump,Holloway-Collins,Model-6971,2021-08-11,17
+386,Pump,"Walters, Turner and Hamilton",Model-9766,2025-01-19,11
+387,Pump,"Key, Johnson and Elliott",Model-3692,2023-04-29,9
+388,Compressor,"Miller, Morris and Mills",Model-2541,2016-08-25,6
+389,Pump,Gamble-Williams,Model-5414,2024-12-19,10
+390,Compressor,"Singh, Vaughan and Coleman",Model-9588,2025-01-01,14
+391,Generator,"Bentley, Walker and Spence",Model-2714,2018-02-08,10
+392,Generator,Vance-Rice,Model-5696,2016-09-01,6
+393,Generator,Stewart-Schmidt,Model-5713,2021-09-27,11
+394,Generator,Cameron-Hunt,Model-7398,2022-08-18,16
+395,Pump,Adams-Thompson,Model-5775,2020-08-14,14
+396,Compressor,Jackson Inc,Model-2157,2023-03-04,5
+397,Generator,Stark Inc,Model-4113,2016-10-04,18
+398,Pump,Taylor-Simmons,Model-7162,2021-06-11,19
+399,Pump,"Smith, Simmons and Hughes",Model-3722,2022-08-30,10
+400,Generator,Carpenter-Harper,Model-9053,2016-05-05,15
+401,Compressor,"Reed, Pittman and Richardson",Model-0620,2017-05-08,17
+402,Pump,"Walker, Hill and Lamb",Model-2978,2017-11-28,5
+403,Pump,Wilson-Santos,Model-3478,2015-11-13,18
+404,Compressor,Tucker-Evans,Model-0618,2020-03-30,11
+405,Pump,Green Group,Model-6005,2017-09-17,5
+406,Generator,Hays Ltd,Model-2966,2016-05-16,5
+407,Compressor,Murphy Group,Model-5220,2021-05-02,15
+408,Pump,"Evans, Oconnor and Campbell",Model-1577,2020-04-10,11
+409,Generator,Schultz and Sons,Model-2957,2021-05-12,11
+410,Compressor,Boyd-Cook,Model-7257,2016-12-24,8
+411,Compressor,"Baker, Lewis and Ray",Model-1801,2023-07-02,11
+412,Generator,Riley-Myers,Model-5191,2019-12-25,13
+413,Generator,"Melton, Galvan and Porter",Model-3707,2022-09-28,16
+414,Pump,Faulkner-Santos,Model-6188,2015-10-25,9
+415,Pump,"Garcia, Vazquez and White",Model-7159,2023-11-10,14
+416,Generator,Robinson LLC,Model-1397,2024-03-02,7
+417,Pump,"Bernard, Roberts and Garcia",Model-0943,2023-03-11,20
+418,Compressor,"Gonzales, Oliver and Walker",Model-1731,2025-01-02,18
+419,Compressor,Smith LLC,Model-6833,2024-09-13,15
+420,Pump,Simpson-Hart,Model-4366,2022-07-01,11
+421,Pump,"Oconnor, Soto and Gallegos",Model-5860,2016-03-19,12
+422,Generator,Martin Ltd,Model-2470,2017-12-31,14
+423,Compressor,Jones and Sons,Model-9044,2018-02-23,17
+424,Compressor,Long-Spencer,Model-9048,2020-02-27,10
+425,Generator,"Green, Smith and Stephens",Model-8203,2021-09-07,17
+426,Pump,Jimenez-Jackson,Model-5550,2020-10-10,15
+427,Generator,"Williams, Lane and Werner",Model-5946,2020-09-18,13
+428,Generator,"Moore, Schultz and Weaver",Model-1400,2015-12-05,11
+429,Compressor,West-Ford,Model-6046,2022-08-29,16
+430,Pump,Morgan Ltd,Model-2385,2024-10-23,14
+431,Compressor,Pearson Group,Model-1263,2025-02-06,16
+432,Compressor,"Acosta, Ward and Cox",Model-0758,2019-08-21,17
+433,Compressor,Odom-Clark,Model-8525,2020-10-07,10
+434,Generator,Holmes-Copeland,Model-6643,2024-09-20,6
+435,Pump,"Smith, Swanson and Bennett",Model-2013,2019-03-08,13
+436,Pump,"Hudson, Thompson and Beck",Model-1035,2018-08-07,18
+437,Compressor,"Reyes, Salinas and Lee",Model-2273,2022-02-02,12
+438,Generator,Ramos-Grant,Model-9430,2024-08-23,15
+439,Pump,Pruitt-Martinez,Model-1835,2017-08-13,20
+440,Generator,Davis-Harris,Model-0657,2022-10-09,12
+441,Generator,Woodard and Sons,Model-7650,2018-12-12,11
+442,Pump,Padilla Ltd,Model-1441,2016-05-04,11
+443,Generator,Nelson-Fernandez,Model-2771,2015-11-20,8
+444,Pump,Roth PLC,Model-0202,2018-12-12,18
+445,Compressor,"Fritz, Patel and Thompson",Model-8672,2023-07-22,6
+446,Generator,"Mccormick, Owens and Harvey",Model-1173,2019-10-30,9
+447,Pump,Morales-Mccullough,Model-8134,2016-05-23,9
+448,Compressor,"Cherry, Clark and Patton",Model-8678,2021-06-30,13
+449,Generator,Green LLC,Model-3696,2025-02-18,11
+450,Compressor,Turner-James,Model-6121,2017-12-09,18
+451,Pump,"Hunt, Perry and Bradley",Model-8113,2024-11-29,7
+452,Pump,Hart Inc,Model-3276,2015-06-10,13
+453,Compressor,"Jackson, Cabrera and Clements",Model-2445,2015-07-04,7
+454,Compressor,Ray and Sons,Model-7269,2020-06-13,16
+455,Compressor,Burns LLC,Model-3630,2021-04-10,12
+456,Generator,Hernandez-Thomas,Model-1687,2025-04-18,15
+457,Generator,"Tucker, Harris and Lewis",Model-9419,2017-05-06,20
+458,Compressor,Stevens-Rose,Model-9694,2015-10-25,6
+459,Generator,"Cowan, Dixon and Huff",Model-2357,2018-03-03,10
+460,Compressor,Stone and Sons,Model-3297,2019-12-17,6
+461,Generator,Marshall-Shepherd,Model-6851,2020-02-29,7
+462,Compressor,Mcmahon Inc,Model-4288,2018-06-10,18
+463,Pump,"Williams, Davies and Hubbard",Model-5706,2015-09-02,10
+464,Pump,"Harris, Mejia and Conley",Model-5605,2024-09-06,16
+465,Compressor,"Mays, Bowen and Chen",Model-3179,2023-01-16,13
+466,Generator,Lopez-Rivera,Model-1040,2021-07-12,5
+467,Compressor,Smith LLC,Model-6623,2021-03-28,20
+468,Pump,"Kim, Stephens and Jones",Model-9166,2019-04-03,10
+469,Generator,"Gardner, Rhodes and Wallace",Model-0591,2018-06-29,15
+470,Generator,Evans-Edwards,Model-0745,2020-01-25,9
+471,Pump,"Gomez, Fisher and Yoder",Model-0281,2019-02-15,7
+472,Generator,Wood and Sons,Model-7343,2020-06-06,6
+473,Compressor,"Osborne, Hudson and Serrano",Model-5236,2016-12-30,20
+474,Pump,"Schneider, Cisneros and Walker",Model-2561,2015-11-15,12
+475,Generator,"Adams, George and Lawrence",Model-7566,2015-10-13,15
+476,Generator,"Simmons, Walters and Baker",Model-6500,2021-03-24,12
+477,Generator,Diaz and Sons,Model-3692,2020-03-16,5
+478,Pump,Waters Inc,Model-5413,2021-04-23,5
+479,Pump,Heath-Jones,Model-8196,2024-05-30,9
+480,Pump,Osborne PLC,Model-2255,2019-05-16,7
+481,Compressor,Phillips-Fuller,Model-4220,2016-06-17,11
+482,Compressor,Harrison and Sons,Model-4235,2016-02-15,5
+483,Generator,"Velez, Douglas and Rivera",Model-2244,2025-05-05,20
+484,Pump,Johnson Ltd,Model-3608,2016-01-07,9
+485,Generator,Rodgers LLC,Model-6131,2021-08-02,9
+486,Compressor,"Powell, Gilbert and Martin",Model-8589,2017-12-17,7
+487,Pump,"Simpson, Gross and Mullins",Model-7929,2018-02-07,6
+488,Pump,Delgado-Chan,Model-2146,2024-06-16,15
+489,Generator,"Hess, Clark and Snow",Model-2058,2022-02-14,15
+490,Generator,Leon-Patton,Model-9793,2022-05-21,13
+491,Pump,"Smith, Lewis and Sweeney",Model-8966,2024-12-25,20
+492,Pump,Bean Inc,Model-9441,2024-08-23,11
+493,Pump,Newton Ltd,Model-0948,2018-03-18,11
+494,Generator,Dean PLC,Model-9036,2017-08-14,19
+495,Generator,"Collins, Kelly and Conway",Model-7703,2017-07-27,9
+496,Compressor,Garcia-Austin,Model-0399,2025-02-07,19
+497,Compressor,Griffin-Cooper,Model-6353,2022-05-23,17
+498,Generator,Reid LLC,Model-9005,2021-12-18,8
+499,Pump,Dunn Group,Model-9784,2019-01-11,17
+500,Generator,"Shaw, Anderson and Hall",Model-0532,2017-04-04,13

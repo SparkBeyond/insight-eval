@@ -1,0 +1,53 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "annualized_emissions",
+        "month_feature",
+        "season_feature",
+        "day_of_week_feature",
+        "weather_impact_on_demand",
+        "year_feature",
+        "expanding_mean_demand"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.06437214269752883": {
+            "name": "annualized_emissions",
+            "code": "import pandas as pd\n\ndef annualized_emissions(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Extract the facilities dataframe\n    facilities_df = aux_data['energy_facilities_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = ['facility_id', 'commission_date', 'capacity_mw']\n    for col in required_columns:\n        if col not in facilities_df.columns:\n            raise KeyError(f\"Missing required column '{col}' in energy_facilities_table.csv\")\n    \n    # Ensure the facility_id column in both dataframes is of the same type\n    facilities_df['facility_id'] = facilities_df['facility_id'].astype(str)\n    row['facility_id'] = str(row['facility_id'])\n    \n    # Filter the facility based on the facility_id in the row\n    facility = facilities_df[facilities_df['facility_id'] == row['facility_id']]\n    \n    # If the facility is not found, raise an error\n    if facility.empty:\n        raise ValueError(f\"Facility with ID {row['facility_id']} not found in energy_facilities_table.csv\")\n    \n    # Calculate operational years based on the commission_date\n    # Assuming the current year is 2024 for this calculation\n    current_year = 2024\n    facility['commission_date'] = pd.to_datetime(facility['commission_date'], errors='coerce')\n    \n    # Check for invalid or missing commission_date\n    if facility['commission_date'].isna().iloc[0]:\n        raise ValueError(f\"Invalid or missing commission_date for facility ID {row['facility_id']}\")\n    \n    facility['operational_years'] = current_year - facility['commission_date'].dt.year\n    \n    # Check if operational_years is valid\n    if facility['operational_years'].iloc[0] <= 0:\n        raise ValueError(f\"Invalid operational years for facility ID {row['facility_id']}\")\n    \n    # Placeholder for total_emissions (since it's not provided in the data)\n    # You can replace this with actual logic if emissions data is available\n    total_emissions = facility['capacity_mw'].iloc[0] * 1000  # Example: emissions proportional to capacity\n    \n    # Calculate annualized emissions\n    annual_emissions = total_emissions / facility['operational_years'].iloc[0]\n    \n    return annual_emissions\n"
+        },
+        "0.05074325056770731": {
+            "name": "month_feature",
+            "code": "import pandas as pd\n\ndef month_feature(row, aux_data: Dict[str, pd.DataFrame] = None):\n    # Ensure the 'date' column is a datetime object\n    date = pd.to_datetime(row['date'])\n    # Extract and return the month\n    return date.month\n"
+        },
+        "0.04910047810242939": {
+            "name": "season_feature",
+            "code": "import pandas as pd\n\ndef season_feature(row):\n    # Convert the 'date' column to a datetime object\n    date = pd.to_datetime(row['date'])\n    month = date.month\n    if month in [12, 1, 2]:\n        return 4  # Winter\n    elif month in [3, 4, 5]:\n        return 1  # Spring\n    elif month in [6, 7, 8]:\n        return 2  # Summer\n    else:\n        return 3  # Fall\n"
+        },
+        "0.046811385076139696": {
+            "name": "day_of_week_feature",
+            "code": "import pandas as pd\n\ndef day_of_week_feature(row, aux_data: Dict[str, pd.DataFrame] = None):\n    # Ensure the 'date' column is a datetime object\n    date = pd.to_datetime(row['date'])\n    # Return the day of the week (0=Monday, 6=Sunday)\n    return date.dayofweek\n"
+        },
+        "0.042212119834006946": {
+            "name": "weather_impact_on_demand",
+            "code": "\n\ndef weather_impact_on_demand(row, aux_data: Dict[str, pd.DataFrame]):\n    # Load the necessary dataframes\n    demand_df = aux_data['energy_demand_table.csv']\n    facilities_df = aux_data['energy_facilities_table.csv']\n    weather_df = aux_data['environmental_factors_table.csv']\n    \n    # Ensure 'facility_id' columns are of the same type across all dataframes\n    demand_df['facility_id'] = demand_df['facility_id'].astype(str)\n    facilities_df['facility_id'] = facilities_df['facility_id'].astype(str)\n    weather_df['facility_id'] = weather_df['facility_id'].astype(str)\n    row['facility_id'] = str(row['facility_id'])  # Ensure the row's facility_id is also a string\n    \n    # Merge demand_df with facilities_df to get the 'location' column\n    merged_df = demand_df.merge(facilities_df, on='facility_id', how='left')\n    \n    # Filter the merged dataframe to match the row's facility_id and date\n    relevant_data = merged_df[\n        (merged_df['facility_id'] == row['facility_id']) & \n        (merged_df['date'] == row['date'])\n    ]\n    \n    # If relevant data exists, extract the location\n    if not relevant_data.empty:\n        location = relevant_data['location'].iloc[0]\n        \n        # Filter the weather data for the matching facility_id and date\n        weather_data = weather_df[\n            (weather_df['facility_id'] == row['facility_id']) & \n            (weather_df['date'] == row['date'])\n        ]\n        \n        # Return the temperature factor if available\n        if not weather_data.empty:\n            return weather_data['temperature'].iloc[0]  # Assuming 'temperature' is the relevant factor\n    \n    # Return 0 if no relevant data is found\n    return 0\n"
+        },
+        "0.024796149496786893": {
+            "name": "year_feature",
+            "code": "import pandas as pd\n\ndef year_feature(row, aux_data: Dict[str, pd.DataFrame] = None):\n    # Ensure the 'date' column is a datetime object\n    date = pd.to_datetime(row['date'])\n    # Extract and return the year\n    return date.year\n"
+        },
+        "0": {
+            "name": "expanding_mean_demand",
+            "code": "\n\ndef expanding_mean_demand(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe from aux_data\n    df_train = aux_data['energy_demand_table.csv']\n    \n    # Filter the dataframe for the specific facility_id\n    facility_data = df_train[df_train['facility_id'] == row['facility_id']]\n    \n    # Calculate the expanding mean of 'demand_mwh' if data exists, otherwise return 0\n    if not facility_data.empty:\n        return facility_data['demand_mwh'].expanding().mean().iloc[-1]\n    else:\n        return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "annualized emissions",
+        "month feature",
+        "season feature",
+        "day of week feature",
+        "weather impact on demand",
+        "year feature",
+        "expanding mean demand"
+    ]
+}

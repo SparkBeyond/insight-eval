@@ -1,0 +1,71 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "days_since_first_fault",
+        "time_since_last_maintenance",
+        "device_uptime",
+        "maintenance_to_fault_ratio",
+        "fault_density_per_uptime",
+        "device_fault_count",
+        "moving_avg_performance",
+        "recent_performance_drop",
+        "average_fault_severity",
+        "max_fault_severity_gap"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.29089684539200344": {
+            "name": "days_since_first_fault",
+            "code": "import pandas as pd\n\ndef days_since_first_fault(row, df_train: pd.DataFrame):\n    # Ensure the 'timestamp' column is treated as datetime in both the row and the dataframe\n    df_train['timestamp'] = pd.to_datetime(df_train['timestamp'])\n    row_timestamp = pd.to_datetime(row['timestamp'])\n    \n    # Filter the dataframe for the same device_id as the current row\n    device_faults = df_train[df_train['device_id'] == row['device_id']].sort_values('timestamp')\n    \n    # Check if there are any faults for the device\n    if device_faults.empty:\n        return None  # Return None if no faults are found for the device\n    \n    # Get the first fault date\n    first_fault_date = device_faults['timestamp'].iloc[0]\n    \n    # Calculate the difference in days\n    return (row_timestamp - first_fault_date).days\n"
+        },
+        "0.22648221643634198": {
+            "name": "time_since_last_maintenance",
+            "code": "import pandas as pd\n\ndef time_since_last_maintenance(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the maintenance records dataframe\n    maintenance_df = aux_dataframes['maintenance_records_table.csv']\n    \n    # Filter the maintenance records for the specific device\n    device_maintenance = maintenance_df[maintenance_df['device_id'] == row['device_id']]\n    \n    # Get the most recent maintenance date\n    last_maintenance_date = device_maintenance['maintenance_date'].max()\n    \n    # Calculate the time difference in days\n    return (pd.to_datetime(row['timestamp']) - pd.to_datetime(last_maintenance_date)).days\n"
+        },
+        "0.17498566303970964": {
+            "name": "device_uptime",
+            "code": "import pandas as pd\n\ndef device_uptime(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    health_df = aux_dataframes['device_health_table.csv']\n    \n    # Ensure the device_id exists in the health_df\n    device_health_row = health_df[health_df['device_id'] == row['device_id']]\n    if device_health_row.empty:\n        raise ValueError(f\"Device ID {row['device_id']} not found in device_health_table.csv\")\n    \n    # Calculate the install_date based on last_check_date and uptime_days\n    device_health_row = device_health_row.iloc[0]  # Get the first matching row\n    install_date = pd.to_datetime(device_health_row['last_check_date']) - pd.to_timedelta(device_health_row['uptime_days'], unit='d')\n    \n    # Calculate the uptime in days\n    log_date = pd.to_datetime(row['timestamp'])\n    return (log_date - install_date).days\n"
+        },
+        "0.07595206336368573": {
+            "name": "maintenance_to_fault_ratio",
+            "code": "\n\ndef maintenance_to_fault_ratio(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    maintenance_df = aux_dataframes['maintenance_records_table.csv']\n    faults_count = df_train[df_train['device_id'] == row['device_id']].shape[0]\n    maintenance_count = maintenance_df[maintenance_df['device_id'] == row['device_id']].shape[0]\n    return maintenance_count / faults_count if faults_count else 0\n"
+        },
+        "0.01851278956641212": {
+            "name": "fault_density_per_uptime",
+            "code": "import pandas as pd\n\ndef device_fault_count(row, df_train: pd.DataFrame):\n    # Count the number of faults for the given device_id in the training dataframe\n    return df_train[df_train['device_id'] == row['device_id']].shape[0]\n\ndef device_uptime(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the device health dataframe\n    health_df = aux_dataframes['device_health_table.csv']\n    \n    # Ensure the device_id exists in the health dataframe\n    device_health_row = health_df[health_df['device_id'] == row['device_id']]\n    if device_health_row.empty:\n        raise ValueError(f\"Device ID {row['device_id']} not found in device_health_table.csv\")\n    \n    # Use 'last_check_date' as a proxy for the installation date (if 'install_date' is not available)\n    # Convert 'last_check_date' to datetime\n    install_date = pd.to_datetime(device_health_row['last_check_date'].values[0])\n    \n    # Calculate uptime in days\n    log_date = pd.to_datetime(row['timestamp'])  # Use 'timestamp' from the input dataframe\n    return (log_date - install_date).days\n\ndef fault_density_per_uptime(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Calculate uptime\n    uptime = device_uptime(row, aux_dataframes)\n    \n    # Calculate fault count\n    fault_count = device_fault_count(row, df_train)\n    \n    # Return fault density per uptime\n    return fault_count / uptime if uptime > 0 else 0\n"
+        },
+        "0.012712966653642641": {
+            "name": "device_fault_count",
+            "code": "\n\ndef device_fault_count(row, df_train: pd.DataFrame):\n    return df_train[df_train['device_id'] == row['device_id']].shape[0]\n"
+        },
+        "0.009445497896406481": {
+            "name": "moving_avg_performance",
+            "code": "\n\ndef moving_avg_performance(row, df_train: pd.DataFrame):\n    # Filter the dataframe for the same device_id as the current row\n    device_data = df_train[df_train['device_id'] == row['device_id']]\n    \n    # Filter for rows where the timestamp is earlier than the current row's timestamp\n    prior_data = device_data.loc[device_data['timestamp'] < row['timestamp'], 'performance_metric']\n    \n    # Calculate the mean of the last 5 performance metrics\n    return prior_data.tail(5).mean()\n"
+        },
+        "0.0013361734226848719": {
+            "name": "recent_performance_drop",
+            "code": "import pandas as pd\n\ndef recent_performance_drop(row, df_train: pd.DataFrame):\n    # Ensure the 'timestamp' column is in datetime format\n    df_train['timestamp'] = pd.to_datetime(df_train['timestamp'])\n    row_timestamp = pd.to_datetime(row['timestamp'])\n    \n    # Filter the data for the same device_id and earlier timestamps\n    device_data = df_train[df_train['device_id'] == row['device_id']]\n    device_data = device_data[device_data['timestamp'] < row_timestamp]\n    \n    # Check if there is any earlier performance data\n    if device_data.empty:\n        return None  # Return None if no earlier data exists\n    \n    # Get the most recent performance metric before the current row's timestamp\n    recent_performance = device_data.iloc[-1]['performance_metric']\n    \n    # Calculate the average performance metric for the device\n    avg_performance = device_data['performance_metric'].mean()\n    \n    # Calculate the percentage drop in performance\n    performance_drop = ((recent_performance - avg_performance) / avg_performance) * 100\n    return performance_drop\n"
+        },
+        "0.0005110094849764972": {
+            "name": "average_fault_severity",
+            "code": "\n\ndef average_fault_severity(row, df_train: pd.DataFrame):\n    # Map severity levels to numerical values\n    severity_mapping = {'low': 1, 'medium': 2, 'high': 3}\n    \n    # Filter the DataFrame for the specific device_id\n    device_data = df_train[df_train['device_id'] == row['device_id']]\n    \n    # Map the severity levels to numerical values\n    device_data['severity_numeric'] = device_data['severity_level'].map(severity_mapping)\n    \n    # Calculate and return the mean of the numeric severity values\n    return device_data['severity_numeric'].mean()\n"
+        },
+        "0": {
+            "name": "max_fault_severity_gap",
+            "code": "\n\ndef max_fault_severity_gap(row, df_train: pd.DataFrame):\n    # Map severity levels to numerical values\n    severity_mapping = {'low': 1, 'medium': 2, 'high': 3}\n    \n    # Filter the dataframe for the specific device_id\n    device_data = df_train[df_train['device_id'] == row['device_id']]\n    \n    # Map the severity levels to numerical values\n    device_data['severity_numeric'] = device_data['severity_level'].map(severity_mapping)\n    \n    # Calculate the gap between max and min severity levels\n    return device_data['severity_numeric'].max() - device_data['severity_numeric'].min()\n"
+        }
+    },
+    "feature_descriptions": [
+        "days since first fault",
+        "time since last maintenance",
+        "device uptime",
+        "maintenance to fault ratio",
+        "fault density per uptime",
+        "device fault count",
+        "moving avg performance",
+        "recent performance drop",
+        "average fault severity",
+        "max fault severity gap"
+    ]
+}

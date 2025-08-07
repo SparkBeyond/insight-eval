@@ -1,0 +1,16 @@
+{
+    "enriched_column_names": [
+        "percentage_of_negative_feedback_provided_in_the_last_6_months",
+        "average_satisfaction_score_provided_in_customer_feedback_in_the_past_1_year",
+        "response_rate_to_marketing_emails_in_the_last_3_months",
+        "ratio_of_weekends_to_weekday_transactions_in_the_past_6_months",
+        "total_spending_variation_over_the_last_year"
+    ],
+    "features_descriptions": [
+        "percentage of negative feedback provided in the last 6 months",
+        "average satisfaction score provided in customer feedback in the past 1 year",
+        "response rate to marketing emails in the last 3 months",
+        "ratio of weekends to weekday transactions in the past 6 months",
+        "total spending variation over the last year"
+    ]
+}

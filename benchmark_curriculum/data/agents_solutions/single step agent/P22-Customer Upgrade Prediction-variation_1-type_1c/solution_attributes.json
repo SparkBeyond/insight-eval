@@ -1,0 +1,89 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "on_time_payments_frequency",
+        "price_to_competitor_ratio",
+        "payment_delay",
+        "time_since_last_interaction",
+        "total_call_minutes",
+        "gender_encoding",
+        "data_to_call_ratio",
+        "total_sms_count",
+        "average_billing_amount",
+        "most_common_interaction_type",
+        "age_bucket",
+        "income_bracket",
+        "upgrade_frequency"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.09831071762937114": {
+            "name": "on_time_payments_frequency",
+            "code": "\n\ndef on_time_payments_frequency(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_data dictionary\n    if 'billing_history_table.csv' not in aux_data:\n        raise KeyError(\"The key 'billing_history_table.csv' is missing from aux_data.\")\n    \n    # Access the billing history table\n    billing_data = aux_data['billing_history_table.csv']\n    \n    # Ensure the required columns exist in the billing_data dataframe\n    required_columns = {'customer_id', 'payment_date', 'billing_date'}\n    if not required_columns.issubset(billing_data.columns):\n        raise ValueError(f\"The billing_data dataframe must contain the columns: {required_columns}\")\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the billing data for the specific customer\n    customer_bills = billing_data[billing_data['customer_id'] == customer_id]\n    \n    # Handle the case where there are no bills for the customer\n    if customer_bills.empty:\n        return 0.0  # No bills, so no on-time payments\n    \n    # Calculate the on-time payments\n    on_time = customer_bills['payment_date'] <= customer_bills['billing_date']\n    return on_time.sum() / len(on_time)\n"
+        },
+        "0.0946635344347179": {
+            "name": "price_to_competitor_ratio",
+            "code": "\n\ndef price_to_competitor_ratio(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the correct key names are used to access the auxiliary dataframes\n    if 'plan_usage_table.csv' not in aux_data or 'competitor_plan_info_table.csv' not in aux_data:\n        raise KeyError(\"Required tables are missing from aux_data.\")\n    \n    # Load the required auxiliary dataframes\n    usage_data = aux_data['plan_usage_table.csv']\n    competitor_data = aux_data['competitor_plan_info_table.csv']\n    \n    # Extract the customer_id from the current row\n    customer_id = row['customer_id']\n    \n    # Calculate the customer's average plan price from the usage data\n    # Note: The column 'current_price' does not exist in the provided schema, so we use 'plan_id' instead\n    # Assuming 'plan_id' can be used to infer the price, we need to join with another table if necessary\n    customer_plan_price = usage_data[usage_data['customer_id'] == customer_id]['data_usage_gb'].mean()\n    \n    # Calculate the average competitor price\n    competitor_price = competitor_data['plan_price'].mean()\n    \n    # Return the ratio of customer plan price to competitor price\n    return customer_plan_price / competitor_price if competitor_price > 0 else None\n"
+        },
+        "0.08673381000233941": {
+            "name": "payment_delay",
+            "code": "import pandas as pd\n\ndef payment_delay(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_data dictionary\n    if 'billing_history_table.csv' not in aux_data:\n        raise KeyError(\"The key 'billing_history_table.csv' is missing from aux_data.\")\n    \n    # Retrieve the billing history table\n    billing_data = aux_data['billing_history_table.csv']\n    \n    # Ensure the required columns exist in the billing_data DataFrame\n    required_columns = {'customer_id', 'billing_date', 'payment_date'}\n    if not required_columns.issubset(billing_data.columns):\n        raise ValueError(f\"The billing_data DataFrame must contain the columns: {required_columns}\")\n    \n    # Convert 'billing_date' and 'payment_date' to datetime if they are not already\n    billing_data['billing_date'] = pd.to_datetime(billing_data['billing_date'], errors='coerce')\n    billing_data['payment_date'] = pd.to_datetime(billing_data['payment_date'], errors='coerce')\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the billing data for the specific customer\n    customer_bills = billing_data[billing_data['customer_id'] == customer_id]\n    \n    # If there are no bills for the customer, return NaN\n    if customer_bills.empty:\n        return float('nan')\n    \n    # Calculate the payment delays\n    delays = (customer_bills['payment_date'] - customer_bills['billing_date']).dt.days\n    \n    # Return the mean delay, ignoring NaN values\n    return delays.mean()\n"
+        },
+        "0.06607858930801806": {
+            "name": "time_since_last_interaction",
+            "code": "import pandas as pd\n\ndef time_since_last_interaction(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the key 'customer_interactions_table.csv' exists in aux_data\n    if 'customer_interactions_table.csv' not in aux_data:\n        raise KeyError(\"'customer_interactions_table.csv' not found in aux_data\")\n    \n    # Retrieve the customer interactions table\n    interaction_data = aux_data['customer_interactions_table.csv']\n    \n    # Ensure the required columns exist in the interaction_data dataframe\n    required_columns = {'customer_id', 'interaction_date'}\n    if not required_columns.issubset(interaction_data.columns):\n        raise ValueError(f\"Missing required columns in 'customer_interactions_table.csv': {required_columns - set(interaction_data.columns)}\")\n    \n    # Extract the customer_id from the current row\n    customer_id = row['customer_id']\n    \n    # Filter interactions for the given customer_id\n    customer_interactions = interaction_data[interaction_data['customer_id'] == customer_id]\n    \n    # If no interactions are found, return None\n    if customer_interactions.empty:\n        return None\n    \n    # Convert 'interaction_date' to datetime if it's not already\n    if not pd.api.types.is_datetime64_any_dtype(customer_interactions['interaction_date']):\n        customer_interactions['interaction_date'] = pd.to_datetime(customer_interactions['interaction_date'])\n    \n    # Find the most recent interaction date\n    last_interaction_date = customer_interactions['interaction_date'].max()\n    \n    # Calculate the time difference in days\n    return (pd.Timestamp.now() - last_interaction_date).days\n"
+        },
+        "0.04569291778262935": {
+            "name": "total_call_minutes",
+            "code": "\n\ndef total_call_minutes(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Check if 'plan_usage_table.csv' exists in aux_data\n    if 'plan_usage_table.csv' not in aux_data:\n        raise KeyError(\"The key 'plan_usage_table.csv' is missing from aux_data. Please ensure it is provided.\")\n    \n    # Retrieve the plan usage table\n    usage_data = aux_data['plan_usage_table.csv']\n    \n    # Ensure the required columns exist in the usage_data DataFrame\n    required_columns = {'customer_id', 'call_minutes'}\n    if not required_columns.issubset(usage_data.columns):\n        raise KeyError(f\"The 'plan_usage_table.csv' is missing one or more required columns: {required_columns}\")\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the usage data for the specific customer\n    customer_usage = usage_data[usage_data['customer_id'] == customer_id]\n    \n    # Return the total call minutes for the customer\n    return customer_usage['call_minutes'].sum()\n"
+        },
+        "0.018372318581601467": {
+            "name": "gender_encoding",
+            "code": "\n\ndef gender_encoding(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Look up the gender for the customer_id in the customer_demographics_table\n    demographics_df = aux_data['customer_demographics_table.csv']\n    \n    # Find the gender for the given customer_id\n    gender = demographics_df.loc[demographics_df['customer_id'] == customer_id, 'gender']\n    \n    # If gender is found, return 1 for 'Male' and 0 otherwise\n    if not gender.empty:\n        return 1 if gender.iloc[0] == 'Male' else 0\n    else:\n        # Handle the case where the customer_id is not found in the demographics table\n        raise ValueError(f\"Customer ID {customer_id} not found in customer_demographics_table.csv\")\n"
+        },
+        "0.016168969887911833": {
+            "name": "data_to_call_ratio",
+            "code": "\n\ndef data_to_call_ratio(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Check if 'plan_usage_table' exists in aux_data\n    if 'plan_usage_table.csv' not in aux_data:\n        raise KeyError(\"The key 'plan_usage_table.csv' is missing from aux_data.\")\n    \n    # Get the usage data\n    usage_data = aux_data['plan_usage_table.csv']\n    \n    # Ensure the required columns exist in the usage data\n    required_columns = {'customer_id', 'data_usage_gb', 'call_minutes'}\n    if not required_columns.issubset(usage_data.columns):\n        raise ValueError(f\"The 'plan_usage_table.csv' is missing one or more required columns: {required_columns}\")\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the usage data for the specific customer\n    customer_usage = usage_data[usage_data['customer_id'] == customer_id]\n    \n    # Calculate total data usage and total call minutes\n    total_data = customer_usage['data_usage_gb'].sum()\n    total_calls = customer_usage['call_minutes'].sum()\n    \n    # Return the data-to-call ratio, handling division by zero\n    return total_data / total_calls if total_calls > 0 else 0\n"
+        },
+        "0.015284409764155087": {
+            "name": "total_sms_count",
+            "code": "\n\ndef total_sms_count(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the key 'plan_usage_table' exists in aux_data\n    if 'plan_usage_table.csv' not in aux_data:\n        raise KeyError(\"The key 'plan_usage_table.csv' is missing from aux_data.\")\n    \n    # Access the plan_usage_table dataframe\n    usage_data = aux_data['plan_usage_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'customer_id', 'sms_count'}\n    if not required_columns.issubset(usage_data.columns):\n        raise ValueError(f\"The dataframe 'plan_usage_table.csv' is missing required columns: {required_columns - set(usage_data.columns)}\")\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the usage data for the specific customer_id\n    customer_usage = usage_data[usage_data['customer_id'] == customer_id]\n    \n    # Return the sum of the 'sms_count' column for the customer\n    return customer_usage['sms_count'].sum()\n"
+        },
+        "0.01058924879236046": {
+            "name": "average_billing_amount",
+            "code": "\n\ndef average_billing_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the billing history table using the correct key\n    billing_data = aux_dataframes['billing_history_table.csv']\n    \n    # Extract the customer_id from the current row\n    customer_id = row['customer_id']\n    \n    # Filter the billing data for the specific customer\n    customer_bills = billing_data[billing_data['customer_id'] == customer_id]\n    \n    # Calculate and return the average of the 'amount_due' column\n    return customer_bills['amount_due'].mean()\n"
+        },
+        "0.0029848380266677133": {
+            "name": "most_common_interaction_type",
+            "code": "\n\ndef most_common_interaction_type(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_data dictionary\n    if 'customer_interactions_table.csv' not in aux_data:\n        raise KeyError(\"The key 'customer_interactions_table.csv' is missing from aux_data.\")\n    \n    # Access the customer_interactions_table dataframe\n    interaction_data = aux_data['customer_interactions_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'customer_id', 'interaction_type'}\n    if not required_columns.issubset(interaction_data.columns):\n        raise ValueError(f\"The dataframe 'customer_interactions_table.csv' must contain the columns: {required_columns}\")\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter interactions for the given customer_id\n    interactions = interaction_data[interaction_data['customer_id'] == customer_id]\n    \n    # Return the most common interaction_type or None if no interactions exist\n    return interactions['interaction_type'].mode()[0] if not interactions.empty else None\n"
+        },
+        "-0.0007211023306539222": {
+            "name": "age_bucket",
+            "code": "\n\ndef age_bucket(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Look up the age of the customer in the customer_demographics_table\n    customer_demographics = aux_data['customer_demographics_table.csv']\n    \n    # Find the age for the given customer_id\n    customer_info = customer_demographics[customer_demographics['customer_id'] == customer_id]\n    \n    # If the customer_id is not found, return None or a default value\n    if customer_info.empty:\n        return None\n    \n    # Extract the age value\n    age = customer_info.iloc[0]['age']\n    \n    # Determine the age bucket\n    if age < 25:\n        return \"Under 25\"\n    elif 25 <= age <= 40:\n        return \"25-40\"\n    elif 41 <= age <= 60:\n        return \"41-60\"\n    else:\n        return \"Above 60\"\n"
+        },
+        "-0.0005959120634246862": {
+            "name": "income_bracket",
+            "code": "\n\ndef income_bracket(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Access the customer_demographics_table from aux_data\n    demographics_df = aux_data['customer_demographics_table.csv']\n    \n    # Look up the income_bracket for the given customer_id\n    customer_info = demographics_df[demographics_df['customer_id'] == customer_id]\n    \n    if customer_info.empty:\n        # If no matching customer_id is found, return a default value (e.g., None)\n        return None\n    \n    # Extract the income_bracket value\n    income_bracket_value = customer_info.iloc[0]['income_bracket']\n    \n    return income_bracket_value\n"
+        },
+        "0": {
+            "name": "upgrade_frequency",
+            "code": "\n\ndef upgrade_frequency(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in aux_data\n    if 'plan_usage_table.csv' not in aux_data:\n        raise KeyError(\"The key 'plan_usage_table.csv' is not found in aux_data.\")\n    \n    # Get the plan usage table\n    usage_data = aux_data['plan_usage_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'customer_id', 'plan_id', 'data_usage_gb', 'call_minutes', 'sms_count'}\n    if not required_columns.issubset(usage_data.columns):\n        raise ValueError(f\"The 'plan_usage_table.csv' is missing required columns: {required_columns - set(usage_data.columns)}\")\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the usage data for the specific customer\n    customer_plans = usage_data[usage_data['customer_id'] == customer_id]\n    \n    # Since 'plan_upgrade_flag' does not exist, we need to define the logic for upgrades\n    # For this example, let's assume an upgrade is defined as having multiple distinct plan_ids\n    upgrade_count = customer_plans['plan_id'].nunique() - 1  # Subtract 1 to exclude the initial plan\n    \n    # Ensure the result is non-negative\n    return max(upgrade_count, 0)\n"
+        }
+    },
+    "feature_descriptions": [
+        "on time payments frequency",
+        "price to competitor ratio",
+        "payment delay",
+        "time since last interaction",
+        "total call minutes",
+        "gender encoding",
+        "data to call ratio",
+        "total sms count",
+        "average billing amount",
+        "most common interaction type",
+        "age bucket",
+        "income bracket",
+        "upgrade frequency"
+    ]
+}

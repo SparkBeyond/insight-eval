@@ -1,0 +1,901 @@
+customer_id,date_of_birth,gender,marital_status,employment_status,annual_income,credit_score,state,zip_code,loan_default
+3,1973-12-06,Male,Widowed,Unemployed,35347,518,Minnesota,42297,0
+2052,1982-07-29,Other,Widowed,Unemployed,122738,396,New Jersey,3257,0
+2053,2003-06-27,Other,Divorced,Employed,26563,651,Alaska,93787,0
+6,1988-11-28,Female,Widowed,Employed,91059,387,Oklahoma,53963,0
+7,2005-05-03,Male,Married,Retired,61712,493,Idaho,99431,0
+9,1954-11-17,Male,Widowed,Self-employed,100249,508,Louisiana,47280,0
+10,1997-07-03,Female,Widowed,Employed,88911,647,New Hampshire,16837,0
+12,2003-08-31,Female,Divorced,Retired,28631,541,New York,33353,0
+2061,2000-11-25,Male,Married,Unemployed,28764,793,Tennessee,78928,0
+14,2004-05-09,Other,Divorced,Unemployed,48405,518,Montana,55966,1
+2062,1964-10-06,Male,Divorced,Self-employed,26373,522,Oregon,27905,0
+17,1969-06-30,Male,Single,Self-employed,131202,566,New Mexico,28323,0
+2065,1961-12-11,Other,Single,Retired,57409,346,California,21831,0
+19,1968-04-12,Other,Single,Employed,38411,787,Ohio,99231,1
+2067,1997-04-02,Other,Widowed,Unemployed,106172,361,Florida,78791,0
+2072,1987-04-19,Female,Widowed,Unemployed,145787,444,Maryland,7444,0
+26,1999-03-28,Other,Widowed,Retired,74389,643,West Virginia,21945,1
+27,2003-05-04,Female,Widowed,Unemployed,93885,769,Arizona,1133,0
+28,1959-05-25,Female,Single,Unemployed,140548,389,Illinois,69272,0
+2076,1970-09-11,Female,Single,Employed,73412,700,Virginia,43691,0
+2077,1989-07-28,Other,Widowed,Employed,136067,573,Delaware,91244,0
+2080,1957-08-10,Other,Widowed,Unemployed,119948,376,Maine,57492,0
+2085,2004-08-15,Female,Single,Employed,25438,427,Wisconsin,14667,0
+2087,1994-04-22,Other,Divorced,Employed,148050,660,Alaska,27594,0
+41,1959-05-20,Other,Single,Retired,42440,577,Arizona,83971,0
+42,1982-12-18,Other,Married,Employed,125849,337,Idaho,85840,1
+2091,1991-02-11,Other,Single,Self-employed,116731,419,Nebraska,86462,1
+47,1980-11-12,Female,Widowed,Unemployed,21992,577,North Carolina,55229,1
+2095,1957-09-14,Other,Single,Unemployed,134882,391,Kansas,5358,0
+2096,1993-05-19,Other,Single,Retired,46550,629,Utah,61018,0
+2098,1999-09-22,Female,Widowed,Employed,133755,584,Maine,94903,0
+2100,1999-11-04,Other,Divorced,Self-employed,106618,817,Kentucky,85806,0
+53,1961-06-05,Other,Divorced,Self-employed,113787,731,Nebraska,2537,0
+58,1975-11-11,Other,Widowed,Unemployed,116478,508,New Jersey,77007,0
+59,1997-01-03,Male,Married,Retired,64698,742,West Virginia,55545,0
+61,1984-06-15,Male,Divorced,Retired,107362,477,Missouri,49019,0
+62,1969-10-10,Male,Divorced,Self-employed,142594,379,Minnesota,9115,0
+2109,1978-06-08,Male,Widowed,Employed,147505,706,Louisiana,46696,0
+67,1999-11-08,Male,Divorced,Employed,67745,660,Illinois,70573,1
+2115,1960-12-27,Female,Married,Self-employed,86416,592,Utah,77456,0
+2116,1968-03-07,Other,Divorced,Retired,92683,504,Arkansas,72997,0
+70,1956-12-17,Male,Single,Self-employed,52068,524,Alaska,30286,0
+71,1978-12-20,Female,Widowed,Self-employed,20490,590,Nevada,5103,0
+2117,1988-02-05,Other,Single,Self-employed,112734,420,Georgia,4353,1
+73,1978-10-26,Male,Divorced,Retired,107976,716,Oklahoma,59318,0
+2118,1980-01-03,Female,Divorced,Unemployed,59569,820,Arizona,23587,0
+2123,1974-07-12,Male,Widowed,Self-employed,37049,375,Colorado,27623,0
+78,2004-05-05,Female,Divorced,Employed,105885,361,Virginia,23871,0
+80,1965-12-22,Other,Widowed,Employed,88093,832,South Dakota,85400,0
+82,1959-08-23,Other,Married,Retired,43923,507,Louisiana,86179,0
+84,2003-02-18,Other,Divorced,Self-employed,92289,728,Georgia,19544,0
+2133,1993-01-14,Male,Married,Unemployed,139999,640,Maine,21942,1
+86,1983-06-15,Other,Widowed,Employed,144522,609,Illinois,99829,1
+87,1988-03-31,Other,Married,Retired,97135,607,Ohio,71314,1
+2135,1997-05-04,Other,Single,Retired,29147,679,Mississippi,96243,0
+2137,1966-05-01,Male,Widowed,Employed,146218,513,North Carolina,66435,0
+94,1977-05-08,Other,Single,Employed,31667,736,Texas,45324,0
+96,1982-11-08,Other,Widowed,Self-employed,23342,674,Hawaii,88222,1
+97,1962-08-09,Male,Widowed,Unemployed,74304,576,New York,36873,0
+2146,1972-10-08,Male,Widowed,Retired,88510,697,New York,9498,0
+101,1991-05-27,Male,Married,Self-employed,50442,667,Connecticut,30284,1
+105,1966-05-15,Male,Single,Unemployed,83372,403,Alaska,97467,0
+107,1997-07-28,Other,Widowed,Unemployed,69588,517,Missouri,11491,0
+2155,1997-02-09,Other,Single,Employed,130596,377,Tennessee,22931,0
+2157,1964-04-12,Male,Divorced,Unemployed,80882,695,Colorado,95996,0
+110,1988-09-09,Male,Married,Employed,148362,523,Pennsylvania,92198,0
+2158,1956-10-03,Female,Married,Unemployed,146291,735,Kentucky,66491,0
+2160,1997-11-28,Other,Single,Retired,69450,731,West Virginia,88683,0
+2164,2006-10-23,Female,Widowed,Unemployed,134744,409,Louisiana,30484,1
+118,1994-03-16,Other,Single,Unemployed,48851,491,Massachusetts,60961,0
+2166,2006-06-20,Other,Single,Unemployed,66253,369,Maine,19588,0
+2171,1988-08-04,Male,Widowed,Employed,51424,690,Montana,90745,0
+124,1961-11-08,Other,Married,Retired,38108,768,Illinois,23912,0
+2172,1964-04-27,Other,Widowed,Self-employed,117327,555,Rhode Island,12136,0
+2175,1992-09-14,Female,Divorced,Retired,23006,726,Florida,80460,0
+2176,1985-10-30,Male,Divorced,Unemployed,46359,339,New Mexico,87684,0
+129,1959-08-03,Male,Married,Unemployed,133817,506,Iowa,83430,0
+130,1964-07-11,Female,Divorced,Employed,114374,763,Nevada,26641,0
+131,1956-10-03,Other,Widowed,Unemployed,40085,659,Connecticut,40505,1
+136,1963-06-18,Female,Widowed,Retired,67251,836,Colorado,28646,0
+2190,2006-09-01,Male,Single,Unemployed,122427,481,Arkansas,23341,1
+144,1997-02-20,Other,Single,Retired,47181,403,Montana,50647,0
+2193,1959-05-21,Other,Married,Self-employed,31785,437,North Carolina,60835,0
+146,1996-06-28,Female,Divorced,Employed,69895,701,Texas,29134,1
+147,1983-04-27,Other,Divorced,Self-employed,61030,332,Maine,15937,0
+2194,1990-09-11,Other,Widowed,Self-employed,107124,648,Indiana,68025,0
+149,1989-06-19,Female,Married,Self-employed,67113,692,North Dakota,48327,0
+150,1968-10-26,Male,Married,Employed,118185,389,Delaware,4305,0
+2195,1975-09-04,Other,Married,Employed,84522,698,Massachusetts,10670,1
+152,1977-03-01,Female,Widowed,Employed,35745,506,Delaware,18044,0
+155,1997-10-04,Other,Married,Self-employed,117007,580,Kentucky,22024,0
+2204,1962-05-01,Male,Widowed,Retired,32119,727,Hawaii,74195,1
+161,1986-08-09,Female,Divorced,Unemployed,87196,639,Hawaii,26025,0
+166,1999-08-22,Male,Single,Retired,138358,476,Indiana,41254,1
+2219,1962-08-27,Male,Widowed,Unemployed,102277,514,Rhode Island,99030,0
+175,1958-12-18,Male,Single,Unemployed,59226,803,Nebraska,89720,0
+176,1999-02-09,Female,Divorced,Retired,56277,807,Washington,11887,0
+177,1965-04-19,Male,Widowed,Self-employed,129829,357,Minnesota,21900,0
+178,1987-06-18,Other,Single,Retired,104151,407,Delaware,33345,0
+2227,1983-08-15,Male,Single,Unemployed,55938,383,Oregon,36657,0
+180,1959-10-27,Male,Divorced,Employed,99047,682,Oregon,4193,0
+2233,2001-12-08,Other,Widowed,Retired,32349,614,Mississippi,7168,1
+2235,1956-02-01,Male,Married,Unemployed,145477,515,Ohio,83735,0
+2238,1997-04-16,Female,Widowed,Retired,85737,850,Delaware,49779,0
+191,1993-03-26,Male,Married,Self-employed,71015,431,Alabama,92235,0
+194,1975-06-26,Other,Single,Self-employed,121341,776,Arkansas,66030,0
+195,1960-12-09,Female,Married,Unemployed,98069,567,Colorado,90392,1
+197,1973-03-05,Male,Divorced,Employed,66621,797,Minnesota,56204,0
+199,1979-10-30,Female,Widowed,Unemployed,22273,424,Hawaii,13823,0
+200,2000-10-08,Other,Divorced,Employed,70521,731,North Dakota,96662,0
+2247,1964-06-19,Male,Single,Unemployed,96508,381,Minnesota,38708,1
+2249,1958-02-07,Male,Single,Retired,133603,568,Maine,56357,0
+2250,1966-07-07,Male,Single,Employed,76450,386,New York,43878,0
+204,1993-09-01,Other,Divorced,Self-employed,35687,758,West Virginia,47082,0
+2257,1973-01-30,Male,Divorced,Self-employed,96401,430,Hawaii,10345,0
+2259,2001-03-08,Other,Married,Self-employed,129792,748,Connecticut,29335,0
+2260,1987-05-14,Male,Divorced,Employed,102986,640,Delaware,73385,0
+216,1968-06-07,Female,Single,Retired,28787,348,Alabama,81760,0
+217,1987-04-06,Male,Married,Employed,31733,614,Wisconsin,56693,0
+2266,2000-10-28,Male,Single,Self-employed,37964,393,Wyoming,62139,0
+2271,1974-01-02,Female,Single,Unemployed,105055,808,Delaware,45713,0
+224,1961-12-21,Other,Divorced,Retired,139975,642,Nevada,5966,1
+2273,1958-01-26,Female,Widowed,Self-employed,138102,461,New Mexico,15861,0
+227,1995-11-16,Female,Divorced,Self-employed,53625,621,South Carolina,76514,0
+229,1981-06-08,Male,Married,Unemployed,41684,845,Kansas,75742,0
+230,1996-01-08,Female,Married,Self-employed,87886,503,Rhode Island,35544,0
+234,1994-02-02,Male,Widowed,Unemployed,119192,550,Vermont,85672,0
+2282,1984-01-26,Male,Widowed,Self-employed,136161,419,Kentucky,30371,0
+2284,1955-08-01,Other,Single,Employed,101439,508,Kentucky,32050,0
+2285,1966-08-19,Female,Widowed,Employed,124270,338,Maryland,11856,0
+240,1985-07-31,Male,Divorced,Retired,76412,583,West Virginia,66145,1
+242,1978-03-01,Female,Married,Self-employed,108998,330,Arkansas,4280,0
+244,1964-10-25,Other,Widowed,Self-employed,142692,748,Arkansas,12264,0
+2292,1995-04-05,Other,Widowed,Employed,32479,536,Kentucky,50155,0
+2294,1961-09-17,Male,Single,Self-employed,67236,521,Arkansas,54152,0
+249,1963-10-13,Female,Divorced,Employed,58028,675,New York,63965,0
+250,1970-10-05,Male,Widowed,Retired,92902,435,Kansas,61869,1
+251,1955-08-23,Male,Widowed,Unemployed,119781,809,Kansas,84808,0
+2297,1977-12-21,Female,Single,Unemployed,23077,772,Louisiana,93569,1
+2300,1997-08-01,Male,Single,Retired,144884,735,Illinois,77937,1
+2301,1990-07-29,Male,Widowed,Self-employed,52819,524,Maryland,46833,0
+257,1983-07-29,Female,Widowed,Unemployed,22128,457,South Carolina,34916,0
+263,1996-01-31,Female,Single,Employed,26240,616,Utah,69069,0
+2313,1989-09-12,Other,Married,Retired,125188,409,Tennessee,56216,0
+266,1986-09-26,Other,Single,Retired,77503,689,Ohio,91158,0
+267,1976-07-05,Other,Married,Employed,54699,357,Minnesota,44095,0
+2315,1986-05-17,Male,Single,Self-employed,145660,410,Colorado,29072,0
+269,1978-08-05,Other,Married,Employed,47086,585,Delaware,5456,0
+271,1964-07-23,Female,Married,Employed,105626,517,Minnesota,51029,0
+277,1977-10-09,Female,Single,Retired,78415,564,Idaho,71742,0
+281,1956-08-31,Male,Married,Unemployed,21226,711,Illinois,47359,0
+2329,2006-06-15,Male,Married,Employed,95718,555,Texas,90856,1
+283,1993-03-15,Male,Single,Retired,87054,613,New Mexico,72697,0
+2330,1993-08-16,Female,Widowed,Employed,101032,445,Utah,91636,0
+2332,2002-12-29,Female,Married,Employed,74884,624,Arkansas,74599,0
+286,1973-06-14,Male,Single,Employed,56551,302,South Dakota,82049,0
+287,1995-08-10,Other,Single,Retired,28933,701,Maryland,2929,0
+288,1965-11-13,Other,Married,Retired,147000,470,North Carolina,87813,0
+2336,1992-04-17,Female,Divorced,Unemployed,68159,371,Hawaii,91902,0
+296,1987-09-09,Male,Single,Unemployed,131668,671,Arizona,50507,0
+297,1961-02-13,Female,Single,Unemployed,101773,384,Vermont,36614,0
+298,1965-11-01,Female,Divorced,Retired,148906,638,Delaware,90393,0
+2346,1978-10-09,Female,Married,Unemployed,106169,622,Nevada,47044,0
+301,1971-06-06,Male,Single,Unemployed,66888,701,Massachusetts,11680,1
+304,2004-11-30,Female,Married,Unemployed,122560,568,Mississippi,11687,0
+305,1996-05-21,Female,Married,Unemployed,64252,420,Delaware,35502,0
+306,1959-10-13,Female,Married,Employed,68130,396,Georgia,52942,0
+2354,1995-03-10,Female,Single,Employed,40356,651,Montana,51834,0
+2358,1978-05-24,Female,Single,Unemployed,57270,463,Maine,33576,0
+314,1987-10-23,Other,Single,Retired,144036,411,Missouri,22767,0
+2362,2005-01-25,Female,Married,Retired,51615,728,Utah,30763,1
+319,1972-05-20,Other,Single,Retired,83505,451,Mississippi,11082,1
+321,1998-05-10,Female,Widowed,Self-employed,107808,387,Oregon,8513,0
+322,1985-03-24,Female,Married,Retired,31648,450,Vermont,43997,0
+2371,1983-08-28,Female,Widowed,Retired,143361,427,Missouri,31509,1
+328,1986-07-06,Other,Married,Self-employed,146508,621,Tennessee,87964,0
+2377,1956-10-06,Female,Widowed,Retired,116086,836,Maine,84331,0
+330,1967-10-15,Other,Divorced,Unemployed,95457,823,Washington,4748,0
+2378,1983-06-09,Female,Single,Self-employed,82002,360,Arkansas,11166,1
+333,1975-11-01,Female,Single,Self-employed,20225,724,Arkansas,6224,0
+334,1980-07-09,Female,Single,Employed,135909,489,California,80818,0
+2383,2005-07-12,Female,Widowed,Unemployed,58072,719,Indiana,51022,0
+340,2006-12-13,Male,Widowed,Employed,72295,450,Nevada,7861,0
+2389,1961-08-11,Female,Married,Unemployed,125199,462,Oregon,36169,0
+342,1992-09-11,Male,Divorced,Unemployed,27568,737,Minnesota,96570,0
+343,2005-06-29,Other,Divorced,Employed,85785,313,Montana,80830,0
+2392,1962-03-13,Female,Widowed,Self-employed,144856,481,South Carolina,42822,0
+345,2004-03-01,Male,Single,Unemployed,23917,478,Maine,61555,0
+347,1985-02-13,Female,Single,Self-employed,40353,335,Utah,2779,0
+2399,1998-09-10,Other,Divorced,Self-employed,144845,414,Illinois,46223,0
+353,1963-08-31,Female,Widowed,Employed,90233,406,Virginia,66276,0
+354,1957-04-22,Other,Divorced,Retired,87606,339,Tennessee,20962,1
+357,1990-04-04,Other,Divorced,Unemployed,55894,561,Louisiana,34505,0
+2407,1966-08-26,Female,Single,Employed,68637,434,Michigan,33184,0
+2408,1993-01-04,Female,Widowed,Employed,130928,682,Alaska,8284,0
+362,2006-08-26,Female,Divorced,Self-employed,104228,336,Michigan,75146,1
+364,1972-06-13,Male,Divorced,Unemployed,26933,592,New Jersey,81252,0
+365,1994-10-10,Other,Single,Unemployed,27960,849,Idaho,4884,0
+2412,2006-02-28,Other,Divorced,Self-employed,47563,812,South Carolina,96740,0
+367,1989-01-22,Other,Married,Unemployed,101400,368,Tennessee,96496,1
+2415,1957-07-16,Female,Divorced,Retired,99585,818,Louisiana,24440,1
+370,1996-09-26,Male,Divorced,Self-employed,89808,347,Wisconsin,57060,0
+372,1957-09-24,Male,Married,Unemployed,69319,684,Connecticut,78158,0
+373,1955-05-27,Female,Married,Employed,78354,730,Nebraska,28571,0
+2422,1963-08-28,Male,Divorced,Employed,103109,505,Maryland,38808,0
+376,1991-08-07,Other,Divorced,Self-employed,80716,641,Iowa,53814,0
+380,1965-11-19,Male,Single,Retired,101009,437,Connecticut,94172,0
+2428,1957-07-25,Other,Married,Employed,92224,333,Nebraska,46589,0
+385,1987-07-20,Male,Single,Self-employed,80494,648,Michigan,93370,0
+387,2006-05-19,Other,Married,Self-employed,83679,590,Vermont,26430,0
+2435,1983-04-24,Other,Widowed,Retired,43690,706,Alabama,57317,0
+2436,1969-07-04,Male,Married,Retired,25569,782,Alaska,35130,0
+2437,1973-10-29,Male,Divorced,Employed,27477,321,Rhode Island,93997,1
+2438,1974-10-17,Male,Married,Retired,126474,801,North Carolina,19420,0
+393,1974-07-28,Male,Widowed,Self-employed,27997,599,Connecticut,70367,0
+2441,1985-06-29,Other,Widowed,Employed,50372,711,Pennsylvania,48305,0
+395,1991-08-01,Female,Single,Unemployed,26451,711,Maryland,83644,0
+396,1961-05-29,Male,Divorced,Employed,26534,309,New Hampshire,8245,0
+397,1991-02-09,Female,Single,Unemployed,141305,800,Oregon,50550,0
+399,1966-10-04,Female,Widowed,Unemployed,139963,554,Alaska,34645,0
+401,2001-12-22,Female,Divorced,Employed,98903,415,Maryland,7728,0
+2449,1980-11-23,Other,Widowed,Employed,86441,502,Nevada,67239,0
+2450,1996-02-28,Male,Single,Retired,94482,785,Connecticut,97519,0
+2453,1965-08-28,Female,Married,Self-employed,95723,669,Iowa,8673,0
+2454,1990-05-02,Female,Widowed,Unemployed,51144,652,Maine,90790,1
+407,1995-07-26,Other,Divorced,Self-employed,112252,727,Connecticut,20503,0
+409,1963-06-02,Male,Married,Self-employed,133679,317,New Mexico,12562,0
+411,2002-04-07,Male,Married,Retired,114964,388,Massachusetts,43866,1
+413,1962-09-12,Male,Married,Unemployed,116598,800,North Dakota,76832,1
+2461,1977-08-18,Male,Married,Self-employed,107158,373,Maine,9817,1
+415,1980-10-29,Male,Widowed,Self-employed,132744,607,Florida,24973,0
+2464,1961-06-13,Female,Divorced,Self-employed,78499,596,Vermont,51071,0
+2465,1957-10-25,Other,Single,Retired,45026,334,Tennessee,11802,0
+2466,1984-09-11,Female,Single,Unemployed,93051,831,Colorado,53615,0
+423,1989-03-29,Other,Married,Unemployed,108904,710,Oklahoma,37546,0
+425,2002-01-27,Other,Widowed,Retired,48778,474,California,83135,0
+2473,2005-11-29,Female,Married,Employed,101150,682,Pennsylvania,33489,1
+429,1968-03-10,Male,Single,Retired,117896,724,Colorado,68068,0
+430,1978-11-28,Male,Single,Employed,41510,323,New Jersey,10809,1
+2478,1999-06-20,Male,Widowed,Self-employed,56787,689,Maine,92775,0
+432,1984-04-19,Male,Married,Unemployed,99363,516,Ohio,87927,0
+2481,1992-07-16,Male,Widowed,Retired,110872,676,Michigan,3430,0
+434,1972-03-18,Male,Single,Unemployed,123765,308,Louisiana,41750,0
+2484,2006-12-19,Male,Single,Unemployed,26433,522,Illinois,8171,0
+437,1955-08-06,Other,Widowed,Employed,32618,779,Pennsylvania,42701,1
+2485,1973-01-16,Male,Single,Self-employed,27466,303,Kansas,50412,0
+439,1981-04-14,Female,Divorced,Self-employed,37073,307,Wisconsin,43526,0
+440,1997-05-15,Other,Widowed,Retired,96356,443,North Carolina,77506,0
+2489,1958-01-12,Male,Widowed,Self-employed,143856,741,Oklahoma,11776,0
+445,1995-07-18,Other,Married,Retired,42212,395,Minnesota,10892,0
+446,1981-04-08,Male,Divorced,Unemployed,68085,392,Ohio,18268,0
+447,1960-07-15,Male,Widowed,Retired,93799,578,California,62538,0
+2493,1981-06-23,Other,Married,Retired,62529,696,Michigan,32149,0
+2495,2005-03-11,Female,Single,Employed,23317,584,Virginia,8127,0
+2497,1958-01-01,Male,Widowed,Employed,31403,388,Colorado,54859,0
+2502,1980-07-05,Female,Widowed,Unemployed,93863,456,Vermont,65426,0
+456,1959-03-03,Other,Single,Unemployed,144213,742,Maryland,51431,1
+457,1955-06-15,Other,Married,Unemployed,112235,769,Missouri,13885,0
+458,1979-05-26,Female,Widowed,Retired,77418,780,Tennessee,84916,0
+2505,1998-12-07,Other,Married,Retired,102791,616,South Dakota,48323,0
+2507,1966-12-19,Other,Divorced,Employed,35031,753,Arizona,39756,1
+461,1958-11-03,Male,Widowed,Employed,136819,367,Vermont,61935,0
+2510,1954-02-19,Male,Widowed,Unemployed,95698,665,Vermont,44759,1
+464,1977-06-03,Other,Single,Unemployed,89261,401,Pennsylvania,12219,0
+2515,1983-10-08,Male,Married,Unemployed,38528,623,Virginia,35987,0
+469,2004-07-17,Female,Widowed,Retired,25426,583,New Mexico,49244,0
+2518,1998-11-28,Male,Widowed,Employed,21955,772,Missouri,91164,0
+471,1995-09-11,Female,Single,Employed,49911,808,Wyoming,11082,0
+2521,1985-08-01,Male,Widowed,Self-employed,131377,338,Oklahoma,74621,0
+474,1961-02-16,Other,Widowed,Self-employed,109090,482,Kentucky,97752,1
+475,2005-01-31,Other,Widowed,Retired,78583,806,North Carolina,81262,0
+2522,1980-09-07,Female,Widowed,Unemployed,82322,307,Alaska,23530,0
+477,1985-09-15,Female,Widowed,Unemployed,65031,653,Kansas,6303,1
+2528,1966-06-06,Male,Divorced,Retired,110436,550,New Hampshire,17457,0
+483,1988-08-03,Male,Divorced,Retired,97760,509,Oklahoma,44761,0
+484,1960-05-21,Other,Married,Self-employed,110016,375,Massachusetts,19521,0
+2531,1956-12-23,Female,Single,Self-employed,33429,602,Tennessee,84745,0
+2533,1990-06-16,Other,Widowed,Self-employed,121682,564,Virginia,38738,1
+2537,1962-07-20,Other,Divorced,Unemployed,122740,566,Iowa,56019,0
+491,1988-10-11,Male,Married,Retired,38017,813,California,35928,0
+492,1976-05-12,Other,Married,Unemployed,71808,502,Georgia,9144,0
+493,1985-06-12,Male,Married,Self-employed,123012,609,Georgia,2249,0
+2540,1982-11-16,Female,Married,Unemployed,120676,733,New Jersey,79554,1
+495,1964-04-19,Male,Married,Employed,72117,344,Arkansas,13653,0
+496,1997-07-01,Male,Single,Retired,56858,686,Missouri,77751,0
+2546,1959-10-27,Female,Single,Unemployed,96029,774,Indiana,91703,0
+499,1998-01-30,Female,Widowed,Employed,41975,433,Oregon,97298,1
+2551,1981-01-15,Other,Married,Retired,56728,609,Maine,77211,0
+2556,2002-12-23,Male,Widowed,Retired,81336,615,New Jersey,30561,1
+2558,2004-07-05,Other,Married,Employed,103047,415,Delaware,32410,0
+2559,1995-01-19,Other,Married,Retired,113796,308,Colorado,83467,0
+512,2005-07-27,Female,Single,Unemployed,58738,528,Nevada,10206,0
+2561,2002-11-16,Other,Single,Retired,24924,767,Utah,80241,0
+514,1968-06-02,Male,Divorced,Unemployed,21016,648,Colorado,31003,1
+515,1987-08-12,Male,Widowed,Self-employed,97247,837,Oregon,70812,0
+2562,1977-12-21,Other,Single,Self-employed,93585,428,Maryland,9561,0
+517,2004-02-16,Female,Widowed,Self-employed,24717,646,Kentucky,58643,0
+518,1975-11-16,Other,Married,Employed,100862,769,Illinois,76084,0
+2565,1964-12-11,Other,Widowed,Retired,125796,346,Montana,76655,1
+520,1962-07-28,Male,Married,Unemployed,101589,494,Georgia,96258,1
+521,1993-06-17,Other,Married,Self-employed,134751,621,New Jersey,90371,0
+2569,1983-05-19,Female,Single,Unemployed,31403,488,Vermont,650,0
+523,1987-09-20,Male,Divorced,Self-employed,37433,312,Montana,72314,0
+2572,1999-05-26,Female,Married,Retired,132846,331,Georgia,86137,0
+525,1964-06-04,Female,Married,Unemployed,124450,839,Colorado,92775,0
+2573,1984-09-30,Female,Single,Employed,97185,405,Kentucky,3554,0
+528,1989-06-03,Male,Divorced,Retired,145792,340,Texas,29801,0
+2577,1964-09-27,Male,Married,Self-employed,61880,363,Delaware,26151,1
+2581,1975-11-05,Other,Divorced,Employed,30993,397,Minnesota,54507,1
+534,1993-04-20,Female,Married,Retired,84370,482,Kentucky,55164,0
+2582,2005-08-23,Female,Married,Employed,123897,649,Indiana,81525,0
+2583,1968-10-09,Other,Widowed,Self-employed,130199,414,New Hampshire,37586,1
+2584,1967-06-03,Other,Single,Employed,21315,461,Alabama,76676,1
+2585,2003-12-10,Other,Single,Self-employed,39448,531,Maine,14112,0
+2586,1982-06-26,Other,Single,Retired,24342,782,New Mexico,17497,0
+540,1968-08-29,Other,Single,Unemployed,41383,531,New York,80059,0
+2587,1980-02-05,Other,Divorced,Unemployed,39178,785,Vermont,90521,0
+542,1966-01-09,Female,Married,Unemployed,98653,487,Hawaii,14040,0
+2589,2000-08-24,Female,Married,Self-employed,101233,463,Wisconsin,73863,0
+2591,1979-04-03,Male,Divorced,Self-employed,72393,300,New Mexico,27282,0
+545,1988-06-05,Female,Single,Retired,88370,619,Florida,3237,0
+548,1963-06-12,Other,Divorced,Self-employed,133254,827,Tennessee,51883,0
+549,1968-05-06,Female,Married,Retired,25366,341,Maine,47911,0
+550,1986-03-14,Male,Single,Employed,44620,613,Iowa,29375,0
+551,1957-12-27,Other,Widowed,Self-employed,67071,321,Maine,54544,1
+552,2006-09-04,Other,Married,Self-employed,64999,724,Minnesota,39783,0
+2600,1967-04-16,Male,Widowed,Unemployed,113670,336,Utah,61278,0
+2601,1988-04-12,Other,Divorced,Retired,113788,773,Pennsylvania,31523,1
+2604,1961-11-27,Female,Married,Unemployed,44249,489,North Carolina,89256,0
+560,2003-02-01,Male,Married,Self-employed,85185,479,New Mexico,26178,0
+2610,1980-11-03,Male,Divorced,Unemployed,149566,666,Ohio,29314,0
+2612,1957-07-23,Other,Married,Employed,94357,478,West Virginia,57684,1
+2618,1959-06-18,Other,Divorced,Unemployed,42174,467,Minnesota,68322,0
+2619,1987-10-27,Other,Widowed,Unemployed,131890,812,Maryland,36727,0
+2620,1997-12-01,Female,Married,Unemployed,27930,795,Massachusetts,13986,0
+574,1988-04-11,Other,Married,Unemployed,22106,497,Tennessee,39102,0
+2625,1977-11-23,Female,Divorced,Self-employed,109636,524,New Mexico,36912,0
+2626,1985-03-06,Female,Divorced,Unemployed,88411,767,Illinois,62298,1
+580,1975-01-20,Male,Widowed,Retired,71538,640,Kansas,9509,0
+582,1974-01-04,Male,Single,Self-employed,46674,822,Massachusetts,19402,0
+2630,1960-09-27,Male,Single,Self-employed,146195,691,Minnesota,92449,0
+2632,1991-05-31,Female,Widowed,Retired,107154,347,Nebraska,42208,0
+2633,1975-01-16,Female,Married,Unemployed,100572,751,Idaho,91179,0
+2637,2004-03-11,Female,Married,Self-employed,75723,636,Maine,8673,0
+590,1969-05-24,Male,Widowed,Self-employed,51059,695,Massachusetts,78170,0
+2638,1996-11-08,Male,Single,Employed,71300,666,Oregon,34142,0
+592,1969-10-30,Male,Divorced,Unemployed,136040,627,Nevada,53962,1
+2641,1983-08-22,Male,Single,Retired,100441,692,North Dakota,96713,0
+2644,1988-09-19,Male,Married,Self-employed,38864,562,Iowa,1676,0
+597,1989-07-19,Male,Single,Retired,25073,629,Michigan,9964,0
+2645,1985-05-11,Female,Divorced,Retired,115634,440,Wyoming,33857,0
+602,1989-10-24,Other,Widowed,Employed,145034,594,Utah,38093,0
+603,1999-03-19,Male,Divorced,Employed,42795,709,Pennsylvania,78825,1
+604,1999-07-23,Female,Single,Self-employed,110401,431,New York,77550,0
+606,1976-10-11,Female,Divorced,Employed,144658,808,Wisconsin,26669,0
+608,2001-02-02,Female,Widowed,Employed,58726,684,New Hampshire,61327,0
+2656,1998-03-14,Other,Widowed,Employed,117488,637,Wyoming,42561,0
+2658,1961-01-10,Female,Widowed,Self-employed,79670,659,Connecticut,81410,0
+611,1987-10-24,Other,Widowed,Unemployed,119039,803,Ohio,34796,1
+614,2001-03-15,Male,Widowed,Self-employed,64392,493,Indiana,23361,0
+616,1975-11-01,Other,Single,Unemployed,111160,802,Indiana,53573,0
+2669,1971-09-26,Female,Divorced,Employed,55933,437,Nebraska,45452,0
+624,1970-04-10,Female,Married,Unemployed,91775,699,Missouri,99783,0
+626,1994-11-23,Male,Married,Self-employed,75602,332,Minnesota,97297,0
+2677,1975-10-05,Female,Single,Unemployed,138074,434,Connecticut,40787,1
+633,1984-07-14,Male,Married,Self-employed,39620,740,Oklahoma,55517,0
+2682,1995-02-08,Male,Married,Employed,81231,526,Illinois,51367,0
+635,2006-11-25,Other,Divorced,Employed,78822,518,Iowa,55199,0
+2685,1983-04-15,Male,Divorced,Employed,97578,669,Massachusetts,5392,0
+2687,1974-02-10,Other,Widowed,Retired,40239,401,Connecticut,22303,0
+640,1990-10-22,Female,Single,Retired,101958,333,Wyoming,94636,0
+641,2001-04-23,Female,Divorced,Unemployed,144752,320,Illinois,76241,0
+642,1976-01-27,Other,Single,Self-employed,31985,362,Oklahoma,99876,0
+2689,1991-05-11,Male,Married,Retired,37412,760,Texas,12332,0
+644,1999-08-20,Male,Married,Self-employed,115228,682,Kentucky,75625,0
+2690,1966-04-30,Other,Married,Self-employed,31928,351,Arizona,61601,0
+2694,1956-03-29,Female,Divorced,Employed,40773,315,Connecticut,39148,0
+647,1985-05-11,Male,Married,Retired,107419,752,Florida,37834,0
+2695,1963-05-21,Male,Single,Unemployed,32115,839,New Jersey,41986,0
+2697,1983-11-08,Other,Widowed,Retired,98633,740,Mississippi,39353,0
+650,2000-08-04,Male,Single,Unemployed,126054,706,Rhode Island,89952,0
+2703,1988-07-06,Male,Married,Self-employed,85368,359,Virginia,95014,0
+656,1976-03-29,Female,Divorced,Self-employed,111772,772,Kentucky,94221,0
+657,1977-01-07,Male,Single,Self-employed,39291,609,North Carolina,64748,0
+658,1962-12-23,Male,Single,Retired,133532,414,Texas,89226,0
+2705,2004-09-28,Female,Married,Employed,102590,314,New Hampshire,44046,0
+660,1997-04-20,Female,Divorced,Retired,76260,664,Wisconsin,43532,0
+2706,1956-03-16,Other,Widowed,Self-employed,144695,793,Oregon,89069,0
+2709,1993-02-13,Female,Widowed,Unemployed,65175,428,Indiana,96023,0
+664,1955-11-09,Male,Divorced,Employed,126504,525,Wyoming,56905,0
+2714,2000-05-12,Other,Single,Employed,111370,399,Rhode Island,46795,0
+2715,1967-04-16,Other,Widowed,Self-employed,123536,610,Tennessee,47348,0
+2716,2005-01-20,Male,Widowed,Self-employed,141733,456,Arkansas,20132,0
+2719,1956-02-09,Male,Divorced,Unemployed,95694,706,Hawaii,35996,1
+675,1974-06-21,Female,Married,Self-employed,144984,640,Louisiana,62130,0
+2724,1996-11-29,Female,Single,Retired,60037,427,South Dakota,2828,1
+677,1959-04-10,Male,Single,Self-employed,143861,415,Florida,79669,1
+678,1954-11-23,Male,Married,Unemployed,138051,764,Oregon,61347,0
+683,1977-11-28,Other,Widowed,Unemployed,42245,608,New York,55450,0
+2731,1992-10-29,Female,Widowed,Self-employed,72097,824,New Jersey,26010,0
+2732,1968-02-16,Female,Single,Self-employed,113200,734,Missouri,5334,0
+2734,1961-06-07,Female,Single,Retired,58512,696,Oregon,61170,0
+687,2002-05-12,Male,Divorced,Retired,134930,387,Maryland,18084,0
+2736,1974-02-16,Female,Widowed,Unemployed,46126,706,Utah,11194,0
+2737,1970-07-11,Other,Widowed,Self-employed,126966,686,Wisconsin,98198,0
+690,1984-06-19,Male,Widowed,Employed,68623,580,Oklahoma,84063,0
+696,1965-07-28,Female,Widowed,Unemployed,38426,629,Connecticut,810,0
+2747,1954-05-04,Female,Divorced,Self-employed,86026,478,Kansas,28116,0
+2749,1972-01-05,Female,Divorced,Self-employed,118466,575,Oregon,85084,0
+702,1955-06-26,Male,Single,Unemployed,40204,537,Massachusetts,29138,0
+703,1957-04-05,Other,Single,Retired,104563,390,Montana,11921,1
+2750,1996-12-29,Female,Widowed,Self-employed,100862,398,Rhode Island,80779,0
+2751,1981-09-10,Other,Widowed,Employed,84918,403,Missouri,65917,0
+2752,1973-04-14,Female,Married,Self-employed,125714,477,Alabama,24147,0
+707,1987-09-11,Other,Widowed,Self-employed,68707,501,Vermont,73766,0
+2755,1967-10-28,Female,Married,Self-employed,90028,460,New Hampshire,48135,0
+709,1992-12-05,Other,Divorced,Employed,32672,691,Illinois,96174,0
+2758,1988-03-09,Other,Divorced,Self-employed,132282,616,Mississippi,77005,1
+712,1976-06-26,Male,Single,Self-employed,71472,758,Montana,61559,0
+713,1989-11-07,Female,Widowed,Retired,59446,502,Texas,15137,0
+2760,1958-06-05,Other,Single,Employed,45969,741,Idaho,26585,0
+715,1982-03-07,Other,Single,Retired,141975,537,Michigan,53230,0
+2761,1971-04-22,Male,Widowed,Retired,32676,311,Nevada,8180,0
+2762,1963-11-15,Male,Divorced,Unemployed,55075,516,Wisconsin,50610,0
+2764,1997-06-21,Other,Divorced,Unemployed,121187,375,New York,99383,1
+720,1994-06-25,Female,Married,Employed,68912,345,Idaho,33425,0
+2770,1954-07-26,Female,Widowed,Retired,46078,557,Ohio,21879,0
+2772,1955-04-16,Other,Single,Retired,52908,685,Ohio,35309,0
+725,1977-12-13,Female,Widowed,Unemployed,44745,700,Massachusetts,64515,0
+2773,1961-09-21,Male,Widowed,Self-employed,46026,543,Ohio,93646,0
+2774,1975-12-30,Female,Married,Unemployed,131403,701,Pennsylvania,34206,0
+728,1986-06-22,Male,Single,Retired,48337,821,Montana,78830,0
+729,1957-01-27,Male,Married,Self-employed,142359,823,Maine,95678,1
+2775,1985-12-24,Female,Single,Self-employed,92756,322,Louisiana,52450,1
+731,1983-01-02,Male,Married,Employed,124210,689,Louisiana,59138,0
+732,1983-04-04,Other,Married,Unemployed,106315,664,Louisiana,57423,1
+2777,1984-02-24,Male,Divorced,Employed,129105,831,Maryland,53468,0
+2781,1978-10-17,Male,Single,Retired,58923,386,Mississippi,38481,0
+2784,1987-11-24,Female,Single,Retired,49912,318,Kentucky,39069,0
+2785,1958-03-31,Other,Divorced,Self-employed,43230,367,South Dakota,83973,0
+2786,1961-01-14,Other,Married,Retired,114130,404,Georgia,36816,1
+739,1994-11-09,Female,Married,Employed,100154,344,Colorado,30721,0
+2789,1984-09-24,Male,Widowed,Retired,99714,321,Arkansas,2905,0
+742,1966-07-19,Female,Divorced,Unemployed,27853,489,Nebraska,29512,1
+2794,1986-09-10,Male,Divorced,Retired,117704,695,Florida,62724,0
+2795,1971-05-25,Other,Divorced,Self-employed,138754,426,Nevada,95389,1
+749,1995-12-20,Other,Married,Self-employed,140412,696,Vermont,7959,0
+750,1974-04-09,Female,Single,Employed,24658,544,Wyoming,73946,0
+2797,1968-10-23,Male,Widowed,Self-employed,82645,499,New Mexico,99150,0
+2798,1986-06-26,Other,Divorced,Retired,147385,737,Alaska,55798,0
+753,1998-09-26,Other,Divorced,Self-employed,61573,805,Montana,96715,0
+755,1979-08-18,Other,Married,Retired,23108,706,Rhode Island,81698,0
+2806,1965-01-10,Other,Divorced,Retired,65519,464,Nevada,98493,0
+2808,1967-02-09,Female,Married,Self-employed,127247,815,Massachusetts,5384,0
+761,1985-04-09,Female,Single,Self-employed,104327,764,Arizona,40148,0
+762,2005-12-22,Other,Divorced,Unemployed,135927,674,Maryland,27813,0
+2809,1954-10-27,Other,Widowed,Unemployed,80957,354,Maine,42068,1
+764,1969-07-21,Female,Single,Employed,43154,520,Oklahoma,10374,0
+765,1975-02-17,Other,Married,Unemployed,46885,503,Michigan,75268,1
+2812,1982-09-14,Other,Single,Unemployed,125561,628,Massachusetts,40447,0
+767,1977-06-25,Female,Widowed,Unemployed,103407,436,Oregon,42417,0
+768,1960-06-23,Other,Widowed,Unemployed,107084,403,Kansas,56032,0
+2815,1973-07-20,Male,Widowed,Self-employed,29830,797,Washington,53594,0
+770,1972-02-10,Other,Widowed,Retired,54601,412,Utah,30926,0
+2817,1961-07-17,Other,Married,Self-employed,67076,676,Ohio,58513,1
+2818,1975-02-24,Other,Married,Self-employed,60344,343,Illinois,35774,1
+773,1997-12-01,Female,Divorced,Retired,97787,833,Pennsylvania,92500,0
+2821,1976-07-07,Male,Widowed,Unemployed,104029,664,North Carolina,27273,0
+2822,1990-03-29,Female,Divorced,Retired,25826,363,Kentucky,69384,1
+2824,1977-08-06,Male,Single,Retired,31208,707,Texas,66515,0
+2825,1997-03-21,Other,Single,Employed,118574,499,Louisiana,40007,0
+2827,1988-05-25,Other,Divorced,Self-employed,143536,457,Minnesota,98648,0
+780,1985-03-30,Other,Widowed,Employed,78554,544,Louisiana,30528,0
+781,1959-06-16,Female,Married,Unemployed,70052,319,Vermont,69662,0
+782,1973-05-27,Female,Divorced,Self-employed,98035,772,Louisiana,43568,0
+2828,1991-08-18,Male,Divorced,Employed,82980,506,Nebraska,50638,0
+2829,1995-11-17,Male,Single,Self-employed,58629,362,New Jersey,44775,1
+2830,1958-09-23,Other,Widowed,Self-employed,38425,750,New York,85928,0
+786,1973-09-02,Female,Single,Unemployed,133472,562,New Hampshire,92889,0
+2833,1993-06-17,Male,Married,Retired,24593,357,Nebraska,31665,0
+2835,1980-08-30,Male,Widowed,Self-employed,104525,635,Georgia,5329,0
+789,1970-06-07,Female,Single,Self-employed,139482,760,Washington,48725,0
+2836,1980-08-01,Female,Single,Unemployed,41194,850,Michigan,71292,0
+2838,1986-07-16,Other,Single,Employed,95655,837,Utah,89088,0
+2841,1966-10-19,Male,Divorced,Unemployed,91304,493,Louisiana,52895,0
+794,1997-02-24,Female,Widowed,Unemployed,75047,359,Oklahoma,3467,1
+2844,1954-05-31,Male,Married,Retired,107983,617,Pennsylvania,79586,0
+797,1994-07-07,Female,Single,Employed,147072,437,Nevada,63279,0
+2848,1993-09-26,Male,Single,Retired,81890,464,Hawaii,28654,1
+801,1957-11-12,Other,Widowed,Unemployed,101767,520,Illinois,58658,0
+2851,1988-07-16,Other,Widowed,Employed,114723,732,New Jersey,25920,0
+805,1969-08-26,Other,Single,Employed,125885,585,Wisconsin,48821,1
+2855,1965-03-01,Female,Divorced,Retired,78670,512,South Carolina,89528,0
+809,1959-12-23,Other,Widowed,Unemployed,45029,470,Oklahoma,19102,0
+811,2002-06-26,Other,Married,Employed,24666,684,New Hampshire,73201,0
+2860,1961-04-29,Male,Single,Employed,67443,571,Nevada,3292,0
+2861,1996-11-04,Female,Single,Employed,27287,429,Alabama,94430,1
+818,1989-08-02,Female,Widowed,Employed,92663,542,Alaska,52643,0
+2866,1964-09-20,Male,Married,Employed,92607,706,Maine,78667,0
+2867,1969-06-29,Other,Single,Retired,20380,706,New Mexico,12826,0
+2868,1964-07-15,Female,Widowed,Unemployed,32047,739,Massachusetts,74687,0
+2869,1964-08-05,Male,Widowed,Employed,149739,499,Mississippi,98588,0
+2870,1980-06-02,Other,Married,Unemployed,89164,654,Delaware,54817,0
+824,1990-10-25,Female,Single,Self-employed,72891,498,Alaska,67406,0
+2871,1964-10-01,Female,Widowed,Employed,117283,366,Colorado,77277,1
+826,1965-11-06,Male,Widowed,Self-employed,65317,454,North Dakota,97902,0
+827,1997-06-07,Other,Divorced,Unemployed,75360,792,New Mexico,29949,0
+2875,1994-11-22,Other,Divorced,Employed,134456,436,Georgia,7344,1
+2878,1986-04-19,Other,Widowed,Self-employed,48082,763,Rhode Island,51829,0
+2879,1974-01-12,Other,Single,Employed,75803,638,Vermont,87415,0
+832,2000-04-25,Female,Widowed,Self-employed,89408,699,Wyoming,17888,0
+835,2000-04-24,Male,Divorced,Employed,121923,841,Alabama,37258,1
+2884,1968-01-17,Male,Widowed,Self-employed,96091,783,Ohio,71239,0
+837,1986-12-15,Male,Single,Retired,92010,341,Minnesota,49382,0
+838,1956-12-27,Female,Divorced,Retired,128230,472,Virginia,93738,0
+2886,1958-01-10,Male,Married,Unemployed,58660,525,Indiana,32796,0
+2888,1986-04-14,Female,Widowed,Self-employed,146723,498,Rhode Island,90946,0
+841,1989-01-24,Male,Widowed,Retired,91540,584,Alabama,10063,0
+2890,1958-03-13,Other,Married,Unemployed,24774,444,Utah,90692,0
+848,1960-09-10,Male,Divorced,Self-employed,106810,421,South Dakota,30203,0
+855,1982-08-23,Female,Widowed,Self-employed,121951,324,Ohio,91437,0
+2904,1975-08-02,Other,Widowed,Employed,142238,514,Louisiana,84123,1
+858,1967-12-23,Male,Divorced,Employed,45459,717,Connecticut,2859,0
+864,1991-11-29,Male,Single,Retired,81088,487,Colorado,53660,0
+2912,1999-07-29,Female,Widowed,Employed,27730,719,Ohio,40772,0
+2914,1960-11-07,Other,Divorced,Unemployed,122712,497,Mississippi,45615,1
+2915,2006-09-16,Male,Widowed,Retired,45890,488,Alabama,40061,0
+868,1977-06-09,Male,Married,Employed,80366,579,Utah,61778,0
+2916,1972-05-05,Female,Single,Employed,78847,650,New York,42219,0
+2917,2001-03-27,Female,Divorced,Unemployed,123329,610,Kansas,80432,0
+871,2005-01-11,Other,Widowed,Self-employed,44643,835,Alabama,34618,0
+2919,1987-08-07,Female,Divorced,Unemployed,125587,353,Pennsylvania,58374,0
+2920,1980-07-11,Other,Married,Unemployed,40554,629,Louisiana,59482,1
+2923,1975-07-01,Male,Widowed,Self-employed,141124,519,Iowa,67271,0
+2925,1995-02-14,Male,Single,Self-employed,57775,333,Texas,6634,1
+2926,1983-05-15,Female,Married,Employed,28695,522,Connecticut,14393,0
+2930,1997-11-01,Female,Widowed,Retired,46055,301,Wyoming,45978,1
+883,2003-09-24,Female,Single,Unemployed,29367,616,Missouri,21478,1
+2931,1987-05-20,Other,Divorced,Unemployed,105058,719,North Dakota,89530,0
+2934,2004-06-29,Other,Married,Retired,123744,767,South Dakota,2055,0
+2935,1958-01-01,Female,Divorced,Retired,147051,512,Delaware,48045,0
+893,1970-11-27,Female,Widowed,Self-employed,24304,317,Alabama,65785,0
+2941,1965-02-04,Other,Widowed,Retired,21316,338,New Hampshire,10331,0
+2944,1961-10-22,Other,Widowed,Employed,122916,346,Minnesota,721,0
+897,1965-10-10,Other,Widowed,Self-employed,29057,502,Pennsylvania,41596,0
+898,1972-07-12,Female,Single,Employed,125096,420,West Virginia,78039,0
+899,1991-03-26,Female,Married,Employed,54440,850,Rhode Island,57356,0
+2947,1998-05-30,Other,Single,Unemployed,59746,553,New York,38319,1
+2949,2003-12-21,Female,Single,Employed,123411,510,Rhode Island,59124,0
+902,1993-07-19,Male,Single,Self-employed,34973,825,Illinois,8623,0
+904,1959-01-12,Other,Widowed,Unemployed,24130,787,Washington,59157,0
+905,1958-07-11,Male,Divorced,Unemployed,54102,706,Louisiana,34633,1
+907,1998-02-02,Other,Single,Employed,87472,786,Oregon,50488,0
+908,1967-06-23,Female,Divorced,Unemployed,137372,446,North Carolina,84328,0
+911,2005-06-24,Female,Divorced,Retired,149513,317,Georgia,69215,0
+2960,1973-08-25,Male,Divorced,Self-employed,49889,553,Virginia,66983,1
+917,1992-11-09,Other,Single,Unemployed,129475,479,Hawaii,87665,1
+2965,2001-06-26,Other,Married,Self-employed,44348,786,California,82037,1
+919,2000-12-17,Female,Divorced,Retired,146025,665,Nebraska,30060,0
+920,1993-01-26,Other,Single,Self-employed,119894,724,Missouri,37199,1
+2970,1985-02-20,Female,Widowed,Retired,64055,566,South Dakota,98196,0
+2973,1954-04-22,Male,Divorced,Self-employed,39347,463,Wyoming,91208,0
+926,1970-03-19,Other,Divorced,Retired,25037,754,Alabama,57024,0
+927,1965-01-17,Other,Single,Employed,98345,596,Pennsylvania,98822,0
+2974,1976-02-24,Other,Single,Unemployed,71418,411,Wisconsin,21679,0
+929,1960-01-01,Male,Widowed,Unemployed,28442,521,Vermont,75749,1
+930,1971-06-09,Other,Single,Retired,101480,378,New Mexico,44020,0
+2976,2006-11-13,Female,Divorced,Employed,88881,810,Arizona,65742,1
+936,1992-10-19,Female,Widowed,Self-employed,32098,376,Connecticut,58951,0
+937,1978-05-14,Female,Single,Employed,136318,707,Kansas,54091,0
+938,1988-04-05,Female,Single,Self-employed,41586,670,Idaho,45160,0
+2984,1983-03-02,Female,Single,Retired,140928,493,Arizona,73382,1
+2991,1954-06-03,Other,Widowed,Unemployed,52436,500,Arizona,38572,0
+944,1976-09-11,Female,Single,Employed,37584,785,Kansas,38139,0
+2996,1978-10-11,Female,Divorced,Employed,131789,686,Arizona,2016,0
+952,1984-01-31,Other,Single,Employed,141931,566,Utah,29280,0
+953,2000-12-30,Other,Widowed,Unemployed,96814,323,Arkansas,76584,0
+954,1978-07-16,Other,Married,Employed,31178,504,North Carolina,85462,0
+961,1999-01-01,Female,Widowed,Unemployed,146706,589,Delaware,88083,0
+964,1954-06-19,Female,Divorced,Unemployed,79347,704,Louisiana,24999,0
+965,1989-09-07,Other,Divorced,Employed,46089,651,Nebraska,98174,0
+971,1976-03-12,Male,Married,Unemployed,21927,828,New Jersey,75432,0
+974,1982-02-27,Male,Single,Employed,76611,423,Massachusetts,6063,1
+981,1968-05-07,Male,Single,Self-employed,78463,803,Iowa,25852,0
+985,2006-11-22,Male,Married,Self-employed,124589,498,Ohio,36274,0
+986,1980-03-03,Female,Widowed,Unemployed,111759,543,Tennessee,63871,0
+987,1966-03-09,Other,Single,Retired,65314,592,Hawaii,27091,0
+988,1995-12-08,Female,Single,Self-employed,21571,826,Maryland,2593,0
+992,1961-04-12,Female,Widowed,Employed,139694,509,Mississippi,7812,0
+995,2005-03-16,Female,Married,Retired,127686,501,Nebraska,85113,0
+1000,2000-01-24,Other,Widowed,Retired,55336,313,North Dakota,18198,0
+1004,1982-08-08,Other,Married,Unemployed,96077,675,Oklahoma,50987,0
+1011,1977-11-14,Female,Married,Retired,62317,503,Texas,18404,0
+1026,1965-08-29,Female,Widowed,Unemployed,47035,623,New York,90279,0
+1028,1983-05-04,Male,Divorced,Employed,88941,423,South Carolina,89727,0
+1035,1998-05-10,Other,Married,Retired,45030,429,Utah,98987,0
+1038,1978-04-29,Female,Married,Retired,28093,726,Mississippi,77524,1
+1039,1993-02-15,Other,Single,Self-employed,40137,530,Wisconsin,36945,0
+1040,1988-07-16,Female,Married,Retired,56866,702,Hawaii,70066,0
+1041,1991-06-27,Other,Divorced,Retired,37727,601,Kansas,36903,0
+1043,1980-02-05,Other,Single,Unemployed,115677,686,Utah,14501,0
+1044,1995-09-09,Male,Married,Retired,135849,674,Vermont,75962,0
+1046,1987-08-14,Male,Married,Retired,129786,801,South Dakota,7119,0
+1047,2002-07-12,Other,Married,Employed,99458,607,Wyoming,12112,0
+1049,1997-09-02,Other,Single,Retired,118173,751,North Carolina,77130,0
+1068,1993-12-22,Other,Widowed,Employed,31454,532,Montana,40810,0
+1073,2005-10-07,Female,Widowed,Retired,47583,650,New Jersey,62102,0
+1077,1996-01-19,Other,Single,Self-employed,148592,656,Arkansas,87078,0
+1082,1997-12-15,Other,Widowed,Retired,142442,479,South Carolina,82926,0
+1085,1960-03-02,Male,Married,Self-employed,70569,746,West Virginia,42021,0
+1091,2000-12-13,Other,Widowed,Employed,93001,491,Texas,65618,0
+1098,1996-11-09,Male,Married,Unemployed,149101,469,Maine,39377,1
+1101,1973-09-24,Female,Married,Unemployed,72441,766,Massachusetts,33826,0
+1109,1966-02-24,Female,Married,Employed,143357,733,West Virginia,42895,0
+1110,1979-05-14,Female,Single,Unemployed,100118,561,Maine,93835,0
+1114,1954-09-15,Female,Divorced,Retired,75164,430,Delaware,62134,0
+1115,1991-02-04,Male,Single,Self-employed,142938,523,Alabama,71455,0
+1118,1995-06-08,Other,Single,Unemployed,123743,762,Rhode Island,8672,0
+1120,1979-07-17,Other,Married,Retired,137657,467,Kentucky,3104,0
+1121,1980-09-05,Other,Married,Employed,67974,349,Oregon,6220,1
+1123,1964-12-22,Male,Divorced,Self-employed,145068,716,Washington,25047,1
+1127,1966-02-26,Female,Divorced,Self-employed,148840,325,Georgia,53981,0
+1131,1985-03-27,Male,Married,Unemployed,131124,744,South Carolina,56796,1
+1135,1957-09-27,Other,Divorced,Retired,51018,496,Nebraska,32896,0
+1139,1967-11-19,Male,Divorced,Employed,147860,454,Nebraska,25609,0
+1141,1994-12-29,Female,Divorced,Employed,148416,354,Virginia,73527,0
+1143,1991-01-12,Other,Single,Employed,39917,799,New Jersey,15391,0
+1152,1977-10-16,Female,Married,Unemployed,71953,725,Michigan,98426,0
+1156,1986-06-02,Male,Widowed,Unemployed,44875,593,Washington,35396,0
+1159,1994-11-26,Female,Single,Employed,52759,646,Colorado,93045,0
+1160,1961-06-11,Male,Divorced,Unemployed,23209,548,New York,85972,0
+1165,1964-09-22,Male,Married,Employed,46325,719,Maryland,70144,0
+1166,1957-02-07,Other,Married,Employed,117045,408,Delaware,57965,0
+1170,1970-11-21,Female,Widowed,Retired,32359,545,Illinois,94802,0
+1176,1984-11-18,Male,Single,Unemployed,131720,772,Kansas,19628,1
+1179,2005-01-10,Male,Married,Employed,54664,674,Massachusetts,88262,0
+1185,1991-10-09,Male,Widowed,Employed,37071,749,Maine,56733,0
+1188,1993-08-04,Female,Widowed,Self-employed,118452,448,Iowa,39850,0
+1189,2003-02-25,Male,Widowed,Self-employed,118361,330,Michigan,20047,0
+1192,1969-10-25,Other,Widowed,Unemployed,123074,459,Vermont,17376,0
+1197,2001-01-05,Female,Single,Retired,98554,701,New Jersey,59490,1
+1211,2004-06-04,Male,Divorced,Unemployed,39544,625,Connecticut,20046,0
+1212,1994-08-30,Male,Single,Employed,120248,420,California,53021,1
+1215,1961-07-18,Other,Single,Unemployed,94265,458,New York,54078,0
+1220,1960-03-04,Other,Married,Unemployed,121817,673,Alaska,79935,0
+1221,2000-05-25,Male,Widowed,Employed,67142,647,Tennessee,71431,0
+1222,1990-01-17,Female,Widowed,Retired,79158,612,New Mexico,32634,1
+1233,1981-11-11,Male,Married,Retired,55761,806,South Dakota,41943,0
+1234,1994-10-22,Other,Married,Unemployed,80959,688,Delaware,15859,0
+1236,2005-07-10,Female,Married,Self-employed,30343,327,Florida,77155,0
+1244,1959-07-14,Female,Married,Self-employed,34851,788,North Carolina,76791,0
+1246,1982-11-25,Female,Married,Employed,149152,685,Kansas,44812,1
+1247,1957-01-24,Male,Single,Unemployed,143491,485,New Mexico,38206,0
+1248,1995-01-18,Other,Single,Employed,148000,325,Pennsylvania,41096,1
+1257,1956-11-06,Female,Married,Employed,60854,522,Idaho,74254,0
+1258,1995-05-30,Other,Married,Employed,149383,322,Connecticut,82144,0
+1262,1954-01-26,Male,Single,Retired,139802,736,Tennessee,47277,0
+1265,1967-12-29,Other,Widowed,Self-employed,77013,433,Arkansas,9320,0
+1270,1981-06-18,Male,Divorced,Self-employed,66345,645,Nevada,87181,0
+1274,1998-07-09,Female,Divorced,Unemployed,124140,356,Illinois,6699,1
+1282,1983-11-13,Other,Married,Employed,119038,319,Kansas,53139,0
+1289,1985-11-17,Other,Single,Unemployed,38004,659,Louisiana,75288,0
+1296,1985-06-11,Female,Single,Unemployed,143710,777,Hawaii,64381,1
+1298,1969-10-17,Female,Widowed,Employed,114379,460,Kansas,94869,0
+1308,1984-04-14,Female,Single,Unemployed,108368,329,Arkansas,1620,1
+1315,1972-04-29,Other,Married,Retired,97272,310,South Carolina,29026,0
+1319,1965-01-15,Female,Divorced,Unemployed,132195,784,Mississippi,14058,0
+1323,1999-09-05,Female,Married,Self-employed,110692,319,Connecticut,63330,0
+1326,2000-04-04,Other,Divorced,Self-employed,102507,724,Illinois,2660,0
+1329,1957-09-19,Other,Divorced,Employed,112587,430,South Dakota,5159,0
+1331,1998-11-24,Female,Widowed,Retired,115879,306,New Mexico,38416,0
+1341,1964-03-05,Other,Divorced,Employed,122931,723,Indiana,78716,0
+1342,1989-04-08,Other,Single,Self-employed,93161,698,Maine,71839,0
+1343,1995-01-25,Other,Widowed,Retired,144407,823,Louisiana,51450,0
+1345,1975-06-07,Male,Married,Retired,132050,566,Connecticut,56877,0
+1363,1954-04-30,Male,Divorced,Employed,133100,758,New Hampshire,9843,0
+1364,1969-11-16,Female,Married,Unemployed,20972,480,Wisconsin,77234,0
+1365,1999-05-30,Female,Married,Employed,24340,650,Pennsylvania,45725,0
+1376,1994-04-19,Male,Divorced,Employed,124851,459,California,40341,0
+1379,1961-06-07,Female,Divorced,Self-employed,79738,343,Tennessee,48151,0
+1381,1998-03-05,Other,Divorced,Employed,75262,420,South Carolina,95371,0
+1383,1995-01-03,Male,Single,Retired,71046,728,Utah,24246,0
+1384,1986-09-30,Female,Single,Self-employed,63483,616,Oklahoma,74698,0
+1388,1991-03-13,Male,Married,Retired,129429,335,Georgia,85301,0
+1394,1968-09-08,Male,Married,Self-employed,78066,594,Minnesota,76782,0
+1396,1975-10-18,Other,Married,Retired,31693,611,Wisconsin,84597,1
+1400,1996-09-07,Female,Single,Employed,63025,720,Alaska,51741,0
+1401,1990-09-27,Female,Married,Employed,132762,464,Wisconsin,78300,0
+1413,1998-12-20,Female,Single,Retired,48772,785,Virginia,43471,0
+1414,2003-02-10,Female,Married,Self-employed,59291,376,Rhode Island,22972,0
+1415,1999-09-16,Male,Single,Unemployed,64075,374,Rhode Island,67128,0
+1416,1969-03-10,Other,Widowed,Employed,33303,793,West Virginia,55720,0
+1417,1981-09-27,Male,Married,Self-employed,35193,666,Utah,38678,0
+1419,1980-07-28,Male,Widowed,Retired,20886,589,North Carolina,32698,1
+1424,1954-02-10,Female,Widowed,Self-employed,98696,777,Alaska,72837,0
+1428,1994-07-10,Other,Married,Retired,149841,349,Nebraska,35011,1
+1429,1988-02-03,Other,Divorced,Retired,24501,386,Massachusetts,9300,0
+1430,1960-12-01,Other,Married,Retired,130055,778,New Mexico,29740,0
+1431,1989-11-06,Male,Married,Unemployed,125538,758,Iowa,8679,0
+1432,1993-11-25,Female,Divorced,Self-employed,123990,468,Arkansas,94857,0
+1434,1956-02-17,Male,Married,Self-employed,121685,381,Indiana,19231,0
+1435,1987-10-04,Female,Widowed,Employed,94916,411,New Mexico,37556,0
+1439,1956-06-28,Male,Married,Retired,132757,794,Indiana,77290,0
+1445,1983-06-26,Male,Divorced,Retired,106359,633,New York,40969,0
+1447,1992-01-13,Male,Widowed,Self-employed,132969,491,Wisconsin,93204,0
+1448,2001-09-07,Male,Widowed,Unemployed,123142,553,New York,47481,0
+1449,1994-10-23,Female,Single,Employed,57722,738,Missouri,25015,1
+1450,1996-03-10,Other,Married,Self-employed,100984,309,Arkansas,79598,0
+1456,1965-06-10,Male,Widowed,Unemployed,69291,753,Massachusetts,65435,0
+1459,1967-02-25,Other,Divorced,Employed,128272,732,Indiana,44084,0
+1460,1992-06-26,Female,Married,Retired,60608,605,Maine,48954,1
+1464,1967-11-13,Female,Divorced,Employed,54648,464,Indiana,67520,0
+1469,2004-02-04,Female,Single,Self-employed,73061,398,North Dakota,5772,0
+1470,2001-11-05,Male,Widowed,Unemployed,50802,823,California,74418,0
+1471,1991-01-09,Male,Married,Retired,25736,556,Arizona,43128,0
+1476,1999-05-03,Female,Single,Retired,136186,615,Alaska,68395,0
+1477,1993-11-23,Female,Widowed,Retired,123278,638,Arizona,51222,1
+1478,1992-06-19,Male,Married,Unemployed,35285,526,New Mexico,48941,0
+1483,1958-08-26,Male,Divorced,Self-employed,121487,813,Florida,62239,1
+1491,1996-04-25,Male,Married,Retired,21499,357,Kansas,70132,0
+1493,2006-06-22,Other,Widowed,Employed,126982,780,Georgia,88389,0
+1499,1963-11-18,Other,Married,Retired,43516,715,Tennessee,6300,0
+1501,1999-09-20,Male,Married,Employed,146655,840,Indiana,6026,0
+1506,1957-10-14,Other,Divorced,Employed,39661,316,Wyoming,24655,0
+1509,1993-02-25,Male,Divorced,Unemployed,103490,510,Virginia,71620,0
+1510,1965-09-17,Other,Single,Retired,33463,402,Massachusetts,36449,1
+1511,1975-01-12,Female,Married,Retired,49743,434,Georgia,6800,1
+1514,2005-08-27,Male,Married,Self-employed,82802,664,Wyoming,8690,0
+1515,1970-08-27,Male,Widowed,Employed,74298,578,Alaska,82048,0
+1529,2003-01-20,Male,Divorced,Retired,55783,764,Arkansas,17196,0
+1531,1954-04-20,Other,Married,Employed,26494,741,Arkansas,9262,1
+1532,1999-05-31,Female,Married,Employed,82157,575,Nevada,97048,0
+1534,1968-01-24,Other,Married,Self-employed,32466,609,Illinois,12734,1
+1535,1972-09-08,Female,Widowed,Unemployed,135311,365,Illinois,62961,0
+1541,1982-09-15,Female,Widowed,Employed,147505,722,Nebraska,3299,0
+1542,1971-10-05,Male,Divorced,Self-employed,44886,590,New Jersey,35016,0
+1545,1982-09-30,Male,Widowed,Unemployed,124973,413,Massachusetts,4557,0
+1548,1997-06-03,Male,Widowed,Retired,68905,513,South Carolina,52489,1
+1552,1956-10-11,Male,Widowed,Self-employed,25777,518,Georgia,52675,0
+1553,1984-12-13,Male,Married,Self-employed,79326,538,Idaho,64814,1
+1554,1974-09-22,Female,Married,Retired,24162,456,Delaware,42285,1
+1555,2006-12-18,Other,Widowed,Retired,78274,830,Delaware,42176,0
+1563,1991-01-09,Other,Single,Self-employed,122048,653,West Virginia,14421,0
+1565,1977-04-09,Male,Divorced,Self-employed,35014,663,Montana,73932,0
+1575,1959-06-04,Other,Divorced,Self-employed,141363,585,Louisiana,71706,0
+1578,1986-04-05,Female,Widowed,Self-employed,97901,348,Illinois,72418,0
+1589,2000-08-18,Male,Single,Self-employed,135688,360,New Jersey,77611,0
+1595,1974-05-28,Other,Single,Retired,67467,406,North Carolina,63611,0
+1598,1969-12-31,Other,Divorced,Retired,83256,841,Wyoming,63345,0
+1600,1961-04-26,Female,Widowed,Employed,88127,771,Montana,98490,0
+1603,1975-12-30,Male,Single,Self-employed,119280,541,New York,40104,1
+1608,1983-04-20,Female,Single,Self-employed,97656,838,Wyoming,7325,0
+1610,1963-10-02,Female,Widowed,Retired,78460,452,Alaska,29599,0
+1611,2005-04-29,Female,Single,Employed,130367,840,Idaho,10639,0
+1612,1990-07-22,Other,Married,Retired,26397,386,Nevada,76450,0
+1618,2001-04-28,Other,Married,Unemployed,77875,688,Michigan,17620,0
+1619,1989-03-10,Male,Married,Employed,31512,377,Louisiana,89797,0
+1620,1979-12-25,Female,Widowed,Unemployed,43155,522,California,98547,0
+1622,1954-06-28,Other,Widowed,Unemployed,88698,613,Colorado,89794,0
+1623,1964-10-30,Other,Married,Self-employed,88932,479,Kansas,18098,0
+1625,2002-04-22,Male,Divorced,Unemployed,65188,798,New Hampshire,7208,0
+1628,1998-08-29,Other,Married,Employed,122218,585,Florida,36710,0
+1632,1997-06-18,Female,Single,Retired,114720,366,South Dakota,99807,1
+1636,1976-03-20,Other,Widowed,Retired,116660,453,Nebraska,99773,0
+1642,1998-06-07,Male,Divorced,Employed,98162,849,Louisiana,60480,0
+1643,1982-02-28,Male,Single,Self-employed,64211,366,Vermont,65572,0
+1648,1965-09-25,Male,Widowed,Retired,141858,548,Idaho,59711,0
+1660,1961-08-25,Other,Widowed,Self-employed,98355,403,North Dakota,72902,0
+1664,2003-06-09,Other,Single,Unemployed,112953,728,Maine,90859,0
+1669,1967-08-09,Other,Divorced,Self-employed,129533,754,North Dakota,94184,0
+1672,1994-02-17,Other,Single,Self-employed,105533,768,Hawaii,44199,0
+1673,1973-12-19,Female,Divorced,Unemployed,70728,526,Louisiana,88582,0
+1681,1988-05-27,Male,Widowed,Self-employed,128701,639,West Virginia,12519,0
+1683,1974-08-09,Female,Single,Unemployed,45829,630,Vermont,16877,1
+1688,1992-07-10,Female,Divorced,Employed,33263,511,New York,67448,0
+1689,1968-07-17,Female,Single,Employed,120065,402,Virginia,55737,0
+1691,2000-04-26,Female,Single,Self-employed,133189,402,Arkansas,52428,0
+1693,1975-12-16,Other,Married,Unemployed,140673,319,Utah,59528,0
+1704,1955-02-16,Other,Widowed,Self-employed,140319,510,New Jersey,58490,0
+1705,1990-05-04,Male,Widowed,Retired,21367,341,Oklahoma,27556,0
+1708,1970-08-19,Other,Widowed,Retired,75045,512,Missouri,72668,1
+1710,1979-06-13,Male,Single,Unemployed,60653,545,Minnesota,59970,0
+1711,1987-01-18,Male,Single,Unemployed,112385,595,South Dakota,29742,1
+1712,1987-11-04,Female,Divorced,Employed,76919,813,Maine,37370,0
+1713,1981-09-06,Male,Widowed,Unemployed,89545,547,Vermont,3019,0
+1714,1976-11-16,Other,Widowed,Unemployed,44765,469,Utah,22743,0
+1716,2005-01-23,Male,Divorced,Employed,121008,727,Nevada,99430,0
+1731,1960-06-04,Male,Widowed,Retired,20717,433,South Dakota,89127,0
+1735,1993-12-03,Female,Widowed,Employed,98287,775,Indiana,26204,1
+1736,1978-01-23,Other,Single,Employed,75449,463,Idaho,11500,1
+1737,1983-09-15,Male,Single,Self-employed,135864,369,Vermont,62262,0
+1739,2005-08-01,Female,Divorced,Unemployed,107999,763,Utah,70347,1
+1740,1994-07-25,Female,Widowed,Retired,34036,442,Nevada,67747,1
+1741,1982-05-24,Female,Married,Self-employed,135574,405,Indiana,47213,0
+1747,1957-05-30,Other,Widowed,Self-employed,45748,322,Massachusetts,44500,1
+1752,1959-02-06,Other,Married,Self-employed,63046,320,Kansas,78932,0
+1758,2001-09-06,Male,Married,Unemployed,30397,311,South Dakota,21526,1
+1760,1986-06-16,Female,Single,Unemployed,115865,598,New Mexico,25418,0
+1766,1957-12-28,Other,Single,Retired,75654,634,Nevada,8087,0
+1770,1997-04-21,Female,Divorced,Self-employed,33775,605,Wyoming,48774,0
+1771,1998-12-14,Female,Single,Retired,58402,702,Kentucky,87528,0
+1778,2006-10-03,Female,Widowed,Unemployed,101123,618,Rhode Island,4952,1
+1784,2004-11-02,Male,Single,Employed,75157,382,New Hampshire,89073,0
+1788,1981-01-01,Male,Widowed,Self-employed,137911,686,Nebraska,3670,1
+1796,1991-02-10,Other,Divorced,Unemployed,62090,386,Michigan,18369,0
+1797,1989-07-04,Female,Divorced,Retired,113581,495,Virginia,36520,0
+1798,1979-12-24,Female,Divorced,Self-employed,92137,453,Pennsylvania,75610,0
+1800,1960-05-08,Female,Single,Employed,125012,405,West Virginia,9111,0
+1801,1997-09-25,Other,Divorced,Unemployed,102366,850,Colorado,90476,0
+1803,1997-09-21,Female,Widowed,Retired,48590,767,Alaska,54577,0
+1804,1973-11-21,Male,Divorced,Retired,51900,756,Missouri,78281,0
+1805,1964-06-30,Male,Widowed,Unemployed,96658,549,Delaware,12661,0
+1806,1969-10-04,Male,Married,Self-employed,137127,724,New Mexico,89474,0
+1809,2001-06-30,Female,Married,Employed,78994,592,Massachusetts,93653,0
+1811,1960-12-17,Other,Single,Employed,99395,473,South Dakota,83617,1
+1812,1978-03-03,Other,Single,Employed,48902,769,Montana,72211,0
+1814,1976-09-05,Female,Divorced,Employed,25995,705,New York,97707,0
+1817,1971-01-24,Male,Married,Retired,129042,500,Arkansas,79343,1
+1819,1998-08-10,Other,Married,Employed,73772,658,Pennsylvania,92956,0
+1822,1974-08-18,Female,Single,Self-employed,131977,588,Montana,3884,0
+1824,2005-07-31,Male,Divorced,Retired,46505,579,Vermont,31372,0
+1825,1976-03-22,Male,Widowed,Retired,91217,826,California,78769,0
+1827,2001-11-03,Female,Married,Unemployed,41390,366,Connecticut,20446,0
+1831,2006-06-10,Other,Married,Retired,116253,771,Tennessee,39202,1
+1836,1992-07-02,Male,Single,Employed,131351,328,Montana,3156,0
+1837,1991-11-21,Male,Married,Retired,113549,568,Massachusetts,31218,1
+1839,1959-10-24,Other,Single,Retired,143309,631,Maine,24139,0
+1843,1999-07-21,Female,Divorced,Self-employed,48683,395,Nebraska,5639,0
+1844,1998-01-30,Other,Widowed,Self-employed,31116,654,Hawaii,76128,0
+1845,1982-09-03,Male,Married,Retired,41465,690,Nevada,55528,1
+1853,1979-08-13,Male,Widowed,Self-employed,31971,743,Georgia,41513,0
+1857,1998-02-02,Male,Divorced,Retired,53914,601,California,32967,0
+1858,1984-07-03,Female,Divorced,Retired,36457,557,Massachusetts,90295,0
+1862,2001-09-10,Other,Divorced,Retired,23488,376,Mississippi,74606,0
+1863,1963-07-17,Other,Married,Retired,85290,483,Texas,9285,1
+1864,1966-06-08,Male,Widowed,Unemployed,106485,465,Massachusetts,2853,1
+1868,1958-08-15,Other,Widowed,Retired,131922,473,Texas,65561,0
+1870,1989-10-10,Female,Divorced,Self-employed,54039,533,Connecticut,31779,0
+1873,2006-08-30,Female,Divorced,Employed,37411,366,Nevada,19262,0
+1875,1977-06-03,Other,Single,Self-employed,86614,644,Connecticut,90845,0
+1880,1987-05-01,Male,Widowed,Employed,35259,547,North Dakota,14857,0
+1885,1976-06-11,Other,Married,Self-employed,71887,481,Idaho,10926,0
+1886,1990-07-21,Male,Divorced,Employed,129118,352,Nebraska,87078,0
+1888,1962-02-18,Other,Widowed,Employed,38868,756,Montana,70203,0
+1892,1995-04-24,Female,Divorced,Self-employed,67354,496,South Carolina,93108,0
+1893,1954-08-08,Other,Single,Unemployed,61902,522,Oklahoma,55831,0
+1894,1962-03-10,Male,Single,Employed,37122,594,Arizona,74400,0
+1896,1979-11-02,Male,Widowed,Unemployed,55369,816,Massachusetts,42886,0
+1897,1993-09-15,Other,Single,Self-employed,75570,714,New York,17579,0
+1901,1981-05-27,Female,Married,Self-employed,144881,664,Wisconsin,69055,1
+1902,1977-01-15,Female,Single,Employed,126461,755,Hawaii,11592,0
+1904,1969-08-14,Female,Married,Employed,82308,692,Mississippi,87157,0
+1912,1991-07-06,Female,Widowed,Self-employed,41217,540,Massachusetts,59778,0
+1913,1976-08-24,Other,Divorced,Unemployed,145823,698,Arkansas,82470,0
+1916,1977-07-28,Male,Single,Unemployed,39783,434,Hawaii,83183,0
+1919,1967-12-02,Other,Single,Retired,31675,587,Alaska,91006,0
+1920,1997-12-07,Male,Single,Retired,114856,388,Wisconsin,79417,1
+1921,1961-12-03,Male,Divorced,Self-employed,126841,607,Kansas,45283,0
+1922,1987-09-06,Male,Married,Employed,102372,461,Texas,59955,0
+1924,1992-08-11,Other,Married,Retired,60862,556,Florida,9262,0
+1925,1960-07-04,Male,Divorced,Retired,134114,669,Pennsylvania,28145,0
+1926,1979-12-23,Other,Single,Self-employed,31960,767,Missouri,57245,0
+1928,1956-12-24,Other,Single,Retired,86513,333,Maine,58034,0
+1930,1973-08-01,Male,Married,Retired,81320,531,North Carolina,37971,0
+1935,1969-01-11,Male,Divorced,Employed,106036,637,Colorado,9468,0
+1948,1978-11-25,Male,Widowed,Self-employed,68726,518,Delaware,45537,0
+1949,1999-03-13,Female,Divorced,Unemployed,22523,816,Arkansas,31946,0
+1956,1984-06-17,Other,Single,Unemployed,32619,749,Oklahoma,74154,0
+1960,1998-02-09,Male,Married,Employed,68239,842,Maine,88180,1
+1966,1991-04-19,Other,Divorced,Self-employed,36449,416,New Hampshire,45877,0
+1967,1955-08-16,Female,Single,Self-employed,36848,700,Rhode Island,74368,0
+1971,1960-03-11,Male,Married,Retired,140432,397,North Dakota,45723,0
+1972,1965-02-01,Female,Widowed,Unemployed,110659,468,Kentucky,68842,0
+1976,1964-04-20,Female,Widowed,Retired,62566,772,Kansas,28124,0
+1977,1956-06-30,Other,Divorced,Retired,146483,491,Rhode Island,90483,0
+1980,1984-02-13,Female,Divorced,Employed,135150,417,Indiana,28171,0
+1981,1977-10-09,Female,Single,Self-employed,48928,709,Washington,70320,0
+1988,1971-07-10,Male,Single,Employed,143271,575,Connecticut,43078,1
+1992,1997-06-20,Male,Divorced,Unemployed,98866,448,Florida,23057,0
+1995,1990-02-06,Male,Single,Unemployed,143341,741,Connecticut,69771,1
+1997,1993-10-21,Male,Widowed,Self-employed,56541,347,Wyoming,55324,0
+1999,2000-08-27,Male,Divorced,Unemployed,20619,666,Minnesota,85332,0
+2000,1989-06-04,Other,Divorced,Unemployed,132770,787,Utah,62387,0
+2002,1986-10-18,Male,Widowed,Self-employed,41473,800,Oklahoma,37521,0
+2004,1993-07-11,Other,Married,Unemployed,48480,550,Michigan,96026,0
+2008,2001-07-23,Female,Married,Retired,47081,766,New Mexico,61728,0
+2010,1986-05-25,Male,Divorced,Employed,29564,486,Oregon,25514,0
+2014,1961-09-26,Other,Widowed,Employed,138703,462,Louisiana,83468,0
+2018,1978-09-29,Other,Widowed,Self-employed,94176,693,California,13403,0
+2023,1965-06-29,Other,Widowed,Employed,44428,457,Oklahoma,94451,0
+2027,1981-09-16,Female,Widowed,Employed,68648,563,Virginia,46884,1
+2029,1990-02-26,Other,Divorced,Employed,76166,766,Vermont,99562,0
+2034,1994-02-04,Female,Divorced,Self-employed,104202,461,Maryland,58640,0
+2039,1992-01-19,Female,Widowed,Self-employed,22320,652,Rhode Island,80392,0
+2040,1977-02-04,Other,Divorced,Employed,101711,375,Idaho,38997,0
+2044,1955-07-14,Female,Divorced,Retired,35973,771,Wyoming,32519,0
+2045,1969-02-22,Female,Divorced,Self-employed,106080,367,Michigan,5970,0
+2046,2000-10-16,Male,Divorced,Employed,72017,645,Maine,64393,0
+2047,1993-02-10,Male,Divorced,Employed,40194,759,North Carolina,65976,0
+2048,1999-07-02,Male,Divorced,Employed,72946,348,Indiana,76401,0

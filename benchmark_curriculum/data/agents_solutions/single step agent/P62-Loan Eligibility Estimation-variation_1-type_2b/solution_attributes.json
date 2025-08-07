@@ -1,0 +1,47 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "income_loan_ratio",
+        "loan_success_ratio",
+        "time_since_last_loan",
+        "monthly_payment_loan_ratio",
+        "credit_stability",
+        "applicant_age"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.27428660326337795": {
+            "name": "income_loan_ratio",
+            "code": "import numpy as np\n\ndef income_loan_ratio(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> float:\n    # Access the demographics dataframe using the correct key\n    demographics = aux_dataframes[\"applicant_demographics_table.csv\"]\n    \n    # Filter the demographics dataframe to find the annual income for the given applicant_id\n    annual_income = demographics.loc[demographics['applicant_id'] == row['applicant_id'], 'annual_income']\n    \n    # If no matching applicant_id is found, return NaN\n    if len(annual_income) == 0:\n        return np.nan\n    \n    # Calculate and return the income-to-loan ratio\n    return row['loan_amount'] / annual_income.values[0]\n"
+        },
+        "0.25450261109543354": {
+            "name": "loan_success_ratio",
+            "code": "import numpy as np\n\ndef loan_success_ratio(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> float:\n    # Access the correct dataframe using the key 'previous_loans_table.csv'\n    previous_loans = aux_dataframes[\"previous_loans_table.csv\"]\n    \n    # Filter the dataframe to get loans for the specific applicant\n    applicant_loans = previous_loans.loc[previous_loans['applicant_id'] == row['applicant_id']]\n    \n    # If no loans exist for the applicant, return NaN\n    if applicant_loans.empty:\n        return np.nan\n    \n    # Count the number of successful loans\n    successful_loans = len(applicant_loans[applicant_loans['loan_status'] == 'Paid Off'])\n    \n    # Count the total number of loans\n    total_loans = len(applicant_loans)\n    \n    # Calculate and return the success ratio\n    return successful_loans / total_loans if total_loans > 0 else 0\n"
+        },
+        "0.024175815610138512": {
+            "name": "time_since_last_loan",
+            "code": "import numpy as np\nimport pandas as pd\n\ndef time_since_last_loan(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the 'previous_loans_table.csv' dataframe from aux_data\n    if \"previous_loans_table.csv\" not in aux_data:\n        raise KeyError(\"The key 'previous_loans_table.csv' is missing from aux_data.\")\n    \n    previous_loans = aux_data[\"previous_loans_table.csv\"]\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'applicant_id', 'start_date'}\n    if not required_columns.issubset(previous_loans.columns):\n        raise KeyError(f\"The dataframe 'previous_loans_table.csv' is missing required columns: {required_columns - set(previous_loans.columns)}\")\n    \n    # Filter loans for the specific applicant\n    applicant_loans = previous_loans.loc[previous_loans['applicant_id'] == row['applicant_id']]\n    \n    # If no previous loans exist for the applicant, return NaN\n    if applicant_loans.empty:\n        return np.nan\n    \n    # Convert 'start_date' to datetime and find the most recent loan date\n    applicant_loans['start_date'] = pd.to_datetime(applicant_loans['start_date'], errors='coerce')\n    last_loan_date = applicant_loans['start_date'].max()\n    \n    # If the conversion to datetime failed for all rows, return NaN\n    if pd.isna(last_loan_date):\n        return np.nan\n    \n    # Calculate the difference in days between today and the last loan date\n    today = pd.Timestamp.today()\n    return (today - last_loan_date).days\n"
+        },
+        "0.016570771131496024": {
+            "name": "monthly_payment_loan_ratio",
+            "code": "\n\ndef monthly_payment_loan_ratio(row):\n    monthly_payment = (row['loan_amount'] * (1 + row['interest_rate'] / 100)) / row['loan_term']\n    return monthly_payment / row['loan_amount']\n"
+        },
+        "0.011507697165395772": {
+            "name": "credit_stability",
+            "code": "import numpy as np\n\ndef credit_stability(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the key 'credit_scores_table.csv' exists in aux_data\n    if \"credit_scores_table.csv\" not in aux_data:\n        raise KeyError(\"The key 'credit_scores_table.csv' is missing from aux_data.\")\n    \n    # Get the credit_scores dataframe\n    credit_scores = aux_data[\"credit_scores_table.csv\"]\n    \n    # Ensure the required columns exist in the credit_scores dataframe\n    required_columns = [\n        'applicant_id', 'credit_score', 'credit_history_length', \n        'number_of_credit_inquiries', 'credit_utilization_ratio'\n    ]\n    for col in required_columns:\n        if col not in credit_scores.columns:\n            raise KeyError(f\"The column '{col}' is missing from the credit_scores dataframe.\")\n    \n    # Filter the credit_scores dataframe for the given applicant_id\n    applicant_credit = credit_scores.loc[credit_scores['applicant_id'] == row['applicant_id']]\n    \n    # If no matching applicant_id is found, return NaN\n    if applicant_credit.empty:\n        return np.nan\n    \n    # Calculate the stability score\n    applicant_credit = applicant_credit.iloc[0]  # Get the first matching row\n    stability = (\n        applicant_credit['credit_score'] +\n        applicant_credit['credit_history_length'] -\n        applicant_credit['number_of_credit_inquiries']\n    ) / (1 + applicant_credit['credit_utilization_ratio'])\n    \n    return stability\n"
+        },
+        "0.010053534792765424": {
+            "name": "applicant_age",
+            "code": "import datetime\nimport numpy as np\n\ndef applicant_age(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the demographics dataframe using the correct key\n    demographics = aux_data[\"applicant_demographics_table.csv\"]\n    \n    # Find the date of birth for the given applicant_id\n    date_of_birth = demographics.loc[demographics['applicant_id'] == row['applicant_id'], 'date_of_birth']\n    \n    # If no date of birth is found, return NaN\n    if len(date_of_birth) == 0:\n        return np.nan\n    \n    # Parse the date of birth\n    dob = datetime.datetime.strptime(date_of_birth.values[0], '%Y-%m-%d')\n    \n    # Get today's date\n    today = datetime.datetime.today()\n    \n    # Calculate the age\n    age = today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))\n    \n    return age\n"
+        }
+    },
+    "feature_descriptions": [
+        "income loan ratio",
+        "loan success ratio",
+        "time since last loan",
+        "monthly payment loan ratio",
+        "credit stability",
+        "applicant age"
+    ]
+}

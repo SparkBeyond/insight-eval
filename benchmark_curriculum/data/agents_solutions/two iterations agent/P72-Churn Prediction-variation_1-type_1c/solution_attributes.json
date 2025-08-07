@@ -1,0 +1,36 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "average_feedback_score",
+        "time_since_last_feedback",
+        "feedback_count",
+        "feedback_frequency",
+        "account_age",
+        "response_rate",
+        "time_since_last_transaction",
+        "participation_count",
+        "avg_feedback_score",
+        "active_status",
+        "median_transaction_amount",
+        "total_transaction_amount",
+        "time_since_last_feedback_repeated_colname1"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "average feedback score",
+        "time since last feedback",
+        "feedback count",
+        "feedback frequency",
+        "account age",
+        "response rate",
+        "time since last transaction",
+        "participation count",
+        "avg feedback score",
+        "active status",
+        "median transaction amount",
+        "total transaction amount",
+        "time since last feedback repeated colname1"
+    ]
+}

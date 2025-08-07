@@ -1,0 +1,12 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "height_to_diameter_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "height to diameter ratio"
+    ]
+}

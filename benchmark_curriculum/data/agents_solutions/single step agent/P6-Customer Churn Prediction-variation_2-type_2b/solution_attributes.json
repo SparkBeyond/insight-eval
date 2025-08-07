@@ -1,0 +1,71 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "purchase_count",
+        "total_purchase_amount",
+        "discount_ratio",
+        "max_purchase_amount",
+        "days_since_last_activity",
+        "unique_activity_count",
+        "avg_purchase_amount",
+        "time_since_signup",
+        "time_since_last_purchase",
+        "preferred_activity_type"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.17024561339201938": {
+            "name": "purchase_count",
+            "code": "\n\ndef purchase_count(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Access the purchase history dataframe from aux_data\n    purchase_history_df = aux_data['purchase_history_table.csv']\n    \n    # Filter the purchase history dataframe for the given customer_id\n    customer_purchases = purchase_history_df[purchase_history_df['customer_id'] == row['customer_id']]\n    \n    # Return the count of purchases for the customer\n    return customer_purchases['purchase_date'].count()\n"
+        },
+        "0.1409700049355829": {
+            "name": "total_purchase_amount",
+            "code": "\n\ndef total_purchase_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the purchase history dataframe from aux_data\n    purchase_history_df = aux_data['purchase_history_table.csv']\n    \n    # Filter the purchase history for the given customer_id\n    customer_purchases = purchase_history_df[purchase_history_df['customer_id'] == row['customer_id']]\n    \n    # Return the sum of the 'purchase_amount' column\n    return customer_purchases['purchase_amount'].sum()\n"
+        },
+        "0.12411240229736935": {
+            "name": "discount_ratio",
+            "code": "\n\ndef discount_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the purchase history dataframe from aux_data\n    purchase_history_df = aux_data['purchase_history_table.csv']\n    \n    # Filter rows for the given customer_id\n    customer_rows = purchase_history_df[purchase_history_df['customer_id'] == row['customer_id']]\n    \n    # Calculate the total discount usage and total purchases\n    discount_usage = customer_rows['discount_applied'].sum()\n    total_purchases = len(customer_rows)\n    \n    # Return the discount ratio\n    return discount_usage / total_purchases if total_purchases > 0 else 0\n"
+        },
+        "0.05529112777315345": {
+            "name": "max_purchase_amount",
+            "code": "\n\ndef max_purchase_amount(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Access the purchase history dataframe from aux_data\n    purchase_history_df = aux_data['purchase_history_table.csv']\n    \n    # Filter the purchase history for the given customer_id\n    customer_purchases = purchase_history_df[purchase_history_df['customer_id'] == row['customer_id']]\n    \n    # Return the maximum purchase amount for the customer\n    if not customer_purchases.empty:\n        return customer_purchases['purchase_amount'].max()\n    else:\n        return None  # Return None if the customer has no purchase history\n"
+        },
+        "0.039510623307758605": {
+            "name": "days_since_last_activity",
+            "code": "import pandas as pd\nimport datetime\n\ndef days_since_last_activity(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe from aux_data\n    app_activity_df = aux_data['app_activity_table.csv']\n    \n    # Filter activities for the given customer_id\n    customer_activities = app_activity_df[app_activity_df['customer_id'] == row['customer_id']]['activity_date']\n    \n    # Ensure 'activity_date' is in datetime format\n    customer_activities = pd.to_datetime(customer_activities)\n    \n    # Calculate days since the last activity\n    if not customer_activities.empty:\n        return (datetime.datetime.now() - customer_activities.max()).days\n    \n    # Return None if no activities are found\n    return None\n"
+        },
+        "0.032520179933353995": {
+            "name": "unique_activity_count",
+            "code": "\n\ndef unique_activity_count(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe from aux_data\n    app_activity_df = aux_data['app_activity_table.csv']\n    \n    # Filter the dataframe for the given customer_id\n    customer_activities = app_activity_df[app_activity_df['customer_id'] == row['customer_id']]['activity_type']\n    \n    # Return the number of unique activity types\n    return customer_activities.nunique()\n"
+        },
+        "0.016739031464642277": {
+            "name": "avg_purchase_amount",
+            "code": "\n\ndef avg_purchase_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the purchase history dataframe from aux_data\n    purchase_history = aux_data['purchase_history_table.csv']\n    \n    # Filter the purchase history for the given customer_id\n    customer_purchases = purchase_history[purchase_history['customer_id'] == row['customer_id']]\n    \n    # Calculate and return the mean of the 'purchase_amount' column\n    return customer_purchases['purchase_amount'].mean() if not customer_purchases.empty else 0.0\n"
+        },
+        "0.016065437768980364": {
+            "name": "time_since_signup",
+            "code": "import pandas as pd\nimport datetime\n\ndef time_since_signup(row):\n    today = datetime.now()  # Use datetime.datetime.now() correctly\n    signup_date = pd.to_datetime(row['signup_date'])  # Ensure signup_date is parsed as a datetime object\n    return (today - signup_date).days  # Calculate the difference in days\n"
+        },
+        "0.006329347276073906": {
+            "name": "time_since_last_purchase",
+            "code": "import pandas as pd\nimport datetime\n\ndef time_since_last_purchase(row):\n    today = datetime.now()  # Use datetime.now() to get the current date and time\n    return (today - pd.to_datetime(row['last_purchase_date'])).days\n"
+        },
+        "0.0021458059719017264": {
+            "name": "preferred_activity_type",
+            "code": "\n\ndef preferred_activity_type(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe from aux_data\n    app_activity_df = aux_data.get('app_activity_table.csv')\n    \n    # Check if the dataframe exists and is not None\n    if app_activity_df is None:\n        raise ValueError(\"The 'app_activity_table.csv' dataframe is missing from aux_data.\")\n    \n    # Filter the dataframe for the given customer_id\n    customer_activities = app_activity_df[app_activity_df['customer_id'] == row['customer_id']]['activity_type']\n    \n    # Return the mode of the activity_type column if it exists, otherwise return None\n    return customer_activities.mode()[0] if not customer_activities.empty else None\n"
+        }
+    },
+    "feature_descriptions": [
+        "purchase count",
+        "total purchase amount",
+        "discount ratio",
+        "max purchase amount",
+        "days since last activity",
+        "unique activity count",
+        "avg purchase amount",
+        "time since signup",
+        "time since last purchase",
+        "preferred activity type"
+    ]
+}

@@ -1,0 +1,89 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "subscription_duration",
+        "feedback_count",
+        "total_payment_amount",
+        "satisfaction_score_per_month",
+        "average_payment_amount",
+        "days_since_subscription_start",
+        "payment_frequency",
+        "time_between_upgrade_and_start",
+        "months_since_signup",
+        "satisfaction_score_mean",
+        "income_to_average_payment_ratio",
+        "package_changed",
+        "age_group"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.08178983466852485": {
+            "name": "subscription_duration",
+            "code": "import datetime\n\ndef subscription_duration(row: Dict[str, any]) -> int:\n    try:\n        # Parse the start and end dates\n        start_date = datetime.datetime.strptime(row['subscription_start_date'], '%Y-%m-%d')\n        end_date = datetime.datetime.strptime(row['subscription_end_date'], '%Y-%m-%d')\n        # Calculate the duration in days\n        return (end_date - start_date).days\n    except (KeyError, ValueError, TypeError) as e:\n        # Handle missing or invalid date values\n        print(f\"Error processing row: {row}, Error: {e}\")\n        return None\n"
+        },
+        "0.0468325838371434": {
+            "name": "feedback_count",
+            "code": "\n\ndef feedback_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the feedback dataframe\n    feedback_df = aux_dataframes['customer_feedback_table.csv']\n    \n    # Ensure the column names match the expected structure\n    if 'customer_id' not in feedback_df.columns:\n        raise KeyError(\"The 'customer_feedback_table.csv' dataframe does not contain the 'customer_id' column.\")\n    \n    # Filter the feedback dataframe by the customer_id in the row and return the count\n    return len(feedback_df[feedback_df['customer_id'] == row['customer_id']])\n"
+        },
+        "0.04162320491082547": {
+            "name": "total_payment_amount",
+            "code": "\n\ndef total_payment_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_dataframes\n    aux_payments = aux_dataframes['payment_history_table.csv']\n    \n    # Filter the payment history dataframe for the given customer_id\n    customer_payments = aux_payments[aux_payments['customer_id'] == row['customer_id']]\n    \n    # Return the sum of the 'amount' column, or 0 if no payments exist\n    return customer_payments['amount'].sum() if not customer_payments.empty else 0\n"
+        },
+        "0.03849777932014046": {
+            "name": "satisfaction_score_per_month",
+            "code": "import pandas as pd\nimport datetime\n\ndef satisfaction_score_per_month(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the feedback dataframe\n    feedback_df = aux_dataframes['customer_feedback_table.csv']\n    \n    # Filter the feedback dataframe for the given customer_id\n    filtered = feedback_df[feedback_df['customer_id'] == row['customer_id']]\n    \n    if not filtered.empty:\n        # Convert feedback_date to datetime and find the earliest feedback date\n        start = pd.to_datetime(filtered['feedback_date']).min()\n        \n        # Calculate the number of months since the earliest feedback date\n        months = (datetime.datetime.now() - start).days / 30.44\n        \n        # Calculate the average satisfaction score per month\n        return filtered['satisfaction_score'].mean() / months if months > 0 else 0\n    \n    # Return 0 if no feedback exists for the customer\n    return 0\n"
+        },
+        "0.030911690553913455": {
+            "name": "average_payment_amount",
+            "code": "\n\ndef average_payment_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct key for the payment history dataframe\n    aux_payments = aux_dataframes['payment_history_table.csv']\n    \n    # Filter payments for the specific customer_id\n    customer_payments = aux_payments[aux_payments['customer_id'] == row['customer_id']]\n    \n    # Calculate and return the mean payment amount, or 0 if no payments exist\n    return customer_payments['amount'].mean() if not customer_payments.empty else 0\n"
+        },
+        "0.026562453267877123": {
+            "name": "days_since_subscription_start",
+            "code": "import pandas as pd\nimport datetime\n\ndef days_since_subscription_start(row):\n    if pd.isna(row['upgrade_date']):\n        return None\n    # Use datetime.datetime.strptime instead of datetime.strptime\n    start_date = datetime.datetime.strptime(row['subscription_start_date'], '%Y-%m-%d')\n    upgrade_date = datetime.datetime.strptime(row['upgrade_date'], '%Y-%m-%d')\n    return (upgrade_date - start_date).days\n"
+        },
+        "0.017958181197282215": {
+            "name": "payment_frequency",
+            "code": "\n\ndef payment_frequency(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_dataframes\n    aux_payments = aux_dataframes['payment_history_table.csv']\n    \n    # Filter the payment history for the given customer_id\n    payments = aux_payments[aux_payments['customer_id'] == row['customer_id']]\n    \n    # Return the number of payments made by the customer\n    return len(payments)\n"
+        },
+        "0.016561722354153745": {
+            "name": "time_between_upgrade_and_start",
+            "code": "import pandas as pd\nimport datetime\n\ndef time_between_upgrade_and_start(row):\n    if pd.isna(row['upgrade_date']):\n        return 0\n    # Correcting the usage of datetime.strptime\n    upgrade_date = datetime.datetime.strptime(row['upgrade_date'], '%Y-%m-%d')\n    start_date = datetime.datetime.strptime(row['subscription_start_date'], '%Y-%m-%d')\n    return (upgrade_date - start_date).days\n"
+        },
+        "0.01629476718568163": {
+            "name": "months_since_signup",
+            "code": "import datetime\n\ndef months_since_signup(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the customer profiles table\n    aux_profiles = aux_dataframes['customer_profiles_table.csv']\n    \n    # Filter the profiles dataframe for the given customer_id\n    profile = aux_profiles[aux_profiles['customer_id'] == row['customer_id']]\n    \n    # Check if the profile is not empty\n    if not profile.empty:\n        # Parse the signup_date from the profile\n        signup_date = datetime.datetime.strptime(profile['signup_date'].iloc[0], '%Y-%m-%d')\n        \n        # Calculate the difference in months\n        return (datetime.datetime.now() - signup_date).days / 30.44\n    \n    # Return 0 if no profile is found\n    return 0\n"
+        },
+        "0.015544846876680847": {
+            "name": "satisfaction_score_mean",
+            "code": "\n\ndef satisfaction_score_mean(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct key for the feedback data\n    aux_feedback = aux_dataframes['customer_feedback_table.csv']\n    \n    # Filter the feedback data for the given customer_id\n    feedback = aux_feedback[aux_feedback['customer_id'] == row['customer_id']]\n    \n    # Return the mean satisfaction score if feedback exists, otherwise return 0\n    return feedback['satisfaction_score'].mean() if not feedback.empty else 0\n"
+        },
+        "0.014247601979212626": {
+            "name": "income_to_average_payment_ratio",
+            "code": "\n\ndef average_payment_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the payment history dataframe\n    aux_payments = aux_dataframes['payment_history_table.csv']\n    customer_payments = aux_payments[aux_payments['customer_id'] == row['customer_id']]\n    return customer_payments['amount'].mean() if not customer_payments.empty else 0\n\ndef income_to_average_payment_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct keys for the dataframes\n    aux_payments = aux_dataframes['payment_history_table.csv']\n    aux_profiles = aux_dataframes['customer_profiles_table.csv']\n    \n    # Filter the customer profile for the given customer_id\n    customer_profile = aux_profiles[aux_profiles['customer_id'] == row['customer_id']]\n    \n    # Calculate the average payment amount\n    avg_payment = average_payment_amount(row, aux_dataframes)\n    \n    # If the customer profile exists, calculate the ratio\n    if not customer_profile.empty:\n        income = customer_profile['annual_income'].iloc[0]\n        return income / avg_payment if avg_payment > 0 else 0\n    \n    # Return 0 if no customer profile is found\n    return 0\n"
+        },
+        "0.0011028126418114103": {
+            "name": "package_changed",
+            "code": "import pandas as pd\n\ndef package_changed(row):\n       return int(row['current_package'] != row['previous_package'] and pd.notna(row['previous_package']))\n"
+        },
+        "-0.00040038097979300247": {
+            "name": "age_group",
+            "code": "\n\ndef age_group(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Get the customer_profiles_table dataframe from aux_data\n    customer_profiles = aux_data['customer_profiles_table.csv']\n    \n    # Find the age of the customer using the customer_id\n    customer_data = customer_profiles[customer_profiles['customer_id'] == customer_id]\n    \n    # If the customer_id is not found, return None\n    if customer_data.empty:\n        return None\n    \n    # Extract the age of the customer\n    age = customer_data.iloc[0]['age']\n    \n    # Determine the age group\n    if age < 25:\n        return 'Youth'\n    elif 25 <= age < 45:\n        return 'Young Adult'\n    elif 45 <= age < 65:\n        return 'Adult'\n    else:\n        return 'Senior'\n"
+        }
+    },
+    "feature_descriptions": [
+        "subscription duration",
+        "feedback count",
+        "total payment amount",
+        "satisfaction score per month",
+        "average payment amount",
+        "days since subscription start",
+        "payment frequency",
+        "time between upgrade and start",
+        "months since signup",
+        "satisfaction score mean",
+        "income to average payment ratio",
+        "package changed",
+        "age group"
+    ]
+}

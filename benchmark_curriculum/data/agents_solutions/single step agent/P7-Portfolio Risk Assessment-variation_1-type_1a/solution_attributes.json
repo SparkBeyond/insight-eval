@@ -1,0 +1,107 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "high_risk_asset_ratio",
+        "net_worth_to_total_assets_ratio",
+        "average_return_normalized",
+        "sector_volatility",
+        "return_rate_volatility",
+        "asset_risk_balance",
+        "trend_duration_days",
+        "investment_experience_per_age",
+        "portfolio_creation_age_in_days",
+        "annualized_average_return",
+        "risk_appetite_numerical",
+        "impact_score_to_assets_ratio",
+        "sector_focus_high_risk_ratio",
+        "client_experience_category",
+        "client_age_group",
+        "economic_impact_sector_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.1301348401656723": {
+            "name": "high_risk_asset_ratio",
+            "code": "\n\ndef high_risk_asset_ratio(row):\n    if row['total_assets'] > 0:\n        return row['high_risk_assets'] / row['total_assets']\n    else:\n        return 0\n"
+        },
+        "0.11509495240768919": {
+            "name": "net_worth_to_total_assets_ratio",
+            "code": "\n\ndef net_worth_to_total_assets_ratio(row, aux_dataframes):\n    client_profiles = aux_dataframes['client_profiles_table.csv']\n    client_net_worth = client_profiles.loc[client_profiles['client_id'] == row['client_id'], 'net_worth'].values\n    if len(client_net_worth) > 0 and row['total_assets'] > 0:\n        return client_net_worth[0] / row['total_assets']\n    else:\n        return 0\n"
+        },
+        "0.1056488432629895": {
+            "name": "average_return_normalized",
+            "code": "\n\ndef average_return_normalized(row):\n    if row['total_assets'] > 0:\n        return row['average_return'] / row['total_assets']\n    else:\n        return 0\n"
+        },
+        "0.07197157216432234": {
+            "name": "sector_volatility",
+            "code": "\n\ndef sector_volatility(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe\n    portfolio_history = aux_data['portfolio_history_table.csv']\n    \n    # Check if 'portfolio_id' exists in the portfolio_history dataframe\n    if 'portfolio_id' not in portfolio_history.columns:\n        raise KeyError(\"'portfolio_id' column is missing in portfolio_history_table.csv\")\n    \n    # Check if the input row contains 'sector_focus' and 'portfolio_id'\n    if 'sector_focus' not in row or 'portfolio_id' not in row:\n        raise KeyError(\"Input row must contain 'sector_focus' and 'portfolio_id'\")\n    \n    # Filter the portfolio history by the portfolio_id of the current row\n    portfolio_data = portfolio_history[portfolio_history['portfolio_id'] == row['portfolio_id']]\n    \n    # If the filtered data is empty, return 0\n    if portfolio_data.empty:\n        return 0\n    \n    # Calculate and return the standard deviation of the return_rate\n    return portfolio_data['return_rate'].std()\n"
+        },
+        "0.03359154552620461": {
+            "name": "return_rate_volatility",
+            "code": "\n\ndef return_rate_volatility(row, aux_dataframes):\n    portfolio_history = aux_dataframes['portfolio_history_table.csv']\n    portfolio_data = portfolio_history[portfolio_history['portfolio_id'] == row['portfolio_id']]\n    return portfolio_data['return_rate'].std() if not portfolio_data.empty else 0\n"
+        },
+        "0.017390128039882293": {
+            "name": "asset_risk_balance",
+            "code": "\n\ndef asset_risk_balance(row):\n    return row['high_risk_assets'] - row['low_risk_assets']\n"
+        },
+        "0.012128152969993719": {
+            "name": "trend_duration_days",
+            "code": "import datetime\n\ndef trend_duration_days(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Ensure the required dataframe exists in aux_data\n    if 'investment_trends_table.csv' not in aux_data:\n        raise KeyError(\"The 'investment_trends_table.csv' dataframe is missing from aux_data.\")\n    \n    # Get the investment trends dataframe\n    investment_trends_df = aux_data['investment_trends_table.csv']\n    \n    # Ensure the dataframe contains the required columns\n    required_columns = {'trend_id', 'start_date', 'end_date'}\n    if not required_columns.issubset(investment_trends_df.columns):\n        raise KeyError(f\"The 'investment_trends_table.csv' dataframe must contain the columns: {required_columns}\")\n    \n    # Check if the row contains a 'sector_focus' column to match with the investment trends dataframe\n    if 'sector_focus' not in row:\n        raise KeyError(\"The row does not contain a 'sector_focus' column.\")\n    \n    # Match the sector_focus in the row with the sector in the investment trends dataframe\n    sector_focus = row['sector_focus']\n    trend_row = investment_trends_df[investment_trends_df['sector'] == sector_focus]\n    \n    if trend_row.empty:\n        raise ValueError(f\"No matching trend found for sector_focus: {sector_focus}\")\n    \n    # Extract the start_date and end_date\n    try:\n        start_date = datetime.strptime(trend_row.iloc[0]['start_date'], '%Y-%m-%d %H:%M:%S.%f')\n        end_date = datetime.strptime(trend_row.iloc[0]['end_date'], '%Y-%m-%d %H:%M:%S.%f')\n        # Calculate and return the duration in days\n        return (end_date - start_date).days\n    except Exception as e:\n        raise ValueError(f\"Error processing sector_focus {sector_focus}. Error: {e}\")\n"
+        },
+        "0.009302835645175391": {
+            "name": "investment_experience_per_age",
+            "code": "\n\ndef investment_experience_per_age(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the client_id from the row\n    client_id = row['client_id']\n    \n    # Get the client_profiles_table dataframe from aux_data\n    client_profiles = aux_data['client_profiles_table.csv']\n    \n    # Find the row in client_profiles corresponding to the client_id\n    client_data = client_profiles[client_profiles['client_id'] == client_id]\n    \n    # If the client_id is not found, return 0\n    if client_data.empty:\n        return 0\n    \n    # Extract age and investment_experience\n    age = client_data.iloc[0]['age']\n    investment_experience = client_data.iloc[0]['investment_experience']\n    \n    # Calculate and return the investment experience per age\n    return investment_experience / age if age > 0 else 0\n"
+        },
+        "0.007726140670051142": {
+            "name": "portfolio_creation_age_in_days",
+            "code": "import datetime\n\ndef portfolio_creation_age_in_days(row):\n    current_date = datetime.now()\n    creation_date = datetime.strptime(row['creation_date'], '%Y-%m-%d %H:%M:%S.%f')\n    return (current_date - creation_date).days\n"
+        },
+        "0.007211709506379382": {
+            "name": "annualized_average_return",
+            "code": "\n\ndef annualized_average_return(row):\n    return row['average_return'] * 12  # Assuming monthly returns\n"
+        },
+        "0.006377854478951148": {
+            "name": "risk_appetite_numerical",
+            "code": "\n\ndef risk_appetite_numerical(row):\n    mapping = {\"Low\": 1, \"Moderate\": 2, \"High\": 3, \"Conservative\": 0}  # Added \"Conservative\" as 0 for completeness\n    return mapping.get(row['client_s_risk_appetite_and_portfolio_categorization'], 0)\n"
+        },
+        "0.006172034857666563": {
+            "name": "impact_score_to_assets_ratio",
+            "code": "\n\ndef impact_score_to_assets_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the investment trends table from aux_data\n    investment_trends = aux_data.get('investment_trends_table.csv')\n    \n    if investment_trends is None:\n        raise ValueError(\"The 'investment_trends_table.csv' is missing from aux_data.\")\n    \n    # Find the relevant impact_score for the portfolio_id\n    # Assuming we need to match on 'portfolio_id' (adjust if needed)\n    portfolio_id = row['portfolio_id']\n    relevant_trend = investment_trends[investment_trends['trend_id'] == portfolio_id]\n    \n    if relevant_trend.empty:\n        # If no matching trend is found, return 0\n        impact_score = 0\n    else:\n        # Use the first matching impact_score (if multiple matches exist)\n        impact_score = relevant_trend.iloc[0]['impact_score']\n    \n    # Calculate the ratio\n    if row['total_assets'] > 0:\n        return impact_score / row['total_assets']\n    else:\n        return 0\n"
+        },
+        "0.002860282929594064": {
+            "name": "sector_focus_high_risk_ratio",
+            "code": "\n\ndef sector_focus_high_risk_ratio(row, df_train):\n    # Filter the dataframe to include only rows with the same sector focus\n    sector_data = df_train[df_train['sector_focus'] == row['sector_focus']]\n    \n    # Exclude the current row to prevent target leakage\n    sector_data = sector_data[sector_data['portfolio_id'] != row['portfolio_id']]\n    \n    # Ensure no data from the future is used by filtering based on creation_date\n    sector_data = sector_data[sector_data['creation_date'] < row['creation_date']]\n    \n    # Calculate and return the mean of the HighRisk column\n    return sector_data['HighRisk'].mean() if not sector_data.empty else 0\n"
+        },
+        "-0.0008414904419136171": {
+            "name": "client_experience_category",
+            "code": "\n\ndef client_experience_category(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the client_id from the row\n    client_id = row['client_id']\n    \n    # Look up the client_profiles_table.csv dataframe in aux_data\n    client_profiles_df = aux_data.get('client_profiles_table.csv')\n    \n    # Ensure the dataframe exists and is not None\n    if client_profiles_df is None:\n        raise ValueError(\"client_profiles_table.csv is missing from aux_data\")\n    \n    # Find the row in client_profiles_df corresponding to the client_id\n    client_row = client_profiles_df[client_profiles_df['client_id'] == client_id]\n    \n    # Ensure the client_id exists in the client_profiles_table.csv\n    if client_row.empty:\n        raise ValueError(f\"Client ID {client_id} not found in client_profiles_table.csv\")\n    \n    # Extract the investment_experience value\n    experience = client_row.iloc[0]['investment_experience']\n    \n    # Categorize the experience\n    if experience < 5:\n        return \"Beginner\"\n    elif experience < 15:\n        return \"Intermediate\"\n    else:\n        return \"Expert\"\n"
+        },
+        "-0.0007781774646145045": {
+            "name": "client_age_group",
+            "code": "\n\ndef client_age_group(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the client_id from the row\n    client_id = row['client_id']\n    \n    # Get the client_profiles_table dataframe from aux_data\n    client_profiles = aux_data['client_profiles_table.csv']\n    \n    # Find the age of the client using the client_id\n    client_info = client_profiles[client_profiles['client_id'] == client_id]\n    \n    # Ensure the client exists in the client_profiles_table\n    if client_info.empty:\n        raise ValueError(f\"Client ID {client_id} not found in client_profiles_table.csv\")\n    \n    # Extract the age of the client\n    age = client_info.iloc[0]['age']\n    \n    # Determine the age group\n    if age < 30:\n        return \"young\"\n    elif age < 60:\n        return \"middle_aged\"\n    else:\n        return \"senior\"\n"
+        },
+        "0": {
+            "name": "economic_impact_sector_ratio",
+            "code": "\n\ndef economic_impact_sector_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the economic indicators dataframe\n    economic_data = aux_data['economic_indicators_table.csv']\n    \n    # Filter the dataframe for rows where 'indicator_name' matches the 'sector_focus' in the row\n    sector_impact = economic_data[economic_data['indicator_name'] == row['sector_focus']]\n    \n    # Return the mean of the 'value' column if the filtered dataframe is not empty, otherwise return 0\n    return sector_impact['value'].mean() if not sector_impact.empty else 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "high risk asset ratio",
+        "net worth to total assets ratio",
+        "average return normalized",
+        "sector volatility",
+        "return rate volatility",
+        "asset risk balance",
+        "trend duration days",
+        "investment experience per age",
+        "portfolio creation age in days",
+        "annualized average return",
+        "risk appetite numerical",
+        "impact score to assets ratio",
+        "sector focus high risk ratio",
+        "client experience category",
+        "client age group",
+        "economic impact sector ratio"
+    ]
+}

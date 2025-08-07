@@ -1,0 +1,42 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "recency_first_purchase",
+        "days_since_last_purchase",
+        "income_to_avg_purchase_ratio",
+        "category_diversity",
+        "demographics_spending_combined",
+        "avg_customer_spending",
+        "total_spent_by_customer",
+        "avg_spending_on_product",
+        "customer_age",
+        "product_price",
+        "purchase_month",
+        "discount_applied_ratio",
+        "discounted_purchase_ratio",
+        "purchase_weekday",
+        "purchase_channel_diversity",
+        "customer_gender_encoded"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "recency first purchase",
+        "days since last purchase",
+        "income to avg purchase ratio",
+        "category diversity",
+        "demographics spending combined",
+        "avg customer spending",
+        "total spent by customer",
+        "avg spending on product",
+        "customer age",
+        "product price",
+        "purchase month",
+        "discount applied ratio",
+        "discounted purchase ratio",
+        "purchase weekday",
+        "purchase channel diversity",
+        "customer gender encoded"
+    ]
+}

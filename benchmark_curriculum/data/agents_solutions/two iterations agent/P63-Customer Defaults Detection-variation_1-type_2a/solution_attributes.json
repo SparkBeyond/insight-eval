@@ -1,0 +1,95 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "count_failed_payments",
+        "payment_status_encoding",
+        "avg_monthly_utility_cost",
+        "avg_transaction_amount",
+        "total_utility_cost",
+        "high_debit_ratio",
+        "payment_to_income_ratio",
+        "transaction_variance",
+        "loyalty_tenure_years",
+        "days_since_account_creation",
+        "recent_credit_debit_ratio",
+        "days_since_payment",
+        "payment_variance",
+        "utility_cost_spike"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.4803121490984863": {
+            "name": "count_failed_payments",
+            "code": "\n\ndef count_failed_payments(row, df_train):\n    customer_id = row['customer_id']\n    customer_payments = df_train[df_train['customer_id'] == customer_id]\n    return (customer_payments['payment_status'] == 'Failed').sum()\n"
+        },
+        "0.21024478710853475": {
+            "name": "payment_status_encoding",
+            "code": "\n\ndef payment_status_encoding(row):\n    encoding_map = {'Failed': 2, 'Pending': 1, 'Success': 0}\n    return encoding_map.get(row['payment_status'], -1)\n"
+        },
+        "0.18619784696795907": {
+            "name": "avg_monthly_utility_cost",
+            "code": "\n\ndef avg_monthly_utility_cost(row, aux_dataframes):\n    customer_id = row['customer_id']\n    utilities = aux_dataframes['utility_usage_table.csv']\n    customer_utilities = utilities[utilities['customer_id'] == customer_id]\n    monthly_grouping = customer_utilities.groupby(customer_utilities['usage_date'].str[:7])  # YYYY-MM grouping\n    return monthly_grouping['units_consumed'].sum().mean()\n"
+        },
+        "0.09449585915836278": {
+            "name": "avg_transaction_amount",
+            "code": "\n\ndef avg_transaction_amount(row, aux_dataframes):\n    customer_id = row['customer_id']\n    transactions = aux_dataframes['account_history_table.csv']\n    customer_transactions = transactions[transactions['customer_id'] == customer_id]\n    return customer_transactions['transaction_amount'].mean()\n"
+        },
+        "0.06613568393851883": {
+            "name": "total_utility_cost",
+            "code": "\n\ndef total_utility_cost(row, aux_dataframes):\n    customer_id = row['customer_id']\n    utilities = aux_dataframes['utility_usage_table.csv']\n    customer_utilities = utilities[utilities['customer_id'] == customer_id]\n    return (customer_utilities['units_consumed'] * customer_utilities['cost_per_unit']).sum()\n"
+        },
+        "0.04645164354182326": {
+            "name": "high_debit_ratio",
+            "code": "\n\ndef high_debit_ratio(row, aux_dataframes):\n    customer_id = row['customer_id']\n    transactions = aux_dataframes['account_history_table.csv']\n    customer_transactions = transactions[transactions['customer_id'] == customer_id]\n    high_debits = customer_transactions[customer_transactions['transaction_amount'] < -100]  # Define a \"high debit\"\n    return len(high_debits) / max(len(customer_transactions), 1)\n"
+        },
+        "0.042479215097640036": {
+            "name": "payment_to_income_ratio",
+            "code": "\n\ndef payment_to_income_ratio(row, aux_dataframes):\n    customer_id = row['customer_id']\n    income = aux_dataframes['customer_profile_table.csv'].set_index('customer_id').loc[customer_id, 'income']\n    return row['amount_paid'] / income if income else 0\n"
+        },
+        "0.025329098392036148": {
+            "name": "transaction_variance",
+            "code": "\n\ndef transaction_variance(row, aux_dataframes):\n    customer_id = row['customer_id']\n    transactions = aux_dataframes['account_history_table.csv']\n    customer_transactions = transactions[transactions['customer_id'] == customer_id]\n    return customer_transactions['transaction_amount'].var()\n"
+        },
+        "0.02043168146078822": {
+            "name": "loyalty_tenure_years",
+            "code": "import datetime\n\ndef loyalty_tenure_years(row, aux_dataframes):\n    customer_id = row['customer_id']\n    profile = aux_dataframes['customer_profile_table.csv']\n    account_date = datetime.strptime(profile.set_index('customer_id').loc[customer_id, 'account_creation_date'], \"%Y-%m-%d\")\n    today = datetime.strptime(\"2025-05-01\", \"%Y-%m-%d\")\n    return (today - account_date).days / 365\n"
+        },
+        "0.020431681460788213": {
+            "name": "days_since_account_creation",
+            "code": "import datetime\n\ndef days_since_account_creation(row, aux_dataframes):\n    today = datetime.strptime(\"2025-05-01\", \"%Y-%m-%d\")\n    customer_id = row['customer_id']\n    profile = aux_dataframes['customer_profile_table.csv']\n    account_creation_date = datetime.strptime(profile.set_index('customer_id').loc[customer_id, 'account_creation_date'], \"%Y-%m-%d\")\n    return (today - account_creation_date).days\n"
+        },
+        "0.00860879365353238": {
+            "name": "recent_credit_debit_ratio",
+            "code": "\n\ndef recent_credit_debit_ratio(row, aux_dataframes):\n    customer_id = row['customer_id']\n    transactions = aux_dataframes['account_history_table.csv']\n    recent_transactions = transactions[(transactions['customer_id'] == customer_id) & (transactions['transaction_date'] >= '2025-01-01')]\n    credits = recent_transactions[recent_transactions['transaction_type'] == 'Credit']['transaction_amount'].sum()\n    debits = recent_transactions[recent_transactions['transaction_type'] == 'Debit']['transaction_amount'].sum()\n    return credits / max(abs(debits), 1)\n"
+        },
+        "0.006160512548588489": {
+            "name": "days_since_payment",
+            "code": "import datetime\n\ndef days_since_payment(row):\n    today = datetime.strptime(\"2025-05-01\", \"%Y-%m-%d\")  # Simulate \"current date\"\n    payment_date = datetime.strptime(row['payment_date'], \"%Y-%m-%d\")\n    return (today - payment_date).days\n"
+        },
+        "0.005884726922014157": {
+            "name": "payment_variance",
+            "code": "\n\ndef payment_variance(row, df_train):\n    customer_id = row['customer_id']\n    customer_payments = df_train[df_train['customer_id'] == customer_id]\n    return customer_payments['amount_paid'].var()\n"
+        },
+        "0": {
+            "name": "utility_cost_spike",
+            "code": "\n\ndef utility_cost_spike(row, aux_dataframes):\n    customer_id = row['customer_id']\n    utilities = aux_dataframes['utility_usage_table.csv']\n    customer_utilities = utilities[utilities['customer_id'] == customer_id]\n    avg_cost = (customer_utilities['units_consumed'].mean() * customer_utilities['cost_per_unit']).sum()\n    return int((customer_utilities['units_consumed'] * customer_utilities['cost_per_unit']).max() > 1.5 * avg_cost)\n"
+        }
+    },
+    "feature_descriptions": [
+        "count failed payments",
+        "payment status encoding",
+        "avg monthly utility cost",
+        "avg transaction amount",
+        "total utility cost",
+        "high debit ratio",
+        "payment to income ratio",
+        "transaction variance",
+        "loyalty tenure years",
+        "days since account creation",
+        "recent credit debit ratio",
+        "days since payment",
+        "payment variance",
+        "utility cost spike"
+    ]
+}

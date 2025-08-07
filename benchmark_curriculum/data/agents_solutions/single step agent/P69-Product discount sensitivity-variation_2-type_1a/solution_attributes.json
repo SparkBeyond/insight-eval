@@ -1,0 +1,95 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "product_popularity",
+        "avg_base_price_category",
+        "customer_average_sales_flag",
+        "customer_engagement",
+        "customer_purchase_frequency",
+        "region_sales_ratio",
+        "calculate_discount",
+        "discount_percentage",
+        "stock_status",
+        "product_lifecycle",
+        "price_deviation_from_category_avg",
+        "region_average_sales_flag",
+        "customer_age_group",
+        "customer_region_type"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.23198665408804445": {
+            "name": "product_popularity",
+            "code": "\n\ndef product_popularity(row, df_train: pd.DataFrame):\n    # Extract the product_id and purchase_date of the current row\n    product_id = row['product_id']\n    purchase_date = row['purchase_date']\n    \n    # Filter the training data to exclude:\n    # 1. The current row (to prevent target leakage)\n    # 2. Rows with purchase dates after the current row's purchase date (to prevent future data leakage)\n    filtered_data = df_train[\n        (df_train['product_id'] == product_id) & \n        (df_train['purchase_date'] < purchase_date)\n    ]\n    \n    # Calculate the mean sales_flag for the filtered data\n    if len(filtered_data) == 0:\n        return 0  # If no prior data exists, return 0\n    return filtered_data['sales_flag'].mean()\n"
+        },
+        "0.21390572679301154": {
+            "name": "avg_base_price_category",
+            "code": "import numpy as np\n\ndef avg_base_price_category(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> float:\n    \"\"\"\n    Calculate the average base price of products in the same category as the product in the given row.\n\n    Args:\n        row (pd.Series): A row of the dataframe containing at least the 'product_id' column.\n        aux_dataframes (Dict[str, pd.DataFrame]): A dictionary of auxiliary dataframes, where\n            'product_information_table.csv' is expected to contain the product information.\n\n    Returns:\n        float: The average base price of products in the same category, or NaN if the product_id is not found.\n    \"\"\"\n    # Check if 'product_information_table.csv' exists in aux_dataframes\n    if 'product_information_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'product_information_table.csv' is missing from aux_dataframes.\")\n    \n    product_info = aux_dataframes['product_information_table.csv']\n    \n    # Ensure the required columns exist in the product_info dataframe\n    required_columns = {'product_id', 'category', 'base_price'}\n    if not required_columns.issubset(product_info.columns):\n        raise ValueError(f\"The 'product_information_table.csv' is missing one or more required columns: {required_columns}\")\n    \n    # Get the category for the given product_id\n    product_id = row['product_id']\n    category = product_info.loc[product_info['product_id'] == product_id, 'category'].values\n    \n    if len(category) == 0:\n        return np.nan  # Return NaN if the product_id is not found\n    category = category[0]\n    \n    # Calculate the average base price for the category\n    avg_price = product_info.loc[product_info['category'] == category, 'base_price'].mean()\n    return avg_price\n"
+        },
+        "0.17564767920793053": {
+            "name": "customer_average_sales_flag",
+            "code": "\n\ndef customer_average_sales_flag(row, df_train: pd.DataFrame):\n    customer_id = row['customer_id']\n    current_date = row['purchase_date']\n    \n    # Filter the training data to exclude the current row and any future data\n    filtered_data = df_train[\n        (df_train['customer_id'] == customer_id) & \n        (df_train['purchase_date'] < current_date)\n    ]\n    \n    # If no historical data exists for the customer, return 0\n    if len(filtered_data) == 0:\n        return 0\n    \n    # Calculate the mean sales_flag for the customer's historical data\n    return filtered_data['sales_flag'].mean()\n"
+        },
+        "0.045513824274199186": {
+            "name": "customer_engagement",
+            "code": "\n\ndef customer_engagement(row, df_train: pd.DataFrame):\n    customer_id = row['customer_id']\n    unique_products = df_train[df_train['customer_id'] == customer_id]['product_id'].nunique()\n    return unique_products\n"
+        },
+        "0.04452205831739553": {
+            "name": "customer_purchase_frequency",
+            "code": "\n\ndef customer_purchase_frequency(row, df_train: pd.DataFrame):\n    customer_id = row['customer_id']\n    return len(df_train[df_train['customer_id'] == customer_id])\n"
+        },
+        "0.025081333175707668": {
+            "name": "region_sales_ratio",
+            "code": "\n\ndef region_sales_ratio(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the correct key is used to access the demographics table\n    demographics = aux_dataframes.get('customer_demographics_table.csv')\n    if demographics is None:\n        raise KeyError(\"The key 'customer_demographics_table.csv' is not found in aux_dataframes.\")\n    \n    # Get the region for the given customer_id\n    customer_id = row['customer_id']\n    region = demographics.loc[demographics['customer_id'] == customer_id, 'location']\n    \n    # If the region is not found, return 0\n    if region.empty:\n        return 0\n    \n    # Extract the region value\n    region = region.values[0]\n    \n    # Calculate total sales\n    total_sales = len(df_train)\n    \n    # Calculate sales for the specific region\n    region_customer_ids = demographics[demographics['location'] == region]['customer_id']\n    region_sales = len(df_train[df_train['customer_id'].isin(region_customer_ids)])\n    \n    # Return the ratio of region sales to total sales\n    return region_sales / total_sales\n"
+        },
+        "0.025076143674282986": {
+            "name": "calculate_discount",
+            "code": "\n\ndef calculate_discount(x, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the product_id from the row\n    product_id = x['product_id']\n    \n    # Get the product information dataframe from aux_data\n    product_info_df = aux_data['product_information_table.csv']\n    \n    # Find the row in the product information table corresponding to the product_id\n    product_row = product_info_df[product_info_df['product_id'] == product_id]\n    \n    # Ensure the product exists in the product information table\n    if not product_row.empty:\n        # Extract base_price and calculate selling_price from purchase_amount and discount_percentage\n        base_price = product_row.iloc[0]['base_price']\n        selling_price = x['purchase_amount']\n        \n        # Calculate the discount percentage\n        if base_price > 0:\n            return ((base_price - selling_price) / base_price) * 100\n    \n    # If product is not found or base_price is 0, return 0\n    return 0\n"
+        },
+        "0.025019032835004625": {
+            "name": "discount_percentage",
+            "code": "import numpy as np\n\ndef discount_percentage(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if 'product_information_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'product_information_table.csv' is missing from aux_dataframes.\")\n    \n    # Retrieve the product information table\n    product_info = aux_dataframes['product_information_table.csv']\n    \n    # Ensure the required columns exist in the product information table\n    required_columns = {'product_id', 'base_price'}\n    if not required_columns.issubset(product_info.columns):\n        raise ValueError(f\"The product information table must contain the columns: {required_columns}\")\n    \n    # Find the row in the product information table that matches the product_id\n    product_row = product_info.loc[product_info['product_id'] == row['product_id']]\n    \n    # If no matching product_id is found, return NaN\n    if product_row.empty:\n        return np.nan\n    \n    # Extract the base price\n    base_price = product_row['base_price'].values[0]\n    \n    # Extract the selling price from the input row\n    selling_price = row['purchase_amount']  # Assuming 'purchase_amount' is the selling price\n    \n    # Calculate the discount percentage\n    if base_price > 0:\n        return ((base_price - selling_price) / base_price) * 100\n    else:\n        return 0\n"
+        },
+        "0.018996127003689432": {
+            "name": "stock_status",
+            "code": "\n\ndef stock_status(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if 'product_information_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'product_information_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the product information table\n    product_info = aux_dataframes['product_information_table.csv']\n    \n    # Ensure the required columns exist in the product information table\n    required_columns = {'product_id', 'stock_quantity'}\n    if not required_columns.issubset(product_info.columns):\n        raise ValueError(f\"The product information table is missing one or more required columns: {required_columns}\")\n    \n    # Get the stock quantity for the given product_id\n    stock_quantity = product_info.loc[product_info['product_id'] == row['product_id'], 'stock_quantity'].values\n    \n    # Return stock status based on stock quantity\n    if len(stock_quantity) == 0:\n        return 0  # Default to out-of-stock if product not found\n    return 1 if stock_quantity[0] > 0 else 0\n"
+        },
+        "0.007717881574322053": {
+            "name": "product_lifecycle",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef product_lifecycle(row, df_train: pd.DataFrame):\n    product_id = row['product_id']\n    product_dates = df_train[df_train['product_id'] == product_id]['purchase_date']\n    if len(product_dates) == 0:\n        return np.nan\n    product_dates = pd.to_datetime(product_dates)\n    return (product_dates.max() - product_dates.min()).days\n"
+        },
+        "0.006574946562459808": {
+            "name": "price_deviation_from_category_avg",
+            "code": "import numpy as np\n\ndef price_deviation_from_category_avg(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'product_information_table.csv' exists in aux_dataframes\n    if 'product_information_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'product_information_table.csv' is missing from aux_dataframes.\")\n    \n    # Retrieve the product information table\n    product_info = aux_dataframes['product_information_table.csv']\n    \n    # Ensure the required columns exist in the product information table\n    required_columns = {'product_id', 'category', 'base_price'}\n    if not required_columns.issubset(product_info.columns):\n        raise ValueError(f\"The product information table must contain the columns: {required_columns}\")\n    \n    # Find the row in the product information table corresponding to the product_id in the input row\n    product_row = product_info.loc[product_info['product_id'] == row['product_id']]\n    \n    # If no matching product_id is found, return NaN\n    if product_row.empty:\n        return np.nan\n    \n    # Extract the base price and category for the product\n    base_price = product_row['base_price'].values[0]\n    category = product_row['category'].values[0]\n    \n    # Calculate the average base price for the category\n    avg_price_category = product_info[product_info['category'] == category]['base_price'].mean()\n    \n    # Return the deviation of the product's base price from the category average\n    return base_price - avg_price_category\n"
+        },
+        "0.004192260904275578": {
+            "name": "region_average_sales_flag",
+            "code": "import numpy as np\n\ndef region_average_sales_flag(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the customer ID from the row\n    customer_id = row['customer_id']\n    \n    # Access the customer demographics table using the correct key\n    aux_customers = aux_dataframes.get('customer_demographics_table.csv')\n    \n    # Check if the table exists\n    if aux_customers is None:\n        raise KeyError(\"The key 'customer_demographics_table.csv' is not found in aux_dataframes.\")\n    \n    # Get the customer's region (location in this case)\n    customer_region = aux_customers.loc[aux_customers['customer_id'] == customer_id, 'location']\n    \n    # If the customer ID is not found, return NaN\n    if customer_region.empty:\n        return np.nan\n    \n    # Extract the region value (assuming there is only one match)\n    customer_region = customer_region.iloc[0]\n    \n    # Access the sales history table\n    sales_history = aux_dataframes.get('sales_history_table.csv')\n    \n    # Check if the sales history table exists\n    if sales_history is None:\n        raise KeyError(\"The key 'sales_history_table.csv' is not found in aux_dataframes.\")\n    \n    # Filter sales history for customers in the same region\n    customers_in_region = aux_customers[aux_customers['location'] == customer_region]['customer_id']\n    region_sales = sales_history[sales_history['customer_id'].isin(customers_in_region)]\n    \n    # Calculate the average sales amount for the region\n    if region_sales.empty:\n        return np.nan\n    else:\n        # Merge sales history with product information to get the sale amounts\n        product_info = aux_dataframes.get('product_information_table.csv')\n        if product_info is None:\n            raise KeyError(\"The key 'product_information_table.csv' is not found in aux_dataframes.\")\n        \n        # Merge sales history with product information to calculate total sales\n        region_sales = region_sales.merge(product_info, on='product_id', how='left')\n        region_sales['sale_amount'] = region_sales['base_price']  # Assuming base_price is the sale amount\n        \n        # Calculate the average sale amount for the region\n        region_avg_sales = region_sales['sale_amount'].mean()\n        return region_avg_sales\n"
+        },
+        "-0.0006950423718297127": {
+            "name": "customer_age_group",
+            "code": "\n\ndef customer_age_group(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'customer_demographics_table.csv' exists in aux_dataframes\n    if 'customer_demographics_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'customer_demographics_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the customer demographics table\n    demographics = aux_dataframes['customer_demographics_table.csv']\n    \n    # Ensure the required columns exist in the demographics dataframe\n    required_columns = {'customer_id', 'age'}\n    if not required_columns.issubset(demographics.columns):\n        raise ValueError(f\"The demographics table must contain the columns: {required_columns}\")\n    \n    # Get the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Find the age of the customer\n    customer_age = demographics.loc[demographics['customer_id'] == customer_id, 'age'].values\n    \n    # Handle cases where the customer_id is not found\n    if len(customer_age) == 0:\n        return 'Unknown'\n    \n    # Extract the age value\n    age = customer_age[0]\n    \n    # Determine the age group\n    if age < 18:\n        return 'Under 18'\n    elif 18 <= age <= 35:\n        return '18-35'\n    elif 36 <= age <= 60:\n        return '36-60'\n    else:\n        return '60+'\n"
+        },
+        "0": {
+            "name": "customer_region_type",
+            "code": "\n\ndef customer_region_type(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if 'customer_demographics_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'customer_demographics_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the customer demographics table\n    demographics = aux_dataframes['customer_demographics_table.csv']\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Check if the customer_id exists in the demographics table\n    location = demographics.loc[demographics['customer_id'] == customer_id, 'location'].values\n    if len(location) == 0:\n        return 'Unknown'\n    \n    # Return 'Urban' or 'Rural' based on the location value\n    return 'Urban' if location[0].lower() == 'urban' else 'Rural'\n"
+        }
+    },
+    "feature_descriptions": [
+        "product popularity",
+        "avg base price category",
+        "customer average sales flag",
+        "customer engagement",
+        "customer purchase frequency",
+        "region sales ratio",
+        "calculate discount",
+        "discount percentage",
+        "stock status",
+        "product lifecycle",
+        "price deviation from category avg",
+        "region average sales flag",
+        "customer age group",
+        "customer region type"
+    ]
+}

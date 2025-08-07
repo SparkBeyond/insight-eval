@@ -1,0 +1,18 @@
+{
+    "enriched_column_names": [
+        "total_number_of_repeat_purchases_made_in_the_last_quarter",
+        "response_rates_to_marketing_campaigns_in_the_last_six_months",
+        "average_transaction_value_of_a_customer_in_the_past_6_months",
+        "customer_engagement_rate_with_proactive_offers",
+        "frequency_of_customer_interactions_with_support_over_the_last_year",
+        "decrease_in_transaction_frequency_month_over_month"
+    ],
+    "features_descriptions": [
+        "total number of repeat purchases made in the last quarter",
+        "response rates to marketing campaigns in the last six months",
+        "average transaction value of a customer in the past 6 months",
+        "customer engagement rate with proactive offers",
+        "frequency of customer interactions with support over the last year",
+        "decrease in transaction frequency month over month"
+    ]
+}

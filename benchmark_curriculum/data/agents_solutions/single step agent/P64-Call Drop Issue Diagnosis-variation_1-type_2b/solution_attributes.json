@@ -1,0 +1,113 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "consecutive_dropped_sessions",
+        "session_duration",
+        "session_overlap_with_outage",
+        "is_high_severity_outage",
+        "time_to_next_outage",
+        "call_status_ratio",
+        "average_temperature",
+        "high_humidity_flag",
+        "user_activity_rate",
+        "unique_users_per_location",
+        "network_type_ratio",
+        "average_wind_speed",
+        "device_type_ratio",
+        "is_mobile_network",
+        "is_peak_hour",
+        "weather_at_session",
+        "session_start_hour_category"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5093885389689348": {
+            "name": "consecutive_dropped_sessions",
+            "code": "\n\ndef consecutive_dropped_sessions(row, df_train):\n    user_data = df_train[df_train['user_id'] == row['user_id']].sort_values(by='start_time')\n    session_index = user_data[user_data['session_id'] == row['session_id']].index[0]\n    return (user_data.loc[:session_index - 1]['drop_flag'].iloc[::-1] == 1).cumprod().sum()\n"
+        },
+        "0.41732570536510605": {
+            "name": "session_duration",
+            "code": "import pandas as pd\n\ndef session_duration(row):\n    start_time = pd.to_datetime(row['start_time'])\n    end_time = pd.to_datetime(row['end_time'])\n    return (end_time - start_time).total_seconds()\n"
+        },
+        "0.2639698311625911": {
+            "name": "session_overlap_with_outage",
+            "code": "import pandas as pd\n\ndef session_overlap_with_outage(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the correct key is used to access the network outages table\n    if 'network_outages_table.csv' not in aux_data:\n        raise KeyError(\"The key 'network_outages_table.csv' is missing in aux_data.\")\n    \n    outages = aux_data['network_outages_table.csv']\n    \n    # Ensure the column names match the expected format\n    if not {'start_time', 'end_time', 'affected_area_id'}.issubset(outages.columns):\n        raise KeyError(\"The 'network_outages_table.csv' dataframe is missing required columns.\")\n    \n    # Convert session start and end times to datetime\n    session_start = pd.to_datetime(row['start_time'])\n    session_end = pd.to_datetime(row['end_time'])\n    \n    # Filter outages based on location and time overlap\n    outage_overlap = outages[\n        (outages['affected_area_id'] == row['location_id']) &  # Match location_id\n        ((pd.to_datetime(outages['start_time']) <= session_end) & \n         (pd.to_datetime(outages['end_time']) >= session_start))  # Check time overlap\n    ]\n    \n    # Return 1 if there is an overlap, otherwise 0\n    return int(not outage_overlap.empty)\n"
+        },
+        "0.175409114439219": {
+            "name": "is_high_severity_outage",
+            "code": "import pandas as pd\n\ndef is_high_severity_outage(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the correct key is used to access the network outages table\n    if 'network_outages_table.csv' not in aux_data:\n        raise KeyError(\"The key 'network_outages_table.csv' is missing in aux_data.\")\n    \n    outages = aux_data['network_outages_table.csv']\n    \n    # Convert session start and end times to datetime\n    session_start = pd.to_datetime(row['start_time'])\n    session_end = pd.to_datetime(row['end_time'])\n    \n    # Filter outages based on location_id, time overlap, and severity\n    high_severity = outages[\n        (outages['affected_area_id'] == row['location_id']) &  # Match location_id\n        ((pd.to_datetime(outages['start_time']) <= session_end) & \n         (pd.to_datetime(outages['end_time']) >= session_start)) &  # Time overlap\n        (outages['severity'] == 'high')  # High severity\n    ]\n    \n    # Return 1 if there are high severity outages, otherwise 0\n    return int(not high_severity.empty)\n"
+        },
+        "0.10897577173719765": {
+            "name": "time_to_next_outage",
+            "code": "import pandas as pd\n\ndef time_to_next_outage(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in aux_dataframes\n    if 'network_outages_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'network_outages_table.csv' is missing from aux_dataframes.\")\n    \n    # Get the network outages table\n    outages = aux_dataframes['network_outages_table.csv']\n    \n    # Ensure the required columns exist in the outages dataframe\n    required_columns = {'start_time', 'end_time', 'affected_area_id'}\n    if not required_columns.issubset(outages.columns):\n        raise ValueError(f\"The 'network_outages_table.csv' dataframe is missing required columns: {required_columns - set(outages.columns)}\")\n    \n    # Convert session_end to datetime\n    session_end = pd.to_datetime(row['end_time'])\n    \n    # Filter outages for the same location and future outages\n    future_outages = outages[\n        (outages['affected_area_id'] == row['location_id']) &  # Match location_id with affected_area_id\n        (pd.to_datetime(outages['start_time']) > session_end)  # Outages starting after session_end\n    ].sort_values(by='start_time')\n    \n    # Return -1 if no future outages, otherwise calculate time to the next outage\n    if future_outages.empty:\n        return -1  # No future outage\n    return (pd.to_datetime(future_outages.iloc[0]['start_time']) - session_end).total_seconds()\n"
+        },
+        "0.08077281700406964": {
+            "name": "call_status_ratio",
+            "code": "\n\ndef call_status_ratio(row, df_train):\n    total_count = len(df_train)\n    status_count = len(df_train[df_train['call_status'] == row['call_status']])\n    return status_count / total_count\n"
+        },
+        "0.07602884991357704": {
+            "name": "average_temperature",
+            "code": "import pandas as pd\n\ndef average_temperature(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct DataFrame using the correct key\n    conditions = aux_data['environmental_conditions_table.csv']\n    \n    # Filter the DataFrame based on the correct column names\n    temp_data = conditions[\n        (conditions['location_id'] == row['location_id']) &\n        (conditions['record_time'] <= pd.to_datetime(row['start_time']))\n    ]\n    \n    # Return the mean temperature\n    return temp_data['temperature'].mean()\n"
+        },
+        "0.06933127871261273": {
+            "name": "high_humidity_flag",
+            "code": "import pandas as pd\n\ndef high_humidity_flag(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the environmental conditions dataframe using the correct key\n    conditions = aux_data['environmental_conditions_table.csv']\n    \n    # Ensure the 'record_time' column is in datetime format\n    conditions['record_time'] = pd.to_datetime(conditions['record_time'])\n    \n    # Filter the dataframe based on the correct column names\n    humidity_data = conditions[\n        (conditions['location_id'] == row['location_id']) &\n        (conditions['record_time'] <= pd.to_datetime(row['start_time']))\n    ]\n    \n    # Calculate the mean humidity and return the flag\n    if not humidity_data.empty:  # Check if there is any data after filtering\n        return int(humidity_data['humidity'].mean() > 80)\n    else:\n        return 0  # Return 0 if no data is available\n"
+        },
+        "0.05389869976442885": {
+            "name": "user_activity_rate",
+            "code": "\n\ndef user_activity_rate(row, df_train):\n    user_sessions = len(df_train[df_train['user_id'] == row['user_id']])\n    total_sessions = len(df_train)\n    return user_sessions / total_sessions\n"
+        },
+        "0.0489829302807053": {
+            "name": "unique_users_per_location",
+            "code": "\n\ndef unique_users_per_location(row, df_train: pd.DataFrame):\n    # Use the correct column name 'location_id' instead of 'location'\n    location_data = df_train[df_train['location_id'] == row['location_id']]\n    return location_data['user_id'].nunique()\n"
+        },
+        "0.027822379573969592": {
+            "name": "network_type_ratio",
+            "code": "\n\ndef network_type_ratio(row, df_train):\n    total_count = len(df_train)\n    network_count = len(df_train[df_train['network_type'] == row['network_type']])\n    return network_count / total_count\n"
+        },
+        "0.022759390353181842": {
+            "name": "average_wind_speed",
+            "code": "import pandas as pd\n\ndef average_wind_speed(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct DataFrame using the correct key\n    conditions = aux_dataframes['environmental_conditions_table.csv']\n    \n    # Filter the DataFrame based on the correct column names\n    wind_data = conditions[\n        (conditions['location_id'] == row['location_id']) &\n        (conditions['record_time'] <= pd.to_datetime(row['start_time']))\n    ]\n    \n    # Return the mean of the 'wind_speed' column\n    return wind_data['wind_speed'].mean()\n"
+        },
+        "0.01822020013153041": {
+            "name": "device_type_ratio",
+            "code": "\n\ndef device_type_ratio(row, df_train):\n    total_device_count = len(df_train)\n    device_type_count = len(df_train[df_train['device_type'] == row['device_type']])\n    return device_type_count / total_device_count\n"
+        },
+        "0.014200477428076827": {
+            "name": "is_mobile_network",
+            "code": "\n\ndef is_mobile_network(row):\n    return int(row['network_type'] in ['4G', '5G'])\n"
+        },
+        "0.0071446975700768": {
+            "name": "is_peak_hour",
+            "code": "import pandas as pd\n\ndef is_peak_hour(row):\n    start_hour = pd.to_datetime(row['start_time']).hour\n    return int(8 <= start_hour <= 20)\n"
+        },
+        "0.003574425918931645": {
+            "name": "weather_at_session",
+            "code": "import pandas as pd\n\ndef weather_at_session(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the correct key is used to access the environmental conditions table\n    if 'environmental_conditions_table.csv' not in aux_data:\n        raise KeyError(\"The key 'environmental_conditions_table.csv' is missing from aux_data.\")\n    \n    # Access the environmental conditions table\n    conditions = aux_data['environmental_conditions_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'location_id', 'record_time', 'weather'}\n    if not required_columns.issubset(conditions.columns):\n        raise ValueError(f\"The environmental_conditions_table.csv is missing required columns: {required_columns - set(conditions.columns)}\")\n    \n    # Convert the session start time to a datetime object\n    session_time = pd.to_datetime(row['start_time'])\n    \n    # Filter the conditions dataframe for the matching location and timestamp\n    filtered_conditions = conditions[\n        (conditions['location_id'] == row['location_id']) &\n        (pd.to_datetime(conditions['record_time']) <= session_time)\n    ]\n    \n    # Sort the filtered dataframe by timestamp in descending order\n    sorted_conditions = filtered_conditions.sort_values(by='record_time', ascending=False)\n    \n    # Check if there are any matching records\n    if sorted_conditions.empty:\n        return None  # Return None if no matching weather condition is found\n    \n    # Return the most recent weather condition\n    return sorted_conditions.iloc[0]['weather']\n"
+        },
+        "0.0004107553966951061": {
+            "name": "session_start_hour_category",
+            "code": "import pandas as pd\n\ndef session_start_hour_category(row):\n    hour = pd.to_datetime(row['start_time']).hour\n    if 5 <= hour < 12:\n        return \"morning\"\n    elif 12 <= hour < 17:\n        return \"afternoon\"\n    elif 17 <= hour < 21:\n        return \"evening\"\n    else:\n        return \"night\"\n"
+        }
+    },
+    "feature_descriptions": [
+        "consecutive dropped sessions",
+        "session duration",
+        "session overlap with outage",
+        "is high severity outage",
+        "time to next outage",
+        "call status ratio",
+        "average temperature",
+        "high humidity flag",
+        "user activity rate",
+        "unique users per location",
+        "network type ratio",
+        "average wind speed",
+        "device type ratio",
+        "is mobile network",
+        "is peak hour",
+        "weather at session",
+        "session start hour category"
+    ]
+}

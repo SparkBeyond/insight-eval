@@ -1,0 +1,40 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "overlapping_campaigns",
+        "avg_marketing_budget",
+        "average_campaign_budget",
+        "marketing_intensity",
+        "marketing_impression_ratio",
+        "marketing_click_through_rate",
+        "lag_quantity_sold_30d",
+        "month",
+        "extract_month",
+        "price_quantity_interaction",
+        "year",
+        "extract_year",
+        "lag_quantity_sold_7d",
+        "revenue_by_quantity",
+        "day_of_week"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "overlapping campaigns",
+        "avg marketing budget",
+        "average campaign budget",
+        "marketing intensity",
+        "marketing impression ratio",
+        "marketing click through rate",
+        "lag quantity sold 30d",
+        "month",
+        "extract month",
+        "price quantity interaction",
+        "year",
+        "extract year",
+        "lag quantity sold 7d",
+        "revenue by quantity",
+        "day of week"
+    ]
+}

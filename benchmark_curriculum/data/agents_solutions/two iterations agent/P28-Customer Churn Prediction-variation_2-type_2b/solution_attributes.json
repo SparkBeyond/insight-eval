@@ -1,0 +1,34 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "energy_consumption_volatility",
+        "total_complaints",
+        "interaction_frequency_last_year",
+        "payment_frequency_last_year",
+        "total_energy_consumed",
+        "proportion_resolved_complaints",
+        "avg_complaint_resolution_time",
+        "payment_irregularity",
+        "avg_monthly_payment",
+        "high_urgency_interaction_proportion",
+        "avg_monthly_fee_relative_to_median",
+        "total_energy_consumed_repeated_colname1"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "energy consumption volatility",
+        "total complaints",
+        "interaction frequency last year",
+        "payment frequency last year",
+        "total energy consumed",
+        "proportion resolved complaints",
+        "avg complaint resolution time",
+        "payment irregularity",
+        "avg monthly payment",
+        "high urgency interaction proportion",
+        "avg monthly fee relative to median",
+        "total energy consumed repeated colname1"
+    ]
+}

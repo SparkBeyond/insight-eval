@@ -1,0 +1,18 @@
+{
+    "enriched_column_names": [
+        "average_length_of_hospital_stays_in_the_last_year",
+        "number_of_treatments_with_adverse_outcomes_in_the_last_two_years",
+        "average_treatment_intensity_ratio_over_the_last_five_years",
+        "number_of_icu_stays_in_the_last_two_years",
+        "time_gap_between_discharges_and_subsequent_admissions",
+        "occurrence_of_recurring_diagnosis_codes_in_admissions_during_the_last_two_years"
+    ],
+    "features_descriptions": [
+        "average length of hospital stays in the last year",
+        "number of treatments with adverse outcomes in the last two years",
+        "average treatment intensity ratio over the last five years",
+        "number of icu stays in the last two years",
+        "time gap between discharges and subsequent admissions",
+        "occurrence of recurring diagnosis codes in admissions during the last two years"
+    ]
+}

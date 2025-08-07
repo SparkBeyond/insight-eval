@@ -1,0 +1,36 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "total_data_used",
+        "most_recent_payment_days",
+        "most_recent_support_days",
+        "churn_status_duration",
+        "num_support_tickets",
+        "avg_payment_amount",
+        "unresolved_support_ratio",
+        "tenure_months",
+        "std_dev_minutes_usage",
+        "num_failed_payments",
+        "total_support_tickets",
+        "avg_data_used_per_session",
+        "customer_age"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "total data used",
+        "most recent payment days",
+        "most recent support days",
+        "churn status duration",
+        "num support tickets",
+        "avg payment amount",
+        "unresolved support ratio",
+        "tenure months",
+        "std dev minutes usage",
+        "num failed payments",
+        "total support tickets",
+        "avg data used per session",
+        "customer age"
+    ]
+}

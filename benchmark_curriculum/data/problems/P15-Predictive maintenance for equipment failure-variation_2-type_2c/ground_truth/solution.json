@@ -1,0 +1,14 @@
+{
+    "enriched_column_names": [
+        "average_temperature_rise_rate_in_the_last_7_days",
+        "maintenance_frequency_increase_over_the_last_month",
+        "vibration_level_variance_in_the_last_week",
+        "exceedance_of_power_output_limits_over_the_last_30_days"
+    ],
+    "features_descriptions": [
+        "average temperature rise rate in the last 7 days",
+        "maintenance frequency increase over the last month",
+        "vibration level variance in the last week",
+        "exceedance of power output limits over the last 30 days"
+    ]
+}

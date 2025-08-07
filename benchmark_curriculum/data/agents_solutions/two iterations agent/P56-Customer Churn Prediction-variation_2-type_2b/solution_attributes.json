@@ -1,0 +1,32 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "usage_variance",
+        "monthly_usage_trend",
+        "days_since_last_usage",
+        "resolved_call_ratio",
+        "days_since_last_call",
+        "support_to_usage_ratio",
+        "max_monthly_usage",
+        "support_call_trend_flag",
+        "last_call_duration",
+        "age",
+        "issue_resolved_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "usage variance",
+        "monthly usage trend",
+        "days since last usage",
+        "resolved call ratio",
+        "days since last call",
+        "support to usage ratio",
+        "max monthly usage",
+        "support call trend flag",
+        "last call duration",
+        "age",
+        "issue resolved ratio"
+    ]
+}

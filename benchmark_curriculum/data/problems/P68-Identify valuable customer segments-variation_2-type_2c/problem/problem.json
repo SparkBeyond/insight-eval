@@ -1,0 +1,7 @@
+{
+    "target_column": "Customer Value",
+    "description": "Segment customers to identify high-value groups for targeted actions.",
+    "name": "Identify valuable customer segments",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Retail supermarket"
+}

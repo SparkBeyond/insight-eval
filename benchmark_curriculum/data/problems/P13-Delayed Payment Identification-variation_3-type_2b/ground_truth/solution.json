@@ -1,0 +1,16 @@
+{
+    "enriched_column_names": [
+        "count_of_high_value_transactions_over_10",
+        "percentage_of_customer_transactions_with_delayed_payment_flags_in_the_last_6_months",
+        "frequency_of_repeat_payment_delays_for_the_same_customer",
+        "average_credit_score_of_a_customer_in_the_last_year",
+        "impact_of_socio_demographic_income_brackets_on_delay_occurrences"
+    ],
+    "features_descriptions": [
+        "count of high value transactions over 10",
+        "percentage of customer transactions with delayed payment flags in the last 6 months",
+        "frequency of repeat payment delays for the same customer",
+        "average credit score of a customer in the last year",
+        "impact of socio demographic income brackets on delay occurrences"
+    ]
+}

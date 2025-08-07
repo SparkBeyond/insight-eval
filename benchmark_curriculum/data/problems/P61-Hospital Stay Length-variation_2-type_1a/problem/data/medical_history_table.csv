@@ -1,0 +1,3001 @@
+history_id,patient_id,chronic_conditions,allergies,previous_surgeries
+1,832,['None'],"['Peanuts', 'Shellfish']",['Appendectomy']
+2,1085,['Diabetes'],"['None', 'Peanuts']",['None']
+3,1586,[],['Shellfish'],"['Gallbladder removal', 'None']"
+4,1120,[],[],['Appendectomy']
+5,2847,[],"['Peanuts', 'Shellfish']",[]
+6,1424,['None'],"['Shellfish', 'None']",[]
+7,1153,[],['Shellfish'],['Appendectomy']
+8,345,['Asthma'],[],"['None', 'Appendectomy']"
+9,2859,['None'],['Shellfish'],[]
+10,1616,"['Hypertension', 'Diabetes', 'None']",[],['None']
+11,2252,"['Hypertension', 'Diabetes']",[],"['Gallbladder removal', 'None']"
+12,1051,"['Hypertension', 'Asthma']","['Peanuts', 'Shellfish']","['Appendectomy', 'Gallbladder removal']"
+13,1704,"['Diabetes', 'Hypertension', 'None']",[],[]
+14,1086,"['Asthma', 'Hypertension']",[],['Gallbladder removal']
+15,242,[],['Peanuts'],"['None', 'Gallbladder removal']"
+16,1416,[],['Shellfish'],"['Appendectomy', 'None']"
+17,615,[],['Peanuts'],[]
+18,2722,"['Diabetes', 'Asthma']",['Shellfish'],['Gallbladder removal']
+19,1488,[],[],[]
+20,2382,['None'],"['Peanuts', 'None']",[]
+21,2146,[],[],['None']
+22,2764,['None'],[],"['Appendectomy', 'Gallbladder removal']"
+23,2533,"['Hypertension', 'None']",['Peanuts'],[]
+24,59,"['None', 'Hypertension', 'Diabetes']",[],['None']
+25,1042,"['Hypertension', 'Asthma']","['None', 'Shellfish']","['None', 'Gallbladder removal']"
+26,1596,[],[],"['Gallbladder removal', 'Appendectomy']"
+27,1833,[],[],[]
+28,1566,"['Hypertension', 'None', 'Asthma']",[],"['None', 'Gallbladder removal']"
+29,1884,['Diabetes'],[],"['Gallbladder removal', 'Appendectomy']"
+30,1601,['Hypertension'],['None'],"['Appendectomy', 'Gallbladder removal']"
+31,636,[],"['None', 'Peanuts']",['Appendectomy']
+32,1622,"['Hypertension', 'Diabetes']",['Shellfish'],['Appendectomy']
+33,2703,"['Asthma', 'None', 'Diabetes']",[],[]
+34,2999,"['Diabetes', 'Asthma']","['Shellfish', 'None']",[]
+35,2562,['Hypertension'],"['Shellfish', 'Peanuts']",['Gallbladder removal']
+36,2053,[],"['None', 'Peanuts']","['None', 'Gallbladder removal']"
+37,1914,"['Diabetes', 'None', 'Hypertension']",[],"['None', 'Appendectomy']"
+38,964,[],[],"['None', 'Gallbladder removal']"
+39,2276,"['Diabetes', 'None', 'Asthma']",[],[]
+40,2284,"['None', 'Diabetes']",['Shellfish'],['Appendectomy']
+41,2789,"['Diabetes', 'Hypertension']","['Peanuts', 'Shellfish']",['Appendectomy']
+42,2311,"['Hypertension', 'None']",['Shellfish'],[]
+43,2021,[],['Peanuts'],"['Appendectomy', 'Gallbladder removal']"
+44,2011,[],[],[]
+45,1383,[],[],"['Appendectomy', 'Gallbladder removal']"
+46,1207,['Asthma'],[],[]
+47,2400,"['Hypertension', 'Diabetes']",['Shellfish'],['Appendectomy']
+48,1925,"['Diabetes', 'Hypertension']",['Peanuts'],[]
+49,1050,['Diabetes'],"['Peanuts', 'Shellfish']",['None']
+50,1626,[],['None'],[]
+51,1142,"['Hypertension', 'Diabetes']",[],['Appendectomy']
+52,778,[],"['None', 'Shellfish']","['None', 'Appendectomy']"
+53,813,['Asthma'],['Peanuts'],[]
+54,737,"['None', 'Hypertension']","['Shellfish', 'None']",[]
+55,1534,"['Diabetes', 'Asthma', 'Hypertension']",['Shellfish'],"['None', 'Gallbladder removal']"
+56,966,"['None', 'Diabetes']","['None', 'Peanuts']","['None', 'Gallbladder removal']"
+57,1996,"['Diabetes', 'Hypertension']","['Peanuts', 'None']",[]
+58,722,['Asthma'],['None'],[]
+59,2683,"['Asthma', 'Hypertension']","['Peanuts', 'Shellfish']",[]
+60,880,"['Diabetes', 'Hypertension']",['Peanuts'],"['Gallbladder removal', 'Appendectomy']"
+61,664,"['None', 'Diabetes', 'Hypertension']","['Shellfish', 'Peanuts']","['None', 'Gallbladder removal']"
+62,1499,"['None', 'Asthma', 'Diabetes']",[],['Gallbladder removal']
+63,1682,"['None', 'Asthma', 'Diabetes']",['None'],['Appendectomy']
+64,1282,[],['Peanuts'],['Appendectomy']
+65,74,"['Asthma', 'None', 'Hypertension']","['None', 'Shellfish']",[]
+66,458,"['Diabetes', 'None']",['Peanuts'],['None']
+67,1864,[],[],[]
+68,1357,['Hypertension'],[],"['Gallbladder removal', 'Appendectomy']"
+69,623,"['None', 'Diabetes']",['Peanuts'],[]
+70,2185,[],"['Shellfish', 'Peanuts']","['Appendectomy', 'Gallbladder removal']"
+71,1671,['Diabetes'],['None'],[]
+72,2336,[],['Peanuts'],"['Gallbladder removal', 'Appendectomy']"
+73,227,"['Asthma', 'None', 'Hypertension']",['Shellfish'],['Gallbladder removal']
+74,1799,"['None', 'Asthma']","['Shellfish', 'None']","['Appendectomy', 'None']"
+75,1713,"['None', 'Hypertension', 'Asthma']",[],['None']
+76,1462,['Asthma'],['None'],[]
+77,2929,"['Asthma', 'Diabetes', 'None']",[],['None']
+78,2220,['Asthma'],"['None', 'Shellfish']",['None']
+79,1444,"['Asthma', 'Diabetes', 'Hypertension']","['Shellfish', 'Peanuts']",[]
+80,730,"['Diabetes', 'Hypertension']",[],['Appendectomy']
+81,974,"['None', 'Diabetes', 'Hypertension']",[],"['Appendectomy', 'Gallbladder removal']"
+82,2623,['None'],['Peanuts'],['Appendectomy']
+83,250,[],"['None', 'Peanuts']",['Appendectomy']
+84,2567,"['None', 'Hypertension', 'Diabetes']",['None'],[]
+85,186,['None'],['Peanuts'],"['Gallbladder removal', 'None']"
+86,2793,[],[],[]
+87,1587,[],['None'],[]
+88,2684,['Hypertension'],"['Peanuts', 'Shellfish']",['Appendectomy']
+89,1280,['Asthma'],['Peanuts'],"['Gallbladder removal', 'Appendectomy']"
+90,1428,['Hypertension'],['None'],['Appendectomy']
+91,2464,"['None', 'Asthma']","['Peanuts', 'Shellfish']",[]
+92,2286,[],"['Peanuts', 'None']",['None']
+93,1491,[],[],[]
+94,2986,['Asthma'],"['Peanuts', 'None']",['None']
+95,872,[],['Shellfish'],[]
+96,1991,['Diabetes'],['Shellfish'],['Gallbladder removal']
+97,760,"['Diabetes', 'Asthma']",[],[]
+98,2486,"['Diabetes', 'Asthma']",[],['None']
+99,1061,[],"['None', 'Peanuts']",[]
+100,961,['Diabetes'],['Shellfish'],['Gallbladder removal']
+101,1341,"['None', 'Asthma']","['None', 'Shellfish']","['Appendectomy', 'None']"
+102,653,[],[],[]
+103,1447,"['Asthma', 'Hypertension']","['None', 'Shellfish']",['None']
+104,49,[],"['Shellfish', 'Peanuts']","['Appendectomy', 'None']"
+105,2877,['Diabetes'],[],[]
+106,123,['Hypertension'],['None'],[]
+107,160,"['None', 'Hypertension']","['Peanuts', 'None']","['Gallbladder removal', 'Appendectomy']"
+108,2337,"['None', 'Asthma']",['None'],"['None', 'Appendectomy']"
+109,2298,"['Diabetes', 'Asthma', 'None']","['Peanuts', 'None']",['None']
+110,1425,"['Diabetes', 'Hypertension', 'Asthma']",[],['Gallbladder removal']
+111,2631,"['Hypertension', 'None', 'Asthma']","['None', 'Peanuts']",['None']
+112,56,"['Hypertension', 'Diabetes']","['Shellfish', 'None']",['Gallbladder removal']
+113,1925,[],['None'],"['Gallbladder removal', 'None']"
+114,421,[],[],[]
+115,2861,"['Diabetes', 'Hypertension', 'Asthma']",[],['None']
+116,1088,[],[],"['Appendectomy', 'Gallbladder removal']"
+117,2584,"['None', 'Hypertension']",[],[]
+118,830,['None'],[],"['Gallbladder removal', 'None']"
+119,1941,['Hypertension'],['None'],"['None', 'Gallbladder removal']"
+120,1568,[],[],[]
+121,356,"['None', 'Asthma']","['None', 'Peanuts']",['Gallbladder removal']
+122,452,"['None', 'Asthma']","['Peanuts', 'None']",['Appendectomy']
+123,1452,[],['Peanuts'],"['Gallbladder removal', 'None']"
+124,179,['Diabetes'],['Shellfish'],[]
+125,333,[],['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+126,340,"['Diabetes', 'Asthma', 'None']",[],"['None', 'Appendectomy']"
+127,306,"['Hypertension', 'None', 'Asthma']",['None'],['None']
+128,1637,[],['None'],"['None', 'Gallbladder removal']"
+129,504,"['Diabetes', 'None', 'Asthma']",[],[]
+130,347,[],['None'],[]
+131,925,"['Diabetes', 'Hypertension']",['Peanuts'],[]
+132,1646,"['Diabetes', 'Asthma', 'None']",['Peanuts'],['None']
+133,1401,['Hypertension'],['None'],"['None', 'Gallbladder removal']"
+134,293,[],['None'],['None']
+135,115,['Diabetes'],['Peanuts'],['None']
+136,1526,"['Diabetes', 'None', 'Asthma']","['None', 'Peanuts']","['None', 'Gallbladder removal']"
+137,2862,[],['None'],['Gallbladder removal']
+138,2113,[],['None'],['Appendectomy']
+139,657,['Asthma'],[],[]
+140,2287,['None'],['Shellfish'],['Appendectomy']
+141,2558,['Hypertension'],"['Peanuts', 'None']",['Gallbladder removal']
+142,560,"['Hypertension', 'Diabetes']",[],['Gallbladder removal']
+143,2079,['Hypertension'],"['Shellfish', 'None']",['None']
+144,294,['Asthma'],"['Peanuts', 'Shellfish']",[]
+145,2486,['Diabetes'],"['Shellfish', 'Peanuts']",['None']
+146,974,[],"['None', 'Peanuts']",[]
+147,1478,['Diabetes'],"['Peanuts', 'Shellfish']","['Appendectomy', 'None']"
+148,2756,[],"['Shellfish', 'Peanuts']","['Appendectomy', 'None']"
+149,869,"['Hypertension', 'None']",['None'],"['None', 'Gallbladder removal']"
+150,502,"['None', 'Diabetes']","['Peanuts', 'None']",[]
+151,1131,['None'],[],[]
+152,781,"['Asthma', 'None']",['Peanuts'],['None']
+153,996,['Diabetes'],"['Peanuts', 'Shellfish']","['Appendectomy', 'Gallbladder removal']"
+154,462,['Asthma'],['None'],"['Gallbladder removal', 'None']"
+155,288,[],['None'],['Appendectomy']
+156,834,"['Asthma', 'Diabetes']",[],[]
+157,1660,"['Asthma', 'None']",[],"['None', 'Appendectomy']"
+158,1202,['Diabetes'],"['Peanuts', 'Shellfish']","['Appendectomy', 'Gallbladder removal']"
+159,2061,[],"['Shellfish', 'Peanuts']",[]
+160,1043,"['Diabetes', 'Asthma', 'None']","['None', 'Shellfish']",[]
+161,416,"['Diabetes', 'None']","['Shellfish', 'None']","['Appendectomy', 'Gallbladder removal']"
+162,452,"['None', 'Hypertension']","['None', 'Shellfish']",['None']
+163,1598,[],[],['Gallbladder removal']
+164,2707,['Diabetes'],['None'],"['Gallbladder removal', 'None']"
+165,1697,['None'],['None'],"['Gallbladder removal', 'Appendectomy']"
+166,2043,[],"['Peanuts', 'None']",['None']
+167,1075,"['Asthma', 'Hypertension', 'Diabetes']",[],"['Gallbladder removal', 'None']"
+168,2381,"['Asthma', 'None']",[],"['Gallbladder removal', 'None']"
+169,2210,"['None', 'Asthma']",['None'],[]
+170,733,"['None', 'Hypertension']","['None', 'Shellfish']",['None']
+171,1058,"['Asthma', 'Hypertension']",['Shellfish'],['None']
+172,227,"['Diabetes', 'Hypertension', 'Asthma']","['Peanuts', 'Shellfish']",['Gallbladder removal']
+173,1598,[],['Shellfish'],['Appendectomy']
+174,2341,[],"['Shellfish', 'None']",['None']
+175,441,"['Hypertension', 'Diabetes']",['None'],['None']
+176,253,[],"['Shellfish', 'Peanuts']",[]
+177,616,[],"['Peanuts', 'Shellfish']","['Appendectomy', 'Gallbladder removal']"
+178,2524,['Diabetes'],"['None', 'Peanuts']",[]
+179,249,"['Asthma', 'Diabetes', 'Hypertension']","['None', 'Peanuts']","['Gallbladder removal', 'None']"
+180,1071,"['Hypertension', 'None']",[],[]
+181,2396,['Hypertension'],[],[]
+182,103,"['Hypertension', 'None']",[],['Appendectomy']
+183,1297,"['Diabetes', 'Asthma']",['Shellfish'],['Appendectomy']
+184,2984,"['Hypertension', 'Asthma']","['Shellfish', 'None']",['Appendectomy']
+185,2705,['Hypertension'],"['Peanuts', 'None']","['Gallbladder removal', 'Appendectomy']"
+186,1893,"['Diabetes', 'Asthma']",['Shellfish'],['Gallbladder removal']
+187,1112,[],['Shellfish'],"['Appendectomy', 'None']"
+188,1023,"['Hypertension', 'Diabetes', 'Asthma']",[],['Gallbladder removal']
+189,2471,"['Diabetes', 'None']","['None', 'Shellfish']",[]
+190,601,[],[],"['None', 'Appendectomy']"
+191,93,['None'],"['Peanuts', 'None']","['None', 'Gallbladder removal']"
+192,50,"['None', 'Diabetes']",[],"['Appendectomy', 'None']"
+193,2533,"['Asthma', 'None']","['None', 'Shellfish']",[]
+194,889,[],['Shellfish'],"['Appendectomy', 'Gallbladder removal']"
+195,1781,['None'],['None'],['None']
+196,1861,"['Asthma', 'Hypertension']",[],"['Gallbladder removal', 'Appendectomy']"
+197,2347,"['Hypertension', 'Asthma', 'Diabetes']","['Peanuts', 'None']",['None']
+198,2356,"['Hypertension', 'None', 'Asthma']",['Peanuts'],[]
+199,1748,"['Asthma', 'Diabetes']","['None', 'Shellfish']","['Appendectomy', 'Gallbladder removal']"
+200,895,['Asthma'],[],[]
+201,763,['Hypertension'],['None'],['None']
+202,301,['Diabetes'],"['None', 'Peanuts']",['Gallbladder removal']
+203,535,"['None', 'Diabetes', 'Hypertension']",['None'],"['Appendectomy', 'Gallbladder removal']"
+204,2170,['Diabetes'],['Shellfish'],[]
+205,403,"['Hypertension', 'Diabetes']",[],"['Gallbladder removal', 'Appendectomy']"
+206,1460,"['None', 'Asthma', 'Hypertension']",[],"['Gallbladder removal', 'Appendectomy']"
+207,974,[],['Peanuts'],[]
+208,742,"['None', 'Diabetes']",['None'],[]
+209,2139,['Asthma'],['Shellfish'],"['Appendectomy', 'None']"
+210,632,"['Hypertension', 'None']",['Peanuts'],"['None', 'Gallbladder removal']"
+211,20,[],"['Peanuts', 'Shellfish']",['Gallbladder removal']
+212,2126,"['None', 'Hypertension', 'Diabetes']","['Shellfish', 'Peanuts']",['Appendectomy']
+213,2930,"['Diabetes', 'Asthma', 'Hypertension']","['Shellfish', 'None']","['Gallbladder removal', 'None']"
+214,1195,[],"['Peanuts', 'None']",['Appendectomy']
+215,1878,"['Hypertension', 'None']","['None', 'Shellfish']",['Appendectomy']
+216,2018,['None'],"['None', 'Peanuts']","['Appendectomy', 'Gallbladder removal']"
+217,1395,['None'],"['Shellfish', 'Peanuts']",['None']
+218,1341,"['Hypertension', 'None']",['Peanuts'],[]
+219,917,[],['Peanuts'],[]
+220,2410,"['Diabetes', 'None']",[],"['Appendectomy', 'Gallbladder removal']"
+221,1212,['Diabetes'],"['Peanuts', 'Shellfish']",[]
+222,1091,"['None', 'Diabetes', 'Hypertension']",['Shellfish'],['Gallbladder removal']
+223,2531,"['Hypertension', 'Asthma']","['Shellfish', 'Peanuts']",[]
+224,2761,[],['Shellfish'],"['Gallbladder removal', 'None']"
+225,1320,"['Diabetes', 'None']","['None', 'Shellfish']",['None']
+226,2985,"['Asthma', 'Hypertension']","['None', 'Shellfish']","['None', 'Gallbladder removal']"
+227,2302,['Diabetes'],"['None', 'Peanuts']",['None']
+228,2839,['Hypertension'],"['None', 'Shellfish']",[]
+229,2788,"['Asthma', 'Hypertension', 'None']",['Peanuts'],"['Gallbladder removal', 'Appendectomy']"
+230,1295,[],[],[]
+231,638,[],"['Shellfish', 'None']",['Gallbladder removal']
+232,904,[],[],"['Gallbladder removal', 'Appendectomy']"
+233,730,"['Diabetes', 'None', 'Asthma']",[],[]
+234,1755,['None'],['None'],[]
+235,1557,"['Diabetes', 'None']","['None', 'Shellfish']",['Appendectomy']
+236,2691,"['None', 'Hypertension']",[],"['None', 'Gallbladder removal']"
+237,161,"['None', 'Asthma']","['None', 'Peanuts']",['Gallbladder removal']
+238,274,[],['Peanuts'],['Gallbladder removal']
+239,1423,[],[],"['Appendectomy', 'None']"
+240,67,"['None', 'Hypertension']","['Shellfish', 'Peanuts']",[]
+241,2546,[],"['Shellfish', 'Peanuts']",[]
+242,529,"['Diabetes', 'None', 'Asthma']","['Shellfish', 'Peanuts']",['Appendectomy']
+243,697,[],[],['None']
+244,2901,"['Diabetes', 'None']",['None'],[]
+245,136,"['Hypertension', 'None', 'Asthma']",['None'],[]
+246,138,"['None', 'Asthma']",['None'],[]
+247,1017,[],"['Shellfish', 'None']",['Appendectomy']
+248,167,"['Asthma', 'None']",[],"['Appendectomy', 'Gallbladder removal']"
+249,1573,"['Hypertension', 'None']",['None'],['None']
+250,473,['Hypertension'],"['None', 'Peanuts']","['Appendectomy', 'None']"
+251,2051,[],"['None', 'Peanuts']","['Gallbladder removal', 'None']"
+252,2441,[],['None'],['None']
+253,918,"['None', 'Hypertension']",['Peanuts'],"['Gallbladder removal', 'None']"
+254,2637,"['Asthma', 'None']","['Peanuts', 'None']",[]
+255,2294,"['Asthma', 'None']",['Peanuts'],['None']
+256,811,[],[],"['Gallbladder removal', 'None']"
+257,503,"['None', 'Diabetes', 'Hypertension']",['Peanuts'],[]
+258,760,"['Asthma', 'Diabetes', 'None']","['Peanuts', 'None']",['Appendectomy']
+259,2541,"['Asthma', 'None']","['None', 'Peanuts']","['Appendectomy', 'None']"
+260,1973,[],"['None', 'Shellfish']","['Gallbladder removal', 'None']"
+261,166,[],[],"['None', 'Appendectomy']"
+262,1957,['Diabetes'],['None'],"['None', 'Appendectomy']"
+263,2700,['Diabetes'],[],[]
+264,1399,"['Hypertension', 'None', 'Diabetes']",[],['Gallbladder removal']
+265,526,"['Asthma', 'Diabetes']","['Shellfish', 'Peanuts']",['Appendectomy']
+266,254,[],[],[]
+267,519,"['Diabetes', 'Asthma']",['Shellfish'],"['None', 'Appendectomy']"
+268,1461,"['None', 'Hypertension', 'Asthma']",[],['Gallbladder removal']
+269,696,['None'],"['Shellfish', 'Peanuts']",['None']
+270,1466,['None'],[],"['Gallbladder removal', 'None']"
+271,480,"['None', 'Diabetes']",['Peanuts'],[]
+272,2539,['None'],[],['Gallbladder removal']
+273,250,"['Asthma', 'Diabetes']","['None', 'Shellfish']",['None']
+274,570,[],['None'],['Appendectomy']
+275,1324,['Asthma'],"['Shellfish', 'None']",['Appendectomy']
+276,2184,"['Hypertension', 'None']",['Shellfish'],"['Gallbladder removal', 'None']"
+277,2350,"['None', 'Diabetes']","['Shellfish', 'Peanuts']","['Gallbladder removal', 'Appendectomy']"
+278,127,"['Hypertension', 'None']","['None', 'Peanuts']",[]
+279,2900,"['Diabetes', 'Asthma']",[],[]
+280,1646,['Asthma'],"['Peanuts', 'Shellfish']",[]
+281,659,"['None', 'Hypertension', 'Asthma']",['None'],[]
+282,955,[],[],"['Appendectomy', 'Gallbladder removal']"
+283,417,[],[],[]
+284,1368,['Hypertension'],"['Peanuts', 'None']","['Gallbladder removal', 'None']"
+285,2072,['Asthma'],['Peanuts'],[]
+286,1916,['Asthma'],"['Peanuts', 'None']",['Appendectomy']
+287,209,"['Asthma', 'Diabetes']",[],"['Gallbladder removal', 'Appendectomy']"
+288,1221,"['Hypertension', 'Asthma']",[],"['Gallbladder removal', 'None']"
+289,2517,"['Asthma', 'None']",['Shellfish'],['None']
+290,843,[],"['Shellfish', 'Peanuts']","['Gallbladder removal', 'Appendectomy']"
+291,977,"['Hypertension', 'None', 'Asthma']","['Peanuts', 'Shellfish']","['Appendectomy', 'Gallbladder removal']"
+292,1834,['Hypertension'],['None'],"['None', 'Appendectomy']"
+293,1682,[],[],"['None', 'Appendectomy']"
+294,2613,['Diabetes'],['None'],"['Appendectomy', 'None']"
+295,1321,[],['Peanuts'],['Appendectomy']
+296,2524,[],"['Shellfish', 'Peanuts']",['None']
+297,155,"['Hypertension', 'None', 'Diabetes']",[],[]
+298,1738,"['Hypertension', 'Asthma', 'None']",['Peanuts'],['None']
+299,369,"['Asthma', 'Hypertension', 'None']",[],"['Appendectomy', 'None']"
+300,383,"['None', 'Diabetes', 'Hypertension']","['Peanuts', 'None']",['Gallbladder removal']
+301,2870,[],[],['Gallbladder removal']
+302,1240,[],['None'],"['Appendectomy', 'None']"
+303,120,"['Diabetes', 'Hypertension']",[],[]
+304,570,['Diabetes'],"['None', 'Peanuts']",['Gallbladder removal']
+305,130,"['None', 'Diabetes']","['None', 'Shellfish']",[]
+306,1918,"['Diabetes', 'Hypertension']","['None', 'Shellfish']",[]
+307,2058,"['None', 'Diabetes']","['Shellfish', 'Peanuts']","['Appendectomy', 'None']"
+308,639,"['None', 'Hypertension', 'Asthma']",[],[]
+309,1004,[],"['Shellfish', 'None']",[]
+310,2534,[],['Shellfish'],[]
+311,1694,"['Hypertension', 'Diabetes', 'Asthma']",['None'],"['Appendectomy', 'Gallbladder removal']"
+312,2124,['Diabetes'],"['Shellfish', 'Peanuts']",['Gallbladder removal']
+313,100,[],['Shellfish'],[]
+314,1602,['None'],"['Peanuts', 'Shellfish']","['Gallbladder removal', 'Appendectomy']"
+315,1657,"['Asthma', 'Hypertension']",[],['None']
+316,1243,"['Hypertension', 'Asthma']",['None'],[]
+317,1573,"['Asthma', 'Diabetes']",[],[]
+318,2159,[],[],['Gallbladder removal']
+319,711,['Diabetes'],"['Peanuts', 'Shellfish']","['Gallbladder removal', 'None']"
+320,2883,"['Hypertension', 'Asthma', 'None']","['None', 'Shellfish']",[]
+321,2216,"['Diabetes', 'None', 'Asthma']","['None', 'Peanuts']",[]
+322,1776,"['Diabetes', 'None']","['None', 'Shellfish']","['Gallbladder removal', 'None']"
+323,2949,"['Diabetes', 'Asthma']","['None', 'Shellfish']",['Gallbladder removal']
+324,2890,"['Diabetes', 'Asthma']","['Shellfish', 'None']",['Appendectomy']
+325,1985,[],"['Peanuts', 'None']",[]
+326,795,"['Diabetes', 'None']","['Shellfish', 'Peanuts']","['Gallbladder removal', 'Appendectomy']"
+327,2805,"['None', 'Asthma']",[],[]
+328,1943,[],['Shellfish'],['None']
+329,463,[],['None'],[]
+330,1534,"['None', 'Hypertension', 'Diabetes']",['None'],"['Gallbladder removal', 'Appendectomy']"
+331,403,[],"['Shellfish', 'Peanuts']",['Appendectomy']
+332,1200,[],[],"['Gallbladder removal', 'Appendectomy']"
+333,1867,[],[],[]
+334,2658,"['Asthma', 'Diabetes', 'Hypertension']",['Peanuts'],[]
+335,2422,['Asthma'],['None'],['Gallbladder removal']
+336,1356,[],['Peanuts'],['Gallbladder removal']
+337,2050,[],['None'],[]
+338,2088,"['Asthma', 'Hypertension']","['Shellfish', 'None']",['Gallbladder removal']
+339,2462,"['Hypertension', 'None']","['Peanuts', 'None']","['Appendectomy', 'None']"
+340,816,['Hypertension'],"['Shellfish', 'Peanuts']","['Appendectomy', 'Gallbladder removal']"
+341,904,"['Asthma', 'Diabetes', 'None']","['None', 'Shellfish']","['Appendectomy', 'None']"
+342,1976,['Asthma'],['Shellfish'],['Gallbladder removal']
+343,508,"['Asthma', 'Hypertension']",[],['Appendectomy']
+344,2729,['Hypertension'],['Peanuts'],['Appendectomy']
+345,2057,[],['Shellfish'],"['Appendectomy', 'Gallbladder removal']"
+346,977,"['Asthma', 'Hypertension', 'None']","['Shellfish', 'None']",['None']
+347,1176,['Diabetes'],[],[]
+348,2776,['Asthma'],"['Shellfish', 'Peanuts']",[]
+349,1443,"['Diabetes', 'Asthma', 'Hypertension']",[],"['None', 'Appendectomy']"
+350,2913,['Hypertension'],['None'],[]
+351,2020,['Hypertension'],['Shellfish'],['Gallbladder removal']
+352,1171,['Diabetes'],[],"['Appendectomy', 'None']"
+353,1198,['Hypertension'],['Peanuts'],[]
+354,881,"['Diabetes', 'Asthma', 'Hypertension']",[],[]
+355,1135,['Hypertension'],[],"['None', 'Appendectomy']"
+356,729,"['Hypertension', 'Diabetes']","['Peanuts', 'Shellfish']",[]
+357,2899,[],"['Peanuts', 'None']","['Gallbladder removal', 'None']"
+358,2031,"['None', 'Asthma']",[],[]
+359,2063,"['Hypertension', 'Asthma', 'Diabetes']","['None', 'Shellfish']","['None', 'Appendectomy']"
+360,2444,"['None', 'Asthma']",['None'],"['Gallbladder removal', 'Appendectomy']"
+361,517,['Hypertension'],[],[]
+362,2402,"['Diabetes', 'Hypertension', 'Asthma']",['Peanuts'],"['Gallbladder removal', 'None']"
+363,70,['Diabetes'],[],['Appendectomy']
+364,2335,"['Diabetes', 'None', 'Hypertension']","['Peanuts', 'Shellfish']","['None', 'Appendectomy']"
+365,399,[],['Shellfish'],['Gallbladder removal']
+366,2737,"['Diabetes', 'None', 'Hypertension']","['Peanuts', 'Shellfish']",[]
+367,1994,"['Asthma', 'None']",[],['Gallbladder removal']
+368,1399,"['Asthma', 'None']","['Peanuts', 'None']","['None', 'Appendectomy']"
+369,1204,[],['None'],[]
+370,1900,['Asthma'],[],[]
+371,2586,"['Diabetes', 'Asthma']","['Shellfish', 'None']",[]
+372,2550,"['Asthma', 'Hypertension']",[],['Appendectomy']
+373,261,"['Asthma', 'Hypertension', 'Diabetes']",['Shellfish'],['Appendectomy']
+374,2151,"['Asthma', 'None', 'Diabetes']",[],"['None', 'Gallbladder removal']"
+375,2475,"['Hypertension', 'None']","['Shellfish', 'None']","['Appendectomy', 'None']"
+376,880,['Hypertension'],[],['Appendectomy']
+377,2402,['Diabetes'],"['Shellfish', 'Peanuts']","['None', 'Appendectomy']"
+378,449,"['Diabetes', 'Hypertension']",['None'],"['Appendectomy', 'None']"
+379,704,"['None', 'Diabetes', 'Asthma']",[],[]
+380,1259,['Asthma'],['None'],['Appendectomy']
+381,2766,"['None', 'Diabetes', 'Asthma']",['None'],[]
+382,1889,"['Asthma', 'None']",[],"['Gallbladder removal', 'Appendectomy']"
+383,1877,"['Hypertension', 'None', 'Diabetes']","['None', 'Shellfish']",[]
+384,697,"['None', 'Diabetes']","['None', 'Peanuts']",[]
+385,343,[],['Shellfish'],[]
+386,290,"['None', 'Diabetes']",['None'],"['Appendectomy', 'None']"
+387,1687,"['None', 'Hypertension']",['Peanuts'],"['Gallbladder removal', 'None']"
+388,1500,['Diabetes'],"['Shellfish', 'Peanuts']",[]
+389,1635,['Asthma'],"['Shellfish', 'Peanuts']",[]
+390,2663,[],[],[]
+391,2625,[],['Shellfish'],"['None', 'Gallbladder removal']"
+392,2382,"['None', 'Asthma', 'Diabetes']","['Peanuts', 'Shellfish']","['Appendectomy', 'Gallbladder removal']"
+393,2575,"['Asthma', 'None', 'Hypertension']",[],['Appendectomy']
+394,2709,[],['None'],['Gallbladder removal']
+395,2505,[],['None'],['Gallbladder removal']
+396,2380,"['Diabetes', 'Hypertension']",[],['None']
+397,650,[],"['None', 'Shellfish']",['Gallbladder removal']
+398,866,[],"['Peanuts', 'None']",[]
+399,94,[],['Peanuts'],['Appendectomy']
+400,2327,"['Hypertension', 'Diabetes', 'Asthma']",['None'],[]
+401,1866,[],[],['None']
+402,599,[],['Shellfish'],['Appendectomy']
+403,2503,[],"['Peanuts', 'None']",[]
+404,1119,"['Hypertension', 'Diabetes', 'Asthma']",['None'],"['Appendectomy', 'None']"
+405,1025,['Diabetes'],"['None', 'Peanuts']",[]
+406,2496,['Hypertension'],"['None', 'Peanuts']","['Gallbladder removal', 'None']"
+407,1153,[],"['Peanuts', 'None']",['Gallbladder removal']
+408,2920,"['Hypertension', 'Asthma', 'Diabetes']",['None'],['Gallbladder removal']
+409,1394,[],[],['None']
+410,1475,['None'],['Shellfish'],[]
+411,1031,['None'],['Peanuts'],[]
+412,2375,[],['None'],[]
+413,2876,[],"['Peanuts', 'None']","['Gallbladder removal', 'None']"
+414,345,[],"['Shellfish', 'None']",['Gallbladder removal']
+415,375,['Hypertension'],[],['Gallbladder removal']
+416,532,"['Asthma', 'Hypertension', 'None']","['Peanuts', 'None']",['Appendectomy']
+417,2313,[],[],['None']
+418,1295,"['None', 'Asthma']","['Shellfish', 'None']",[]
+419,954,"['Diabetes', 'None']",['Peanuts'],['None']
+420,39,"['Diabetes', 'Asthma']",[],[]
+421,2441,['Diabetes'],[],[]
+422,884,"['Diabetes', 'Asthma', 'None']",['Peanuts'],['None']
+423,35,['Asthma'],"['Peanuts', 'Shellfish']","['Appendectomy', 'Gallbladder removal']"
+424,119,"['Diabetes', 'None', 'Hypertension']","['Peanuts', 'None']","['Appendectomy', 'Gallbladder removal']"
+425,2493,[],[],"['Appendectomy', 'None']"
+426,2916,"['None', 'Asthma', 'Hypertension']",['Peanuts'],"['Gallbladder removal', 'Appendectomy']"
+427,1620,[],['Shellfish'],"['None', 'Appendectomy']"
+428,2545,[],['None'],['Appendectomy']
+429,546,"['None', 'Diabetes', 'Hypertension']",['Shellfish'],['Gallbladder removal']
+430,2104,['None'],['Shellfish'],[]
+431,32,[],['Peanuts'],['None']
+432,998,[],['Shellfish'],"['None', 'Gallbladder removal']"
+433,347,['Diabetes'],['Shellfish'],"['Appendectomy', 'None']"
+434,2865,"['None', 'Asthma', 'Diabetes']",[],"['None', 'Gallbladder removal']"
+435,656,[],"['Peanuts', 'Shellfish']",[]
+436,2346,"['None', 'Asthma', 'Diabetes']",[],"['None', 'Gallbladder removal']"
+437,182,['None'],"['Peanuts', 'None']",[]
+438,209,"['Asthma', 'Diabetes']",['Peanuts'],[]
+439,1116,[],['Peanuts'],"['Gallbladder removal', 'Appendectomy']"
+440,1754,"['Hypertension', 'Diabetes', 'None']","['Peanuts', 'Shellfish']",[]
+441,1777,"['Diabetes', 'Asthma', 'None']","['None', 'Shellfish']",['Gallbladder removal']
+442,183,"['None', 'Asthma']",[],[]
+443,419,"['Hypertension', 'Diabetes', 'None']","['None', 'Shellfish']",[]
+444,2114,"['None', 'Hypertension', 'Diabetes']",['Peanuts'],['None']
+445,573,"['Diabetes', 'Asthma', 'Hypertension']","['None', 'Shellfish']",[]
+446,1500,[],"['None', 'Peanuts']",[]
+447,1020,['None'],['Shellfish'],"['None', 'Gallbladder removal']"
+448,2687,['Hypertension'],"['Peanuts', 'Shellfish']","['None', 'Appendectomy']"
+449,2275,"['None', 'Diabetes', 'Asthma']",['Shellfish'],"['None', 'Appendectomy']"
+450,2922,"['Hypertension', 'Asthma', 'Diabetes']",['None'],['None']
+451,890,"['Hypertension', 'None', 'Diabetes']","['Peanuts', 'None']","['Appendectomy', 'None']"
+452,1506,['Asthma'],[],[]
+453,1703,['Diabetes'],['None'],"['Appendectomy', 'Gallbladder removal']"
+454,372,['Hypertension'],"['None', 'Peanuts']",['None']
+455,624,[],['Peanuts'],[]
+456,2914,[],"['Peanuts', 'Shellfish']",[]
+457,501,"['Diabetes', 'Asthma', 'Hypertension']",['None'],"['Gallbladder removal', 'Appendectomy']"
+458,2978,"['Asthma', 'Diabetes', 'Hypertension']",[],"['Gallbladder removal', 'None']"
+459,1918,[],['Shellfish'],"['Gallbladder removal', 'None']"
+460,1171,"['Asthma', 'Hypertension']",[],['None']
+461,2698,"['Diabetes', 'Asthma', 'Hypertension']",['Shellfish'],[]
+462,998,['None'],"['Shellfish', 'None']","['Gallbladder removal', 'Appendectomy']"
+463,878,['None'],"['None', 'Shellfish']","['Appendectomy', 'Gallbladder removal']"
+464,2698,['Asthma'],[],"['None', 'Appendectomy']"
+465,412,"['Hypertension', 'None']",['None'],[]
+466,1325,"['Asthma', 'Diabetes']","['Peanuts', 'Shellfish']",[]
+467,1665,"['Hypertension', 'None']",[],['Appendectomy']
+468,175,[],['Shellfish'],[]
+469,1869,"['Diabetes', 'Asthma']",[],['Gallbladder removal']
+470,406,[],['None'],['Gallbladder removal']
+471,915,"['None', 'Asthma', 'Hypertension']",[],"['Appendectomy', 'None']"
+472,1226,"['Diabetes', 'Asthma', 'None']","['Peanuts', 'None']",['None']
+473,1388,[],['Peanuts'],['Gallbladder removal']
+474,2752,[],[],['Gallbladder removal']
+475,1816,"['Asthma', 'None']",[],[]
+476,2719,"['Asthma', 'None']",[],[]
+477,2075,"['Asthma', 'None']",['None'],['Appendectomy']
+478,1579,['Asthma'],[],"['None', 'Appendectomy']"
+479,1653,"['None', 'Asthma']",[],['Appendectomy']
+480,2963,[],[],[]
+481,296,[],"['Shellfish', 'Peanuts']",[]
+482,2594,['Diabetes'],"['Shellfish', 'Peanuts']",['Gallbladder removal']
+483,2129,"['Asthma', 'Hypertension']","['Peanuts', 'None']","['None', 'Gallbladder removal']"
+484,2539,"['Diabetes', 'Hypertension']",['Peanuts'],[]
+485,498,[],[],['Appendectomy']
+486,2546,"['None', 'Diabetes', 'Asthma']",['Peanuts'],[]
+487,2863,"['None', 'Asthma']",['None'],[]
+488,24,['Asthma'],"['None', 'Peanuts']",['None']
+489,2030,"['Hypertension', 'Asthma', 'None']","['Peanuts', 'None']",[]
+490,2240,[],"['None', 'Peanuts']",['Gallbladder removal']
+491,515,"['Asthma', 'Hypertension', 'None']","['Peanuts', 'None']",['Appendectomy']
+492,2909,[],"['Peanuts', 'Shellfish']",[]
+493,1556,['Hypertension'],['Shellfish'],['None']
+494,2590,[],['None'],[]
+495,874,"['Diabetes', 'Asthma', 'None']","['Shellfish', 'Peanuts']","['None', 'Appendectomy']"
+496,1697,"['None', 'Diabetes']","['Shellfish', 'None']",['Gallbladder removal']
+497,1628,"['None', 'Diabetes', 'Asthma']",['Shellfish'],"['None', 'Gallbladder removal']"
+498,2348,"['Asthma', 'None']",['Peanuts'],"['None', 'Appendectomy']"
+499,2883,"['Hypertension', 'None']",[],['Appendectomy']
+500,575,"['Hypertension', 'Asthma']","['None', 'Shellfish']",['Gallbladder removal']
+501,988,['Diabetes'],[],['Gallbladder removal']
+502,1576,['Asthma'],['Shellfish'],['Gallbladder removal']
+503,1732,[],"['None', 'Peanuts']",['Gallbladder removal']
+504,2486,"['Hypertension', 'None']",['Shellfish'],"['Gallbladder removal', 'None']"
+505,117,"['Asthma', 'Diabetes', 'Hypertension']",[],"['Gallbladder removal', 'Appendectomy']"
+506,2463,"['Diabetes', 'Hypertension', 'None']",['Peanuts'],"['Appendectomy', 'None']"
+507,96,['Diabetes'],[],[]
+508,1679,"['Asthma', 'Diabetes']",['None'],['Gallbladder removal']
+509,951,[],['None'],[]
+510,2866,"['None', 'Diabetes']",[],"['Appendectomy', 'None']"
+511,606,[],['Shellfish'],"['None', 'Gallbladder removal']"
+512,1411,"['Asthma', 'Hypertension', 'Diabetes']",[],[]
+513,1270,['Diabetes'],[],['None']
+514,2260,[],['Peanuts'],"['Appendectomy', 'Gallbladder removal']"
+515,914,[],['Peanuts'],[]
+516,2494,['Hypertension'],['Shellfish'],['None']
+517,210,['Diabetes'],"['None', 'Peanuts']",['Appendectomy']
+518,1412,"['Hypertension', 'Diabetes']","['None', 'Peanuts']",[]
+519,2419,[],['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+520,325,"['None', 'Diabetes']",['Shellfish'],"['None', 'Gallbladder removal']"
+521,1739,[],[],"['Gallbladder removal', 'Appendectomy']"
+522,1173,[],"['Peanuts', 'None']","['Appendectomy', 'None']"
+523,2123,[],"['Shellfish', 'Peanuts']",['Gallbladder removal']
+524,2470,"['Asthma', 'Hypertension']",['Peanuts'],"['Appendectomy', 'None']"
+525,964,"['Diabetes', 'None']",[],"['None', 'Appendectomy']"
+526,1674,"['Diabetes', 'Hypertension']","['Peanuts', 'Shellfish']","['Gallbladder removal', 'Appendectomy']"
+527,6,"['Hypertension', 'Diabetes', 'Asthma']","['None', 'Shellfish']",[]
+528,1838,"['Diabetes', 'Asthma', 'Hypertension']",[],['Gallbladder removal']
+529,689,"['Asthma', 'Diabetes', 'None']","['Shellfish', 'None']",['Gallbladder removal']
+530,469,[],['Peanuts'],[]
+531,1422,"['None', 'Asthma', 'Hypertension']","['Shellfish', 'Peanuts']","['None', 'Gallbladder removal']"
+532,1624,"['Diabetes', 'None']",['Shellfish'],"['None', 'Gallbladder removal']"
+533,170,"['Asthma', 'None']","['Shellfish', 'None']","['Gallbladder removal', 'Appendectomy']"
+534,392,"['Diabetes', 'None']","['Shellfish', 'Peanuts']",['Gallbladder removal']
+535,2275,[],[],[]
+536,1718,['None'],[],[]
+537,2493,"['Diabetes', 'Asthma', 'Hypertension']",[],"['Appendectomy', 'None']"
+538,982,"['Hypertension', 'Diabetes', 'Asthma']",[],[]
+539,1984,['Asthma'],['None'],['Appendectomy']
+540,121,['None'],"['None', 'Shellfish']",['Appendectomy']
+541,575,"['Asthma', 'None']",[],[]
+542,344,[],"['Peanuts', 'None']",['None']
+543,2745,"['Diabetes', 'None']",['Shellfish'],['Appendectomy']
+544,1521,[],[],['Gallbladder removal']
+545,1329,"['Asthma', 'Diabetes']",[],"['None', 'Gallbladder removal']"
+546,2204,"['Diabetes', 'Asthma']",[],['Appendectomy']
+547,738,"['None', 'Asthma']",[],['None']
+548,914,"['Hypertension', 'Asthma', 'Diabetes']","['Peanuts', 'Shellfish']","['Gallbladder removal', 'None']"
+549,2229,['Hypertension'],"['Peanuts', 'Shellfish']",[]
+550,605,[],"['Peanuts', 'None']","['Gallbladder removal', 'None']"
+551,1566,['None'],['None'],[]
+552,2278,"['Asthma', 'Diabetes']",[],[]
+553,1686,"['Diabetes', 'Hypertension', 'Asthma']","['None', 'Peanuts']",[]
+554,1900,"['Asthma', 'None']",['Shellfish'],['None']
+555,2423,"['None', 'Hypertension', 'Asthma']",['Shellfish'],[]
+556,1937,"['None', 'Asthma']",['Shellfish'],"['None', 'Gallbladder removal']"
+557,374,[],[],['Gallbladder removal']
+558,2480,"['Asthma', 'Hypertension']",['Shellfish'],[]
+559,2697,['Diabetes'],"['Peanuts', 'Shellfish']",['None']
+560,2919,['Hypertension'],['Peanuts'],['Appendectomy']
+561,312,"['Asthma', 'Diabetes', 'None']",['Shellfish'],['Gallbladder removal']
+562,924,['Asthma'],[],"['Gallbladder removal', 'None']"
+563,916,"['Asthma', 'Diabetes']",[],[]
+564,791,"['Diabetes', 'Asthma']",['Shellfish'],['Appendectomy']
+565,516,"['Hypertension', 'Diabetes', 'None']",[],[]
+566,1947,"['Diabetes', 'Hypertension', 'Asthma']",['None'],['None']
+567,223,"['Hypertension', 'None']","['Peanuts', 'None']",[]
+568,2284,[],"['None', 'Shellfish']",['Gallbladder removal']
+569,704,"['Diabetes', 'Hypertension']",['Peanuts'],[]
+570,1993,"['Diabetes', 'None', 'Asthma']","['Shellfish', 'Peanuts']",['Appendectomy']
+571,649,"['Hypertension', 'Diabetes', 'None']",[],"['Appendectomy', 'Gallbladder removal']"
+572,367,"['Diabetes', 'None', 'Asthma']","['Peanuts', 'Shellfish']",[]
+573,949,"['Asthma', 'Hypertension', 'Diabetes']",['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+574,2319,"['Hypertension', 'None', 'Diabetes']",[],['Appendectomy']
+575,2941,['Hypertension'],"['Peanuts', 'Shellfish']",[]
+576,493,"['Diabetes', 'Hypertension']",[],"['Appendectomy', 'Gallbladder removal']"
+577,1003,"['Diabetes', 'Asthma']","['Shellfish', 'Peanuts']",['Appendectomy']
+578,356,"['Asthma', 'Diabetes']",['Shellfish'],[]
+579,2709,"['Asthma', 'Hypertension', 'Diabetes']",[],['None']
+580,1699,['None'],"['Peanuts', 'Shellfish']",['Appendectomy']
+581,72,['Asthma'],[],['Gallbladder removal']
+582,1771,"['Diabetes', 'Asthma']",[],['Gallbladder removal']
+583,2431,['Asthma'],[],['None']
+584,2215,"['Hypertension', 'None', 'Asthma']","['Shellfish', 'None']","['None', 'Gallbladder removal']"
+585,991,"['Asthma', 'None']",['Peanuts'],[]
+586,489,['Asthma'],"['Peanuts', 'None']",['Appendectomy']
+587,2003,['Hypertension'],['Shellfish'],"['Appendectomy', 'Gallbladder removal']"
+588,504,"['Hypertension', 'Asthma']","['Peanuts', 'Shellfish']","['Appendectomy', 'Gallbladder removal']"
+589,2568,['None'],"['Peanuts', 'Shellfish']","['None', 'Appendectomy']"
+590,2998,[],[],['None']
+591,2344,[],"['Peanuts', 'None']",[]
+592,1937,"['Diabetes', 'None', 'Hypertension']",['Shellfish'],"['Appendectomy', 'None']"
+593,1776,[],['None'],[]
+594,2103,[],['Shellfish'],"['None', 'Gallbladder removal']"
+595,2323,['Hypertension'],[],"['Gallbladder removal', 'Appendectomy']"
+596,1339,[],['Shellfish'],"['None', 'Gallbladder removal']"
+597,1934,"['None', 'Asthma', 'Hypertension']","['Peanuts', 'None']","['Gallbladder removal', 'Appendectomy']"
+598,1886,[],[],['Appendectomy']
+599,533,"['Asthma', 'Hypertension']","['Shellfish', 'Peanuts']","['Appendectomy', 'None']"
+600,1448,"['Diabetes', 'None']",['Peanuts'],['Appendectomy']
+601,933,['Hypertension'],['None'],[]
+602,801,['Asthma'],[],[]
+603,2588,"['Diabetes', 'Hypertension', 'Asthma']",['Peanuts'],"['Gallbladder removal', 'Appendectomy']"
+604,187,"['Hypertension', 'Asthma', 'Diabetes']","['None', 'Peanuts']",[]
+605,837,[],"['None', 'Peanuts']","['Appendectomy', 'Gallbladder removal']"
+606,2539,"['Diabetes', 'None']",[],[]
+607,1302,[],['None'],['Gallbladder removal']
+608,1759,['Hypertension'],"['Shellfish', 'None']","['Gallbladder removal', 'None']"
+609,2687,[],"['None', 'Peanuts']",[]
+610,1738,['Asthma'],['Peanuts'],[]
+611,386,[],"['Peanuts', 'None']",[]
+612,2427,['Diabetes'],['Shellfish'],['None']
+613,986,[],['Shellfish'],['Gallbladder removal']
+614,1724,"['Hypertension', 'Asthma', 'Diabetes']",['None'],"['Appendectomy', 'Gallbladder removal']"
+615,26,[],['Peanuts'],['None']
+616,2840,"['Diabetes', 'Asthma', 'None']","['Shellfish', 'Peanuts']",['None']
+617,772,[],"['None', 'Shellfish']",['Appendectomy']
+618,271,['None'],"['None', 'Peanuts']",[]
+619,1398,"['None', 'Diabetes']",['Peanuts'],['None']
+620,242,"['Hypertension', 'None', 'Diabetes']",['Shellfish'],[]
+621,2298,['Hypertension'],[],[]
+622,1479,['Hypertension'],"['None', 'Shellfish']",['None']
+623,2329,['None'],[],['Appendectomy']
+624,2165,['Hypertension'],"['Shellfish', 'None']","['Appendectomy', 'None']"
+625,695,"['Hypertension', 'None']","['Peanuts', 'Shellfish']",['Gallbladder removal']
+626,791,['Hypertension'],[],['Appendectomy']
+627,1531,"['Asthma', 'Hypertension', 'Diabetes']",[],['Gallbladder removal']
+628,575,"['None', 'Diabetes']",['Shellfish'],['Appendectomy']
+629,412,"['Diabetes', 'None']","['Peanuts', 'Shellfish']",['Gallbladder removal']
+630,174,"['None', 'Hypertension']",[],['Gallbladder removal']
+631,325,['Hypertension'],[],"['Appendectomy', 'Gallbladder removal']"
+632,2415,"['None', 'Asthma']",['Shellfish'],['Appendectomy']
+633,1749,"['Diabetes', 'None']","['Shellfish', 'Peanuts']",['None']
+634,961,[],['Peanuts'],[]
+635,380,"['Hypertension', 'None']","['None', 'Shellfish']",['Gallbladder removal']
+636,2700,"['Diabetes', 'Asthma', 'None']",['Peanuts'],[]
+637,2621,['Hypertension'],[],[]
+638,156,[],['Peanuts'],['Gallbladder removal']
+639,81,['Hypertension'],['Shellfish'],"['Appendectomy', 'None']"
+640,2410,['Diabetes'],[],"['Appendectomy', 'Gallbladder removal']"
+641,114,"['Asthma', 'Hypertension']",['None'],"['Appendectomy', 'None']"
+642,1343,[],[],[]
+643,1290,[],[],[]
+644,88,['None'],['Shellfish'],[]
+645,1929,"['Asthma', 'Diabetes']",[],[]
+646,2482,[],['Shellfish'],[]
+647,2976,"['None', 'Hypertension']",[],"['Appendectomy', 'Gallbladder removal']"
+648,493,['Asthma'],['Peanuts'],"['None', 'Appendectomy']"
+649,15,"['Diabetes', 'Asthma', 'Hypertension']",[],['Appendectomy']
+650,2324,"['None', 'Asthma']","['Shellfish', 'Peanuts']",['Gallbladder removal']
+651,675,"['Asthma', 'Diabetes', 'None']","['Peanuts', 'Shellfish']","['Appendectomy', 'Gallbladder removal']"
+652,45,"['None', 'Diabetes', 'Hypertension']",[],"['Gallbladder removal', 'None']"
+653,2791,"['Hypertension', 'None', 'Asthma']",[],[]
+654,2322,"['Diabetes', 'Asthma']",['Peanuts'],[]
+655,1015,"['Asthma', 'None']","['None', 'Shellfish']","['Appendectomy', 'None']"
+656,1086,"['None', 'Asthma', 'Diabetes']","['Peanuts', 'None']","['Appendectomy', 'Gallbladder removal']"
+657,2611,['Asthma'],"['Shellfish', 'Peanuts']",[]
+658,2099,"['Diabetes', 'Asthma', 'None']",[],[]
+659,1678,['Hypertension'],[],"['Gallbladder removal', 'None']"
+660,2521,"['Diabetes', 'None']",[],['Gallbladder removal']
+661,1152,"['Asthma', 'None', 'Hypertension']",[],"['None', 'Gallbladder removal']"
+662,848,['None'],"['Shellfish', 'None']","['None', 'Appendectomy']"
+663,1833,['Asthma'],"['Peanuts', 'None']",['Gallbladder removal']
+664,1332,"['Hypertension', 'Diabetes', 'Asthma']","['None', 'Shellfish']",['Appendectomy']
+665,2067,['Asthma'],['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+666,1696,['Asthma'],['Peanuts'],[]
+667,1725,"['Hypertension', 'Diabetes', 'Asthma']","['Peanuts', 'Shellfish']",['Appendectomy']
+668,2626,"['Asthma', 'Diabetes', 'None']",['Shellfish'],[]
+669,1404,[],['None'],['Gallbladder removal']
+670,50,['None'],['Shellfish'],['Gallbladder removal']
+671,2804,"['Hypertension', 'Diabetes']","['Shellfish', 'Peanuts']","['None', 'Gallbladder removal']"
+672,2263,[],['None'],"['Gallbladder removal', 'Appendectomy']"
+673,315,"['None', 'Diabetes']",[],[]
+674,2989,[],"['None', 'Shellfish']",['Appendectomy']
+675,811,"['Asthma', 'Diabetes']",[],['Gallbladder removal']
+676,1234,"['Hypertension', 'Diabetes', 'Asthma']","['Peanuts', 'None']","['None', 'Appendectomy']"
+677,2908,[],[],[]
+678,959,[],"['None', 'Shellfish']",['Appendectomy']
+679,768,['Hypertension'],"['Peanuts', 'None']",[]
+680,2890,"['Diabetes', 'Hypertension']","['Peanuts', 'Shellfish']",[]
+681,1340,['Hypertension'],"['Shellfish', 'Peanuts']",[]
+682,383,[],[],['Gallbladder removal']
+683,38,['Asthma'],['None'],[]
+684,1116,[],"['Peanuts', 'Shellfish']",[]
+685,2662,['Asthma'],"['None', 'Peanuts']",['None']
+686,858,['Diabetes'],['Peanuts'],['Appendectomy']
+687,2917,"['Asthma', 'None', 'Hypertension']",['None'],"['None', 'Appendectomy']"
+688,1758,[],[],"['Gallbladder removal', 'Appendectomy']"
+689,130,"['Hypertension', 'Asthma', 'None']",['Peanuts'],['Gallbladder removal']
+690,2218,[],[],"['None', 'Gallbladder removal']"
+691,2310,"['Asthma', 'None']",[],"['Appendectomy', 'Gallbladder removal']"
+692,2482,[],"['Shellfish', 'None']","['None', 'Gallbladder removal']"
+693,303,['Asthma'],"['Peanuts', 'None']",['None']
+694,1730,[],"['Shellfish', 'None']",['None']
+695,334,"['Diabetes', 'Asthma']",['Shellfish'],"['Appendectomy', 'None']"
+696,954,"['Hypertension', 'Asthma', 'Diabetes']","['Peanuts', 'Shellfish']",['None']
+697,2151,[],['Shellfish'],[]
+698,467,['Asthma'],[],['None']
+699,2277,"['None', 'Asthma', 'Hypertension']",['Peanuts'],"['Appendectomy', 'Gallbladder removal']"
+700,1950,"['None', 'Diabetes']","['Shellfish', 'None']",[]
+701,2225,[],['Peanuts'],['Appendectomy']
+702,925,"['Diabetes', 'None']",[],[]
+703,1579,"['Asthma', 'Diabetes', 'Hypertension']","['None', 'Peanuts']","['Appendectomy', 'Gallbladder removal']"
+704,1048,"['Asthma', 'Diabetes', 'None']",[],"['Appendectomy', 'Gallbladder removal']"
+705,1817,[],['None'],"['None', 'Appendectomy']"
+706,355,"['Asthma', 'Hypertension', 'None']","['Peanuts', 'None']",[]
+707,521,[],[],"['Appendectomy', 'None']"
+708,2711,['Diabetes'],['Peanuts'],"['Appendectomy', 'None']"
+709,2362,"['None', 'Asthma']",[],"['None', 'Appendectomy']"
+710,367,"['None', 'Hypertension', 'Asthma']",['Peanuts'],"['Appendectomy', 'Gallbladder removal']"
+711,148,"['Asthma', 'Hypertension']",[],"['None', 'Gallbladder removal']"
+712,38,['None'],['None'],['Gallbladder removal']
+713,1172,['Hypertension'],[],"['None', 'Appendectomy']"
+714,2346,['Hypertension'],"['None', 'Shellfish']","['Gallbladder removal', 'None']"
+715,2009,[],['Peanuts'],"['None', 'Gallbladder removal']"
+716,1955,['None'],['None'],['Appendectomy']
+717,2993,"['Diabetes', 'Hypertension']","['Shellfish', 'Peanuts']",['Gallbladder removal']
+718,1054,"['None', 'Hypertension']",[],[]
+719,124,"['Hypertension', 'Asthma']","['Shellfish', 'Peanuts']","['None', 'Gallbladder removal']"
+720,1414,"['None', 'Asthma']",['Peanuts'],['Gallbladder removal']
+721,2017,['Hypertension'],"['Shellfish', 'Peanuts']",[]
+722,2725,[],"['Shellfish', 'None']",['Gallbladder removal']
+723,1871,['None'],"['Peanuts', 'Shellfish']",[]
+724,2918,"['Hypertension', 'Asthma']",[],['Gallbladder removal']
+725,545,[],"['Peanuts', 'None']",['Gallbladder removal']
+726,2240,"['Asthma', 'Diabetes']","['Shellfish', 'None']",['Gallbladder removal']
+727,2245,"['None', 'Diabetes']",[],['None']
+728,1490,"['Hypertension', 'None']",[],['Appendectomy']
+729,300,"['Hypertension', 'None', 'Diabetes']","['Shellfish', 'Peanuts']","['Appendectomy', 'Gallbladder removal']"
+730,1171,[],['Peanuts'],[]
+731,1735,"['Hypertension', 'Diabetes', 'None']",[],[]
+732,1014,"['None', 'Hypertension', 'Diabetes']","['Peanuts', 'None']","['None', 'Gallbladder removal']"
+733,2887,['Asthma'],"['None', 'Peanuts']","['None', 'Appendectomy']"
+734,1449,[],[],[]
+735,2555,[],"['Peanuts', 'None']",['Gallbladder removal']
+736,1913,[],"['None', 'Peanuts']",[]
+737,1177,"['Diabetes', 'Asthma']",['Peanuts'],"['Gallbladder removal', 'None']"
+738,878,['Asthma'],['Shellfish'],[]
+739,2195,['None'],[],[]
+740,2967,"['Diabetes', 'Asthma']",[],"['Appendectomy', 'Gallbladder removal']"
+741,1486,['Diabetes'],['Peanuts'],"['Appendectomy', 'Gallbladder removal']"
+742,1595,[],[],"['None', 'Appendectomy']"
+743,1206,[],[],['Gallbladder removal']
+744,471,"['Asthma', 'Hypertension']","['Peanuts', 'Shellfish']","['None', 'Appendectomy']"
+745,991,[],[],[]
+746,1637,"['Asthma', 'Hypertension', 'Diabetes']","['Peanuts', 'None']",[]
+747,813,[],[],"['Appendectomy', 'Gallbladder removal']"
+748,762,"['Asthma', 'Diabetes']",[],"['Gallbladder removal', 'Appendectomy']"
+749,1836,"['Hypertension', 'None']",['Shellfish'],['None']
+750,1293,"['Asthma', 'Hypertension']","['Peanuts', 'None']",[]
+751,2724,"['Asthma', 'None', 'Diabetes']","['Shellfish', 'None']",['Appendectomy']
+752,2080,['Diabetes'],[],['Gallbladder removal']
+753,1906,['Asthma'],['Shellfish'],['Appendectomy']
+754,914,"['Diabetes', 'Hypertension']",['Peanuts'],[]
+755,1294,['Diabetes'],[],['None']
+756,2818,"['Asthma', 'Hypertension']",['Peanuts'],[]
+757,1033,[],"['None', 'Peanuts']","['Gallbladder removal', 'None']"
+758,660,"['Asthma', 'Hypertension']","['None', 'Peanuts']",['Gallbladder removal']
+759,96,"['Asthma', 'Diabetes']",['Shellfish'],['Gallbladder removal']
+760,1624,"['Diabetes', 'Hypertension', 'None']",['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+761,1809,"['Hypertension', 'Diabetes', 'Asthma']",['Shellfish'],[]
+762,892,[],[],['Appendectomy']
+763,2144,"['Asthma', 'Hypertension']","['None', 'Shellfish']",[]
+764,2475,"['Asthma', 'None', 'Hypertension']","['Shellfish', 'Peanuts']","['Appendectomy', 'Gallbladder removal']"
+765,752,"['Hypertension', 'Asthma']",[],"['Gallbladder removal', 'Appendectomy']"
+766,2955,['Diabetes'],"['None', 'Shellfish']",['Gallbladder removal']
+767,1130,"['None', 'Diabetes', 'Hypertension']",[],['Appendectomy']
+768,856,['Diabetes'],[],['Appendectomy']
+769,467,"['Diabetes', 'None']","['Peanuts', 'Shellfish']",[]
+770,2914,['Diabetes'],"['Peanuts', 'Shellfish']",[]
+771,2748,"['Diabetes', 'Asthma']",['None'],['None']
+772,1874,['None'],[],"['Gallbladder removal', 'Appendectomy']"
+773,1454,['Hypertension'],['Peanuts'],['Gallbladder removal']
+774,444,"['None', 'Diabetes']",[],['Appendectomy']
+775,2984,[],"['None', 'Peanuts']",[]
+776,2169,"['None', 'Hypertension', 'Diabetes']","['None', 'Peanuts']",['None']
+777,1262,"['Asthma', 'Diabetes', 'Hypertension']","['Shellfish', 'Peanuts']",[]
+778,1595,[],"['None', 'Shellfish']",['Appendectomy']
+779,172,[],"['Shellfish', 'Peanuts']",[]
+780,2160,['Hypertension'],"['Shellfish', 'None']","['None', 'Appendectomy']"
+781,861,['Hypertension'],[],"['None', 'Appendectomy']"
+782,2598,['None'],['None'],[]
+783,2060,"['None', 'Hypertension', 'Asthma']","['Shellfish', 'Peanuts']","['Appendectomy', 'None']"
+784,2228,[],['None'],"['Gallbladder removal', 'Appendectomy']"
+785,538,[],"['Peanuts', 'Shellfish']",['Appendectomy']
+786,2263,"['Diabetes', 'Asthma']","['Peanuts', 'None']",['Gallbladder removal']
+787,887,[],['None'],['Appendectomy']
+788,1727,['Hypertension'],"['None', 'Peanuts']",[]
+789,701,"['Asthma', 'Hypertension']",['Shellfish'],"['None', 'Gallbladder removal']"
+790,885,"['Hypertension', 'Diabetes', 'Asthma']",[],"['Appendectomy', 'None']"
+791,1638,[],[],"['None', 'Appendectomy']"
+792,2602,"['Diabetes', 'Asthma']","['Shellfish', 'None']",['Gallbladder removal']
+793,2474,['Diabetes'],[],"['None', 'Appendectomy']"
+794,2411,['Diabetes'],"['Shellfish', 'Peanuts']","['Gallbladder removal', 'Appendectomy']"
+795,141,"['Diabetes', 'Asthma']",['Shellfish'],[]
+796,2325,"['Asthma', 'Hypertension', 'None']","['Shellfish', 'Peanuts']","['Appendectomy', 'None']"
+797,1879,[],['None'],['Gallbladder removal']
+798,1172,[],"['None', 'Peanuts']",[]
+799,2001,"['None', 'Hypertension', 'Asthma']",[],"['Gallbladder removal', 'Appendectomy']"
+800,2137,['Hypertension'],[],"['Appendectomy', 'Gallbladder removal']"
+801,2727,"['None', 'Asthma', 'Diabetes']",['Shellfish'],"['Appendectomy', 'None']"
+802,547,"['Asthma', 'Hypertension']",[],['None']
+803,493,"['Diabetes', 'Hypertension', 'None']","['Shellfish', 'Peanuts']","['Appendectomy', 'Gallbladder removal']"
+804,2982,['Hypertension'],"['Peanuts', 'None']",[]
+805,1793,[],"['Peanuts', 'Shellfish']",[]
+806,2045,"['Asthma', 'Diabetes', 'None']",['Peanuts'],[]
+807,725,['Asthma'],['None'],['None']
+808,477,"['Hypertension', 'Diabetes', 'Asthma']",['Shellfish'],['Gallbladder removal']
+809,943,"['None', 'Hypertension', 'Diabetes']",[],['None']
+810,1579,['None'],[],[]
+811,762,"['Hypertension', 'None', 'Asthma']",['None'],"['None', 'Appendectomy']"
+812,1162,"['Diabetes', 'Hypertension']","['None', 'Peanuts']",[]
+813,2253,[],[],['Gallbladder removal']
+814,924,"['Asthma', 'Hypertension']",[],"['Appendectomy', 'None']"
+815,2295,"['Asthma', 'Hypertension']",['Peanuts'],"['Appendectomy', 'None']"
+816,903,[],"['Shellfish', 'Peanuts']",[]
+817,2500,"['Asthma', 'Hypertension', 'Diabetes']","['Peanuts', 'Shellfish']",[]
+818,1629,['Diabetes'],[],['None']
+819,1381,"['Asthma', 'Hypertension']",[],[]
+820,1525,['Asthma'],['Shellfish'],[]
+821,2573,['Asthma'],"['Peanuts', 'None']",['None']
+822,1144,"['Asthma', 'Hypertension']",['None'],[]
+823,2530,['Hypertension'],"['Shellfish', 'None']",[]
+824,202,"['Asthma', 'None']",[],[]
+825,950,[],['Peanuts'],['None']
+826,1544,[],"['Shellfish', 'None']",[]
+827,2052,"['Diabetes', 'None']","['None', 'Shellfish']",['Appendectomy']
+828,2590,"['Diabetes', 'Hypertension', 'Asthma']",['Shellfish'],"['Appendectomy', 'Gallbladder removal']"
+829,66,"['Diabetes', 'Asthma', 'None']","['Shellfish', 'Peanuts']",['Appendectomy']
+830,1843,[],[],['Gallbladder removal']
+831,1646,"['Hypertension', 'None', 'Diabetes']",['Peanuts'],['Gallbladder removal']
+832,2930,['Diabetes'],"['Peanuts', 'Shellfish']","['None', 'Appendectomy']"
+833,786,"['None', 'Hypertension']",['Shellfish'],"['Appendectomy', 'Gallbladder removal']"
+834,2092,[],[],"['None', 'Appendectomy']"
+835,1260,[],[],['Gallbladder removal']
+836,546,"['Diabetes', 'Hypertension', 'None']","['Peanuts', 'None']",[]
+837,2111,"['None', 'Hypertension', 'Diabetes']","['Shellfish', 'None']",[]
+838,2308,"['Diabetes', 'None']",[],['Appendectomy']
+839,1568,['None'],"['Shellfish', 'None']","['None', 'Gallbladder removal']"
+840,2708,"['Asthma', 'Hypertension', 'Diabetes']","['Shellfish', 'None']","['None', 'Appendectomy']"
+841,2706,[],[],[]
+842,1002,"['None', 'Diabetes', 'Asthma']",[],['Gallbladder removal']
+843,2026,[],"['None', 'Peanuts']",[]
+844,994,"['Hypertension', 'Diabetes', 'Asthma']",[],['Gallbladder removal']
+845,2632,['Asthma'],"['Peanuts', 'Shellfish']","['Appendectomy', 'None']"
+846,114,"['Hypertension', 'None', 'Asthma']",['Peanuts'],"['Appendectomy', 'None']"
+847,951,[],[],"['Gallbladder removal', 'None']"
+848,1160,['Hypertension'],[],"['Gallbladder removal', 'Appendectomy']"
+849,91,"['None', 'Asthma']","['Shellfish', 'Peanuts']",['None']
+850,1248,"['None', 'Diabetes', 'Asthma']",['None'],['Gallbladder removal']
+851,1591,"['Asthma', 'Diabetes', 'Hypertension']","['Peanuts', 'Shellfish']",[]
+852,2320,"['Diabetes', 'Asthma']","['Shellfish', 'None']",['Gallbladder removal']
+853,82,[],[],[]
+854,2157,['None'],['Shellfish'],"['Appendectomy', 'None']"
+855,2231,"['Diabetes', 'Asthma']",[],"['None', 'Gallbladder removal']"
+856,822,[],"['Peanuts', 'None']",['Gallbladder removal']
+857,1336,"['Hypertension', 'Asthma', 'None']",[],['Appendectomy']
+858,1486,['None'],"['Peanuts', 'Shellfish']",[]
+859,2298,"['None', 'Diabetes', 'Asthma']","['Shellfish', 'Peanuts']",[]
+860,2716,[],['Peanuts'],[]
+861,1517,"['Diabetes', 'Asthma']","['None', 'Peanuts']","['None', 'Appendectomy']"
+862,2310,"['Asthma', 'Diabetes']",['Shellfish'],"['Appendectomy', 'None']"
+863,473,[],"['Shellfish', 'None']","['Appendectomy', 'None']"
+864,1260,['Hypertension'],[],"['Gallbladder removal', 'None']"
+865,1460,"['None', 'Diabetes', 'Hypertension']",['Peanuts'],[]
+866,768,[],[],"['Appendectomy', 'None']"
+867,1981,['None'],"['Shellfish', 'Peanuts']",[]
+868,2853,"['Diabetes', 'None', 'Asthma']","['Peanuts', 'Shellfish']",['Gallbladder removal']
+869,358,['Asthma'],[],['None']
+870,1864,"['Asthma', 'None']",['Peanuts'],"['None', 'Appendectomy']"
+871,1704,[],[],[]
+872,2161,"['Asthma', 'Diabetes', 'None']",[],"['Appendectomy', 'None']"
+873,824,[],['Shellfish'],['Appendectomy']
+874,1003,['Diabetes'],['Peanuts'],[]
+875,1793,['Asthma'],"['None', 'Shellfish']","['Gallbladder removal', 'Appendectomy']"
+876,805,"['Diabetes', 'None']",[],"['Gallbladder removal', 'None']"
+877,1498,"['Diabetes', 'Asthma']",[],"['None', 'Appendectomy']"
+878,1718,[],[],[]
+879,1362,[],[],"['Gallbladder removal', 'Appendectomy']"
+880,1999,"['Asthma', 'Hypertension']",[],"['Appendectomy', 'Gallbladder removal']"
+881,2747,[],"['Peanuts', 'None']",['Appendectomy']
+882,2691,"['Hypertension', 'Diabetes']","['Shellfish', 'None']",['Gallbladder removal']
+883,873,['Diabetes'],"['Peanuts', 'Shellfish']","['Appendectomy', 'Gallbladder removal']"
+884,1418,[],['Peanuts'],"['Gallbladder removal', 'Appendectomy']"
+885,578,[],[],"['Gallbladder removal', 'None']"
+886,2100,[],"['Shellfish', 'Peanuts']","['None', 'Appendectomy']"
+887,2968,"['None', 'Diabetes']",['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+888,675,['Hypertension'],"['Shellfish', 'None']","['None', 'Appendectomy']"
+889,462,['Asthma'],[],"['None', 'Gallbladder removal']"
+890,2343,['Diabetes'],[],['None']
+891,1388,"['Diabetes', 'Hypertension']","['Shellfish', 'Peanuts']",[]
+892,1575,"['Diabetes', 'Hypertension', 'Asthma']","['None', 'Peanuts']",['None']
+893,780,"['None', 'Hypertension', 'Asthma']","['Peanuts', 'None']",[]
+894,790,[],[],"['Gallbladder removal', 'Appendectomy']"
+895,2438,"['Hypertension', 'Asthma', 'None']",[],['Gallbladder removal']
+896,2677,['Asthma'],['None'],"['Gallbladder removal', 'None']"
+897,449,[],['Shellfish'],"['Appendectomy', 'None']"
+898,2279,"['Asthma', 'Diabetes', 'Hypertension']","['None', 'Shellfish']",['Gallbladder removal']
+899,2832,[],['Peanuts'],['Appendectomy']
+900,1687,"['None', 'Diabetes']",['Peanuts'],[]
+901,331,[],"['Shellfish', 'None']","['None', 'Gallbladder removal']"
+902,678,['Diabetes'],[],"['Gallbladder removal', 'None']"
+903,552,"['Hypertension', 'Asthma', 'Diabetes']",['None'],"['Gallbladder removal', 'None']"
+904,13,['Hypertension'],['Shellfish'],['None']
+905,737,['Diabetes'],[],"['None', 'Gallbladder removal']"
+906,985,['None'],[],['Appendectomy']
+907,2348,['Asthma'],['Peanuts'],[]
+908,2187,[],['Peanuts'],['Gallbladder removal']
+909,1722,[],[],[]
+910,1275,[],['Peanuts'],"['Gallbladder removal', 'None']"
+911,1121,"['Diabetes', 'Asthma']",[],[]
+912,1338,"['None', 'Diabetes']","['None', 'Shellfish']",['None']
+913,782,['Asthma'],"['Shellfish', 'Peanuts']",[]
+914,2421,"['None', 'Hypertension', 'Asthma']","['Peanuts', 'Shellfish']",['Gallbladder removal']
+915,459,['Hypertension'],[],[]
+916,2518,"['None', 'Asthma']",[],[]
+917,282,"['None', 'Diabetes']",[],"['Appendectomy', 'Gallbladder removal']"
+918,1212,"['Diabetes', 'Hypertension']",['Shellfish'],[]
+919,2414,"['Diabetes', 'Hypertension']",['Shellfish'],['None']
+920,1766,"['Asthma', 'Hypertension', 'None']",[],[]
+921,1508,['Hypertension'],['Shellfish'],[]
+922,832,['Diabetes'],['Shellfish'],"['Gallbladder removal', 'None']"
+923,591,"['Diabetes', 'Asthma', 'Hypertension']",['None'],"['Gallbladder removal', 'None']"
+924,1139,[],[],"['None', 'Gallbladder removal']"
+925,2890,"['Diabetes', 'None', 'Asthma']","['Shellfish', 'Peanuts']","['None', 'Appendectomy']"
+926,2900,"['Diabetes', 'Asthma', 'Hypertension']",['Shellfish'],['Gallbladder removal']
+927,62,[],[],"['Appendectomy', 'None']"
+928,1933,['Asthma'],"['Shellfish', 'None']",['Appendectomy']
+929,117,['None'],[],[]
+930,533,[],['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+931,2575,[],['None'],[]
+932,1539,"['Diabetes', 'None']",['Shellfish'],['Gallbladder removal']
+933,2979,[],['Shellfish'],['None']
+934,374,[],['Peanuts'],"['None', 'Appendectomy']"
+935,161,"['Hypertension', 'Diabetes', 'None']",['None'],[]
+936,2682,"['Asthma', 'None', 'Diabetes']","['Peanuts', 'Shellfish']",['None']
+937,2984,[],[],['Appendectomy']
+938,467,"['None', 'Asthma', 'Diabetes']",['None'],[]
+939,1611,"['Hypertension', 'None']","['None', 'Shellfish']","['Appendectomy', 'Gallbladder removal']"
+940,2118,['Hypertension'],"['Shellfish', 'Peanuts']","['Gallbladder removal', 'Appendectomy']"
+941,219,"['None', 'Hypertension', 'Asthma']","['Shellfish', 'None']",[]
+942,892,['Diabetes'],[],"['Gallbladder removal', 'None']"
+943,222,['Asthma'],[],"['Appendectomy', 'Gallbladder removal']"
+944,1984,"['Asthma', 'Hypertension', 'None']",['Peanuts'],[]
+945,1282,"['Asthma', 'Diabetes', 'Hypertension']",['Shellfish'],['Appendectomy']
+946,776,"['Diabetes', 'Asthma', 'Hypertension']",['Shellfish'],[]
+947,2376,"['Asthma', 'Diabetes', 'Hypertension']",['Peanuts'],['None']
+948,2065,[],['Peanuts'],"['None', 'Appendectomy']"
+949,1774,['Hypertension'],"['Shellfish', 'Peanuts']","['Appendectomy', 'None']"
+950,2901,[],['None'],"['Appendectomy', 'None']"
+951,324,[],['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+952,1694,[],['Shellfish'],['Gallbladder removal']
+953,1031,[],['None'],"['Appendectomy', 'Gallbladder removal']"
+954,2079,[],"['None', 'Shellfish']",['Appendectomy']
+955,1062,['Asthma'],"['Peanuts', 'Shellfish']",[]
+956,1166,['Hypertension'],['Peanuts'],['Appendectomy']
+957,1724,"['Diabetes', 'Asthma']",[],['Gallbladder removal']
+958,1389,['Hypertension'],[],"['Appendectomy', 'None']"
+959,2771,[],[],"['Gallbladder removal', 'None']"
+960,361,[],['Peanuts'],['Gallbladder removal']
+961,920,['Hypertension'],[],[]
+962,2628,"['Diabetes', 'Hypertension', 'None']",['Peanuts'],"['Appendectomy', 'None']"
+963,2051,[],"['Shellfish', 'None']",[]
+964,69,[],[],[]
+965,2507,"['Asthma', 'None', 'Hypertension']","['None', 'Shellfish']",['Gallbladder removal']
+966,2928,[],['Peanuts'],['Appendectomy']
+967,1825,[],"['Peanuts', 'Shellfish']",['Gallbladder removal']
+968,2200,"['Hypertension', 'Diabetes', 'Asthma']",[],"['Appendectomy', 'None']"
+969,1943,"['Diabetes', 'Hypertension']",['Peanuts'],['None']
+970,1503,"['Asthma', 'Diabetes']",[],[]
+971,1727,[],[],"['Appendectomy', 'None']"
+972,2720,"['Diabetes', 'None', 'Hypertension']","['None', 'Peanuts']","['Appendectomy', 'Gallbladder removal']"
+973,159,"['Diabetes', 'Asthma']","['None', 'Shellfish']",['Appendectomy']
+974,837,"['Hypertension', 'Diabetes', 'None']",[],"['Appendectomy', 'Gallbladder removal']"
+975,2152,"['Hypertension', 'None']",['Peanuts'],[]
+976,650,"['Asthma', 'Diabetes', 'Hypertension']",['None'],['Appendectomy']
+977,2848,"['None', 'Hypertension']",[],"['Appendectomy', 'None']"
+978,2260,['Asthma'],"['Peanuts', 'None']","['Gallbladder removal', 'Appendectomy']"
+979,784,['Diabetes'],[],['Appendectomy']
+980,1268,[],"['Shellfish', 'None']",['Gallbladder removal']
+981,2803,"['Hypertension', 'None', 'Asthma']",['Peanuts'],['Appendectomy']
+982,1386,"['Hypertension', 'Diabetes']",['None'],['Gallbladder removal']
+983,2346,"['None', 'Diabetes', 'Asthma']",['None'],[]
+984,736,"['Asthma', 'Hypertension']",['Peanuts'],[]
+985,2708,"['Asthma', 'Diabetes', 'Hypertension']","['Peanuts', 'Shellfish']",['Gallbladder removal']
+986,2273,"['None', 'Diabetes']",[],[]
+987,2994,[],[],[]
+988,1373,[],"['Peanuts', 'Shellfish']","['Appendectomy', 'Gallbladder removal']"
+989,34,"['Hypertension', 'Asthma']",[],['None']
+990,1904,['Diabetes'],[],"['Appendectomy', 'Gallbladder removal']"
+991,2026,[],"['Shellfish', 'Peanuts']","['None', 'Appendectomy']"
+992,1761,[],['None'],"['Appendectomy', 'None']"
+993,1639,['None'],['Shellfish'],"['Gallbladder removal', 'None']"
+994,2096,"['Asthma', 'None', 'Hypertension']","['Shellfish', 'Peanuts']",['None']
+995,527,[],"['Peanuts', 'Shellfish']",['Gallbladder removal']
+996,553,[],"['Shellfish', 'None']","['Gallbladder removal', 'None']"
+997,2408,['Diabetes'],"['Shellfish', 'None']",[]
+998,2011,"['Asthma', 'Diabetes']",[],"['Gallbladder removal', 'Appendectomy']"
+999,2939,"['None', 'Hypertension']",['Shellfish'],[]
+1000,1460,[],"['None', 'Shellfish']",['Gallbladder removal']
+1001,144,"['None', 'Diabetes', 'Asthma']",['Peanuts'],"['Gallbladder removal', 'None']"
+1002,182,"['Hypertension', 'None']","['None', 'Peanuts']",[]
+1003,2653,"['Hypertension', 'Diabetes', 'Asthma']",[],[]
+1004,319,[],[],"['None', 'Appendectomy']"
+1005,2616,[],"['None', 'Peanuts']",['Gallbladder removal']
+1006,1502,"['Asthma', 'Hypertension']",[],"['Appendectomy', 'Gallbladder removal']"
+1007,606,[],"['Peanuts', 'None']",[]
+1008,1295,"['None', 'Asthma']",['Shellfish'],[]
+1009,1211,"['Hypertension', 'None', 'Diabetes']","['Peanuts', 'Shellfish']","['Gallbladder removal', 'Appendectomy']"
+1010,84,['Asthma'],[],['Gallbladder removal']
+1011,1901,[],['Peanuts'],"['Gallbladder removal', 'Appendectomy']"
+1012,2966,"['Hypertension', 'None', 'Diabetes']","['None', 'Peanuts']",['None']
+1013,1089,['Hypertension'],"['Shellfish', 'None']","['None', 'Gallbladder removal']"
+1014,596,['Hypertension'],"['None', 'Shellfish']",['None']
+1015,2286,"['Diabetes', 'Asthma', 'None']",['None'],['None']
+1016,596,"['Asthma', 'Hypertension']","['Shellfish', 'None']",[]
+1017,1977,"['Hypertension', 'Diabetes']","['Peanuts', 'Shellfish']","['None', 'Gallbladder removal']"
+1018,2363,"['Hypertension', 'None', 'Diabetes']","['Shellfish', 'Peanuts']","['None', 'Appendectomy']"
+1019,2150,"['None', 'Asthma']",['None'],[]
+1020,969,"['Hypertension', 'Diabetes']",['None'],[]
+1021,1470,['Diabetes'],['None'],"['None', 'Appendectomy']"
+1022,240,[],['None'],['None']
+1023,1026,['Diabetes'],"['None', 'Peanuts']",['Appendectomy']
+1024,2916,"['Hypertension', 'Asthma']",[],['None']
+1025,2310,"['Hypertension', 'Asthma']",['Peanuts'],[]
+1026,988,['None'],"['Shellfish', 'None']",[]
+1027,686,"['Diabetes', 'None']",['Shellfish'],"['Appendectomy', 'Gallbladder removal']"
+1028,1620,"['Hypertension', 'Diabetes']",[],['None']
+1029,1219,[],['Shellfish'],[]
+1030,195,[],[],[]
+1031,1954,['Asthma'],"['Peanuts', 'Shellfish']",[]
+1032,1970,"['Hypertension', 'Asthma']",[],['Appendectomy']
+1033,2025,"['None', 'Hypertension']",['None'],[]
+1034,2085,['None'],[],['Appendectomy']
+1035,2832,[],"['Peanuts', 'Shellfish']","['Gallbladder removal', 'None']"
+1036,389,['Hypertension'],['Peanuts'],['None']
+1037,429,"['Diabetes', 'None']","['None', 'Peanuts']",[]
+1038,46,"['None', 'Diabetes', 'Asthma']",[],[]
+1039,355,[],['Shellfish'],"['None', 'Gallbladder removal']"
+1040,1605,"['Asthma', 'None']","['Shellfish', 'Peanuts']",[]
+1041,2665,[],['Peanuts'],['Appendectomy']
+1042,2702,"['Asthma', 'Hypertension']","['Shellfish', 'Peanuts']",['None']
+1043,1784,['Asthma'],['Shellfish'],"['Gallbladder removal', 'None']"
+1044,1635,[],"['Shellfish', 'None']",['None']
+1045,1620,"['Diabetes', 'None']",[],"['None', 'Gallbladder removal']"
+1046,2045,['Asthma'],['Peanuts'],"['Gallbladder removal', 'Appendectomy']"
+1047,1305,[],[],['Appendectomy']
+1048,960,"['Asthma', 'None', 'Hypertension']",[],"['Appendectomy', 'None']"
+1049,1291,"['Asthma', 'None', 'Diabetes']",[],"['Appendectomy', 'None']"
+1050,2291,"['Asthma', 'Diabetes']",[],"['Appendectomy', 'None']"
+1051,305,"['Diabetes', 'Asthma', 'Hypertension']",[],['None']
+1052,2335,"['None', 'Asthma']","['Peanuts', 'Shellfish']",[]
+1053,170,['None'],[],"['Gallbladder removal', 'None']"
+1054,2063,"['None', 'Asthma', 'Diabetes']","['Peanuts', 'None']",[]
+1055,2348,"['Asthma', 'None']","['None', 'Shellfish']","['None', 'Appendectomy']"
+1056,1087,"['Hypertension', 'None', 'Diabetes']",['Peanuts'],['Gallbladder removal']
+1057,2984,[],"['None', 'Shellfish']",['Appendectomy']
+1058,1714,"['Hypertension', 'Diabetes']",[],['Gallbladder removal']
+1059,295,[],"['None', 'Peanuts']",['Gallbladder removal']
+1060,2069,"['Asthma', 'None', 'Hypertension']",[],[]
+1061,2243,"['Asthma', 'None', 'Hypertension']",['Shellfish'],[]
+1062,2276,['Asthma'],['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+1063,872,"['Asthma', 'None', 'Hypertension']","['Shellfish', 'None']",['Gallbladder removal']
+1064,1467,['None'],[],[]
+1065,189,['Diabetes'],['Peanuts'],[]
+1066,496,[],[],['Gallbladder removal']
+1067,1364,"['None', 'Asthma']","['Peanuts', 'None']",[]
+1068,2806,"['None', 'Diabetes']",[],[]
+1069,1541,['None'],"['Shellfish', 'Peanuts']",[]
+1070,1891,[],['None'],"['Gallbladder removal', 'Appendectomy']"
+1071,1775,"['Diabetes', 'None']",[],"['Appendectomy', 'None']"
+1072,286,['Asthma'],[],['None']
+1073,751,"['Hypertension', 'Asthma']","['Peanuts', 'None']","['None', 'Appendectomy']"
+1074,1691,[],['Shellfish'],[]
+1075,2298,"['Diabetes', 'None', 'Asthma']",['Peanuts'],['None']
+1076,1836,"['None', 'Diabetes']",[],[]
+1077,1402,"['Asthma', 'Hypertension']",[],['Gallbladder removal']
+1078,12,['Asthma'],[],[]
+1079,2025,[],['Shellfish'],['Appendectomy']
+1080,1779,"['Diabetes', 'Asthma', 'Hypertension']","['None', 'Shellfish']",['None']
+1081,636,"['Asthma', 'Hypertension']",['Peanuts'],"['Appendectomy', 'None']"
+1082,2825,"['Hypertension', 'Asthma']",[],['Gallbladder removal']
+1083,2893,['Hypertension'],[],"['Gallbladder removal', 'None']"
+1084,2953,"['Hypertension', 'Diabetes', 'Asthma']",[],[]
+1085,639,"['Diabetes', 'Asthma']","['None', 'Shellfish']","['Appendectomy', 'None']"
+1086,2712,[],[],['Gallbladder removal']
+1087,149,['Asthma'],['Shellfish'],"['Appendectomy', 'None']"
+1088,1070,[],['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+1089,2721,['Asthma'],['None'],['None']
+1090,65,['None'],['None'],[]
+1091,672,[],['Peanuts'],"['Appendectomy', 'None']"
+1092,608,['Asthma'],[],['None']
+1093,528,"['None', 'Diabetes']",['Shellfish'],"['Appendectomy', 'None']"
+1094,819,"['Hypertension', 'None']",[],"['None', 'Appendectomy']"
+1095,125,[],[],[]
+1096,339,[],['None'],['None']
+1097,2457,"['Hypertension', 'Diabetes', 'None']",[],[]
+1098,859,"['None', 'Diabetes']",[],['None']
+1099,1285,"['Hypertension', 'Diabetes']",[],[]
+1100,2552,"['None', 'Asthma', 'Hypertension']",[],['Appendectomy']
+1101,1368,"['Diabetes', 'None']","['Peanuts', 'None']","['Gallbladder removal', 'Appendectomy']"
+1102,2596,"['Diabetes', 'None']",['Shellfish'],['Appendectomy']
+1103,62,['None'],[],[]
+1104,579,"['Asthma', 'None']",['Shellfish'],[]
+1105,1371,['None'],['Peanuts'],[]
+1106,45,"['Asthma', 'None', 'Diabetes']",[],['Gallbladder removal']
+1107,1961,[],[],[]
+1108,2761,['None'],[],"['Gallbladder removal', 'Appendectomy']"
+1109,2506,"['Asthma', 'Hypertension']","['Peanuts', 'Shellfish']","['Gallbladder removal', 'None']"
+1110,2162,[],[],['Appendectomy']
+1111,1384,['Hypertension'],"['None', 'Peanuts']","['Appendectomy', 'None']"
+1112,2326,"['Asthma', 'Hypertension', 'None']","['Shellfish', 'Peanuts']","['None', 'Appendectomy']"
+1113,591,"['Asthma', 'Hypertension', 'Diabetes']",[],"['Appendectomy', 'None']"
+1114,991,[],"['None', 'Peanuts']",['Gallbladder removal']
+1115,1619,"['None', 'Diabetes', 'Hypertension']",[],"['None', 'Gallbladder removal']"
+1116,61,"['Diabetes', 'None', 'Asthma']","['Peanuts', 'None']",[]
+1117,353,[],['None'],[]
+1118,734,"['Diabetes', 'Hypertension']","['Peanuts', 'None']",[]
+1119,2651,"['Asthma', 'Diabetes', 'None']","['Shellfish', 'None']","['None', 'Gallbladder removal']"
+1120,878,[],"['Peanuts', 'None']",['None']
+1121,703,"['Hypertension', 'Asthma', 'Diabetes']","['Peanuts', 'Shellfish']","['Appendectomy', 'None']"
+1122,1701,"['Diabetes', 'Asthma']",['Peanuts'],[]
+1123,601,['Hypertension'],['None'],[]
+1124,2819,"['Diabetes', 'Hypertension', 'None']",['Shellfish'],[]
+1125,2433,['None'],[],[]
+1126,1734,['Diabetes'],"['Peanuts', 'None']",['Gallbladder removal']
+1127,880,"['Hypertension', 'Diabetes']",[],['None']
+1128,1531,['Diabetes'],['Peanuts'],"['Gallbladder removal', 'None']"
+1129,1605,"['Hypertension', 'None', 'Diabetes']","['Shellfish', 'Peanuts']",['Gallbladder removal']
+1130,2847,[],"['Peanuts', 'None']",[]
+1131,140,"['Hypertension', 'None']",[],[]
+1132,1540,['Diabetes'],[],[]
+1133,2444,"['Hypertension', 'Diabetes', 'None']","['Peanuts', 'None']","['Gallbladder removal', 'None']"
+1134,14,"['Asthma', 'Hypertension', 'Diabetes']","['None', 'Peanuts']",['Appendectomy']
+1135,877,"['Hypertension', 'Diabetes', 'None']",[],[]
+1136,500,"['Hypertension', 'Diabetes', 'None']",[],['None']
+1137,1806,"['None', 'Asthma', 'Diabetes']",[],[]
+1138,2776,"['None', 'Hypertension', 'Asthma']",['Peanuts'],[]
+1139,2153,"['Asthma', 'None', 'Diabetes']",[],['Appendectomy']
+1140,560,['Asthma'],[],"['None', 'Appendectomy']"
+1141,918,['Diabetes'],['Peanuts'],['Appendectomy']
+1142,1097,[],[],[]
+1143,1178,[],"['Peanuts', 'None']","['None', 'Gallbladder removal']"
+1144,1991,[],[],"['None', 'Appendectomy']"
+1145,1717,"['Hypertension', 'None', 'Diabetes']",['None'],[]
+1146,1960,"['Hypertension', 'Diabetes', 'None']",[],[]
+1147,571,[],"['Shellfish', 'None']",[]
+1148,2922,"['Asthma', 'Diabetes', 'None']",[],['Gallbladder removal']
+1149,1307,['Diabetes'],"['Peanuts', 'None']","['Gallbladder removal', 'None']"
+1150,1924,[],[],[]
+1151,830,"['None', 'Asthma', 'Diabetes']","['None', 'Peanuts']",[]
+1152,2371,['None'],"['Shellfish', 'None']",['Appendectomy']
+1153,1736,"['Asthma', 'Hypertension']","['None', 'Shellfish']","['None', 'Appendectomy']"
+1154,260,"['Hypertension', 'Asthma', 'Diabetes']",[],['None']
+1155,79,['Asthma'],['None'],"['Appendectomy', 'Gallbladder removal']"
+1156,962,"['Hypertension', 'Asthma']",[],"['Gallbladder removal', 'None']"
+1157,1763,"['None', 'Asthma']","['None', 'Shellfish']","['Gallbladder removal', 'None']"
+1158,2079,['Asthma'],"['Peanuts', 'Shellfish']","['Appendectomy', 'None']"
+1159,900,"['Hypertension', 'Diabetes']",[],['Gallbladder removal']
+1160,2257,"['Asthma', 'Hypertension']","['Peanuts', 'Shellfish']",['Gallbladder removal']
+1161,1573,"['Diabetes', 'None', 'Asthma']",['Peanuts'],['Gallbladder removal']
+1162,2012,"['None', 'Diabetes', 'Asthma']",[],[]
+1163,2217,['Diabetes'],[],[]
+1164,1673,['Hypertension'],['Peanuts'],['None']
+1165,965,[],"['Shellfish', 'Peanuts']","['Gallbladder removal', 'None']"
+1166,2808,['Hypertension'],[],[]
+1167,1820,[],[],"['Gallbladder removal', 'None']"
+1168,614,"['Diabetes', 'Hypertension']",[],['None']
+1169,2078,"['None', 'Asthma', 'Hypertension']",['None'],['Appendectomy']
+1170,1738,"['Hypertension', 'None', 'Diabetes']","['Shellfish', 'None']",[]
+1171,446,"['Asthma', 'None']",[],"['Appendectomy', 'Gallbladder removal']"
+1172,1774,['Diabetes'],['Peanuts'],"['Gallbladder removal', 'None']"
+1173,1946,[],"['Peanuts', 'Shellfish']",['Gallbladder removal']
+1174,1138,[],['None'],[]
+1175,257,"['None', 'Asthma']",[],['None']
+1176,2008,"['None', 'Diabetes']",[],"['Appendectomy', 'None']"
+1177,1681,[],['None'],['Appendectomy']
+1178,2700,[],[],"['Gallbladder removal', 'None']"
+1179,1447,"['Asthma', 'Hypertension', 'Diabetes']","['Peanuts', 'Shellfish']",[]
+1180,812,"['Asthma', 'None']",[],[]
+1181,1748,"['None', 'Diabetes']","['None', 'Peanuts']",['Appendectomy']
+1182,360,['None'],"['None', 'Shellfish']",[]
+1183,2102,"['Asthma', 'Hypertension']",['Shellfish'],[]
+1184,2574,"['Hypertension', 'Asthma', 'Diabetes']",[],['Gallbladder removal']
+1185,585,"['Asthma', 'Hypertension']","['Peanuts', 'Shellfish']","['Appendectomy', 'None']"
+1186,572,[],"['Peanuts', 'Shellfish']","['None', 'Appendectomy']"
+1187,2797,[],[],['None']
+1188,1598,['Asthma'],['None'],[]
+1189,1888,[],['Peanuts'],"['Gallbladder removal', 'None']"
+1190,1061,[],['Peanuts'],['None']
+1191,743,['None'],[],"['Gallbladder removal', 'Appendectomy']"
+1192,1322,['Diabetes'],[],['None']
+1193,1006,['None'],['None'],['Gallbladder removal']
+1194,2059,[],['None'],[]
+1195,2836,"['Asthma', 'None']",[],['None']
+1196,1380,['Hypertension'],"['Peanuts', 'None']",[]
+1197,2325,"['Asthma', 'Diabetes', 'Hypertension']",[],['None']
+1198,2056,"['Diabetes', 'Asthma']",[],"['None', 'Gallbladder removal']"
+1199,2862,[],[],['None']
+1200,1955,"['None', 'Hypertension', 'Diabetes']",['Peanuts'],[]
+1201,1442,[],[],"['Appendectomy', 'None']"
+1202,1763,['Hypertension'],['Peanuts'],['None']
+1203,529,"['Asthma', 'Diabetes', 'Hypertension']",['Peanuts'],"['Appendectomy', 'None']"
+1204,1802,[],[],[]
+1205,1504,[],[],[]
+1206,1810,"['Hypertension', 'None', 'Diabetes']",[],[]
+1207,1762,"['Hypertension', 'Asthma']",[],['Appendectomy']
+1208,2116,[],['Shellfish'],"['Gallbladder removal', 'None']"
+1209,1060,"['Asthma', 'Hypertension']","['Peanuts', 'Shellfish']",[]
+1210,1061,['Diabetes'],"['None', 'Shellfish']",[]
+1211,858,"['Diabetes', 'Hypertension', 'Asthma']",[],[]
+1212,936,['None'],"['Shellfish', 'Peanuts']","['None', 'Appendectomy']"
+1213,2182,['Diabetes'],['None'],['None']
+1214,2098,[],"['None', 'Peanuts']","['Gallbladder removal', 'None']"
+1215,2961,"['Diabetes', 'None']",['Peanuts'],['Appendectomy']
+1216,98,[],[],[]
+1217,2153,['Hypertension'],['Shellfish'],['None']
+1218,1608,"['Diabetes', 'Asthma', 'Hypertension']",[],['None']
+1219,1098,[],['None'],['None']
+1220,1755,"['Hypertension', 'Diabetes']","['Peanuts', 'Shellfish']","['None', 'Gallbladder removal']"
+1221,2062,"['Diabetes', 'Hypertension']",[],[]
+1222,2801,[],"['Shellfish', 'None']",[]
+1223,963,['None'],['None'],['Appendectomy']
+1224,2341,"['None', 'Diabetes', 'Asthma']",['Peanuts'],['Appendectomy']
+1225,2080,"['Diabetes', 'Hypertension', 'None']",[],['Gallbladder removal']
+1226,618,['Diabetes'],['Peanuts'],['Appendectomy']
+1227,612,"['Asthma', 'None', 'Diabetes']","['None', 'Peanuts']",[]
+1228,1352,"['None', 'Diabetes', 'Asthma']","['Shellfish', 'None']",[]
+1229,2766,['Diabetes'],[],[]
+1230,2129,"['Hypertension', 'None', 'Diabetes']",['Shellfish'],['None']
+1231,1481,[],[],['Gallbladder removal']
+1232,2291,[],['None'],['Gallbladder removal']
+1233,2090,['Asthma'],"['Peanuts', 'Shellfish']",[]
+1234,2275,"['Asthma', 'Hypertension']","['Peanuts', 'Shellfish']",['Gallbladder removal']
+1235,2764,['Diabetes'],"['Shellfish', 'None']","['Gallbladder removal', 'Appendectomy']"
+1236,1146,['Hypertension'],['Shellfish'],['Gallbladder removal']
+1237,1939,['None'],['Peanuts'],['Gallbladder removal']
+1238,1565,"['None', 'Asthma']",['None'],[]
+1239,1689,"['Hypertension', 'Asthma']",['Shellfish'],['Gallbladder removal']
+1240,2983,"['Hypertension', 'None']",['Shellfish'],[]
+1241,2541,['Asthma'],['Shellfish'],"['Appendectomy', 'None']"
+1242,2415,"['None', 'Hypertension']",[],[]
+1243,2176,"['None', 'Asthma', 'Diabetes']",['Peanuts'],[]
+1244,2293,"['Diabetes', 'None']",['None'],['Gallbladder removal']
+1245,1797,['Asthma'],"['Peanuts', 'Shellfish']","['Gallbladder removal', 'Appendectomy']"
+1246,2475,[],[],"['Appendectomy', 'None']"
+1247,2682,"['Hypertension', 'None', 'Diabetes']","['Peanuts', 'Shellfish']","['None', 'Gallbladder removal']"
+1248,952,"['Asthma', 'Diabetes', 'Hypertension']","['Shellfish', 'Peanuts']",['None']
+1249,26,"['Asthma', 'Diabetes']",['None'],"['Appendectomy', 'Gallbladder removal']"
+1250,1080,"['Diabetes', 'Asthma']",['None'],['Gallbladder removal']
+1251,2871,"['None', 'Asthma']","['Shellfish', 'Peanuts']",['Gallbladder removal']
+1252,40,['None'],"['Peanuts', 'None']",['None']
+1253,618,"['Hypertension', 'Diabetes']","['Shellfish', 'Peanuts']","['Gallbladder removal', 'None']"
+1254,722,"['Hypertension', 'Asthma', 'Diabetes']",[],['Gallbladder removal']
+1255,2636,[],['Shellfish'],[]
+1256,840,[],[],['Appendectomy']
+1257,228,"['Hypertension', 'Diabetes', 'None']",['Shellfish'],"['Gallbladder removal', 'None']"
+1258,1373,[],"['Shellfish', 'None']",['Gallbladder removal']
+1259,1082,"['Asthma', 'Hypertension']",[],[]
+1260,712,['None'],"['Shellfish', 'None']","['None', 'Appendectomy']"
+1261,2433,"['None', 'Diabetes']",['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+1262,696,"['Asthma', 'None']",[],['Gallbladder removal']
+1263,67,[],"['None', 'Shellfish']",['Appendectomy']
+1264,267,"['Diabetes', 'Hypertension']",['Shellfish'],[]
+1265,1330,[],"['None', 'Shellfish']","['None', 'Gallbladder removal']"
+1266,1497,['Hypertension'],['None'],"['Appendectomy', 'Gallbladder removal']"
+1267,2216,"['Diabetes', 'Hypertension', 'None']",[],"['Appendectomy', 'Gallbladder removal']"
+1268,2001,['Asthma'],"['Peanuts', 'None']",['Appendectomy']
+1269,57,"['None', 'Diabetes']",['None'],"['Gallbladder removal', 'None']"
+1270,2719,"['None', 'Hypertension', 'Asthma']",[],[]
+1271,1508,"['None', 'Diabetes']",[],"['Appendectomy', 'None']"
+1272,393,[],[],"['Gallbladder removal', 'Appendectomy']"
+1273,743,[],[],['None']
+1274,535,['Hypertension'],[],[]
+1275,176,[],[],[]
+1276,2890,[],"['Peanuts', 'None']",[]
+1277,316,"['None', 'Asthma']",[],['None']
+1278,528,['None'],['Shellfish'],[]
+1279,2506,"['Hypertension', 'None']",['Shellfish'],"['Appendectomy', 'None']"
+1280,1240,['Diabetes'],['None'],['None']
+1281,1725,"['None', 'Diabetes']",[],[]
+1282,1901,['Asthma'],['None'],['None']
+1283,2953,"['None', 'Asthma']",['Shellfish'],[]
+1284,720,"['Asthma', 'Hypertension', 'None']",['None'],[]
+1285,2202,[],['Peanuts'],"['None', 'Appendectomy']"
+1286,819,"['Hypertension', 'None', 'Asthma']",[],['Gallbladder removal']
+1287,1064,"['Diabetes', 'Asthma', 'None']","['Shellfish', 'None']","['None', 'Appendectomy']"
+1288,242,"['Diabetes', 'Hypertension', 'Asthma']","['None', 'Peanuts']",['Gallbladder removal']
+1289,2577,"['Asthma', 'None']",['None'],[]
+1290,367,['Asthma'],['Shellfish'],['None']
+1291,2612,[],['Peanuts'],['Gallbladder removal']
+1292,1509,"['Asthma', 'Diabetes']",['Shellfish'],[]
+1293,1708,"['Hypertension', 'Diabetes', 'None']","['Peanuts', 'Shellfish']",['Appendectomy']
+1294,2599,[],[],['Gallbladder removal']
+1295,1336,"['Hypertension', 'Diabetes']",[],"['Appendectomy', 'Gallbladder removal']"
+1296,980,"['Hypertension', 'Diabetes', 'Asthma']","['None', 'Peanuts']",[]
+1297,310,['Asthma'],"['None', 'Peanuts']",[]
+1298,884,"['None', 'Diabetes', 'Asthma']","['Peanuts', 'Shellfish']",[]
+1299,1781,"['Asthma', 'None', 'Hypertension']","['None', 'Shellfish']","['None', 'Appendectomy']"
+1300,797,"['Asthma', 'Hypertension', 'None']","['Peanuts', 'Shellfish']",['Gallbladder removal']
+1301,2618,"['Asthma', 'Diabetes']","['Shellfish', 'Peanuts']",[]
+1302,1153,"['None', 'Diabetes', 'Hypertension']",['None'],['None']
+1303,1813,"['Hypertension', 'Diabetes']",['None'],"['Gallbladder removal', 'None']"
+1304,2958,['Asthma'],[],[]
+1305,1094,"['Hypertension', 'None']",['Shellfish'],['Gallbladder removal']
+1306,2307,[],"['None', 'Peanuts']",['None']
+1307,2953,"['Asthma', 'Diabetes']",[],"['None', 'Gallbladder removal']"
+1308,1108,"['Asthma', 'None', 'Diabetes']",[],[]
+1309,195,['Asthma'],['None'],['None']
+1310,2428,['Hypertension'],['None'],"['None', 'Gallbladder removal']"
+1311,1611,[],['Shellfish'],['None']
+1312,487,[],[],[]
+1313,2498,[],"['None', 'Peanuts']",['Appendectomy']
+1314,645,[],[],[]
+1315,66,"['Asthma', 'Hypertension']",['Peanuts'],"['None', 'Appendectomy']"
+1316,2987,"['Asthma', 'Hypertension', 'Diabetes']",['Peanuts'],[]
+1317,943,"['None', 'Hypertension', 'Diabetes']",[],[]
+1318,863,[],['None'],[]
+1319,1207,[],[],"['Appendectomy', 'Gallbladder removal']"
+1320,836,['Hypertension'],[],['None']
+1321,2939,[],[],['Gallbladder removal']
+1322,1347,"['Diabetes', 'Hypertension', 'None']",['Peanuts'],"['None', 'Appendectomy']"
+1323,1021,['Asthma'],"['None', 'Shellfish']",['Appendectomy']
+1324,910,[],"['None', 'Peanuts']","['None', 'Appendectomy']"
+1325,540,"['Diabetes', 'None', 'Asthma']",[],"['None', 'Gallbladder removal']"
+1326,396,"['Diabetes', 'Asthma', 'None']","['Shellfish', 'None']",['Gallbladder removal']
+1327,2141,"['Diabetes', 'Hypertension', 'Asthma']","['Peanuts', 'Shellfish']",['None']
+1328,1486,['Diabetes'],[],['Gallbladder removal']
+1329,434,['Asthma'],"['None', 'Peanuts']","['None', 'Appendectomy']"
+1330,1665,['Asthma'],"['Peanuts', 'Shellfish']","['Appendectomy', 'None']"
+1331,208,"['Hypertension', 'None']",[],['Appendectomy']
+1332,969,[],"['None', 'Peanuts']",[]
+1333,632,['None'],[],"['Appendectomy', 'None']"
+1334,513,[],"['None', 'Shellfish']","['Appendectomy', 'None']"
+1335,1777,[],['Peanuts'],['Appendectomy']
+1336,2511,"['Hypertension', 'None']","['Shellfish', 'Peanuts']","['None', 'Appendectomy']"
+1337,2045,[],"['Shellfish', 'Peanuts']",[]
+1338,347,['None'],[],[]
+1339,683,"['Diabetes', 'Hypertension']",['Peanuts'],['Gallbladder removal']
+1340,2772,['None'],[],[]
+1341,336,['Asthma'],['None'],"['Appendectomy', 'Gallbladder removal']"
+1342,1219,[],[],"['None', 'Gallbladder removal']"
+1343,187,"['Hypertension', 'None', 'Asthma']",['Peanuts'],"['Appendectomy', 'Gallbladder removal']"
+1344,1855,"['Diabetes', 'None']",['Peanuts'],[]
+1345,1647,"['Diabetes', 'Hypertension']",['Peanuts'],[]
+1346,2104,"['None', 'Hypertension']","['Peanuts', 'None']",[]
+1347,833,['None'],[],[]
+1348,1087,"['None', 'Asthma', 'Hypertension']","['Shellfish', 'Peanuts']",['Gallbladder removal']
+1349,621,"['None', 'Diabetes', 'Hypertension']",['Shellfish'],[]
+1350,1,['Asthma'],"['None', 'Shellfish']",['None']
+1351,63,"['Hypertension', 'Diabetes', 'Asthma']",[],"['Gallbladder removal', 'None']"
+1352,2916,['Diabetes'],"['Shellfish', 'Peanuts']",[]
+1353,2328,['None'],[],"['Appendectomy', 'Gallbladder removal']"
+1354,1807,"['Diabetes', 'Asthma']",['None'],[]
+1355,2869,"['Asthma', 'Hypertension', 'None']",[],[]
+1356,1567,"['None', 'Asthma']",[],"['None', 'Gallbladder removal']"
+1357,76,"['Hypertension', 'Diabetes', 'Asthma']",[],[]
+1358,788,"['None', 'Asthma']","['Shellfish', 'Peanuts']","['None', 'Appendectomy']"
+1359,1772,[],[],['None']
+1360,597,[],['None'],['None']
+1361,1614,['Hypertension'],[],"['Appendectomy', 'None']"
+1362,2073,"['Diabetes', 'Asthma']",[],"['None', 'Appendectomy']"
+1363,1909,"['Diabetes', 'Asthma']",[],"['Appendectomy', 'Gallbladder removal']"
+1364,1511,"['None', 'Diabetes']",['Peanuts'],[]
+1365,153,"['Diabetes', 'Hypertension', 'Asthma']",[],[]
+1366,1376,"['None', 'Asthma', 'Diabetes']",[],['None']
+1367,1604,"['Asthma', 'Diabetes', 'None']",['Shellfish'],['None']
+1368,2633,"['None', 'Diabetes', 'Hypertension']","['None', 'Shellfish']",['Gallbladder removal']
+1369,1233,['Asthma'],['Peanuts'],[]
+1370,953,"['Asthma', 'None', 'Hypertension']",[],[]
+1371,2354,"['Hypertension', 'Asthma']",['Peanuts'],"['Appendectomy', 'Gallbladder removal']"
+1372,884,['Diabetes'],[],[]
+1373,882,[],"['None', 'Shellfish']","['None', 'Appendectomy']"
+1374,1256,[],['None'],"['Gallbladder removal', 'None']"
+1375,2818,[],['None'],['Gallbladder removal']
+1376,1494,['Hypertension'],"['Shellfish', 'Peanuts']","['None', 'Appendectomy']"
+1377,1711,['None'],['Peanuts'],[]
+1378,263,['Diabetes'],[],"['None', 'Gallbladder removal']"
+1379,677,[],"['Shellfish', 'Peanuts']","['Gallbladder removal', 'None']"
+1380,1648,[],['Peanuts'],"['None', 'Appendectomy']"
+1381,1535,[],[],['None']
+1382,85,"['Diabetes', 'Asthma']",['None'],['Gallbladder removal']
+1383,2441,"['Asthma', 'None']",['Shellfish'],[]
+1384,1487,['Hypertension'],"['Peanuts', 'Shellfish']",[]
+1385,2124,"['Asthma', 'Hypertension']","['Peanuts', 'Shellfish']",['Gallbladder removal']
+1386,888,"['Hypertension', 'Diabetes']",['Shellfish'],[]
+1387,2009,"['Hypertension', 'None']","['Shellfish', 'Peanuts']",['None']
+1388,2728,"['Asthma', 'Hypertension', 'Diabetes']","['Shellfish', 'None']",[]
+1389,1767,[],"['Shellfish', 'Peanuts']",['Gallbladder removal']
+1390,435,"['Asthma', 'None', 'Hypertension']",['None'],"['None', 'Appendectomy']"
+1391,448,[],[],['None']
+1392,2542,"['None', 'Diabetes', 'Asthma']",['Shellfish'],[]
+1393,87,['None'],['Peanuts'],"['None', 'Appendectomy']"
+1394,1540,['Asthma'],[],[]
+1395,1529,[],[],['Appendectomy']
+1396,37,['Hypertension'],[],['Appendectomy']
+1397,353,[],"['None', 'Peanuts']",[]
+1398,1029,[],"['Peanuts', 'Shellfish']",['None']
+1399,152,"['Asthma', 'Hypertension', 'Diabetes']",['Shellfish'],['None']
+1400,193,"['Hypertension', 'None', 'Asthma']","['Shellfish', 'None']",['Gallbladder removal']
+1401,580,"['Diabetes', 'None', 'Asthma']",['None'],"['Appendectomy', 'None']"
+1402,2544,['Hypertension'],[],"['Appendectomy', 'None']"
+1403,1373,"['Hypertension', 'Diabetes']",['Shellfish'],['Gallbladder removal']
+1404,463,[],['None'],"['None', 'Gallbladder removal']"
+1405,464,['Hypertension'],"['None', 'Shellfish']",['Appendectomy']
+1406,161,"['Asthma', 'Hypertension']","['Peanuts', 'None']",['Gallbladder removal']
+1407,50,['Asthma'],"['None', 'Shellfish']",['Appendectomy']
+1408,1472,"['Diabetes', 'Asthma']",[],['Gallbladder removal']
+1409,636,[],"['None', 'Peanuts']",['Gallbladder removal']
+1410,1078,"['Diabetes', 'None', 'Hypertension']",['Peanuts'],"['None', 'Gallbladder removal']"
+1411,566,"['None', 'Diabetes', 'Asthma']","['Shellfish', 'None']","['Gallbladder removal', 'Appendectomy']"
+1412,1676,"['None', 'Asthma']",['Peanuts'],['Appendectomy']
+1413,2714,"['None', 'Asthma']",[],[]
+1414,1286,"['Hypertension', 'None', 'Diabetes']","['Shellfish', 'Peanuts']","['Gallbladder removal', 'None']"
+1415,1904,"['None', 'Asthma']",['Peanuts'],[]
+1416,1291,['Diabetes'],[],[]
+1417,891,"['Diabetes', 'Asthma', 'Hypertension']",[],"['Appendectomy', 'Gallbladder removal']"
+1418,1398,"['Hypertension', 'Diabetes', 'None']",['Peanuts'],['Gallbladder removal']
+1419,2310,"['Asthma', 'Diabetes']","['None', 'Peanuts']","['Gallbladder removal', 'Appendectomy']"
+1420,1079,[],[],[]
+1421,77,"['Hypertension', 'Asthma', 'Diabetes']","['None', 'Peanuts']",['Appendectomy']
+1422,2087,"['None', 'Hypertension', 'Asthma']","['Peanuts', 'Shellfish']",[]
+1423,317,['None'],[],"['Gallbladder removal', 'None']"
+1424,1186,"['None', 'Asthma']",[],['Gallbladder removal']
+1425,233,[],[],['None']
+1426,2095,"['Asthma', 'Diabetes']",[],"['Gallbladder removal', 'Appendectomy']"
+1427,546,"['Asthma', 'Hypertension']","['Peanuts', 'None']",[]
+1428,1100,"['Asthma', 'None']",[],['None']
+1429,465,"['Diabetes', 'Asthma']","['None', 'Peanuts']","['Gallbladder removal', 'Appendectomy']"
+1430,1995,"['None', 'Diabetes']","['Peanuts', 'None']",[]
+1431,2865,[],['None'],[]
+1432,2237,['Hypertension'],"['Peanuts', 'Shellfish']",[]
+1433,1455,['Diabetes'],['Peanuts'],"['None', 'Appendectomy']"
+1434,1342,"['Hypertension', 'None', 'Asthma']","['Shellfish', 'None']","['Appendectomy', 'None']"
+1435,2698,"['None', 'Asthma']","['Shellfish', 'None']",[]
+1436,2643,"['Diabetes', 'None']","['Shellfish', 'Peanuts']",['Gallbladder removal']
+1437,2954,[],['Shellfish'],['Appendectomy']
+1438,2671,['Hypertension'],"['None', 'Shellfish']","['Appendectomy', 'None']"
+1439,330,"['Asthma', 'Hypertension', 'Diabetes']","['None', 'Peanuts']","['Appendectomy', 'Gallbladder removal']"
+1440,2317,[],[],['Gallbladder removal']
+1441,2793,"['None', 'Diabetes', 'Asthma']","['Peanuts', 'None']",[]
+1442,2394,['None'],"['Peanuts', 'Shellfish']",[]
+1443,306,"['None', 'Diabetes', 'Hypertension']",['Peanuts'],[]
+1444,2129,['None'],[],[]
+1445,247,[],[],"['None', 'Appendectomy']"
+1446,2021,"['Hypertension', 'None', 'Asthma']","['Peanuts', 'None']","['Appendectomy', 'None']"
+1447,2928,"['Hypertension', 'Asthma']","['None', 'Shellfish']",[]
+1448,236,"['Hypertension', 'Diabetes', 'Asthma']","['Shellfish', 'None']",[]
+1449,1270,['None'],"['Shellfish', 'None']",['Appendectomy']
+1450,2980,"['None', 'Hypertension', 'Asthma']",['None'],"['Appendectomy', 'Gallbladder removal']"
+1451,1032,"['None', 'Asthma', 'Diabetes']",['Shellfish'],[]
+1452,600,"['Diabetes', 'Hypertension']","['None', 'Shellfish']",['None']
+1453,2370,['None'],[],[]
+1454,2830,['None'],[],[]
+1455,2359,"['Hypertension', 'Asthma']",[],[]
+1456,1226,[],['Shellfish'],['Gallbladder removal']
+1457,1146,['Diabetes'],"['Peanuts', 'None']",[]
+1458,562,['Diabetes'],['Peanuts'],['Gallbladder removal']
+1459,1927,"['None', 'Asthma']",['Peanuts'],"['Appendectomy', 'None']"
+1460,2154,"['Diabetes', 'Hypertension']",['Shellfish'],['Appendectomy']
+1461,589,"['Hypertension', 'Diabetes', 'Asthma']",['Shellfish'],[]
+1462,85,"['Diabetes', 'None', 'Asthma']","['None', 'Peanuts']",['Gallbladder removal']
+1463,2064,[],[],[]
+1464,2086,"['None', 'Hypertension', 'Diabetes']",[],"['Gallbladder removal', 'Appendectomy']"
+1465,1215,[],[],[]
+1466,1639,"['Hypertension', 'Diabetes', 'Asthma']",['Peanuts'],['None']
+1467,519,"['Diabetes', 'Hypertension']",['None'],[]
+1468,978,['Hypertension'],['None'],[]
+1469,990,"['None', 'Hypertension', 'Diabetes']",[],[]
+1470,2841,[],[],[]
+1471,1262,"['Hypertension', 'Diabetes']","['Peanuts', 'None']",['None']
+1472,1855,"['Diabetes', 'None']",[],[]
+1473,441,"['Hypertension', 'Asthma', 'None']",[],['None']
+1474,2435,"['Asthma', 'None', 'Hypertension']","['Peanuts', 'Shellfish']","['None', 'Appendectomy']"
+1475,1300,[],"['Shellfish', 'None']","['Gallbladder removal', 'Appendectomy']"
+1476,2027,"['Asthma', 'None']",['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+1477,363,"['Hypertension', 'None']",['None'],[]
+1478,377,['Asthma'],['Peanuts'],[]
+1479,287,['Asthma'],['Peanuts'],['Appendectomy']
+1480,1373,"['Diabetes', 'None', 'Asthma']","['Shellfish', 'Peanuts']",[]
+1481,1661,[],"['Peanuts', 'Shellfish']",['None']
+1482,977,"['Hypertension', 'Diabetes']",['Shellfish'],"['Appendectomy', 'Gallbladder removal']"
+1483,2151,[],['Peanuts'],['Appendectomy']
+1484,2571,[],['Shellfish'],['Gallbladder removal']
+1485,2904,[],"['Shellfish', 'Peanuts']",[]
+1486,706,[],['Shellfish'],['Gallbladder removal']
+1487,378,"['Diabetes', 'None', 'Asthma']",['Peanuts'],[]
+1488,2890,"['Diabetes', 'Hypertension']",['Shellfish'],"['None', 'Gallbladder removal']"
+1489,157,"['Asthma', 'Diabetes', 'Hypertension']",['None'],[]
+1490,2303,[],"['Shellfish', 'Peanuts']","['Appendectomy', 'None']"
+1491,773,"['Hypertension', 'Diabetes']",['None'],['None']
+1492,967,[],[],"['None', 'Appendectomy']"
+1493,1943,[],"['None', 'Peanuts']","['Gallbladder removal', 'Appendectomy']"
+1494,1805,[],['Shellfish'],['None']
+1495,2657,['Asthma'],['Peanuts'],"['Gallbladder removal', 'Appendectomy']"
+1496,827,"['None', 'Hypertension', 'Asthma']",['Shellfish'],['None']
+1497,234,['Diabetes'],['Shellfish'],"['Appendectomy', 'None']"
+1498,146,['None'],[],[]
+1499,2394,[],"['Shellfish', 'None']",[]
+1500,2207,[],['Peanuts'],[]
+1501,2647,['Asthma'],['None'],"['Gallbladder removal', 'Appendectomy']"
+1502,1815,[],[],['Appendectomy']
+1503,371,['Hypertension'],['None'],['Appendectomy']
+1504,11,[],['Peanuts'],['Gallbladder removal']
+1505,2051,"['Diabetes', 'None', 'Hypertension']",[],[]
+1506,287,[],['Peanuts'],['Gallbladder removal']
+1507,934,['Diabetes'],['None'],[]
+1508,2660,"['None', 'Hypertension', 'Diabetes']",[],[]
+1509,510,['Diabetes'],['Shellfish'],['Gallbladder removal']
+1510,1373,[],"['Shellfish', 'None']",['Gallbladder removal']
+1511,1723,"['None', 'Hypertension']",[],"['Gallbladder removal', 'None']"
+1512,1898,[],"['None', 'Shellfish']","['None', 'Appendectomy']"
+1513,1622,[],['None'],['Appendectomy']
+1514,1611,[],[],[]
+1515,1040,"['Hypertension', 'Asthma']",[],['Appendectomy']
+1516,2451,"['Hypertension', 'None']",[],['None']
+1517,1145,['None'],['Peanuts'],['Gallbladder removal']
+1518,2405,"['None', 'Diabetes', 'Hypertension']","['None', 'Peanuts']","['Gallbladder removal', 'Appendectomy']"
+1519,2662,"['Diabetes', 'Hypertension', 'None']","['None', 'Peanuts']",[]
+1520,559,[],['None'],['Appendectomy']
+1521,2930,"['Hypertension', 'None']","['Shellfish', 'Peanuts']",['Appendectomy']
+1522,275,"['Diabetes', 'Hypertension', 'None']","['Peanuts', 'None']",[]
+1523,1775,[],['Shellfish'],"['Gallbladder removal', 'None']"
+1524,2906,[],[],[]
+1525,2336,"['Asthma', 'Hypertension']",['Peanuts'],"['Gallbladder removal', 'None']"
+1526,2024,['Asthma'],[],['Gallbladder removal']
+1527,2996,[],"['Peanuts', 'None']",['Appendectomy']
+1528,2153,['Hypertension'],['Peanuts'],[]
+1529,2229,"['None', 'Asthma', 'Diabetes']","['Peanuts', 'None']",[]
+1530,527,[],['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+1531,1973,"['Hypertension', 'None']",['Peanuts'],[]
+1532,2478,"['Asthma', 'Diabetes', 'Hypertension']",['None'],"['Gallbladder removal', 'Appendectomy']"
+1533,2956,"['Diabetes', 'Hypertension']","['None', 'Peanuts']",[]
+1534,1480,"['Hypertension', 'Diabetes']",[],[]
+1535,2209,"['Asthma', 'Diabetes']","['None', 'Peanuts']",[]
+1536,2594,"['Hypertension', 'None', 'Diabetes']",['Shellfish'],['Appendectomy']
+1537,2550,"['Diabetes', 'Hypertension']",[],[]
+1538,1104,[],['None'],['None']
+1539,1206,"['Asthma', 'Diabetes']",[],"['Appendectomy', 'Gallbladder removal']"
+1540,249,"['None', 'Asthma']",[],['None']
+1541,222,"['Diabetes', 'Asthma', 'None']",['Shellfish'],['Gallbladder removal']
+1542,186,"['None', 'Asthma']","['None', 'Shellfish']",[]
+1543,2966,"['None', 'Hypertension']",[],['Gallbladder removal']
+1544,2697,"['None', 'Asthma']",['Shellfish'],"['Gallbladder removal', 'None']"
+1545,714,[],[],[]
+1546,1220,['Diabetes'],['None'],"['Appendectomy', 'None']"
+1547,1305,"['Diabetes', 'Hypertension']","['Peanuts', 'Shellfish']",['None']
+1548,119,"['Hypertension', 'Asthma']",['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+1549,1151,[],['Shellfish'],[]
+1550,382,"['Diabetes', 'Hypertension']",[],[]
+1551,724,['Asthma'],"['None', 'Shellfish']",['Gallbladder removal']
+1552,611,"['Hypertension', 'Asthma', 'None']","['Shellfish', 'None']",[]
+1553,1112,[],"['Peanuts', 'None']",['None']
+1554,2368,['Hypertension'],[],[]
+1555,9,"['Asthma', 'Hypertension']","['Shellfish', 'None']","['Appendectomy', 'None']"
+1556,2217,"['None', 'Hypertension', 'Diabetes']","['Shellfish', 'Peanuts']",[]
+1557,770,['Hypertension'],['Shellfish'],"['Appendectomy', 'None']"
+1558,530,"['Diabetes', 'Asthma', 'Hypertension']",['Peanuts'],[]
+1559,976,['None'],['Peanuts'],[]
+1560,1531,"['None', 'Hypertension']",['Peanuts'],"['Appendectomy', 'Gallbladder removal']"
+1561,2807,"['Asthma', 'None']",['None'],[]
+1562,303,[],"['Peanuts', 'Shellfish']","['Gallbladder removal', 'None']"
+1563,1740,[],[],"['Gallbladder removal', 'None']"
+1564,2584,"['Diabetes', 'Hypertension']","['None', 'Shellfish']",[]
+1565,2722,[],['Peanuts'],"['Gallbladder removal', 'Appendectomy']"
+1566,2604,"['Diabetes', 'Asthma']",[],"['None', 'Appendectomy']"
+1567,281,"['None', 'Diabetes']","['Peanuts', 'None']",['Gallbladder removal']
+1568,1084,"['None', 'Hypertension']","['Shellfish', 'Peanuts']","['Gallbladder removal', 'None']"
+1569,2539,[],"['None', 'Peanuts']",['None']
+1570,2606,[],"['Peanuts', 'None']","['Appendectomy', 'Gallbladder removal']"
+1571,2107,"['Diabetes', 'None']",[],[]
+1572,1395,"['None', 'Hypertension', 'Diabetes']",['None'],[]
+1573,2116,['Diabetes'],[],"['Appendectomy', 'Gallbladder removal']"
+1574,2524,"['None', 'Diabetes', 'Hypertension']","['Peanuts', 'Shellfish']","['None', 'Appendectomy']"
+1575,2346,"['Asthma', 'Diabetes', 'Hypertension']",['None'],['Appendectomy']
+1576,901,"['Diabetes', 'Hypertension']",['Shellfish'],['Gallbladder removal']
+1577,148,"['Diabetes', 'Hypertension']",['Shellfish'],[]
+1578,26,['Asthma'],[],[]
+1579,2733,['Diabetes'],[],"['Appendectomy', 'Gallbladder removal']"
+1580,149,"['Asthma', 'None']",['None'],"['Gallbladder removal', 'None']"
+1581,1821,"['Asthma', 'None']","['None', 'Peanuts']","['None', 'Appendectomy']"
+1582,1843,[],"['Peanuts', 'None']",[]
+1583,1778,[],"['None', 'Shellfish']","['Gallbladder removal', 'None']"
+1584,1659,"['Asthma', 'Hypertension', 'Diabetes']",['None'],['Appendectomy']
+1585,563,"['Diabetes', 'Hypertension']",['Shellfish'],['Appendectomy']
+1586,1521,"['None', 'Asthma', 'Diabetes']",[],"['Appendectomy', 'None']"
+1587,593,['None'],['Shellfish'],[]
+1588,2193,['Hypertension'],['Shellfish'],"['None', 'Appendectomy']"
+1589,2708,"['Diabetes', 'Asthma']",['Peanuts'],"['None', 'Gallbladder removal']"
+1590,2167,[],['Shellfish'],['Appendectomy']
+1591,1129,"['Hypertension', 'Diabetes', 'None']",['Peanuts'],"['None', 'Gallbladder removal']"
+1592,2548,[],[],[]
+1593,181,['Hypertension'],['Peanuts'],['Appendectomy']
+1594,2558,['Diabetes'],['None'],[]
+1595,2433,[],"['Shellfish', 'Peanuts']",['Appendectomy']
+1596,930,"['Hypertension', 'Asthma', 'Diabetes']",['Peanuts'],['Gallbladder removal']
+1597,329,"['None', 'Asthma', 'Diabetes']",['Peanuts'],['Appendectomy']
+1598,2191,"['Asthma', 'None']","['Shellfish', 'None']",['Gallbladder removal']
+1599,60,['None'],['Peanuts'],"['None', 'Appendectomy']"
+1600,188,"['Hypertension', 'Asthma']","['Peanuts', 'Shellfish']",[]
+1601,1305,['Diabetes'],"['Shellfish', 'None']","['Gallbladder removal', 'None']"
+1602,313,[],[],"['Gallbladder removal', 'None']"
+1603,2133,[],[],"['None', 'Gallbladder removal']"
+1604,782,"['None', 'Diabetes']",[],"['Appendectomy', 'Gallbladder removal']"
+1605,1999,['Asthma'],['None'],['None']
+1606,267,['None'],"['Peanuts', 'Shellfish']",[]
+1607,1065,"['Diabetes', 'Asthma']","['Shellfish', 'None']",[]
+1608,360,[],"['None', 'Peanuts']",[]
+1609,2631,"['None', 'Asthma']",[],['Appendectomy']
+1610,2881,[],['Peanuts'],['None']
+1611,417,['None'],[],"['None', 'Appendectomy']"
+1612,1565,[],[],['Gallbladder removal']
+1613,2564,[],[],['Appendectomy']
+1614,2518,"['Asthma', 'Diabetes', 'Hypertension']","['None', 'Shellfish']","['None', 'Gallbladder removal']"
+1615,1305,"['Asthma', 'None', 'Hypertension']","['Shellfish', 'None']","['Appendectomy', 'None']"
+1616,204,"['Diabetes', 'None', 'Hypertension']",['None'],[]
+1617,2358,['Hypertension'],['Shellfish'],[]
+1618,420,"['Hypertension', 'None', 'Diabetes']",['Shellfish'],[]
+1619,2154,[],"['Shellfish', 'Peanuts']","['None', 'Appendectomy']"
+1620,2417,"['Hypertension', 'None', 'Asthma']",[],['None']
+1621,1300,"['None', 'Diabetes']","['Shellfish', 'Peanuts']",['Gallbladder removal']
+1622,1705,[],"['Peanuts', 'Shellfish']",['Gallbladder removal']
+1623,448,"['Diabetes', 'Hypertension', 'Asthma']","['None', 'Shellfish']",[]
+1624,2866,[],"['None', 'Peanuts']",[]
+1625,1678,['Hypertension'],[],['Appendectomy']
+1626,1461,[],"['None', 'Peanuts']",['Appendectomy']
+1627,488,"['None', 'Asthma']",['Shellfish'],"['Gallbladder removal', 'None']"
+1628,2206,['None'],[],[]
+1629,2430,['None'],['Shellfish'],['Gallbladder removal']
+1630,1048,"['Asthma', 'None']",['Peanuts'],[]
+1631,1051,[],['Peanuts'],['Appendectomy']
+1632,1318,[],['Shellfish'],['Gallbladder removal']
+1633,2342,"['None', 'Diabetes', 'Asthma']",[],"['Gallbladder removal', 'None']"
+1634,1908,['Asthma'],['Peanuts'],['Appendectomy']
+1635,2683,"['Hypertension', 'None', 'Asthma']",[],"['Appendectomy', 'None']"
+1636,1713,"['Diabetes', 'Asthma', 'Hypertension']","['None', 'Peanuts']",[]
+1637,1140,[],[],['Gallbladder removal']
+1638,1891,"['Asthma', 'None']",['None'],"['None', 'Gallbladder removal']"
+1639,368,[],['Shellfish'],[]
+1640,1665,[],['Shellfish'],['None']
+1641,2793,"['Hypertension', 'Diabetes']",['None'],['Gallbladder removal']
+1642,2283,[],"['None', 'Shellfish']",[]
+1643,651,"['Asthma', 'Hypertension', 'Diabetes']",['None'],"['None', 'Appendectomy']"
+1644,711,['None'],[],['Gallbladder removal']
+1645,2605,"['None', 'Asthma', 'Hypertension']","['Peanuts', 'None']",['Appendectomy']
+1646,1336,"['None', 'Asthma', 'Hypertension']","['Peanuts', 'None']",[]
+1647,2468,"['Hypertension', 'Asthma', 'None']",[],['Appendectomy']
+1648,2178,[],[],['Gallbladder removal']
+1649,2364,"['Hypertension', 'Diabetes', 'None']","['None', 'Shellfish']","['Gallbladder removal', 'Appendectomy']"
+1650,93,['Asthma'],"['Peanuts', 'Shellfish']",[]
+1651,2207,"['Diabetes', 'Asthma', 'None']",[],"['Gallbladder removal', 'Appendectomy']"
+1652,2840,['None'],"['None', 'Shellfish']",['Appendectomy']
+1653,2014,"['Diabetes', 'Hypertension']",[],['Gallbladder removal']
+1654,188,['Asthma'],['Peanuts'],"['Appendectomy', 'None']"
+1655,1380,['None'],"['Peanuts', 'Shellfish']",[]
+1656,1171,[],"['Shellfish', 'None']",['Appendectomy']
+1657,1721,[],['None'],[]
+1658,1967,['None'],['Shellfish'],[]
+1659,1646,"['None', 'Hypertension']","['None', 'Peanuts']","['Appendectomy', 'None']"
+1660,543,[],['Peanuts'],['Gallbladder removal']
+1661,2208,['Asthma'],[],['None']
+1662,391,[],"['Peanuts', 'Shellfish']","['Gallbladder removal', 'Appendectomy']"
+1663,2369,"['Diabetes', 'None']",['Shellfish'],[]
+1664,830,['None'],"['None', 'Peanuts']","['Gallbladder removal', 'Appendectomy']"
+1665,476,[],"['Peanuts', 'Shellfish']",[]
+1666,2023,[],[],"['Gallbladder removal', 'None']"
+1667,1060,"['Diabetes', 'Hypertension', 'None']",[],['Gallbladder removal']
+1668,1207,[],[],[]
+1669,1792,['Diabetes'],['Peanuts'],['None']
+1670,2622,"['None', 'Diabetes']","['None', 'Shellfish']",[]
+1671,2897,"['Diabetes', 'Asthma']",[],['Appendectomy']
+1672,1481,"['None', 'Hypertension', 'Diabetes']",['Peanuts'],"['Gallbladder removal', 'Appendectomy']"
+1673,2456,['Hypertension'],['Peanuts'],"['None', 'Gallbladder removal']"
+1674,468,"['Asthma', 'Diabetes', 'None']",[],"['None', 'Appendectomy']"
+1675,875,"['Diabetes', 'Asthma']","['None', 'Peanuts']",[]
+1676,550,['Diabetes'],[],['Appendectomy']
+1677,2708,[],"['Peanuts', 'None']",[]
+1678,901,['Diabetes'],[],['Appendectomy']
+1679,1468,[],[],['Appendectomy']
+1680,610,"['Hypertension', 'None']",['None'],['Gallbladder removal']
+1681,1456,"['None', 'Asthma']",[],[]
+1682,747,[],[],[]
+1683,2692,"['Hypertension', 'Asthma']",[],[]
+1684,2211,"['Hypertension', 'Asthma', 'Diabetes']","['Peanuts', 'None']",['Gallbladder removal']
+1685,744,"['Diabetes', 'None', 'Hypertension']",[],['Gallbladder removal']
+1686,518,['Diabetes'],['Peanuts'],"['Appendectomy', 'None']"
+1687,2801,[],"['None', 'Peanuts']",['None']
+1688,137,"['Hypertension', 'Asthma', 'Diabetes']",[],[]
+1689,331,[],[],"['Gallbladder removal', 'None']"
+1690,1646,[],"['Peanuts', 'None']","['Gallbladder removal', 'Appendectomy']"
+1691,2942,[],"['None', 'Shellfish']",['Gallbladder removal']
+1692,1261,[],[],[]
+1693,1453,"['Hypertension', 'Asthma', 'None']",['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+1694,408,[],"['Peanuts', 'None']",[]
+1695,2173,['None'],"['Shellfish', 'None']",['Gallbladder removal']
+1696,789,"['Hypertension', 'None']","['None', 'Shellfish']","['Appendectomy', 'None']"
+1697,2779,"['Diabetes', 'None']","['Shellfish', 'Peanuts']","['Gallbladder removal', 'None']"
+1698,1118,['Diabetes'],"['Shellfish', 'None']","['None', 'Appendectomy']"
+1699,2672,['None'],[],['None']
+1700,1786,"['Diabetes', 'Asthma', 'None']",['None'],['Gallbladder removal']
+1701,693,"['Diabetes', 'Hypertension', 'None']",['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+1702,772,"['Hypertension', 'None', 'Diabetes']","['Peanuts', 'None']",[]
+1703,2503,"['None', 'Hypertension', 'Diabetes']",[],[]
+1704,2005,[],['None'],"['None', 'Appendectomy']"
+1705,625,"['Asthma', 'Hypertension']",['Shellfish'],['Gallbladder removal']
+1706,2012,"['Asthma', 'Hypertension', 'Diabetes']",[],['Gallbladder removal']
+1707,2629,"['Diabetes', 'Hypertension']",['None'],['None']
+1708,2372,[],[],"['None', 'Appendectomy']"
+1709,1053,"['Hypertension', 'Diabetes', 'Asthma']",[],"['Appendectomy', 'Gallbladder removal']"
+1710,1568,"['Diabetes', 'Hypertension']",[],"['None', 'Appendectomy']"
+1711,2267,['Hypertension'],['Peanuts'],[]
+1712,1211,"['Asthma', 'Hypertension']",[],[]
+1713,1025,"['None', 'Diabetes']",[],[]
+1714,2799,"['Hypertension', 'Asthma', 'None']",[],['Appendectomy']
+1715,2589,['None'],[],[]
+1716,397,"['Hypertension', 'Diabetes']",[],['None']
+1717,2107,[],['Peanuts'],"['None', 'Gallbladder removal']"
+1718,1113,"['Diabetes', 'None', 'Asthma']","['Peanuts', 'Shellfish']",[]
+1719,2311,"['Asthma', 'Diabetes', 'Hypertension']",['None'],"['Gallbladder removal', 'None']"
+1720,1484,[],['Shellfish'],[]
+1721,1598,['None'],['Shellfish'],['Appendectomy']
+1722,1302,"['None', 'Asthma']",[],[]
+1723,2466,['None'],['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+1724,1541,"['Asthma', 'Hypertension', 'Diabetes']",['None'],[]
+1725,2282,['Diabetes'],"['None', 'Peanuts']","['None', 'Appendectomy']"
+1726,769,['Diabetes'],[],"['None', 'Appendectomy']"
+1727,470,"['Diabetes', 'None']",[],"['None', 'Appendectomy']"
+1728,2753,[],[],['Gallbladder removal']
+1729,1018,"['Hypertension', 'Asthma']",['None'],['None']
+1730,1555,['Hypertension'],[],['Appendectomy']
+1731,1593,"['Asthma', 'Hypertension', 'None']","['Shellfish', 'Peanuts']",[]
+1732,982,"['Hypertension', 'Asthma', 'None']",['Shellfish'],[]
+1733,2367,[],['Peanuts'],[]
+1734,2289,"['Hypertension', 'Asthma']",[],['Appendectomy']
+1735,1938,"['None', 'Asthma']",['Shellfish'],[]
+1736,115,['None'],"['None', 'Shellfish']",[]
+1737,480,"['None', 'Diabetes', 'Asthma']","['Peanuts', 'None']",['Gallbladder removal']
+1738,411,"['Hypertension', 'Diabetes']",['Peanuts'],['Appendectomy']
+1739,1713,"['None', 'Diabetes', 'Hypertension']","['Peanuts', 'Shellfish']",['Gallbladder removal']
+1740,779,"['Asthma', 'Diabetes']",['Peanuts'],"['None', 'Gallbladder removal']"
+1741,1057,[],[],['Gallbladder removal']
+1742,2298,[],[],['Appendectomy']
+1743,2746,"['Asthma', 'Hypertension', 'Diabetes']","['Peanuts', 'None']",[]
+1744,2709,"['Hypertension', 'Asthma']",[],[]
+1745,569,['Asthma'],['Peanuts'],[]
+1746,1630,[],['Peanuts'],['Appendectomy']
+1747,2464,['Hypertension'],['Shellfish'],"['Appendectomy', 'Gallbladder removal']"
+1748,2588,[],"['None', 'Shellfish']",[]
+1749,2697,['None'],[],[]
+1750,2417,"['Hypertension', 'None', 'Diabetes']",[],['Gallbladder removal']
+1751,293,"['Asthma', 'None', 'Hypertension']","['None', 'Peanuts']",[]
+1752,2741,"['Diabetes', 'None']","['Peanuts', 'None']",[]
+1753,1467,"['Diabetes', 'Hypertension', 'Asthma']","['Peanuts', 'None']",['Gallbladder removal']
+1754,343,[],['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+1755,1831,['None'],[],[]
+1756,1457,[],[],[]
+1757,467,"['Hypertension', 'Asthma']",['Peanuts'],[]
+1758,808,[],[],"['Gallbladder removal', 'Appendectomy']"
+1759,1714,"['None', 'Diabetes']",['Peanuts'],"['Appendectomy', 'Gallbladder removal']"
+1760,2379,['None'],['Peanuts'],['Gallbladder removal']
+1761,1424,[],['Peanuts'],"['Appendectomy', 'None']"
+1762,2747,"['Diabetes', 'Asthma']","['None', 'Peanuts']","['Gallbladder removal', 'Appendectomy']"
+1763,461,"['Diabetes', 'None']",[],[]
+1764,983,"['Diabetes', 'Hypertension', 'Asthma']",[],[]
+1765,854,"['None', 'Diabetes']","['Shellfish', 'None']",['Gallbladder removal']
+1766,68,"['None', 'Asthma']","['Shellfish', 'None']","['Gallbladder removal', 'Appendectomy']"
+1767,2999,[],"['None', 'Shellfish']","['Gallbladder removal', 'Appendectomy']"
+1768,545,"['Diabetes', 'Hypertension', 'None']","['Peanuts', 'None']",['Gallbladder removal']
+1769,2808,"['Hypertension', 'None', 'Asthma']","['Shellfish', 'Peanuts']",['Appendectomy']
+1770,1764,"['Asthma', 'None']",[],[]
+1771,2826,"['None', 'Hypertension', 'Asthma']",['Peanuts'],"['Gallbladder removal', 'Appendectomy']"
+1772,2173,['Asthma'],[],['None']
+1773,2944,"['Asthma', 'Diabetes', 'None']","['None', 'Shellfish']",[]
+1774,1799,"['Diabetes', 'None']",[],['Gallbladder removal']
+1775,990,"['Hypertension', 'Asthma', 'Diabetes']",['Shellfish'],[]
+1776,1923,['None'],"['Peanuts', 'Shellfish']",[]
+1777,356,"['Hypertension', 'Diabetes', 'None']",[],[]
+1778,2657,"['Hypertension', 'Asthma']",[],['Gallbladder removal']
+1779,1972,"['Hypertension', 'None']",['Peanuts'],['Gallbladder removal']
+1780,1725,['Asthma'],['Shellfish'],"['None', 'Appendectomy']"
+1781,164,"['Hypertension', 'Asthma']","['Peanuts', 'None']",['Appendectomy']
+1782,339,[],[],['Gallbladder removal']
+1783,596,['Diabetes'],[],['None']
+1784,1229,"['Asthma', 'Hypertension', 'Diabetes']",['Peanuts'],['Gallbladder removal']
+1785,1073,['None'],"['None', 'Peanuts']",[]
+1786,2458,[],"['None', 'Peanuts']",['Appendectomy']
+1787,2892,[],"['Peanuts', 'Shellfish']",['Gallbladder removal']
+1788,1463,"['Asthma', 'Diabetes', 'Hypertension']","['Shellfish', 'None']",[]
+1789,2530,[],[],[]
+1790,2266,"['None', 'Hypertension']",['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+1791,218,"['Asthma', 'Hypertension', 'None']",[],['None']
+1792,1089,[],['Peanuts'],"['Appendectomy', 'None']"
+1793,2042,"['None', 'Asthma', 'Hypertension']",['Peanuts'],['None']
+1794,921,['Asthma'],['Peanuts'],[]
+1795,434,"['Diabetes', 'Asthma', 'None']",[],[]
+1796,1470,[],"['Shellfish', 'None']",['Appendectomy']
+1797,137,"['Asthma', 'Hypertension', 'Diabetes']",[],['Gallbladder removal']
+1798,1565,['Hypertension'],['Shellfish'],[]
+1799,1590,[],"['Shellfish', 'Peanuts']","['Appendectomy', 'None']"
+1800,675,['Hypertension'],[],"['Appendectomy', 'None']"
+1801,1184,"['Asthma', 'Diabetes', 'Hypertension']","['None', 'Shellfish']","['Gallbladder removal', 'None']"
+1802,1109,"['Diabetes', 'Hypertension', 'None']",[],['Gallbladder removal']
+1803,1570,"['Diabetes', 'Hypertension']","['Peanuts', 'None']",[]
+1804,474,"['None', 'Hypertension', 'Asthma']",[],[]
+1805,1876,"['Hypertension', 'Diabetes', 'Asthma']","['Shellfish', 'Peanuts']",[]
+1806,2302,[],[],[]
+1807,2025,['None'],"['Peanuts', 'None']","['Gallbladder removal', 'None']"
+1808,1083,"['Hypertension', 'Asthma', 'Diabetes']",[],['None']
+1809,1251,"['Hypertension', 'Asthma', 'Diabetes']",['Shellfish'],"['Appendectomy', 'None']"
+1810,2032,[],[],"['Appendectomy', 'None']"
+1811,14,['None'],"['None', 'Peanuts']","['None', 'Gallbladder removal']"
+1812,1419,"['Hypertension', 'Asthma']",['Peanuts'],['Appendectomy']
+1813,1968,"['None', 'Hypertension']","['Peanuts', 'None']",['None']
+1814,951,"['Asthma', 'Hypertension', 'Diabetes']",['Shellfish'],[]
+1815,502,[],"['Peanuts', 'Shellfish']",[]
+1816,3,[],"['Shellfish', 'None']","['Appendectomy', 'Gallbladder removal']"
+1817,1920,"['Diabetes', 'Asthma', 'Hypertension']",[],['Gallbladder removal']
+1818,2705,[],"['Shellfish', 'None']","['Gallbladder removal', 'Appendectomy']"
+1819,428,['None'],"['None', 'Shellfish']","['Gallbladder removal', 'None']"
+1820,2507,[],['Shellfish'],"['Appendectomy', 'Gallbladder removal']"
+1821,53,[],[],['Appendectomy']
+1822,177,"['Hypertension', 'Diabetes', 'Asthma']","['None', 'Shellfish']",[]
+1823,1054,"['Hypertension', 'Asthma', 'Diabetes']",[],['Appendectomy']
+1824,2207,"['Asthma', 'Hypertension', 'None']",[],[]
+1825,668,['Asthma'],['Peanuts'],"['Appendectomy', 'None']"
+1826,2645,[],"['None', 'Peanuts']","['Appendectomy', 'Gallbladder removal']"
+1827,124,[],[],['None']
+1828,1332,['None'],[],['Appendectomy']
+1829,1765,"['Asthma', 'Hypertension', 'Diabetes']",['Peanuts'],[]
+1830,2467,[],"['Shellfish', 'Peanuts']","['Gallbladder removal', 'Appendectomy']"
+1831,1428,"['None', 'Asthma', 'Diabetes']",['Peanuts'],['Gallbladder removal']
+1832,2316,[],[],[]
+1833,2881,"['Asthma', 'Diabetes']",[],['None']
+1834,2968,"['Asthma', 'None']","['Peanuts', 'Shellfish']",[]
+1835,2753,['Hypertension'],"['None', 'Peanuts']","['None', 'Gallbladder removal']"
+1836,1168,[],"['None', 'Peanuts']",[]
+1837,2052,"['Diabetes', 'Asthma', 'None']",['Peanuts'],[]
+1838,1090,"['Diabetes', 'Hypertension']",[],"['Gallbladder removal', 'Appendectomy']"
+1839,1067,"['Hypertension', 'None', 'Diabetes']","['None', 'Peanuts']",['None']
+1840,399,[],[],['Appendectomy']
+1841,1170,"['Asthma', 'None']","['Peanuts', 'Shellfish']",[]
+1842,795,"['Hypertension', 'None', 'Diabetes']",['Shellfish'],"['Appendectomy', 'Gallbladder removal']"
+1843,700,"['Hypertension', 'None', 'Asthma']",['Peanuts'],[]
+1844,2666,[],"['None', 'Peanuts']",['None']
+1845,945,['None'],"['Peanuts', 'Shellfish']",[]
+1846,2228,"['Diabetes', 'None']",['None'],"['None', 'Gallbladder removal']"
+1847,226,['Hypertension'],['None'],[]
+1848,2125,"['Hypertension', 'None']",['Shellfish'],['None']
+1849,2238,[],[],['Gallbladder removal']
+1850,947,"['Hypertension', 'Asthma', 'None']","['None', 'Peanuts']",[]
+1851,1332,[],"['None', 'Shellfish']","['None', 'Appendectomy']"
+1852,1559,"['None', 'Diabetes']","['Shellfish', 'Peanuts']","['Appendectomy', 'Gallbladder removal']"
+1853,2477,['Diabetes'],['None'],[]
+1854,2424,[],['Peanuts'],[]
+1855,234,"['Diabetes', 'Asthma']",[],"['Gallbladder removal', 'Appendectomy']"
+1856,1491,"['Asthma', 'Hypertension']",['Peanuts'],"['Appendectomy', 'Gallbladder removal']"
+1857,761,"['None', 'Diabetes']","['None', 'Peanuts']",['Appendectomy']
+1858,1293,[],[],[]
+1859,2536,[],[],[]
+1860,1125,"['Diabetes', 'Asthma', 'None']","['Peanuts', 'None']","['Gallbladder removal', 'Appendectomy']"
+1861,2427,"['None', 'Hypertension']",[],[]
+1862,688,"['Asthma', 'None']",[],['Appendectomy']
+1863,412,['Asthma'],[],"['Gallbladder removal', 'Appendectomy']"
+1864,2092,[],"['Peanuts', 'None']","['Gallbladder removal', 'None']"
+1865,2326,"['Diabetes', 'Asthma', 'None']","['None', 'Peanuts']",[]
+1866,2417,[],['Peanuts'],"['Appendectomy', 'None']"
+1867,857,"['Hypertension', 'Asthma']","['Shellfish', 'None']",['None']
+1868,100,[],['Peanuts'],[]
+1869,24,"['Asthma', 'Hypertension']","['Shellfish', 'None']",['Appendectomy']
+1870,61,['None'],"['None', 'Shellfish']",['Gallbladder removal']
+1871,382,[],[],"['Appendectomy', 'None']"
+1872,1227,"['Asthma', 'Diabetes']","['Peanuts', 'Shellfish']","['None', 'Appendectomy']"
+1873,2566,[],"['Shellfish', 'Peanuts']",[]
+1874,2807,"['Asthma', 'Diabetes', 'None']","['None', 'Shellfish']",[]
+1875,693,['Asthma'],['None'],[]
+1876,2262,['Diabetes'],[],[]
+1877,1056,"['None', 'Diabetes']","['Shellfish', 'Peanuts']",[]
+1878,2616,"['Hypertension', 'Asthma', 'Diabetes']",['None'],"['None', 'Appendectomy']"
+1879,1485,['Asthma'],[],[]
+1880,235,[],['Peanuts'],['Appendectomy']
+1881,941,[],['Shellfish'],['Appendectomy']
+1882,704,[],['Shellfish'],[]
+1883,2153,['Asthma'],"['None', 'Peanuts']",[]
+1884,2089,"['Hypertension', 'Diabetes', 'Asthma']","['Peanuts', 'Shellfish']","['None', 'Appendectomy']"
+1885,1800,"['Asthma', 'Hypertension']",[],['None']
+1886,1446,['Diabetes'],['Shellfish'],[]
+1887,2905,[],"['Shellfish', 'None']",[]
+1888,2282,"['Asthma', 'Diabetes', 'Hypertension']",[],"['None', 'Appendectomy']"
+1889,2945,['Hypertension'],['None'],[]
+1890,1769,"['None', 'Hypertension', 'Diabetes']",[],"['None', 'Gallbladder removal']"
+1891,1158,"['Diabetes', 'Asthma', 'Hypertension']","['None', 'Shellfish']","['Gallbladder removal', 'None']"
+1892,901,[],"['None', 'Peanuts']",[]
+1893,1815,"['None', 'Hypertension']",[],[]
+1894,2917,"['Hypertension', 'Asthma', 'None']",['Shellfish'],['None']
+1895,2251,"['Hypertension', 'Asthma']","['Peanuts', 'Shellfish']","['Gallbladder removal', 'None']"
+1896,493,"['Hypertension', 'Asthma']","['Shellfish', 'Peanuts']",['Gallbladder removal']
+1897,2810,[],['None'],[]
+1898,2493,"['Hypertension', 'Diabetes']",[],"['Appendectomy', 'None']"
+1899,2006,"['Hypertension', 'Asthma', 'Diabetes']",[],"['Appendectomy', 'Gallbladder removal']"
+1900,2771,"['None', 'Diabetes']",['Shellfish'],"['Appendectomy', 'Gallbladder removal']"
+1901,1978,[],['Shellfish'],['Gallbladder removal']
+1902,1467,[],"['None', 'Peanuts']",[]
+1903,987,[],[],"['None', 'Gallbladder removal']"
+1904,2973,"['None', 'Hypertension', 'Asthma']",['Shellfish'],"['Appendectomy', 'None']"
+1905,1403,"['None', 'Hypertension', 'Asthma']",[],['Appendectomy']
+1906,2265,"['None', 'Asthma', 'Diabetes']","['Peanuts', 'Shellfish']",['None']
+1907,1290,"['Asthma', 'None', 'Diabetes']",['Peanuts'],"['None', 'Gallbladder removal']"
+1908,2466,"['Asthma', 'None']",['Peanuts'],"['Gallbladder removal', 'None']"
+1909,2633,"['Asthma', 'Hypertension']",['None'],[]
+1910,1282,"['Asthma', 'None']",['Shellfish'],[]
+1911,2867,['Diabetes'],['Shellfish'],['None']
+1912,37,"['Diabetes', 'None', 'Asthma']",['Shellfish'],[]
+1913,2797,['Hypertension'],"['Peanuts', 'Shellfish']",['Gallbladder removal']
+1914,253,"['None', 'Diabetes']",[],[]
+1915,1466,"['Diabetes', 'Asthma', 'None']","['None', 'Shellfish']",[]
+1916,1858,"['None', 'Diabetes', 'Hypertension']",['None'],['Appendectomy']
+1917,1500,[],['Shellfish'],"['None', 'Appendectomy']"
+1918,2932,"['None', 'Asthma']","['None', 'Shellfish']","['Gallbladder removal', 'None']"
+1919,1855,"['None', 'Hypertension', 'Asthma']",['None'],[]
+1920,1414,"['None', 'Asthma', 'Diabetes']",['None'],"['Appendectomy', 'None']"
+1921,912,[],['None'],"['Gallbladder removal', 'Appendectomy']"
+1922,292,[],"['Shellfish', 'None']",[]
+1923,2144,"['Diabetes', 'None', 'Asthma']",['Shellfish'],[]
+1924,122,"['None', 'Asthma']",['Peanuts'],[]
+1925,3000,[],[],"['None', 'Appendectomy']"
+1926,10,"['Asthma', 'None']","['None', 'Peanuts']",[]
+1927,166,"['Asthma', 'None']","['Peanuts', 'Shellfish']",['Appendectomy']
+1928,2232,['Asthma'],['None'],[]
+1929,2372,"['Diabetes', 'Hypertension']",['Peanuts'],[]
+1930,383,['Asthma'],['Peanuts'],"['Appendectomy', 'None']"
+1931,978,"['Hypertension', 'None', 'Diabetes']",['Peanuts'],"['None', 'Gallbladder removal']"
+1932,1582,"['None', 'Diabetes']",['None'],[]
+1933,247,"['Hypertension', 'Asthma', 'Diabetes']",[],['None']
+1934,1603,[],[],['None']
+1935,1198,[],"['Shellfish', 'Peanuts']","['None', 'Appendectomy']"
+1936,1619,"['Hypertension', 'Asthma']",['Peanuts'],['Appendectomy']
+1937,1797,['Hypertension'],"['None', 'Shellfish']",[]
+1938,1618,[],['Shellfish'],['Appendectomy']
+1939,726,"['Hypertension', 'Diabetes', 'None']",[],"['None', 'Appendectomy']"
+1940,1294,['Diabetes'],['None'],[]
+1941,1691,[],['Peanuts'],['None']
+1942,501,"['Diabetes', 'Hypertension']",['Shellfish'],"['Gallbladder removal', 'None']"
+1943,1338,"['Diabetes', 'None', 'Asthma']",['Peanuts'],['None']
+1944,2755,['Asthma'],['None'],['Appendectomy']
+1945,242,"['Diabetes', 'None', 'Asthma']",['Peanuts'],"['Gallbladder removal', 'None']"
+1946,2903,"['Diabetes', 'None', 'Asthma']",[],['Appendectomy']
+1947,1204,[],['None'],[]
+1948,1647,[],['Peanuts'],[]
+1949,1237,"['Asthma', 'Diabetes']",[],"['Gallbladder removal', 'Appendectomy']"
+1950,383,"['Diabetes', 'Hypertension', 'Asthma']",['Peanuts'],[]
+1951,1538,"['Diabetes', 'Asthma']",[],"['None', 'Gallbladder removal']"
+1952,1809,['None'],"['Shellfish', 'Peanuts']","['None', 'Gallbladder removal']"
+1953,2226,"['None', 'Diabetes', 'Asthma']",['None'],"['None', 'Gallbladder removal']"
+1954,2629,"['Diabetes', 'Hypertension']",['Peanuts'],[]
+1955,2570,"['Hypertension', 'Diabetes', 'None']","['Peanuts', 'None']",[]
+1956,361,"['Hypertension', 'Asthma']",['None'],"['Gallbladder removal', 'Appendectomy']"
+1957,1059,"['None', 'Asthma', 'Hypertension']","['Peanuts', 'None']",['None']
+1958,1898,"['Asthma', 'Hypertension']",[],['None']
+1959,2838,['None'],['Shellfish'],[]
+1960,1834,[],"['Shellfish', 'Peanuts']",[]
+1961,463,"['Diabetes', 'None']",[],['Appendectomy']
+1962,369,"['Diabetes', 'Hypertension']","['Shellfish', 'Peanuts']","['None', 'Appendectomy']"
+1963,834,[],[],['Appendectomy']
+1964,2807,[],"['Shellfish', 'None']",[]
+1965,2054,['Asthma'],"['Peanuts', 'Shellfish']","['Gallbladder removal', 'None']"
+1966,1186,"['None', 'Hypertension', 'Asthma']",[],"['Appendectomy', 'Gallbladder removal']"
+1967,450,['Diabetes'],['None'],[]
+1968,1298,['Hypertension'],['None'],['Appendectomy']
+1969,223,['Diabetes'],['Peanuts'],[]
+1970,1597,['Asthma'],[],[]
+1971,2092,[],['Shellfish'],['None']
+1972,1219,"['Diabetes', 'None', 'Asthma']","['Peanuts', 'None']","['None', 'Gallbladder removal']"
+1973,1267,['None'],"['None', 'Peanuts']",[]
+1974,1077,['Hypertension'],[],"['Gallbladder removal', 'Appendectomy']"
+1975,245,['Hypertension'],[],[]
+1976,1400,['Diabetes'],['Peanuts'],"['Appendectomy', 'Gallbladder removal']"
+1977,2222,['Hypertension'],['Shellfish'],[]
+1978,939,"['Diabetes', 'None']",[],[]
+1979,1942,"['Hypertension', 'Asthma']",[],"['Appendectomy', 'Gallbladder removal']"
+1980,1297,[],"['None', 'Shellfish']",['Gallbladder removal']
+1981,1313,[],['Peanuts'],['Appendectomy']
+1982,2617,"['Asthma', 'Hypertension']",[],['None']
+1983,2870,[],['Peanuts'],[]
+1984,224,['Diabetes'],[],[]
+1985,1445,"['Asthma', 'Hypertension', 'None']",['Shellfish'],"['None', 'Appendectomy']"
+1986,257,"['Diabetes', 'Asthma', 'None']",[],[]
+1987,1415,"['Hypertension', 'Diabetes']","['Shellfish', 'None']",[]
+1988,1895,"['Hypertension', 'Asthma']",[],"['None', 'Gallbladder removal']"
+1989,842,['None'],"['None', 'Shellfish']",[]
+1990,2705,"['None', 'Diabetes']","['Peanuts', 'Shellfish']",[]
+1991,2507,"['Hypertension', 'Asthma']",[],['Appendectomy']
+1992,711,"['Hypertension', 'Asthma']","['None', 'Shellfish']","['None', 'Gallbladder removal']"
+1993,802,['Diabetes'],"['Shellfish', 'Peanuts']",[]
+1994,643,"['Hypertension', 'Asthma', 'None']",[],['Gallbladder removal']
+1995,2866,"['Diabetes', 'Asthma']",[],['Appendectomy']
+1996,1347,"['Asthma', 'Hypertension', 'Diabetes']",['Peanuts'],"['Appendectomy', 'Gallbladder removal']"
+1997,1637,"['Diabetes', 'Hypertension']",['None'],[]
+1998,925,[],[],"['Gallbladder removal', 'None']"
+1999,1108,"['Asthma', 'Hypertension', 'None']",['None'],['None']
+2000,2233,[],"['Peanuts', 'None']",[]
+2001,1126,['Hypertension'],[],[]
+2002,1073,[],['Peanuts'],['None']
+2003,1939,"['Asthma', 'Diabetes', 'None']","['Shellfish', 'Peanuts']","['Appendectomy', 'Gallbladder removal']"
+2004,1999,"['None', 'Asthma', 'Hypertension']","['Peanuts', 'None']",['Appendectomy']
+2005,576,"['Hypertension', 'Diabetes', 'None']","['Shellfish', 'Peanuts']",['Appendectomy']
+2006,294,"['Diabetes', 'Asthma']",[],[]
+2007,2033,"['Hypertension', 'Asthma']",['Peanuts'],['Appendectomy']
+2008,265,"['Diabetes', 'None']",['Peanuts'],[]
+2009,1066,"['Diabetes', 'None', 'Asthma']","['None', 'Peanuts']",['Gallbladder removal']
+2010,841,"['None', 'Asthma']",[],['Appendectomy']
+2011,2692,"['None', 'Hypertension']","['Shellfish', 'Peanuts']",['None']
+2012,1200,[],"['Peanuts', 'Shellfish']",[]
+2013,991,"['Diabetes', 'Hypertension', 'Asthma']",['None'],"['Gallbladder removal', 'Appendectomy']"
+2014,1472,[],[],"['Gallbladder removal', 'Appendectomy']"
+2015,329,['Hypertension'],"['Peanuts', 'None']",[]
+2016,2199,"['Asthma', 'Diabetes', 'None']","['None', 'Shellfish']",[]
+2017,1398,[],[],[]
+2018,116,[],['None'],[]
+2019,2965,"['Asthma', 'Hypertension']",['None'],['Gallbladder removal']
+2020,563,"['Diabetes', 'Hypertension']","['Peanuts', 'None']",[]
+2021,1141,"['Asthma', 'Hypertension', 'None']",['Shellfish'],[]
+2022,1792,"['Hypertension', 'Asthma', 'Diabetes']","['None', 'Peanuts']","['Appendectomy', 'Gallbladder removal']"
+2023,856,[],['None'],"['None', 'Appendectomy']"
+2024,117,['Hypertension'],[],['None']
+2025,2419,['Hypertension'],['None'],[]
+2026,1306,"['Hypertension', 'None', 'Diabetes']",[],['None']
+2027,2992,"['None', 'Hypertension']",['Shellfish'],['Gallbladder removal']
+2028,161,"['Diabetes', 'None']","['Peanuts', 'None']","['Gallbladder removal', 'None']"
+2029,1585,"['None', 'Asthma', 'Diabetes']",[],['Gallbladder removal']
+2030,394,['None'],"['Shellfish', 'Peanuts']",[]
+2031,2239,"['Hypertension', 'None']","['Peanuts', 'Shellfish']","['Gallbladder removal', 'None']"
+2032,2666,"['Diabetes', 'Hypertension', 'Asthma']",[],"['None', 'Appendectomy']"
+2033,1479,[],"['None', 'Shellfish']",[]
+2034,2479,[],"['Peanuts', 'Shellfish']",[]
+2035,1716,['None'],"['Shellfish', 'Peanuts']",['Appendectomy']
+2036,2295,['Diabetes'],['Shellfish'],"['Appendectomy', 'Gallbladder removal']"
+2037,2853,"['Diabetes', 'Asthma', 'Hypertension']",[],"['None', 'Appendectomy']"
+2038,995,[],[],['Appendectomy']
+2039,1508,[],['Shellfish'],[]
+2040,1921,"['Diabetes', 'Hypertension']","['None', 'Shellfish']",[]
+2041,206,"['Hypertension', 'Diabetes', 'None']","['Shellfish', 'Peanuts']",[]
+2042,56,['Hypertension'],['Peanuts'],[]
+2043,731,['None'],['Peanuts'],['None']
+2044,387,"['Hypertension', 'Asthma', 'Diabetes']",[],"['Appendectomy', 'Gallbladder removal']"
+2045,1024,"['None', 'Asthma']",['None'],"['Appendectomy', 'Gallbladder removal']"
+2046,1808,"['Hypertension', 'None']","['Peanuts', 'None']",[]
+2047,1613,['Diabetes'],[],['Gallbladder removal']
+2048,1067,['Asthma'],"['None', 'Shellfish']",[]
+2049,2396,"['Hypertension', 'Diabetes']",[],['Appendectomy']
+2050,44,"['Asthma', 'Hypertension', 'None']","['None', 'Shellfish']",[]
+2051,1637,"['None', 'Asthma']","['Shellfish', 'Peanuts']","['None', 'Appendectomy']"
+2052,2109,"['Diabetes', 'None', 'Hypertension']",['Peanuts'],[]
+2053,1125,"['Asthma', 'None']",[],['None']
+2054,1563,['Asthma'],['None'],['Gallbladder removal']
+2055,915,['Hypertension'],['Shellfish'],['Appendectomy']
+2056,255,"['Hypertension', 'None']",[],"['Appendectomy', 'None']"
+2057,2695,[],['Shellfish'],['None']
+2058,1605,['None'],['None'],['None']
+2059,1368,"['Hypertension', 'None']",['None'],"['Appendectomy', 'None']"
+2060,528,['Diabetes'],"['Shellfish', 'None']","['None', 'Appendectomy']"
+2061,1195,"['Asthma', 'None']",['None'],[]
+2062,1186,"['Hypertension', 'Asthma', 'Diabetes']",['None'],[]
+2063,257,['Hypertension'],['Shellfish'],"['Gallbladder removal', 'None']"
+2064,352,"['Asthma', 'None']","['None', 'Shellfish']",[]
+2065,728,"['Hypertension', 'Asthma']",[],['Appendectomy']
+2066,222,[],"['Shellfish', 'None']",[]
+2067,2683,[],[],"['Gallbladder removal', 'None']"
+2068,312,"['Diabetes', 'None']",[],"['Appendectomy', 'Gallbladder removal']"
+2069,2062,['Diabetes'],"['Shellfish', 'Peanuts']","['Appendectomy', 'None']"
+2070,2610,"['Asthma', 'Hypertension']",['None'],['Appendectomy']
+2071,1970,"['Asthma', 'Hypertension', 'Diabetes']",[],"['None', 'Appendectomy']"
+2072,658,"['None', 'Diabetes', 'Hypertension']",[],['Gallbladder removal']
+2073,1613,[],"['Shellfish', 'Peanuts']","['Gallbladder removal', 'Appendectomy']"
+2074,2108,"['Diabetes', 'None']",[],[]
+2075,1685,"['Diabetes', 'None', 'Asthma']",[],[]
+2076,271,['None'],['Peanuts'],"['None', 'Gallbladder removal']"
+2077,220,['None'],[],['Appendectomy']
+2078,1543,['Asthma'],"['Peanuts', 'None']",['Appendectomy']
+2079,847,"['Diabetes', 'Asthma']",[],[]
+2080,550,"['Asthma', 'Diabetes', 'None']",['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+2081,499,"['Diabetes', 'Hypertension', 'None']",['Peanuts'],['Gallbladder removal']
+2082,1062,"['Hypertension', 'None']",[],[]
+2083,2150,"['Asthma', 'Hypertension']",['Peanuts'],['None']
+2084,2181,"['Asthma', 'Hypertension']","['None', 'Peanuts']","['None', 'Appendectomy']"
+2085,937,['Hypertension'],['None'],['Appendectomy']
+2086,2295,[],"['Shellfish', 'None']","['None', 'Gallbladder removal']"
+2087,650,['Hypertension'],[],"['Gallbladder removal', 'Appendectomy']"
+2088,1017,[],"['None', 'Shellfish']",['Gallbladder removal']
+2089,607,"['None', 'Diabetes', 'Hypertension']","['Peanuts', 'Shellfish']","['Gallbladder removal', 'None']"
+2090,2958,"['Asthma', 'None', 'Hypertension']","['Peanuts', 'Shellfish']",[]
+2091,2444,"['Asthma', 'None']","['None', 'Peanuts']",[]
+2092,667,"['Asthma', 'Diabetes']","['None', 'Peanuts']",['Appendectomy']
+2093,2587,[],[],"['None', 'Appendectomy']"
+2094,1491,"['None', 'Asthma', 'Diabetes']","['None', 'Shellfish']","['Appendectomy', 'Gallbladder removal']"
+2095,2470,['Hypertension'],[],['None']
+2096,1546,"['Asthma', 'None']","['Peanuts', 'Shellfish']",['Appendectomy']
+2097,705,"['None', 'Asthma', 'Hypertension']","['Shellfish', 'None']",['Appendectomy']
+2098,2990,"['None', 'Hypertension', 'Asthma']",[],"['Appendectomy', 'Gallbladder removal']"
+2099,633,"['Hypertension', 'Diabetes', 'None']",[],[]
+2100,1129,"['Diabetes', 'Asthma', 'Hypertension']",[],"['Gallbladder removal', 'Appendectomy']"
+2101,816,[],"['None', 'Shellfish']",[]
+2102,1401,"['Hypertension', 'None']",['None'],[]
+2103,864,"['Hypertension', 'None']","['None', 'Peanuts']",[]
+2104,606,"['Hypertension', 'None']",['Peanuts'],['None']
+2105,767,"['None', 'Hypertension', 'Diabetes']",[],[]
+2106,1269,[],['None'],[]
+2107,1466,"['Diabetes', 'Asthma', 'None']",[],[]
+2108,2929,"['Hypertension', 'None']",['Shellfish'],[]
+2109,2661,"['Diabetes', 'Hypertension', 'Asthma']",[],['Appendectomy']
+2110,1114,['Asthma'],"['Shellfish', 'None']",['Gallbladder removal']
+2111,1590,['Diabetes'],['None'],['Appendectomy']
+2112,2341,"['None', 'Diabetes']",['Peanuts'],['Gallbladder removal']
+2113,531,"['None', 'Diabetes', 'Hypertension']",['Shellfish'],[]
+2114,2283,[],['None'],"['Appendectomy', 'None']"
+2115,102,"['Hypertension', 'Asthma']",['None'],['None']
+2116,2590,['Diabetes'],[],[]
+2117,2741,['Asthma'],"['None', 'Peanuts']",['Appendectomy']
+2118,1357,"['Diabetes', 'None']","['Peanuts', 'Shellfish']",['Appendectomy']
+2119,462,"['None', 'Hypertension', 'Asthma']",['Peanuts'],[]
+2120,2752,[],"['Peanuts', 'Shellfish']",[]
+2121,264,['Diabetes'],"['Shellfish', 'None']","['None', 'Gallbladder removal']"
+2122,725,"['Asthma', 'None', 'Diabetes']","['None', 'Peanuts']",['Appendectomy']
+2123,1739,"['Diabetes', 'Asthma']",[],['None']
+2124,315,['Hypertension'],['Peanuts'],"['Appendectomy', 'Gallbladder removal']"
+2125,2959,"['None', 'Diabetes']",['None'],"['None', 'Appendectomy']"
+2126,785,"['None', 'Hypertension', 'Diabetes']","['None', 'Peanuts']",['Gallbladder removal']
+2127,92,"['Asthma', 'None', 'Hypertension']","['None', 'Peanuts']",['Appendectomy']
+2128,1375,"['None', 'Diabetes', 'Asthma']",['None'],['Appendectomy']
+2129,131,[],"['None', 'Peanuts']",['None']
+2130,1017,[],"['Peanuts', 'Shellfish']","['None', 'Appendectomy']"
+2131,47,[],[],['None']
+2132,312,"['Asthma', 'Hypertension']",[],"['Appendectomy', 'Gallbladder removal']"
+2133,2751,"['Diabetes', 'None']",['None'],[]
+2134,1199,['Asthma'],"['Peanuts', 'Shellfish']",[]
+2135,1905,"['Hypertension', 'None', 'Diabetes']","['None', 'Peanuts']",['Appendectomy']
+2136,481,[],['None'],"['Appendectomy', 'None']"
+2137,1526,[],"['None', 'Peanuts']","['None', 'Gallbladder removal']"
+2138,1247,"['Diabetes', 'Hypertension', 'None']",[],['Appendectomy']
+2139,1498,[],['Peanuts'],[]
+2140,2901,"['Asthma', 'Diabetes', 'None']",['Peanuts'],['Gallbladder removal']
+2141,2225,"['Hypertension', 'None', 'Diabetes']",['Shellfish'],['Gallbladder removal']
+2142,592,"['Hypertension', 'None']","['Peanuts', 'None']","['Gallbladder removal', 'None']"
+2143,1708,"['Diabetes', 'None']",[],['Appendectomy']
+2144,61,[],['Peanuts'],[]
+2145,1259,['Asthma'],[],[]
+2146,1827,['None'],"['Shellfish', 'Peanuts']",['None']
+2147,48,[],"['None', 'Shellfish']","['None', 'Gallbladder removal']"
+2148,560,"['Asthma', 'Diabetes']",[],[]
+2149,2206,"['Diabetes', 'Asthma']","['Shellfish', 'Peanuts']",['None']
+2150,1386,"['Hypertension', 'None']",['None'],['None']
+2151,2193,[],['Peanuts'],['Appendectomy']
+2152,2993,"['Hypertension', 'Asthma']","['Shellfish', 'None']","['Gallbladder removal', 'Appendectomy']"
+2153,769,['Asthma'],[],[]
+2154,2699,"['None', 'Asthma']",[],"['None', 'Gallbladder removal']"
+2155,2106,"['None', 'Asthma', 'Hypertension']","['Shellfish', 'Peanuts']","['Gallbladder removal', 'None']"
+2156,771,"['None', 'Diabetes']","['Peanuts', 'None']",[]
+2157,2293,[],[],[]
+2158,2318,"['None', 'Diabetes', 'Hypertension']",['None'],[]
+2159,2875,['Hypertension'],"['Peanuts', 'None']","['None', 'Appendectomy']"
+2160,1043,[],"['Peanuts', 'Shellfish']",['Appendectomy']
+2161,943,"['None', 'Diabetes', 'Hypertension']",['None'],"['Appendectomy', 'Gallbladder removal']"
+2162,571,[],"['None', 'Peanuts']",[]
+2163,1629,"['Asthma', 'None']",['Shellfish'],['None']
+2164,2210,['Diabetes'],"['Peanuts', 'None']",['Gallbladder removal']
+2165,1088,[],"['Peanuts', 'Shellfish']","['Appendectomy', 'None']"
+2166,2340,"['Asthma', 'Diabetes', 'None']",['Shellfish'],[]
+2167,1302,[],['None'],[]
+2168,7,"['Diabetes', 'Hypertension']",[],"['Appendectomy', 'Gallbladder removal']"
+2169,1364,"['None', 'Diabetes']",[],"['Appendectomy', 'Gallbladder removal']"
+2170,1099,['Diabetes'],[],['Appendectomy']
+2171,1031,[],[],['None']
+2172,2704,"['None', 'Hypertension', 'Diabetes']",[],[]
+2173,1944,"['Asthma', 'Diabetes']",['Peanuts'],[]
+2174,332,['None'],['Shellfish'],"['Gallbladder removal', 'None']"
+2175,22,['Asthma'],"['Peanuts', 'None']",['None']
+2176,31,['Diabetes'],['None'],['Gallbladder removal']
+2177,2951,[],['Shellfish'],"['Appendectomy', 'Gallbladder removal']"
+2178,1395,[],[],[]
+2179,2134,"['None', 'Diabetes', 'Asthma']",['Peanuts'],['Appendectomy']
+2180,1374,[],"['Peanuts', 'None']","['Appendectomy', 'None']"
+2181,529,"['Asthma', 'None', 'Diabetes']",['None'],['Appendectomy']
+2182,1108,"['Hypertension', 'Diabetes', 'None']","['Peanuts', 'None']",[]
+2183,297,[],['Shellfish'],"['Gallbladder removal', 'None']"
+2184,1710,['Asthma'],"['Peanuts', 'None']",[]
+2185,1208,"['None', 'Diabetes', 'Asthma']",['None'],"['Gallbladder removal', 'None']"
+2186,2436,[],"['Peanuts', 'None']",['Gallbladder removal']
+2187,1268,"['Diabetes', 'Hypertension', 'None']",[],[]
+2188,1771,[],[],['None']
+2189,954,[],"['Shellfish', 'Peanuts']",['Appendectomy']
+2190,2467,['Asthma'],['Peanuts'],[]
+2191,2877,['Hypertension'],[],[]
+2192,731,['Asthma'],"['Shellfish', 'Peanuts']","['Gallbladder removal', 'Appendectomy']"
+2193,2343,['Hypertension'],['None'],[]
+2194,2544,"['Hypertension', 'Asthma', 'Diabetes']",['Peanuts'],"['Appendectomy', 'Gallbladder removal']"
+2195,1604,"['None', 'Diabetes']",['Shellfish'],[]
+2196,179,['None'],[],"['Appendectomy', 'Gallbladder removal']"
+2197,673,"['Hypertension', 'None']","['Peanuts', 'None']",[]
+2198,883,['None'],[],['None']
+2199,159,"['None', 'Hypertension', 'Diabetes']","['Shellfish', 'None']","['None', 'Appendectomy']"
+2200,386,"['Hypertension', 'None']",['Peanuts'],"['Appendectomy', 'Gallbladder removal']"
+2201,2221,"['Hypertension', 'Asthma', 'None']","['Peanuts', 'None']","['Gallbladder removal', 'Appendectomy']"
+2202,2860,"['Hypertension', 'Asthma', 'Diabetes']","['Peanuts', 'Shellfish']",[]
+2203,1831,[],[],"['None', 'Gallbladder removal']"
+2204,402,['Asthma'],[],"['Gallbladder removal', 'Appendectomy']"
+2205,2378,"['None', 'Asthma', 'Diabetes']",[],[]
+2206,2629,['Asthma'],['Peanuts'],"['None', 'Appendectomy']"
+2207,80,['Asthma'],"['None', 'Shellfish']",[]
+2208,1538,"['None', 'Hypertension']","['None', 'Shellfish']",[]
+2209,2398,"['Asthma', 'Hypertension']","['None', 'Peanuts']",[]
+2210,1556,"['None', 'Asthma', 'Hypertension']",['None'],[]
+2211,1437,"['Diabetes', 'Hypertension', 'None']","['None', 'Peanuts']",['Gallbladder removal']
+2212,1311,['Asthma'],['Shellfish'],"['Gallbladder removal', 'None']"
+2213,168,"['Hypertension', 'None', 'Diabetes']","['Shellfish', 'Peanuts']",[]
+2214,606,"['Hypertension', 'None', 'Asthma']",[],"['None', 'Gallbladder removal']"
+2215,1146,[],['Shellfish'],[]
+2216,1413,"['Asthma', 'Diabetes', 'Hypertension']",[],"['Appendectomy', 'None']"
+2217,2479,"['Hypertension', 'Asthma', 'Diabetes']","['None', 'Shellfish']",[]
+2218,719,['None'],"['None', 'Shellfish']",['None']
+2219,2,[],"['Shellfish', 'None']",['Appendectomy']
+2220,2748,['None'],[],[]
+2221,1527,[],[],['None']
+2222,1115,['Hypertension'],"['Shellfish', 'None']",[]
+2223,2991,"['Hypertension', 'Diabetes', 'Asthma']",['Peanuts'],[]
+2224,2992,['None'],"['None', 'Shellfish']",[]
+2225,351,"['Diabetes', 'Hypertension', 'None']",[],"['Gallbladder removal', 'Appendectomy']"
+2226,1775,[],['None'],[]
+2227,2867,[],"['Shellfish', 'None']","['Appendectomy', 'None']"
+2228,1597,['None'],['None'],"['Appendectomy', 'None']"
+2229,2494,['None'],"['Shellfish', 'None']",[]
+2230,2411,"['None', 'Asthma']",['Shellfish'],[]
+2231,1159,[],"['None', 'Peanuts']",['None']
+2232,2739,[],"['Peanuts', 'None']","['Gallbladder removal', 'None']"
+2233,1545,[],"['None', 'Shellfish']","['Gallbladder removal', 'Appendectomy']"
+2234,940,"['Asthma', 'Hypertension']","['Peanuts', 'Shellfish']",[]
+2235,162,"['Asthma', 'Hypertension']","['Shellfish', 'None']",[]
+2236,853,['Hypertension'],"['Peanuts', 'None']",[]
+2237,2905,"['None', 'Asthma', 'Hypertension']",[],['Appendectomy']
+2238,758,"['Diabetes', 'None']",[],"['Appendectomy', 'Gallbladder removal']"
+2239,2263,['Asthma'],['Shellfish'],[]
+2240,1297,[],['Shellfish'],[]
+2241,1855,"['Asthma', 'Diabetes', 'None']","['None', 'Peanuts']",['None']
+2242,1646,"['None', 'Asthma']",[],"['Appendectomy', 'Gallbladder removal']"
+2243,667,"['Asthma', 'Diabetes']",[],['Gallbladder removal']
+2244,455,"['Asthma', 'Diabetes']",[],['Appendectomy']
+2245,1906,"['Asthma', 'Diabetes', 'None']","['Shellfish', 'Peanuts']",[]
+2246,2802,[],[],['None']
+2247,1600,['None'],"['Shellfish', 'None']","['None', 'Appendectomy']"
+2248,53,[],[],['None']
+2249,2322,"['Diabetes', 'Asthma']",[],['Appendectomy']
+2250,1462,"['Hypertension', 'Asthma', 'None']",['Shellfish'],"['Appendectomy', 'Gallbladder removal']"
+2251,63,"['Diabetes', 'None']",['None'],"['Gallbladder removal', 'Appendectomy']"
+2252,1787,"['None', 'Asthma']",[],['Gallbladder removal']
+2253,1029,[],['Shellfish'],['None']
+2254,962,[],['Peanuts'],['None']
+2255,1880,"['None', 'Asthma', 'Diabetes']",['Peanuts'],[]
+2256,2943,[],"['None', 'Peanuts']",['Gallbladder removal']
+2257,1313,[],['None'],[]
+2258,374,"['None', 'Diabetes']",['None'],"['Gallbladder removal', 'None']"
+2259,1518,"['Diabetes', 'Hypertension', 'None']",[],['None']
+2260,1493,"['None', 'Asthma']",[],[]
+2261,2943,['Asthma'],[],[]
+2262,197,[],['None'],[]
+2263,460,"['Diabetes', 'None', 'Asthma']",['Peanuts'],['Gallbladder removal']
+2264,2879,"['None', 'Asthma', 'Diabetes']",['None'],[]
+2265,219,"['Diabetes', 'None', 'Hypertension']",['Peanuts'],[]
+2266,973,[],"['None', 'Peanuts']",['None']
+2267,2261,[],[],['Appendectomy']
+2268,1609,[],['None'],[]
+2269,1870,[],"['Shellfish', 'None']",['Appendectomy']
+2270,1264,['Diabetes'],"['Peanuts', 'Shellfish']","['Gallbladder removal', 'Appendectomy']"
+2271,1720,['Asthma'],[],['Gallbladder removal']
+2272,2058,['Hypertension'],['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+2273,1138,[],[],['Appendectomy']
+2274,1356,"['Asthma', 'None']",['Shellfish'],[]
+2275,1725,"['None', 'Asthma']",['Peanuts'],[]
+2276,1971,[],[],['None']
+2277,725,"['None', 'Asthma']",[],[]
+2278,2297,[],['None'],[]
+2279,586,[],[],"['Appendectomy', 'None']"
+2280,2624,['Hypertension'],[],"['Appendectomy', 'Gallbladder removal']"
+2281,174,"['Asthma', 'Hypertension']",['Peanuts'],['Gallbladder removal']
+2282,1941,"['Hypertension', 'Diabetes']",[],"['Appendectomy', 'None']"
+2283,977,[],[],[]
+2284,789,['Hypertension'],[],[]
+2285,1899,"['Diabetes', 'Hypertension']",[],['Gallbladder removal']
+2286,2791,[],[],['Gallbladder removal']
+2287,1851,"['Diabetes', 'None', 'Asthma']","['None', 'Peanuts']","['None', 'Gallbladder removal']"
+2288,893,[],[],[]
+2289,1975,"['Diabetes', 'Hypertension']","['Peanuts', 'Shellfish']",[]
+2290,1097,['Diabetes'],[],"['None', 'Gallbladder removal']"
+2291,1397,"['Asthma', 'None', 'Hypertension']","['Shellfish', 'None']",[]
+2292,402,"['Hypertension', 'Asthma', 'Diabetes']",[],['Appendectomy']
+2293,2754,"['None', 'Hypertension']",['None'],"['Appendectomy', 'None']"
+2294,2064,"['Asthma', 'Hypertension', 'Diabetes']",[],"['None', 'Gallbladder removal']"
+2295,971,[],[],"['Appendectomy', 'Gallbladder removal']"
+2296,1953,['Diabetes'],"['Peanuts', 'Shellfish']",['None']
+2297,2855,"['Diabetes', 'None', 'Hypertension']","['Peanuts', 'None']",[]
+2298,864,"['Diabetes', 'None', 'Hypertension']",['Peanuts'],"['Gallbladder removal', 'None']"
+2299,513,"['None', 'Hypertension', 'Diabetes']","['Peanuts', 'Shellfish']",['Appendectomy']
+2300,2885,['Asthma'],['Peanuts'],"['Gallbladder removal', 'None']"
+2301,1991,[],['Shellfish'],"['Appendectomy', 'Gallbladder removal']"
+2302,991,[],[],['Gallbladder removal']
+2303,2014,['Diabetes'],"['Shellfish', 'None']","['Gallbladder removal', 'Appendectomy']"
+2304,116,"['Hypertension', 'None']",['Shellfish'],[]
+2305,793,"['Diabetes', 'Hypertension', 'Asthma']","['Shellfish', 'None']",['None']
+2306,2048,['None'],['Peanuts'],['None']
+2307,2216,['Diabetes'],[],['None']
+2308,418,['None'],"['Peanuts', 'Shellfish']",[]
+2309,912,[],['Peanuts'],['None']
+2310,2205,"['Asthma', 'Diabetes', 'Hypertension']","['Peanuts', 'Shellfish']","['Gallbladder removal', 'Appendectomy']"
+2311,2774,"['Hypertension', 'None']",['None'],[]
+2312,1068,[],['Peanuts'],[]
+2313,2087,[],['None'],['None']
+2314,2908,[],[],[]
+2315,2021,"['Hypertension', 'None', 'Diabetes']",['None'],['None']
+2316,498,[],"['Peanuts', 'Shellfish']",[]
+2317,2763,[],['Shellfish'],"['None', 'Gallbladder removal']"
+2318,651,"['Diabetes', 'None', 'Hypertension']","['Shellfish', 'None']",[]
+2319,1874,"['Hypertension', 'Asthma', 'Diabetes']",['Shellfish'],"['None', 'Appendectomy']"
+2320,1817,"['Asthma', 'None', 'Hypertension']","['Shellfish', 'Peanuts']",[]
+2321,676,"['Hypertension', 'Asthma']",['Peanuts'],['Gallbladder removal']
+2322,937,[],['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+2323,1334,['Asthma'],['Peanuts'],[]
+2324,667,"['Hypertension', 'Diabetes', 'Asthma']",[],"['Gallbladder removal', 'Appendectomy']"
+2325,989,"['Diabetes', 'Hypertension']",[],"['Gallbladder removal', 'Appendectomy']"
+2326,340,[],[],"['Appendectomy', 'None']"
+2327,1057,"['None', 'Asthma', 'Hypertension']","['Shellfish', 'Peanuts']",['Appendectomy']
+2328,250,"['None', 'Diabetes']",[],['Appendectomy']
+2329,2048,"['None', 'Hypertension', 'Diabetes']","['None', 'Shellfish']",[]
+2330,2954,['Hypertension'],"['None', 'Shellfish']",['Appendectomy']
+2331,698,['None'],[],['None']
+2332,932,[],"['Shellfish', 'Peanuts']",['Gallbladder removal']
+2333,431,[],[],['Appendectomy']
+2334,2964,[],['Shellfish'],"['Gallbladder removal', 'None']"
+2335,2445,"['Diabetes', 'Hypertension', 'None']",['Shellfish'],['None']
+2336,289,"['None', 'Asthma']",['Peanuts'],['Appendectomy']
+2337,273,"['Asthma', 'Hypertension']",['Shellfish'],"['None', 'Appendectomy']"
+2338,383,[],[],['Gallbladder removal']
+2339,2019,['None'],"['Shellfish', 'Peanuts']",[]
+2340,578,"['None', 'Hypertension', 'Asthma']",['None'],[]
+2341,1170,"['Asthma', 'Diabetes', 'None']",['Shellfish'],"['None', 'Appendectomy']"
+2342,2017,[],[],[]
+2343,1473,"['Diabetes', 'Asthma', 'Hypertension']","['None', 'Peanuts']",[]
+2344,1153,[],['Shellfish'],"['None', 'Gallbladder removal']"
+2345,1850,['Asthma'],['Shellfish'],"['Appendectomy', 'Gallbladder removal']"
+2346,1196,[],"['None', 'Shellfish']",['Appendectomy']
+2347,2664,"['Hypertension', 'Asthma']","['None', 'Peanuts']",[]
+2348,521,"['Hypertension', 'None', 'Diabetes']",[],[]
+2349,630,"['Diabetes', 'None']",[],['None']
+2350,2183,['None'],"['Peanuts', 'None']",['None']
+2351,2563,['Asthma'],['None'],['None']
+2352,2973,['None'],"['None', 'Peanuts']",[]
+2353,1525,"['Diabetes', 'Asthma', 'Hypertension']",[],[]
+2354,504,"['Hypertension', 'None']",['Peanuts'],[]
+2355,1920,"['Asthma', 'None', 'Diabetes']",['Peanuts'],"['Gallbladder removal', 'Appendectomy']"
+2356,2740,['None'],"['Peanuts', 'Shellfish']","['Gallbladder removal', 'Appendectomy']"
+2357,1364,"['None', 'Asthma']",[],['Gallbladder removal']
+2358,1143,"['Asthma', 'Diabetes', 'None']",[],[]
+2359,923,"['Hypertension', 'Asthma']",[],[]
+2360,2267,[],['None'],"['None', 'Gallbladder removal']"
+2361,2806,['Hypertension'],[],[]
+2362,673,"['Asthma', 'Diabetes', 'None']",[],['None']
+2363,2648,['Diabetes'],[],['None']
+2364,407,['None'],[],['Gallbladder removal']
+2365,1690,"['None', 'Diabetes', 'Hypertension']",[],"['None', 'Gallbladder removal']"
+2366,1012,"['None', 'Hypertension']",['Peanuts'],"['Appendectomy', 'None']"
+2367,2736,"['None', 'Asthma']","['Peanuts', 'None']",['Gallbladder removal']
+2368,2148,['Diabetes'],"['None', 'Peanuts']","['None', 'Appendectomy']"
+2369,1211,"['Diabetes', 'Hypertension', 'None']",['Shellfish'],['Appendectomy']
+2370,1406,['None'],['Peanuts'],[]
+2371,2778,['Asthma'],[],['Gallbladder removal']
+2372,2137,"['Diabetes', 'None', 'Asthma']",[],['None']
+2373,2273,[],['Peanuts'],"['Appendectomy', 'Gallbladder removal']"
+2374,2649,[],[],"['Gallbladder removal', 'None']"
+2375,1771,"['Hypertension', 'Asthma']",['None'],"['None', 'Appendectomy']"
+2376,99,"['None', 'Asthma']",[],['Appendectomy']
+2377,2615,"['Diabetes', 'Asthma']",[],[]
+2378,1882,[],[],[]
+2379,1225,"['Diabetes', 'Asthma', 'None']","['Peanuts', 'Shellfish']",['Gallbladder removal']
+2380,2729,"['Asthma', 'Hypertension']",['None'],['Appendectomy']
+2381,1351,"['Hypertension', 'None']",['Shellfish'],[]
+2382,2254,"['Asthma', 'None', 'Hypertension']",[],[]
+2383,1026,"['Diabetes', 'None']",['Peanuts'],"['None', 'Appendectomy']"
+2384,1930,"['Hypertension', 'Diabetes']","['Peanuts', 'None']",['Appendectomy']
+2385,895,[],['Peanuts'],['Gallbladder removal']
+2386,1769,[],[],"['Gallbladder removal', 'Appendectomy']"
+2387,793,"['Hypertension', 'Asthma']",[],['Appendectomy']
+2388,712,['None'],[],['Gallbladder removal']
+2389,2532,"['Hypertension', 'Diabetes', 'None']",['Peanuts'],[]
+2390,2645,[],"['Shellfish', 'None']","['Appendectomy', 'None']"
+2391,2268,[],[],[]
+2392,56,[],"['None', 'Shellfish']",['Appendectomy']
+2393,1141,['Diabetes'],"['None', 'Shellfish']","['Appendectomy', 'Gallbladder removal']"
+2394,2957,"['Diabetes', 'Asthma', 'None']","['None', 'Peanuts']","['None', 'Gallbladder removal']"
+2395,907,[],"['Peanuts', 'Shellfish']","['Appendectomy', 'None']"
+2396,1276,['Diabetes'],[],"['Gallbladder removal', 'None']"
+2397,1667,[],"['Shellfish', 'None']","['None', 'Appendectomy']"
+2398,643,[],['Peanuts'],"['Appendectomy', 'None']"
+2399,150,[],['None'],[]
+2400,240,[],['Shellfish'],['None']
+2401,2,[],[],"['Gallbladder removal', 'None']"
+2402,724,"['Hypertension', 'None', 'Diabetes']",['None'],[]
+2403,929,"['None', 'Hypertension', 'Diabetes']",['Peanuts'],[]
+2404,1447,"['Diabetes', 'Hypertension']",[],['Appendectomy']
+2405,1925,"['Hypertension', 'Diabetes']","['Shellfish', 'Peanuts']",['Appendectomy']
+2406,2611,"['Diabetes', 'Asthma']",[],['Gallbladder removal']
+2407,231,"['None', 'Diabetes', 'Hypertension']",[],['None']
+2408,1561,"['None', 'Asthma']",['None'],[]
+2409,1959,[],[],"['None', 'Gallbladder removal']"
+2410,431,"['Diabetes', 'Asthma', 'Hypertension']","['Peanuts', 'Shellfish']","['Appendectomy', 'Gallbladder removal']"
+2411,2747,['None'],"['Peanuts', 'None']",[]
+2412,2310,['Diabetes'],['None'],['None']
+2413,1043,"['Asthma', 'Diabetes', 'None']","['Shellfish', 'None']",['Appendectomy']
+2414,226,[],[],[]
+2415,272,[],['Shellfish'],['None']
+2416,540,[],['None'],['Appendectomy']
+2417,2634,"['None', 'Hypertension']",['Shellfish'],"['None', 'Appendectomy']"
+2418,464,"['None', 'Diabetes', 'Hypertension']",[],"['Appendectomy', 'Gallbladder removal']"
+2419,1134,['None'],"['Shellfish', 'None']","['Gallbladder removal', 'Appendectomy']"
+2420,1264,[],['Shellfish'],[]
+2421,2654,['Asthma'],['Shellfish'],['None']
+2422,2093,['Asthma'],['None'],[]
+2423,17,[],[],[]
+2424,713,[],[],"['Gallbladder removal', 'Appendectomy']"
+2425,218,"['Asthma', 'Diabetes']","['Shellfish', 'Peanuts']","['Appendectomy', 'None']"
+2426,2243,['Asthma'],"['Shellfish', 'None']",[]
+2427,1836,"['None', 'Asthma', 'Hypertension']",[],['None']
+2428,1005,"['None', 'Diabetes']","['None', 'Peanuts']",['Appendectomy']
+2429,568,['Asthma'],"['Shellfish', 'Peanuts']",[]
+2430,565,[],"['Peanuts', 'None']",['Appendectomy']
+2431,839,[],['Shellfish'],"['Gallbladder removal', 'None']"
+2432,1833,['None'],['Peanuts'],"['None', 'Appendectomy']"
+2433,287,[],"['Shellfish', 'Peanuts']",[]
+2434,944,['Asthma'],[],[]
+2435,2547,"['Asthma', 'Diabetes', 'Hypertension']",[],[]
+2436,2721,"['Diabetes', 'None', 'Hypertension']",[],"['None', 'Appendectomy']"
+2437,1675,"['Asthma', 'Hypertension']",['Peanuts'],[]
+2438,2331,['None'],[],[]
+2439,2121,"['Diabetes', 'None']",['Peanuts'],['Appendectomy']
+2440,1798,"['None', 'Asthma', 'Hypertension']","['Shellfish', 'Peanuts']",[]
+2441,1897,[],"['Peanuts', 'Shellfish']",[]
+2442,2003,['Asthma'],[],['None']
+2443,2160,"['Diabetes', 'Hypertension']",[],"['None', 'Appendectomy']"
+2444,1057,[],['None'],['None']
+2445,925,"['None', 'Hypertension']",[],[]
+2446,1444,[],['None'],['None']
+2447,2265,"['Diabetes', 'None']",['Shellfish'],[]
+2448,2737,"['None', 'Hypertension']","['Peanuts', 'None']",[]
+2449,2900,[],['None'],['Gallbladder removal']
+2450,380,"['Diabetes', 'Hypertension', 'Asthma']","['Peanuts', 'Shellfish']",['Appendectomy']
+2451,1702,"['Hypertension', 'None', 'Diabetes']",[],"['Appendectomy', 'Gallbladder removal']"
+2452,2857,['None'],"['Shellfish', 'Peanuts']","['None', 'Gallbladder removal']"
+2453,208,['Diabetes'],"['Peanuts', 'Shellfish']","['None', 'Appendectomy']"
+2454,2568,[],['Peanuts'],"['Gallbladder removal', 'Appendectomy']"
+2455,1404,[],"['Shellfish', 'Peanuts']","['Appendectomy', 'Gallbladder removal']"
+2456,1374,"['Hypertension', 'Diabetes', 'None']",[],"['None', 'Gallbladder removal']"
+2457,221,"['Hypertension', 'Diabetes']","['Peanuts', 'Shellfish']",['Gallbladder removal']
+2458,2245,"['Diabetes', 'Asthma', 'None']",[],"['Gallbladder removal', 'Appendectomy']"
+2459,1213,['Hypertension'],[],"['Appendectomy', 'Gallbladder removal']"
+2460,2997,[],['Peanuts'],['Gallbladder removal']
+2461,1809,"['Diabetes', 'None']","['None', 'Shellfish']",[]
+2462,1344,[],"['Peanuts', 'None']",['Gallbladder removal']
+2463,1393,"['Asthma', 'Diabetes']","['Shellfish', 'None']",[]
+2464,2504,"['Hypertension', 'Diabetes']",['Peanuts'],"['Appendectomy', 'None']"
+2465,20,['Asthma'],[],[]
+2466,1673,['Diabetes'],[],['None']
+2467,2964,[],['Peanuts'],[]
+2468,1229,['None'],['Peanuts'],[]
+2469,634,[],[],"['Gallbladder removal', 'None']"
+2470,1874,"['Diabetes', 'Asthma', 'Hypertension']",['None'],['Gallbladder removal']
+2471,580,"['Hypertension', 'None', 'Diabetes']",['Peanuts'],[]
+2472,2566,"['Asthma', 'Hypertension', 'Diabetes']","['Peanuts', 'None']","['Appendectomy', 'Gallbladder removal']"
+2473,2662,"['Hypertension', 'Diabetes', 'None']","['None', 'Peanuts']",[]
+2474,2263,"['Diabetes', 'Hypertension', 'None']","['Peanuts', 'Shellfish']",['Gallbladder removal']
+2475,2655,"['Diabetes', 'Asthma', 'Hypertension']","['Shellfish', 'None']","['Gallbladder removal', 'Appendectomy']"
+2476,2504,[],"['None', 'Peanuts']","['Gallbladder removal', 'Appendectomy']"
+2477,2656,"['Diabetes', 'None', 'Asthma']","['Peanuts', 'None']",[]
+2478,1195,['Diabetes'],['Shellfish'],['Appendectomy']
+2479,560,"['Asthma', 'None']",['Shellfish'],[]
+2480,2507,['Diabetes'],[],['Gallbladder removal']
+2481,1722,[],['Shellfish'],"['None', 'Appendectomy']"
+2482,1087,['Asthma'],['Shellfish'],"['None', 'Gallbladder removal']"
+2483,2553,"['None', 'Asthma', 'Diabetes']","['Shellfish', 'None']",[]
+2484,2977,"['Hypertension', 'Diabetes', 'Asthma']",[],[]
+2485,97,['None'],"['None', 'Peanuts']","['None', 'Gallbladder removal']"
+2486,783,['Diabetes'],[],['Appendectomy']
+2487,2319,"['Diabetes', 'None', 'Hypertension']",[],['None']
+2488,2789,"['Diabetes', 'Asthma', 'None']",[],"['None', 'Appendectomy']"
+2489,327,"['None', 'Asthma']","['Peanuts', 'Shellfish']",['None']
+2490,1784,"['Hypertension', 'Diabetes', 'Asthma']",[],[]
+2491,132,[],"['Peanuts', 'None']","['None', 'Appendectomy']"
+2492,36,"['Hypertension', 'Asthma', 'Diabetes']",['Shellfish'],"['None', 'Gallbladder removal']"
+2493,1647,[],[],"['Appendectomy', 'None']"
+2494,2200,['None'],[],[]
+2495,238,"['Asthma', 'Hypertension', 'None']",['Peanuts'],['Appendectomy']
+2496,1707,[],[],"['None', 'Gallbladder removal']"
+2497,240,[],['None'],[]
+2498,2094,['Asthma'],[],['Gallbladder removal']
+2499,2404,"['None', 'Asthma']","['None', 'Peanuts']","['None', 'Appendectomy']"
+2500,1207,['Hypertension'],[],[]
+2501,2552,"['Asthma', 'Diabetes']","['Shellfish', 'None']","['Appendectomy', 'None']"
+2502,1479,"['Hypertension', 'Diabetes']","['None', 'Shellfish']","['Appendectomy', 'Gallbladder removal']"
+2503,1153,"['Hypertension', 'Diabetes', 'None']",['Peanuts'],['None']
+2504,811,"['Asthma', 'Diabetes', 'Hypertension']",['None'],[]
+2505,670,"['Asthma', 'Hypertension', 'Diabetes']","['Shellfish', 'Peanuts']","['Appendectomy', 'None']"
+2506,2060,"['Hypertension', 'None', 'Diabetes']",['None'],['Appendectomy']
+2507,2696,['None'],[],"['Gallbladder removal', 'None']"
+2508,1740,"['Hypertension', 'Asthma', 'Diabetes']",['None'],[]
+2509,1015,[],['Shellfish'],['Gallbladder removal']
+2510,885,"['Diabetes', 'Asthma', 'Hypertension']",['None'],"['Appendectomy', 'None']"
+2511,2990,"['Diabetes', 'None', 'Hypertension']",[],[]
+2512,2091,"['Hypertension', 'None']",['None'],[]
+2513,1082,['Diabetes'],"['Shellfish', 'None']",[]
+2514,284,['Hypertension'],['Shellfish'],['None']
+2515,435,"['None', 'Asthma']","['Shellfish', 'None']","['Gallbladder removal', 'Appendectomy']"
+2516,1311,"['Hypertension', 'Asthma', 'Diabetes']",[],"['Gallbladder removal', 'None']"
+2517,154,"['None', 'Diabetes']",['None'],['Appendectomy']
+2518,2867,['Hypertension'],"['None', 'Peanuts']",[]
+2519,950,['Asthma'],['Shellfish'],"['None', 'Gallbladder removal']"
+2520,32,['Asthma'],"['Shellfish', 'Peanuts']","['Appendectomy', 'None']"
+2521,2593,[],[],['Gallbladder removal']
+2522,1087,['None'],['None'],[]
+2523,2693,[],"['None', 'Shellfish']",[]
+2524,1046,"['Diabetes', 'Asthma', 'Hypertension']","['Shellfish', 'None']",[]
+2525,1923,"['Diabetes', 'None', 'Hypertension']",[],[]
+2526,2801,['Diabetes'],"['None', 'Shellfish']",['Gallbladder removal']
+2527,1837,"['Hypertension', 'Asthma']",[],"['None', 'Appendectomy']"
+2528,1509,[],[],"['None', 'Appendectomy']"
+2529,1752,[],['Peanuts'],[]
+2530,2382,"['Diabetes', 'Hypertension', 'Asthma']","['Shellfish', 'None']",['Gallbladder removal']
+2531,2000,[],"['None', 'Shellfish']",[]
+2532,1137,['Asthma'],['Peanuts'],"['Appendectomy', 'Gallbladder removal']"
+2533,243,"['Diabetes', 'None', 'Asthma']",[],['None']
+2534,965,[],['None'],['Appendectomy']
+2535,1341,"['Asthma', 'None', 'Hypertension']",[],['Appendectomy']
+2536,2533,"['Asthma', 'Diabetes', 'None']",[],['None']
+2537,2507,['Asthma'],[],[]
+2538,2540,[],"['None', 'Peanuts']",[]
+2539,1439,['Asthma'],[],['None']
+2540,2799,"['Diabetes', 'Hypertension', 'None']",[],['None']
+2541,2683,['None'],"['None', 'Peanuts']",[]
+2542,1306,[],"['Peanuts', 'Shellfish']",['None']
+2543,2737,"['None', 'Diabetes']",[],[]
+2544,1688,[],['None'],"['None', 'Appendectomy']"
+2545,2277,['Hypertension'],['Shellfish'],['None']
+2546,564,[],"['None', 'Shellfish']","['Appendectomy', 'Gallbladder removal']"
+2547,763,"['Asthma', 'Hypertension']",['Shellfish'],"['None', 'Appendectomy']"
+2548,2084,"['Hypertension', 'Diabetes']",['Shellfish'],['Appendectomy']
+2549,2505,['None'],['None'],[]
+2550,2504,[],['Peanuts'],['Gallbladder removal']
+2551,1713,['None'],['Peanuts'],['Appendectomy']
+2552,856,"['None', 'Asthma', 'Hypertension']",['Peanuts'],"['Gallbladder removal', 'Appendectomy']"
+2553,2935,"['Diabetes', 'Hypertension', 'Asthma']",[],['Gallbladder removal']
+2554,965,[],"['None', 'Peanuts']","['None', 'Appendectomy']"
+2555,1498,[],['Shellfish'],['None']
+2556,2140,[],"['Peanuts', 'None']",[]
+2557,1403,[],['None'],['None']
+2558,595,[],[],['Appendectomy']
+2559,1762,[],[],"['Appendectomy', 'None']"
+2560,1870,['Asthma'],[],"['None', 'Gallbladder removal']"
+2561,565,[],[],"['Gallbladder removal', 'Appendectomy']"
+2562,33,['Asthma'],"['Shellfish', 'Peanuts']",[]
+2563,1889,[],"['Shellfish', 'None']",[]
+2564,1484,"['Diabetes', 'None', 'Hypertension']","['None', 'Shellfish']","['Gallbladder removal', 'None']"
+2565,920,"['Hypertension', 'Diabetes', 'Asthma']",['Peanuts'],['None']
+2566,2322,"['Diabetes', 'Hypertension', 'Asthma']",['None'],"['None', 'Gallbladder removal']"
+2567,2582,"['Hypertension', 'Asthma']",[],"['Gallbladder removal', 'None']"
+2568,2854,[],"['Peanuts', 'None']","['Gallbladder removal', 'Appendectomy']"
+2569,1444,"['Hypertension', 'Asthma', 'None']",['Peanuts'],['Gallbladder removal']
+2570,480,"['Diabetes', 'None']",['Peanuts'],[]
+2571,1346,"['Asthma', 'None']",[],['Appendectomy']
+2572,114,[],"['Shellfish', 'None']",['Gallbladder removal']
+2573,256,[],"['Peanuts', 'None']","['None', 'Gallbladder removal']"
+2574,2566,['Asthma'],[],['None']
+2575,2724,[],"['None', 'Peanuts']",['Appendectomy']
+2576,1171,"['None', 'Diabetes', 'Hypertension']","['Peanuts', 'Shellfish']",[]
+2577,707,[],['Peanuts'],"['None', 'Gallbladder removal']"
+2578,2291,"['Hypertension', 'Asthma', 'Diabetes']",['Peanuts'],['None']
+2579,2546,"['Hypertension', 'Diabetes', 'Asthma']",[],['Gallbladder removal']
+2580,1560,"['Diabetes', 'Asthma']","['Peanuts', 'None']",[]
+2581,2623,"['None', 'Asthma']",[],"['Gallbladder removal', 'None']"
+2582,672,"['None', 'Asthma']","['None', 'Shellfish']",[]
+2583,2982,['Asthma'],"['Shellfish', 'Peanuts']",[]
+2584,1851,"['Asthma', 'None']","['Shellfish', 'None']",[]
+2585,1884,[],['Shellfish'],"['Gallbladder removal', 'None']"
+2586,2656,"['Diabetes', 'Asthma']","['Shellfish', 'None']","['Appendectomy', 'None']"
+2587,2110,['Hypertension'],['None'],"['None', 'Appendectomy']"
+2588,1453,['None'],"['None', 'Shellfish']","['Appendectomy', 'Gallbladder removal']"
+2589,2519,[],[],['None']
+2590,2121,[],"['Shellfish', 'Peanuts']",[]
+2591,146,['None'],[],[]
+2592,2096,"['Diabetes', 'None', 'Asthma']",[],['Appendectomy']
+2593,2924,"['Hypertension', 'Diabetes', 'Asthma']",[],[]
+2594,1289,"['None', 'Hypertension', 'Diabetes']",[],"['Gallbladder removal', 'Appendectomy']"
+2595,2738,[],"['Shellfish', 'Peanuts']","['Gallbladder removal', 'Appendectomy']"
+2596,2895,"['None', 'Hypertension']","['None', 'Peanuts']",[]
+2597,2679,['Hypertension'],[],[]
+2598,732,['Diabetes'],[],['None']
+2599,1003,[],"['Peanuts', 'Shellfish']",[]
+2600,1372,['None'],[],"['Gallbladder removal', 'None']"
+2601,2674,['Diabetes'],['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+2602,1173,"['Diabetes', 'Hypertension']","['None', 'Peanuts']","['None', 'Gallbladder removal']"
+2603,138,[],[],"['Appendectomy', 'None']"
+2604,128,"['Diabetes', 'Hypertension']",['None'],"['None', 'Appendectomy']"
+2605,12,['Diabetes'],[],['Gallbladder removal']
+2606,2341,"['None', 'Asthma']","['Shellfish', 'Peanuts']","['Gallbladder removal', 'None']"
+2607,2334,"['Asthma', 'Hypertension', 'Diabetes']","['Peanuts', 'Shellfish']","['None', 'Appendectomy']"
+2608,2066,[],[],[]
+2609,2728,['Hypertension'],"['Shellfish', 'None']",['Gallbladder removal']
+2610,695,"['Asthma', 'Diabetes', 'Hypertension']",[],"['Appendectomy', 'Gallbladder removal']"
+2611,2546,[],"['Shellfish', 'None']",['Appendectomy']
+2612,601,['Hypertension'],"['None', 'Shellfish']",['Appendectomy']
+2613,2922,[],[],[]
+2614,2498,"['Hypertension', 'None', 'Asthma']","['Peanuts', 'Shellfish']",[]
+2615,2586,"['Asthma', 'None']","['Shellfish', 'Peanuts']",[]
+2616,1331,[],['Shellfish'],['Gallbladder removal']
+2617,1438,"['Hypertension', 'Diabetes']",[],['Gallbladder removal']
+2618,2298,[],"['None', 'Shellfish']","['None', 'Gallbladder removal']"
+2619,163,"['None', 'Asthma', 'Hypertension']","['Shellfish', 'None']",[]
+2620,1404,['Hypertension'],['None'],"['None', 'Appendectomy']"
+2621,2882,[],[],[]
+2622,433,['Asthma'],['Shellfish'],['Gallbladder removal']
+2623,1926,[],['Shellfish'],['None']
+2624,977,"['Hypertension', 'Asthma', 'Diabetes']","['Peanuts', 'None']",[]
+2625,1380,"['Asthma', 'None', 'Diabetes']",[],[]
+2626,1493,"['Diabetes', 'Hypertension']",['Shellfish'],"['Gallbladder removal', 'Appendectomy']"
+2627,2917,[],[],[]
+2628,2320,['Hypertension'],['None'],"['None', 'Gallbladder removal']"
+2629,1831,"['Asthma', 'Hypertension']",[],['Appendectomy']
+2630,548,"['Diabetes', 'Hypertension', 'Asthma']",['None'],[]
+2631,2032,"['Hypertension', 'Diabetes', 'Asthma']",[],[]
+2632,1314,['None'],['Peanuts'],[]
+2633,1072,['None'],[],"['Appendectomy', 'None']"
+2634,821,['None'],"['Peanuts', 'Shellfish']","['Gallbladder removal', 'None']"
+2635,1107,"['Diabetes', 'Hypertension']",['Peanuts'],"['None', 'Appendectomy']"
+2636,1782,"['Asthma', 'Hypertension', 'Diabetes']",['Peanuts'],"['Appendectomy', 'Gallbladder removal']"
+2637,2170,[],"['Shellfish', 'None']",['Appendectomy']
+2638,2746,"['None', 'Asthma', 'Diabetes']",['None'],"['Appendectomy', 'None']"
+2639,2396,"['Hypertension', 'Diabetes']",[],[]
+2640,1114,['Asthma'],['Peanuts'],[]
+2641,514,['None'],"['Peanuts', 'None']",['Appendectomy']
+2642,2944,"['Asthma', 'Hypertension']",['Peanuts'],['Gallbladder removal']
+2643,2045,['Hypertension'],['None'],[]
+2644,2998,"['None', 'Diabetes', 'Asthma']","['Shellfish', 'Peanuts']","['None', 'Appendectomy']"
+2645,1446,"['Diabetes', 'Asthma']",['Shellfish'],['Gallbladder removal']
+2646,762,"['Diabetes', 'Asthma', 'Hypertension']","['None', 'Shellfish']","['Gallbladder removal', 'Appendectomy']"
+2647,2981,[],['Shellfish'],"['Gallbladder removal', 'None']"
+2648,2405,"['Asthma', 'None', 'Diabetes']",[],['Appendectomy']
+2649,2159,['Diabetes'],"['None', 'Peanuts']","['None', 'Appendectomy']"
+2650,211,['Diabetes'],"['Shellfish', 'Peanuts']","['None', 'Gallbladder removal']"
+2651,2563,"['Hypertension', 'Asthma', 'None']",[],[]
+2652,1807,[],[],['None']
+2653,2395,"['Hypertension', 'None']",[],[]
+2654,2221,"['Asthma', 'Diabetes']",[],"['None', 'Appendectomy']"
+2655,446,[],"['Peanuts', 'Shellfish']","['None', 'Gallbladder removal']"
+2656,1270,[],[],"['Appendectomy', 'Gallbladder removal']"
+2657,725,[],['Peanuts'],"['None', 'Appendectomy']"
+2658,2677,['None'],['None'],['Appendectomy']
+2659,1345,"['Asthma', 'Hypertension', 'Diabetes']",['Peanuts'],['Appendectomy']
+2660,1670,[],[],"['None', 'Gallbladder removal']"
+2661,2162,"['Diabetes', 'Hypertension']","['Shellfish', 'None']","['Appendectomy', 'None']"
+2662,561,"['None', 'Hypertension', 'Diabetes']",[],[]
+2663,2750,['Asthma'],['Shellfish'],['Gallbladder removal']
+2664,1025,[],"['Shellfish', 'Peanuts']",[]
+2665,2272,[],[],[]
+2666,443,[],"['None', 'Shellfish']","['Gallbladder removal', 'Appendectomy']"
+2667,2962,"['None', 'Diabetes', 'Hypertension']",['None'],[]
+2668,2928,"['None', 'Asthma', 'Hypertension']",[],['Appendectomy']
+2669,2102,[],"['Peanuts', 'None']",[]
+2670,1333,[],[],['Gallbladder removal']
+2671,21,['None'],"['Shellfish', 'Peanuts']",['Gallbladder removal']
+2672,2982,"['Diabetes', 'Asthma', 'None']",['Peanuts'],[]
+2673,380,[],['Shellfish'],"['Gallbladder removal', 'None']"
+2674,2674,['Hypertension'],[],['Appendectomy']
+2675,1317,"['Diabetes', 'None']",[],['Appendectomy']
+2676,894,"['Asthma', 'None']","['Peanuts', 'Shellfish']",['Appendectomy']
+2677,2688,"['Diabetes', 'Hypertension', 'Asthma']",[],[]
+2678,106,"['None', 'Hypertension']",[],[]
+2679,537,[],"['Peanuts', 'Shellfish']",[]
+2680,884,"['Diabetes', 'None', 'Hypertension']",['None'],[]
+2681,1029,"['Asthma', 'None', 'Diabetes']","['None', 'Shellfish']","['Appendectomy', 'Gallbladder removal']"
+2682,1118,"['Asthma', 'Diabetes']","['None', 'Shellfish']","['None', 'Gallbladder removal']"
+2683,1699,['Diabetes'],[],['Gallbladder removal']
+2684,1256,['Asthma'],['None'],[]
+2685,574,"['Asthma', 'None']","['Shellfish', 'Peanuts']","['Appendectomy', 'Gallbladder removal']"
+2686,91,"['Hypertension', 'None', 'Asthma']","['None', 'Shellfish']",['Appendectomy']
+2687,2312,[],"['None', 'Shellfish']",[]
+2688,676,"['None', 'Hypertension']","['Shellfish', 'Peanuts']",['None']
+2689,1943,"['Diabetes', 'None', 'Hypertension']","['Peanuts', 'Shellfish']","['None', 'Appendectomy']"
+2690,8,"['Asthma', 'Diabetes']",[],"['Appendectomy', 'Gallbladder removal']"
+2691,2149,"['Hypertension', 'Diabetes', 'None']",[],[]
+2692,2714,"['Diabetes', 'Asthma', 'None']",[],['Appendectomy']
+2693,135,"['None', 'Diabetes', 'Hypertension']",['Shellfish'],['Appendectomy']
+2694,176,['Hypertension'],"['Peanuts', 'None']","['None', 'Appendectomy']"
+2695,473,[],['Peanuts'],"['None', 'Appendectomy']"
+2696,12,"['Asthma', 'Diabetes', 'Hypertension']",['Shellfish'],"['Appendectomy', 'Gallbladder removal']"
+2697,1554,"['Diabetes', 'Asthma', 'None']",[],['Appendectomy']
+2698,2565,"['Asthma', 'Diabetes']","['Peanuts', 'Shellfish']",['Appendectomy']
+2699,12,"['Hypertension', 'None']","['Peanuts', 'Shellfish']",[]
+2700,802,['Diabetes'],"['Shellfish', 'Peanuts']",[]
+2701,1484,"['Hypertension', 'Diabetes']",['Peanuts'],['None']
+2702,1817,['None'],[],['Appendectomy']
+2703,941,['None'],[],['Gallbladder removal']
+2704,1275,"['Diabetes', 'Hypertension']","['Shellfish', 'None']",[]
+2705,407,"['Diabetes', 'Asthma']","['Peanuts', 'Shellfish']",[]
+2706,437,"['Asthma', 'None']",['Peanuts'],[]
+2707,418,"['Hypertension', 'Diabetes', 'Asthma']",[],"['None', 'Gallbladder removal']"
+2708,2704,['None'],[],[]
+2709,1179,['Hypertension'],[],[]
+2710,2419,"['Hypertension', 'Asthma', 'Diabetes']",['Shellfish'],"['Appendectomy', 'Gallbladder removal']"
+2711,237,"['None', 'Diabetes', 'Asthma']",[],"['Gallbladder removal', 'Appendectomy']"
+2712,2959,"['Diabetes', 'None']","['Shellfish', 'None']",[]
+2713,2703,[],[],['Appendectomy']
+2714,2823,['Hypertension'],['Peanuts'],"['None', 'Appendectomy']"
+2715,2906,[],[],[]
+2716,1571,"['Hypertension', 'Asthma', 'Diabetes']",['Peanuts'],"['Appendectomy', 'Gallbladder removal']"
+2717,2722,"['Hypertension', 'Diabetes']",['Shellfish'],"['None', 'Appendectomy']"
+2718,2476,"['Diabetes', 'Hypertension', 'Asthma']",['Shellfish'],"['Appendectomy', 'None']"
+2719,1486,"['Asthma', 'Hypertension']",['Peanuts'],[]
+2720,2729,"['Diabetes', 'Hypertension']",['None'],[]
+2721,1975,"['Asthma', 'Hypertension', 'Diabetes']",[],['Gallbladder removal']
+2722,2456,[],[],[]
+2723,2331,['Diabetes'],['Peanuts'],"['Appendectomy', 'None']"
+2724,1181,[],"['None', 'Peanuts']","['Appendectomy', 'None']"
+2725,501,"['Asthma', 'Hypertension', 'None']",[],['None']
+2726,2748,[],['Peanuts'],[]
+2727,283,['None'],[],['Appendectomy']
+2728,2567,[],[],[]
+2729,250,[],[],[]
+2730,1834,"['Asthma', 'Hypertension', 'Diabetes']",[],"['None', 'Appendectomy']"
+2731,1639,['Hypertension'],[],[]
+2732,2423,['None'],"['Shellfish', 'Peanuts']",[]
+2733,502,['Asthma'],[],['Appendectomy']
+2734,2100,"['None', 'Diabetes', 'Hypertension']","['Peanuts', 'None']",['None']
+2735,1133,[],['None'],"['Gallbladder removal', 'None']"
+2736,1463,"['Hypertension', 'Diabetes', 'None']",[],"['Appendectomy', 'Gallbladder removal']"
+2737,597,[],[],['Gallbladder removal']
+2738,2174,['Hypertension'],['Peanuts'],"['None', 'Gallbladder removal']"
+2739,930,"['Diabetes', 'None']","['Peanuts', 'Shellfish']",['None']
+2740,1606,[],['Peanuts'],[]
+2741,2624,['None'],[],[]
+2742,374,[],[],[]
+2743,1679,[],['None'],['None']
+2744,29,"['None', 'Hypertension']",['None'],"['Appendectomy', 'None']"
+2745,2624,['None'],[],[]
+2746,311,[],"['None', 'Peanuts']",[]
+2747,2089,[],[],['Appendectomy']
+2748,1175,['Diabetes'],['None'],[]
+2749,365,[],[],['Gallbladder removal']
+2750,1986,"['Asthma', 'None']",['Peanuts'],['Gallbladder removal']
+2751,1223,"['Diabetes', 'Hypertension']","['Shellfish', 'None']",['Appendectomy']
+2752,539,"['Hypertension', 'None']",['Shellfish'],['Gallbladder removal']
+2753,1053,[],"['Shellfish', 'Peanuts']","['Gallbladder removal', 'Appendectomy']"
+2754,116,[],['Shellfish'],"['Appendectomy', 'None']"
+2755,2842,"['Diabetes', 'Hypertension', 'None']",['Peanuts'],"['None', 'Gallbladder removal']"
+2756,2937,['Hypertension'],['None'],['Appendectomy']
+2757,2135,['Asthma'],"['None', 'Shellfish']",[]
+2758,2552,['Hypertension'],[],[]
+2759,170,[],[],[]
+2760,1684,[],['None'],['None']
+2761,2346,"['Asthma', 'Hypertension']",[],"['None', 'Appendectomy']"
+2762,2830,['Asthma'],['None'],[]
+2763,2044,"['Hypertension', 'None', 'Diabetes']",[],[]
+2764,1834,"['None', 'Hypertension']",[],['None']
+2765,1200,[],"['None', 'Peanuts']",['Gallbladder removal']
+2766,2021,"['Hypertension', 'None', 'Asthma']","['Peanuts', 'None']",['Appendectomy']
+2767,751,"['Asthma', 'Hypertension']","['Peanuts', 'Shellfish']",[]
+2768,1324,[],['Peanuts'],"['Gallbladder removal', 'Appendectomy']"
+2769,2862,[],"['None', 'Peanuts']",['None']
+2770,896,"['Hypertension', 'None', 'Asthma']",[],['Appendectomy']
+2771,2699,"['Diabetes', 'Hypertension']","['Shellfish', 'Peanuts']",['Appendectomy']
+2772,1150,"['None', 'Diabetes']","['Peanuts', 'Shellfish']","['Appendectomy', 'None']"
+2773,589,"['None', 'Asthma']",['None'],[]
+2774,1258,[],[],[]
+2775,2764,[],[],[]
+2776,399,"['None', 'Hypertension']","['Peanuts', 'None']",[]
+2777,2846,"['Asthma', 'Hypertension']",['Shellfish'],"['None', 'Appendectomy']"
+2778,53,"['Asthma', 'Diabetes']",['Peanuts'],['Gallbladder removal']
+2779,2899,"['Hypertension', 'Diabetes', 'Asthma']","['None', 'Shellfish']",['Appendectomy']
+2780,441,[],[],"['Gallbladder removal', 'Appendectomy']"
+2781,2700,"['Hypertension', 'Diabetes']","['Peanuts', 'None']","['None', 'Appendectomy']"
+2782,2437,[],"['None', 'Peanuts']",[]
+2783,266,"['None', 'Asthma', 'Diabetes']",['None'],[]
+2784,1812,"['Asthma', 'Hypertension']",[],"['None', 'Appendectomy']"
+2785,2116,['None'],"['None', 'Peanuts']",['Appendectomy']
+2786,2855,"['Asthma', 'None', 'Diabetes']","['None', 'Shellfish']",[]
+2787,1401,"['Hypertension', 'None']",['None'],[]
+2788,2553,"['Diabetes', 'Asthma', 'None']","['None', 'Shellfish']",['None']
+2789,1717,"['Asthma', 'Diabetes', 'None']",[],"['Gallbladder removal', 'Appendectomy']"
+2790,2829,['Diabetes'],['Peanuts'],['Appendectomy']
+2791,2773,[],['Peanuts'],['None']
+2792,1761,"['Asthma', 'Hypertension']","['Shellfish', 'Peanuts']",['Appendectomy']
+2793,1736,"['Diabetes', 'Hypertension']",[],['Appendectomy']
+2794,1424,['Diabetes'],['None'],[]
+2795,379,[],[],['Gallbladder removal']
+2796,724,[],"['Shellfish', 'None']",[]
+2797,1376,['Hypertension'],[],"['Appendectomy', 'Gallbladder removal']"
+2798,1435,"['Asthma', 'Hypertension', 'None']",['Shellfish'],['None']
+2799,2401,"['Hypertension', 'Asthma']","['None', 'Peanuts']",[]
+2800,2113,"['Hypertension', 'Asthma']",[],[]
+2801,2410,[],[],[]
+2802,417,"['None', 'Hypertension', 'Asthma']",[],[]
+2803,1673,['None'],['None'],['Appendectomy']
+2804,552,['None'],[],[]
+2805,1841,"['None', 'Diabetes']",['None'],['Appendectomy']
+2806,1284,"['None', 'Asthma', 'Hypertension']",[],['Appendectomy']
+2807,2875,"['Asthma', 'Hypertension']",['Peanuts'],[]
+2808,130,['None'],['Shellfish'],['Appendectomy']
+2809,2765,"['Asthma', 'Diabetes', 'Hypertension']",['Peanuts'],['Appendectomy']
+2810,1267,"['Asthma', 'Diabetes']","['Peanuts', 'None']","['Appendectomy', 'None']"
+2811,2488,"['Asthma', 'Hypertension', 'Diabetes']",[],['Gallbladder removal']
+2812,152,"['Asthma', 'None', 'Diabetes']",['Shellfish'],['None']
+2813,1459,[],['Shellfish'],['Gallbladder removal']
+2814,1388,"['None', 'Hypertension']",['None'],['None']
+2815,1237,['None'],['Peanuts'],['Appendectomy']
+2816,626,"['Asthma', 'Hypertension', 'None']",['None'],"['Appendectomy', 'Gallbladder removal']"
+2817,1137,"['None', 'Asthma', 'Diabetes']",[],"['Gallbladder removal', 'Appendectomy']"
+2818,297,"['Hypertension', 'Asthma']",[],"['None', 'Appendectomy']"
+2819,206,['Hypertension'],[],"['Gallbladder removal', 'None']"
+2820,1745,"['Asthma', 'Diabetes', 'Hypertension']","['Shellfish', 'Peanuts']",[]
+2821,2167,"['Hypertension', 'None', 'Asthma']","['None', 'Peanuts']",[]
+2822,2237,[],['Shellfish'],[]
+2823,2312,"['Diabetes', 'Asthma']","['None', 'Shellfish']","['Appendectomy', 'None']"
+2824,1236,[],[],"['None', 'Appendectomy']"
+2825,2866,['None'],[],[]
+2826,2296,"['Hypertension', 'None', 'Diabetes']","['None', 'Peanuts']",['Appendectomy']
+2827,2409,[],[],[]
+2828,1780,[],[],[]
+2829,473,['Hypertension'],['Peanuts'],[]
+2830,1490,['None'],[],[]
+2831,35,"['Hypertension', 'None', 'Diabetes']","['Peanuts', 'Shellfish']","['Gallbladder removal', 'None']"
+2832,388,"['Hypertension', 'Asthma']","['None', 'Peanuts']",[]
+2833,2334,"['None', 'Hypertension']","['None', 'Peanuts']",['Gallbladder removal']
+2834,1786,['None'],"['Peanuts', 'None']",['None']
+2835,1167,"['Hypertension', 'None']","['Peanuts', 'Shellfish']","['None', 'Gallbladder removal']"
+2836,948,"['Asthma', 'None', 'Diabetes']",['Shellfish'],['Gallbladder removal']
+2837,2207,['None'],"['None', 'Peanuts']",['Appendectomy']
+2838,2100,['Diabetes'],[],['None']
+2839,1732,[],"['Peanuts', 'Shellfish']","['Gallbladder removal', 'None']"
+2840,1229,['Diabetes'],['None'],"['Gallbladder removal', 'Appendectomy']"
+2841,2316,"['Asthma', 'Diabetes', 'None']","['Shellfish', 'None']",[]
+2842,787,[],[],"['None', 'Appendectomy']"
+2843,894,['Diabetes'],"['None', 'Peanuts']","['Gallbladder removal', 'None']"
+2844,891,['None'],[],['Appendectomy']
+2845,1610,"['None', 'Diabetes']",[],"['None', 'Appendectomy']"
+2846,932,[],[],['Appendectomy']
+2847,316,[],"['Shellfish', 'Peanuts']","['Gallbladder removal', 'Appendectomy']"
+2848,2622,"['Hypertension', 'None', 'Diabetes']",[],"['Gallbladder removal', 'Appendectomy']"
+2849,2309,"['Hypertension', 'Diabetes', 'Asthma']",[],[]
+2850,437,"['None', 'Diabetes', 'Hypertension']","['None', 'Shellfish']","['Gallbladder removal', 'None']"
+2851,2819,"['Hypertension', 'Asthma']",[],"['None', 'Gallbladder removal']"
+2852,730,"['Diabetes', 'Hypertension']",[],"['None', 'Appendectomy']"
+2853,1540,['Hypertension'],"['Peanuts', 'Shellfish']","['Appendectomy', 'None']"
+2854,2475,"['None', 'Asthma']","['Shellfish', 'None']",[]
+2855,1068,"['Hypertension', 'None']",[],[]
+2856,2860,"['Hypertension', 'None']","['Peanuts', 'None']","['None', 'Appendectomy']"
+2857,840,['None'],['Shellfish'],['Gallbladder removal']
+2858,785,"['Hypertension', 'None']",['None'],[]
+2859,2508,['Hypertension'],"['Peanuts', 'Shellfish']",['None']
+2860,623,"['Diabetes', 'Asthma']",['Peanuts'],['None']
+2861,681,[],"['None', 'Shellfish']","['Appendectomy', 'Gallbladder removal']"
+2862,2125,['None'],['Peanuts'],"['Gallbladder removal', 'None']"
+2863,2756,[],[],[]
+2864,1643,"['Asthma', 'Diabetes']","['None', 'Shellfish']",[]
+2865,229,[],['Peanuts'],"['None', 'Gallbladder removal']"
+2866,2430,['Hypertension'],[],['Appendectomy']
+2867,2473,"['Hypertension', 'Asthma', 'None']","['Shellfish', 'None']","['Appendectomy', 'None']"
+2868,2405,[],[],[]
+2869,2027,"['Hypertension', 'None']",[],[]
+2870,2272,"['Diabetes', 'None']",[],"['Appendectomy', 'Gallbladder removal']"
+2871,2857,[],[],[]
+2872,2910,"['Diabetes', 'Asthma', 'None']",['Shellfish'],['Appendectomy']
+2873,1006,['Hypertension'],['Peanuts'],[]
+2874,409,"['Diabetes', 'None']","['Shellfish', 'None']","['None', 'Appendectomy']"
+2875,2389,[],['Shellfish'],"['Gallbladder removal', 'None']"
+2876,1543,[],"['Shellfish', 'None']",['None']
+2877,1917,['Asthma'],"['Peanuts', 'None']",['None']
+2878,2158,"['Diabetes', 'None']",['Peanuts'],['None']
+2879,1287,"['Diabetes', 'Hypertension']",[],"['Appendectomy', 'Gallbladder removal']"
+2880,2357,['Asthma'],"['Shellfish', 'None']",['None']
+2881,1081,[],[],"['Gallbladder removal', 'Appendectomy']"
+2882,2569,[],[],"['Gallbladder removal', 'Appendectomy']"
+2883,1767,"['Diabetes', 'None']",['Peanuts'],"['Appendectomy', 'Gallbladder removal']"
+2884,189,[],['Shellfish'],"['Appendectomy', 'Gallbladder removal']"
+2885,1173,"['None', 'Hypertension']",[],['Appendectomy']
+2886,2818,[],['Peanuts'],['Gallbladder removal']
+2887,1453,['None'],[],"['None', 'Appendectomy']"
+2888,1139,"['Hypertension', 'None']",[],['None']
+2889,86,"['Hypertension', 'None']",[],"['Gallbladder removal', 'Appendectomy']"
+2890,2672,"['Diabetes', 'Asthma', 'None']",['Peanuts'],[]
+2891,1877,['Hypertension'],['Shellfish'],[]
+2892,2370,[],[],"['Appendectomy', 'None']"
+2893,297,"['None', 'Asthma', 'Diabetes']","['None', 'Peanuts']",[]
+2894,522,['Hypertension'],['None'],['Appendectomy']
+2895,798,['None'],[],['Appendectomy']
+2896,2670,['Asthma'],"['Peanuts', 'None']","['Gallbladder removal', 'Appendectomy']"
+2897,1601,"['Diabetes', 'Hypertension', 'None']",[],"['None', 'Appendectomy']"
+2898,1502,[],[],['Appendectomy']
+2899,1681,['Diabetes'],[],"['None', 'Appendectomy']"
+2900,2215,[],"['None', 'Peanuts']","['Appendectomy', 'Gallbladder removal']"
+2901,2033,"['None', 'Diabetes']",[],[]
+2902,581,"['Hypertension', 'None']",['Peanuts'],['None']
+2903,2060,"['None', 'Diabetes', 'Hypertension']",[],"['Appendectomy', 'Gallbladder removal']"
+2904,1701,[],[],"['None', 'Appendectomy']"
+2905,1909,"['Hypertension', 'None']","['None', 'Shellfish']",[]
+2906,2610,"['Asthma', 'None', 'Hypertension']","['None', 'Shellfish']",[]
+2907,1509,"['Hypertension', 'Diabetes', 'Asthma']","['Peanuts', 'None']","['None', 'Gallbladder removal']"
+2908,624,[],['None'],[]
+2909,2487,[],[],['None']
+2910,2669,"['Diabetes', 'Hypertension', 'None']",['Shellfish'],[]
+2911,412,[],['Peanuts'],"['None', 'Appendectomy']"
+2912,1922,"['Hypertension', 'None', 'Diabetes']",[],[]
+2913,2252,"['Hypertension', 'Diabetes']","['Shellfish', 'Peanuts']","['Appendectomy', 'Gallbladder removal']"
+2914,2630,[],[],[]
+2915,2848,[],"['None', 'Peanuts']",['Appendectomy']
+2916,274,['None'],['None'],['None']
+2917,546,"['Hypertension', 'Diabetes', 'None']","['Peanuts', 'None']",[]
+2918,1943,[],['Peanuts'],[]
+2919,2474,"['Diabetes', 'Asthma']",['Peanuts'],['None']
+2920,2930,"['Hypertension', 'None', 'Asthma']",['Shellfish'],['None']
+2921,1066,"['Hypertension', 'Diabetes', 'Asthma']",[],[]
+2922,831,[],['Peanuts'],[]
+2923,13,['Asthma'],"['Peanuts', 'Shellfish']",[]
+2924,294,[],['Shellfish'],[]
+2925,1564,"['Asthma', 'None', 'Diabetes']",[],['Appendectomy']
+2926,816,[],"['Shellfish', 'None']","['Appendectomy', 'None']"
+2927,1024,"['Diabetes', 'None']",['Peanuts'],['Appendectomy']
+2928,1561,[],"['Peanuts', 'Shellfish']",['None']
+2929,363,[],['Shellfish'],"['Appendectomy', 'None']"
+2930,130,"['Hypertension', 'Diabetes']","['None', 'Peanuts']",[]
+2931,1805,['Hypertension'],"['Peanuts', 'Shellfish']",['Gallbladder removal']
+2932,134,"['None', 'Asthma']",[],[]
+2933,973,"['None', 'Asthma']",['Peanuts'],"['Appendectomy', 'Gallbladder removal']"
+2934,1231,"['None', 'Diabetes']","['Shellfish', 'None']","['Gallbladder removal', 'Appendectomy']"
+2935,1226,"['Hypertension', 'None']","['Peanuts', 'Shellfish']",['Appendectomy']
+2936,2591,"['Hypertension', 'Asthma', 'Diabetes']",['None'],['Appendectomy']
+2937,447,[],['None'],[]
+2938,863,['Hypertension'],['Shellfish'],['None']
+2939,18,"['None', 'Diabetes']",['Shellfish'],[]
+2940,237,['None'],[],[]
+2941,2606,"['Diabetes', 'None', 'Asthma']",[],"['None', 'Appendectomy']"
+2942,2468,"['Asthma', 'Diabetes', 'None']","['None', 'Peanuts']",[]
+2943,790,"['Hypertension', 'Asthma']",['Peanuts'],[]
+2944,464,"['None', 'Hypertension', 'Diabetes']",[],[]
+2945,2799,[],"['Peanuts', 'Shellfish']",[]
+2946,2738,['Hypertension'],[],[]
+2947,2366,"['None', 'Hypertension', 'Asthma']",['None'],['Gallbladder removal']
+2948,2621,"['Diabetes', 'Hypertension', 'Asthma']","['Shellfish', 'None']",['None']
+2949,1943,['Diabetes'],[],"['None', 'Appendectomy']"
+2950,403,[],['Shellfish'],['Appendectomy']
+2951,722,"['Diabetes', 'None', 'Asthma']",[],['Appendectomy']
+2952,2766,[],[],"['Gallbladder removal', 'None']"
+2953,503,"['Diabetes', 'Hypertension', 'Asthma']","['None', 'Peanuts']",[]
+2954,2607,"['Hypertension', 'None', 'Diabetes']","['Shellfish', 'None']","['Gallbladder removal', 'None']"
+2955,2508,"['Asthma', 'Hypertension', 'None']",[],[]
+2956,1711,"['None', 'Diabetes']","['Shellfish', 'None']",[]
+2957,166,[],['Peanuts'],['Appendectomy']
+2958,1918,[],[],['None']
+2959,678,"['Diabetes', 'Asthma']",['Peanuts'],"['Gallbladder removal', 'None']"
+2960,1572,"['Diabetes', 'Asthma', 'Hypertension']",[],"['Appendectomy', 'Gallbladder removal']"
+2961,680,"['Asthma', 'Diabetes']",['Peanuts'],['Gallbladder removal']
+2962,2924,['Asthma'],"['None', 'Shellfish']",[]
+2963,1929,"['Diabetes', 'Asthma', 'None']",['Peanuts'],['Gallbladder removal']
+2964,1566,[],[],"['Gallbladder removal', 'None']"
+2965,168,"['Asthma', 'Diabetes', 'Hypertension']","['None', 'Shellfish']","['Gallbladder removal', 'None']"
+2966,2434,"['None', 'Diabetes']",['Peanuts'],"['Gallbladder removal', 'None']"
+2967,736,[],[],"['None', 'Appendectomy']"
+2968,2330,"['Asthma', 'Diabetes', 'None']",['Peanuts'],[]
+2969,997,[],"['Peanuts', 'Shellfish']",[]
+2970,705,"['Hypertension', 'Diabetes']","['None', 'Peanuts']",['Gallbladder removal']
+2971,155,"['Asthma', 'Diabetes', 'Hypertension']","['Shellfish', 'Peanuts']","['Appendectomy', 'Gallbladder removal']"
+2972,188,"['None', 'Hypertension']",['Peanuts'],"['Gallbladder removal', 'None']"
+2973,1164,"['Diabetes', 'Asthma', 'Hypertension']","['None', 'Shellfish']","['None', 'Gallbladder removal']"
+2974,603,['Diabetes'],['None'],"['Gallbladder removal', 'Appendectomy']"
+2975,2476,['Diabetes'],[],"['None', 'Appendectomy']"
+2976,2662,['None'],"['None', 'Shellfish']",['Gallbladder removal']
+2977,1870,[],['None'],"['Appendectomy', 'None']"
+2978,100,['None'],['Peanuts'],"['Gallbladder removal', 'None']"
+2979,528,"['Diabetes', 'Asthma', 'Hypertension']",['Shellfish'],['Appendectomy']
+2980,487,['Asthma'],['None'],"['Appendectomy', 'None']"
+2981,75,"['Diabetes', 'Hypertension', 'Asthma']","['None', 'Peanuts']",['None']
+2982,2150,"['Asthma', 'None', 'Hypertension']",['None'],[]
+2983,2768,"['Hypertension', 'None', 'Asthma']",['None'],"['Appendectomy', 'None']"
+2984,2388,['None'],"['Peanuts', 'Shellfish']",[]
+2985,993,"['Hypertension', 'Asthma']",['Peanuts'],[]
+2986,1726,"['Asthma', 'Diabetes']",[],[]
+2987,127,['Diabetes'],"['Peanuts', 'None']","['Gallbladder removal', 'None']"
+2988,1850,[],[],"['Gallbladder removal', 'Appendectomy']"
+2989,59,[],[],"['None', 'Gallbladder removal']"
+2990,948,['Asthma'],"['Shellfish', 'None']",['None']
+2991,1132,"['None', 'Diabetes']","['Shellfish', 'None']",['None']
+2992,359,['Diabetes'],"['Shellfish', 'None']",['Gallbladder removal']
+2993,1322,"['Diabetes', 'None']",[],[]
+2994,421,"['Asthma', 'None']","['None', 'Shellfish']","['Gallbladder removal', 'None']"
+2995,946,['Hypertension'],"['None', 'Shellfish']","['None', 'Appendectomy']"
+2996,938,['Diabetes'],['Peanuts'],['None']
+2997,592,"['Asthma', 'None', 'Diabetes']","['Shellfish', 'Peanuts']",[]
+2998,1497,['Asthma'],"['Shellfish', 'None']","['Gallbladder removal', 'Appendectomy']"
+2999,390,[],[],['Gallbladder removal']
+3000,2636,"['Diabetes', 'Hypertension', 'None']",['Shellfish'],"['Appendectomy', 'Gallbladder removal']"

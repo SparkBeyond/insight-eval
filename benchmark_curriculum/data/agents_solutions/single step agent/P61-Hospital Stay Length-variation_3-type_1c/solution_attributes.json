@@ -1,0 +1,71 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "hospitalization_duration",
+        "chronic_conditions_count",
+        "previous_surgeries_count",
+        "admission_season",
+        "patient_age",
+        "is_weekend_admission",
+        "treatment_length",
+        "num_treatments",
+        "allergies_count",
+        "gender_encoded"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.24464345168077364": {
+            "name": "hospitalization_duration",
+            "code": "import datetime\n\ndef hospitalization_duration(row):\n    discharge_date = datetime.strptime(row['discharge_date'], '%Y-%m-%d')\n    admission_date = datetime.strptime(row['admission_date'], '%Y-%m-%d')\n    return (discharge_date - admission_date).days\n"
+        },
+        "0.09284669561166213": {
+            "name": "chronic_conditions_count",
+            "code": "\n\ndef chronic_conditions_count(row, aux_data: Dict[str, pd.DataFrame]):\n    # Check if 'medical_history_table.csv' exists in aux_data\n    if 'medical_history_table.csv' not in aux_data:\n        raise KeyError(\"'medical_history_table.csv' not found in aux_data\")\n    \n    # Get the medical_history_table dataframe\n    medical_history_table = aux_data['medical_history_table.csv']\n    \n    # Ensure the required columns exist in the medical_history_table\n    required_columns = {'patient_id', 'chronic_conditions'}\n    if not required_columns.issubset(medical_history_table.columns):\n        raise KeyError(f\"Missing required columns in medical_history_table: {required_columns - set(medical_history_table.columns)}\")\n    \n    # Find the row(s) in the medical_history_table corresponding to the patient_id in the input row\n    patient_rows = medical_history_table[medical_history_table['patient_id'] == row['patient_id']]\n    \n    if not patient_rows.empty:\n        # Safely parse the chronic_conditions column for the first matching row\n        chronic_conditions = patient_rows.iloc[0]['chronic_conditions']\n        \n        # Check if chronic_conditions is already a list\n        if isinstance(chronic_conditions, list):\n            return len(chronic_conditions)\n        \n        # If chronic_conditions is a string, attempt to parse it as a list\n        if isinstance(chronic_conditions, str):\n            try:\n                chronic_conditions = eval(chronic_conditions)\n                if isinstance(chronic_conditions, list):\n                    return len(chronic_conditions)\n            except (SyntaxError, NameError):\n                # If eval fails, treat it as no chronic conditions\n                return 0\n        \n        # If chronic_conditions is not a list or a valid string representation of a list, return 0\n        return 0\n    \n    # If no matching patient_row is found, return 0\n    return 0\n"
+        },
+        "0.07257271957633665": {
+            "name": "previous_surgeries_count",
+            "code": "\n\ndef previous_surgeries_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'medical_history_table.csv' is used correctly\n    if 'medical_history_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'medical_history_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the medical_history_table dataframe\n    medical_history_table = aux_dataframes['medical_history_table.csv']\n    \n    # Ensure the required columns exist in the medical_history_table\n    required_columns = {'patient_id', 'previous_surgeries'}\n    if not required_columns.issubset(medical_history_table.columns):\n        raise ValueError(f\"The medical_history_table is missing one or more required columns: {required_columns}\")\n    \n    # Filter the medical_history_table for the given patient_id\n    patient_row = medical_history_table[medical_history_table['patient_id'] == row['patient_id']]\n    \n    # Check if the patient_row is not empty\n    if not patient_row.empty:\n        # Extract the 'previous_surgeries' column value\n        previous_surgeries = patient_row.iloc[0]['previous_surgeries']\n        \n        # Safely evaluate the string representation of the list\n        try:\n            surgeries = eval(previous_surgeries) if isinstance(previous_surgeries, str) else previous_surgeries\n        except Exception:\n            surgeries = []\n        \n        # Return the count of surgeries, excluding 'none' (case-insensitive)\n        return len([s for s in surgeries if isinstance(s, str) and s.lower() != 'none']) if isinstance(surgeries, list) else 0\n    \n    # Return 0 if no matching patient_id is found\n    return 0\n"
+        },
+        "0.07135850584005679": {
+            "name": "admission_season",
+            "code": "import datetime\n\ndef admission_season(row):\n    admission_date = datetime.strptime(row['admission_date'], '%Y-%m-%d')\n    month = admission_date.month\n    if month in [12, 1, 2]:\n        return 0  # Winter\n    elif month in [3, 4, 5]:\n        return 1  # Spring\n    elif month in [6, 7, 8]:\n        return 2  # Summer\n    else:\n        return 3  # Fall\n"
+        },
+        "0.05522262521192745": {
+            "name": "patient_age",
+            "code": "import datetime\nimport numpy as np\n\ndef patient_age(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> float:\n    # Ensure the key 'patient_table.csv' is used correctly\n    if 'patient_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'patient_table.csv' is missing from aux_dataframes.\")\n    \n    patient_table = aux_dataframes['patient_table.csv']\n    \n    # Ensure the patient_id exists in the patient_table\n    patient_row = patient_table[patient_table['patient_id'] == row['patient_id']]\n    if not patient_row.empty:\n        # Parse the date_of_birth and admission_date\n        birth_date = datetime.datetime.strptime(patient_row.iloc[0]['date_of_birth'], '%Y-%m-%d')\n        admission_date = datetime.datetime.strptime(row['admission_date'], '%Y-%m-%d')\n        \n        # Calculate the age in years\n        return (admission_date - birth_date).days // 365\n    \n    # Return NaN if no matching patient_id is found\n    return np.nan\n"
+        },
+        "0.030230815775819125": {
+            "name": "is_weekend_admission",
+            "code": "import datetime\n\ndef is_weekend_admission(row):\n    admission_date = datetime.strptime(row['admission_date'], '%Y-%m-%d')\n    return int(admission_date.weekday() >= 5)  # 5 -> Saturday, 6 -> Sunday\n"
+        },
+        "0.023161608703626022": {
+            "name": "treatment_length",
+            "code": "\n\ndef treatment_length(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> int:\n    # Ensure the key 'treatment_table.csv' exists in aux_dataframes\n    if 'treatment_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'treatment_table.csv' is missing from aux_dataframes.\")\n    \n    # Get the treatment_table dataframe\n    treatment_table = aux_dataframes['treatment_table.csv']\n    \n    # Ensure the required columns exist in the treatment_table\n    required_columns = {'hospitalization_id', 'treatment_start_date', 'treatment_end_date'}\n    if not required_columns.issubset(treatment_table.columns):\n        raise ValueError(f\"The treatment_table is missing one or more required columns: {required_columns}\")\n    \n    # Filter treatments for the given hospitalization_id\n    treatments = treatment_table[treatment_table['hospitalization_id'] == row['hospitalization_id']]\n    \n    # If there are treatments, calculate the total treatment length in days\n    if not treatments.empty:\n        total_days = sum(\n            (datetime.strptime(t['treatment_end_date'], '%Y-%m-%d') - \n             datetime.strptime(t['treatment_start_date'], '%Y-%m-%d')).days\n            for _, t in treatments.iterrows()\n        )\n        return total_days\n    \n    # If no treatments are found, return 0\n    return 0\n"
+        },
+        "0.02162059807378695": {
+            "name": "num_treatments",
+            "code": "\n\ndef num_treatments(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> int:\n    # Check if 'treatment_table' exists in aux_dataframes\n    if 'treatment_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'treatment_table.csv' is missing from aux_dataframes.\")\n    \n    # Get the treatment_table dataframe\n    treatment_table = aux_dataframes['treatment_table.csv']\n    \n    # Ensure the required columns exist in the treatment_table\n    required_columns = {'treatment_id', 'hospitalization_id', 'treatment_name', 'treatment_start_date', 'treatment_end_date'}\n    if not required_columns.issubset(treatment_table.columns):\n        raise ValueError(f\"The treatment_table is missing one or more required columns: {required_columns}\")\n    \n    # Filter treatments by hospitalization_id\n    treatments = treatment_table[treatment_table['hospitalization_id'] == row['hospitalization_id']]\n    \n    # Return the number of treatments\n    return len(treatments)\n"
+        },
+        "0.02108459954463176": {
+            "name": "allergies_count",
+            "code": "\n\ndef allergies_count(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> int:\n    # Check if 'medical_history_table.csv' exists in aux_dataframes\n    if 'medical_history_table.csv' not in aux_dataframes:\n        raise KeyError(\"'medical_history_table.csv' not found in aux_dataframes\")\n    \n    # Get the medical_history_table dataframe\n    medical_history_table = aux_dataframes['medical_history_table.csv']\n    \n    # Ensure the required columns exist in the medical_history_table\n    required_columns = {'patient_id', 'allergies'}\n    if not required_columns.issubset(medical_history_table.columns):\n        raise KeyError(f\"Missing required columns in medical_history_table: {required_columns - set(medical_history_table.columns)}\")\n    \n    # Find the row in medical_history_table corresponding to the patient_id in the input row\n    patient_row = medical_history_table[medical_history_table['patient_id'] == row['patient_id']]\n    \n    # If the patient_row is not empty, process the allergies column\n    if not patient_row.empty:\n        # Extract the allergies value\n        allergies = patient_row.iloc[0]['allergies']\n        \n        # If allergies is a string representation of a list, safely parse it\n        if isinstance(allergies, str):\n            try:\n                allergies = eval(allergies)  # Replace eval with safer parsing if possible\n            except Exception:\n                return 0  # Return 0 if parsing fails\n        \n        # Return the count of allergies if it's a list\n        return len(allergies) if isinstance(allergies, list) else 0\n    \n    # Return 0 if no matching patient_row is found\n    return 0\n"
+        },
+        "0.0028388230713672436": {
+            "name": "gender_encoded",
+            "code": "\n\ndef gender_encoded(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'patient_table.csv' is used correctly\n    if 'patient_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'patient_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the patient_table dataframe\n    patient_table = aux_dataframes['patient_table.csv']\n    \n    # Ensure the required columns exist in the patient_table\n    required_columns = {'patient_id', 'gender'}\n    if not required_columns.issubset(patient_table.columns):\n        raise KeyError(f\"The patient_table is missing one or more required columns: {required_columns}\")\n    \n    # Filter the patient_table for the matching patient_id\n    patient_row = patient_table[patient_table['patient_id'] == row['patient_id']]\n    \n    # Check if a matching row exists\n    if not patient_row.empty:\n        # Extract the gender and handle case insensitivity\n        gender = patient_row.iloc[0]['gender'].strip().lower()\n        # Return encoded gender: 1 for male, 2 for female, 0 for unknown/other\n        return 1 if gender == 'male' else (2 if gender == 'female' else 0)\n    \n    # Return 0 if no matching patient_id is found\n    return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "hospitalization duration",
+        "chronic conditions count",
+        "previous surgeries count",
+        "admission season",
+        "patient age",
+        "is weekend admission",
+        "treatment length",
+        "num treatments",
+        "allergies count",
+        "gender encoded"
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "total_transaction_amount",
+        "average_transaction_amount",
+        "avg_income_per_location",
+        "month_of_registration",
+        "transaction_count",
+        "registration_tenure"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.21471029560149082": {
+            "name": "total_transaction_amount",
+            "code": "\n\ndef total_transaction_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the transactions_table.csv DataFrame from aux_data\n    transactions_df = aux_data['transactions_table.csv']\n    \n    # Filter the transactions for the given customer_id and calculate the sum of transaction_amount\n    customer_id = row['customer_id']\n    total_amount = transactions_df[transactions_df['customer_id'] == customer_id]['transaction_amount'].sum()\n    \n    return total_amount\n"
+        },
+        "0.08506426626838344": {
+            "name": "average_transaction_amount",
+            "code": "\n\ndef average_transaction_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the transactions_table.csv dataframe from aux_data\n    transactions_df = aux_data['transactions_table.csv']\n    \n    # Filter the transactions dataframe for the given customer_id\n    customer_transactions = transactions_df[transactions_df['customer_id'] == row['customer_id']]\n    \n    # Compute and return the mean of the transaction_amount column\n    return customer_transactions['transaction_amount'].mean()\n"
+        },
+        "0.06194459349109819": {
+            "name": "avg_income_per_location",
+            "code": "\n\ndef avg_income_per_location(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Retrieve the demographics table from aux_data\n    demographics_df = aux_data['demographics_table.csv']\n    \n    # Get the location of the customer from the demographics table\n    customer_id = row['customer_id']\n    customer_location = demographics_df.loc[demographics_df['customer_id'] == customer_id, 'location']\n    \n    # If the customer location is not found, return None\n    if customer_location.empty:\n        return None\n    \n    # Extract the location value (assuming it's unique for each customer_id)\n    customer_location = customer_location.iloc[0]\n    \n    # Calculate the average income for the location\n    avg_income = demographics_df[demographics_df['location'] == customer_location]['income'].mean()\n    \n    return avg_income\n"
+        },
+        "0.05457018912456243": {
+            "name": "month_of_registration",
+            "code": "import pandas as pd\n\ndef month_of_registration(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Look up the customer_table dataframe from aux_data\n    customer_table = aux_data['customer_table.csv']\n    \n    # Find the registration_date for the given customer_id\n    registration_date = customer_table.loc[customer_table['customer_id'] == customer_id, 'registration_date']\n    \n    # Ensure registration_date is not empty\n    if not registration_date.empty:\n        # Convert registration_date to a datetime object and extract the month\n        return pd.to_datetime(registration_date.iloc[0]).month\n    else:\n        # Handle the case where the customer_id is not found\n        return None\n"
+        },
+        "0.047599249951269504": {
+            "name": "transaction_count",
+            "code": "\n\ndef transaction_count(row, df_train):\n       return len(df_train[df_train['customer_id'] == row['customer_id']])\n"
+        },
+        "0.0024937962567238414": {
+            "name": "registration_tenure",
+            "code": "import datetime\n\ndef registration_tenure(row, aux_data: Dict[str, pd.DataFrame]) -> int:\n    \"\"\"\n    Calculate the registration tenure (in days) for a given row.\n    :param row: A row from the dataframe.\n    :param aux_data: A dictionary containing auxiliary dataframes.\n    :return: The number of days since the customer's registration date.\n    \"\"\"\n    # Get the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Fetch the customer_table dataframe from aux_data\n    customer_table = aux_data['customer_table.csv']\n    \n    # Find the registration_date for the given customer_id\n    registration_date = customer_table.loc[customer_table['customer_id'] == customer_id, 'registration_date'].values[0]\n    \n    # Calculate the number of days since registration\n    return calculate_days_difference(registration_date, datetime.datetime.now())\n\ndef calculate_days_difference(start_date: str, end_date: datetime.datetime) -> int:\n    \"\"\"\n    Calculate the number of days between two dates.\n    :param start_date: The start date as a string in the format 'YYYY-MM-DD'.\n    :param end_date: The end date as a datetime object.\n    :return: The number of days between the two dates.\n    \"\"\"\n    start_date_obj = datetime.datetime.strptime(start_date, '%Y-%m-%d')\n    return (end_date - start_date_obj).days\n"
+        }
+    },
+    "feature_descriptions": [
+        "total transaction amount",
+        "average transaction amount",
+        "avg income per location",
+        "month of registration",
+        "transaction count",
+        "registration tenure"
+    ]
+}

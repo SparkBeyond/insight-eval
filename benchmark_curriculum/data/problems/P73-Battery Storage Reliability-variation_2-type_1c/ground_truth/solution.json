@@ -1,0 +1,16 @@
+{
+    "enriched_column_names": [
+        "variance_in_load_capacity_over_the_past_year",
+        "mean_time_between_two_consecutive_maintenance_activities",
+        "average_resolution_time_of_issues_reported_about_the_battery",
+        "total_reported_issues_in_the_last_operation_year",
+        "number_of_unresolved_issues_reported_in_the_past_year"
+    ],
+    "features_descriptions": [
+        "variance in load capacity over the past year",
+        "mean time between two consecutive maintenance activities",
+        "average resolution time of issues reported about the battery",
+        "total reported issues in the last operation year",
+        "number of unresolved issues reported in the past year"
+    ]
+}

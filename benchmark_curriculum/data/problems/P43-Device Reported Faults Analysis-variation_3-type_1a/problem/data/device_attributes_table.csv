@@ -1,0 +1,1001 @@
+device_id,device_type,purchase_date,warranty_period,manufacturer
+1,tablet,2021-11-08,21,Harris PLC
+2,tablet,2022-07-13,28,Colon Ltd
+3,tablet,2023-12-18,28,"Ball, Ortiz and Mason"
+4,smartphone,2023-08-13,29,"Knight, Wilson and Ramirez"
+5,smartphone,2022-09-22,13,"Campos, Rodriguez and Hernandez"
+6,smartphone,2020-07-12,32,"Thompson, Vance and Hughes"
+7,tablet,2020-07-28,27,Hill-Marsh
+8,smartphone,2021-11-07,29,"Ryan, Glover and Gomez"
+9,tablet,2020-09-26,31,Hamilton Group
+10,tablet,2024-10-21,17,Perez-Sandoval
+11,tablet,2023-03-16,26,Davis-Bass
+12,tablet,2024-12-13,16,"Taylor, Kelly and Sims"
+13,smartphone,2021-10-07,23,Kim-Massey
+14,tablet,2023-02-07,12,Castro Ltd
+15,smartphone,2022-10-12,26,Reed LLC
+16,tablet,2023-11-29,21,"Stephens, Hodge and Wright"
+17,tablet,2024-09-24,26,"Mccarthy, Doyle and Jensen"
+18,smartphone,2020-04-05,26,Nixon PLC
+19,smartphone,2025-03-10,25,Blankenship-Davila
+20,tablet,2020-11-07,30,"Owens, Wu and Roberts"
+21,tablet,2023-05-16,34,Smith and Sons
+22,tablet,2023-11-16,32,Garcia-Smith
+23,tablet,2021-10-09,14,Weaver Inc
+24,tablet,2023-01-06,20,"Freeman, Scott and Thomas"
+25,smartphone,2021-10-30,19,Lewis and Sons
+26,smartphone,2023-08-11,34,Cervantes-Carr
+27,smartphone,2021-02-23,24,Lloyd-Foley
+28,smartphone,2023-09-11,23,"Reed, Solis and Munoz"
+29,smartphone,2020-12-26,25,Kemp-Wright
+30,tablet,2024-09-18,31,"Reyes, Mendez and Mcfarland"
+31,smartphone,2021-11-23,31,"Decker, Blackburn and Cox"
+32,tablet,2024-01-27,31,"Harris, Frazier and Shaw"
+33,smartphone,2022-12-27,14,"Webb, Allen and Allen"
+34,tablet,2021-06-03,29,"Lee, Norris and Santiago"
+35,smartphone,2022-05-18,33,Sherman LLC
+36,tablet,2023-02-25,16,"May, Pena and Jenkins"
+37,smartphone,2025-03-07,13,"Hansen, Little and Walker"
+38,smartphone,2020-04-28,24,"Burton, Thomas and Benjamin"
+39,smartphone,2024-09-24,15,Vang-Ramirez
+40,tablet,2023-04-10,12,Vaughn Ltd
+41,smartphone,2020-05-21,12,"Johnson, Hall and Summers"
+42,smartphone,2024-11-23,25,Coleman and Sons
+43,smartphone,2023-06-20,34,Lee-English
+44,tablet,2023-08-19,16,"Fischer, Mckee and Sherman"
+45,smartphone,2024-08-15,15,Wilson-Rodriguez
+46,smartphone,2024-01-03,36,Hamilton-Chen
+47,smartphone,2023-08-16,22,Perry LLC
+48,tablet,2024-06-13,26,Jones Group
+49,tablet,2021-08-14,19,Simpson PLC
+50,smartphone,2020-11-16,30,"Smith, Campbell and Suarez"
+51,tablet,2020-06-20,19,Gardner Inc
+52,smartphone,2022-11-19,33,"Martin, King and Krause"
+53,tablet,2023-03-07,29,"Mack, Tyler and Vance"
+54,smartphone,2024-02-26,30,"Bryan, Morris and Hancock"
+55,tablet,2022-06-27,19,Smith-Walsh
+56,tablet,2025-03-26,34,Orozco LLC
+57,tablet,2022-08-02,21,"Bailey, Guzman and Hawkins"
+58,smartphone,2024-02-11,17,Stephenson Ltd
+59,smartphone,2023-11-29,18,"Reynolds, Chung and Moore"
+60,smartphone,2024-10-22,18,Welch LLC
+61,smartphone,2024-06-14,19,Gonzalez-Martinez
+62,smartphone,2021-08-24,14,Johnston-Wright
+63,tablet,2024-03-19,34,Patel-Moore
+64,smartphone,2024-02-05,13,"Robinson, Davis and Mendoza"
+65,smartphone,2022-03-09,36,Cobb PLC
+66,tablet,2020-07-23,19,Lewis-Myers
+67,tablet,2020-09-14,36,Bird-Yates
+68,smartphone,2025-03-23,24,"Hess, Sharp and Garcia"
+69,smartphone,2021-11-10,35,Thomas-Scott
+70,tablet,2021-08-11,21,Perez-Reyes
+71,smartphone,2021-04-10,32,Ray-Shaw
+72,smartphone,2025-04-02,20,Johnson-Allen
+73,tablet,2020-02-18,35,Mathis LLC
+74,tablet,2020-12-02,33,Quinn Group
+75,smartphone,2023-04-21,21,Turner-Butler
+76,tablet,2023-01-06,31,"Palmer, Wang and Schmidt"
+77,smartphone,2020-01-14,21,Cross-Smith
+78,smartphone,2020-04-21,31,"Ryan, Hernandez and Nelson"
+79,tablet,2024-08-11,13,"Newman, Collins and Woods"
+80,smartphone,2025-03-28,19,"Obrien, Rodriguez and Pitts"
+81,smartphone,2023-02-25,18,"Mcdaniel, Mitchell and Green"
+82,smartphone,2021-06-14,22,Delgado PLC
+83,smartphone,2021-08-16,27,Barajas-Ayers
+84,tablet,2022-07-29,33,Gordon and Sons
+85,smartphone,2025-01-25,12,Mitchell Inc
+86,smartphone,2020-11-17,33,Walker-Molina
+87,smartphone,2020-03-17,14,"Nelson, Ramsey and Allen"
+88,tablet,2022-07-09,21,Peterson-Harvey
+89,tablet,2025-04-01,24,Figueroa-Cain
+90,tablet,2023-12-20,35,"Ruiz, Barnes and Johnson"
+91,smartphone,2025-02-28,29,"Sharp, Stephenson and Garcia"
+92,tablet,2024-05-15,22,"Underwood, Vargas and Williams"
+93,tablet,2023-09-15,36,Becker-Smith
+94,tablet,2020-08-11,21,"Wilson, Boyd and Kim"
+95,smartphone,2020-06-17,30,Jackson Ltd
+96,smartphone,2024-11-04,36,"Higgins, Stone and Thompson"
+97,tablet,2021-06-05,28,Garza PLC
+98,smartphone,2021-05-30,36,"Schroeder, Flores and Bowen"
+99,smartphone,2022-12-16,18,Brown-Russell
+100,smartphone,2022-05-16,33,"Jones, Rojas and Hicks"
+101,smartphone,2022-12-19,33,Munoz-Coleman
+102,smartphone,2022-07-26,33,"Peterson, Hubbard and Sandoval"
+103,tablet,2024-11-06,29,"Thompson, Thompson and Williams"
+104,tablet,2024-12-01,22,Hogan Ltd
+105,tablet,2020-11-28,17,Hickman-Anderson
+106,tablet,2024-12-16,21,Stephens and Sons
+107,smartphone,2022-05-26,22,Morrow-Johnson
+108,smartphone,2023-06-09,29,"Meyer, Aguilar and Fernandez"
+109,smartphone,2024-10-02,26,Rice-Austin
+110,smartphone,2021-06-03,34,Long-Foster
+111,tablet,2024-07-16,26,Nelson LLC
+112,tablet,2020-08-15,12,Wade and Sons
+113,smartphone,2025-02-20,19,Goodwin and Sons
+114,smartphone,2022-09-01,29,"Smith, Cook and Carey"
+115,tablet,2020-12-08,26,Trujillo-Chavez
+116,smartphone,2024-07-27,34,Richard-Velez
+117,smartphone,2022-04-27,14,"Mitchell, Johnson and Sanchez"
+118,smartphone,2023-08-08,31,"Whitehead, Keller and Gray"
+119,tablet,2023-07-22,17,Lopez Group
+120,tablet,2022-11-19,23,"Farmer, Morris and Martinez"
+121,smartphone,2023-04-14,28,Dawson and Sons
+122,tablet,2024-02-26,12,Wheeler-Carey
+123,tablet,2024-03-04,21,Sherman and Sons
+124,tablet,2023-12-27,12,Nielsen-Mcneil
+125,smartphone,2024-06-17,22,Moore-Garcia
+126,smartphone,2022-10-31,27,Morse LLC
+127,tablet,2021-04-10,21,"Lane, Atkinson and Lewis"
+128,tablet,2020-01-20,23,Ortiz Inc
+129,tablet,2024-07-30,16,Davis-Robinson
+130,smartphone,2021-02-28,19,"Huber, Thomas and Mcmahon"
+131,tablet,2023-01-23,26,"Rich, Thompson and Mason"
+132,smartphone,2021-08-23,28,Beasley and Sons
+133,tablet,2021-12-27,29,"Brown, Burnett and Santana"
+134,tablet,2024-03-11,13,Dunn LLC
+135,tablet,2022-08-20,25,Bates-Johnson
+136,tablet,2022-10-17,30,Fernandez Ltd
+137,tablet,2020-03-01,26,"Herrera, Carpenter and Dennis"
+138,smartphone,2023-03-03,22,Simmons-Green
+139,smartphone,2022-12-15,16,Young-Martinez
+140,tablet,2021-03-10,33,White PLC
+141,smartphone,2022-03-12,36,Henry Group
+142,smartphone,2024-10-24,18,Hudson Group
+143,smartphone,2020-02-03,15,Rodriguez and Sons
+144,smartphone,2025-02-17,22,Hudson PLC
+145,tablet,2023-12-14,21,Johnson PLC
+146,tablet,2020-09-30,26,"Graham, Oliver and Bowers"
+147,tablet,2023-12-28,13,Marsh PLC
+148,tablet,2020-08-30,24,Perry-Barnett
+149,tablet,2020-04-18,28,Weaver Ltd
+150,smartphone,2024-06-23,35,"Anderson, Martin and Scott"
+151,tablet,2023-11-17,16,Kelly LLC
+152,smartphone,2021-09-26,33,"Fowler, Williams and Anderson"
+153,smartphone,2023-06-10,14,Beasley LLC
+154,smartphone,2024-10-24,22,"Miller, Ruiz and Garza"
+155,tablet,2022-06-19,32,Jackson-Welch
+156,tablet,2022-09-23,32,Spencer LLC
+157,smartphone,2022-08-03,15,"Rivas, Adams and Strickland"
+158,smartphone,2024-07-30,23,Rodriguez-Jacobs
+159,tablet,2022-08-07,29,Larsen-Smith
+160,smartphone,2024-07-16,36,Sampson-Warren
+161,tablet,2024-12-11,20,"Alvarado, Parrish and Reilly"
+162,tablet,2021-03-24,32,"Holt, Morales and Munoz"
+163,tablet,2021-03-26,28,"Donaldson, Wilkerson and Barber"
+164,smartphone,2025-04-18,34,"Johnson, Cummings and David"
+165,smartphone,2021-02-20,15,Ibarra LLC
+166,smartphone,2020-05-23,30,"Allen, Tran and Campbell"
+167,smartphone,2024-03-31,19,"Combs, Austin and Juarez"
+168,tablet,2020-07-31,30,King PLC
+169,tablet,2022-11-27,26,Haley Group
+170,tablet,2023-09-18,22,Lopez-Travis
+171,tablet,2020-01-24,12,Glass and Sons
+172,tablet,2021-10-26,19,"Owens, Williams and Leonard"
+173,smartphone,2022-06-07,27,Jackson Ltd
+174,smartphone,2020-12-28,24,Mack-Scott
+175,tablet,2024-02-20,20,"Morales, Herrera and Ellis"
+176,smartphone,2023-11-29,27,Jones-Marquez
+177,tablet,2022-10-06,18,Jackson LLC
+178,smartphone,2023-12-22,18,Macdonald PLC
+179,smartphone,2023-05-22,17,Skinner Inc
+180,tablet,2024-03-13,17,Anderson-Riddle
+181,tablet,2022-12-17,27,Foster-Clark
+182,smartphone,2024-02-07,16,"Gregory, Gilmore and Jenkins"
+183,tablet,2022-11-02,17,"Salas, Butler and Collins"
+184,tablet,2020-04-04,19,"Powell, Kennedy and Schneider"
+185,smartphone,2020-08-13,18,Huynh-Rodriguez
+186,smartphone,2022-02-13,17,"Mitchell, Webster and Watson"
+187,tablet,2020-10-22,29,"Mcbride, Taylor and Davidson"
+188,smartphone,2022-08-01,32,"Andrews, Perkins and Douglas"
+189,tablet,2024-11-15,30,"Mills, Clay and Hebert"
+190,tablet,2022-11-02,22,"Brown, Olson and Powell"
+191,tablet,2021-09-10,35,"Lin, Vasquez and Adams"
+192,tablet,2021-01-22,13,"Carr, Vargas and Hogan"
+193,tablet,2022-02-22,25,Moody-Carr
+194,smartphone,2024-04-18,28,Jensen-Henderson
+195,smartphone,2025-04-16,25,Chang-Deleon
+196,tablet,2021-07-27,23,Hampton-Moore
+197,tablet,2022-09-27,17,Stewart-Lewis
+198,tablet,2023-07-18,13,"Glenn, Miller and Johnson"
+199,smartphone,2021-05-28,34,Murphy PLC
+200,tablet,2024-01-23,36,Williams Inc
+201,smartphone,2024-02-13,32,"Humphrey, Gibson and Allison"
+202,tablet,2020-09-15,21,"Melendez, Guerrero and Turner"
+203,tablet,2021-09-11,12,"Garrison, Allison and Cardenas"
+204,tablet,2023-05-31,34,Mckenzie LLC
+205,tablet,2022-06-08,29,Lowery LLC
+206,smartphone,2023-12-15,22,"Roth, White and Martin"
+207,smartphone,2023-05-19,16,Hudson Inc
+208,tablet,2024-07-07,17,"Burton, Bond and Perez"
+209,smartphone,2021-02-14,18,"Cross, Hansen and Foster"
+210,smartphone,2022-09-06,20,"Jones, Rodriguez and Cook"
+211,smartphone,2024-10-09,23,"Mack, Cole and Estrada"
+212,tablet,2025-04-19,14,"Smith, Woods and Little"
+213,smartphone,2022-08-23,16,Robles-Charles
+214,smartphone,2020-04-21,26,Morris LLC
+215,smartphone,2020-09-08,35,"Cruz, Gomez and Yoder"
+216,smartphone,2025-01-02,27,Kennedy and Sons
+217,smartphone,2020-11-24,34,"Miller, Francis and Miles"
+218,tablet,2022-10-07,23,"Hernandez, Smith and Long"
+219,tablet,2021-07-21,27,Liu LLC
+220,smartphone,2022-04-07,23,Wall-Pratt
+221,tablet,2024-12-28,27,Adams and Sons
+222,smartphone,2022-06-10,17,Armstrong-Peters
+223,tablet,2020-10-29,28,Hernandez-Brown
+224,smartphone,2020-11-16,35,"Hurley, Horton and Henderson"
+225,tablet,2022-08-29,24,Nguyen-Giles
+226,smartphone,2021-05-07,17,Turner LLC
+227,tablet,2023-07-08,16,"Flores, Becker and Anderson"
+228,smartphone,2025-03-10,23,Reese and Sons
+229,tablet,2024-08-30,32,Castillo PLC
+230,smartphone,2022-12-08,36,Jackson-Little
+231,tablet,2022-11-01,22,Gillespie-Sanchez
+232,tablet,2023-09-30,21,"Sheppard, Johnson and Mills"
+233,smartphone,2024-06-16,26,Davis PLC
+234,smartphone,2024-07-07,29,Harmon LLC
+235,tablet,2023-03-27,34,Shelton PLC
+236,tablet,2024-01-16,34,Joseph Group
+237,tablet,2023-02-24,33,Williams-Vasquez
+238,smartphone,2024-04-17,35,Johnson-Walls
+239,smartphone,2023-06-04,27,"Johnson, Carlson and Rodriguez"
+240,tablet,2023-08-27,34,Wilcox-Anderson
+241,tablet,2023-08-07,22,Garza-Walker
+242,tablet,2022-03-04,22,West-Lee
+243,smartphone,2021-06-20,13,Combs Inc
+244,tablet,2022-01-15,13,Burke-Smith
+245,smartphone,2021-06-09,13,"Brennan, Cortez and King"
+246,smartphone,2020-10-24,29,Chang LLC
+247,smartphone,2023-07-03,13,Montoya Ltd
+248,smartphone,2022-05-31,12,"Skinner, Meyer and Marshall"
+249,tablet,2020-09-28,30,"Sawyer, Neal and Serrano"
+250,smartphone,2023-12-02,30,Mcgee Group
+251,tablet,2020-12-31,36,"Serrano, Waller and Harrison"
+252,tablet,2025-04-12,17,Miller Ltd
+253,tablet,2021-08-09,15,"Wright, Castillo and Hanna"
+254,smartphone,2020-12-13,26,Rojas LLC
+255,smartphone,2024-06-07,14,Allen-Thompson
+256,tablet,2021-06-12,32,Miranda-Hall
+257,tablet,2022-12-12,19,"Smith, Patterson and Foster"
+258,tablet,2021-02-01,15,Lang-Guzman
+259,smartphone,2021-06-05,29,Olson-Park
+260,tablet,2024-03-15,33,"Pittman, Wilson and Mcguire"
+261,tablet,2024-12-13,36,Rogers-Benjamin
+262,smartphone,2021-12-17,15,Wagner-Johnson
+263,smartphone,2025-01-26,15,Hoffman-Lamb
+264,smartphone,2025-02-22,36,"Payne, Smith and West"
+265,smartphone,2023-06-08,25,"Chavez, Garcia and Ortiz"
+266,tablet,2024-06-24,21,Willis-Castaneda
+267,smartphone,2025-02-22,12,"Harper, Mason and Johnston"
+268,smartphone,2023-07-07,23,Lawrence-Oliver
+269,smartphone,2022-03-09,14,Jones-Mcclain
+270,tablet,2020-06-25,15,Thomas Group
+271,smartphone,2021-08-27,32,Oconnor-Ryan
+272,smartphone,2024-07-30,24,Rios-Harris
+273,tablet,2023-04-29,28,Conner-Lyons
+274,tablet,2022-09-14,19,Rowland Group
+275,tablet,2023-10-09,24,Gill-Garcia
+276,tablet,2021-10-18,26,"Stevenson, Reeves and Cole"
+277,smartphone,2023-01-15,22,Collins LLC
+278,smartphone,2022-09-30,27,Pope-Cox
+279,smartphone,2024-07-06,25,"Jones, Jones and Aguirre"
+280,smartphone,2024-09-30,15,Martin-Miller
+281,tablet,2020-09-20,28,"Palmer, Johnson and Moreno"
+282,tablet,2021-01-29,31,Schmidt and Sons
+283,smartphone,2023-07-27,20,"Browning, Williams and Clements"
+284,tablet,2020-10-22,25,Edwards and Sons
+285,smartphone,2023-10-12,15,"Smith, Taylor and Walls"
+286,smartphone,2024-02-26,24,Miller-Perry
+287,tablet,2022-03-04,25,"Nelson, Acosta and Gomez"
+288,smartphone,2025-03-28,19,Marsh-Garza
+289,smartphone,2022-03-18,33,Jones-Barnes
+290,smartphone,2021-09-14,35,Stafford-Love
+291,tablet,2021-10-21,24,Rodriguez-Marsh
+292,tablet,2023-07-02,21,Mills Group
+293,tablet,2025-02-15,20,Copeland-Arellano
+294,smartphone,2020-09-16,31,"Morales, Santiago and Poole"
+295,tablet,2024-09-15,15,"White, Alexander and Contreras"
+296,smartphone,2023-08-02,29,Lane-Clay
+297,smartphone,2022-06-21,15,"Thompson, Thomas and Vega"
+298,smartphone,2020-07-13,15,Gibbs-Evans
+299,smartphone,2023-09-12,30,Hoover-King
+300,tablet,2023-08-13,35,Evans Group
+301,tablet,2024-08-18,14,"Perez, Reyes and Reyes"
+302,tablet,2020-03-23,31,Webb-Chase
+303,tablet,2023-01-10,19,Rodriguez-Martin
+304,tablet,2021-08-15,21,Davis LLC
+305,smartphone,2024-05-14,34,Scott-Kennedy
+306,tablet,2024-11-22,26,"Price, Hart and Vargas"
+307,tablet,2024-04-01,16,Spence-Davis
+308,tablet,2020-11-27,13,Wade LLC
+309,smartphone,2022-09-06,33,Roberts Inc
+310,smartphone,2021-10-27,15,"Hampton, Jones and Webb"
+311,smartphone,2022-05-10,22,Hicks-Anderson
+312,smartphone,2023-07-12,16,Stewart-Davis
+313,tablet,2022-09-10,25,Holloway-Buchanan
+314,smartphone,2023-12-01,32,Cruz and Sons
+315,smartphone,2021-11-19,31,"Hendricks, Sosa and Garcia"
+316,tablet,2022-08-30,33,Alexander-Rodriguez
+317,tablet,2022-05-24,29,"Wilson, Williams and Johnson"
+318,smartphone,2021-10-22,21,Skinner Inc
+319,tablet,2023-05-14,35,Luna and Sons
+320,tablet,2022-01-24,34,Stone-Blackburn
+321,smartphone,2021-08-27,31,"Smith, Grimes and Strickland"
+322,smartphone,2022-01-24,26,Smith-Barnes
+323,smartphone,2020-06-18,14,Reeves Inc
+324,smartphone,2021-02-05,30,Brown-Patterson
+325,smartphone,2022-08-03,24,Hill Inc
+326,tablet,2023-09-18,35,"Snow, Butler and Soto"
+327,tablet,2024-07-28,20,Smith LLC
+328,smartphone,2023-04-06,19,Ellis Group
+329,smartphone,2022-06-28,21,"Lamb, Garrett and Nichols"
+330,smartphone,2024-09-22,22,Ritter PLC
+331,tablet,2023-09-01,13,"Dixon, Meza and Levy"
+332,smartphone,2024-11-10,12,Flores-Washington
+333,tablet,2023-09-09,15,"Payne, Hughes and Gonzalez"
+334,smartphone,2025-03-24,32,Guerrero Group
+335,tablet,2024-11-17,20,James and Sons
+336,smartphone,2021-08-06,28,Ramirez-Chen
+337,tablet,2020-02-20,23,"Clark, Padilla and Richards"
+338,smartphone,2025-04-24,32,"Leon, Dixon and Day"
+339,tablet,2022-12-20,15,Delgado PLC
+340,tablet,2020-03-08,32,"Turner, Patel and Gray"
+341,tablet,2020-07-17,12,Marsh-Woods
+342,smartphone,2022-08-27,12,Sanders-Harrison
+343,tablet,2021-02-13,27,Ho-Horn
+344,tablet,2023-12-15,12,"Hart, Mitchell and King"
+345,smartphone,2022-02-12,16,"Gordon, Bartlett and Schneider"
+346,smartphone,2021-02-11,28,Clark-Lee
+347,smartphone,2020-10-06,20,Aguilar-Lowe
+348,smartphone,2022-09-23,18,James-Allen
+349,tablet,2020-04-23,14,Hill-Anderson
+350,smartphone,2021-10-19,30,Green-Henderson
+351,tablet,2020-07-06,27,"Bishop, Duncan and Davidson"
+352,smartphone,2024-05-21,20,Lawson-Ortega
+353,tablet,2025-03-30,23,Ramirez LLC
+354,smartphone,2023-02-24,30,Ferguson-Stephens
+355,tablet,2020-02-25,32,"Adams, Clark and Cook"
+356,smartphone,2024-07-29,23,Robinson-Alexander
+357,tablet,2022-04-19,21,Johnson-Thornton
+358,tablet,2020-09-01,12,Lewis Inc
+359,tablet,2024-07-25,29,Ortiz Ltd
+360,tablet,2023-05-19,25,Moore-Haas
+361,smartphone,2022-06-28,15,Avery-Smith
+362,smartphone,2021-11-25,27,"Andrade, Lyons and Garza"
+363,tablet,2021-05-13,21,Mata Ltd
+364,smartphone,2024-03-19,34,Hernandez Group
+365,tablet,2022-04-10,26,"Schneider, Chavez and Woods"
+366,smartphone,2021-07-21,16,Johnson LLC
+367,tablet,2021-01-31,23,"Patrick, Norton and Jones"
+368,tablet,2020-07-27,28,"Arnold, Richards and Duncan"
+369,smartphone,2022-11-07,29,Johnson-Rodriguez
+370,smartphone,2022-10-23,34,"Walker, Booker and Morgan"
+371,tablet,2020-10-13,12,"Molina, Landry and Harrison"
+372,tablet,2022-05-05,19,"Williams, Rice and Garcia"
+373,tablet,2024-02-17,28,"Martin, Marshall and Cooper"
+374,tablet,2021-10-31,30,Miller Ltd
+375,tablet,2023-10-30,20,Singh PLC
+376,smartphone,2024-04-23,30,Cruz-Jenkins
+377,smartphone,2025-04-09,28,Potts PLC
+378,tablet,2022-11-14,15,Morales-Howard
+379,smartphone,2025-04-18,20,"Nguyen, Beltran and Williams"
+380,tablet,2023-01-27,26,"Rhodes, Mitchell and Holder"
+381,tablet,2020-02-16,32,Mccoy PLC
+382,smartphone,2020-11-05,24,Gallegos and Sons
+383,tablet,2024-10-21,31,Stone and Sons
+384,tablet,2021-12-26,31,"Morrison, Scott and Bernard"
+385,smartphone,2024-04-07,17,Espinoza Ltd
+386,tablet,2020-03-26,28,Howe-Jackson
+387,smartphone,2023-07-31,23,"Thomas, Turner and Garcia"
+388,smartphone,2023-03-23,12,"Howard, Hendricks and Vincent"
+389,tablet,2020-12-10,32,West and Sons
+390,tablet,2021-01-03,14,"Gray, West and Perry"
+391,smartphone,2022-10-29,31,Cooper and Sons
+392,smartphone,2022-11-04,26,"Robertson, Horn and Jones"
+393,tablet,2021-02-27,19,Mendoza-Parker
+394,smartphone,2020-04-26,25,Stephenson LLC
+395,smartphone,2024-11-16,19,Perry-Little
+396,tablet,2023-11-19,12,Hudson Ltd
+397,smartphone,2022-03-05,16,King-Farley
+398,tablet,2022-08-19,17,Francis-Gonzales
+399,smartphone,2020-03-21,31,Patton-Higgins
+400,tablet,2022-08-14,26,"Foster, Choi and Weeks"
+401,smartphone,2020-07-04,36,"Oneill, Wright and Deleon"
+402,tablet,2021-06-24,26,"Thompson, Ruiz and Watson"
+403,tablet,2024-02-25,21,Johnson Group
+404,smartphone,2020-10-11,35,"Le, Johnson and Moore"
+405,smartphone,2022-07-19,35,"Houston, Hernandez and Marquez"
+406,smartphone,2021-04-09,31,"Hines, Jenkins and Rodriguez"
+407,smartphone,2020-01-19,29,Conner-Hoffman
+408,smartphone,2021-09-24,34,"Floyd, Morris and Logan"
+409,smartphone,2021-03-18,33,"Munoz, Chavez and Harris"
+410,smartphone,2025-03-14,15,Weaver LLC
+411,smartphone,2021-11-15,22,Harris Inc
+412,smartphone,2023-11-08,29,Koch Ltd
+413,smartphone,2023-07-24,35,"Carter, Wang and Donaldson"
+414,smartphone,2021-08-09,34,Williams-Chapman
+415,tablet,2020-08-21,23,Gomez-Mahoney
+416,smartphone,2021-09-09,25,Jones Ltd
+417,tablet,2021-05-17,23,Barton-Randolph
+418,smartphone,2023-12-23,22,Mcfarland-White
+419,tablet,2021-06-14,26,"Brown, Rivera and Walker"
+420,smartphone,2023-02-28,30,Lambert PLC
+421,smartphone,2021-04-08,12,Duncan PLC
+422,tablet,2021-05-14,16,Stephens-Thomas
+423,tablet,2024-05-29,20,"Levy, Smith and Hall"
+424,smartphone,2022-11-17,32,"Rodriguez, Gonzalez and Williams"
+425,smartphone,2022-05-05,28,Rowland-Anderson
+426,tablet,2024-01-07,27,Carter-White
+427,smartphone,2022-12-15,12,"Wood, Thompson and Jenkins"
+428,tablet,2023-02-02,17,Olson-Stone
+429,tablet,2020-02-02,35,Orr-Yates
+430,smartphone,2023-12-11,25,Weeks-Estes
+431,smartphone,2023-02-21,36,"Long, Griffin and Simpson"
+432,smartphone,2021-07-26,19,Kennedy LLC
+433,smartphone,2022-06-28,35,Brooks-Palmer
+434,tablet,2021-08-29,29,Thomas Group
+435,smartphone,2022-03-09,19,Romero-Peterson
+436,tablet,2022-05-17,22,Barrett Inc
+437,smartphone,2023-01-24,16,"Bryan, Vasquez and May"
+438,tablet,2023-06-01,15,"Mills, Swanson and Velazquez"
+439,tablet,2020-05-12,28,Jones Group
+440,tablet,2023-01-27,16,Chase LLC
+441,tablet,2022-01-04,15,Perez-Reed
+442,tablet,2023-03-04,15,Murray-Cooper
+443,smartphone,2024-05-06,18,Moore LLC
+444,tablet,2020-04-25,18,Howard-Johnson
+445,tablet,2023-08-29,23,"Allen, Williams and Hawkins"
+446,tablet,2020-06-05,23,Cruz-York
+447,smartphone,2024-01-05,23,Sullivan-Myers
+448,tablet,2024-09-28,21,Roberts Group
+449,smartphone,2022-09-03,15,Young and Sons
+450,tablet,2024-02-22,28,Austin PLC
+451,smartphone,2023-11-14,34,Lara-Myers
+452,smartphone,2024-09-13,33,"Richardson, Mitchell and Holder"
+453,tablet,2025-03-23,18,Tucker Group
+454,smartphone,2023-04-08,23,Johnson and Sons
+455,tablet,2023-10-09,34,"Andersen, Thomas and Clayton"
+456,tablet,2020-11-03,15,Robinson Group
+457,smartphone,2021-04-28,15,Gibson Group
+458,tablet,2024-07-23,18,Johnson PLC
+459,smartphone,2020-01-25,17,"Strickland, Frey and Garcia"
+460,smartphone,2022-02-16,34,Miller-Norton
+461,tablet,2025-03-30,33,"Ford, Rodriguez and Pennington"
+462,smartphone,2020-09-24,24,Harris Inc
+463,smartphone,2023-10-25,13,"Young, Hernandez and Terry"
+464,tablet,2021-01-01,36,Wilson LLC
+465,smartphone,2023-10-04,35,Huff and Sons
+466,smartphone,2024-12-05,12,Robles LLC
+467,smartphone,2021-04-20,30,Le LLC
+468,tablet,2023-11-30,17,Peterson Inc
+469,smartphone,2024-02-15,21,Rodriguez-Ramirez
+470,tablet,2023-07-07,35,Reyes-Acosta
+471,smartphone,2024-03-07,28,Keller-Perry
+472,tablet,2023-11-25,13,"Gonzalez, Barnes and Williams"
+473,tablet,2021-04-19,27,Flores Group
+474,smartphone,2021-07-20,32,"Bartlett, Kelly and Watkins"
+475,smartphone,2025-01-09,15,Martinez-Dominguez
+476,tablet,2022-06-28,17,Reyes-Bradley
+477,tablet,2023-02-04,29,"Lane, Haley and Romero"
+478,smartphone,2025-02-10,19,"Underwood, Compton and Spencer"
+479,tablet,2024-12-17,22,Wilson Ltd
+480,smartphone,2024-02-14,33,Mcdaniel-Gonzalez
+481,smartphone,2025-03-23,15,Farley Group
+482,tablet,2023-11-17,18,Burke and Sons
+483,smartphone,2025-02-18,17,Ferrell-Robinson
+484,tablet,2024-12-08,13,Thomas-Richards
+485,smartphone,2020-01-23,34,"Sanchez, Gallagher and Martin"
+486,smartphone,2022-01-03,17,Brooks PLC
+487,smartphone,2023-10-19,24,"Mullins, Miller and Copeland"
+488,tablet,2022-11-13,17,Medina PLC
+489,smartphone,2020-02-09,24,Price-Gonzalez
+490,smartphone,2022-08-10,33,Page-Hicks
+491,smartphone,2022-04-21,23,Hill Ltd
+492,tablet,2020-05-23,19,Stewart PLC
+493,smartphone,2023-01-03,24,"Anderson, Clay and Vargas"
+494,tablet,2022-02-02,29,Rodriguez-Baker
+495,smartphone,2023-09-11,31,"Gray, Myers and West"
+496,tablet,2021-06-30,12,Wilson Ltd
+497,tablet,2021-10-31,21,Stevens and Sons
+498,tablet,2021-12-06,20,Anderson Ltd
+499,smartphone,2021-06-30,12,"Mcbride, Ellison and Rhodes"
+500,tablet,2023-12-29,31,"Davis, Cobb and Ferrell"
+501,tablet,2022-08-28,22,Walton-Williams
+502,tablet,2021-11-28,22,Brown-Perez
+503,smartphone,2021-01-24,16,Walters-Lee
+504,tablet,2023-08-07,12,"Carrillo, Khan and Martin"
+505,tablet,2023-05-10,20,Jones-Torres
+506,smartphone,2021-08-05,27,Armstrong Ltd
+507,tablet,2024-02-17,22,"Anderson, Hess and Fletcher"
+508,tablet,2022-10-15,33,"Jones, Wong and Hernandez"
+509,smartphone,2021-01-31,16,"Smith, Bond and Mckinney"
+510,tablet,2023-03-28,27,Hart PLC
+511,smartphone,2023-02-09,16,"Wilson, Smith and Stewart"
+512,smartphone,2021-06-20,30,Price-Taylor
+513,smartphone,2023-05-12,15,Hale-Perry
+514,tablet,2023-06-27,36,"Barber, Anderson and Taylor"
+515,smartphone,2022-09-22,34,"Roy, Murphy and Ho"
+516,smartphone,2020-12-04,33,Hart PLC
+517,smartphone,2020-12-26,21,"Wolf, Jones and Freeman"
+518,smartphone,2022-04-15,34,"Allen, Nelson and Stout"
+519,smartphone,2022-05-11,29,Hudson-Blevins
+520,smartphone,2023-05-10,28,Griffith-Maynard
+521,smartphone,2021-01-19,15,Smith-Bennett
+522,tablet,2024-05-14,29,Singh-Steele
+523,tablet,2020-06-02,22,Schroeder Group
+524,tablet,2024-07-01,15,Warner-Davidson
+525,tablet,2020-07-30,33,"Wells, Hernandez and Martin"
+526,smartphone,2024-06-20,26,"Mcintosh, Gonzalez and Hartman"
+527,smartphone,2024-02-02,16,Estrada-Ellis
+528,smartphone,2021-08-29,17,Morris PLC
+529,tablet,2020-04-24,13,"Alexander, Lane and Turner"
+530,tablet,2021-11-16,15,Hoffman and Sons
+531,smartphone,2024-11-01,18,White and Sons
+532,smartphone,2021-01-19,13,"Stevenson, Gray and Carroll"
+533,smartphone,2022-02-19,17,Mckay-Rice
+534,smartphone,2021-02-26,26,"Gentry, Franklin and Vargas"
+535,tablet,2021-02-16,21,"Burke, Smith and King"
+536,tablet,2020-12-27,12,"Sanchez, Freeman and Lee"
+537,smartphone,2021-02-08,31,"Giles, Valenzuela and Spence"
+538,smartphone,2022-02-10,24,Blair-Braun
+539,smartphone,2024-09-11,34,"Ward, Moss and Johnson"
+540,smartphone,2022-01-16,19,"Kelly, Allen and Macdonald"
+541,smartphone,2022-06-23,30,Schroeder LLC
+542,smartphone,2023-11-21,26,Thompson Inc
+543,tablet,2022-03-08,12,Lamb-Williams
+544,smartphone,2021-08-07,15,Crawford-Washington
+545,smartphone,2025-03-27,21,Anderson and Sons
+546,smartphone,2023-06-04,25,Lawrence-Torres
+547,smartphone,2024-02-17,28,"Reed, Cruz and Simmons"
+548,tablet,2023-05-30,25,Brady-Zamora
+549,smartphone,2024-07-23,20,Moss Inc
+550,smartphone,2022-03-18,17,Mcintyre Inc
+551,tablet,2022-06-24,34,Smith Inc
+552,tablet,2023-04-16,34,Pugh Ltd
+553,smartphone,2024-02-07,23,Rowe-Gray
+554,tablet,2024-03-26,33,Williams-White
+555,tablet,2020-01-08,23,"Gould, Wright and Newton"
+556,tablet,2020-12-18,17,Jones Group
+557,smartphone,2024-05-30,28,Jimenez-Jackson
+558,tablet,2022-04-02,12,Holmes-Aguilar
+559,smartphone,2023-02-15,29,"Miller, Newton and Moreno"
+560,tablet,2024-04-02,16,Scott-Freeman
+561,smartphone,2023-12-04,13,Murphy Inc
+562,tablet,2023-12-30,25,Williams-Smith
+563,smartphone,2020-11-25,18,"Butler, Parker and Perez"
+564,tablet,2022-07-02,15,"Campbell, Lopez and Young"
+565,tablet,2020-06-13,19,Jefferson-Roach
+566,tablet,2021-04-17,12,"Everett, Woodard and Blackburn"
+567,smartphone,2021-02-12,31,"Martin, Morris and Ritter"
+568,smartphone,2021-04-26,31,Mosley-Wilson
+569,tablet,2023-07-10,25,Smith PLC
+570,tablet,2020-06-27,33,"Castillo, Rivera and Bradley"
+571,smartphone,2024-11-21,26,Walsh-Reyes
+572,smartphone,2020-01-22,17,Odom-Strickland
+573,smartphone,2024-07-29,26,Mendez Ltd
+574,smartphone,2020-10-22,13,"Perez, Hodges and Richards"
+575,smartphone,2020-01-21,32,"Medina, Richmond and Moreno"
+576,smartphone,2020-01-19,19,Neal LLC
+577,smartphone,2023-08-15,25,Hendricks Ltd
+578,smartphone,2021-05-01,23,Knight Inc
+579,tablet,2022-12-08,35,Williams Ltd
+580,smartphone,2021-06-25,22,"Sherman, Adams and Ryan"
+581,tablet,2024-09-13,23,"Gray, Lara and Ballard"
+582,tablet,2021-03-27,30,Sullivan-Ramsey
+583,smartphone,2023-02-26,36,Johnson Inc
+584,smartphone,2021-07-10,32,"Taylor, Navarro and Clark"
+585,smartphone,2024-05-11,25,"Hogan, Gray and Munoz"
+586,smartphone,2020-07-05,14,Lindsey-Lopez
+587,smartphone,2022-10-30,12,Lozano-Phillips
+588,smartphone,2024-06-15,12,Baker LLC
+589,smartphone,2022-03-30,13,Hicks-Scott
+590,tablet,2022-09-04,19,"Ford, Clark and Buchanan"
+591,tablet,2021-01-04,19,"Gibson, Adams and Morrison"
+592,smartphone,2021-05-06,25,"Day, West and Melton"
+593,smartphone,2024-04-26,14,"Johnson, Barry and Hamilton"
+594,smartphone,2024-03-31,12,Orr-Ross
+595,tablet,2020-04-06,25,Vazquez Ltd
+596,tablet,2024-11-21,23,Perry-Wagner
+597,tablet,2024-05-13,29,"Clayton, Taylor and Cox"
+598,tablet,2021-12-09,18,Sanchez-Lee
+599,tablet,2021-12-15,25,Fisher and Sons
+600,tablet,2020-06-28,35,"Robinson, Rodriguez and Mejia"
+601,tablet,2020-10-11,15,"Price, Beard and Hutchinson"
+602,tablet,2021-09-12,35,Burns Inc
+603,tablet,2021-10-27,24,Roberts Group
+604,tablet,2024-09-08,12,Massey-Anderson
+605,smartphone,2021-12-28,31,Kennedy-Vance
+606,tablet,2024-11-08,30,Johnson LLC
+607,smartphone,2023-05-31,24,"Leonard, Baker and Brown"
+608,tablet,2023-04-14,24,Gregory-Taylor
+609,tablet,2024-11-22,25,Simmons-Jones
+610,tablet,2020-02-06,30,"Willis, Mccormick and Bond"
+611,smartphone,2023-02-13,32,Bentley-Villarreal
+612,tablet,2021-08-07,19,Mora-Miller
+613,tablet,2025-04-11,34,Turner-James
+614,smartphone,2024-04-01,12,Young Inc
+615,smartphone,2020-10-20,26,"Ball, Melton and Delgado"
+616,tablet,2021-03-21,35,Garcia Ltd
+617,smartphone,2023-09-19,32,Pratt-Smith
+618,smartphone,2024-11-08,34,Wade Ltd
+619,tablet,2020-11-01,14,"Davis, Thornton and May"
+620,tablet,2020-01-23,32,Lawson-Flores
+621,smartphone,2021-09-26,23,White LLC
+622,smartphone,2021-03-14,30,Kerr Inc
+623,tablet,2025-02-25,34,Morris Inc
+624,smartphone,2020-11-03,17,May-Bryan
+625,tablet,2022-10-09,29,Oliver Inc
+626,tablet,2024-09-15,15,Smith-Santos
+627,smartphone,2024-03-28,23,Bishop-Davenport
+628,tablet,2021-03-08,18,"Bowers, Bowman and Young"
+629,smartphone,2020-04-30,17,Mercer Group
+630,smartphone,2020-08-29,18,"Henderson, Mendez and Harrell"
+631,smartphone,2023-08-22,12,"Lee, Jones and Rhodes"
+632,smartphone,2024-08-11,13,Ellison PLC
+633,tablet,2022-07-07,15,"Mccullough, Edwards and Bailey"
+634,tablet,2022-11-16,28,Hopkins Group
+635,tablet,2022-12-30,32,"Howard, Holmes and Keller"
+636,tablet,2021-05-18,30,"Jones, Carter and Powell"
+637,tablet,2023-06-05,26,Arroyo LLC
+638,smartphone,2023-07-06,30,Peterson Group
+639,smartphone,2022-12-27,34,Higgins LLC
+640,smartphone,2025-02-14,22,Campbell-Miller
+641,tablet,2022-12-02,32,"Carroll, Gordon and Murphy"
+642,smartphone,2024-02-01,27,"Romero, Rodriguez and Ramsey"
+643,tablet,2024-10-16,30,"Norton, Miller and Simpson"
+644,smartphone,2022-10-04,22,"Estes, Walton and Savage"
+645,smartphone,2022-05-25,18,Lawrence-Smith
+646,smartphone,2022-02-14,26,Mcmillan LLC
+647,tablet,2020-06-16,31,"Peters, Franklin and Snyder"
+648,tablet,2023-01-11,21,"Hill, Smith and Middleton"
+649,smartphone,2022-05-14,24,"Rogers, Owens and Lozano"
+650,tablet,2021-05-09,13,"Rogers, Lee and Daniels"
+651,smartphone,2023-08-25,20,Olson Inc
+652,tablet,2022-04-15,27,Perez LLC
+653,tablet,2020-01-14,35,Lee and Sons
+654,smartphone,2022-01-18,36,Johnson-Morgan
+655,tablet,2023-12-01,23,Higgins LLC
+656,smartphone,2021-05-11,35,Williams-Hernandez
+657,smartphone,2023-04-10,20,Wallace-Davis
+658,smartphone,2024-04-12,17,"Clarke, Daniels and Frey"
+659,tablet,2020-06-17,36,Logan-Campbell
+660,tablet,2021-06-11,22,Brown and Sons
+661,smartphone,2020-05-11,30,"Allen, Vang and Bartlett"
+662,tablet,2023-07-08,13,"Clark, Palmer and Jordan"
+663,tablet,2023-12-02,15,Marsh LLC
+664,tablet,2022-12-18,17,Larson-Gates
+665,tablet,2023-03-26,13,Osborne Group
+666,smartphone,2023-01-27,35,"Donaldson, Tucker and Green"
+667,smartphone,2021-04-12,20,Weaver PLC
+668,smartphone,2024-03-30,26,Johnson-Norris
+669,smartphone,2021-11-25,22,White-Craig
+670,tablet,2022-10-30,18,Walker Group
+671,tablet,2023-10-25,14,Harrison-Martin
+672,tablet,2021-01-02,13,"Clark, Harding and Dean"
+673,tablet,2023-09-28,35,"Kim, Mathis and Knox"
+674,tablet,2022-08-09,17,"Jones, White and Shaw"
+675,tablet,2025-04-08,12,Lowery-Camacho
+676,tablet,2022-03-16,20,"Ramirez, Cross and Richardson"
+677,tablet,2021-08-29,12,Cain-Howe
+678,smartphone,2023-08-31,26,Hutchinson-Scott
+679,smartphone,2023-12-25,19,"Simpson, Martin and Webster"
+680,smartphone,2024-05-11,33,Lopez-Le
+681,tablet,2024-08-28,24,"Schneider, Patterson and Reed"
+682,tablet,2022-06-04,34,Davis-Mcdonald
+683,smartphone,2021-04-05,21,Leonard Inc
+684,smartphone,2021-02-19,19,"Williams, Evans and Friedman"
+685,smartphone,2022-01-06,35,Atkins-Gonzalez
+686,smartphone,2025-02-12,15,Sims-Jones
+687,smartphone,2020-12-20,15,Wright-Reid
+688,tablet,2020-07-31,26,Anderson-Pena
+689,tablet,2024-10-02,35,Perry-Campbell
+690,smartphone,2021-12-26,14,"Atkins, Stone and Mccormick"
+691,smartphone,2022-02-08,34,Boyd-Martinez
+692,tablet,2021-10-22,33,Stephens-Jackson
+693,tablet,2024-03-24,24,Walker-Kennedy
+694,tablet,2022-01-16,25,"Henry, Hunt and King"
+695,smartphone,2020-02-24,12,Hammond Group
+696,tablet,2022-07-28,20,Robles PLC
+697,smartphone,2024-07-18,26,"Hood, Lopez and Mathis"
+698,smartphone,2021-04-25,21,Myers-Horton
+699,tablet,2020-09-17,34,"Barnett, Bush and Holland"
+700,tablet,2023-02-27,18,"Lawrence, Spears and Frey"
+701,smartphone,2021-01-20,15,Lewis PLC
+702,tablet,2020-01-30,27,Ray Group
+703,smartphone,2021-09-29,36,Vargas PLC
+704,smartphone,2024-04-30,35,Mitchell Inc
+705,smartphone,2022-12-03,17,Palmer Group
+706,tablet,2024-01-23,13,Flores Group
+707,tablet,2021-01-03,29,"Li, Meadows and Bentley"
+708,smartphone,2022-03-31,19,Walker Ltd
+709,smartphone,2023-01-11,14,"Howard, Tran and Strong"
+710,smartphone,2021-01-30,31,Becker LLC
+711,smartphone,2023-01-25,33,"Brown, Johnson and Maddox"
+712,smartphone,2024-08-27,19,Price-Williams
+713,smartphone,2023-01-17,24,"Prince, Phillips and Williams"
+714,tablet,2024-12-20,34,Green LLC
+715,smartphone,2024-08-08,21,"Weiss, Walker and Houston"
+716,smartphone,2023-04-10,26,Allen and Sons
+717,tablet,2021-01-14,20,"Marsh, Roberts and Brown"
+718,tablet,2023-12-11,18,Rhodes Inc
+719,smartphone,2021-01-19,36,Smith Inc
+720,smartphone,2024-07-05,27,Lopez-Sparks
+721,smartphone,2021-06-15,20,"Hansen, Bailey and Gonzalez"
+722,smartphone,2023-04-17,34,West Ltd
+723,tablet,2021-11-07,22,Tucker Group
+724,smartphone,2021-07-03,30,"Stewart, Cohen and Watson"
+725,tablet,2021-10-12,17,Rocha and Sons
+726,tablet,2024-01-20,20,Ortega PLC
+727,smartphone,2023-01-09,26,Riley-Powers
+728,tablet,2023-08-18,33,Nguyen-Sanchez
+729,smartphone,2022-12-22,31,Rush LLC
+730,tablet,2025-01-16,13,Kidd-Young
+731,smartphone,2022-04-05,34,Lewis-Evans
+732,tablet,2023-11-13,25,Cabrera-Davis
+733,tablet,2021-09-04,25,Lee PLC
+734,tablet,2023-08-28,12,Becker-Ruiz
+735,smartphone,2020-05-07,17,King Ltd
+736,tablet,2024-07-30,28,Mcdowell LLC
+737,smartphone,2021-07-15,34,Perkins-Dominguez
+738,smartphone,2024-12-24,31,Reed-Berry
+739,smartphone,2023-06-03,23,Perry Inc
+740,smartphone,2023-08-07,36,Cortez-Lee
+741,tablet,2021-08-28,14,Goodwin-Jenkins
+742,smartphone,2022-02-08,20,Bryan-Stewart
+743,smartphone,2020-09-26,21,Yang-Cardenas
+744,tablet,2022-10-26,28,Henry-Lee
+745,tablet,2021-08-10,23,Robinson Inc
+746,tablet,2020-02-28,30,White-Ryan
+747,tablet,2024-12-02,17,Moreno-Clements
+748,tablet,2025-04-03,16,Harrington Group
+749,tablet,2021-07-31,23,"Krueger, Bell and Patterson"
+750,smartphone,2020-04-25,22,Morrow and Sons
+751,smartphone,2023-09-16,20,Irwin and Sons
+752,smartphone,2022-09-21,23,Brown-Trujillo
+753,smartphone,2025-02-13,15,"Nichols, Kelly and Singh"
+754,tablet,2021-06-19,28,"Harrison, Durham and Sanders"
+755,smartphone,2025-03-19,14,Proctor PLC
+756,smartphone,2024-12-01,17,Sweeney and Sons
+757,tablet,2024-08-10,36,Ho Inc
+758,tablet,2021-03-29,35,Wilson LLC
+759,smartphone,2020-06-23,14,"Smith, Anderson and Walker"
+760,tablet,2020-06-01,22,"Harris, Johnson and Pineda"
+761,smartphone,2025-01-05,36,Fuller Ltd
+762,tablet,2024-01-06,17,"Ellis, Sanchez and Marshall"
+763,smartphone,2020-08-23,18,Hernandez-Cummings
+764,smartphone,2024-01-15,29,Nunez Ltd
+765,tablet,2020-08-31,23,Pratt LLC
+766,tablet,2020-07-29,20,Ho-Shepard
+767,tablet,2022-05-19,31,Cook Ltd
+768,tablet,2020-07-29,24,"Velazquez, Brown and Moreno"
+769,tablet,2024-02-03,27,Moon-Mills
+770,tablet,2021-03-25,36,"Parker, Jacobs and Watkins"
+771,smartphone,2022-10-22,34,Fields PLC
+772,smartphone,2021-05-10,17,Price Inc
+773,tablet,2024-10-27,33,"Edwards, Tate and Arias"
+774,smartphone,2020-03-22,30,"Sparks, Smith and Rose"
+775,smartphone,2020-09-11,19,Santiago Group
+776,smartphone,2022-10-29,12,"Cervantes, Reid and Williams"
+777,smartphone,2020-11-12,15,Roach Ltd
+778,tablet,2023-06-03,35,"Jackson, Snyder and Ramsey"
+779,tablet,2022-09-03,26,Daniels-Sullivan
+780,tablet,2023-03-24,19,Banks Inc
+781,smartphone,2022-11-21,25,Bolton Ltd
+782,smartphone,2022-12-26,26,Pearson-Bruce
+783,tablet,2020-08-24,31,Patterson Group
+784,tablet,2020-04-04,17,"Douglas, Morris and Yang"
+785,smartphone,2022-10-30,19,Bauer Group
+786,tablet,2024-07-27,36,Rodriguez LLC
+787,smartphone,2022-09-17,12,Lang and Sons
+788,tablet,2021-03-21,32,"Brady, Dillon and Jackson"
+789,tablet,2024-01-23,24,Scott-Schwartz
+790,smartphone,2021-12-07,20,Conrad-Mccarty
+791,tablet,2022-12-27,12,White PLC
+792,tablet,2021-01-11,26,"Clark, Bryan and Bradley"
+793,tablet,2020-03-31,29,"Welch, Gardner and Jackson"
+794,tablet,2021-08-29,19,"Huynh, Hughes and Sullivan"
+795,tablet,2023-03-17,17,Johnson PLC
+796,tablet,2021-02-25,20,Barton Inc
+797,tablet,2022-12-03,27,Olsen LLC
+798,smartphone,2023-12-11,12,Barron PLC
+799,smartphone,2024-08-18,19,Estrada Group
+800,tablet,2022-07-05,36,"Bennett, Peterson and Nguyen"
+801,tablet,2022-02-22,27,"Smith, Jackson and Wilson"
+802,tablet,2022-10-09,14,Mitchell-Elliott
+803,tablet,2023-04-20,23,"Mccarthy, Gonzalez and Ellis"
+804,smartphone,2024-03-20,25,Richardson-Ritter
+805,tablet,2020-10-14,14,"Phillips, Boyd and Anderson"
+806,tablet,2024-06-15,12,"Brown, Medina and George"
+807,tablet,2023-07-16,28,Owens-Blackburn
+808,tablet,2021-05-07,23,"Bridges, Soto and Anderson"
+809,smartphone,2021-10-18,31,Martin-Berg
+810,smartphone,2023-09-01,19,Berger Group
+811,smartphone,2020-04-03,13,Spencer Group
+812,tablet,2021-03-23,22,Ray Group
+813,tablet,2024-11-06,12,White and Sons
+814,smartphone,2020-03-05,22,Kim Ltd
+815,tablet,2024-06-15,13,"Gonzales, Hall and Haynes"
+816,tablet,2022-02-27,23,Robinson Group
+817,smartphone,2020-07-02,27,Lopez PLC
+818,tablet,2024-12-10,36,Turner-Robertson
+819,tablet,2023-05-21,33,Kent PLC
+820,tablet,2020-12-21,12,Nelson LLC
+821,tablet,2022-03-03,27,Hall-Reyes
+822,tablet,2023-06-18,22,West-Robinson
+823,tablet,2021-06-06,21,Sanchez-Williams
+824,tablet,2020-12-26,21,"Ruiz, Bailey and Mcneil"
+825,tablet,2024-12-23,28,"Arnold, Morrison and Campbell"
+826,tablet,2022-11-05,32,Obrien-Thomas
+827,tablet,2022-12-03,17,Torres and Sons
+828,tablet,2021-07-01,24,Kim-Johnston
+829,smartphone,2023-06-19,22,Hutchinson LLC
+830,smartphone,2021-10-11,16,Moody-Robinson
+831,tablet,2020-04-22,21,Robinson Inc
+832,tablet,2022-10-07,23,Garcia PLC
+833,tablet,2023-10-10,32,Howard-Wade
+834,smartphone,2022-01-22,26,Sanders and Sons
+835,tablet,2020-03-09,36,Grant-Villarreal
+836,tablet,2024-09-24,35,Campbell-Donovan
+837,tablet,2021-01-01,33,Ramsey-Cochran
+838,smartphone,2023-07-07,18,"Carter, Perry and Rodriguez"
+839,tablet,2020-09-11,30,Obrien-Wright
+840,smartphone,2021-12-16,14,Nguyen-Odom
+841,tablet,2021-10-31,17,Higgins-Williamson
+842,smartphone,2020-09-09,30,Alvarez-Miller
+843,smartphone,2023-03-02,13,"Parker, Thompson and Sanford"
+844,smartphone,2020-07-01,29,Butler LLC
+845,smartphone,2022-11-15,13,"Tran, Newton and Myers"
+846,tablet,2020-07-08,23,"Ball, Beck and Sharp"
+847,tablet,2020-07-07,26,"Hicks, Wallace and Brown"
+848,tablet,2023-05-12,12,Wu LLC
+849,tablet,2022-11-01,30,"Alvarez, Ramirez and Carlson"
+850,tablet,2024-03-12,19,"Hebert, Smith and Schmitt"
+851,smartphone,2020-04-04,28,"Gonzalez, Morgan and Tanner"
+852,tablet,2021-12-26,32,"Maynard, Odom and Hall"
+853,smartphone,2024-01-29,22,Morales-Hernandez
+854,tablet,2024-02-27,31,Garcia-Stark
+855,smartphone,2024-10-06,13,"Thompson, Wolfe and Hill"
+856,smartphone,2023-12-09,22,"Flynn, Lee and Ruiz"
+857,tablet,2021-11-22,17,"Johnson, Wiggins and Dixon"
+858,tablet,2023-12-24,12,Hernandez PLC
+859,tablet,2023-12-30,31,Parker Inc
+860,smartphone,2024-06-28,12,Anderson-Trujillo
+861,tablet,2020-07-17,36,Bowman Inc
+862,smartphone,2025-01-17,36,Mercer Group
+863,smartphone,2022-10-29,35,Wright-Flores
+864,smartphone,2020-01-29,34,"Gross, Roth and Lutz"
+865,smartphone,2023-09-27,24,Williams Group
+866,smartphone,2025-04-06,17,Reyes Group
+867,tablet,2024-11-02,19,"Kennedy, Abbott and West"
+868,tablet,2023-08-20,17,"Turner, Gregory and Conley"
+869,smartphone,2022-10-12,20,Kim-Casey
+870,smartphone,2024-07-18,30,"Jones, Collins and Munoz"
+871,smartphone,2024-11-18,19,Guerrero Inc
+872,smartphone,2020-08-14,35,Ortiz-Smith
+873,tablet,2021-05-15,15,Simpson-Carpenter
+874,smartphone,2025-02-16,17,Sanchez Group
+875,smartphone,2021-02-19,18,Lopez LLC
+876,smartphone,2022-08-23,23,"Salinas, Mahoney and Terrell"
+877,smartphone,2021-12-09,16,"Martinez, Boone and Berry"
+878,tablet,2020-12-15,19,Garza PLC
+879,tablet,2022-06-06,17,Woods LLC
+880,smartphone,2025-02-08,12,Gonzalez-Macdonald
+881,tablet,2020-12-20,35,Atkins Inc
+882,smartphone,2020-09-19,21,Simpson-Lee
+883,smartphone,2021-04-28,30,"Parrish, Nelson and Johnson"
+884,smartphone,2022-04-12,30,"Campbell, Shepard and Wright"
+885,tablet,2022-10-12,28,Price-Johnson
+886,tablet,2020-02-27,20,"Gould, Murphy and Perry"
+887,smartphone,2021-05-28,22,"Welch, Sloan and Black"
+888,smartphone,2024-09-04,30,Knight Inc
+889,smartphone,2022-12-17,14,Cordova-Gibson
+890,tablet,2022-05-12,27,"Smith, Jefferson and Martin"
+891,tablet,2022-10-19,31,Hunt Group
+892,smartphone,2021-06-05,27,Perez PLC
+893,tablet,2021-07-31,25,"Key, Moss and Garner"
+894,smartphone,2023-04-16,26,Gonzalez-Hudson
+895,smartphone,2020-11-26,15,Eaton-Drake
+896,tablet,2024-10-15,30,Harris-Cross
+897,tablet,2022-04-03,22,Clark-Cox
+898,smartphone,2024-12-31,21,Case Ltd
+899,smartphone,2023-12-09,34,"Tanner, Calhoun and Edwards"
+900,tablet,2022-12-24,32,Smith-Oliver
+901,tablet,2021-07-08,19,Alvarado Inc
+902,tablet,2022-04-30,20,Mcbride LLC
+903,smartphone,2020-03-30,21,"Boyle, Welch and Becker"
+904,tablet,2023-01-26,36,Mcbride LLC
+905,tablet,2021-12-05,26,Murray-Mccann
+906,smartphone,2020-10-20,27,Jensen PLC
+907,smartphone,2021-12-09,23,Young and Sons
+908,smartphone,2022-12-19,28,Pineda and Sons
+909,smartphone,2023-06-17,15,Costa-Kelly
+910,smartphone,2022-02-27,24,Galloway Group
+911,tablet,2020-12-09,12,Lopez PLC
+912,smartphone,2024-03-21,26,Mathis Ltd
+913,tablet,2020-06-10,21,Harris-Arnold
+914,tablet,2020-10-24,17,Horton Ltd
+915,smartphone,2020-08-10,22,Hernandez and Sons
+916,tablet,2022-01-15,14,Miller-Moore
+917,tablet,2020-11-21,21,"Gibson, Reilly and Palmer"
+918,smartphone,2021-03-26,31,"Lester, Herrera and Johnson"
+919,smartphone,2020-06-13,31,Krause Group
+920,tablet,2021-10-10,27,Sanchez and Sons
+921,smartphone,2024-10-18,18,Odonnell LLC
+922,smartphone,2021-10-06,13,Sanchez and Sons
+923,smartphone,2023-07-07,18,Bryant and Sons
+924,smartphone,2022-04-29,13,Stevenson-Ayala
+925,smartphone,2021-09-26,31,Perez-Edwards
+926,tablet,2021-02-26,26,Moss Group
+927,smartphone,2021-12-10,32,Johnson-Martinez
+928,smartphone,2023-11-25,25,Barnes Inc
+929,smartphone,2021-03-11,36,Cook Inc
+930,tablet,2020-06-19,15,Mccoy-Freeman
+931,tablet,2024-07-07,20,Williams-Miller
+932,tablet,2023-07-25,13,"Smith, Smith and Clark"
+933,smartphone,2021-03-14,34,"Stewart, Moore and Vaughan"
+934,smartphone,2024-07-24,19,Ross-Lewis
+935,smartphone,2020-06-28,16,Wallace Inc
+936,tablet,2022-08-16,13,Frazier-Payne
+937,smartphone,2024-01-28,14,Reilly Inc
+938,tablet,2022-11-12,33,Mcintyre and Sons
+939,smartphone,2020-02-19,32,"Gutierrez, Ramos and Hunt"
+940,tablet,2023-06-26,15,Duncan PLC
+941,tablet,2020-02-05,16,Webb-Johnson
+942,tablet,2024-09-07,30,"Ortiz, Alvarado and Hooper"
+943,smartphone,2021-04-17,15,Duffy PLC
+944,tablet,2024-10-18,12,Thomas LLC
+945,tablet,2021-05-03,17,"Roberson, Pope and Rodriguez"
+946,smartphone,2024-10-04,36,"Martin, Bailey and Jones"
+947,smartphone,2023-11-17,12,"Perez, Martin and Roberts"
+948,smartphone,2022-11-03,15,Smith-Bowman
+949,tablet,2024-05-25,29,Houston Group
+950,tablet,2022-09-30,16,Blair-Soto
+951,tablet,2023-05-13,30,Valencia PLC
+952,tablet,2021-01-04,30,"Myers, Ortiz and Schmidt"
+953,tablet,2024-08-22,32,Marquez-Lewis
+954,tablet,2020-02-01,34,Jones Ltd
+955,tablet,2024-06-09,17,Booker Group
+956,smartphone,2020-09-16,29,Young-King
+957,tablet,2023-12-04,17,"Clark, Burnett and Oneal"
+958,tablet,2024-10-08,15,"Hopkins, Vazquez and Walters"
+959,tablet,2024-08-12,17,Daniels Group
+960,smartphone,2022-03-07,24,"Allen, Gonzalez and Calhoun"
+961,smartphone,2021-10-13,19,"Morgan, Grant and Gomez"
+962,smartphone,2024-04-11,33,"Figueroa, Hamilton and Gonzales"
+963,tablet,2020-08-04,33,Bailey-Thomas
+964,smartphone,2020-04-03,30,Miller PLC
+965,smartphone,2024-01-26,31,"Blair, Howard and Harvey"
+966,tablet,2022-12-08,25,Moore PLC
+967,tablet,2023-05-21,33,"Williams, Everett and Lara"
+968,tablet,2022-07-07,14,Taylor-Ryan
+969,tablet,2020-12-28,23,Blackwell PLC
+970,smartphone,2023-03-19,21,Brady-Cole
+971,smartphone,2024-01-17,36,Scott LLC
+972,smartphone,2023-09-17,34,Benson Inc
+973,tablet,2020-06-08,31,"Osborn, Foster and Moss"
+974,smartphone,2020-10-25,21,Copeland Inc
+975,smartphone,2025-02-25,16,"Harris, Archer and Martin"
+976,smartphone,2022-11-02,18,"Gilbert, Davis and Brown"
+977,smartphone,2022-07-25,30,Harris LLC
+978,tablet,2023-02-28,20,Roberts and Sons
+979,tablet,2023-10-04,25,Blair-Wood
+980,tablet,2021-06-14,18,Esparza-Matthews
+981,tablet,2020-06-13,18,Beasley-Martin
+982,tablet,2022-11-08,21,Flynn-Jennings
+983,smartphone,2020-09-05,35,Hudson-Jones
+984,smartphone,2023-02-21,17,Cochran-Wallace
+985,smartphone,2024-04-07,22,"Aguilar, Sims and Ramirez"
+986,tablet,2024-04-30,34,Logan-Thomas
+987,smartphone,2020-01-05,22,"Morrow, Arellano and Snyder"
+988,smartphone,2021-03-01,28,Scott Ltd
+989,tablet,2022-08-10,15,Willis Group
+990,tablet,2021-07-27,31,Long Group
+991,smartphone,2021-02-10,32,"Fleming, Baldwin and Smith"
+992,smartphone,2021-08-22,32,Benton-Jordan
+993,tablet,2024-04-20,34,Bennett-Miller
+994,smartphone,2024-05-12,31,Pollard PLC
+995,tablet,2021-01-17,28,Martinez-Johnston
+996,smartphone,2025-03-03,24,Decker-Guzman
+997,tablet,2023-05-20,13,"Mccarty, Douglas and Nguyen"
+998,tablet,2022-05-16,20,"Johnson, Wagner and Benson"
+999,smartphone,2022-05-30,36,"Leon, Beltran and Castillo"
+1000,smartphone,2023-04-21,13,Mcmahon-Whitaker

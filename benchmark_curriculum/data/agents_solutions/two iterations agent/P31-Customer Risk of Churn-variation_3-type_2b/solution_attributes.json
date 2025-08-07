@@ -1,0 +1,24 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "overdue_payments",
+        "total_energy_consumed",
+        "total_complaints",
+        "engagement_rate",
+        "avg_complaint_satisfaction",
+        "average_bill_amount",
+        "total_complaints_repeated_colname1"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "overdue payments",
+        "total energy consumed",
+        "total complaints",
+        "engagement rate",
+        "avg complaint satisfaction",
+        "average bill amount",
+        "total complaints repeated colname1"
+    ]
+}

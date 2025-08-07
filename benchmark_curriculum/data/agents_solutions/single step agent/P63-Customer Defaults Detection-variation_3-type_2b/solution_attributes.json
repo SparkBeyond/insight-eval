@@ -1,0 +1,113 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "distinct_utility_types",
+        "total_transactions_count",
+        "utility_cost_percentage_of_income",
+        "total_utility_cost",
+        "income_normalized_utility_cost",
+        "utility_to_transaction_ratio",
+        "transactions_to_payments_ratio",
+        "avg_cost_per_utility",
+        "total_payment_amount",
+        "average_transaction_amount",
+        "income_per_year",
+        "credit_to_debit_ratio",
+        "total_payments_made",
+        "account_age_in_years",
+        "days_since_last_payment",
+        "credit_transaction_proportion",
+        "payment_failure_rate"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.15888985370572045": {
+            "name": "distinct_utility_types",
+            "code": "\n\ndef distinct_utility_types(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'utility_usage_table' exists in aux_dataframes\n    if 'utility_usage_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'utility_usage_table.csv' is missing from aux_dataframes.\")\n    \n    # Retrieve the utility usage table\n    utility_usage = aux_dataframes['utility_usage_table.csv']\n    \n    # Ensure the required columns exist in the utility usage table\n    required_columns = {'customer_id', 'utility_type'}\n    if not required_columns.issubset(utility_usage.columns):\n        raise ValueError(f\"The utility usage table must contain the columns: {required_columns}\")\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the utility usage table for the given customer_id\n    usage = utility_usage[utility_usage['customer_id'] == customer_id]\n    \n    # Return the number of distinct utility types\n    return usage['utility_type'].nunique()\n"
+        },
+        "0.15200441940557566": {
+            "name": "total_transactions_count",
+            "code": "\n\ndef total_transactions_count(row, df_train: pd.DataFrame):\n    customer_id = row['customer_id']\n    transactions = df_train[df_train['customer_id'] == customer_id]\n    return transactions.shape[0]\n"
+        },
+        "0.1412849755362774": {
+            "name": "utility_cost_percentage_of_income",
+            "code": "import pandas as pd\n\ndef utility_cost_percentage_of_income(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the required keys exist in the aux_data dictionary\n    if 'customer_profile_table.csv' not in aux_data or 'utility_usage_table.csv' not in aux_data:\n        raise KeyError(\"Required tables are missing from aux_data: 'customer_profile_table.csv' or 'utility_usage_table.csv'\")\n    \n    # Extract the relevant dataframes\n    customer_profile = aux_data['customer_profile_table.csv']\n    utility_usage = aux_data['utility_usage_table.csv']\n    \n    # Get the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Retrieve the income for the customer\n    income_row = customer_profile.loc[customer_profile['customer_id'] == customer_id, 'income']\n    if income_row.empty:\n        return 0  # Return 0 if no income data is found for the customer\n    income = income_row.squeeze()\n    \n    # Handle cases where income is null or zero\n    if pd.isnull(income) or income == 0:\n        return 0\n    \n    # Retrieve the utility usage for the customer\n    usage = utility_usage[utility_usage['customer_id'] == customer_id]\n    if usage.empty:\n        return 0  # Return 0 if no utility usage data is found for the customer\n    \n    # Calculate the total utility cost\n    total_cost = (usage['units_consumed'] * usage['cost_per_unit']).sum()\n    \n    # Return the percentage of income spent on utility costs\n    return total_cost / income\n"
+        },
+        "0.13335561297377438": {
+            "name": "total_utility_cost",
+            "code": "\n\ndef total_utility_cost(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'utility_usage_table.csv' exists in aux_dataframes\n    if 'utility_usage_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'utility_usage_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the utility usage table\n    utility_usage = aux_dataframes['utility_usage_table.csv']\n    \n    # Ensure the required columns exist in the utility usage table\n    required_columns = {'customer_id', 'units_consumed', 'cost_per_unit'}\n    if not required_columns.issubset(utility_usage.columns):\n        raise ValueError(f\"The utility usage table is missing one or more required columns: {required_columns}\")\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the utility usage table for the given customer_id\n    usage = utility_usage[utility_usage['customer_id'] == customer_id]\n    \n    # Calculate the total utility cost\n    total_cost = (usage['units_consumed'] * usage['cost_per_unit']).sum()\n    \n    return total_cost\n"
+        },
+        "0.12965144521761457": {
+            "name": "income_normalized_utility_cost",
+            "code": "import pandas as pd\n\ndef income_normalized_utility_cost(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the required keys exist in the aux_dataframes dictionary\n    if 'customer_profile_table.csv' not in aux_dataframes or 'utility_usage_table.csv' not in aux_dataframes:\n        raise KeyError(\"Required keys ('customer_profile_table.csv', 'utility_usage_table.csv') are missing in aux_dataframes.\")\n    \n    # Extract the relevant dataframes\n    profile = aux_dataframes['customer_profile_table.csv']\n    utility = aux_dataframes['utility_usage_table.csv']\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Check if the customer_id exists in the customer_profile_table\n    if customer_id not in profile['customer_id'].values:\n        raise ValueError(f\"Customer ID {customer_id} not found in customer_profile_table.csv.\")\n    \n    # Get the income for the customer\n    income = profile.loc[profile['customer_id'] == customer_id, 'income'].squeeze()\n    \n    # Handle cases where income is missing or invalid\n    if pd.isna(income) or income <= 0:\n        income = 1  # Avoid division by zero or negative income\n    \n    # Filter the utility usage data for the customer\n    usage = utility[utility['customer_id'] == customer_id]\n    \n    # Check if there is any utility usage data for the customer\n    if usage.empty:\n        raise ValueError(f\"No utility usage data found for Customer ID {customer_id}.\")\n    \n    # Calculate the average cost\n    avg_cost = (usage['units_consumed'] * usage['cost_per_unit']).mean()\n    \n    # Return the income-normalized utility cost\n    return avg_cost / income\n"
+        },
+        "0.12127740119533038": {
+            "name": "utility_to_transaction_ratio",
+            "code": "\n\ndef utility_to_transaction_ratio(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the required key exists in aux_dataframes\n    if 'utility_usage_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'utility_usage_table.csv' is missing in aux_dataframes.\")\n    \n    # Extract the utility usage table\n    utility = aux_dataframes['utility_usage_table.csv']\n    \n    # Ensure the required columns exist in the utility usage table\n    required_utility_columns = {'customer_id', 'units_consumed', 'cost_per_unit'}\n    if not required_utility_columns.issubset(utility.columns):\n        raise ValueError(f\"The utility usage table is missing one or more required columns: {required_utility_columns}\")\n    \n    # Get the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the utility usage table for the given customer_id\n    usage = utility[utility['customer_id'] == customer_id]\n    \n    # Calculate the total utility cost\n    total_utility_cost = (usage['units_consumed'] * usage['cost_per_unit']).sum()\n    \n    # Ensure the required columns exist in the df_train dataframe\n    required_transaction_columns = {'customer_id', 'amount_paid'}\n    if not required_transaction_columns.issubset(df_train.columns):\n        raise ValueError(f\"The df_train dataframe is missing one or more required columns: {required_transaction_columns}\")\n    \n    # Filter the transactions for the given customer_id\n    transactions = df_train[df_train['customer_id'] == customer_id]\n    \n    # Calculate the total transaction amount\n    total_transaction_amount = transactions['amount_paid'].sum()\n    \n    # Return the utility-to-transaction ratio\n    return total_utility_cost / max(total_transaction_amount, 1)\n"
+        },
+        "0.11293284836320636": {
+            "name": "transactions_to_payments_ratio",
+            "code": "\n\ndef transactions_to_payments_ratio(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the key 'account_history_table.csv' exists in aux_data\n    if 'account_history_table.csv' not in aux_data:\n        raise KeyError(\"The key 'account_history_table.csv' is missing from aux_data.\")\n    \n    # Extract the account history table from aux_data\n    account_history = aux_data['account_history_table.csv']\n    \n    # Ensure the required columns exist in the account history table\n    required_columns = {'customer_id', 'transaction_date', 'transaction_amount', 'transaction_type'}\n    if not required_columns.issubset(account_history.columns):\n        raise ValueError(f\"The account history table is missing one or more required columns: {required_columns}\")\n    \n    # Extract the customer_id from the current row\n    customer_id = row['customer_id']\n    \n    # Filter the account history table for the given customer_id\n    payments = account_history[account_history['customer_id'] == customer_id]\n    \n    # Filter the training dataframe for the given customer_id\n    transactions = df_train[df_train['customer_id'] == customer_id]\n    \n    # Calculate the ratio of transactions to payments\n    return transactions.shape[0] / max(payments.shape[0], 1)\n"
+        },
+        "0.10859616581251817": {
+            "name": "avg_cost_per_utility",
+            "code": "\n\ndef avg_cost_per_utility(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'utility_usage_table.csv' exists in aux_dataframes\n    if 'utility_usage_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'utility_usage_table.csv' is missing from aux_dataframes.\")\n    \n    # Get the utility usage dataframe\n    utility_usage = aux_dataframes['utility_usage_table.csv']\n    \n    # Ensure the required columns exist in the utility usage dataframe\n    required_columns = {'customer_id', 'units_consumed', 'cost_per_unit'}\n    if not required_columns.issubset(utility_usage.columns):\n        raise ValueError(f\"The utility usage table must contain the columns: {required_columns}\")\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the utility usage data for the given customer_id\n    usage = utility_usage[utility_usage['customer_id'] == customer_id]\n    \n    # If no usage data is found for the customer, return None or a default value\n    if usage.empty:\n        return None  # or return 0, depending on the desired behavior\n    \n    # Calculate the average cost per utility\n    avg_cost = (usage['units_consumed'] * usage['cost_per_unit']).mean()\n    return avg_cost\n"
+        },
+        "0.10675635106450879": {
+            "name": "total_payment_amount",
+            "code": "\n\ndef total_payment_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    # Access the account_history_table from the aux_data dictionary\n    account_history = aux_data['account_history_table.csv']\n    # Filter the account history for the given customer_id\n    payments = account_history[account_history['customer_id'] == customer_id]\n    # Sum the transaction amounts for the customer\n    return payments['transaction_amount'].sum()\n"
+        },
+        "0.09835692019914388": {
+            "name": "average_transaction_amount",
+            "code": "\n\ndef average_transaction_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe from aux_data\n    account_history_df = aux_data['account_history_table.csv']\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter transactions for the given customer_id\n    transactions = account_history_df[account_history_df['customer_id'] == customer_id]\n    \n    # Compute and return the mean of the 'transaction_amount' column\n    return transactions['transaction_amount'].mean()\n"
+        },
+        "0.06863009472483433": {
+            "name": "income_per_year",
+            "code": "import datetime\n\ndef income_per_year(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'customer_profile_table' exists in aux_dataframes\n    if 'customer_profile_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'customer_profile_table.csv' is missing from aux_dataframes.\")\n    \n    # Extract the customer profile table\n    profile = aux_dataframes['customer_profile_table.csv']\n    \n    # Get the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the profile table for the specific customer_id\n    customer_profile = profile.loc[profile['customer_id'] == customer_id]\n    \n    # Ensure the customer exists in the profile table\n    if customer_profile.empty:\n        raise ValueError(f\"Customer ID {customer_id} not found in customer_profile_table.csv.\")\n    \n    # Extract income and account creation date\n    income = customer_profile['income'].squeeze()\n    account_date_str = customer_profile['account_creation_date'].squeeze()\n    \n    # Convert account creation date to a datetime object\n    account_date = datetime.datetime.strptime(account_date_str, '%Y-%m-%d')\n    \n    # Use the payment_date from the row to calculate the number of years\n    payment_date_str = row['payment_date']\n    payment_date = datetime.datetime.strptime(payment_date_str, '%Y-%m-%d')\n    \n    # Calculate the number of years, ensuring at least 1 year\n    years = max((payment_date - account_date).days / 365.0, 1)\n    \n    # Calculate and return the income per year\n    return income / years\n"
+        },
+        "0.013255261868499927": {
+            "name": "credit_to_debit_ratio",
+            "code": "\n\ndef credit_to_debit_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the account history dataframe from aux_data\n    account_history_df = aux_data['account_history_table.csv']\n    \n    # Get the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter transactions for the given customer_id\n    transactions = account_history_df[account_history_df['customer_id'] == customer_id]\n    \n    # Count the number of credit and debit transactions\n    credit_count = transactions[transactions['transaction_type'] == 'Credit'].shape[0]\n    debit_count = transactions[transactions['transaction_type'] == 'Debit'].shape[0]\n    \n    # Return the credit-to-debit ratio, avoiding division by zero\n    return credit_count / max(debit_count, 1)\n"
+        },
+        "0.012031869360780583": {
+            "name": "total_payments_made",
+            "code": "\n\ndef total_payments_made(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'account_history_table.csv' exists in aux_dataframes\n    if 'account_history_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'account_history_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the account history table\n    history = aux_dataframes['account_history_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'customer_id', 'history_id', 'transaction_date', 'transaction_amount', 'transaction_type'}\n    if not required_columns.issubset(history.columns):\n        raise ValueError(f\"The dataframe 'account_history_table.csv' is missing required columns: {required_columns - set(history.columns)}\")\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the history dataframe for the given customer_id\n    completed_payments = history[history['customer_id'] == customer_id]\n    \n    # Return the count of completed payments\n    return completed_payments.shape[0]\n"
+        },
+        "0.01072569395818232": {
+            "name": "account_age_in_years",
+            "code": "import pandas as pd\nimport datetime\n\ndef account_age_in_years(row, aux_dataframes: dict):\n    # Ensure the key 'customer_profile_table' exists in aux_dataframes\n    if 'customer_profile_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'customer_profile_table.csv' is missing in aux_dataframes.\")\n    \n    # Extract the customer profile table\n    customer_profile = aux_dataframes['customer_profile_table.csv']\n    \n    # Get the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Find the account_creation_date for the given customer_id\n    account_date_str = customer_profile.loc[\n        customer_profile['customer_id'] == customer_id, 'account_creation_date'\n    ].squeeze()\n    \n    # Handle cases where account_creation_date is missing or invalid\n    if pd.isnull(account_date_str):\n        return 0\n    \n    try:\n        # Parse the account_creation_date string into a datetime object\n        account_date = datetime.strptime(account_date_str, '%Y-%m-%d')\n    except ValueError:\n        # If the date format is invalid, return 0\n        return 0\n    \n    # Calculate the account age in years\n    current_date = datetime.now()\n    account_age = (current_date - account_date).days / 365.0\n    \n    # Ensure the account age is not negative\n    return max(account_age, 0)\n"
+        },
+        "0.002046305803658774": {
+            "name": "days_since_last_payment",
+            "code": "import pandas as pd\nimport datetime\n\ndef days_since_last_payment(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    \n    # Ensure the key exists in the aux_dataframes dictionary\n    if 'account_history_table.csv' not in aux_dataframes:\n        raise KeyError(\"'account_history_table.csv' not found in aux_dataframes\")\n    \n    account_history = aux_dataframes['account_history_table.csv']\n    \n    # Filter the account history for the given customer_id\n    payments = account_history[account_history['customer_id'] == customer_id]\n    \n    # Check if there are any payments for the customer\n    if payments.empty:\n        return float('inf')\n    \n    # Ensure the column 'transaction_date' exists and convert it to datetime\n    if 'transaction_date' not in payments.columns:\n        raise KeyError(\"'transaction_date' column not found in account_history_table.csv\")\n    \n    payments['transaction_date'] = pd.to_datetime(payments['transaction_date'])\n    \n    # Get the most recent payment date\n    last_date = payments['transaction_date'].max()\n    \n    # Calculate the number of days since the last payment\n    return max((datetime.datetime.now() - last_date).days, 0)\n"
+        },
+        "0.0019490578023391462": {
+            "name": "credit_transaction_proportion",
+            "code": "\n\ndef credit_transaction_proportion(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe from aux_data\n    account_history_df = aux_data['account_history_table.csv']\n    \n    # Get the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter transactions for the given customer_id\n    transactions = account_history_df[account_history_df['customer_id'] == customer_id]\n    \n    # Count the number of credit transactions\n    credit_transactions = transactions[transactions['transaction_type'] == 'Credit'].shape[0]\n    \n    # Calculate the proportion of credit transactions\n    return credit_transactions / max(transactions.shape[0], 1)\n"
+        },
+        "0": {
+            "name": "payment_failure_rate",
+            "code": "\n\ndef payment_failure_rate(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    \n    # Ensure the key exists in the aux_dataframes dictionary\n    if 'account_history_table.csv' not in aux_dataframes:\n        raise KeyError(\"'account_history_table.csv' not found in aux_dataframes\")\n    \n    # Access the account history table\n    account_history = aux_dataframes['account_history_table.csv']\n    \n    # Filter rows for the given customer_id\n    payments = account_history[account_history['customer_id'] == customer_id]\n    \n    # Check if the 'transaction_type' column contains 'Failed' as a payment status\n    # Assuming 'transaction_type' is used to indicate payment status\n    failed_count = payments[payments['transaction_type'] == 'Failed'].shape[0]\n    \n    # Calculate the failure rate\n    return failed_count / max(payments.shape[0], 1)\n"
+        }
+    },
+    "feature_descriptions": [
+        "distinct utility types",
+        "total transactions count",
+        "utility cost percentage of income",
+        "total utility cost",
+        "income normalized utility cost",
+        "utility to transaction ratio",
+        "transactions to payments ratio",
+        "avg cost per utility",
+        "total payment amount",
+        "average transaction amount",
+        "income per year",
+        "credit to debit ratio",
+        "total payments made",
+        "account age in years",
+        "days since last payment",
+        "credit transaction proportion",
+        "payment failure rate"
+    ]
+}

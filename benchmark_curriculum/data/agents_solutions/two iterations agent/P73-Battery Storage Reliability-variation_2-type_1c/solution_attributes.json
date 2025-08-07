@@ -1,0 +1,24 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "avg_time_between_maintenance",
+        "number_of_issues",
+        "num_issues_last_month",
+        "average_maintenance_cost",
+        "num_maintenance_last_year",
+        "unresolved_issues_count",
+        "battery_age_in_days"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "avg time between maintenance",
+        "number of issues",
+        "num issues last month",
+        "average maintenance cost",
+        "num maintenance last year",
+        "unresolved issues count",
+        "battery age in days"
+    ]
+}

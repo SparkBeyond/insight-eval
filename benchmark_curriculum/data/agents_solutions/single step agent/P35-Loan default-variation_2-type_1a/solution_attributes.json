@@ -1,0 +1,125 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "num_loans_borrower",
+        "debt_to_income_ratio",
+        "interest_burden",
+        "percent_late_payments",
+        "loan_term_remaining",
+        "gender_default_rate",
+        "percent_missed_payments",
+        "monthly_installment",
+        "marital_category_default_rate",
+        "zip_code_default_rate",
+        "loan_start_years_ago",
+        "credit_income_interaction",
+        "employment_category_default_rate",
+        "customer_age",
+        "income_to_loan_ratio",
+        "state_default_rate",
+        "credit_score_to_income_ratio",
+        "avg_loan_amount_borrower",
+        "percent_on_time_payments"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5197251251315091": {
+            "name": "num_loans_borrower",
+            "code": "\n\ndef num_loans_borrower(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the loans_table.csv dataframe from aux_data\n    df_train = aux_data['loans_table.csv']\n    # Filter the dataframe to find all loans associated with the given customer_id\n    borrower_loans = df_train[df_train['customer_id'] == row['customer_id']]\n    # Return the count of loans\n    return len(borrower_loans)\n"
+        },
+        "0.28693927724417806": {
+            "name": "debt_to_income_ratio",
+            "code": "\n\ndef debt_to_income_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the loans table from aux_data\n    loans_table = aux_data.get('loans_table.csv')\n    \n    if loans_table is None:\n        raise ValueError(\"The loans_table.csv is missing from aux_data.\")\n    \n    # Calculate total debt for the customer\n    customer_id = row['customer_id']\n    customer_loans = loans_table[loans_table['customer_id'] == customer_id]\n    total_debt = customer_loans['loan_amount'].sum()\n    \n    # Calculate and return the debt-to-income ratio\n    return total_debt / (row['annual_income'] + 1e-6)\n"
+        },
+        "0.2657378134267052": {
+            "name": "interest_burden",
+            "code": "\n\ndef interest_burden(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the loans table from aux_data\n    loans_table = aux_data.get('loans_table.csv')\n    \n    # Filter loans for the given customer_id\n    customer_loans = loans_table[loans_table['customer_id'] == row['customer_id']]\n    \n    # If the customer has no loans, return 0 as the interest burden\n    if customer_loans.empty:\n        return 0\n    \n    # Calculate the monthly interest for all loans of the customer\n    # Monthly interest = (loan_amount * interest_rate) / 12\n    customer_loans['monthly_interest'] = (customer_loans['loan_amount'] * customer_loans['interest_rate']) / 12\n    \n    # Sum up the monthly interest for all loans of the customer\n    total_monthly_interest = customer_loans['monthly_interest'].sum()\n    \n    # Calculate the interest burden\n    # Add a small epsilon (1e-6) to avoid division by zero\n    annual_income = row['annual_income']\n    interest_burden_value = total_monthly_interest / (annual_income / 12 + 1e-6)\n    \n    return interest_burden_value\n"
+        },
+        "0.15784101408251358": {
+            "name": "percent_late_payments",
+            "code": "\n\ndef percent_late_payments(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the loans_table dataframe from aux_data\n    loans_table = aux_data['loans_table.csv']\n    \n    # Filter loans_table to get rows corresponding to the customer_id in the current row\n    customer_loans = loans_table[loans_table['customer_id'] == row['customer_id']]\n    \n    # Initialize counters for late payments and total payments\n    late_payments = 0\n    total_payments = 0\n    \n    # Iterate over the customer's loans and calculate late and total payments\n    for _, loan in customer_loans.iterrows():\n        payment_history = loan['payment_history']\n        \n        # Assuming payment_history is a string where 'L' represents a late payment\n        if isinstance(payment_history, str):\n            late_payments += payment_history.count('L')  # Count 'L' for late payments\n            total_payments += len(payment_history)  # Total payments are the length of the string\n    \n    # Calculate the percentage of late payments\n    if total_payments == 0:\n        return 0  # Avoid division by zero if there are no payments\n    return 100 * late_payments / total_payments\n"
+        },
+        "0.14730563698434865": {
+            "name": "loan_term_remaining",
+            "code": "import pandas as pd\n\ndef loan_term_remaining(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the loans table from aux_data\n    loans_table = aux_data['loans_table.csv']\n    \n    # Find the loan information for the given customer_id\n    loan_info = loans_table[loans_table['customer_id'] == row['customer_id']]\n    \n    if loan_info.empty:\n        # If no loan information is found, return 0\n        return 0\n    \n    # Extract the loan term in months and the loan start date\n    loan_term_months = loan_info.iloc[0]['loan_term']\n    loan_start_date = pd.to_datetime(loan_info.iloc[0]['loan_start_date'])\n    \n    # Calculate the number of months since the loan started\n    current_date = pd.to_datetime('today')\n    months_since_loan_start = (current_date.year - loan_start_date.year) * 12 + (current_date.month - loan_start_date.month)\n    \n    # Calculate the remaining loan term\n    return max(0, loan_term_months - months_since_loan_start)\n"
+        },
+        "0.12780297373666608": {
+            "name": "gender_default_rate",
+            "code": "\n\ndef gender_default_rate(row, df_train: pd.DataFrame):\n    \"\"\"\n    Calculate the gender default rate without introducing target leakage.\n    The current row's target value is excluded from the calculation.\n    \"\"\"\n    # Exclude the current row from the calculation\n    df_excluding_row = df_train[df_train['customer_id'] != row['customer_id']]\n    \n    # Group by gender and calculate the mean loan_default rate\n    gender_rates = df_excluding_row.groupby('gender')['loan_default'].mean()\n    \n    # Return the default rate for the row's gender, or 0 if the gender is not found\n    return gender_rates.get(row['gender'], 0)\n"
+        },
+        "0.09182200667843392": {
+            "name": "percent_missed_payments",
+            "code": "\n\ndef percent_missed_payments(row, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Extract the loans_table dataframe from aux_data\n    loans_table = aux_data.get('loans_table.csv')\n    \n    if loans_table is None:\n        raise ValueError(\"The 'loans_table.csv' file is missing from aux_data.\")\n    \n    # Filter loans_table to get the loans for the given customer_id\n    customer_loans = loans_table[loans_table['customer_id'] == row['customer_id']]\n    \n    if customer_loans.empty:\n        # If no loans are found for the customer, return 0% missed payments\n        return 0.0\n    \n    # Initialize counters for missed payments and total payments\n    total_missed_payments = 0\n    total_payments = 0\n    \n    # Iterate through the customer's loans\n    for _, loan in customer_loans.iterrows():\n        payment_history = loan['payment_history']\n        \n        # Assuming payment_history is a string like \"PPMPM\" (P = Paid, M = Missed)\n        if isinstance(payment_history, str):\n            total_missed_payments += payment_history.count('M')\n            total_payments += len(payment_history)\n    \n    # Calculate the percentage of missed payments\n    if total_payments == 0:\n        return 0.0  # Avoid division by zero\n    \n    return 100 * total_missed_payments / total_payments\n"
+        },
+        "0.08103235674081366": {
+            "name": "monthly_installment",
+            "code": "\n\ndef monthly_installment(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the loans_table dataframe from aux_data\n    loans_table = aux_data['loans_table.csv']\n    \n    # Find the loan information for the given customer_id\n    customer_loans = loans_table[loans_table['customer_id'] == row['customer_id']]\n    \n    # If no loans are found for the customer, return None\n    if customer_loans.empty:\n        return None\n    \n    # Assuming we calculate the installment for the first loan found for the customer\n    loan = customer_loans.iloc[0]\n    \n    # Calculate the monthly installment\n    return loan['loan_amount'] / (loan['loan_term'] + 1e-6)\n"
+        },
+        "0.06347199983580659": {
+            "name": "marital_category_default_rate",
+            "code": "\n\ndef marital_category_default_rate(row, df_train: pd.DataFrame):\n    # Exclude the current row from the calculation to prevent target leakage\n    df_train_excluded = df_train[df_train['customer_id'] != row['customer_id']]\n    \n    # Calculate the mean default rate for each marital status\n    marital_rates = df_train_excluded.groupby('marital_status')['loan_default'].mean()\n    \n    # Return the default rate for the marital status of the current row\n    # If the marital status is not found, return 0 as a default value\n    return marital_rates.get(row['marital_status'], 0)\n"
+        },
+        "0.04468765050017083": {
+            "name": "zip_code_default_rate",
+            "code": "\n\ndef zip_code_default_rate(row, df_train: pd.DataFrame):\n    # Exclude the current row from the calculation to prevent target leakage\n    zip_rates = (\n        df_train[df_train['customer_id'] != row['customer_id']]\n        .groupby('zip_code')['loan_default']\n        .mean()\n    )\n    # Return the default rate for the zip code, or 0 if the zip code is not found\n    return zip_rates.get(row['zip_code'], 0)\n"
+        },
+        "0.03844479833039703": {
+            "name": "loan_start_years_ago",
+            "code": "import pandas as pd\nimport datetime\n\ndef loan_start_years_ago(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the loans table from aux_data\n    loans_table = aux_data['loans_table.csv']\n    \n    # Find the loan associated with the customer_id in the current row\n    customer_loans = loans_table[loans_table['customer_id'] == row['customer_id']]\n    \n    # If no loans are found for the customer, return None\n    if customer_loans.empty:\n        return None\n    \n    # Extract the loan start date (assuming the first loan is used if multiple exist)\n    loan_start_date = pd.to_datetime(customer_loans.iloc[0]['loan_start_date'])\n    \n    # Calculate the current year\n    current_year = datetime.now().year\n    \n    # Calculate the difference in years\n    return current_year - loan_start_date.year\n"
+        },
+        "0.033736710770994": {
+            "name": "credit_income_interaction",
+            "code": "\n\ndef credit_income_interaction(row):\n    return row['credit_score'] * row['annual_income']\n"
+        },
+        "0.02793335286085991": {
+            "name": "employment_category_default_rate",
+            "code": "\n\ndef employment_category_default_rate(row, df_train: pd.DataFrame):\n    \"\"\"\n    Calculate the default rate for the employment category of the given row,\n    ensuring no target leakage or use of future data.\n\n    Parameters:\n    - row: The row of the DataFrame being processed.\n    - df_train: The training DataFrame containing 'employment_status' and 'loan_default'.\n\n    Returns:\n    - The default rate for the employment category of the given row.\n    \"\"\"\n    # Check if the required columns exist in df_train\n    if 'employment_status' not in df_train.columns or 'loan_default' not in df_train.columns:\n        raise KeyError(\"The required columns 'employment_status' or 'loan_default' are missing in the training DataFrame.\")\n    \n    # Exclude the current row from the calculation to prevent target leakage\n    df_train_excluded = df_train[df_train.index != row.name]\n    \n    # Group by 'employment_status' and calculate the mean default rate\n    employment_rates = df_train_excluded.groupby('employment_status')['loan_default'].mean()\n    \n    # Return the default rate for the given row's employment_status, or 0 if not found\n    return employment_rates.get(row['employment_status'], 0)\n"
+        },
+        "0.015948111534148105": {
+            "name": "customer_age",
+            "code": "import pandas as pd\nimport datetime\n\ndef customer_age(row):\n    # Extract the current year\n    current_year = datetime.now().year\n    # Parse the year of birth from the 'date_of_birth' column\n    year_of_birth = pd.to_datetime(row['date_of_birth']).year\n    # Calculate and return the age\n    return current_year - year_of_birth\n"
+        },
+        "0.010837659470758257": {
+            "name": "income_to_loan_ratio",
+            "code": "\n\ndef income_to_loan_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Get the loans_table dataframe from aux_data\n    loans_table = aux_data['loans_table.csv']\n    \n    # Find the loan information for the given customer_id\n    customer_loans = loans_table[loans_table['customer_id'] == row['customer_id']]\n    \n    # If no loans are found for the customer, return None or a default value\n    if customer_loans.empty:\n        return None\n    \n    # Assuming we take the first loan for the customer (if multiple loans exist)\n    loan_amount = customer_loans.iloc[0]['loan_amount']\n    \n    # Calculate and return the income-to-loan ratio\n    return row['annual_income'] / (loan_amount + 1e-6)\n"
+        },
+        "0.00815545642739684": {
+            "name": "state_default_rate",
+            "code": "\n\ndef state_default_rate(row, df_train: pd.DataFrame):\n    # Exclude the current row from the calculation to prevent target leakage\n    df_without_row = df_train[df_train['customer_id'] != row['customer_id']]\n    \n    # Calculate the state default rates without the current row\n    state_rates = df_without_row.groupby('state')['loan_default'].mean()\n    \n    # Return the default rate for the row's state, or 0 if the state is not found\n    return state_rates.get(row['state'], 0)\n"
+        },
+        "0.008120692359275178": {
+            "name": "credit_score_to_income_ratio",
+            "code": "\n\ndef credit_score_to_income_ratio(row):\n    return row['credit_score'] / (row['annual_income'] + 1e-6)\n"
+        },
+        "0.0008269547493669956": {
+            "name": "avg_loan_amount_borrower",
+            "code": "\n\ndef avg_loan_amount_borrower(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the loans_table.csv dataframe from aux_data\n    loans_df = aux_data['loans_table.csv']\n    \n    # Filter loans for the given customer_id\n    borrower_loans = loans_df[loans_df['customer_id'] == row['customer_id']]\n    \n    # Return the average loan amount for the borrower\n    return borrower_loans['loan_amount'].mean()\n"
+        },
+        "0": {
+            "name": "percent_on_time_payments",
+            "code": "\n\ndef percent_on_time_payments(row, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Extract the loans table from aux_data\n    loans_table = aux_data['loans_table.csv']\n    \n    # Filter loans for the given customer_id\n    customer_loans = loans_table[loans_table['customer_id'] == row['customer_id']]\n    \n    # Initialize counters for on-time and total payments\n    total_payments = 0\n    on_time_payments = 0\n    \n    # Iterate through the customer's loans\n    for _, loan in customer_loans.iterrows():\n        # Parse the payment history (assuming it's a list of dictionaries or similar structure)\n        payment_history = loan['payment_history']\n        \n        # Ensure payment_history is iterable\n        if isinstance(payment_history, list):\n            total_payments += len(payment_history)\n            on_time_payments += sum(1 for payment in payment_history if payment.get('on_time', False))\n    \n    # Avoid division by zero\n    if total_payments == 0:\n        return 0.0\n    \n    # Calculate the percentage of on-time payments\n    return 100 * on_time_payments / total_payments\n"
+        }
+    },
+    "feature_descriptions": [
+        "num loans borrower",
+        "debt to income ratio",
+        "interest burden",
+        "percent late payments",
+        "loan term remaining",
+        "gender default rate",
+        "percent missed payments",
+        "monthly installment",
+        "marital category default rate",
+        "zip code default rate",
+        "loan start years ago",
+        "credit income interaction",
+        "employment category default rate",
+        "customer age",
+        "income to loan ratio",
+        "state default rate",
+        "credit score to income ratio",
+        "avg loan amount borrower",
+        "percent on time payments"
+    ]
+}

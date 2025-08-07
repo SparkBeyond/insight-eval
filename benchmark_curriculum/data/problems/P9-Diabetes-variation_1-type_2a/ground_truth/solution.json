@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "number_of_occurrences_in_the_last_12_months_of_values_of_triglycerides_over_the_normal_range",
+        "number_of_abnormal_blood_test_values_in_the_last_24_months",
+        "annual_slope_of_hba1c_in_the_last_5_years"
+    ],
+    "features_descriptions": [
+        "number of occurrences in the last 12 months of values of triglycerides over the normal range",
+        "number of abnormal blood test values in the last 24 months",
+        "annual slope of hba1c in the last 5 years"
+    ]
+}

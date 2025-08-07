@@ -1,0 +1,7 @@
+{
+    "target_column": "mental_health_risk",
+    "description": "Predict the risk of a patient developing mental health issues.",
+    "name": "Mental Health Risk Prediction",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Healthcare"
+}

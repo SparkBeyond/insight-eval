@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "employment_status_influence_on_subscription_upgrades",
+        "change_in_customer_satisfaction_score_over_the_last_6_months",
+        "trend_in_usage_intensity_within_the_past_quarter"
+    ],
+    "features_descriptions": [
+        "employment status influence on subscription upgrades",
+        "change in customer satisfaction score over the last 6 months",
+        "trend in usage intensity within the past quarter"
+    ]
+}

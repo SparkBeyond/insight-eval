@@ -1,0 +1,95 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "claim_approval_ratio",
+        "approved_claims_count",
+        "time_since_last_interaction",
+        "interaction_count",
+        "total_paid_amount",
+        "claim_frequency",
+        "average_payment_gap",
+        "time_since_policy_inception",
+        "incident_type_frequency",
+        "claim_amount_trend",
+        "user_age_at_claim",
+        "incident_description_length",
+        "average_payment_amount",
+        "pending_claims_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5944398738963012": {
+            "name": "claim_approval_ratio",
+            "code": "\n\ndef claim_approval_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the historical claims data\n    claim_history = aux_dataframes['historical_claim_records_table.csv']\n    \n    # Filter claims for the specific policyholder\n    user_claims = claim_history[claim_history['policyholder_id'] == row['policyholder_id']]\n    \n    # If no claims exist for the policyholder, return 0\n    if user_claims.empty:\n        return 0\n    \n    # Filter approved claims\n    approved_claims = user_claims[user_claims['claim_status'] == 'approved']\n    \n    # Calculate and return the approval ratio\n    return approved_claims.shape[0] / user_claims.shape[0]\n"
+        },
+        "0.39316963887165024": {
+            "name": "approved_claims_count",
+            "code": "\n\ndef approved_claims_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the historical claims records dataframe\n    claim_history = aux_dataframes['historical_claim_records_table.csv']\n    \n    # Filter the claims for the given policyholder_id and approved status\n    user_claims = claim_history[\n        (claim_history['policyholder_id'] == row['policyholder_id']) & \n        (claim_history['claim_status'] == 'approved')\n    ]\n    \n    # Return the count of approved claims\n    return user_claims.shape[0]\n"
+        },
+        "0.08473613420749607": {
+            "name": "time_since_last_interaction",
+            "code": "import pandas as pd\n\ndef time_since_last_interaction(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the interaction logs dataframe\n    interaction_logs = aux_dataframes['customer_interaction_logs_table.csv']\n    \n    # Filter interactions for the specific policyholder\n    user_interactions = interaction_logs[interaction_logs['policyholder_id'] == row['policyholder_id']]\n    \n    # If no interactions exist for the policyholder, return None\n    if user_interactions.empty:\n        return None\n    \n    # Ensure interaction_date and incident_date are datetime objects\n    user_interactions['interaction_date'] = pd.to_datetime(user_interactions['interaction_date'])\n    incident_date = pd.to_datetime(row['claim_date'])  # Assuming 'claim_date' is the incident date\n    \n    # Get the most recent interaction date\n    last_interaction_date = user_interactions['interaction_date'].max()\n    \n    # Calculate the difference in days\n    return (incident_date - last_interaction_date).days\n"
+        },
+        "0.07908412468631255": {
+            "name": "interaction_count",
+            "code": "\n\ndef interaction_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    interaction_logs = aux_dataframes['customer_interaction_logs_table.csv']\n    # Use 'policyholder_id' instead of 'user_id' for matching\n    return interaction_logs[interaction_logs['policyholder_id'] == row['policyholder_id']].shape[0]\n"
+        },
+        "0.06585557460870228": {
+            "name": "total_paid_amount",
+            "code": "\n\ndef total_paid_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the payment history dataframe\n    payment_history = aux_dataframes['payment_history_table.csv']\n    \n    # Filter the payment history for the specific policyholder_id in the current row\n    user_payments = payment_history[payment_history['policyholder_id'] == row['policyholder_id']]\n    \n    # Sum the 'payment_amount' column if there are matching payments, otherwise return 0\n    return user_payments['payment_amount'].sum() if not user_payments.empty else 0\n"
+        },
+        "0.06529083867641129": {
+            "name": "claim_frequency",
+            "code": "\n\ndef claim_frequency(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the historical claims records table\n    claim_history = aux_dataframes['historical_claim_records_table.csv']\n    \n    # Filter the claim history for the specific policyholder_id in the current row\n    user_claims = claim_history[claim_history['policyholder_id'] == row['policyholder_id']]\n    \n    # Return the number of claims for this policyholder\n    return user_claims.shape[0]\n"
+        },
+        "0.012223064122617523": {
+            "name": "average_payment_gap",
+            "code": "import pandas as pd\n\ndef average_payment_gap(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    payment_history = aux_dataframes['payment_history_table.csv']\n    \n    # Ensure 'payment_date' is in datetime format\n    if not pd.api.types.is_datetime64_any_dtype(payment_history['payment_date']):\n        payment_history['payment_date'] = pd.to_datetime(payment_history['payment_date'], errors='coerce')\n    \n    # Filter payments for the specific policyholder\n    user_payments = payment_history[payment_history['policyholder_id'] == row['policyholder_id']]\n    \n    # If there are fewer than 2 payments, return 0\n    if user_payments.shape[0] < 2:\n        return 0\n    \n    # Sort payments by date to ensure correct gap calculation\n    user_payments = user_payments.sort_values(by='payment_date')\n    \n    # Calculate the gaps between payment dates\n    gaps = user_payments['payment_date'].diff().dt.days\n    \n    # Return the average gap, ignoring NaN values\n    return gaps.mean()\n"
+        },
+        "0.006983058420509975": {
+            "name": "time_since_policy_inception",
+            "code": "import pandas as pd\n\ndef time_since_policy_inception(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the policyholder details dataframe\n    policyholder_details = aux_dataframes['policyholder_details_table.csv']\n    \n    # Retrieve the policy start date for the given policyholder_id\n    policy_start_date = policyholder_details.loc[\n        policyholder_details['policyholder_id'] == row['policyholder_id'], 'policy_start_date'\n    ].values[0]\n    \n    # Calculate the time difference in days between the incident date and the policy start date\n    return (pd.to_datetime(row['claim_date']) - pd.to_datetime(policy_start_date)).days\n"
+        },
+        "0.0046198206795967115": {
+            "name": "incident_type_frequency",
+            "code": "\n\ndef incident_type_frequency(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the incident_details_table.csv dataframe\n    incident_details = aux_dataframes['incident_details_table.csv']\n    \n    # Filter the dataframe based on policyholder_id and incident_id\n    user_incidents = incident_details[\n        (incident_details['policyholder_id'] == row['policyholder_id']) & \n        (incident_details['incident_id'] == row['incident_id'])\n    ]\n    \n    # Return the count of matching rows\n    return user_incidents.shape[0]\n"
+        },
+        "0.00374880785268": {
+            "name": "claim_amount_trend",
+            "code": "\n\ndef claim_amount_trend(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the historical claims data\n    claim_history = aux_dataframes['historical_claim_records_table.csv']\n    \n    # Filter claims for the specific policyholder (using policyholder_id) and ensure claim_amount is not null\n    user_claims = claim_history[\n        (claim_history['policyholder_id'] == row['policyholder_id']) & \n        (claim_history['claim_amount'].notnull())\n    ]\n    \n    # If there are fewer than 2 claims, return 0 (not enough data to calculate a trend)\n    if user_claims.shape[0] < 2:\n        return 0\n    \n    # Calculate the mean difference in claim amounts\n    return user_claims['claim_amount'].diff().mean()\n"
+        },
+        "0.0033374278923232856": {
+            "name": "user_age_at_claim",
+            "code": "import pandas as pd\n\ndef user_age_at_claim(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the policyholder details dataframe\n    policyholder_details = aux_dataframes['policyholder_details_table.csv']\n    \n    # Get the policyholder's date of birth using the policyholder_id\n    dob = policyholder_details.loc[\n        policyholder_details['policyholder_id'] == row['policyholder_id'], \n        'date_of_birth'\n    ].values[0]\n    \n    # Convert the incident_date to a datetime object\n    incident_date = pd.to_datetime(row['claim_date'])\n    \n    # Calculate the age at the time of the claim\n    age = (incident_date - pd.to_datetime(dob)).days / 365.25\n    \n    return age\n"
+        },
+        "0.0018569163667498674": {
+            "name": "incident_description_length",
+            "code": "import pandas as pd\n\ndef incident_description_length(row, aux_data: Dict[str, pd.DataFrame]):\n    # Get the incident_details_table dataframe from aux_data\n    incident_details_df = aux_data.get('incident_details_table.csv')\n    \n    if incident_details_df is None:\n        raise ValueError(\"The 'incident_details_table.csv' dataframe is missing from aux_data.\")\n    \n    # Find the incident_description for the given incident_id\n    incident_id = row['incident_id']\n    incident_row = incident_details_df[incident_details_df['incident_id'] == incident_id]\n    \n    if not incident_row.empty:\n        # Extract the incident_description and calculate its length\n        incident_description = incident_row.iloc[0]['incident_description']\n        return len(incident_description) if pd.notnull(incident_description) else 0\n    else:\n        # If the incident_id is not found, return 0\n        return 0\n"
+        },
+        "0.0005281802238595862": {
+            "name": "average_payment_amount",
+            "code": "\n\ndef average_payment_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the payment history dataframe\n    payment_history = aux_dataframes['payment_history_table.csv']\n    \n    # Filter payments for the specific policyholder_id\n    user_payments = payment_history[payment_history['policyholder_id'] == row['policyholder_id']]\n    \n    # Calculate and return the average payment amount, or 0 if no payments exist\n    return user_payments['payment_amount'].mean() if not user_payments.empty else 0\n"
+        },
+        "0": {
+            "name": "pending_claims_ratio",
+            "code": "\n\ndef pending_claims_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the historical claims records table\n    claim_history = aux_dataframes['historical_claim_records_table.csv']\n    \n    # Filter claims for the specific policyholder\n    user_claims = claim_history[claim_history['policyholder_id'] == row['policyholder_id']]\n    \n    # If no claims exist for the policyholder, return 0\n    if user_claims.empty:\n        return 0\n    \n    # Count the number of pending claims\n    pending_claims = user_claims[user_claims['claim_status'] == 'pending'].shape[0]\n    \n    # Calculate and return the ratio of pending claims to total claims\n    return pending_claims / user_claims.shape[0]\n"
+        }
+    },
+    "feature_descriptions": [
+        "claim approval ratio",
+        "approved claims count",
+        "time since last interaction",
+        "interaction count",
+        "total paid amount",
+        "claim frequency",
+        "average payment gap",
+        "time since policy inception",
+        "incident type frequency",
+        "claim amount trend",
+        "user age at claim",
+        "incident description length",
+        "average payment amount",
+        "pending claims ratio"
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "number_of_notices_with_severe_message",
+        "number_of_payments_that_are_late_over_90_days",
+        "number_of_late_payments_in_current_loan"
+    ],
+    "features_descriptions": [
+        "number of notices with severe message",
+        "number of payments that are late over 90 days",
+        "number of late payments in current loan"
+    ]
+}

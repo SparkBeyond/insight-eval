@@ -1,0 +1,53 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "total_transaction_amount",
+        "days_since_last_promotion",
+        "promo_count_past_year",
+        "major_category_search_ratio",
+        "avg_session_duration",
+        "days_since_account_creation",
+        "days_since_last_login"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.2497237996320559": {
+            "name": "total_transaction_amount",
+            "code": "\n\ndef total_transaction_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the transaction history DataFrame from aux_data\n    transaction_history = aux_data['transaction_history_table.csv']\n    \n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Filter transactions for the given customer_id\n    transactions = transaction_history[transaction_history[\"customer_id\"] == customer_id][\"transaction_amount\"]\n    \n    # Return the sum of the transaction amounts\n    return transactions.sum()\n"
+        },
+        "0.11135047948244906": {
+            "name": "days_since_last_promotion",
+            "code": "import pandas as pd\nimport datetime\n\ndef days_since_last_promotion(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculate the number of days since the last promotion for a given customer.\n    \n    Args:\n        row: A row from the dataframe being processed.\n        aux_data: A dictionary mapping filenames to dataframes.\n    \n    Returns:\n        The number of days since the last promotion, or None if no promotion exists.\n    \"\"\"\n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Access the promotion data table from aux_data\n    promotion_data = aux_data[\"promotion_data_table.csv\"]\n    \n    # Filter the promotion data for the given customer_id\n    customer_promotions = promotion_data[promotion_data[\"customer_id\"] == customer_id]\n    \n    # Check if the customer has any promotions\n    if customer_promotions.empty:\n        return None  # Return None if no promotions exist for the customer\n    \n    # Convert the 'promotion_date' column to datetime and find the most recent promotion date\n    promotion_dates = pd.to_datetime(customer_promotions[\"promotion_date\"])\n    most_recent_promotion = promotion_dates.max()\n    \n    # Calculate the difference in days between the most recent promotion and today\n    today = datetime.datetime.now()\n    return days_difference(most_recent_promotion, today)\n\ndef days_difference(date1, date2):\n    \"\"\"Calculate the difference in days between two dates.\"\"\"\n    return (date2 - date1).days\n"
+        },
+        "0.05672238648903932": {
+            "name": "promo_count_past_year",
+            "code": "import pandas as pd\nimport datetime\n\ndef promo_count_past_year(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the promotion data table from aux_data\n    df_promotion = aux_data[\"promotion_data_table.csv\"]\n    \n    # Ensure the promotion_date column is properly converted to datetime\n    df_promotion[\"promotion_date\"] = pd.to_datetime(df_promotion[\"promotion_date\"], errors='coerce')\n    \n    # Get the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Calculate the date one year ago from today\n    one_year_ago = datetime.now() - pd.Timedelta(days=365)\n    \n    # Filter promotions for the given customer_id within the past year\n    promotions_last_year = df_promotion[\n        (df_promotion[\"customer_id\"] == customer_id) & \n        (df_promotion[\"promotion_date\"] >= one_year_ago)\n    ]\n    \n    # Return the count of promotions\n    return len(promotions_last_year)\n"
+        },
+        "0.055437947202516734": {
+            "name": "major_category_search_ratio",
+            "code": "\n\ndef major_category_search_ratio(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Access the search history dataframe from aux_data\n    search_history_df = aux_data.get('search_history_table.csv')\n    \n    # Ensure the dataframe exists and is not None\n    if search_history_df is None:\n        raise ValueError(\"The 'search_history_table.csv' dataframe is missing from aux_data.\")\n    \n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Filter the search history dataframe for the given customer_id\n    searched_categories = search_history_df[search_history_df[\"customer_id\"] == customer_id][\"category_searched\"]\n    \n    # If no searches are found, return 0.0\n    if len(searched_categories) == 0:\n        return 0.0\n    \n    # Calculate the count of the most searched category\n    major_category_count = searched_categories.value_counts().max()\n    \n    # Return the ratio of the most searched category to the total number of searches\n    return major_category_count / len(searched_categories)\n"
+        },
+        "0.03047216111992373": {
+            "name": "avg_session_duration",
+            "code": "import numpy as np\n\ndef avg_session_duration(row, df_train: pd.DataFrame):\n       customer_id = row[\"customer_id\"]\n       sessions = df_train[df_train[\"customer_id\"] == customer_id][\"average_session_duration\"].mean()\n       return sessions if not np.isnan(sessions) else 0\n"
+        },
+        "0.013405564642246117": {
+            "name": "days_since_account_creation",
+            "code": "import datetime\n\ndef days_since_account_creation(row: Dict[str, any]) -> int:\n    \"\"\"\n    Calculate the number of days since the account was created.\n    :param row: A dictionary-like object containing the 'account_creation_date' key.\n    :return: The number of days since the account creation date.\n    \"\"\"\n    # Get the current date and time\n    current_date = datetime.datetime.now()\n    # Calculate the days difference\n    return days_difference(row[\"account_creation_date\"], current_date)\n\ndef days_difference(date1: str, date2: datetime.datetime) -> int:\n    \"\"\"\n    Calculate the difference in days between two dates.\n    :param date1: A string representing the first date (e.g., 'YYYY-MM-DD').\n    :param date2: A datetime object representing the second date.\n    :return: The difference in days as an integer.\n    \"\"\"\n    # Parse date1 as a datetime object\n    date1_parsed = datetime.datetime.strptime(date1, \"%Y-%m-%d\")\n    # Calculate the difference in days\n    return (date2 - date1_parsed).days\n"
+        },
+        "0.004867520279962423": {
+            "name": "days_since_last_login",
+            "code": "import datetime\n\ndef days_difference(date1, date2):\n    \"\"\"\n    Calculate the difference in days between two dates.\n    \"\"\"\n    if isinstance(date1, str):\n        date1 = datetime.datetime.strptime(date1, \"%Y-%m-%d\")\n    if isinstance(date2, str):\n        date2 = datetime.datetime.strptime(date2, \"%Y-%m-%d\")\n    return (date2 - date1).days\n\ndef days_since_last_login(row):\n    \"\"\"\n    Calculate the number of days since the last login for a given row.\n    \"\"\"\n    # Ensure last_login_date is a datetime object\n    last_login_date = row[\"last_login_date\"]\n    if isinstance(last_login_date, str):\n        last_login_date = datetime.datetime.strptime(last_login_date, \"%Y-%m-%d\")\n    \n    # Get the current date\n    current_date = datetime.datetime.now()\n    \n    # Calculate the difference in days\n    return days_difference(last_login_date, current_date)\n"
+        }
+    },
+    "feature_descriptions": [
+        "total transaction amount",
+        "days since last promotion",
+        "promo count past year",
+        "major category search ratio",
+        "avg session duration",
+        "days since account creation",
+        "days since last login"
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "weather_temperature",
+        "day_of_week",
+        "is_weekend",
+        "is_first_time_device"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.006534489884539382": {
+            "name": "weather_temperature",
+            "code": "import pandas as pd\n\ndef weather_temperature(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    This feature retrieves the closest recorded temperature value\n    from the external weather data for the transaction's billing date.\n\n    Parameters:\n        row: The current row (transaction) being analyzed.\n        aux_dataframes: A dictionary containing auxiliary datasets.\n        \n    Returns:\n        Temperature (float) for the closest match found in weather data.\n    \"\"\"\n    weather_data = aux_dataframes['external_weather_data_table.csv']\n    \n    # Ensure the 'date' column in weather_data and 'billing_date' in row are in datetime format\n    weather_data['date'] = pd.to_datetime(weather_data['date'])\n    transaction_date = pd.to_datetime(row['billing_date'])\n    \n    # Find the record in the weather data closest to the current transaction billing date\n    nearest_record = weather_data.iloc[(weather_data['date'] - transaction_date).abs().idxmin()]\n    return nearest_record['temperature']\n"
+        },
+        "0.006363347672210759": {
+            "name": "day_of_week",
+            "code": "import pandas as pd\n\ndef day_of_week(row: pd.Series) -> int:\n    # Convert the 'billing_date' column to a datetime object\n    billing_date = pd.to_datetime(row['billing_date'])\n    # Return the day of the week (0=Monday, 6=Sunday)\n    return billing_date.weekday()\n"
+        },
+        "0.004723954287974583": {
+            "name": "is_weekend",
+            "code": "import pandas as pd\n\ndef is_weekend(row: pd.Series) -> int:\n    # Convert the 'billing_date' column to a datetime object\n    billing_date = pd.to_datetime(row['billing_date'])\n    # Get the day of the week (0=Monday, 6=Sunday)\n    day_of_week = billing_date.weekday()\n    # Return 1 if the day is Saturday (5) or Sunday (6), otherwise return 0\n    return 1 if day_of_week in [5, 6] else 0\n"
+        },
+        "0": {
+            "name": "is_first_time_device",
+            "code": "\n\ndef is_first_time_device(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe from aux_data\n    energy_device_data = aux_data['energy_device_data_table.csv']\n    \n    # Get the consumer_id from the current row\n    consumer_id = row.get('consumer_id')\n    \n    # Check if 'device_id' exists in the row\n    device_id = row.get('device_id')\n    if device_id is None:\n        # If 'device_id' is not present, return a default value (e.g., -1)\n        return -1\n    \n    # Get all device_ids associated with the consumer_id from the energy_device_data\n    consumer_devices = energy_device_data[energy_device_data['consumer_id'] == consumer_id]['device_id'].unique()\n    \n    # Check if the current device_id is in the list of devices associated with the consumer_id\n    return 1 if device_id not in consumer_devices else 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "weather temperature",
+        "day of week",
+        "is weekend",
+        "is first time device"
+    ]
+}

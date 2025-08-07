@@ -1,0 +1,71 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "avg_competitor_price",
+        "price_change_frequency",
+        "trend_impact_on_sale",
+        "seasonal_impact",
+        "days_since_last_price_change",
+        "competitor_price_variability",
+        "customer_avg_purchase_value",
+        "customer_purchase_frequency",
+        "cumulative_revenue",
+        "segment_purchase_frequency"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.4520758301408853": {
+            "name": "avg_competitor_price",
+            "code": "import pandas as pd\n\ndef avg_competitor_price(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct key for the competitor pricing table\n    competitor_pricing = aux_data['competitor_pricing_table.csv']\n    \n    # Extract the product_id from the row\n    product_id = row['product_id']\n    \n    # Filter the competitor_pricing DataFrame for the given product_id and calculate the mean price\n    avg_price = competitor_pricing[competitor_pricing['product_id'] == product_id]['competitor_price'].mean()\n    \n    # Return the average price, or 0 if the average price is NaN\n    return avg_price if not pd.isna(avg_price) else 0\n"
+        },
+        "0.13432655195398166": {
+            "name": "price_change_frequency",
+            "code": "\n\ndef price_change_frequency(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the pricing history dataframe using the correct key\n    pricing_history = aux_data['pricing_history_table.csv']\n    \n    # Extract the product_id from the row\n    product_id = row['product_id']\n    \n    # Count the number of rows in the pricing history where the product_id matches\n    change_count = pricing_history[pricing_history['product_id'] == product_id].shape[0]\n    \n    return change_count\n"
+        },
+        "0.13061704295040516": {
+            "name": "trend_impact_on_sale",
+            "code": "import pandas as pd\n\ndef trend_impact_on_sale(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the market trends dataframe from aux_data\n    trends = aux_data['market_trends_table.csv']\n    \n    # Convert the sale_date in the row to a datetime object\n    sale_date = pd.to_datetime(row['sale_date'])\n    \n    # Check if the sale_date falls within any trend's start_date and end_date\n    is_within_trend = trends[\n        (sale_date >= pd.to_datetime(trends['start_date'])) & \n        (sale_date <= pd.to_datetime(trends['end_date']))\n    ].shape[0]\n    \n    return is_within_trend\n"
+        },
+        "0.09407875549304176": {
+            "name": "seasonal_impact",
+            "code": "\n\ndef seasonal_impact(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> int:\n    # Access the correct dataframe using the key 'pricing_history_table.csv'\n    pricing_history = aux_dataframes['pricing_history_table.csv']\n    \n    # Extract the product_id from the row\n    product_id = row['product_id']\n    \n    # Filter the pricing_history dataframe for the given product_id and seasonal price change reason\n    seasonal_count = pricing_history[\n        (pricing_history['product_id'] == product_id) &\n        (pricing_history['price_change_reason'] == 'seasonal')\n    ].shape[0]\n    \n    # Return the count of seasonal price changes\n    return seasonal_count\n"
+        },
+        "0.07443374852348801": {
+            "name": "days_since_last_price_change",
+            "code": "import pandas as pd\n\ndef days_since_last_price_change(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the key 'pricing_history_table.csv'\n    pricing_history = aux_data['pricing_history_table.csv']\n    \n    # Extract the product_id from the row\n    product_id = row['product_id']\n    \n    # Ensure the 'effective_date' column is in datetime format\n    pricing_history['effective_date'] = pd.to_datetime(pricing_history['effective_date'])\n    \n    # Filter the pricing history for the given product_id and find the latest effective_date\n    latest_date = pricing_history[pricing_history['product_id'] == product_id]['effective_date'].max()\n    \n    # If no date is found, return None\n    if pd.isna(latest_date):\n        return None\n    \n    # Calculate the difference in days between today and the latest effective_date\n    today = pd.Timestamp.now()\n    return (today - latest_date).days\n"
+        },
+        "0.0645521771879256": {
+            "name": "competitor_price_variability",
+            "code": "\n\ndef competitor_price_variability(row, aux_data: Dict[str, pd.DataFrame]):\n    # Use the correct key for the competitor pricing table\n    competitor_pricing = aux_data['competitor_pricing_table.csv']\n    \n    # Extract the product_id from the row\n    product_id = row['product_id']\n    \n    # Filter the competitor pricing data for the given product_id\n    prices = competitor_pricing[competitor_pricing['product_id'] == product_id]['competitor_price']\n    \n    # Calculate and return the standard deviation of competitor prices\n    if len(prices) > 1:\n        return prices.std()  # Standard deviation of competitor prices\n    else:\n        return 0  # If only one data point or none, variability is zero\n"
+        },
+        "0.03293192367746064": {
+            "name": "customer_avg_purchase_value",
+            "code": "import pandas as pd\n\ndef customer_avg_purchase_value(row, df_train):\n       customer_id = row['customer_id']\n       purchases = df_train[df_train['customer_id'] == customer_id]['sale_price'].mean()\n       return purchases if not pd.isna(purchases) else 0\n"
+        },
+        "0.00575566126412355": {
+            "name": "customer_purchase_frequency",
+            "code": "\n\ndef customer_purchase_frequency(row, df_train):\n       customer_id = row['customer_id']\n       frequency = df_train[df_train['customer_id'] == customer_id].shape[0]\n       return frequency\n"
+        },
+        "0.0038572377402756987": {
+            "name": "cumulative_revenue",
+            "code": "\n\ndef cumulative_revenue(row, df_train):\n       product_id = row['product_id']\n       total_revenue = df_train[df_train['product_id'] == product_id]['total_revenue'].sum()\n       return total_revenue\n"
+        },
+        "0": {
+            "name": "segment_purchase_frequency",
+            "code": "\n\ndef segment_purchase_frequency(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe from aux_data\n    customer_segments = aux_data['customer_segments_table.csv']\n    \n    # Get the segment_id from the row\n    segment_id = row.get('segment_id', None)\n    \n    # Check if segment_id is valid and exists in the dataframe\n    if segment_id is not None and segment_id in customer_segments['segment_id'].values:\n        # Retrieve the purchase_frequency for the given segment_id\n        frequency = customer_segments.loc[customer_segments['segment_id'] == segment_id, 'purchase_frequency'].values\n        # Return the frequency if it exists, otherwise return 0\n        return frequency[0] if len(frequency) > 0 else 0\n    else:\n        # Return 0 if segment_id is invalid or not found\n        return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "avg competitor price",
+        "price change frequency",
+        "trend impact on sale",
+        "seasonal impact",
+        "days since last price change",
+        "competitor price variability",
+        "customer avg purchase value",
+        "customer purchase frequency",
+        "cumulative revenue",
+        "segment purchase frequency"
+    ]
+}

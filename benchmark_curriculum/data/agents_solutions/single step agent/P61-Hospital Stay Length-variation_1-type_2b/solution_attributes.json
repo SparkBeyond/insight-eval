@@ -1,0 +1,59 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "num_chronic_conditions",
+        "number_of_unique_medications",
+        "num_previous_surgeries",
+        "num_allergies",
+        "gender_encoded",
+        "total_treatment_duration",
+        "extensive_treatment",
+        "total_hospitalizations"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.0977638188595435": {
+            "name": "num_chronic_conditions",
+            "code": "import pandas as pd\n\ndef num_chronic_conditions(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the medical history table from aux_dataframes\n    medical_history_table = aux_dataframes[\"medical_history_table.csv\"]\n    patient_id = row['patient_id']\n    \n    # Filter the medical history table for the given patient_id\n    patient_history = medical_history_table[medical_history_table['patient_id'] == patient_id]\n    \n    if patient_history.empty:\n        return 0\n    else:\n        # Get the chronic_conditions column for the patient\n        conditions = patient_history['chronic_conditions'].iloc[0]\n        # Split the conditions by ',' and count them if the value is not null\n        return len(conditions.split(',')) if pd.notnull(conditions) else 0\n"
+        },
+        "0.07895529861487466": {
+            "name": "number_of_unique_medications",
+            "code": "\n\ndef number_of_unique_medications(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframes using the provided keys\n    medical_history = aux_dataframes[\"medical_history_table.csv\"]\n    treatment_table = aux_dataframes[\"treatment_table.csv\"]\n    \n    # Get patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Filter the medical history for the given patient_id\n    patient_medical_history = medical_history[medical_history['patient_id'] == patient_id]\n    \n    # If no medical history exists for the patient, return 0\n    if patient_medical_history.empty:\n        return 0\n    \n    # Initialize a set to store unique medications\n    unique_medications = set()\n    \n    # Iterate through the patient's medical history\n    for _, history in patient_medical_history.iterrows():\n        # Check if the 'chronic_conditions' column contains medication information\n        chronic_conditions = history.get('chronic_conditions', None)\n        if chronic_conditions:\n            # Split the chronic conditions by commas and add them to the set\n            unique_medications.update(chronic_conditions.split(','))\n    \n    # Return the count of unique medications\n    return len(unique_medications)\n"
+        },
+        "0.07563810065869127": {
+            "name": "num_previous_surgeries",
+            "code": "import pandas as pd\n\ndef num_previous_surgeries(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe from aux_dataframes\n    medical_history_table = aux_dataframes[\"medical_history_table.csv\"]\n    \n    # Extract the patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Filter the medical history table for the given patient_id\n    patient_history = medical_history_table[medical_history_table['patient_id'] == patient_id]\n    \n    # If no record is found for the patient, return 0\n    if patient_history.empty:\n        return 0\n    \n    # Extract the 'previous_surgeries' column for the patient\n    previous_surgeries = patient_history['previous_surgeries'].iloc[0]\n    \n    # If the 'previous_surgeries' column is null, return 0\n    if pd.isnull(previous_surgeries):\n        return 0\n    \n    # Split the surgeries by comma and return the count\n    return len(previous_surgeries.split(','))\n"
+        },
+        "0.05354879747944427": {
+            "name": "num_allergies",
+            "code": "import pandas as pd\n\ndef num_allergies(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the medical history table\n    medical_history_table = aux_dataframes[\"medical_history_table.csv\"]\n    patient_id = row['patient_id']\n    \n    # Filter the medical history table for the given patient_id\n    patient = medical_history_table[medical_history_table['patient_id'] == patient_id]\n    \n    if patient.empty:\n        return 0\n    else:\n        # Get the allergies column for the patient\n        allergies = patient['allergies'].iloc[0]\n        # Return the count of allergies, or 0 if the allergies column is null\n        return len(allergies.split(',')) if pd.notnull(allergies) else 0\n"
+        },
+        "0.034084857955827955": {
+            "name": "gender_encoded",
+            "code": "\n\ndef gender_encoded(row, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Extract the patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Look up the patient_table dataframe from aux_data\n    patient_table = aux_data['patient_table.csv']\n    \n    # Find the gender for the given patient_id\n    gender = patient_table.loc[patient_table['patient_id'] == patient_id, 'gender'].values\n    \n    # If gender is found, return 1 for 'Male' and 0 otherwise\n    if len(gender) > 0:\n        return 1 if gender[0] == 'Male' else 0\n    else:\n        # Handle the case where the patient_id is not found\n        raise ValueError(f\"Patient ID {patient_id} not found in patient_table.csv\")\n"
+        },
+        "0.02976513469837287": {
+            "name": "total_treatment_duration",
+            "code": "import pandas as pd\n\ndef total_treatment_duration(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct keys for the auxiliary dataframes\n    medical_history = aux_dataframes[\"treatment_table.csv\"]\n    patient_table = aux_dataframes[\"patient_table.csv\"]\n    \n    # Extract patient_id and hospitalization_id from the row\n    patient_id = row['patient_id']\n    hospitalization_id = row['hospitalization_id']\n    \n    # Filter treatments based on the hospitalization_id\n    treatments = medical_history[medical_history['hospitalization_id'] == hospitalization_id]\n    \n    total_duration = 0\n    for _, treatment in treatments.iterrows():\n        try:\n            # Parse start and end dates\n            start_date = pd.to_datetime(treatment['treatment_start_date'])\n            end_date = pd.to_datetime(treatment['treatment_end_date'])\n            \n            # Calculate duration and add to total\n            total_duration += (end_date - start_date).days\n        except Exception as e:\n            # Skip rows with invalid or missing dates\n            continue\n    \n    return total_duration\n"
+        },
+        "0.004928904904722933": {
+            "name": "extensive_treatment",
+            "code": "\n\ndef extensive_treatment(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> int:\n    \"\"\"\n    Determines if a patient has undergone extensive treatment based on their treatment history.\n\n    Args:\n        row (pd.Series): A single row of the dataframe containing hospitalization data.\n        aux_dataframes (Dict[str, pd.DataFrame]): A dictionary mapping filenames to dataframes.\n\n    Returns:\n        int: 1 if the patient has more than 5 treatments, otherwise 0.\n    \"\"\"\n    # Ensure the key exists in aux_dataframes\n    if \"treatment_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'treatment_table.csv' is missing from aux_dataframes.\")\n    \n    treatment_table = aux_dataframes[\"treatment_table.csv\"]\n    \n    # Ensure the required column exists in the row\n    if \"hospitalization_id\" not in row:\n        raise KeyError(\"The column 'hospitalization_id' is missing from the input row.\")\n    \n    hospitalization_id = row[\"hospitalization_id\"]\n    \n    # Ensure the required column exists in the treatment_table\n    if \"hospitalization_id\" not in treatment_table.columns:\n        raise KeyError(\"The column 'hospitalization_id' is missing from the treatment_table dataframe.\")\n    \n    # Filter the treatment table for the specific hospitalization\n    hospitalization_treatments = treatment_table[treatment_table[\"hospitalization_id\"] == hospitalization_id]\n    \n    # Arbitrary threshold for extensive treatment count\n    return 1 if len(hospitalization_treatments) > 5 else 0\n"
+        },
+        "0": {
+            "name": "total_hospitalizations",
+            "code": "\n\ndef total_hospitalizations(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the patient table using the correct key\n    patient_table = aux_dataframes[\"patient_table.csv\"]\n    \n    # Ensure the 'patient_id' column exists in the patient table\n    if 'patient_id' not in patient_table.columns:\n        raise KeyError(\"The 'patient_id' column is missing in the patient table.\")\n    \n    # Count the number of rows in the patient table where 'patient_id' matches the row's 'patient_id'\n    return patient_table[patient_table['patient_id'] == row['patient_id']].shape[0]\n"
+        }
+    },
+    "feature_descriptions": [
+        "num chronic conditions",
+        "number of unique medications",
+        "num previous surgeries",
+        "num allergies",
+        "gender encoded",
+        "total treatment duration",
+        "extensive treatment",
+        "total hospitalizations"
+    ]
+}

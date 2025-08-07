@@ -1,0 +1,7 @@
+{
+    "target_column": "return_flag",
+    "description": "Predict products likely to be returned after purchase.",
+    "name": "Product return likelihood",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Retail"
+}

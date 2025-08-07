@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "page_interaction_intensity_focused_on_top_selling_items",
+        "engagement_ratio_based_on_weekly_page_visit_frequency",
+        "response_to_promotions_over_the_last_quarter"
+    ],
+    "features_descriptions": [
+        "page interaction intensity focused on top selling items",
+        "engagement ratio based on weekly page visit frequency",
+        "response to promotions over the last quarter"
+    ]
+}

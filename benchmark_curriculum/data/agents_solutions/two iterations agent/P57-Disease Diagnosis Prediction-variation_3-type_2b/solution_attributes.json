@@ -1,0 +1,113 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "test_count",
+        "days_since_last_test",
+        "max_test_value",
+        "high_risk_symptoms",
+        "average_test_value",
+        "severe_symptom_count",
+        "symptom_count",
+        "average_symptom_severity",
+        "has_ct_scan",
+        "symptom_overlap_rate",
+        "days_since_registration",
+        "average_city_income",
+        "income_level",
+        "average_symptom_duration",
+        "days_since_first_symptom",
+        "patient_age",
+        "is_male"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.3182861232387608": {
+            "name": "test_count",
+            "code": "\n\ndef test_count(row, df_train, aux_dataframes):\n    test_results = aux_dataframes['test_results_data_table.csv']\n    patient_tests = test_results[test_results['patient_id'] == row['patient_id']]\n    return len(patient_tests)\n"
+        },
+        "0.28483306303805805": {
+            "name": "days_since_last_test",
+            "code": "import numpy as np\nimport pandas as pd\n\ndef days_since_last_test(row, df_train, aux_dataframes):\n    test_results = aux_dataframes['test_results_data_table.csv']\n    patient_tests = test_results[test_results['patient_id'] == row['patient_id']]\n    if patient_tests.empty:\n        return np.nan\n    ref_date = pd.to_datetime('2024-01-01')\n    last_test_date = pd.to_datetime(patient_tests['test_date']).max()\n    return (ref_date - last_test_date).days\n"
+        },
+        "0.19583386615570533": {
+            "name": "max_test_value",
+            "code": "import numpy as np\n\ndef max_test_value(row, df_train, aux_dataframes):\n    test_results = aux_dataframes['test_results_data_table.csv']\n    patient_tests = test_results[test_results['patient_id'] == row['patient_id']]\n    if patient_tests.empty:\n        return np.nan\n    return patient_tests['result_value'].max()\n"
+        },
+        "0.1788624644625495": {
+            "name": "high_risk_symptoms",
+            "code": "\n\ndef high_risk_symptoms(row):\n    return 1 if row['presence_of_specific_high_risk_symptoms'] else 0\n"
+        },
+        "0.13938836631530488": {
+            "name": "average_test_value",
+            "code": "import numpy as np\n\ndef average_test_value(row, df_train, aux_dataframes):\n    test_results = aux_dataframes['test_results_data_table.csv']\n    patient_tests = test_results[test_results['patient_id'] == row['patient_id']]\n    if patient_tests.empty:\n        return np.nan\n    return patient_tests['result_value'].mean()\n"
+        },
+        "0.13577797791584478": {
+            "name": "severe_symptom_count",
+            "code": "\n\ndef severe_symptom_count(row, df_train, aux_dataframes):\n    symptoms = aux_dataframes['symptoms_data_table.csv']\n    patient_symptoms = symptoms[symptoms['patient_id'] == row['patient_id']]\n    if patient_symptoms.empty:\n        return 0\n    return len(patient_symptoms[patient_symptoms['severity'] > 5])\n"
+        },
+        "0.11431783697197044": {
+            "name": "symptom_count",
+            "code": "\n\ndef symptom_count(row, df_train, aux_dataframes):\n    symptoms = aux_dataframes['symptoms_data_table.csv']\n    patient_symptoms = symptoms[symptoms['patient_id'] == row['patient_id']]\n    return len(patient_symptoms)\n"
+        },
+        "0.10610476788156778": {
+            "name": "average_symptom_severity",
+            "code": "import numpy as np\n\ndef average_symptom_severity(row, df_train, aux_dataframes):\n    symptoms = aux_dataframes['symptoms_data_table.csv']\n    patient_symptoms = symptoms[symptoms['patient_id'] == row['patient_id']]\n    if patient_symptoms.empty:\n        return np.nan\n    return patient_symptoms['severity'].mean()\n"
+        },
+        "0.09387922671649122": {
+            "name": "has_ct_scan",
+            "code": "\n\ndef has_ct_scan(row, df_train, aux_dataframes):\n    test_results = aux_dataframes['test_results_data_table.csv']\n    patient_tests = test_results[test_results['patient_id'] == row['patient_id']]\n    if patient_tests.empty:\n        return 0\n    return 1 if 'CT Scan' in patient_tests['test_name'].values else 0\n"
+        },
+        "0.08655305421269142": {
+            "name": "symptom_overlap_rate",
+            "code": "import numpy as np\n\ndef symptom_overlap_rate(row, df_train, aux_dataframes):\n    symptoms = aux_dataframes['symptoms_data_table.csv']\n    patient_symptoms = set(symptoms[symptoms['patient_id'] == row['patient_id']]['symptom_name'])\n    if len(patient_symptoms) == 0:\n        return np.nan\n    all_symptoms = set(symptoms['symptom_name'])\n    return len(patient_symptoms.intersection(all_symptoms)) / len(all_symptoms)\n"
+        },
+        "0.04609659755570207": {
+            "name": "days_since_registration",
+            "code": "import numpy as np\nimport pandas as pd\n\ndef days_since_registration(row):\n    registration_date = row['registration_date']\n    if pd.isna(registration_date):\n        return np.nan\n    ref_date = pd.to_datetime('2024-01-01')\n    reg_date = pd.to_datetime(registration_date)\n    return max((ref_date - reg_date).days, 0)\n"
+        },
+        "0.03690918153011759": {
+            "name": "average_city_income",
+            "code": "import numpy as np\n\ndef average_city_income(row, df_train, aux_dataframes):\n    demographics = aux_dataframes['demographic_data_table.csv']\n    patient_info = demographics[demographics['patient_id'] == row['patient_id']]\n    if patient_info.empty:\n        return np.nan\n    city = patient_info.iloc[0]['city']\n    city_data = demographics[demographics['city'] == city]\n    mapping = {'Low': 0, 'Medium': 1, 'High': 2}\n    city_income = city_data['income_level'].map(mapping).mean()\n    return city_income\n"
+        },
+        "0.03625230514032618": {
+            "name": "income_level",
+            "code": "import numpy as np\n\ndef income_level(row, df_train, aux_dataframes):\n    demographics = aux_dataframes['demographic_data_table.csv']\n    demo_info = demographics[demographics['patient_id'] == row['patient_id']]\n    if demo_info.empty:\n        return np.nan\n    income = demo_info.iloc[0]['income_level']\n    mapping = {'Low': 0, 'Medium': 1, 'High': 2}\n    return mapping.get(income, np.nan)\n"
+        },
+        "0.013862546107055057": {
+            "name": "average_symptom_duration",
+            "code": "import numpy as np\n\ndef average_symptom_duration(row, df_train, aux_dataframes):\n    symptoms = aux_dataframes['symptoms_data_table.csv']\n    patient_symptoms = symptoms[symptoms['patient_id'] == row['patient_id']]\n    if patient_symptoms.empty:\n        return np.nan\n    return patient_symptoms['duration_days'].mean()\n"
+        },
+        "0.01197368190891631": {
+            "name": "days_since_first_symptom",
+            "code": "import numpy as np\nimport pandas as pd\n\ndef days_since_first_symptom(row, df_train, aux_dataframes):\n    symptoms = aux_dataframes['symptoms_data_table.csv']\n    patient_symptoms = symptoms[symptoms['patient_id'] == row['patient_id']]\n    if patient_symptoms.empty:\n        return np.nan\n    ref_date = pd.to_datetime('2024-01-01')\n    first_symptom_date = pd.to_datetime(patient_symptoms['onset_date']).min()\n    return (ref_date - first_symptom_date).days\n"
+        },
+        "0.006920093319173672": {
+            "name": "patient_age",
+            "code": "import numpy as np\nimport pandas as pd\n\ndef patient_age(row):\n    return calculate_age(row['date_of_birth'])\n\ndef calculate_age(date_of_birth, reference_date='2024-01-01'):\n    if pd.isna(date_of_birth):\n        return np.nan\n    birth_date = pd.to_datetime(date_of_birth)\n    ref_date = pd.to_datetime(reference_date)\n    age = (ref_date - birth_date).days // 365\n    return max(age, 0)\n"
+        },
+        "0.004250757844923237": {
+            "name": "is_male",
+            "code": "\n\ndef is_male(row):\n    return 1 if row['gender'].lower() == 'male' else 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "test count",
+        "days since last test",
+        "max test value",
+        "high risk symptoms",
+        "average test value",
+        "severe symptom count",
+        "symptom count",
+        "average symptom severity",
+        "has ct scan",
+        "symptom overlap rate",
+        "days since registration",
+        "average city income",
+        "income level",
+        "average symptom duration",
+        "days since first symptom",
+        "patient age",
+        "is male"
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "policy_duration",
+        "claim_approval_rate",
+        "recent_interaction_count_30d",
+        "policy_duration_at_claim",
+        "avg_claim_amount_policyholder",
+        "claim_to_income_ratio",
+        "claim_frequency",
+        "time_since_last_incident"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "policy duration",
+        "claim approval rate",
+        "recent interaction count 30d",
+        "policy duration at claim",
+        "avg claim amount policyholder",
+        "claim to income ratio",
+        "claim frequency",
+        "time since last incident"
+    ]
+}

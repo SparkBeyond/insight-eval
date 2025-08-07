@@ -1,0 +1,83 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "upgrade_suggestion_ratio",
+        "num_late_payments",
+        "competitor_price_diff",
+        "days_since_last_interaction",
+        "avg_competitor_price_category",
+        "customer_gender_encoded",
+        "duration_with_current_plan",
+        "avg_monthly_billing",
+        "total_billing_last_12_months",
+        "most_common_support_issue",
+        "get_age_bucket",
+        "plan_upgrade_count"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.13853657295244345": {
+            "name": "upgrade_suggestion_ratio",
+            "code": "\n\ndef upgrade_suggestion_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the customer_interactions_table.csv dataframe\n    interactions = aux_dataframes[\"customer_interactions_table.csv\"]\n    \n    # Get the customer_id from the current row\n    customer_id = row[\"customer_id\"]\n    \n    # Filter interactions for the specific customer\n    customer_interactions = interactions[interactions[\"customer_id\"] == customer_id]\n    \n    # Calculate the total number of interactions\n    total_interactions = len(customer_interactions)\n    \n    # If there are no interactions, return 0\n    if total_interactions == 0:\n        return 0\n    \n    # Count the number of interactions where the topic contains \"upgrade\" (case-insensitive)\n    upgrade_suggestions = customer_interactions[\"interaction_topic\"].str.contains(\"upgrade\", case=False).sum()\n    \n    # Return the ratio of upgrade suggestions to total interactions\n    return upgrade_suggestions / total_interactions\n"
+        },
+        "0.11755703019658012": {
+            "name": "num_late_payments",
+            "code": "import pandas as pd\n\ndef num_late_payments(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_table = aux_dataframes[\"billing_history_table.csv\"]\n    customer_id = row[\"customer_id\"]\n    \n    # Filter the billing table for the specific customer\n    customer_billing = billing_table[billing_table[\"customer_id\"] == customer_id]\n    \n    # Calculate late payments by comparing payment_date and billing_date\n    late_payments = customer_billing[\n        pd.to_datetime(customer_billing[\"payment_date\"]) > pd.to_datetime(customer_billing[\"billing_date\"])\n    ]\n    \n    # Return the count of late payments\n    return late_payments.shape[0]\n"
+        },
+        "0.07463948164408751": {
+            "name": "competitor_price_diff",
+            "code": "\n\ndef competitor_price_diff(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the competitor plan info table\n    competitor_table = aux_dataframes[\"competitor_plan_info_table.csv\"]\n    \n    # Get the customer's current plan from the 'previous_plan' column\n    customer_plan = row[\"previous_plan\"]\n    \n    # Filter the competitor table for the matching plan name and calculate the average price\n    competitor_price = competitor_table[competitor_table[\"plan_name\"] == customer_plan][\"plan_price\"].mean()\n    \n    # Return the difference between the competitor price and the customer's current price\n    return competitor_price - row[\"frequency_of_on_time_payments_in_the_last_year\"]  # Assuming 'current_price' is not available\n"
+        },
+        "0.0682010200063693": {
+            "name": "days_since_last_interaction",
+            "code": "import pandas as pd\n\ndef days_since_last_interaction(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    interactions = aux_dataframes[\"customer_interactions_table.csv\"]\n    customer_id = row[\"customer_id\"]\n    customer_interactions = interactions[interactions[\"customer_id\"] == customer_id]\n    if customer_interactions.empty:\n        return None\n    last_interaction_date = pd.to_datetime(customer_interactions[\"interaction_date\"]).max()\n    return (pd.Timestamp.now() - last_interaction_date).days\n"
+        },
+        "0.02281999224657713": {
+            "name": "avg_competitor_price_category",
+            "code": "\n\ndef avg_competitor_price_category(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Load the competitor plan info table\n    competitor_table = aux_dataframes[\"competitor_plan_info_table.csv\"]\n    \n    # Get the customer's new plan category from the row\n    customer_plan_category = row[\"new_plan\"]\n    \n    # Filter the competitor table for plans matching the customer's new plan category\n    category_plans = competitor_table[competitor_table[\"plan_name\"] == customer_plan_category]\n    \n    # Return the average price of the filtered plans\n    return category_plans[\"plan_price\"].mean()\n"
+        },
+        "0.01158061536758689": {
+            "name": "customer_gender_encoded",
+            "code": "\n\ndef customer_gender_encoded(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Access the customer_demographics_table.csv dataframe from aux_data\n    demographics_df = aux_data[\"customer_demographics_table.csv\"]\n    \n    # Find the gender for the given customer_id\n    gender = demographics_df.loc[demographics_df[\"customer_id\"] == customer_id, \"gender\"]\n    \n    # Check if gender exists for the customer_id\n    if not gender.empty:\n        gender_value = gender.iloc[0]  # Get the first (and only) value\n        if gender_value == \"Male\":\n            return 1\n        elif gender_value == \"Female\":\n            return 0\n    # Return -1 if gender is not found or is invalid\n    return -1\n"
+        },
+        "0.0072582015774405656": {
+            "name": "duration_with_current_plan",
+            "code": "import pandas as pd\n\ndef duration_with_current_plan(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_table = aux_dataframes[\"billing_history_table.csv\"]\n    customer_id = row[\"customer_id\"]\n    customer_billing = billing_table[billing_table[\"customer_id\"] == customer_id]\n    if customer_billing.empty:\n        return 0\n    most_recent_plan_date = pd.to_datetime(customer_billing.iloc[-1][\"billing_date\"])\n    return (pd.Timestamp.now() - most_recent_plan_date).days\n"
+        },
+        "0.006453413830890542": {
+            "name": "avg_monthly_billing",
+            "code": "\n\ndef avg_monthly_billing(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_table = aux_dataframes[\"billing_history_table.csv\"]\n    customer_id = row[\"customer_id\"]\n    \n    # Filter the billing table for the specific customer\n    customer_billing = billing_table[billing_table[\"customer_id\"] == customer_id]\n    \n    # Sort the billing records by billing_date in descending order and take the most recent 12 records\n    recent_billing = customer_billing.sort_values(\"billing_date\", ascending=False).head(12)\n    \n    # Calculate and return the average of the 'amount_due' column\n    return recent_billing[\"amount_due\"].mean()\n"
+        },
+        "0.00645341383089049": {
+            "name": "total_billing_last_12_months",
+            "code": "import pandas as pd\n\ndef total_billing_last_12_months(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the billing history table from the auxiliary dataframes\n    billing_table = aux_dataframes[\"billing_history_table.csv\"]\n    \n    # Extract the customer_id from the current row\n    customer_id = row[\"customer_id\"]\n    \n    # Filter the billing table for the current customer\n    customer_billing = billing_table[billing_table[\"customer_id\"] == customer_id]\n    \n    # Filter the billing records for the last 12 months\n    last_12_months_billing = customer_billing[\n        (pd.to_datetime(customer_billing[\"billing_date\"]) >= pd.Timestamp.now() - pd.DateOffset(months=12))\n    ]\n    \n    # Sum the 'amount_due' column for the last 12 months\n    return last_12_months_billing[\"amount_due\"].sum()\n"
+        },
+        "0.00528709705922481": {
+            "name": "most_common_support_issue",
+            "code": "\n\ndef most_common_support_issue(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    interactions = aux_dataframes[\"customer_interactions_table.csv\"]\n    customer_id = row[\"customer_id\"]\n    # Filter interactions for the given customer_id\n    customer_interactions = interactions[interactions[\"customer_id\"] == customer_id]\n    # Return the most common interaction topic\n    return customer_interactions[\"interaction_topic\"].value_counts().idxmax()\n"
+        },
+        "-0.00029083941249563594": {
+            "name": "get_age_bucket",
+            "code": "\n\ndef get_age_bucket(r, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = r[\"customer_id\"]\n    \n    # Get the customer demographics dataframe from aux_data\n    demographics_df = aux_data[\"customer_demographics_table.csv\"]\n    \n    # Find the age of the customer using their customer_id\n    customer_row = demographics_df[demographics_df[\"customer_id\"] == customer_id]\n    \n    # If the customer_id is not found, return None\n    if customer_row.empty:\n        return None\n    \n    # Extract the age of the customer\n    age = customer_row.iloc[0][\"age\"]\n    \n    # Determine the age bucket\n    if age < 25:\n        return \"young\"\n    elif age < 50:\n        return \"middle-aged\"\n    else:\n        return \"senior\"\n"
+        },
+        "0": {
+            "name": "plan_upgrade_count",
+            "code": "\n\ndef plan_upgrade_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the relevant tables\n    billing_table = aux_dataframes[\"billing_history_table.csv\"]\n    plan_usage_table = aux_dataframes[\"plan_usage_table.csv\"]\n    \n    # Get the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Filter the plan_usage_table for the specific customer\n    customer_plan_usage = plan_usage_table[plan_usage_table[\"customer_id\"] == customer_id]\n    \n    # Sort by usage_id or another column to ensure chronological order\n    customer_plan_usage = customer_plan_usage.sort_values(by=\"usage_id\")\n    \n    # Count the number of times the plan_id changes (indicating a plan upgrade or change)\n    plan_changes = (customer_plan_usage[\"plan_id\"] != customer_plan_usage[\"plan_id\"].shift()).sum() - 1  # Subtract 1 to exclude the first plan as a \"change\"\n    \n    return plan_changes\n"
+        }
+    },
+    "feature_descriptions": [
+        "upgrade suggestion ratio",
+        "num late payments",
+        "competitor price diff",
+        "days since last interaction",
+        "avg competitor price category",
+        "customer gender encoded",
+        "duration with current plan",
+        "avg monthly billing",
+        "total billing last 12 months",
+        "most common support issue",
+        "get age bucket",
+        "plan upgrade count"
+    ]
+}

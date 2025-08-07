@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "returning_habit_based_on_past_6_months_transactions",
+        "average_price_of_products_returned_vs_kept_in_the_last_year",
+        "number_of_purchases_made_through_online_channels_in_the_last_quarter"
+    ],
+    "features_descriptions": [
+        "returning habit based on past 6 months transactions",
+        "average price of products returned vs kept in the last year",
+        "number of purchases made through online channels in the last quarter"
+    ]
+}

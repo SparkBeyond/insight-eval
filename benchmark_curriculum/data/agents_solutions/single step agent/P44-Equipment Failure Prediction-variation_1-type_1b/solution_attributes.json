@@ -1,0 +1,89 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "mean_pressure",
+        "install_age_days",
+        "model_count",
+        "time_since_last_maintenance",
+        "word_count_in_issue",
+        "std_vibration",
+        "issue_length",
+        "manufacturer_occurrence",
+        "maintenance_event_count",
+        "day_of_year",
+        "resolution_length",
+        "mean_temperature",
+        "preventive_maintenance_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.26124952311226546": {
+            "name": "mean_pressure",
+            "code": "\n\ndef mean_pressure(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the sensor data\n    sensor_data = aux_dataframes['sensor_data_table.csv']\n    \n    # Filter the sensor data for the given equipment_id\n    equipment_sensors = sensor_data[sensor_data['equipment_id'] == row['equipment_id']]\n    \n    # Return the mean of the 'pressure' column\n    return equipment_sensors['pressure'].mean()\n"
+        },
+        "0.14224597496571345": {
+            "name": "install_age_days",
+            "code": "import pandas as pd\n\ndef install_age_days(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the installation records\n    installation_records = aux_dataframes['equipment_info_table.csv']\n    \n    # Ensure the 'installation_date' column is in datetime format\n    installation_records['installation_date'] = pd.to_datetime(installation_records['installation_date'])\n    \n    # Filter the installation records for the specific equipment_id\n    equipment_record = installation_records[installation_records['equipment_id'] == row['equipment_id']]\n    \n    # If a matching record is found, calculate the age in days\n    if not equipment_record.empty:\n        install_date = equipment_record['installation_date'].iloc[0]\n        return (pd.to_datetime(row['maintenance_date']) - install_date).days\n    else:\n        # Return None if no matching record is found\n        return None\n"
+        },
+        "0.08867610492162505": {
+            "name": "model_count",
+            "code": "\n\ndef model_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the correct key\n    equipment_metadata = aux_dataframes['equipment_info_table.csv']\n    \n    # Get the model name for the given equipment_id in the row\n    model_name = equipment_metadata[equipment_metadata['equipment_id'] == row['equipment_id']]['model'].iloc[0]\n    \n    # Count the number of rows in the dataframe with the same model name\n    return equipment_metadata[equipment_metadata['model'] == model_name].shape[0]\n"
+        },
+        "0.05714121166850073": {
+            "name": "time_since_last_maintenance",
+            "code": "import pandas as pd\n\ndef time_since_last_maintenance(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the maintenance records dataframe using the correct key\n    maintenance_records = aux_dataframes['maintenance_records_table.csv']\n    \n    # Ensure the 'record_date' column is in datetime format\n    maintenance_records['record_date'] = pd.to_datetime(maintenance_records['record_date'])\n    \n    # Sort the maintenance records by 'equipment_id' and 'record_date'\n    maintenance_records = maintenance_records.sort_values(by=['equipment_id', 'record_date'])\n\n    # Filter rows specific to the current row's equipment_id\n    equipment_maintenance = maintenance_records[maintenance_records['equipment_id'] == row['equipment_id']]\n\n    # Filter maintenance dates that occurred before the current record's date\n    past_maintenance = equipment_maintenance[equipment_maintenance['record_date'] < pd.to_datetime(row['maintenance_date'])]\n    \n    # If there are past maintenance records, calculate the time since the last maintenance\n    if not past_maintenance.empty:\n        last_maintenance_date = past_maintenance['record_date'].max()\n        return (pd.to_datetime(row['maintenance_date']) - last_maintenance_date).days\n    else:\n        # If no past maintenance records exist, return None\n        return None\n"
+        },
+        "0.05575558462515498": {
+            "name": "word_count_in_issue",
+            "code": "\n\ndef word_count_in_issue(row, aux_data: Dict[str, pd.DataFrame]):\n    # Get the maintenance_records_table dataframe from aux_data\n    maintenance_records_df = aux_data.get('maintenance_records_table.csv')\n    \n    # Ensure the dataframe and the 'issue_reported' column exist\n    if maintenance_records_df is not None and 'issue_reported' in maintenance_records_df.columns:\n        # Find the corresponding row in the maintenance_records_table based on the equipment_id\n        equipment_id = row['equipment_id']\n        matching_row = maintenance_records_df[maintenance_records_df['equipment_id'] == equipment_id]\n        \n        # If a matching row is found, calculate the word count for 'issue_reported'\n        if not matching_row.empty:\n            issue_reported = matching_row.iloc[0]['issue_reported']\n            return len(str(issue_reported).split())\n    \n    # Return 0 if no matching row or 'issue_reported' is not found\n    return 0\n"
+        },
+        "0.04779440734036155": {
+            "name": "std_vibration",
+            "code": "\n\ndef std_vibration(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the sensor data table\n    sensor_data = aux_dataframes['sensor_data_table.csv']\n    \n    # Filter the sensor data for the specific equipment_id\n    equipment_sensors = sensor_data[sensor_data['equipment_id'] == row['equipment_id']]\n    \n    # Return the standard deviation of the 'vibration' column\n    return equipment_sensors['vibration'].std()\n"
+        },
+        "0.04359406049828922": {
+            "name": "issue_length",
+            "code": "\n\ndef issue_length(row, aux_data: Dict[str, pd.DataFrame]):\n    # Check if 'issue_reported' exists in the row\n    if 'issue_reported' in row:\n        return len(row['issue_reported'])\n    else:\n        # Attempt to find 'issue_reported' in the maintenance_records_table.csv\n        if 'maintenance_records_table.csv' in aux_data:\n            maintenance_records = aux_data['maintenance_records_table.csv']\n            if 'issue_reported' in maintenance_records.columns:\n                # Match the row's equipment_id with the maintenance_records_table\n                matching_records = maintenance_records[maintenance_records['equipment_id'] == row['equipment_id']]\n                if not matching_records.empty:\n                    # Use the first matching record's 'issue_reported' value\n                    return len(matching_records.iloc[0]['issue_reported'])\n        # If 'issue_reported' cannot be found, return a default value (e.g., 0)\n        return 0\n"
+        },
+        "0.029761959890938994": {
+            "name": "manufacturer_occurrence",
+            "code": "\n\ndef manufacturer_occurrence(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the correct key is used for the maintenance records table\n    if 'maintenance_records_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'maintenance_records_table.csv' is missing in aux_dataframes.\")\n    \n    equipment_metadata = aux_dataframes['equipment_info_table.csv']\n    maintenance_records = aux_dataframes['maintenance_records_table.csv']\n    \n    # Get the manufacturer name for the given equipment_id\n    equipment_id = row['equipment_id']\n    manufacturer_row = equipment_metadata[equipment_metadata['equipment_id'] == equipment_id]\n    \n    if manufacturer_row.empty:\n        # If the equipment_id is not found, return 0\n        return 0\n    \n    manufacturer_name = manufacturer_row['manufacturer'].iloc[0]\n    \n    # Count the occurrences of this manufacturer in the maintenance records\n    manufacturer_occurrences = maintenance_records[maintenance_records['equipment_id'].isin(\n        equipment_metadata[equipment_metadata['manufacturer'] == manufacturer_name]['equipment_id']\n    )].shape[0]\n    \n    return manufacturer_occurrences\n"
+        },
+        "0.01562903496199003": {
+            "name": "maintenance_event_count",
+            "code": "\n\ndef maintenance_event_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the maintenance records dataframe using the correct key\n    maintenance_records = aux_dataframes['maintenance_records_table.csv']\n    \n    # Filter the maintenance records for the specific equipment_id in the row\n    equipment_records = maintenance_records[maintenance_records['equipment_id'] == row['equipment_id']]\n    \n    # Return the count of maintenance events for the equipment\n    return equipment_records.shape[0]\n"
+        },
+        "0.012846946806160614": {
+            "name": "day_of_year",
+            "code": "import pandas as pd\n\ndef day_of_year(row, aux_data: Dict[str, pd.DataFrame] = None):\n    # Use the correct column name 'maintenance_date' instead of 'record_date'\n    maintenance_date = pd.to_datetime(row['maintenance_date'])\n    return maintenance_date.dayofyear\n"
+        },
+        "0.006771958914339949": {
+            "name": "resolution_length",
+            "code": "\n\ndef resolution_length(row, aux_data: Dict[str, pd.DataFrame]):\n    # Get the maintenance_records_table dataframe from aux_data\n    maintenance_records = aux_data['maintenance_records_table.csv']\n    \n    # Find the corresponding row in the maintenance_records_table based on the equipment_id\n    matching_record = maintenance_records[maintenance_records['equipment_id'] == row['equipment_id']]\n    \n    # If a matching record is found, return the length of the 'resolution' column\n    if not matching_record.empty:\n        return len(matching_record.iloc[0]['resolution'])\n    \n    # If no matching record is found, return 0 or handle as needed\n    return 0\n"
+        },
+        "0.004192103142866065": {
+            "name": "mean_temperature",
+            "code": "\n\ndef mean_temperature(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the sensor data\n    sensor_data = aux_dataframes['sensor_data_table.csv']\n    \n    # Filter the sensor data for the specific equipment_id\n    equipment_sensors = sensor_data[sensor_data['equipment_id'] == row['equipment_id']]\n    \n    # Return the mean temperature for the filtered data\n    return equipment_sensors['temperature'].mean()\n"
+        },
+        "0": {
+            "name": "preventive_maintenance_ratio",
+            "code": "\n\ndef preventive_maintenance_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the maintenance records dataframe\n    maintenance_records = aux_dataframes['maintenance_records_table.csv']\n    \n    # Filter the maintenance records for the specific equipment_id\n    equipment_records = maintenance_records[maintenance_records['equipment_id'] == row['equipment_id']]\n    \n    # Check if there are any records for the equipment\n    if not equipment_records.empty:\n        # Assuming 'issue_reported' contains information about maintenance type\n        # Count the number of preventive maintenance records\n        # For this example, we assume 'preventive' is a keyword in 'issue_reported'\n        preventive_count = equipment_records[equipment_records['issue_reported'].str.contains('preventive', case=False, na=False)].shape[0]\n        \n        # Calculate and return the preventive maintenance ratio\n        return preventive_count / equipment_records.shape[0]\n    \n    # Return 0 if there are no records for the equipment\n    return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "mean pressure",
+        "install age days",
+        "model count",
+        "time since last maintenance",
+        "word count in issue",
+        "std vibration",
+        "issue length",
+        "manufacturer occurrence",
+        "maintenance event count",
+        "day of year",
+        "resolution length",
+        "mean temperature",
+        "preventive maintenance ratio"
+    ]
+}

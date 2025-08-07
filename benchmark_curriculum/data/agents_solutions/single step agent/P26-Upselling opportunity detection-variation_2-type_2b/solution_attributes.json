@@ -1,0 +1,59 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "customer_total_spent",
+        "customer_avg_spending",
+        "purchase_time_of_day",
+        "customer_income_category",
+        "customer_age_category",
+        "customer_marital_status",
+        "product_price_category",
+        "is_peak_hour"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.530023141582017": {
+            "name": "customer_total_spent",
+            "code": "\n\ndef customer_total_spent(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    \n    # Extract the relevant dataframes\n    purchase_patterns = aux_dataframes[\"purchase_patterns_table.csv\"]\n    product_catalog = aux_dataframes[\"product_catalog_table.csv\"]\n    \n    # Merge purchase patterns with product catalog to get the price of each product\n    merged_data = purchase_patterns.merge(\n        product_catalog, \n        on=\"product_id\", \n        how=\"left\"\n    )\n    \n    # Filter purchases for the given customer_id\n    customer_purchases = merged_data[merged_data['customer_id'] == customer_id]\n    \n    # Calculate the total spent by summing the 'price' column\n    if not customer_purchases.empty:\n        return customer_purchases['price'].sum()\n    \n    return 0\n"
+        },
+        "0.05151142154651576": {
+            "name": "customer_avg_spending",
+            "code": "\n\ndef customer_avg_spending(row, df_train, aux_dataframes):\n    customer_id = row['customer_id']\n    \n    # Access the relevant dataframes\n    purchase_data = aux_dataframes[\"purchase_patterns_table.csv\"]\n    product_catalog = aux_dataframes[\"product_catalog_table.csv\"]\n    \n    # Filter the purchase data for the given customer_id\n    customer_purchases = purchase_data[purchase_data['customer_id'] == customer_id]\n    \n    # Merge the customer's purchases with the product catalog to get the price\n    customer_purchases_with_price = customer_purchases.merge(\n        product_catalog, \n        on='product_id', \n        how='left'\n    )\n    \n    # Calculate the average purchase amount using the 'price' column\n    if not customer_purchases_with_price.empty:\n        return customer_purchases_with_price['price'].mean()\n    \n    # Return 0 if the customer has no purchases\n    return 0\n"
+        },
+        "0.0359187066518597": {
+            "name": "purchase_time_of_day",
+            "code": "import pandas as pd\n\ndef purchase_time_of_day(row, aux_data: Dict[str, pd.DataFrame]):\n    # Check if the 'purchase_patterns_table.csv' is in aux_data\n    if 'purchase_patterns_table.csv' not in aux_data:\n        raise ValueError(\"The required 'purchase_patterns_table.csv' is missing from aux_data.\")\n    \n    # Extract the purchase_patterns_table dataframe\n    purchase_patterns_df = aux_data['purchase_patterns_table.csv']\n    \n    # Ensure the 'purchase_time' column exists in the purchase_patterns_table\n    if 'purchase_time' not in purchase_patterns_df.columns:\n        raise ValueError(\"The 'purchase_time' column is missing from the 'purchase_patterns_table.csv' dataframe.\")\n    \n    # Get the purchase_time for the current row's customer_id and product_id\n    customer_id = row['customer_id']\n    product_id = row['product_id']\n    \n    # Filter the purchase_patterns_table for the matching customer_id and product_id\n    matching_row = purchase_patterns_df[\n        (purchase_patterns_df['customer_id'] == customer_id) & \n        (purchase_patterns_df['product_id'] == product_id)\n    ]\n    \n    # If no matching row is found, return \"Unknown\"\n    if matching_row.empty:\n        return \"Unknown\"\n    \n    # Extract the purchase_time from the matching row\n    purchase_time = matching_row.iloc[0]['purchase_time']  # Assuming one match per customer_id and product_id\n    \n    # Determine the time of day based on the purchase_time\n    if pd.notnull(purchase_time):\n        hour = int(purchase_time.split(':')[0])\n        if 5 <= hour < 12:\n            return \"Morning\"\n        elif 12 <= hour < 17:\n            return \"Afternoon\"\n        elif 17 <= hour < 21:\n            return \"Evening\"\n        else:\n            return \"Night\"\n    \n    return \"Unknown\"\n"
+        },
+        "0.007481207151429636": {
+            "name": "customer_income_category",
+            "code": "\n\ndef customer_income_category(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Retrieve the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Access the correct dataframe for income_level\n    demographics_df = aux_dataframes[\"customer_demographics_table.csv\"]\n    \n    # Filter the dataframe to find the income_level for the given customer_id\n    income = demographics_df.loc[demographics_df['customer_id'] == customer_id, 'income_level'].values\n    \n    # Check if income exists for the customer\n    if len(income) > 0:\n        income = income[0]  # Extract the income value\n        # Categorize the income level\n        if income < 50000:\n            return 'Low'\n        elif income < 100000:\n            return 'Medium'\n        else:\n            return 'High'\n    \n    # Return 'Unknown' if no income information is found\n    return 'Unknown'\n"
+        },
+        "-0.0006618359354897407": {
+            "name": "customer_age_category",
+            "code": "\n\ndef customer_age_category(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe for customer demographics\n    demographics_df = aux_dataframes[\"customer_demographics_table.csv\"]\n    \n    # Retrieve the age for the given customer_id\n    age = demographics_df.loc[demographics_df['customer_id'] == row['customer_id'], 'age'].values\n    \n    # Check if age is found and categorize\n    if len(age) > 0:\n        age = age[0]\n        if age < 30:\n            return \"Youth\"  # 0-29\n        elif age < 60:\n            return \"Adult\"  # 30-59\n        else:\n            return \"Senior\" # 60+\n    \n    # Return \"Unknown\" if age is not found\n    return \"Unknown\"\n"
+        },
+        "-0.0003816661831874679": {
+            "name": "customer_marital_status",
+            "code": "\n\ndef customer_marital_status(row, aux_dataframes):\n    # Access the correct dataframe\n    demographics_df = aux_dataframes[\"customer_demographics_table.csv\"]\n    \n    # Find the marital status for the given customer_id\n    marital_status = demographics_df.loc[\n        demographics_df['customer_id'] == row['customer_id'], 'marital_status'\n    ].values\n    \n    # Return the marital status if found, otherwise return 'Unknown'\n    if len(marital_status) > 0:\n        return marital_status[0]\n    return 'Unknown'\n"
+        },
+        "0.00017461738000001947": {
+            "name": "product_price_category",
+            "code": "\n\ndef product_price_category(row, aux_dataframes):\n    product_price = aux_dataframes[\"product_catalog_table.csv\"].loc[\n        aux_dataframes[\"product_catalog_table.csv\"]['product_id'] == row['product_id'], 'price'].values\n    if len(product_price) > 0:\n        price = product_price[0]\n        if price < 100:\n            return 'Low'\n        elif price < 500:\n            return 'Medium'\n        else:\n            return 'High'\n    return 'Unknown'\n"
+        },
+        "0": {
+            "name": "is_peak_hour",
+            "code": "import pandas as pd\n\ndef is_peak_hour(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the purchase_patterns_table from aux_data\n    purchase_patterns_table = aux_data.get('purchase_patterns_table.csv')\n    \n    if purchase_patterns_table is not None:\n        # Find the corresponding row in the purchase_patterns_table using customer_id and product_id\n        customer_id = row['customer_id']\n        product_id = row['product_id']\n        \n        # Filter the purchase_patterns_table for the matching customer_id and product_id\n        matching_row = purchase_patterns_table[\n            (purchase_patterns_table['customer_id'] == customer_id) & \n            (purchase_patterns_table['product_id'] == product_id)\n        ]\n        \n        if not matching_row.empty:\n            # Extract the purchase_time from the matching row\n            purchase_time = matching_row.iloc[0]['purchase_time']  # HH:MM:SS format\n            \n            if pd.notnull(purchase_time):\n                hour = int(purchase_time.split(':')[0])\n                return 10 <= hour <= 20  # Peak hours are considered 10 AM to 8 PM\n    \n    # If no matching row is found or purchase_time is not valid, return False\n    return False\n"
+        }
+    },
+    "feature_descriptions": [
+        "customer total spent",
+        "customer avg spending",
+        "purchase time of day",
+        "customer income category",
+        "customer age category",
+        "customer marital status",
+        "product price category",
+        "is peak hour"
+    ]
+}

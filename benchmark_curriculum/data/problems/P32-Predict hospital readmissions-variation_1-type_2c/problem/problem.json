@@ -1,0 +1,7 @@
+{
+    "target_column": "readmission_status",
+    "description": "Assess likelihood of patient readmission post-discharge using health records.",
+    "name": "Predict hospital readmissions",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Healthcare"
+}

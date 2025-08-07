@@ -1,0 +1,7 @@
+{
+    "target_column": "fault_detected",
+    "description": "Predict potential network faults based on performance logs.",
+    "name": "Network Fault Identification",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Telecommunications"
+}

@@ -1,0 +1,3001 @@
+customer_id,age,gender,income_bracket,location
+1,30,Female,Low,Los Angeles
+2,61,Female,High,Los Angeles
+3,45,Other,Low,Chicago
+4,45,Female,Medium,Chicago
+5,29,Male,Medium,New York
+6,39,Other,Medium,Houston
+7,38,Female,High,Chicago
+8,51,Other,Medium,Phoenix
+9,45,Female,Low,Chicago
+10,18,Male,Low,New York
+11,53,Male,High,Chicago
+12,28,Other,Medium,New York
+13,28,Other,Low,New York
+14,20,Male,Low,Phoenix
+15,56,Male,Low,Phoenix
+16,59,Female,Medium,Los Angeles
+17,18,Other,High,Houston
+18,57,Other,High,Chicago
+19,28,Female,Low,Houston
+20,37,Other,Medium,Houston
+21,54,Female,Low,Houston
+22,61,Female,Medium,Houston
+23,50,Male,High,Houston
+24,52,Other,Low,Houston
+25,53,Other,Low,Los Angeles
+26,44,Male,Medium,Houston
+27,20,Female,Medium,Chicago
+28,44,Male,Medium,Chicago
+29,25,Other,Low,Phoenix
+30,40,Female,Medium,Chicago
+31,68,Female,High,New York
+32,57,Other,High,Los Angeles
+33,53,Other,Low,Phoenix
+34,35,Male,Medium,Chicago
+35,61,Female,High,Los Angeles
+36,58,Female,Medium,Phoenix
+37,64,Male,Medium,Los Angeles
+38,63,Other,High,New York
+39,38,Female,Medium,Chicago
+40,23,Male,Low,Los Angeles
+41,64,Female,Medium,New York
+42,35,Female,High,Chicago
+43,70,Other,High,Phoenix
+44,46,Male,Low,Phoenix
+45,35,Male,Medium,Houston
+46,54,Female,Medium,Houston
+47,44,Female,High,Phoenix
+48,46,Female,Low,Phoenix
+49,26,Other,Low,Phoenix
+50,46,Male,High,Houston
+51,58,Other,High,Houston
+52,35,Male,Medium,Chicago
+53,40,Other,Medium,New York
+54,50,Other,Low,New York
+55,48,Male,Medium,Houston
+56,22,Female,Medium,New York
+57,24,Male,Medium,Houston
+58,56,Other,High,Chicago
+59,37,Other,Low,Los Angeles
+60,19,Other,Medium,Los Angeles
+61,22,Other,Medium,Phoenix
+62,36,Other,Medium,Los Angeles
+63,34,Other,Low,New York
+64,22,Other,Medium,Chicago
+65,45,Male,High,Phoenix
+66,62,Other,High,Chicago
+67,69,Female,Medium,Chicago
+68,25,Female,High,Houston
+69,43,Other,Medium,Chicago
+70,42,Other,Medium,Houston
+71,18,Male,Medium,Phoenix
+72,18,Male,Medium,Chicago
+73,60,Other,Medium,Chicago
+74,33,Male,Low,New York
+75,26,Female,High,Phoenix
+76,36,Male,High,Chicago
+77,70,Female,Low,Houston
+78,56,Female,Medium,Phoenix
+79,28,Female,Medium,New York
+80,54,Male,Low,Chicago
+81,66,Male,Low,Chicago
+82,27,Other,Medium,Phoenix
+83,43,Other,High,Phoenix
+84,52,Other,Medium,Chicago
+85,22,Male,Low,Chicago
+86,63,Other,Medium,New York
+87,40,Other,High,Chicago
+88,45,Female,Low,Phoenix
+89,22,Female,Low,Los Angeles
+90,55,Other,High,Los Angeles
+91,65,Male,Medium,Phoenix
+92,66,Other,Low,Phoenix
+93,51,Other,High,New York
+94,28,Male,Low,Houston
+95,40,Male,High,Houston
+96,41,Male,Medium,Houston
+97,31,Male,Low,Chicago
+98,18,Female,High,Chicago
+99,56,Male,Low,Chicago
+100,19,Female,Low,Phoenix
+101,38,Other,Low,Los Angeles
+102,65,Female,High,Phoenix
+103,19,Other,High,New York
+104,31,Female,Medium,New York
+105,41,Female,Medium,Phoenix
+106,50,Female,Medium,Los Angeles
+107,42,Other,Medium,Phoenix
+108,40,Male,High,Phoenix
+109,23,Female,Medium,Chicago
+110,44,Female,Medium,New York
+111,36,Other,High,New York
+112,26,Male,High,Houston
+113,42,Other,Medium,New York
+114,49,Female,High,Los Angeles
+115,25,Female,Medium,New York
+116,27,Female,High,Houston
+117,60,Female,Medium,New York
+118,37,Other,Low,Houston
+119,37,Male,High,Chicago
+120,60,Other,High,Los Angeles
+121,66,Other,Low,Chicago
+122,28,Other,Low,New York
+123,49,Female,Low,Los Angeles
+124,58,Other,High,Houston
+125,56,Other,Low,Phoenix
+126,40,Other,High,New York
+127,36,Other,Medium,Los Angeles
+128,41,Male,High,Los Angeles
+129,30,Male,High,Phoenix
+130,25,Male,Low,Houston
+131,40,Male,Medium,Phoenix
+132,31,Male,High,Houston
+133,54,Male,Medium,Los Angeles
+134,51,Female,High,Houston
+135,68,Male,Medium,Houston
+136,20,Other,Medium,Chicago
+137,33,Female,Low,Phoenix
+138,57,Male,Low,Phoenix
+139,55,Male,Low,Phoenix
+140,63,Female,High,Los Angeles
+141,35,Other,High,Phoenix
+142,56,Female,High,Los Angeles
+143,39,Female,Medium,Phoenix
+144,67,Female,Medium,Chicago
+145,40,Female,Low,Phoenix
+146,61,Other,High,Phoenix
+147,62,Female,High,Phoenix
+148,63,Male,Low,Houston
+149,36,Female,Medium,Chicago
+150,56,Male,Medium,Phoenix
+151,56,Female,Medium,Houston
+152,18,Other,Medium,Phoenix
+153,53,Female,High,Houston
+154,48,Other,Medium,Phoenix
+155,31,Female,Medium,New York
+156,41,Male,Low,Chicago
+157,65,Other,Medium,Phoenix
+158,54,Male,Low,Phoenix
+159,56,Male,Low,Chicago
+160,48,Female,High,Chicago
+161,28,Other,Medium,New York
+162,43,Other,Low,Los Angeles
+163,55,Other,Low,Chicago
+164,41,Other,High,Phoenix
+165,32,Female,Medium,Chicago
+166,39,Male,Low,Chicago
+167,66,Other,Medium,Phoenix
+168,57,Other,Low,Chicago
+169,24,Other,Medium,New York
+170,43,Male,Medium,Chicago
+171,40,Other,Medium,Houston
+172,58,Male,High,Chicago
+173,70,Female,High,Los Angeles
+174,66,Female,Low,Los Angeles
+175,19,Female,High,Chicago
+176,57,Female,High,New York
+177,24,Other,High,Phoenix
+178,44,Female,Low,Chicago
+179,67,Other,Medium,Los Angeles
+180,18,Female,Medium,Houston
+181,50,Male,Medium,Chicago
+182,46,Other,Low,Phoenix
+183,69,Female,High,Phoenix
+184,35,Male,Medium,Houston
+185,34,Male,Medium,New York
+186,53,Other,Medium,Chicago
+187,47,Other,Medium,Los Angeles
+188,33,Female,Medium,Phoenix
+189,28,Male,High,Phoenix
+190,30,Other,High,Houston
+191,69,Female,High,Los Angeles
+192,43,Other,Low,Phoenix
+193,64,Female,Medium,New York
+194,48,Female,Low,Chicago
+195,43,Other,High,New York
+196,18,Other,Medium,Los Angeles
+197,53,Female,Medium,Phoenix
+198,62,Female,High,New York
+199,47,Female,Low,New York
+200,31,Male,Medium,Los Angeles
+201,45,Other,Medium,New York
+202,55,Male,Medium,Chicago
+203,42,Female,Low,Los Angeles
+204,25,Male,High,Phoenix
+205,54,Male,Low,Phoenix
+206,18,Female,Low,Chicago
+207,29,Female,Low,Chicago
+208,23,Female,Low,New York
+209,39,Female,Low,Chicago
+210,27,Other,Low,Los Angeles
+211,49,Female,Medium,New York
+212,50,Female,Low,Houston
+213,48,Male,Medium,Houston
+214,41,Female,High,Chicago
+215,41,Other,High,Los Angeles
+216,60,Male,Low,Chicago
+217,60,Other,High,Phoenix
+218,53,Male,Medium,Los Angeles
+219,61,Male,Low,New York
+220,38,Other,Low,Chicago
+221,59,Other,High,Los Angeles
+222,70,Other,Medium,Phoenix
+223,52,Other,Medium,Los Angeles
+224,65,Other,Medium,New York
+225,18,Female,High,Chicago
+226,37,Female,Low,Houston
+227,57,Female,Low,New York
+228,24,Male,High,Los Angeles
+229,68,Male,Medium,New York
+230,58,Female,Medium,Houston
+231,32,Male,Medium,Houston
+232,40,Male,High,Chicago
+233,49,Female,Low,Phoenix
+234,29,Female,Low,Los Angeles
+235,29,Male,Medium,Phoenix
+236,33,Female,High,Chicago
+237,24,Female,Medium,Houston
+238,24,Female,Low,Los Angeles
+239,57,Female,Low,Chicago
+240,19,Female,Medium,Chicago
+241,62,Other,Medium,New York
+242,34,Female,Medium,Houston
+243,44,Other,High,Phoenix
+244,60,Female,High,New York
+245,70,Male,Low,Houston
+246,23,Female,Low,Los Angeles
+247,68,Other,High,Los Angeles
+248,60,Other,Medium,Phoenix
+249,36,Other,Medium,Phoenix
+250,65,Male,Low,Houston
+251,52,Other,Medium,Chicago
+252,66,Other,Medium,Los Angeles
+253,60,Other,Medium,Chicago
+254,65,Female,Low,Houston
+255,23,Female,Low,Chicago
+256,18,Female,Medium,Chicago
+257,33,Other,Medium,New York
+258,45,Male,Low,Chicago
+259,36,Other,Low,Houston
+260,66,Other,High,Chicago
+261,59,Male,Low,New York
+262,18,Other,Low,Phoenix
+263,47,Other,Medium,Los Angeles
+264,26,Other,Medium,Phoenix
+265,26,Other,Medium,Phoenix
+266,48,Other,Low,New York
+267,31,Other,Low,Houston
+268,29,Male,Medium,Phoenix
+269,70,Male,High,New York
+270,53,Female,Low,Phoenix
+271,64,Female,Medium,Chicago
+272,49,Female,High,Chicago
+273,42,Male,Low,Los Angeles
+274,37,Female,Medium,Chicago
+275,67,Female,Low,Houston
+276,52,Male,Medium,Phoenix
+277,61,Male,High,Los Angeles
+278,67,Other,High,New York
+279,52,Female,Medium,Houston
+280,32,Other,High,Phoenix
+281,38,Female,High,Los Angeles
+282,25,Other,Medium,Los Angeles
+283,45,Male,Medium,Los Angeles
+284,36,Male,Low,New York
+285,18,Other,Medium,Los Angeles
+286,27,Other,Low,Phoenix
+287,53,Male,High,Houston
+288,23,Other,Medium,Chicago
+289,32,Female,High,Phoenix
+290,44,Female,High,Phoenix
+291,48,Other,Medium,Houston
+292,38,Other,Low,Chicago
+293,29,Male,High,New York
+294,59,Male,High,Los Angeles
+295,29,Male,Low,Chicago
+296,39,Other,High,Phoenix
+297,39,Other,High,Phoenix
+298,39,Female,Medium,Los Angeles
+299,65,Other,High,Los Angeles
+300,52,Female,High,Chicago
+301,37,Other,High,Houston
+302,56,Male,Medium,Los Angeles
+303,59,Other,Low,Phoenix
+304,45,Other,High,Chicago
+305,26,Other,Medium,Phoenix
+306,51,Male,Medium,New York
+307,35,Male,Medium,Los Angeles
+308,29,Male,Medium,New York
+309,22,Male,Medium,Houston
+310,43,Female,Low,Chicago
+311,37,Male,Medium,Los Angeles
+312,42,Male,Low,Houston
+313,55,Male,Low,Phoenix
+314,45,Female,High,Los Angeles
+315,54,Male,High,Phoenix
+316,58,Male,Low,Houston
+317,48,Other,Low,Chicago
+318,47,Other,Medium,Phoenix
+319,50,Other,Low,Chicago
+320,48,Male,Low,Los Angeles
+321,65,Male,High,Los Angeles
+322,56,Other,Low,Houston
+323,23,Other,High,Los Angeles
+324,31,Female,Low,Houston
+325,39,Female,Medium,New York
+326,39,Other,Low,Chicago
+327,56,Male,High,Phoenix
+328,48,Male,High,Phoenix
+329,25,Other,Medium,Chicago
+330,43,Male,Medium,Phoenix
+331,31,Other,Low,Houston
+332,19,Other,Medium,New York
+333,33,Other,Low,Phoenix
+334,35,Female,Low,Houston
+335,51,Other,High,Phoenix
+336,56,Male,High,Houston
+337,35,Female,Medium,Phoenix
+338,32,Male,Medium,New York
+339,58,Male,Medium,New York
+340,46,Other,High,Los Angeles
+341,44,Male,Medium,Houston
+342,69,Other,High,Los Angeles
+343,56,Female,High,Chicago
+344,20,Other,Medium,Chicago
+345,21,Male,High,New York
+346,20,Female,Low,New York
+347,21,Female,Medium,Phoenix
+348,38,Female,High,Chicago
+349,46,Male,Medium,Houston
+350,51,Male,High,Houston
+351,56,Male,Low,New York
+352,50,Other,Low,Phoenix
+353,49,Other,Medium,Los Angeles
+354,60,Male,Low,Houston
+355,67,Male,High,Los Angeles
+356,47,Other,Low,Chicago
+357,27,Male,High,Los Angeles
+358,21,Female,High,New York
+359,47,Male,Low,Phoenix
+360,30,Other,Medium,Los Angeles
+361,29,Other,Low,Chicago
+362,52,Male,Medium,Houston
+363,31,Male,Low,Phoenix
+364,21,Other,Medium,Los Angeles
+365,61,Male,Low,Chicago
+366,65,Other,High,Chicago
+367,27,Female,Medium,Chicago
+368,24,Male,Low,Chicago
+369,24,Other,Medium,Phoenix
+370,37,Male,Medium,New York
+371,70,Female,Low,Phoenix
+372,29,Other,High,Phoenix
+373,38,Female,High,Los Angeles
+374,40,Female,Medium,Chicago
+375,34,Other,Low,Chicago
+376,57,Other,Low,New York
+377,66,Female,High,Houston
+378,52,Female,Low,Los Angeles
+379,38,Male,Medium,Los Angeles
+380,55,Male,Low,Phoenix
+381,60,Female,High,Los Angeles
+382,40,Other,Medium,Los Angeles
+383,70,Other,Medium,Los Angeles
+384,53,Other,Low,Chicago
+385,49,Female,Medium,Houston
+386,37,Female,Low,New York
+387,58,Female,Medium,Phoenix
+388,28,Male,High,Chicago
+389,62,Female,High,New York
+390,18,Male,Low,Phoenix
+391,67,Male,Medium,Houston
+392,18,Male,Low,Houston
+393,23,Male,Medium,Phoenix
+394,29,Other,High,Chicago
+395,24,Male,Medium,New York
+396,24,Other,Medium,Chicago
+397,63,Male,High,Los Angeles
+398,25,Male,High,Phoenix
+399,43,Other,Medium,Los Angeles
+400,67,Other,Medium,Chicago
+401,34,Female,Medium,New York
+402,57,Female,Low,New York
+403,47,Female,High,Los Angeles
+404,65,Male,Medium,Los Angeles
+405,19,Other,Low,Los Angeles
+406,42,Other,Medium,Los Angeles
+407,41,Female,High,Los Angeles
+408,56,Male,High,Phoenix
+409,31,Female,Low,Chicago
+410,35,Female,Medium,Chicago
+411,69,Female,Low,New York
+412,70,Male,Low,Phoenix
+413,33,Other,High,Los Angeles
+414,19,Female,Low,Chicago
+415,41,Other,Medium,Los Angeles
+416,22,Other,High,New York
+417,36,Other,Low,Chicago
+418,23,Other,Low,Los Angeles
+419,46,Male,Medium,Chicago
+420,52,Female,High,Houston
+421,55,Other,Medium,Phoenix
+422,47,Male,High,New York
+423,34,Male,Medium,Phoenix
+424,65,Female,High,Los Angeles
+425,70,Female,Low,Chicago
+426,43,Female,Medium,Phoenix
+427,34,Other,High,Los Angeles
+428,23,Other,Low,Phoenix
+429,68,Other,High,Chicago
+430,19,Male,High,Chicago
+431,61,Other,High,New York
+432,19,Female,Low,New York
+433,36,Other,Low,Houston
+434,68,Female,Medium,Los Angeles
+435,52,Male,High,Chicago
+436,59,Male,Medium,Chicago
+437,31,Female,Medium,New York
+438,47,Female,High,Phoenix
+439,67,Male,High,Los Angeles
+440,52,Male,Medium,Chicago
+441,64,Female,Medium,New York
+442,30,Other,Medium,Chicago
+443,28,Male,Medium,Phoenix
+444,70,Male,Medium,Phoenix
+445,40,Other,High,Phoenix
+446,59,Male,Low,Houston
+447,19,Other,Low,New York
+448,24,Other,High,Houston
+449,70,Female,Low,Los Angeles
+450,52,Female,Medium,Los Angeles
+451,65,Male,High,Phoenix
+452,41,Male,Medium,Los Angeles
+453,33,Female,High,Chicago
+454,19,Female,Medium,Los Angeles
+455,69,Female,Medium,Phoenix
+456,39,Male,Low,Phoenix
+457,61,Other,Low,New York
+458,52,Other,Low,Houston
+459,23,Other,Medium,Los Angeles
+460,64,Other,Low,New York
+461,49,Other,Medium,New York
+462,63,Female,Medium,Houston
+463,38,Male,High,Los Angeles
+464,67,Female,Medium,Phoenix
+465,46,Other,High,Chicago
+466,52,Male,Medium,Phoenix
+467,39,Female,High,New York
+468,39,Other,Low,Houston
+469,21,Male,High,New York
+470,70,Other,Low,Houston
+471,49,Other,High,New York
+472,67,Other,Medium,Phoenix
+473,68,Other,Low,Phoenix
+474,26,Other,Medium,Houston
+475,39,Male,Low,Chicago
+476,50,Male,High,Los Angeles
+477,46,Female,Low,Phoenix
+478,52,Male,Low,New York
+479,63,Male,Medium,Houston
+480,63,Other,High,Los Angeles
+481,39,Other,High,New York
+482,37,Male,High,Chicago
+483,62,Other,Medium,Chicago
+484,56,Female,High,New York
+485,69,Female,Low,Los Angeles
+486,56,Male,Low,Houston
+487,19,Male,Medium,New York
+488,34,Female,High,Phoenix
+489,37,Female,High,Chicago
+490,19,Male,Low,Phoenix
+491,56,Male,Low,Chicago
+492,38,Female,Medium,Los Angeles
+493,46,Other,Medium,Los Angeles
+494,65,Male,High,Los Angeles
+495,61,Female,Low,Houston
+496,48,Male,High,Chicago
+497,70,Female,Low,Houston
+498,70,Male,High,New York
+499,50,Male,Low,New York
+500,61,Male,Medium,Chicago
+501,65,Female,High,New York
+502,44,Other,Low,Phoenix
+503,18,Female,Low,Los Angeles
+504,65,Female,Low,Chicago
+505,49,Female,Low,Los Angeles
+506,37,Other,Medium,Los Angeles
+507,39,Female,High,Chicago
+508,56,Female,Medium,New York
+509,20,Female,Medium,Houston
+510,21,Female,Low,New York
+511,58,Other,High,Los Angeles
+512,23,Male,Low,Houston
+513,43,Other,Low,Houston
+514,47,Other,Low,Los Angeles
+515,48,Male,Low,Chicago
+516,45,Other,Medium,New York
+517,34,Female,Low,Phoenix
+518,38,Female,Low,Houston
+519,26,Other,Medium,Los Angeles
+520,61,Male,Medium,Chicago
+521,48,Male,Low,Chicago
+522,42,Other,Medium,Phoenix
+523,65,Male,Medium,Los Angeles
+524,26,Male,High,Houston
+525,56,Other,High,Los Angeles
+526,51,Male,Medium,Chicago
+527,40,Male,High,New York
+528,32,Other,Low,New York
+529,59,Other,Low,Houston
+530,24,Female,High,Houston
+531,29,Other,High,Los Angeles
+532,49,Other,Medium,Phoenix
+533,49,Male,Medium,New York
+534,41,Male,High,Houston
+535,19,Male,Medium,Los Angeles
+536,52,Other,High,Chicago
+537,27,Other,Medium,Los Angeles
+538,45,Female,Low,Houston
+539,56,Other,Medium,Phoenix
+540,27,Female,Medium,Los Angeles
+541,42,Female,Medium,Los Angeles
+542,28,Male,Low,Chicago
+543,18,Male,Medium,Chicago
+544,28,Male,Medium,Los Angeles
+545,59,Male,Medium,Los Angeles
+546,55,Female,Medium,Chicago
+547,36,Male,High,Los Angeles
+548,48,Other,Medium,Houston
+549,23,Male,High,New York
+550,22,Female,High,Phoenix
+551,32,Male,High,Los Angeles
+552,22,Female,Medium,New York
+553,38,Other,Low,Chicago
+554,63,Female,Low,Los Angeles
+555,41,Female,High,Houston
+556,70,Female,Low,Houston
+557,49,Male,Low,Phoenix
+558,45,Male,High,New York
+559,45,Other,High,Houston
+560,23,Other,Medium,Phoenix
+561,57,Other,Medium,Los Angeles
+562,42,Female,Low,Houston
+563,28,Other,Low,New York
+564,56,Female,High,Chicago
+565,47,Female,Low,Houston
+566,46,Male,Medium,Los Angeles
+567,60,Male,Medium,New York
+568,44,Male,Medium,Los Angeles
+569,31,Male,Medium,Houston
+570,68,Male,Low,Los Angeles
+571,23,Other,Medium,Chicago
+572,45,Female,Medium,Houston
+573,49,Female,Low,New York
+574,44,Other,High,Los Angeles
+575,59,Other,High,New York
+576,28,Male,High,New York
+577,46,Female,Medium,New York
+578,41,Female,Medium,New York
+579,70,Male,Low,Los Angeles
+580,47,Female,Low,Chicago
+581,63,Other,Medium,Houston
+582,24,Other,High,Chicago
+583,42,Male,Low,Phoenix
+584,35,Female,Low,Chicago
+585,18,Female,Low,Houston
+586,52,Female,Low,Houston
+587,41,Other,Low,Los Angeles
+588,52,Other,Low,Chicago
+589,38,Female,High,Phoenix
+590,50,Male,Medium,Houston
+591,62,Other,Low,Houston
+592,54,Male,Medium,Chicago
+593,50,Other,Low,New York
+594,22,Male,High,Phoenix
+595,67,Female,Medium,Chicago
+596,53,Female,High,Houston
+597,68,Female,High,Houston
+598,39,Male,High,Chicago
+599,68,Male,High,Phoenix
+600,41,Female,Low,Houston
+601,23,Female,Low,Houston
+602,57,Other,Low,Los Angeles
+603,42,Male,Low,Houston
+604,60,Female,Medium,Los Angeles
+605,28,Other,Low,Chicago
+606,55,Male,Medium,Chicago
+607,21,Female,High,Houston
+608,23,Other,Low,Los Angeles
+609,24,Female,Low,Chicago
+610,49,Male,High,New York
+611,51,Male,Low,Los Angeles
+612,41,Other,Low,Chicago
+613,43,Male,Low,Chicago
+614,35,Female,Medium,Houston
+615,19,Female,High,Chicago
+616,68,Other,Medium,Chicago
+617,30,Other,Low,New York
+618,55,Male,Low,New York
+619,27,Other,Medium,Chicago
+620,25,Other,Medium,Phoenix
+621,21,Female,Medium,New York
+622,59,Female,Medium,Los Angeles
+623,57,Other,Low,New York
+624,42,Female,Low,Houston
+625,64,Female,Low,New York
+626,20,Other,High,Phoenix
+627,21,Female,Low,Phoenix
+628,70,Female,Medium,Chicago
+629,65,Female,Medium,Houston
+630,53,Male,Medium,Los Angeles
+631,34,Other,Medium,Chicago
+632,54,Other,High,Houston
+633,67,Male,Low,Houston
+634,70,Other,High,Houston
+635,66,Other,Low,Phoenix
+636,31,Female,High,Los Angeles
+637,66,Other,Low,Houston
+638,39,Female,Medium,Phoenix
+639,62,Male,Low,New York
+640,19,Female,Low,Chicago
+641,40,Other,Low,Phoenix
+642,54,Other,Low,Chicago
+643,42,Other,Medium,Houston
+644,44,Other,Medium,New York
+645,50,Other,High,Los Angeles
+646,22,Other,Low,New York
+647,70,Male,Low,Houston
+648,33,Other,Medium,Phoenix
+649,70,Other,Medium,Chicago
+650,52,Male,Low,Los Angeles
+651,41,Male,Medium,New York
+652,61,Male,Low,Phoenix
+653,59,Other,High,Phoenix
+654,32,Female,Low,Houston
+655,45,Other,Medium,Chicago
+656,18,Male,High,New York
+657,57,Other,Low,Phoenix
+658,39,Male,Medium,Los Angeles
+659,34,Male,Low,New York
+660,57,Other,Low,New York
+661,27,Male,High,Houston
+662,64,Other,Medium,New York
+663,69,Female,Medium,Phoenix
+664,21,Other,Medium,Los Angeles
+665,50,Female,High,New York
+666,36,Other,Low,New York
+667,66,Female,Low,Houston
+668,31,Female,Low,Phoenix
+669,70,Female,Medium,Houston
+670,37,Female,Medium,Los Angeles
+671,26,Female,Medium,Phoenix
+672,18,Other,High,Los Angeles
+673,56,Male,High,Los Angeles
+674,32,Female,Medium,Chicago
+675,39,Female,High,Houston
+676,57,Female,High,Phoenix
+677,57,Male,High,New York
+678,52,Male,High,New York
+679,40,Female,Low,Houston
+680,20,Male,Medium,Phoenix
+681,44,Other,Low,Houston
+682,36,Other,Low,Phoenix
+683,29,Other,High,New York
+684,56,Female,High,Chicago
+685,60,Female,High,Chicago
+686,26,Other,Low,Phoenix
+687,51,Male,High,New York
+688,48,Other,Low,Chicago
+689,52,Male,Medium,Los Angeles
+690,18,Male,High,Phoenix
+691,39,Male,Medium,Houston
+692,36,Female,Low,Phoenix
+693,33,Male,Medium,Los Angeles
+694,42,Male,High,New York
+695,39,Female,Medium,Los Angeles
+696,50,Male,High,Chicago
+697,23,Female,Low,Chicago
+698,24,Other,Low,Houston
+699,46,Male,Medium,Chicago
+700,25,Other,Low,Phoenix
+701,45,Male,High,Chicago
+702,23,Male,Low,Houston
+703,30,Male,High,Houston
+704,57,Male,High,Phoenix
+705,21,Female,High,Los Angeles
+706,52,Other,Low,Phoenix
+707,37,Male,Low,Houston
+708,38,Female,Medium,Houston
+709,39,Other,Medium,Chicago
+710,66,Male,Medium,Phoenix
+711,67,Female,High,Phoenix
+712,57,Other,High,Chicago
+713,18,Other,Low,Los Angeles
+714,36,Female,Medium,Phoenix
+715,47,Female,Low,Phoenix
+716,61,Other,Medium,Houston
+717,19,Male,High,New York
+718,18,Female,High,Phoenix
+719,20,Male,High,New York
+720,64,Other,Medium,Phoenix
+721,22,Female,Low,Houston
+722,47,Male,Low,Chicago
+723,54,Male,Medium,Phoenix
+724,27,Male,Low,Houston
+725,64,Other,Low,Chicago
+726,53,Female,Low,Houston
+727,56,Male,High,New York
+728,57,Male,Medium,New York
+729,53,Other,Medium,New York
+730,60,Male,High,New York
+731,43,Male,Low,Phoenix
+732,30,Female,Low,Los Angeles
+733,67,Male,High,Los Angeles
+734,48,Female,Medium,Chicago
+735,29,Other,Medium,Houston
+736,44,Female,Low,Houston
+737,23,Male,Medium,Phoenix
+738,33,Male,Medium,Los Angeles
+739,70,Other,High,Houston
+740,53,Male,Low,Houston
+741,47,Male,High,Phoenix
+742,26,Other,High,New York
+743,63,Female,Low,Houston
+744,18,Female,Medium,Chicago
+745,55,Other,Medium,Houston
+746,54,Female,Low,Phoenix
+747,56,Male,Low,Phoenix
+748,25,Male,Medium,Houston
+749,29,Other,Medium,Houston
+750,35,Other,High,Los Angeles
+751,54,Female,High,Chicago
+752,65,Female,Low,Los Angeles
+753,24,Other,Low,Houston
+754,46,Other,High,New York
+755,55,Female,High,Los Angeles
+756,24,Male,Low,Phoenix
+757,55,Female,Medium,Chicago
+758,67,Other,High,Chicago
+759,51,Male,High,New York
+760,38,Other,High,Phoenix
+761,65,Male,Low,Phoenix
+762,42,Female,Medium,New York
+763,63,Other,Medium,Los Angeles
+764,61,Female,Medium,Los Angeles
+765,46,Female,Low,New York
+766,54,Female,Low,Houston
+767,40,Female,High,New York
+768,47,Male,Low,Chicago
+769,70,Other,Low,Houston
+770,66,Female,High,Houston
+771,26,Female,Medium,Chicago
+772,55,Other,High,Phoenix
+773,47,Other,Medium,New York
+774,56,Other,High,New York
+775,41,Male,Low,New York
+776,57,Other,Medium,Chicago
+777,54,Other,High,Los Angeles
+778,27,Other,Low,Phoenix
+779,33,Other,High,Los Angeles
+780,57,Male,Medium,New York
+781,43,Male,Medium,Los Angeles
+782,28,Other,High,Los Angeles
+783,66,Female,High,Phoenix
+784,18,Male,High,New York
+785,20,Other,Medium,Chicago
+786,29,Other,Low,Phoenix
+787,46,Male,Low,Houston
+788,51,Male,High,Phoenix
+789,43,Other,Low,Houston
+790,37,Other,Low,Houston
+791,31,Female,Low,Chicago
+792,45,Other,Low,Los Angeles
+793,33,Other,High,Chicago
+794,25,Other,High,Chicago
+795,34,Male,Low,Houston
+796,40,Other,High,Los Angeles
+797,63,Male,Low,Houston
+798,40,Female,High,Los Angeles
+799,42,Male,Low,Los Angeles
+800,22,Female,Medium,Houston
+801,58,Other,High,Houston
+802,56,Male,Medium,Houston
+803,35,Female,Medium,Houston
+804,65,Female,High,Phoenix
+805,36,Female,Medium,Phoenix
+806,25,Female,High,Phoenix
+807,62,Female,Medium,Phoenix
+808,36,Female,Medium,Chicago
+809,21,Female,Low,Phoenix
+810,24,Male,Medium,Phoenix
+811,60,Other,High,New York
+812,18,Other,Low,Los Angeles
+813,50,Female,High,New York
+814,22,Other,High,New York
+815,21,Other,Low,Chicago
+816,37,Female,Medium,Houston
+817,58,Male,Low,Houston
+818,35,Other,Low,New York
+819,28,Other,High,Houston
+820,19,Male,Low,New York
+821,64,Male,Medium,Los Angeles
+822,68,Other,High,New York
+823,44,Male,High,Chicago
+824,68,Female,High,Phoenix
+825,59,Other,Medium,Phoenix
+826,27,Other,High,Houston
+827,68,Other,High,New York
+828,26,Male,Medium,New York
+829,44,Female,High,New York
+830,41,Female,Low,Houston
+831,60,Female,Medium,Phoenix
+832,70,Female,Low,Los Angeles
+833,54,Male,Medium,Phoenix
+834,44,Female,High,New York
+835,21,Other,Medium,Chicago
+836,30,Other,Low,Houston
+837,41,Female,Low,New York
+838,55,Other,High,Phoenix
+839,38,Male,Medium,Los Angeles
+840,38,Male,Medium,Los Angeles
+841,57,Female,High,Phoenix
+842,23,Female,Medium,Los Angeles
+843,21,Male,Low,Chicago
+844,53,Other,Low,Phoenix
+845,47,Female,Low,Chicago
+846,67,Female,Low,Los Angeles
+847,31,Other,Medium,Chicago
+848,60,Female,Low,Chicago
+849,47,Female,Low,Houston
+850,46,Male,High,Houston
+851,53,Male,High,Los Angeles
+852,50,Other,Medium,Chicago
+853,22,Female,High,Houston
+854,43,Other,High,Phoenix
+855,50,Female,High,Phoenix
+856,29,Female,Low,Chicago
+857,24,Other,Medium,Los Angeles
+858,42,Male,Low,Los Angeles
+859,63,Female,High,Los Angeles
+860,65,Male,Low,New York
+861,45,Female,Low,Houston
+862,54,Other,Low,New York
+863,37,Female,Low,Los Angeles
+864,68,Male,High,Houston
+865,46,Other,High,Chicago
+866,57,Female,Low,New York
+867,43,Female,High,Chicago
+868,64,Other,High,Phoenix
+869,62,Female,Medium,Chicago
+870,43,Other,Low,Phoenix
+871,48,Other,High,Los Angeles
+872,41,Other,Medium,Phoenix
+873,59,Male,Medium,Los Angeles
+874,34,Female,Medium,New York
+875,20,Female,Low,New York
+876,27,Female,Medium,New York
+877,34,Other,Low,New York
+878,56,Male,Medium,Chicago
+879,61,Other,High,Houston
+880,45,Male,Low,New York
+881,22,Male,High,New York
+882,29,Female,Low,Phoenix
+883,57,Other,Medium,Houston
+884,23,Male,Medium,Los Angeles
+885,49,Female,Medium,Chicago
+886,34,Female,Low,New York
+887,46,Male,High,Phoenix
+888,59,Male,Medium,New York
+889,18,Female,Medium,Chicago
+890,48,Female,Low,Chicago
+891,25,Female,High,Houston
+892,33,Female,High,Chicago
+893,23,Female,Low,Chicago
+894,57,Female,Low,Los Angeles
+895,65,Other,High,Houston
+896,64,Other,High,Chicago
+897,32,Other,Medium,Chicago
+898,20,Female,Low,New York
+899,50,Other,High,Phoenix
+900,30,Male,High,New York
+901,69,Male,Medium,New York
+902,22,Other,Medium,Phoenix
+903,46,Female,Medium,Houston
+904,31,Male,High,New York
+905,39,Male,Low,New York
+906,59,Male,High,Chicago
+907,29,Male,Medium,Phoenix
+908,50,Other,Medium,Houston
+909,67,Male,Medium,Houston
+910,25,Other,Low,Chicago
+911,25,Other,Low,Houston
+912,38,Male,High,Phoenix
+913,61,Male,Low,Houston
+914,51,Other,High,Los Angeles
+915,22,Male,Medium,Houston
+916,44,Other,High,Houston
+917,65,Female,High,Phoenix
+918,33,Female,High,Los Angeles
+919,60,Male,High,New York
+920,21,Male,High,Los Angeles
+921,52,Other,Medium,Houston
+922,57,Male,Low,Chicago
+923,66,Male,High,Phoenix
+924,22,Other,Low,Los Angeles
+925,40,Female,Low,Chicago
+926,22,Other,Low,Los Angeles
+927,62,Other,High,Chicago
+928,27,Female,Low,Chicago
+929,49,Male,Medium,Los Angeles
+930,67,Female,Low,Houston
+931,49,Other,Medium,Chicago
+932,36,Male,High,Los Angeles
+933,53,Female,High,Chicago
+934,47,Female,Low,Chicago
+935,48,Male,High,Houston
+936,24,Female,High,Los Angeles
+937,57,Male,High,New York
+938,54,Female,Medium,New York
+939,24,Male,Medium,New York
+940,64,Male,Medium,Los Angeles
+941,55,Male,Low,Chicago
+942,38,Other,Low,New York
+943,29,Other,Medium,Phoenix
+944,21,Female,Medium,New York
+945,27,Male,High,Phoenix
+946,38,Male,Low,New York
+947,19,Other,Low,Los Angeles
+948,27,Male,High,Chicago
+949,64,Male,Low,Phoenix
+950,43,Male,Low,Chicago
+951,47,Male,Low,New York
+952,26,Male,High,Phoenix
+953,49,Other,Low,New York
+954,30,Female,Low,Los Angeles
+955,67,Other,High,New York
+956,49,Female,High,Phoenix
+957,39,Female,Low,New York
+958,51,Male,Low,Los Angeles
+959,54,Other,High,Phoenix
+960,65,Male,Medium,Los Angeles
+961,41,Female,Low,Phoenix
+962,22,Other,High,New York
+963,27,Male,High,Chicago
+964,31,Female,Low,Los Angeles
+965,49,Female,High,Houston
+966,43,Female,Low,Houston
+967,57,Male,Medium,New York
+968,66,Male,Low,Chicago
+969,54,Other,High,Houston
+970,39,Male,Low,New York
+971,62,Other,High,Phoenix
+972,57,Female,Medium,New York
+973,26,Other,Medium,New York
+974,43,Other,High,New York
+975,48,Female,High,Phoenix
+976,58,Male,High,Los Angeles
+977,18,Other,Low,Chicago
+978,54,Male,Low,New York
+979,21,Other,High,Phoenix
+980,53,Female,Low,Phoenix
+981,51,Male,High,Chicago
+982,32,Male,High,Chicago
+983,23,Male,Low,New York
+984,44,Female,Medium,New York
+985,20,Male,High,Chicago
+986,31,Other,High,New York
+987,48,Other,Low,Houston
+988,37,Other,Low,New York
+989,36,Other,Medium,Chicago
+990,63,Other,Low,Chicago
+991,66,Female,Low,Los Angeles
+992,52,Male,High,New York
+993,29,Male,Low,Los Angeles
+994,23,Male,Medium,Houston
+995,35,Female,Low,Chicago
+996,69,Other,Medium,Houston
+997,69,Male,Medium,Houston
+998,47,Female,High,Houston
+999,32,Female,Medium,Chicago
+1000,22,Female,High,Houston
+1001,27,Male,High,Phoenix
+1002,25,Other,High,Houston
+1003,36,Male,Low,Los Angeles
+1004,28,Male,High,Phoenix
+1005,47,Other,Medium,Phoenix
+1006,65,Other,Low,Los Angeles
+1007,29,Female,High,Houston
+1008,60,Other,High,New York
+1009,37,Other,Low,Phoenix
+1010,41,Male,Low,Houston
+1011,65,Female,Medium,New York
+1012,62,Female,Medium,Houston
+1013,45,Other,Low,Houston
+1014,43,Other,Low,Los Angeles
+1015,62,Male,High,Chicago
+1016,29,Male,High,New York
+1017,60,Female,High,Los Angeles
+1018,54,Male,Low,Los Angeles
+1019,20,Male,High,Houston
+1020,53,Female,Low,Houston
+1021,24,Other,High,Los Angeles
+1022,35,Female,Low,New York
+1023,64,Other,Low,Houston
+1024,48,Female,Low,Chicago
+1025,35,Other,Medium,Houston
+1026,65,Male,Medium,Chicago
+1027,64,Other,High,Los Angeles
+1028,57,Female,High,Chicago
+1029,52,Female,Low,Phoenix
+1030,45,Male,Medium,Los Angeles
+1031,42,Male,High,Phoenix
+1032,39,Female,High,Phoenix
+1033,33,Female,Medium,New York
+1034,56,Male,Low,New York
+1035,70,Female,High,Phoenix
+1036,61,Other,Medium,Phoenix
+1037,31,Other,Low,Los Angeles
+1038,49,Female,Medium,Chicago
+1039,49,Male,Medium,Los Angeles
+1040,20,Female,Medium,Phoenix
+1041,18,Female,High,Phoenix
+1042,51,Male,Medium,Chicago
+1043,21,Female,High,Chicago
+1044,19,Other,Low,New York
+1045,49,Other,High,Chicago
+1046,40,Female,Medium,Houston
+1047,25,Female,High,Los Angeles
+1048,62,Male,Medium,Los Angeles
+1049,36,Female,High,Chicago
+1050,38,Male,Medium,Chicago
+1051,18,Other,High,New York
+1052,51,Female,High,Houston
+1053,50,Male,Low,New York
+1054,24,Female,Low,Los Angeles
+1055,57,Female,High,Houston
+1056,59,Female,Low,Chicago
+1057,25,Male,Medium,Phoenix
+1058,41,Male,Medium,Chicago
+1059,45,Other,High,Los Angeles
+1060,42,Other,Medium,Houston
+1061,26,Male,Low,Los Angeles
+1062,68,Female,Medium,Houston
+1063,29,Male,High,Chicago
+1064,38,Other,High,Los Angeles
+1065,41,Other,High,Houston
+1066,41,Female,Medium,Los Angeles
+1067,43,Female,Low,Houston
+1068,51,Male,Medium,New York
+1069,35,Female,Low,Houston
+1070,54,Female,Low,New York
+1071,32,Other,Medium,Los Angeles
+1072,68,Other,Medium,Phoenix
+1073,54,Female,Medium,Chicago
+1074,43,Female,Medium,New York
+1075,30,Male,High,Los Angeles
+1076,54,Male,High,New York
+1077,21,Other,Medium,New York
+1078,59,Female,Medium,Phoenix
+1079,55,Male,Low,Phoenix
+1080,43,Female,High,New York
+1081,44,Male,Low,Chicago
+1082,56,Other,Low,Chicago
+1083,31,Female,High,Phoenix
+1084,28,Other,Low,New York
+1085,34,Male,Low,New York
+1086,41,Female,High,Phoenix
+1087,35,Male,Medium,Los Angeles
+1088,25,Other,Medium,Los Angeles
+1089,20,Other,High,New York
+1090,49,Female,Medium,New York
+1091,64,Male,High,Phoenix
+1092,44,Male,High,New York
+1093,38,Female,High,New York
+1094,30,Male,High,New York
+1095,41,Other,High,Los Angeles
+1096,68,Male,Medium,Phoenix
+1097,39,Female,Low,Phoenix
+1098,19,Female,Medium,Phoenix
+1099,52,Male,High,Houston
+1100,51,Male,Medium,Los Angeles
+1101,45,Male,High,New York
+1102,47,Female,Medium,Chicago
+1103,55,Female,Low,New York
+1104,70,Female,High,Phoenix
+1105,62,Male,Low,New York
+1106,29,Other,Medium,Houston
+1107,29,Female,Medium,Houston
+1108,27,Male,Medium,New York
+1109,59,Other,Low,Chicago
+1110,35,Other,Low,Los Angeles
+1111,20,Male,Medium,Chicago
+1112,69,Female,High,Phoenix
+1113,19,Other,Medium,Houston
+1114,68,Male,High,New York
+1115,45,Female,Medium,Los Angeles
+1116,40,Male,High,Houston
+1117,24,Female,Low,Los Angeles
+1118,43,Other,Low,Los Angeles
+1119,46,Female,High,Houston
+1120,60,Other,Medium,New York
+1121,43,Other,High,Los Angeles
+1122,23,Female,Low,Los Angeles
+1123,57,Female,High,Chicago
+1124,25,Female,Low,Chicago
+1125,33,Male,Low,Houston
+1126,46,Other,High,Los Angeles
+1127,65,Other,High,New York
+1128,49,Male,Medium,Chicago
+1129,30,Other,High,Houston
+1130,63,Other,Medium,New York
+1131,39,Other,Medium,Chicago
+1132,31,Other,High,New York
+1133,50,Other,High,Chicago
+1134,57,Male,Low,Chicago
+1135,57,Other,Medium,Houston
+1136,45,Female,Low,Los Angeles
+1137,25,Other,Medium,Chicago
+1138,68,Other,High,Phoenix
+1139,26,Other,Low,Los Angeles
+1140,26,Other,High,Chicago
+1141,38,Other,Medium,Phoenix
+1142,29,Male,Low,Chicago
+1143,30,Other,Low,Chicago
+1144,55,Other,High,Phoenix
+1145,58,Female,Medium,Los Angeles
+1146,28,Female,High,Chicago
+1147,32,Female,Low,New York
+1148,35,Male,High,New York
+1149,40,Male,Low,Houston
+1150,29,Male,Medium,New York
+1151,31,Other,Low,Phoenix
+1152,19,Female,Medium,Chicago
+1153,48,Other,High,Los Angeles
+1154,38,Female,Low,Phoenix
+1155,40,Female,Low,Chicago
+1156,51,Male,Low,New York
+1157,64,Other,Medium,Los Angeles
+1158,68,Other,Medium,Phoenix
+1159,28,Male,Low,New York
+1160,27,Male,Low,Houston
+1161,43,Female,Medium,Houston
+1162,20,Male,Medium,Chicago
+1163,66,Other,High,Houston
+1164,66,Female,Low,Chicago
+1165,36,Female,High,Phoenix
+1166,25,Other,Medium,Chicago
+1167,52,Male,Low,Los Angeles
+1168,25,Male,Medium,Los Angeles
+1169,34,Male,Medium,Phoenix
+1170,51,Female,High,New York
+1171,68,Other,Low,Phoenix
+1172,21,Male,Medium,Chicago
+1173,70,Female,Low,Phoenix
+1174,27,Female,Low,New York
+1175,24,Female,High,Phoenix
+1176,58,Other,Medium,Houston
+1177,48,Other,Low,Houston
+1178,61,Other,High,Los Angeles
+1179,44,Male,Medium,Chicago
+1180,25,Male,Low,Chicago
+1181,40,Other,High,Los Angeles
+1182,26,Other,High,New York
+1183,70,Male,Medium,New York
+1184,41,Other,Low,New York
+1185,21,Female,High,Chicago
+1186,55,Female,High,Los Angeles
+1187,55,Male,Low,Los Angeles
+1188,56,Male,Medium,New York
+1189,39,Other,High,Phoenix
+1190,51,Male,High,New York
+1191,19,Other,High,Houston
+1192,54,Male,High,New York
+1193,19,Male,High,Los Angeles
+1194,45,Other,Medium,Houston
+1195,27,Female,Medium,Los Angeles
+1196,33,Other,High,Phoenix
+1197,61,Female,Medium,Phoenix
+1198,59,Male,Medium,New York
+1199,45,Male,High,Chicago
+1200,57,Other,Low,Houston
+1201,37,Male,High,Houston
+1202,39,Other,High,Houston
+1203,54,Female,Medium,Chicago
+1204,34,Female,Low,Los Angeles
+1205,28,Other,Medium,New York
+1206,26,Other,High,Chicago
+1207,39,Female,Low,Houston
+1208,56,Male,Low,Phoenix
+1209,70,Other,High,Chicago
+1210,38,Male,Medium,Phoenix
+1211,66,Other,High,Chicago
+1212,43,Other,Low,Chicago
+1213,31,Female,Low,Los Angeles
+1214,69,Other,High,Phoenix
+1215,27,Other,Low,Chicago
+1216,49,Female,Medium,New York
+1217,52,Female,High,New York
+1218,24,Male,Medium,Los Angeles
+1219,41,Male,Medium,New York
+1220,57,Male,Medium,Phoenix
+1221,23,Female,Medium,Houston
+1222,61,Female,Low,New York
+1223,32,Female,Low,Chicago
+1224,53,Other,Low,Houston
+1225,63,Female,Low,Chicago
+1226,59,Male,Medium,Houston
+1227,51,Female,Medium,Los Angeles
+1228,61,Other,High,New York
+1229,61,Other,Low,Phoenix
+1230,29,Other,High,New York
+1231,54,Female,High,Los Angeles
+1232,53,Other,Low,New York
+1233,55,Male,Medium,Phoenix
+1234,20,Other,Low,New York
+1235,23,Female,Low,Houston
+1236,58,Other,Low,New York
+1237,55,Male,Medium,Houston
+1238,38,Male,High,Los Angeles
+1239,20,Female,Medium,Los Angeles
+1240,65,Other,Medium,Houston
+1241,32,Male,Medium,New York
+1242,37,Other,Low,Houston
+1243,21,Male,Medium,Houston
+1244,33,Female,Low,Houston
+1245,48,Female,High,Chicago
+1246,61,Female,High,Phoenix
+1247,50,Male,Medium,Los Angeles
+1248,42,Male,Low,Phoenix
+1249,34,Male,High,Phoenix
+1250,58,Other,Medium,Phoenix
+1251,22,Female,Low,Chicago
+1252,18,Female,Low,New York
+1253,51,Other,High,New York
+1254,67,Female,Low,Houston
+1255,63,Male,High,Los Angeles
+1256,67,Other,Low,Chicago
+1257,40,Male,Low,Phoenix
+1258,41,Female,High,Chicago
+1259,65,Female,Low,Houston
+1260,57,Female,High,New York
+1261,25,Male,Medium,Los Angeles
+1262,27,Female,Low,Los Angeles
+1263,36,Male,Low,Los Angeles
+1264,21,Male,High,New York
+1265,64,Male,Low,Phoenix
+1266,53,Female,Low,New York
+1267,53,Other,Low,New York
+1268,64,Other,High,Houston
+1269,34,Female,Low,Los Angeles
+1270,52,Other,Medium,New York
+1271,70,Female,Low,Los Angeles
+1272,56,Female,High,Los Angeles
+1273,53,Female,Low,New York
+1274,21,Other,Low,Houston
+1275,28,Female,High,Chicago
+1276,45,Male,Low,New York
+1277,37,Female,Medium,Los Angeles
+1278,59,Male,Medium,Houston
+1279,27,Other,Low,Phoenix
+1280,31,Other,High,New York
+1281,55,Other,Low,New York
+1282,37,Male,Medium,New York
+1283,23,Other,Low,Los Angeles
+1284,68,Other,Low,Phoenix
+1285,47,Female,Medium,Los Angeles
+1286,25,Other,Low,Los Angeles
+1287,42,Female,Medium,Phoenix
+1288,68,Other,High,Houston
+1289,19,Male,Low,Chicago
+1290,39,Other,Medium,Houston
+1291,60,Other,Low,Houston
+1292,55,Male,Medium,Chicago
+1293,45,Male,Low,Houston
+1294,29,Other,High,Phoenix
+1295,20,Male,Low,Houston
+1296,47,Female,High,Chicago
+1297,34,Other,High,Houston
+1298,68,Female,Low,New York
+1299,53,Male,High,Phoenix
+1300,24,Male,Medium,New York
+1301,69,Female,Medium,New York
+1302,46,Male,High,Phoenix
+1303,47,Male,Low,Houston
+1304,60,Male,High,Houston
+1305,45,Male,High,Phoenix
+1306,53,Female,Medium,New York
+1307,68,Female,Low,New York
+1308,52,Other,Low,Phoenix
+1309,70,Other,Low,Houston
+1310,58,Female,Medium,Los Angeles
+1311,64,Female,High,New York
+1312,62,Female,Low,Los Angeles
+1313,24,Other,Medium,New York
+1314,30,Male,Medium,Chicago
+1315,54,Male,High,New York
+1316,58,Male,Medium,Houston
+1317,32,Male,Medium,Phoenix
+1318,53,Female,Medium,New York
+1319,60,Male,High,Houston
+1320,62,Male,High,Phoenix
+1321,31,Other,High,Chicago
+1322,52,Other,Low,New York
+1323,23,Male,High,New York
+1324,61,Female,High,Los Angeles
+1325,46,Other,Medium,Chicago
+1326,41,Other,Low,Phoenix
+1327,69,Female,High,Phoenix
+1328,44,Other,Low,Los Angeles
+1329,33,Male,High,Phoenix
+1330,36,Female,Low,Houston
+1331,30,Other,Medium,Chicago
+1332,66,Male,Medium,Los Angeles
+1333,50,Female,High,Houston
+1334,44,Male,Medium,Phoenix
+1335,62,Male,Low,Phoenix
+1336,63,Female,High,Chicago
+1337,62,Female,High,Los Angeles
+1338,41,Male,High,Phoenix
+1339,62,Other,Medium,Houston
+1340,48,Other,High,Houston
+1341,34,Male,High,Houston
+1342,58,Male,Medium,New York
+1343,44,Male,Medium,New York
+1344,18,Male,Low,Houston
+1345,55,Female,Low,Phoenix
+1346,69,Male,High,Phoenix
+1347,70,Female,High,Phoenix
+1348,60,Male,Medium,Los Angeles
+1349,34,Male,Low,Los Angeles
+1350,38,Female,Medium,Houston
+1351,37,Female,Medium,Los Angeles
+1352,70,Male,Low,Houston
+1353,60,Male,Medium,New York
+1354,45,Female,High,Chicago
+1355,59,Male,High,Los Angeles
+1356,56,Other,Medium,New York
+1357,67,Other,High,Houston
+1358,56,Other,Medium,Houston
+1359,21,Male,Low,New York
+1360,69,Female,Medium,Los Angeles
+1361,53,Male,High,Phoenix
+1362,44,Male,High,Houston
+1363,63,Female,High,Chicago
+1364,41,Female,Medium,Phoenix
+1365,26,Other,High,New York
+1366,55,Other,Medium,Houston
+1367,42,Other,Medium,Chicago
+1368,56,Male,High,Houston
+1369,53,Female,Low,Los Angeles
+1370,18,Other,High,Phoenix
+1371,40,Other,High,Houston
+1372,35,Male,Medium,Chicago
+1373,28,Other,Low,Houston
+1374,66,Other,Low,New York
+1375,64,Male,Low,Chicago
+1376,50,Female,Low,Houston
+1377,69,Male,Medium,Chicago
+1378,57,Other,Low,Houston
+1379,58,Female,Medium,New York
+1380,23,Male,Low,Los Angeles
+1381,70,Other,Low,Los Angeles
+1382,35,Other,Low,Chicago
+1383,52,Other,High,New York
+1384,30,Male,Low,Houston
+1385,24,Other,Low,Los Angeles
+1386,41,Female,High,Los Angeles
+1387,49,Other,High,Phoenix
+1388,22,Female,Medium,New York
+1389,44,Other,Medium,New York
+1390,64,Male,Low,New York
+1391,25,Female,High,Los Angeles
+1392,69,Female,Medium,New York
+1393,34,Male,High,Phoenix
+1394,45,Male,High,Los Angeles
+1395,42,Female,Medium,Houston
+1396,37,Other,Low,New York
+1397,49,Male,Medium,Phoenix
+1398,18,Female,Medium,New York
+1399,68,Female,Low,Chicago
+1400,51,Other,High,Chicago
+1401,67,Male,High,New York
+1402,35,Female,Low,Houston
+1403,68,Male,Medium,Los Angeles
+1404,36,Male,Low,New York
+1405,53,Male,Low,Chicago
+1406,39,Female,High,New York
+1407,32,Male,High,New York
+1408,66,Other,Medium,Phoenix
+1409,46,Other,Medium,Houston
+1410,52,Female,Low,Los Angeles
+1411,62,Male,Low,Phoenix
+1412,27,Other,High,Chicago
+1413,65,Other,Medium,Phoenix
+1414,44,Other,High,New York
+1415,34,Male,High,Chicago
+1416,56,Other,Medium,New York
+1417,20,Female,Low,New York
+1418,70,Male,High,Los Angeles
+1419,57,Other,Medium,New York
+1420,48,Male,High,New York
+1421,33,Male,Low,Chicago
+1422,64,Female,Medium,Chicago
+1423,69,Male,Medium,New York
+1424,69,Female,Medium,Houston
+1425,57,Other,Low,Phoenix
+1426,22,Other,Medium,Chicago
+1427,41,Male,Low,Los Angeles
+1428,65,Other,Medium,Chicago
+1429,28,Other,Low,New York
+1430,22,Female,Low,New York
+1431,63,Other,Medium,Phoenix
+1432,22,Male,Medium,Los Angeles
+1433,49,Male,Medium,Phoenix
+1434,27,Female,Low,Phoenix
+1435,52,Female,Medium,Phoenix
+1436,34,Female,High,Los Angeles
+1437,34,Other,Low,New York
+1438,58,Male,Low,New York
+1439,60,Male,Medium,Phoenix
+1440,19,Other,High,Phoenix
+1441,50,Male,Medium,Chicago
+1442,68,Female,Medium,Chicago
+1443,27,Male,Low,Chicago
+1444,21,Male,Medium,New York
+1445,36,Female,Medium,Chicago
+1446,34,Other,High,Phoenix
+1447,70,Other,Medium,Phoenix
+1448,18,Other,High,New York
+1449,44,Other,Low,Los Angeles
+1450,29,Male,High,Phoenix
+1451,51,Female,Low,Houston
+1452,40,Other,Low,Los Angeles
+1453,67,Female,High,New York
+1454,20,Female,Low,Chicago
+1455,42,Male,Medium,Phoenix
+1456,62,Female,Low,Los Angeles
+1457,41,Female,Low,Los Angeles
+1458,50,Male,Low,Houston
+1459,31,Other,High,Phoenix
+1460,36,Female,Low,Los Angeles
+1461,20,Male,Medium,New York
+1462,70,Other,Medium,Chicago
+1463,61,Female,Low,Phoenix
+1464,21,Other,High,Houston
+1465,46,Male,Low,Chicago
+1466,42,Male,Low,Chicago
+1467,34,Other,Medium,Houston
+1468,44,Female,High,New York
+1469,40,Female,Low,Chicago
+1470,44,Male,Low,Los Angeles
+1471,30,Other,Low,Chicago
+1472,49,Female,Low,Phoenix
+1473,35,Other,High,Los Angeles
+1474,55,Male,High,New York
+1475,54,Other,Low,Houston
+1476,54,Female,High,Houston
+1477,55,Male,Low,Chicago
+1478,65,Female,High,Phoenix
+1479,50,Other,High,New York
+1480,34,Female,Medium,Phoenix
+1481,49,Other,High,Phoenix
+1482,60,Female,High,Chicago
+1483,46,Other,High,Phoenix
+1484,23,Other,Low,Chicago
+1485,23,Female,Medium,Los Angeles
+1486,58,Male,High,Houston
+1487,34,Other,High,Los Angeles
+1488,54,Other,High,New York
+1489,67,Male,High,Houston
+1490,41,Male,Low,New York
+1491,59,Female,Low,Phoenix
+1492,29,Male,Medium,New York
+1493,38,Female,High,Houston
+1494,52,Female,Low,Houston
+1495,33,Female,Low,Houston
+1496,46,Female,Low,Houston
+1497,41,Other,High,Los Angeles
+1498,34,Male,Low,Chicago
+1499,64,Male,Medium,Phoenix
+1500,20,Female,Medium,New York
+1501,41,Female,Low,Phoenix
+1502,22,Male,Low,Phoenix
+1503,45,Male,High,New York
+1504,47,Female,Low,Houston
+1505,27,Female,High,Phoenix
+1506,33,Other,High,Chicago
+1507,49,Male,High,Houston
+1508,53,Female,Low,Phoenix
+1509,29,Other,Medium,Houston
+1510,46,Male,High,Houston
+1511,36,Male,Medium,Los Angeles
+1512,55,Other,Low,Chicago
+1513,28,Male,Low,Los Angeles
+1514,54,Other,High,New York
+1515,35,Other,Low,Los Angeles
+1516,55,Male,Medium,Phoenix
+1517,46,Male,Low,Houston
+1518,57,Female,High,Houston
+1519,25,Female,Medium,Los Angeles
+1520,50,Other,High,Houston
+1521,29,Female,Medium,New York
+1522,24,Male,High,New York
+1523,26,Male,High,Houston
+1524,58,Male,High,Chicago
+1525,27,Male,Low,Chicago
+1526,27,Female,High,Los Angeles
+1527,58,Male,Low,Los Angeles
+1528,20,Female,Low,Los Angeles
+1529,59,Other,Medium,Chicago
+1530,53,Male,Medium,Phoenix
+1531,57,Other,High,Phoenix
+1532,69,Male,Low,Houston
+1533,50,Female,Low,Chicago
+1534,26,Other,Low,New York
+1535,38,Male,Low,New York
+1536,65,Other,High,Chicago
+1537,46,Other,Low,Chicago
+1538,55,Female,Medium,Los Angeles
+1539,55,Male,Medium,Chicago
+1540,54,Female,Low,Houston
+1541,58,Other,Low,Phoenix
+1542,27,Other,Low,Phoenix
+1543,24,Other,High,Chicago
+1544,57,Male,Low,Phoenix
+1545,18,Male,Medium,Houston
+1546,56,Male,Low,New York
+1547,46,Female,Medium,Chicago
+1548,62,Female,Low,Los Angeles
+1549,54,Other,Medium,New York
+1550,41,Male,Medium,Los Angeles
+1551,38,Female,High,Los Angeles
+1552,23,Male,Low,Houston
+1553,50,Male,High,Chicago
+1554,49,Other,Low,Houston
+1555,21,Female,High,Phoenix
+1556,62,Male,Low,Los Angeles
+1557,57,Other,High,Los Angeles
+1558,59,Male,High,Houston
+1559,65,Male,Medium,Phoenix
+1560,31,Other,High,Phoenix
+1561,39,Male,Medium,Los Angeles
+1562,56,Male,Medium,Houston
+1563,58,Female,High,Chicago
+1564,33,Female,High,New York
+1565,44,Other,Low,Chicago
+1566,21,Male,Medium,Los Angeles
+1567,46,Female,Low,Phoenix
+1568,65,Male,Medium,Houston
+1569,56,Other,Low,Los Angeles
+1570,62,Other,High,Houston
+1571,55,Male,High,Los Angeles
+1572,28,Female,High,Phoenix
+1573,49,Male,Medium,New York
+1574,57,Male,Low,Phoenix
+1575,40,Male,Medium,Houston
+1576,67,Female,Medium,New York
+1577,39,Male,High,New York
+1578,46,Other,High,New York
+1579,66,Other,High,Los Angeles
+1580,52,Male,High,Houston
+1581,46,Female,Medium,Houston
+1582,67,Female,Medium,Phoenix
+1583,42,Other,Low,Phoenix
+1584,69,Other,Medium,Houston
+1585,59,Female,Low,Chicago
+1586,45,Other,Medium,Houston
+1587,66,Male,Medium,New York
+1588,45,Female,Low,Phoenix
+1589,23,Male,High,Los Angeles
+1590,27,Female,Medium,New York
+1591,67,Male,Medium,New York
+1592,18,Other,Medium,Chicago
+1593,41,Male,Medium,Chicago
+1594,18,Female,Low,Chicago
+1595,54,Other,Medium,New York
+1596,43,Other,Low,Phoenix
+1597,69,Male,Low,Phoenix
+1598,69,Female,Medium,Los Angeles
+1599,50,Female,High,Phoenix
+1600,50,Other,Medium,New York
+1601,18,Female,Low,New York
+1602,42,Male,Medium,Chicago
+1603,41,Female,Medium,Phoenix
+1604,25,Male,High,Los Angeles
+1605,20,Male,Low,Phoenix
+1606,66,Other,Medium,Phoenix
+1607,26,Male,High,Phoenix
+1608,57,Female,Medium,Phoenix
+1609,40,Male,Medium,New York
+1610,23,Female,Medium,Los Angeles
+1611,36,Male,Low,Chicago
+1612,56,Male,Low,New York
+1613,47,Female,Medium,Chicago
+1614,27,Female,High,Chicago
+1615,52,Female,Low,Chicago
+1616,21,Other,Low,Phoenix
+1617,25,Male,Medium,Chicago
+1618,41,Other,Medium,Los Angeles
+1619,57,Female,Medium,Chicago
+1620,40,Other,High,Phoenix
+1621,70,Other,High,Phoenix
+1622,32,Other,High,Phoenix
+1623,18,Female,High,New York
+1624,63,Other,Low,Phoenix
+1625,25,Other,High,New York
+1626,40,Male,Low,Houston
+1627,67,Other,High,Los Angeles
+1628,54,Other,Low,Phoenix
+1629,37,Other,Low,Chicago
+1630,44,Male,High,Chicago
+1631,23,Other,Medium,Los Angeles
+1632,26,Female,Medium,Houston
+1633,70,Other,Low,Phoenix
+1634,67,Female,High,Houston
+1635,60,Other,High,New York
+1636,28,Female,High,New York
+1637,23,Male,Medium,Phoenix
+1638,68,Male,Low,Houston
+1639,20,Female,Low,Phoenix
+1640,68,Female,Medium,Los Angeles
+1641,34,Other,High,Chicago
+1642,49,Other,Medium,Houston
+1643,35,Other,Low,Phoenix
+1644,22,Male,High,Los Angeles
+1645,65,Male,Low,Los Angeles
+1646,50,Female,High,Houston
+1647,60,Male,High,Chicago
+1648,32,Other,Low,Houston
+1649,35,Female,High,New York
+1650,56,Female,Low,Houston
+1651,33,Other,High,Houston
+1652,52,Male,Medium,Chicago
+1653,39,Male,High,Los Angeles
+1654,44,Female,Medium,New York
+1655,45,Female,Medium,Phoenix
+1656,36,Other,Low,Chicago
+1657,65,Other,High,New York
+1658,46,Female,High,Houston
+1659,38,Male,Medium,Chicago
+1660,25,Female,Low,Los Angeles
+1661,36,Male,High,Los Angeles
+1662,47,Male,Medium,Chicago
+1663,64,Other,Medium,Chicago
+1664,59,Other,High,Phoenix
+1665,55,Male,High,Phoenix
+1666,63,Female,Medium,Houston
+1667,26,Female,Medium,Chicago
+1668,21,Other,Low,New York
+1669,68,Female,High,Los Angeles
+1670,30,Other,Low,Los Angeles
+1671,53,Female,Medium,New York
+1672,64,Other,High,Los Angeles
+1673,67,Male,Medium,Chicago
+1674,29,Other,Medium,New York
+1675,18,Other,High,Los Angeles
+1676,52,Other,Low,Phoenix
+1677,24,Other,Low,Phoenix
+1678,34,Female,High,Los Angeles
+1679,21,Male,Medium,New York
+1680,32,Male,Low,Phoenix
+1681,62,Other,Low,Houston
+1682,26,Other,Low,Houston
+1683,28,Male,Low,Los Angeles
+1684,39,Other,High,Los Angeles
+1685,23,Male,High,New York
+1686,31,Female,Low,Chicago
+1687,69,Male,Low,Chicago
+1688,25,Male,High,Chicago
+1689,46,Male,Low,Houston
+1690,36,Female,High,Los Angeles
+1691,41,Other,Medium,Houston
+1692,57,Other,Medium,New York
+1693,62,Male,Low,Chicago
+1694,68,Female,Low,Houston
+1695,50,Female,Medium,Phoenix
+1696,58,Male,High,Los Angeles
+1697,59,Female,High,Chicago
+1698,46,Male,Medium,Los Angeles
+1699,22,Other,Low,New York
+1700,27,Female,Low,Houston
+1701,26,Female,Low,Phoenix
+1702,58,Male,High,Houston
+1703,42,Female,Low,Phoenix
+1704,56,Other,High,Houston
+1705,21,Other,High,New York
+1706,35,Female,Medium,Los Angeles
+1707,21,Male,High,Chicago
+1708,33,Male,High,New York
+1709,60,Other,High,New York
+1710,43,Other,Low,Houston
+1711,68,Male,Low,Houston
+1712,60,Male,Low,Houston
+1713,41,Male,Medium,Los Angeles
+1714,67,Male,Medium,Houston
+1715,51,Male,High,New York
+1716,26,Other,Medium,Chicago
+1717,63,Other,Low,Phoenix
+1718,23,Female,Low,Houston
+1719,18,Other,High,Chicago
+1720,25,Female,High,New York
+1721,56,Other,Medium,Phoenix
+1722,29,Female,High,Phoenix
+1723,60,Female,Medium,New York
+1724,64,Male,Low,Los Angeles
+1725,23,Female,Low,Houston
+1726,20,Other,Medium,Houston
+1727,70,Other,Low,Chicago
+1728,30,Male,Low,Houston
+1729,25,Female,Medium,Houston
+1730,28,Male,High,New York
+1731,59,Male,High,New York
+1732,56,Other,High,Chicago
+1733,60,Male,Low,New York
+1734,67,Female,Low,New York
+1735,65,Female,High,Houston
+1736,32,Female,Low,Chicago
+1737,65,Male,Medium,Houston
+1738,67,Female,Low,Los Angeles
+1739,59,Male,Low,Chicago
+1740,68,Male,High,Houston
+1741,35,Other,Low,Houston
+1742,25,Male,Low,Chicago
+1743,47,Male,Low,Chicago
+1744,36,Male,Low,Phoenix
+1745,52,Male,Low,Phoenix
+1746,28,Female,Medium,New York
+1747,30,Female,High,Chicago
+1748,22,Female,Low,Los Angeles
+1749,47,Male,High,New York
+1750,58,Male,Low,Houston
+1751,67,Male,Medium,New York
+1752,42,Female,Low,Los Angeles
+1753,67,Other,Medium,Chicago
+1754,32,Male,Low,Phoenix
+1755,33,Male,Medium,New York
+1756,56,Other,High,New York
+1757,48,Male,Medium,Chicago
+1758,40,Other,High,Phoenix
+1759,43,Female,Medium,Phoenix
+1760,22,Female,Low,New York
+1761,60,Other,High,Phoenix
+1762,68,Male,High,Chicago
+1763,33,Other,Low,Phoenix
+1764,40,Female,Low,Houston
+1765,59,Female,High,Houston
+1766,22,Male,Medium,Phoenix
+1767,22,Female,Low,Phoenix
+1768,19,Male,High,Los Angeles
+1769,19,Male,Low,Phoenix
+1770,67,Other,Medium,Los Angeles
+1771,44,Other,High,Chicago
+1772,24,Other,Medium,Houston
+1773,57,Male,Medium,Houston
+1774,42,Female,High,New York
+1775,28,Male,Low,Los Angeles
+1776,21,Other,Low,Los Angeles
+1777,41,Male,Medium,Chicago
+1778,29,Female,High,Los Angeles
+1779,27,Female,High,Phoenix
+1780,57,Male,High,Houston
+1781,21,Female,High,Chicago
+1782,23,Female,Medium,Chicago
+1783,50,Female,Medium,Houston
+1784,49,Male,Medium,New York
+1785,55,Other,High,Los Angeles
+1786,37,Female,Medium,Houston
+1787,66,Other,Medium,New York
+1788,44,Other,Low,Houston
+1789,68,Female,Low,Chicago
+1790,34,Female,Low,Chicago
+1791,34,Male,High,Phoenix
+1792,30,Male,High,Phoenix
+1793,31,Male,High,New York
+1794,70,Female,Medium,New York
+1795,26,Female,Low,Chicago
+1796,42,Female,Low,Houston
+1797,44,Male,High,Houston
+1798,33,Female,High,Houston
+1799,18,Male,Low,Los Angeles
+1800,51,Female,Low,Phoenix
+1801,47,Female,Medium,Phoenix
+1802,70,Female,High,Los Angeles
+1803,49,Other,High,New York
+1804,50,Male,Medium,Los Angeles
+1805,36,Other,Low,Los Angeles
+1806,54,Other,High,New York
+1807,70,Female,Medium,Houston
+1808,38,Male,Medium,Phoenix
+1809,30,Male,High,Chicago
+1810,62,Female,High,Chicago
+1811,51,Male,Medium,Los Angeles
+1812,63,Male,Medium,New York
+1813,35,Other,Low,Houston
+1814,65,Female,Medium,Phoenix
+1815,35,Female,Medium,Phoenix
+1816,56,Female,Low,Houston
+1817,67,Male,Low,Los Angeles
+1818,66,Other,Low,Chicago
+1819,39,Male,Low,Phoenix
+1820,64,Male,Medium,Houston
+1821,48,Female,Medium,New York
+1822,61,Other,Medium,Chicago
+1823,26,Female,High,Houston
+1824,39,Other,Low,Los Angeles
+1825,57,Other,Medium,Phoenix
+1826,59,Male,Low,Houston
+1827,33,Male,High,New York
+1828,20,Female,High,Chicago
+1829,57,Female,Medium,Los Angeles
+1830,36,Other,Low,Phoenix
+1831,58,Other,Medium,Houston
+1832,59,Male,Medium,Los Angeles
+1833,58,Other,Low,Los Angeles
+1834,24,Other,High,Chicago
+1835,51,Female,Low,Los Angeles
+1836,39,Female,Low,New York
+1837,66,Other,Medium,New York
+1838,52,Male,Medium,Phoenix
+1839,32,Male,Low,Chicago
+1840,56,Other,Low,New York
+1841,43,Male,Low,Chicago
+1842,33,Female,Low,Los Angeles
+1843,60,Male,Medium,Chicago
+1844,50,Other,Low,Houston
+1845,66,Male,Low,Chicago
+1846,67,Female,Medium,Houston
+1847,40,Female,Low,New York
+1848,26,Female,Medium,New York
+1849,43,Other,Low,Houston
+1850,65,Male,Low,Houston
+1851,57,Male,Low,Chicago
+1852,24,Female,Medium,Phoenix
+1853,66,Other,Medium,Phoenix
+1854,61,Other,Low,New York
+1855,20,Male,High,New York
+1856,58,Other,Medium,Phoenix
+1857,31,Other,Low,Chicago
+1858,63,Other,Medium,Houston
+1859,61,Female,Low,Houston
+1860,41,Male,Low,Chicago
+1861,65,Female,High,Houston
+1862,22,Female,High,New York
+1863,34,Male,High,Houston
+1864,30,Female,Low,Chicago
+1865,59,Female,Medium,Chicago
+1866,64,Other,Low,Chicago
+1867,62,Male,Medium,New York
+1868,36,Male,High,Houston
+1869,41,Other,High,Phoenix
+1870,67,Other,Low,Houston
+1871,38,Male,Low,New York
+1872,32,Male,Low,Chicago
+1873,55,Male,High,Houston
+1874,22,Male,High,Houston
+1875,57,Other,High,Chicago
+1876,54,Other,Medium,Houston
+1877,43,Other,High,New York
+1878,58,Other,Low,Phoenix
+1879,50,Female,High,Los Angeles
+1880,58,Female,High,Chicago
+1881,70,Other,Medium,Phoenix
+1882,31,Female,Medium,Los Angeles
+1883,33,Other,High,Phoenix
+1884,66,Other,Low,Phoenix
+1885,37,Other,Medium,Chicago
+1886,67,Female,High,New York
+1887,60,Other,Low,Houston
+1888,39,Female,Medium,New York
+1889,36,Male,High,New York
+1890,39,Other,High,Houston
+1891,25,Male,Medium,Chicago
+1892,60,Female,Medium,Houston
+1893,60,Female,Medium,Los Angeles
+1894,38,Female,Low,Phoenix
+1895,45,Other,Low,Phoenix
+1896,30,Female,Low,Phoenix
+1897,64,Other,Low,Chicago
+1898,54,Other,Medium,New York
+1899,29,Male,Medium,Houston
+1900,36,Female,Low,Chicago
+1901,57,Other,Medium,Phoenix
+1902,67,Female,Low,Phoenix
+1903,66,Female,Low,Houston
+1904,29,Other,Medium,Houston
+1905,46,Other,Medium,Phoenix
+1906,46,Other,High,New York
+1907,60,Male,Low,Chicago
+1908,45,Female,Low,Los Angeles
+1909,69,Female,Low,Houston
+1910,35,Female,Low,Phoenix
+1911,21,Male,High,Chicago
+1912,19,Other,Medium,Chicago
+1913,53,Other,Low,Houston
+1914,43,Female,Medium,Chicago
+1915,46,Female,Low,Los Angeles
+1916,24,Male,Medium,Phoenix
+1917,38,Male,Low,New York
+1918,20,Male,Low,Houston
+1919,19,Other,Low,Phoenix
+1920,27,Female,Low,Houston
+1921,64,Female,High,Phoenix
+1922,31,Female,High,Houston
+1923,67,Male,Medium,New York
+1924,63,Other,Medium,Houston
+1925,25,Other,High,Phoenix
+1926,26,Male,Medium,Los Angeles
+1927,33,Female,Low,Houston
+1928,44,Female,Medium,Chicago
+1929,18,Other,Low,Houston
+1930,28,Female,High,Phoenix
+1931,27,Female,High,Phoenix
+1932,37,Other,Low,Chicago
+1933,61,Other,High,New York
+1934,60,Other,Medium,Phoenix
+1935,41,Other,High,Chicago
+1936,68,Male,Low,Chicago
+1937,52,Male,High,New York
+1938,62,Male,High,New York
+1939,58,Male,High,Phoenix
+1940,32,Other,Low,Houston
+1941,64,Male,Medium,Chicago
+1942,27,Other,Low,Los Angeles
+1943,65,Other,Low,Los Angeles
+1944,28,Female,High,Los Angeles
+1945,60,Other,Low,Houston
+1946,29,Other,High,Phoenix
+1947,26,Male,Low,Los Angeles
+1948,45,Female,Medium,Houston
+1949,41,Male,Medium,Chicago
+1950,63,Other,Low,Los Angeles
+1951,58,Other,High,New York
+1952,67,Other,High,Chicago
+1953,59,Male,High,Houston
+1954,65,Other,High,Chicago
+1955,20,Male,Low,Houston
+1956,61,Female,Low,New York
+1957,61,Other,Low,New York
+1958,59,Male,High,Los Angeles
+1959,55,Male,Low,Phoenix
+1960,35,Female,High,Chicago
+1961,70,Female,High,Houston
+1962,22,Male,Medium,New York
+1963,40,Female,Low,Houston
+1964,43,Male,Low,Phoenix
+1965,22,Male,High,New York
+1966,23,Male,Medium,Phoenix
+1967,44,Female,Medium,Houston
+1968,44,Other,Medium,New York
+1969,49,Male,High,Los Angeles
+1970,35,Female,High,Phoenix
+1971,58,Male,High,Phoenix
+1972,26,Other,High,Phoenix
+1973,58,Other,Medium,New York
+1974,47,Male,Low,Houston
+1975,26,Other,High,Phoenix
+1976,24,Other,High,New York
+1977,42,Other,Medium,New York
+1978,51,Male,Medium,Los Angeles
+1979,23,Other,Low,Phoenix
+1980,64,Other,Medium,Houston
+1981,19,Female,Medium,Los Angeles
+1982,46,Other,Low,Chicago
+1983,57,Female,Medium,New York
+1984,43,Male,Low,Los Angeles
+1985,30,Female,Medium,Phoenix
+1986,28,Female,High,Houston
+1987,43,Female,High,Houston
+1988,38,Male,High,Houston
+1989,18,Other,Medium,Los Angeles
+1990,28,Other,Low,Houston
+1991,27,Other,Medium,Phoenix
+1992,23,Male,High,Phoenix
+1993,63,Male,High,New York
+1994,36,Female,Medium,New York
+1995,20,Male,High,Phoenix
+1996,40,Female,Medium,Phoenix
+1997,59,Male,Low,Houston
+1998,62,Other,Low,Chicago
+1999,26,Other,Low,Phoenix
+2000,42,Other,High,New York
+2001,24,Female,High,Phoenix
+2002,28,Male,Medium,Chicago
+2003,68,Male,Medium,Chicago
+2004,37,Female,Medium,Phoenix
+2005,46,Other,High,New York
+2006,35,Female,Low,Houston
+2007,29,Female,Low,Phoenix
+2008,63,Female,Low,Phoenix
+2009,45,Female,Low,Los Angeles
+2010,32,Male,Low,New York
+2011,45,Male,High,Chicago
+2012,40,Other,Low,Chicago
+2013,32,Male,Medium,Chicago
+2014,27,Other,Low,New York
+2015,56,Female,High,Houston
+2016,58,Other,Low,Chicago
+2017,37,Other,High,Phoenix
+2018,48,Other,Low,New York
+2019,36,Male,Medium,Houston
+2020,50,Male,Low,Chicago
+2021,27,Male,Medium,Phoenix
+2022,27,Female,Medium,Phoenix
+2023,66,Female,High,Phoenix
+2024,46,Other,High,Houston
+2025,38,Female,Low,Chicago
+2026,52,Male,Low,Houston
+2027,38,Male,Low,Chicago
+2028,38,Female,Medium,Phoenix
+2029,33,Other,Low,Chicago
+2030,37,Female,Low,Los Angeles
+2031,66,Male,Low,Los Angeles
+2032,65,Other,Medium,New York
+2033,57,Other,Low,Los Angeles
+2034,59,Male,High,Houston
+2035,27,Male,High,Chicago
+2036,40,Other,High,Houston
+2037,52,Other,Low,Houston
+2038,33,Other,High,Chicago
+2039,70,Other,Medium,Houston
+2040,67,Male,Low,Phoenix
+2041,37,Other,Low,New York
+2042,70,Male,Medium,New York
+2043,33,Other,Medium,New York
+2044,28,Other,Medium,Phoenix
+2045,32,Male,Low,Phoenix
+2046,28,Female,High,Houston
+2047,45,Other,Medium,Los Angeles
+2048,56,Male,High,Chicago
+2049,37,Male,Medium,Houston
+2050,46,Other,High,Phoenix
+2051,39,Female,Low,Phoenix
+2052,50,Female,Medium,Los Angeles
+2053,51,Female,High,Phoenix
+2054,51,Other,Low,Chicago
+2055,38,Male,Medium,Los Angeles
+2056,54,Female,High,New York
+2057,36,Other,Low,New York
+2058,20,Female,Low,Houston
+2059,42,Female,Medium,Houston
+2060,65,Female,Low,Houston
+2061,62,Male,High,New York
+2062,59,Female,Medium,New York
+2063,47,Male,Medium,Phoenix
+2064,48,Other,High,Los Angeles
+2065,31,Male,High,Phoenix
+2066,62,Female,High,Los Angeles
+2067,41,Female,Medium,Los Angeles
+2068,51,Male,High,Houston
+2069,30,Other,Low,New York
+2070,66,Other,Low,Houston
+2071,48,Male,Low,Chicago
+2072,41,Male,Medium,New York
+2073,28,Female,Low,Los Angeles
+2074,55,Other,Low,Phoenix
+2075,38,Male,Low,Houston
+2076,60,Male,Low,Houston
+2077,51,Male,Low,Los Angeles
+2078,57,Other,Low,Los Angeles
+2079,58,Female,High,Chicago
+2080,22,Other,High,New York
+2081,28,Female,Medium,Phoenix
+2082,52,Female,Medium,Los Angeles
+2083,65,Female,High,Los Angeles
+2084,30,Male,Low,Phoenix
+2085,44,Male,Medium,Chicago
+2086,65,Male,High,Phoenix
+2087,65,Other,Low,Houston
+2088,70,Female,High,Houston
+2089,33,Male,High,Houston
+2090,63,Male,High,Houston
+2091,24,Female,High,Houston
+2092,44,Other,Low,Chicago
+2093,42,Female,Medium,Houston
+2094,54,Other,Low,Chicago
+2095,20,Other,High,Los Angeles
+2096,66,Female,Medium,Phoenix
+2097,50,Female,Medium,Phoenix
+2098,25,Female,Low,Phoenix
+2099,47,Male,Medium,Phoenix
+2100,44,Female,High,Chicago
+2101,31,Other,Medium,Houston
+2102,32,Other,Medium,Houston
+2103,49,Male,High,Los Angeles
+2104,24,Female,Medium,Phoenix
+2105,29,Male,Low,New York
+2106,51,Other,Medium,Houston
+2107,31,Female,Low,Chicago
+2108,58,Female,Medium,Phoenix
+2109,23,Other,High,Chicago
+2110,28,Male,High,Chicago
+2111,19,Male,High,Los Angeles
+2112,49,Female,High,Chicago
+2113,46,Male,Medium,Chicago
+2114,55,Male,High,Houston
+2115,30,Male,High,Los Angeles
+2116,30,Other,Medium,Phoenix
+2117,22,Male,Medium,New York
+2118,48,Other,High,Los Angeles
+2119,37,Other,Medium,Chicago
+2120,41,Other,Low,Houston
+2121,51,Female,High,New York
+2122,55,Female,Low,Houston
+2123,54,Male,Medium,New York
+2124,18,Other,Low,Houston
+2125,40,Female,High,New York
+2126,27,Female,Low,Los Angeles
+2127,37,Other,High,Phoenix
+2128,27,Female,High,Los Angeles
+2129,62,Male,Medium,New York
+2130,62,Male,Low,New York
+2131,25,Female,Low,Houston
+2132,26,Female,High,New York
+2133,43,Other,Low,New York
+2134,67,Other,High,Chicago
+2135,33,Other,Low,New York
+2136,68,Other,Medium,Los Angeles
+2137,29,Other,High,Houston
+2138,31,Other,Medium,New York
+2139,63,Male,Low,Phoenix
+2140,65,Other,Medium,Phoenix
+2141,25,Male,High,Phoenix
+2142,26,Male,Medium,Houston
+2143,42,Other,Low,New York
+2144,64,Other,Low,New York
+2145,58,Female,Low,Houston
+2146,27,Female,High,New York
+2147,42,Female,Low,New York
+2148,36,Other,High,Houston
+2149,58,Female,High,New York
+2150,61,Other,Low,Los Angeles
+2151,24,Female,Medium,Los Angeles
+2152,47,Male,Medium,Houston
+2153,68,Other,High,Phoenix
+2154,44,Other,Low,New York
+2155,49,Female,Medium,Chicago
+2156,47,Other,Medium,Houston
+2157,21,Female,High,Phoenix
+2158,48,Other,Medium,Los Angeles
+2159,47,Other,Medium,Phoenix
+2160,70,Other,Medium,New York
+2161,19,Male,Medium,Los Angeles
+2162,25,Male,Low,Houston
+2163,58,Female,Low,Houston
+2164,62,Male,Medium,Los Angeles
+2165,21,Female,Low,Chicago
+2166,40,Male,High,Houston
+2167,48,Other,Medium,Houston
+2168,55,Male,Medium,Los Angeles
+2169,28,Female,Low,New York
+2170,20,Other,Medium,Los Angeles
+2171,58,Other,Medium,Chicago
+2172,68,Female,Medium,Chicago
+2173,31,Female,Low,Phoenix
+2174,69,Other,Low,Los Angeles
+2175,53,Male,Low,Chicago
+2176,43,Other,High,Los Angeles
+2177,29,Male,Low,Chicago
+2178,66,Other,Low,New York
+2179,46,Male,High,Chicago
+2180,49,Female,High,Chicago
+2181,36,Other,High,Houston
+2182,57,Male,Low,Los Angeles
+2183,34,Male,Low,New York
+2184,63,Female,Low,New York
+2185,39,Female,Medium,Los Angeles
+2186,39,Other,Medium,Chicago
+2187,53,Male,High,Houston
+2188,39,Other,Low,Phoenix
+2189,58,Female,Medium,Phoenix
+2190,52,Male,Low,Los Angeles
+2191,49,Female,Low,New York
+2192,52,Male,Medium,New York
+2193,23,Other,Low,Phoenix
+2194,48,Male,High,New York
+2195,68,Female,Medium,Los Angeles
+2196,32,Male,Medium,Houston
+2197,58,Male,High,Chicago
+2198,21,Female,High,Houston
+2199,34,Other,Low,New York
+2200,63,Other,Medium,Phoenix
+2201,39,Female,Medium,Houston
+2202,46,Other,High,Phoenix
+2203,63,Female,High,Chicago
+2204,62,Male,Medium,Phoenix
+2205,24,Other,High,Los Angeles
+2206,25,Male,High,Houston
+2207,39,Other,Medium,Chicago
+2208,22,Other,Low,Los Angeles
+2209,24,Female,Medium,Houston
+2210,21,Other,Medium,Houston
+2211,21,Female,High,Chicago
+2212,63,Other,Low,Chicago
+2213,43,Male,High,Los Angeles
+2214,41,Male,Medium,Chicago
+2215,23,Male,Medium,Los Angeles
+2216,66,Other,Low,Los Angeles
+2217,42,Female,Medium,Chicago
+2218,23,Male,High,Chicago
+2219,47,Other,Low,Houston
+2220,27,Male,High,Chicago
+2221,61,Other,Low,New York
+2222,40,Female,High,Los Angeles
+2223,27,Other,Low,Phoenix
+2224,40,Other,Medium,Houston
+2225,68,Other,Medium,Chicago
+2226,23,Male,High,Chicago
+2227,20,Male,High,Houston
+2228,35,Male,High,Chicago
+2229,52,Other,High,Houston
+2230,64,Female,High,Chicago
+2231,22,Male,Medium,Houston
+2232,58,Male,Low,Chicago
+2233,18,Male,Medium,Los Angeles
+2234,30,Other,Medium,Los Angeles
+2235,30,Female,High,Phoenix
+2236,40,Female,Low,Houston
+2237,46,Male,Low,Los Angeles
+2238,44,Other,High,New York
+2239,34,Female,Medium,Los Angeles
+2240,31,Male,Low,Phoenix
+2241,66,Male,Medium,New York
+2242,22,Female,High,Houston
+2243,36,Male,Low,Houston
+2244,49,Male,Medium,Los Angeles
+2245,39,Male,Low,Houston
+2246,56,Female,Low,Los Angeles
+2247,34,Other,Low,Phoenix
+2248,34,Other,High,Los Angeles
+2249,55,Female,Low,Houston
+2250,52,Male,High,Houston
+2251,58,Other,High,Chicago
+2252,44,Female,Medium,Phoenix
+2253,23,Female,Medium,Houston
+2254,25,Other,Low,Phoenix
+2255,33,Male,High,Phoenix
+2256,55,Other,Low,New York
+2257,69,Male,High,New York
+2258,54,Male,Medium,Chicago
+2259,46,Other,High,New York
+2260,50,Male,High,Houston
+2261,56,Male,High,Phoenix
+2262,70,Female,High,Phoenix
+2263,54,Female,Low,Chicago
+2264,24,Other,Low,Los Angeles
+2265,67,Male,Medium,Chicago
+2266,51,Male,Low,Chicago
+2267,32,Male,High,New York
+2268,46,Male,High,Los Angeles
+2269,24,Male,High,Chicago
+2270,57,Female,High,Phoenix
+2271,54,Male,Medium,Phoenix
+2272,54,Male,Medium,Los Angeles
+2273,32,Other,Low,Los Angeles
+2274,42,Female,Medium,Los Angeles
+2275,47,Male,High,Chicago
+2276,18,Female,High,Phoenix
+2277,39,Female,Low,Phoenix
+2278,39,Male,Medium,Los Angeles
+2279,20,Other,High,Phoenix
+2280,54,Female,High,New York
+2281,41,Male,High,Chicago
+2282,69,Female,Medium,Houston
+2283,22,Male,High,Phoenix
+2284,34,Other,Medium,New York
+2285,30,Male,Low,Houston
+2286,69,Other,Low,New York
+2287,55,Female,High,Phoenix
+2288,21,Female,Low,Houston
+2289,23,Other,Medium,Los Angeles
+2290,62,Male,Low,New York
+2291,25,Female,Low,Chicago
+2292,58,Female,Low,Houston
+2293,59,Female,Low,Los Angeles
+2294,68,Female,Low,Phoenix
+2295,30,Male,Low,Phoenix
+2296,62,Female,Low,New York
+2297,64,Female,High,Houston
+2298,65,Male,Low,Los Angeles
+2299,43,Female,Low,Phoenix
+2300,50,Female,Medium,Los Angeles
+2301,22,Female,Medium,Los Angeles
+2302,62,Male,Medium,Los Angeles
+2303,53,Male,Low,Chicago
+2304,64,Female,Medium,Phoenix
+2305,50,Other,Low,Los Angeles
+2306,57,Male,High,Chicago
+2307,49,Other,High,Phoenix
+2308,34,Other,Low,New York
+2309,69,Male,Low,Los Angeles
+2310,46,Other,Low,Phoenix
+2311,42,Male,Medium,Houston
+2312,55,Male,Low,Los Angeles
+2313,52,Other,Medium,Phoenix
+2314,68,Male,Medium,Chicago
+2315,32,Male,Medium,New York
+2316,66,Male,High,Houston
+2317,44,Other,High,Houston
+2318,19,Female,Medium,New York
+2319,70,Female,Medium,Chicago
+2320,47,Female,Medium,New York
+2321,42,Female,High,Houston
+2322,48,Other,Low,New York
+2323,61,Other,Medium,New York
+2324,22,Female,High,Los Angeles
+2325,35,Other,Medium,Los Angeles
+2326,52,Female,Low,New York
+2327,57,Other,Low,Chicago
+2328,22,Male,Medium,Houston
+2329,61,Female,Medium,New York
+2330,63,Female,Low,Houston
+2331,47,Female,Low,Los Angeles
+2332,53,Male,Medium,New York
+2333,43,Male,Low,Los Angeles
+2334,56,Other,High,Los Angeles
+2335,28,Male,Medium,Chicago
+2336,69,Other,Medium,New York
+2337,34,Female,Low,Los Angeles
+2338,31,Female,Medium,Los Angeles
+2339,60,Female,Medium,New York
+2340,40,Female,Low,Houston
+2341,23,Female,Medium,New York
+2342,58,Male,Low,Chicago
+2343,54,Male,Medium,Los Angeles
+2344,18,Female,Medium,Phoenix
+2345,64,Male,Medium,New York
+2346,70,Male,Medium,Phoenix
+2347,40,Male,Medium,Phoenix
+2348,68,Other,Medium,Houston
+2349,65,Other,High,Phoenix
+2350,18,Female,Medium,Houston
+2351,27,Male,Medium,New York
+2352,28,Male,Low,Phoenix
+2353,40,Other,High,Phoenix
+2354,45,Female,Low,Houston
+2355,58,Other,High,Houston
+2356,40,Male,Medium,Los Angeles
+2357,49,Female,Low,Phoenix
+2358,54,Male,High,Chicago
+2359,50,Female,Medium,Houston
+2360,63,Other,Low,Chicago
+2361,58,Female,Medium,Chicago
+2362,60,Other,Low,Phoenix
+2363,53,Female,Medium,Chicago
+2364,64,Female,High,Chicago
+2365,18,Female,Low,Houston
+2366,28,Other,Low,Los Angeles
+2367,42,Male,Low,New York
+2368,52,Other,Medium,New York
+2369,54,Other,Low,Los Angeles
+2370,28,Female,High,Phoenix
+2371,30,Female,High,Houston
+2372,54,Female,Medium,New York
+2373,27,Male,High,Chicago
+2374,52,Female,Low,Chicago
+2375,38,Other,Low,Los Angeles
+2376,70,Male,High,Houston
+2377,37,Other,Medium,Phoenix
+2378,65,Male,High,Los Angeles
+2379,45,Other,Low,Houston
+2380,57,Other,Low,Houston
+2381,56,Male,High,Chicago
+2382,47,Other,High,Phoenix
+2383,46,Male,Low,Phoenix
+2384,56,Female,High,Phoenix
+2385,63,Female,Low,Chicago
+2386,57,Other,Medium,Los Angeles
+2387,33,Other,Medium,New York
+2388,41,Male,Medium,Los Angeles
+2389,61,Male,Low,Chicago
+2390,58,Other,Medium,Chicago
+2391,34,Male,Medium,New York
+2392,18,Other,High,Los Angeles
+2393,36,Male,High,New York
+2394,69,Female,Low,Los Angeles
+2395,47,Female,Medium,Chicago
+2396,54,Male,Medium,Chicago
+2397,53,Female,High,Phoenix
+2398,32,Other,Low,Phoenix
+2399,35,Female,Medium,Phoenix
+2400,45,Female,Medium,Houston
+2401,40,Other,Low,Phoenix
+2402,64,Other,Medium,Los Angeles
+2403,61,Female,Low,Houston
+2404,40,Other,High,Los Angeles
+2405,39,Female,Medium,New York
+2406,25,Other,Medium,New York
+2407,48,Female,High,New York
+2408,49,Female,Medium,New York
+2409,63,Male,Medium,Phoenix
+2410,23,Male,Low,Phoenix
+2411,39,Male,Low,Phoenix
+2412,49,Male,High,Chicago
+2413,25,Other,High,Los Angeles
+2414,58,Male,Medium,Phoenix
+2415,56,Other,High,Phoenix
+2416,19,Male,Low,Phoenix
+2417,44,Other,Low,Chicago
+2418,54,Male,High,Phoenix
+2419,47,Other,Low,New York
+2420,70,Female,Medium,Los Angeles
+2421,21,Other,Medium,Phoenix
+2422,33,Other,Medium,Phoenix
+2423,44,Female,Medium,Phoenix
+2424,67,Male,High,Los Angeles
+2425,23,Other,Medium,Phoenix
+2426,30,Female,High,Los Angeles
+2427,32,Male,Low,New York
+2428,33,Other,High,Los Angeles
+2429,41,Other,Low,New York
+2430,40,Male,Low,Chicago
+2431,18,Female,High,Chicago
+2432,27,Male,Medium,Chicago
+2433,42,Female,High,New York
+2434,64,Female,Medium,Houston
+2435,45,Other,Low,Los Angeles
+2436,20,Male,High,Los Angeles
+2437,67,Female,High,Chicago
+2438,68,Other,High,New York
+2439,70,Other,Low,Chicago
+2440,60,Other,Low,Los Angeles
+2441,33,Male,Low,Los Angeles
+2442,41,Male,Low,New York
+2443,27,Female,Medium,New York
+2444,42,Male,Low,Chicago
+2445,42,Male,Medium,Los Angeles
+2446,60,Other,High,Los Angeles
+2447,61,Other,Low,Chicago
+2448,39,Female,Low,Chicago
+2449,57,Male,Low,Los Angeles
+2450,53,Male,Medium,Houston
+2451,57,Other,Medium,Chicago
+2452,21,Other,Low,Chicago
+2453,35,Other,Medium,Houston
+2454,48,Male,Medium,Chicago
+2455,34,Female,Medium,Houston
+2456,35,Other,High,Chicago
+2457,35,Other,Medium,Phoenix
+2458,51,Female,Medium,Houston
+2459,53,Male,Medium,Phoenix
+2460,23,Female,Medium,Phoenix
+2461,34,Female,Low,Phoenix
+2462,42,Female,Medium,New York
+2463,26,Other,High,New York
+2464,61,Female,High,Phoenix
+2465,65,Female,High,Los Angeles
+2466,31,Female,Medium,Phoenix
+2467,69,Other,Medium,Los Angeles
+2468,32,Female,Medium,Los Angeles
+2469,18,Other,Low,New York
+2470,30,Male,Medium,New York
+2471,21,Other,Medium,Chicago
+2472,68,Other,Medium,Chicago
+2473,42,Other,Low,Los Angeles
+2474,38,Male,Low,Los Angeles
+2475,50,Female,Low,Phoenix
+2476,49,Other,Medium,Chicago
+2477,34,Other,Low,Phoenix
+2478,61,Female,High,Houston
+2479,35,Male,High,Phoenix
+2480,29,Other,High,Houston
+2481,60,Female,Low,Los Angeles
+2482,55,Male,Low,New York
+2483,35,Male,High,Chicago
+2484,45,Other,High,Chicago
+2485,29,Female,High,Phoenix
+2486,28,Other,Medium,Chicago
+2487,25,Other,High,New York
+2488,26,Female,Low,Chicago
+2489,65,Male,Medium,Houston
+2490,51,Female,Medium,Los Angeles
+2491,53,Male,Medium,Los Angeles
+2492,42,Male,High,Houston
+2493,21,Male,Medium,Phoenix
+2494,46,Male,Low,New York
+2495,31,Other,Medium,Phoenix
+2496,56,Female,High,Houston
+2497,24,Female,High,Houston
+2498,39,Female,Medium,Houston
+2499,66,Female,High,New York
+2500,49,Female,High,Houston
+2501,56,Male,Medium,Phoenix
+2502,60,Female,Low,Chicago
+2503,19,Other,High,Houston
+2504,53,Other,Low,Houston
+2505,66,Female,Low,Phoenix
+2506,35,Other,High,Houston
+2507,60,Male,Medium,New York
+2508,43,Male,Medium,Houston
+2509,30,Other,Low,Los Angeles
+2510,35,Female,High,Houston
+2511,45,Female,High,Chicago
+2512,45,Male,Medium,Los Angeles
+2513,47,Female,Medium,Los Angeles
+2514,58,Female,Medium,New York
+2515,51,Female,Medium,Houston
+2516,20,Male,Medium,Houston
+2517,37,Female,Low,Houston
+2518,61,Female,Medium,New York
+2519,58,Male,High,New York
+2520,24,Other,Medium,Houston
+2521,48,Male,High,Chicago
+2522,42,Other,Low,Chicago
+2523,22,Female,Low,Phoenix
+2524,47,Female,High,Chicago
+2525,40,Male,High,New York
+2526,27,Other,Low,Phoenix
+2527,57,Other,High,Chicago
+2528,21,Other,Low,Chicago
+2529,47,Male,Low,Chicago
+2530,39,Other,Medium,Chicago
+2531,54,Other,Low,Los Angeles
+2532,67,Other,Medium,Phoenix
+2533,39,Male,Medium,Los Angeles
+2534,45,Other,Medium,Houston
+2535,19,Female,Medium,Phoenix
+2536,28,Other,Medium,New York
+2537,61,Other,Low,New York
+2538,18,Male,Medium,New York
+2539,52,Other,Medium,New York
+2540,40,Other,Medium,Houston
+2541,43,Other,High,New York
+2542,27,Other,Low,Chicago
+2543,41,Female,Medium,Los Angeles
+2544,44,Other,Low,New York
+2545,48,Male,Medium,Chicago
+2546,31,Female,Medium,Phoenix
+2547,42,Male,Low,Los Angeles
+2548,24,Female,Low,Houston
+2549,59,Female,High,Houston
+2550,44,Female,High,Phoenix
+2551,65,Other,High,Houston
+2552,49,Male,High,Chicago
+2553,67,Female,Low,New York
+2554,58,Other,High,New York
+2555,66,Female,Medium,Phoenix
+2556,67,Male,High,New York
+2557,35,Female,High,New York
+2558,52,Male,Low,Phoenix
+2559,46,Female,Low,Los Angeles
+2560,43,Male,Low,Los Angeles
+2561,38,Male,High,New York
+2562,39,Other,High,Los Angeles
+2563,41,Other,Low,Los Angeles
+2564,30,Male,Low,New York
+2565,52,Male,High,Houston
+2566,57,Other,High,Phoenix
+2567,45,Male,Medium,Phoenix
+2568,50,Female,Low,New York
+2569,42,Female,High,Houston
+2570,61,Female,High,New York
+2571,61,Female,Medium,New York
+2572,58,Female,Medium,New York
+2573,35,Female,Medium,Chicago
+2574,68,Other,Medium,Chicago
+2575,19,Other,Low,Los Angeles
+2576,57,Male,Low,Houston
+2577,27,Female,Low,Phoenix
+2578,58,Other,Low,Houston
+2579,37,Male,High,Houston
+2580,52,Other,High,Houston
+2581,54,Male,Low,Chicago
+2582,51,Other,Low,Phoenix
+2583,41,Female,High,Chicago
+2584,30,Other,Medium,New York
+2585,55,Other,Medium,Houston
+2586,35,Male,High,Chicago
+2587,61,Female,High,Los Angeles
+2588,50,Female,High,Los Angeles
+2589,39,Other,Medium,Phoenix
+2590,40,Other,High,New York
+2591,29,Male,High,Houston
+2592,33,Female,High,Los Angeles
+2593,41,Female,Low,Chicago
+2594,68,Male,High,Houston
+2595,57,Female,High,Chicago
+2596,33,Female,Low,Houston
+2597,49,Male,High,New York
+2598,57,Other,High,Chicago
+2599,44,Other,High,Phoenix
+2600,31,Male,Low,Houston
+2601,35,Male,Low,Phoenix
+2602,67,Female,Low,Phoenix
+2603,59,Male,Medium,Los Angeles
+2604,37,Female,High,Chicago
+2605,25,Other,Medium,Chicago
+2606,41,Other,Low,New York
+2607,49,Female,High,Los Angeles
+2608,54,Male,Low,Houston
+2609,21,Male,Medium,Chicago
+2610,40,Other,High,Chicago
+2611,25,Other,Low,Houston
+2612,47,Female,Low,New York
+2613,68,Male,Low,Chicago
+2614,60,Female,High,Houston
+2615,65,Other,Low,Los Angeles
+2616,61,Male,High,Chicago
+2617,65,Female,Medium,Houston
+2618,56,Male,High,New York
+2619,50,Other,Medium,Chicago
+2620,70,Male,High,Chicago
+2621,61,Other,Low,Phoenix
+2622,27,Other,High,Phoenix
+2623,26,Male,Low,New York
+2624,59,Male,Medium,New York
+2625,24,Female,High,New York
+2626,59,Other,Medium,Chicago
+2627,49,Male,High,Houston
+2628,68,Other,Medium,Phoenix
+2629,52,Female,Medium,New York
+2630,38,Male,Low,Houston
+2631,36,Male,Medium,Los Angeles
+2632,19,Other,High,Houston
+2633,69,Female,High,Chicago
+2634,35,Male,Low,Chicago
+2635,55,Male,Low,Chicago
+2636,58,Male,Medium,Phoenix
+2637,64,Other,High,Phoenix
+2638,39,Male,Low,Chicago
+2639,53,Female,Low,Phoenix
+2640,39,Other,Medium,Houston
+2641,32,Female,High,Houston
+2642,27,Female,Medium,Chicago
+2643,19,Other,Medium,New York
+2644,62,Other,Medium,Chicago
+2645,20,Male,Medium,Phoenix
+2646,54,Other,High,Phoenix
+2647,70,Female,Low,Los Angeles
+2648,25,Female,Low,Houston
+2649,70,Male,Medium,Los Angeles
+2650,65,Male,Low,Chicago
+2651,69,Male,High,New York
+2652,30,Male,Medium,Los Angeles
+2653,20,Male,Medium,Los Angeles
+2654,21,Male,Low,New York
+2655,53,Male,Medium,Phoenix
+2656,24,Male,Medium,New York
+2657,23,Male,Low,New York
+2658,53,Male,Low,Phoenix
+2659,49,Female,Low,Houston
+2660,38,Male,Medium,New York
+2661,69,Other,Medium,Chicago
+2662,38,Other,High,Houston
+2663,28,Other,High,Los Angeles
+2664,35,Female,High,New York
+2665,38,Male,Medium,New York
+2666,39,Female,Medium,Phoenix
+2667,37,Female,Medium,Phoenix
+2668,66,Male,Medium,Phoenix
+2669,61,Female,Medium,Los Angeles
+2670,21,Male,High,New York
+2671,29,Other,High,Phoenix
+2672,63,Male,Medium,New York
+2673,62,Other,Low,Los Angeles
+2674,53,Other,Medium,Phoenix
+2675,55,Female,Low,Los Angeles
+2676,26,Male,High,Houston
+2677,34,Other,Low,Houston
+2678,38,Female,High,Phoenix
+2679,22,Male,High,New York
+2680,47,Other,High,Chicago
+2681,45,Other,High,Phoenix
+2682,44,Male,High,New York
+2683,47,Other,High,Chicago
+2684,22,Female,High,Phoenix
+2685,40,Other,High,New York
+2686,55,Male,High,Phoenix
+2687,68,Male,Low,Houston
+2688,37,Male,High,Chicago
+2689,70,Other,High,Chicago
+2690,62,Male,High,Houston
+2691,39,Other,High,New York
+2692,46,Female,Low,Phoenix
+2693,18,Male,Low,New York
+2694,58,Female,Medium,New York
+2695,22,Other,Medium,Phoenix
+2696,49,Female,High,Phoenix
+2697,49,Male,Low,Phoenix
+2698,19,Other,High,Los Angeles
+2699,53,Male,Medium,Houston
+2700,53,Other,Medium,Los Angeles
+2701,58,Other,Low,New York
+2702,48,Other,Low,Houston
+2703,18,Male,High,Houston
+2704,58,Female,Medium,Los Angeles
+2705,19,Female,Low,New York
+2706,65,Female,Medium,Houston
+2707,18,Female,Low,Los Angeles
+2708,27,Other,Low,Houston
+2709,18,Male,Medium,Chicago
+2710,28,Other,High,Phoenix
+2711,55,Other,High,Chicago
+2712,59,Other,Medium,Phoenix
+2713,31,Other,Medium,New York
+2714,26,Female,Low,Houston
+2715,67,Other,High,Phoenix
+2716,52,Other,Medium,Phoenix
+2717,40,Female,Low,Los Angeles
+2718,20,Other,Medium,Los Angeles
+2719,50,Other,Medium,New York
+2720,32,Male,Medium,Los Angeles
+2721,68,Female,Medium,New York
+2722,53,Male,Medium,Phoenix
+2723,55,Male,Low,Los Angeles
+2724,37,Male,Medium,Phoenix
+2725,64,Other,Medium,Houston
+2726,24,Male,Medium,Los Angeles
+2727,43,Female,Low,Phoenix
+2728,63,Male,Medium,Chicago
+2729,31,Male,High,Chicago
+2730,64,Male,High,New York
+2731,69,Female,High,Chicago
+2732,33,Male,Low,Houston
+2733,68,Male,Medium,Los Angeles
+2734,19,Female,High,Los Angeles
+2735,18,Other,Medium,Los Angeles
+2736,57,Male,Low,Houston
+2737,57,Female,Low,Chicago
+2738,58,Other,High,Phoenix
+2739,30,Male,Medium,New York
+2740,43,Other,High,Chicago
+2741,66,Other,Medium,Houston
+2742,33,Other,Low,Chicago
+2743,40,Female,Low,Phoenix
+2744,34,Male,High,Houston
+2745,34,Female,Low,Chicago
+2746,27,Other,Low,New York
+2747,40,Other,Low,Houston
+2748,34,Other,Medium,Chicago
+2749,55,Male,High,New York
+2750,41,Female,Medium,Phoenix
+2751,36,Male,High,Los Angeles
+2752,60,Female,High,Los Angeles
+2753,18,Female,High,Houston
+2754,47,Female,Medium,Chicago
+2755,67,Other,Medium,Los Angeles
+2756,49,Male,High,New York
+2757,19,Female,Medium,Los Angeles
+2758,64,Female,Low,New York
+2759,21,Male,High,Los Angeles
+2760,62,Female,Low,Phoenix
+2761,50,Other,Low,Los Angeles
+2762,28,Female,Medium,Phoenix
+2763,21,Male,High,Chicago
+2764,69,Male,Low,Houston
+2765,28,Female,Medium,New York
+2766,40,Male,High,Chicago
+2767,30,Other,Medium,New York
+2768,27,Other,Medium,Los Angeles
+2769,69,Male,Low,New York
+2770,45,Other,Low,Phoenix
+2771,31,Female,Low,Chicago
+2772,66,Female,Medium,Houston
+2773,52,Other,Low,Los Angeles
+2774,58,Other,Medium,New York
+2775,66,Other,Medium,Houston
+2776,31,Other,Low,New York
+2777,65,Male,Medium,Phoenix
+2778,26,Other,High,Los Angeles
+2779,64,Male,Low,New York
+2780,58,Other,High,Chicago
+2781,70,Other,Low,Phoenix
+2782,60,Other,High,Phoenix
+2783,48,Other,Medium,Los Angeles
+2784,43,Male,Low,Chicago
+2785,50,Other,Low,Houston
+2786,20,Female,Medium,New York
+2787,34,Other,Medium,Los Angeles
+2788,56,Other,High,Chicago
+2789,58,Other,High,Houston
+2790,37,Male,High,Phoenix
+2791,40,Female,Low,Los Angeles
+2792,69,Male,Low,Phoenix
+2793,34,Female,Medium,Phoenix
+2794,66,Other,Medium,Phoenix
+2795,70,Female,High,New York
+2796,55,Other,Medium,Chicago
+2797,40,Female,High,Los Angeles
+2798,26,Male,Low,Chicago
+2799,29,Male,Low,Chicago
+2800,31,Male,Low,New York
+2801,63,Other,High,Chicago
+2802,21,Other,Low,Phoenix
+2803,44,Female,Low,New York
+2804,26,Female,Low,Houston
+2805,20,Other,High,Phoenix
+2806,20,Female,Medium,New York
+2807,61,Female,High,Phoenix
+2808,43,Female,Medium,Los Angeles
+2809,37,Female,High,Los Angeles
+2810,22,Female,Low,Chicago
+2811,39,Male,High,Phoenix
+2812,67,Other,Medium,Phoenix
+2813,30,Male,High,New York
+2814,70,Female,High,Los Angeles
+2815,31,Male,Medium,Phoenix
+2816,52,Other,High,New York
+2817,27,Male,Low,Los Angeles
+2818,64,Female,Low,Phoenix
+2819,30,Other,High,Houston
+2820,66,Other,High,Los Angeles
+2821,41,Female,Low,New York
+2822,65,Male,High,Phoenix
+2823,32,Male,Low,Phoenix
+2824,24,Female,Medium,Los Angeles
+2825,37,Male,Medium,Phoenix
+2826,59,Female,Medium,New York
+2827,27,Other,Medium,Houston
+2828,65,Other,Low,Phoenix
+2829,30,Female,High,Los Angeles
+2830,69,Other,Low,New York
+2831,54,Female,Low,Chicago
+2832,34,Other,High,Phoenix
+2833,47,Female,Medium,Los Angeles
+2834,51,Other,High,Los Angeles
+2835,31,Male,Low,New York
+2836,63,Male,High,Los Angeles
+2837,64,Other,High,Phoenix
+2838,58,Male,Low,New York
+2839,55,Other,Medium,Phoenix
+2840,53,Other,High,New York
+2841,38,Other,High,Houston
+2842,62,Male,Low,Houston
+2843,57,Female,Low,Chicago
+2844,60,Male,Medium,Phoenix
+2845,45,Male,Low,Phoenix
+2846,36,Female,High,Chicago
+2847,65,Other,High,Phoenix
+2848,63,Male,Low,Chicago
+2849,49,Female,Medium,Phoenix
+2850,19,Male,Medium,Houston
+2851,51,Female,High,Houston
+2852,41,Other,Low,Phoenix
+2853,18,Female,Low,Houston
+2854,25,Female,Medium,Chicago
+2855,43,Other,Low,Houston
+2856,27,Male,High,New York
+2857,33,Male,Medium,Chicago
+2858,24,Other,Medium,Houston
+2859,52,Other,Low,Los Angeles
+2860,53,Female,High,Chicago
+2861,37,Male,Medium,New York
+2862,34,Other,Low,Houston
+2863,23,Male,High,Houston
+2864,18,Other,Low,New York
+2865,67,Male,High,Phoenix
+2866,35,Other,Medium,Phoenix
+2867,28,Male,Medium,Chicago
+2868,62,Other,Low,Houston
+2869,43,Other,Medium,Phoenix
+2870,24,Female,Medium,Phoenix
+2871,23,Other,Medium,Houston
+2872,36,Female,High,New York
+2873,51,Male,High,Phoenix
+2874,55,Male,Medium,Houston
+2875,36,Other,Medium,New York
+2876,49,Other,High,Los Angeles
+2877,39,Male,Medium,Los Angeles
+2878,63,Male,Low,New York
+2879,38,Female,Medium,Chicago
+2880,26,Other,High,Los Angeles
+2881,22,Male,Medium,Los Angeles
+2882,36,Other,Low,Chicago
+2883,40,Other,Medium,Chicago
+2884,31,Male,Low,Los Angeles
+2885,65,Female,Medium,Phoenix
+2886,27,Other,Low,Chicago
+2887,57,Female,High,New York
+2888,63,Female,High,Houston
+2889,63,Female,High,Chicago
+2890,19,Other,Low,Houston
+2891,63,Other,Low,Los Angeles
+2892,20,Other,Low,Chicago
+2893,58,Other,High,Los Angeles
+2894,20,Male,High,New York
+2895,29,Other,High,Los Angeles
+2896,31,Male,Low,New York
+2897,46,Male,Low,New York
+2898,50,Male,High,Los Angeles
+2899,70,Female,Low,Chicago
+2900,41,Male,Medium,Phoenix
+2901,41,Male,Low,New York
+2902,29,Other,High,Los Angeles
+2903,33,Female,Medium,Chicago
+2904,18,Other,Medium,Chicago
+2905,55,Male,Medium,Phoenix
+2906,50,Other,Medium,Los Angeles
+2907,70,Male,High,New York
+2908,31,Female,Low,Chicago
+2909,47,Male,High,Chicago
+2910,40,Female,Medium,Houston
+2911,46,Male,High,New York
+2912,21,Other,High,Houston
+2913,70,Female,High,New York
+2914,44,Male,Medium,New York
+2915,63,Male,Low,Chicago
+2916,40,Female,Medium,New York
+2917,33,Male,Low,Phoenix
+2918,45,Male,High,New York
+2919,43,Female,Low,New York
+2920,37,Female,Medium,Chicago
+2921,43,Female,Low,Los Angeles
+2922,39,Female,Medium,Houston
+2923,34,Other,Medium,Los Angeles
+2924,28,Female,Low,Phoenix
+2925,27,Female,Low,Houston
+2926,67,Male,Low,Houston
+2927,24,Male,Medium,New York
+2928,25,Male,Medium,Los Angeles
+2929,60,Male,High,New York
+2930,64,Male,Low,Chicago
+2931,48,Other,High,New York
+2932,67,Other,Medium,New York
+2933,63,Other,Low,Chicago
+2934,18,Female,Low,Los Angeles
+2935,19,Other,Low,New York
+2936,53,Other,High,Chicago
+2937,21,Other,Medium,Phoenix
+2938,29,Male,High,Houston
+2939,34,Female,Low,New York
+2940,19,Female,High,Los Angeles
+2941,42,Male,Low,Chicago
+2942,44,Male,Low,Houston
+2943,45,Other,Medium,Houston
+2944,34,Female,Low,Los Angeles
+2945,65,Other,High,Phoenix
+2946,31,Female,Medium,New York
+2947,43,Female,Low,Chicago
+2948,44,Female,Low,Chicago
+2949,45,Male,Low,Chicago
+2950,31,Female,Low,Chicago
+2951,34,Female,Medium,Phoenix
+2952,47,Male,High,Phoenix
+2953,34,Male,Low,Los Angeles
+2954,39,Male,Low,Houston
+2955,35,Other,Low,Chicago
+2956,53,Male,High,Chicago
+2957,27,Male,Low,Los Angeles
+2958,52,Male,Medium,Houston
+2959,23,Male,High,Chicago
+2960,51,Female,High,New York
+2961,56,Male,Medium,New York
+2962,18,Male,High,Los Angeles
+2963,51,Female,Low,Houston
+2964,49,Other,Low,Chicago
+2965,61,Other,Medium,Los Angeles
+2966,57,Female,Medium,Los Angeles
+2967,50,Female,Low,Los Angeles
+2968,68,Male,Medium,Houston
+2969,33,Female,Low,Houston
+2970,40,Female,Medium,Chicago
+2971,43,Female,Low,New York
+2972,53,Other,Medium,Houston
+2973,43,Female,Low,Phoenix
+2974,20,Female,High,Houston
+2975,59,Other,Medium,Los Angeles
+2976,65,Male,Low,Phoenix
+2977,53,Other,High,Los Angeles
+2978,60,Male,Low,Los Angeles
+2979,53,Male,Medium,New York
+2980,22,Female,Medium,Chicago
+2981,29,Male,High,Los Angeles
+2982,46,Male,Medium,New York
+2983,50,Female,High,Los Angeles
+2984,55,Female,Medium,Phoenix
+2985,57,Other,Low,New York
+2986,36,Male,High,New York
+2987,26,Male,High,Chicago
+2988,49,Female,Low,Houston
+2989,22,Male,High,Phoenix
+2990,60,Female,Medium,Phoenix
+2991,49,Female,Low,Phoenix
+2992,60,Female,Medium,Los Angeles
+2993,41,Female,Medium,Los Angeles
+2994,40,Other,Low,Phoenix
+2995,59,Other,Low,Phoenix
+2996,52,Other,Low,New York
+2997,55,Male,High,Phoenix
+2998,52,Male,Low,Houston
+2999,37,Female,High,Chicago
+3000,22,Other,Medium,Chicago

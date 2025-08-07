@@ -1,0 +1,125 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "complaint_type_diversity",
+        "unresolved_complaints_count",
+        "complaint_satisfaction_score",
+        "complaint_resolution_to_complaint_ratio",
+        "total_usage",
+        "energy_usage_consistency",
+        "campaign_engagement_intensity",
+        "discount_use_ratio",
+        "avg_monthly_logins",
+        "tenure_days",
+        "billing_amount_consistency",
+        "timely_payments",
+        "peak_hour_consumption_fraction",
+        "is_active_account",
+        "payment_delay_average",
+        "engagement_action_mode",
+        "preferred_contact_score",
+        "avg_campaign_discount_percentage",
+        "days_since_last_login"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5110629332278733": {
+            "name": "complaint_type_diversity",
+            "code": "\n\ndef complaint_type_diversity(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in aux_data\n    if 'customer_complaint_table.csv' not in aux_data:\n        raise KeyError(\"'customer_complaint_table.csv' not found in aux_data\")\n    \n    # Get the complaints dataframe\n    complaints_df = aux_data['customer_complaint_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'customer_id', 'complaint_type'}\n    if not required_columns.issubset(complaints_df.columns):\n        raise ValueError(f\"The dataframe 'customer_complaint_table.csv' is missing required columns: {required_columns - set(complaints_df.columns)}\")\n    \n    # Filter the complaints dataframe for the given customer_id\n    customer_complaints = complaints_df.loc[complaints_df['customer_id'] == row['customer_id'], 'complaint_type']\n    \n    # Return the number of unique complaint types or 0 if no complaints exist\n    return len(customer_complaints.unique()) if not customer_complaints.empty else 0\n"
+        },
+        "0.34524032167060104": {
+            "name": "unresolved_complaints_count",
+            "code": "\n\ndef unresolved_complaints_count(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the key 'customer_complaint_table.csv'\n    aux = aux_data['customer_complaint_table.csv']\n    \n    # Filter the dataframe for unresolved complaints for the given customer_id\n    unresolved = aux.loc[\n        (aux['customer_id'] == row['customer_id']) & \n        (aux['resolution_status'] == 'unresolved')\n    ]\n    \n    # Return the count of unresolved complaints\n    return len(unresolved)\n"
+        },
+        "0.24561718759845744": {
+            "name": "complaint_satisfaction_score",
+            "code": "\n\ndef complaint_satisfaction_score(row, df_train, aux_dataframes):\n    \"\"\"\n    Calculate the average satisfaction score for resolved complaints for the given customer.\n\n    Arguments:\n    - row: Single row from the dataframe.\n    - df_train: The training dataframe (not used here, but parameter included for function compatibility).\n    - aux_dataframes: A dictionary of auxiliary dataframes, where this feature uses `customer_complaint_table.csv`.\n\n    Returns:\n    - Complaint Satisfaction Score (float): Average satisfaction score for the customer.\n    \"\"\"\n    # Access the customer complaints auxiliary dataframe using the correct key\n    aux = aux_dataframes['customer_complaint_table.csv']\n    \n    # Filter rows relevant to the given customer_id\n    scores = aux.loc[aux['customer_id'] == row['customer_id'], 'satisfaction_after_resolution']\n    \n    # Compute and return mean satisfaction score if data exists, else return 0\n    return scores.mean() if not scores.empty else 0\n"
+        },
+        "0.13809041919130227": {
+            "name": "complaint_resolution_to_complaint_ratio",
+            "code": "\n\ndef complaint_resolution_to_complaint_ratio(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct DataFrame for customer complaints\n    aux = aux_dataframes['customer_complaint_table.csv']\n    \n    # Filter complaints for the specific customer\n    resolved = aux.loc[(aux['customer_id'] == row['customer_id']) & (aux['resolution_status'] == 'resolved')]\n    total = aux.loc[aux['customer_id'] == row['customer_id']]\n    \n    # Calculate the ratio of resolved complaints to total complaints\n    return len(resolved) / len(total) if len(total) > 0 else 0\n"
+        },
+        "0.13422750814680517": {
+            "name": "total_usage",
+            "code": "\n\ndef total_usage(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct key for the service usage data\n    aux = aux_data['service_usage_table.csv']\n    \n    # Filter the service usage data for the given customer_id\n    usage = aux.loc[aux['customer_id'] == row['customer_id'], 'energy_consumed_kwh']\n    \n    # Return the sum of energy consumed or 0 if no usage is found\n    return usage.sum() if not usage.empty else 0\n"
+        },
+        "0.07536765927845657": {
+            "name": "energy_usage_consistency",
+            "code": "import numpy as np\n\ndef energy_usage_consistency(row: pd.Series, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Access the correct key for the service usage data\n    aux = aux_data['service_usage_table.csv']\n    \n    # Filter the service usage data for the given customer_id\n    usage = aux.loc[aux['customer_id'] == row['customer_id'], 'energy_consumed_kwh']\n    \n    # Return the standard deviation of energy consumption if data exists, otherwise return 0\n    return np.std(usage) if not usage.empty else 0\n"
+        },
+        "0.04185179213606354": {
+            "name": "campaign_engagement_intensity",
+            "code": "\n\ndef campaign_engagement_intensity(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the key 'marketing_engagement_table.csv'\n    aux = aux_data['marketing_engagement_table.csv']\n    \n    # Filter the dataframe for the given customer_id\n    engagements = aux.loc[aux['customer_id'] == row['customer_id']]\n    \n    # Return the count of engagements\n    return len(engagements)\n"
+        },
+        "0.03488668238621063": {
+            "name": "discount_use_ratio",
+            "code": "\n\ndef discount_use_ratio(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the key 'marketing_engagement_table.csv'\n    aux = aux_data['marketing_engagement_table.csv']\n    \n    # Filter the dataframe for the specific customer_id\n    discounts = aux.loc[aux['customer_id'] == row['customer_id']]\n    \n    # If no discounts are found, return 0\n    if len(discounts) == 0:\n        return 0\n    \n    # Calculate the discount use ratio\n    return discounts['discount_used'].sum() / len(discounts)\n"
+        },
+        "0.0317702370724533": {
+            "name": "avg_monthly_logins",
+            "code": "\n\ndef avg_monthly_logins(row):\n    return row['number_of_logins_last_month'] / 30  # assuming a month has 30 days\n"
+        },
+        "0.02603209685718377": {
+            "name": "tenure_days",
+            "code": "import pandas as pd\n\ndef tenure_days(row):\n    signup_date = pd.to_datetime(row['signup_date'])\n    last_login_date = pd.to_datetime(row['last_login_date'])\n    return (last_login_date - signup_date).days\n"
+        },
+        "0.019611668853043": {
+            "name": "billing_amount_consistency",
+            "code": "import numpy as np\n\ndef billing_amount_consistency(row: pd.Series, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Access the billing information table using the correct key\n    aux = aux_data['billing_information_table.csv']\n    \n    # Filter the billing information for the given customer_id\n    billing = aux.loc[aux['customer_id'] == row['customer_id'], 'bill_amount']\n    \n    # Return the standard deviation of the billing amounts if not empty, otherwise return 0\n    return np.std(billing) if not billing.empty else 0\n"
+        },
+        "0.017733189408512616": {
+            "name": "timely_payments",
+            "code": "\n\ndef timely_payments(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the billing information dataframe using the correct key\n    aux = aux_data['billing_information_table.csv']\n    \n    # Filter rows for the specific customer and check for timely payments\n    timely = aux.loc[(aux['customer_id'] == row['customer_id']) & (aux['payment_date'] <= aux['due_date'])]\n    \n    # Filter rows for the specific customer to get all payments\n    total = aux.loc[(aux['customer_id'] == row['customer_id'])]\n    \n    # Calculate the ratio of timely payments to total payments\n    return len(timely) / len(total) if len(total) > 0 else 0\n"
+        },
+        "0.016981912155740655": {
+            "name": "peak_hour_consumption_fraction",
+            "code": "\n\ndef peak_hour_consumption_fraction(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the key 'service_usage_table.csv'\n    aux = aux_data['service_usage_table.csv']\n    \n    # Filter the dataframe for the specific customer_id\n    usage = aux.loc[aux['customer_id'] == row['customer_id'], ['peak_hours_consumption_kwh', 'energy_consumed_kwh']]\n    \n    # If no data is found for the customer, return 0\n    if usage.empty:\n        return 0\n    \n    # Calculate and return the fraction of peak hours consumption\n    total_energy_consumed = usage['energy_consumed_kwh'].sum()\n    if total_energy_consumed == 0:  # Avoid division by zero\n        return 0\n    \n    return usage['peak_hours_consumption_kwh'].sum() / total_energy_consumed\n"
+        },
+        "0.015623762896670309": {
+            "name": "is_active_account",
+            "code": "\n\ndef is_active_account(row):\n    return int(row['account_status'] == \"active\")\n"
+        },
+        "0.010587772008558625": {
+            "name": "payment_delay_average",
+            "code": "import pandas as pd\n\ndef payment_delay_average(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the billing information table using the correct key\n    aux = aux_data['billing_information_table.csv']\n    \n    # Calculate payment delays\n    aux['payment_date'] = pd.to_datetime(aux['payment_date'])\n    aux['due_date'] = pd.to_datetime(aux['due_date'])\n    delays = (aux['payment_date'] - aux['due_date']).dt.days\n    \n    # Filter for the specific customer and positive delays\n    delay_filter = aux[(aux['customer_id'] == row['customer_id']) & (delays > 0)]\n    \n    # Return the average delay if there are any, otherwise return 0\n    return delay_filter['payment_date'].sub(delay_filter['due_date']).dt.days.mean() if not delay_filter.empty else 0\n"
+        },
+        "0.006085241709689271": {
+            "name": "engagement_action_mode",
+            "code": "\n\ndef engagement_action_mode(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct key for the marketing engagement data\n    aux = aux_dataframes['marketing_engagement_table.csv']\n    \n    # Filter the marketing engagement data for the given customer_id\n    actions = aux.loc[aux['customer_id'] == row['customer_id'], 'engagement_action']\n    \n    # Return the mode of the engagement actions if available, otherwise return None\n    return actions.mode().iloc[0] if not actions.empty else None\n"
+        },
+        "0.0046872701473579075": {
+            "name": "preferred_contact_score",
+            "code": "\n\ndef preferred_contact_score(row):\n    method_scores = {\"email\": 1, \"phone\": 2, \"SMS\": 3}  # Encoding preferred contact methods\n    return method_scores.get(row['preferred_contact_method'], 0)\n"
+        },
+        "0.004630487443872719": {
+            "name": "avg_campaign_discount_percentage",
+            "code": "\n\ndef avg_campaign_discount_percentage(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct key for the marketing engagement data\n    aux = aux_dataframes['marketing_engagement_table.csv']\n    \n    # Filter the dataframe for the specific customer_id\n    discounts = aux.loc[aux['customer_id'] == row['customer_id'], 'discount_offered']\n    \n    # Return the mean of the discounts if there are any, otherwise return 0\n    return discounts.mean() if not discounts.empty else 0\n"
+        },
+        "0": {
+            "name": "days_since_last_login",
+            "code": "import pandas as pd\n\ndef days_since_last_login(row):\n    last_login_date = pd.to_datetime(row['last_login_date'])\n    today = pd.Timestamp.now()\n    return (today - last_login_date).days\n"
+        }
+    },
+    "feature_descriptions": [
+        "complaint type diversity",
+        "unresolved complaints count",
+        "complaint satisfaction score",
+        "complaint resolution to complaint ratio",
+        "total usage",
+        "energy usage consistency",
+        "campaign engagement intensity",
+        "discount use ratio",
+        "avg monthly logins",
+        "tenure days",
+        "billing amount consistency",
+        "timely payments",
+        "peak hour consumption fraction",
+        "is active account",
+        "payment delay average",
+        "engagement action mode",
+        "preferred contact score",
+        "avg campaign discount percentage",
+        "days since last login"
+    ]
+}

@@ -1,0 +1,7 @@
+{
+    "target_column": "re_ordered",
+    "description": "How customer retention is correlated with various patterns in historical customer activity",
+    "name": "Customer retention",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Retail"
+}

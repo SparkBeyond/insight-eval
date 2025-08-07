@@ -1,0 +1,59 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "species_total_yield",
+        "max_yield_species",
+        "avg_species_height",
+        "harvest_count",
+        "temp_precip_interaction",
+        "height_diameter_ratio",
+        "lai_height_ratio",
+        "avg_wind_speed"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.41303074201421236": {
+            "name": "species_total_yield",
+            "code": "\n\ndef species_total_yield(row, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Extract the correct dataframe from aux_data\n    harvest_records_df = aux_data['harvest_records_table.csv']\n    \n    # Extract the species from the row\n    species = row['species']\n    \n    # Calculate and return the total yield for the given species\n    return harvest_records_df[harvest_records_df['species'] == species]['yield_kg'].sum()\n"
+        },
+        "0.3552309601748922": {
+            "name": "max_yield_species",
+            "code": "import pandas as pd\n\ndef max_yield_species(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]) -> float:\n    # Check if 'harvest_records_table' exists in aux_dataframes\n    if 'harvest_records_table.csv' not in aux_dataframes:\n        raise KeyError(\"'harvest_records_table.csv' is missing from aux_dataframes.\")\n    \n    # Retrieve the harvest records table\n    harvest_data = aux_dataframes['harvest_records_table.csv']\n    \n    # Ensure the required columns exist in the harvest_data DataFrame\n    required_columns = {'species', 'yield_kg'}\n    if not required_columns.issubset(harvest_data.columns):\n        raise ValueError(f\"The DataFrame 'harvest_records_table.csv' must contain the columns: {required_columns}\")\n    \n    # Extract the species from the row\n    species = row['species']\n    \n    # Filter the harvest data for the given species and find the maximum yield\n    max_yield = harvest_data[harvest_data['species'] == species]['yield_kg'].max()\n    \n    # Return the maximum yield, or 0 if no valid yield is found\n    return max_yield if pd.notnull(max_yield) else 0\n"
+        },
+        "0.06262521305763208": {
+            "name": "avg_species_height",
+            "code": "\n\ndef avg_species_height(row, df_train: pd.DataFrame) -> float:\n    species = row['species']\n    return df_train[df_train['species'] == species]['height_cm'].mean()\n"
+        },
+        "0.0311650854687644": {
+            "name": "harvest_count",
+            "code": "\n\ndef harvest_count(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Ensure the required table exists in aux_data\n    if 'harvest_records_table.csv' not in aux_data:\n        raise ValueError(\"The 'harvest_records_table.csv' table is missing from aux_data.\")\n    \n    # Get the harvest records dataframe\n    harvest_records_df = aux_data['harvest_records_table.csv']\n    \n    # Check if 'plant_growth_id' exists in the row\n    if 'plant_growth_id' not in row:\n        raise KeyError(\"'plant_growth_id' is missing from the row.\")\n    \n    # Get the plant_growth_id from the row\n    plant_growth_id = row['plant_growth_id']\n    \n    # Count the number of harvest records for the given plant_growth_id (assumed to correspond to field_id)\n    return harvest_records_df[harvest_records_df['field_id'] == plant_growth_id].shape[0]\n"
+        },
+        "0.02425426463122181": {
+            "name": "temp_precip_interaction",
+            "code": "\n\ndef temp_precip_interaction(row, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Extract the weather data table from aux_data\n    weather_data = aux_data['weather_data_table.csv']\n    \n    # Match the row with the corresponding weather data\n    # Assuming 'plant_growth_id' corresponds to 'weather_data_id' in weather_data_table.csv\n    weather_row = weather_data[weather_data['weather_data_id'] == row['plant_growth_id']]\n    \n    # If no matching weather data is found, return 0 or handle appropriately\n    if weather_row.empty:\n        return 0.0\n    \n    # Extract temperature and precipitation values\n    temperature_c = weather_row.iloc[0]['temperature_c']\n    precipitation_mm = weather_row.iloc[0]['precipitation_mm']\n    \n    # Calculate and return the interaction\n    return temperature_c * precipitation_mm\n"
+        },
+        "0.015483564120323508": {
+            "name": "height_diameter_ratio",
+            "code": "\n\ndef height_diameter_ratio(row) -> float:\n    if row['diameter_cm'] > 0:\n        return row['height_cm'] / row['diameter_cm']\n    else:\n        return 0\n"
+        },
+        "0.012207119031365676": {
+            "name": "lai_height_ratio",
+            "code": "\n\ndef lai_height_ratio(row) -> float:\n    if row['height_cm'] > 0:\n        return row['leaf_area_index'] / row['height_cm']\n    else:\n        return 0\n"
+        },
+        "0": {
+            "name": "avg_wind_speed",
+            "code": "import pandas as pd\n\ndef avg_wind_speed(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Extract the field_id from the row\n    field_id = row.get('field_id')\n    \n    # Check if field_id exists and is valid\n    if field_id is None:\n        return 0  # Return 0 if field_id is not available\n    \n    # Get the soil_quality_table to map field_id to location\n    soil_quality_table = aux_data.get('soil_quality_table.csv')\n    if soil_quality_table is None:\n        return 0  # Return 0 if the soil_quality_table is not available\n    \n    # Map field_id to location\n    location_row = soil_quality_table[soil_quality_table['field_id'] == field_id]\n    if location_row.empty:\n        return 0  # Return 0 if no matching location is found\n    \n    # Extract the location\n    location = location_row.iloc[0]['location']\n    \n    # Calculate the average wind speed for the location\n    avg_wind = df_train[df_train['location'] == location]['wind_speed_kmh'].mean()\n    \n    # Return the average wind speed or 0 if it is NaN\n    return avg_wind if pd.notnull(avg_wind) else 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "species total yield",
+        "max yield species",
+        "avg species height",
+        "harvest count",
+        "temp precip interaction",
+        "height diameter ratio",
+        "lai height ratio",
+        "avg wind speed"
+    ]
+}

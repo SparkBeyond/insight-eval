@@ -1,0 +1,7 @@
+{
+    "target_column": "upsell_potential",
+    "description": "Identify customers most likely to purchase additional services.",
+    "name": "Customer Upselling Potential",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Telecommunications"
+}

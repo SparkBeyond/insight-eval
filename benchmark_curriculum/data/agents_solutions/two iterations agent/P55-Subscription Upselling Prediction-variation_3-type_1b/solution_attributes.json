@@ -1,0 +1,40 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "recent_feedback_score",
+        "avg_satisfaction_score",
+        "latest_feedback_score",
+        "subscription_duration_total",
+        "avg_satisfaction_score_repeated_colname1",
+        "total_payments",
+        "subscription_duration_now",
+        "days_since_last_payment",
+        "days_since_last_feedback",
+        "feedback_frequency",
+        "income_per_age",
+        "feedback_count_per_customer",
+        "location_encoded",
+        "is_first_time_customer",
+        "last_payment_amount"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "recent feedback score",
+        "avg satisfaction score",
+        "latest feedback score",
+        "subscription duration total",
+        "avg satisfaction score repeated colname1",
+        "total payments",
+        "subscription duration now",
+        "days since last payment",
+        "days since last feedback",
+        "feedback frequency",
+        "income per age",
+        "feedback count per customer",
+        "location encoded",
+        "is first time customer",
+        "last payment amount"
+    ]
+}

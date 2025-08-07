@@ -1,0 +1,14 @@
+{
+    "enriched_column_names": [
+        "discount_effectiveness",
+        "competitor_pricing",
+        "price_elasticity",
+        "market_trend_influence"
+    ],
+    "features_descriptions": [
+        "discount effectiveness",
+        "competitor pricing",
+        "price elasticity",
+        "market trend influence"
+    ]
+}

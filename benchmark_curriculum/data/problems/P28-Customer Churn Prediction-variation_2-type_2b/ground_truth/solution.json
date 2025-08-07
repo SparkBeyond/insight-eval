@@ -1,0 +1,18 @@
+{
+    "enriched_column_names": [
+        "average_late_payment_days_last_year",
+        "average_payment_timeliness_over_the_last_year",
+        "complaint_to_usage_ratio_last_year",
+        "number_of_complaints_last_6_months",
+        "resolution_time_for_complaints",
+        "energy_usage_volatility_last_6_months"
+    ],
+    "features_descriptions": [
+        "average late payment days last year",
+        "average payment timeliness over the last year",
+        "complaint to usage ratio last year",
+        "number of complaints last 6 months",
+        "resolution time for complaints",
+        "energy usage volatility last 6 months"
+    ]
+}

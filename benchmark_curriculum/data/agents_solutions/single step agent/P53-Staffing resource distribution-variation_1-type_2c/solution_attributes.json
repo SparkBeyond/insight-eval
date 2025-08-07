@@ -1,0 +1,101 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "profit_efficiency",
+        "cost_to_revenue_ratio",
+        "net_profit_margin",
+        "revenue_per_employee",
+        "customers_to_revenue_ratio",
+        "service_time_per_customer",
+        "customers_per_employee",
+        "employee_to_customer_ratio",
+        "day_of_week",
+        "experience_per_employee",
+        "efficiency_per_experience",
+        "satisfaction_per_employee",
+        "skill_level_encoded",
+        "employee_load_factor",
+        "month_of_year"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.4958583538453291": {
+            "name": "profit_efficiency",
+            "code": "import numpy as np\n\ndef profit_efficiency(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Extract the branch_id from the row\n    branch_id = row['branch_id']\n    \n    # Get the financial metrics and staffing levels dataframes\n    financial_metrics = aux_data['financial_metrics_table.csv']\n    staffing_levels = aux_data['staffing_levels_table.csv']\n    \n    # Filter the financial metrics and staffing levels for the given branch_id\n    financial_row = financial_metrics[financial_metrics['branch_id'] == branch_id]\n    staffing_row = staffing_levels[staffing_levels['branch_id'] == branch_id]\n    \n    # Ensure we have exactly one matching row for the branch_id in both tables\n    if financial_row.empty or staffing_row.empty:\n        return np.nan  # Return NaN if no data is found for the branch_id\n    \n    # Extract the relevant values\n    revenue = financial_row.iloc[0]['revenue']\n    operational_cost = financial_row.iloc[0]['operational_cost']\n    number_of_employees = staffing_row.iloc[0]['number_of_employees']\n    \n    # Avoid division by zero\n    if number_of_employees > 0:\n        return (revenue - operational_cost) / number_of_employees\n    return np.nan\n"
+        },
+        "0.4219873799013066": {
+            "name": "cost_to_revenue_ratio",
+            "code": "import numpy as np\n\ndef cost_to_revenue_ratio(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Extract the financial metrics dataframe from aux_data\n    financial_metrics_df = aux_data.get('financial_metrics_table.csv')\n    \n    if financial_metrics_df is None:\n        raise ValueError(\"The 'financial_metrics_table.csv' dataframe is missing from aux_data.\")\n    \n    # Find the corresponding financial metrics for the branch_id in the row\n    branch_id = row['branch_id']\n    financial_row = financial_metrics_df[financial_metrics_df['branch_id'] == branch_id]\n    \n    if financial_row.empty:\n        # If no matching branch_id is found, return NaN\n        return np.nan\n    \n    # Extract revenue and operational_cost\n    revenue = financial_row.iloc[0]['revenue']\n    operational_cost = financial_row.iloc[0]['operational_cost']\n    \n    # Calculate the cost-to-revenue ratio\n    if revenue > 0:  # Avoid division by zero\n        return operational_cost / revenue\n    return np.nan\n"
+        },
+        "0.4219873799013065": {
+            "name": "net_profit_margin",
+            "code": "import numpy as np\n\ndef net_profit_margin(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the financial metrics table from aux_data\n    financial_metrics = aux_data.get('financial_metrics_table.csv')\n    \n    if financial_metrics is None:\n        raise ValueError(\"The 'financial_metrics_table.csv' is missing from aux_data.\")\n    \n    # Find the financial data for the given branch_id\n    branch_id = row['branch_id']\n    branch_financial_data = financial_metrics[financial_metrics['branch_id'] == branch_id]\n    \n    if branch_financial_data.empty:\n        # If no financial data is found for the branch, return NaN\n        return np.nan\n    \n    # Extract revenue and operational_cost for the branch\n    revenue = branch_financial_data.iloc[0]['revenue']\n    operational_cost = branch_financial_data.iloc[0]['operational_cost']\n    \n    # Calculate net profit margin\n    if revenue > 0:  # Avoid division by zero\n        return (revenue - operational_cost) / revenue\n    return np.nan\n"
+        },
+        "0.2876821623298247": {
+            "name": "revenue_per_employee",
+            "code": "import numpy as np\n\ndef revenue_per_employee(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Extract the branch_id from the row\n    branch_id = row['branch_id']\n    \n    # Get the relevant dataframes from aux_data\n    financial_df = aux_data['financial_metrics_table.csv']\n    staffing_df = aux_data['staffing_levels_table.csv']\n    \n    # Find the revenue and number_of_employees for the given branch_id\n    revenue = financial_df.loc[financial_df['branch_id'] == branch_id, 'revenue']\n    number_of_employees = staffing_df.loc[staffing_df['branch_id'] == branch_id, 'number_of_employees']\n    \n    # Ensure we have valid data for both revenue and number_of_employees\n    if not revenue.empty and not number_of_employees.empty:\n        # Avoid division by zero\n        if number_of_employees.iloc[0] > 0:\n            return revenue.iloc[0] / number_of_employees.iloc[0]\n    \n    # Return NaN if data is missing or invalid\n    return np.nan\n"
+        },
+        "0.17589751427533795": {
+            "name": "customers_to_revenue_ratio",
+            "code": "import numpy as np\n\ndef customers_to_revenue_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the branch_id from the current row\n    branch_id = row['branch_id']\n    \n    # Get the financial_metrics_table dataframe from aux_data\n    financial_metrics_df = aux_data['financial_metrics_table.csv']\n    \n    # Get the customer_traffic_table dataframe from aux_data\n    customer_traffic_df = aux_data['customer_traffic_table.csv']\n    \n    # Find the revenue for the corresponding branch_id\n    revenue_row = financial_metrics_df[financial_metrics_df['branch_id'] == branch_id]\n    \n    # If no matching branch_id is found in financial_metrics_table, return NaN\n    if revenue_row.empty:\n        return np.nan\n    \n    # Extract the revenue value\n    revenue = revenue_row.iloc[0]['revenue']\n    \n    # Find the total number of customers for the corresponding branch_id\n    customer_rows = customer_traffic_df[customer_traffic_df['branch_id'] == branch_id]\n    \n    # If no matching branch_id is found in customer_traffic_table, return NaN\n    if customer_rows.empty:\n        return np.nan\n    \n    # Calculate the total number of customers for the branch\n    total_customers = customer_rows['number_of_customers'].sum()\n    \n    # Avoid division by zero\n    if revenue > 0:\n        return total_customers / revenue\n    \n    return np.nan\n"
+        },
+        "0.13223760094785125": {
+            "name": "service_time_per_customer",
+            "code": "import numpy as np\n\ndef service_time_per_customer(row, aux_data: Dict[str, pd.DataFrame]):\n    # Retrieve the 'customer_traffic_table.csv' dataframe from aux_data\n    customer_traffic_df = aux_data.get('customer_traffic_table.csv')\n    \n    if customer_traffic_df is None:\n        raise ValueError(\"The 'customer_traffic_table.csv' file is missing from aux_data.\")\n    \n    # Find the corresponding branch_id in the customer_traffic_table\n    branch_id = row['branch_id']\n    customer_data = customer_traffic_df[customer_traffic_df['branch_id'] == branch_id]\n    \n    if customer_data.empty:\n        # If no matching branch_id is found, return NaN\n        return np.nan\n    \n    # Extract the 'number_of_customers' value for the branch\n    number_of_customers = customer_data['number_of_customers'].iloc[0]\n    \n    if number_of_customers > 0:  # Avoid division by zero\n        return row['average_service_time'] / number_of_customers\n    \n    return np.nan\n"
+        },
+        "0.1295756946724572": {
+            "name": "customers_per_employee",
+            "code": "import numpy as np\n\ndef customers_per_employee(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframes from aux_data\n    customer_traffic_df = aux_data['customer_traffic_table.csv']\n    staffing_levels_df = aux_data['staffing_levels_table.csv']\n    \n    # Get the branch_id for the current row\n    branch_id = row['branch_id']\n    \n    # Retrieve the number of customers for the branch\n    branch_customers = customer_traffic_df.loc[\n        customer_traffic_df['branch_id'] == branch_id, 'number_of_customers'\n    ]\n    \n    # Retrieve the number of employees for the branch\n    branch_employees = staffing_levels_df.loc[\n        staffing_levels_df['branch_id'] == branch_id, 'number_of_employees'\n    ]\n    \n    # Ensure we have valid data for both customers and employees\n    if not branch_customers.empty and not branch_employees.empty:\n        number_of_customers = branch_customers.iloc[0]\n        number_of_employees = branch_employees.iloc[0]\n        \n        # Avoid division by zero\n        if number_of_employees > 0:\n            return number_of_customers / number_of_employees\n    \n    # Return NaN if data is missing or invalid\n    return np.nan\n"
+        },
+        "0.12176470337546905": {
+            "name": "employee_to_customer_ratio",
+            "code": "import numpy as np\n\ndef employee_to_customer_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the branch_id from the row\n    branch_id = row['branch_id']\n    \n    # Get the relevant dataframes from aux_data\n    customer_traffic_df = aux_data['customer_traffic_table.csv']\n    staffing_levels_df = aux_data['staffing_levels_table.csv']\n    \n    # Filter the dataframes for the current branch_id\n    customer_data = customer_traffic_df[customer_traffic_df['branch_id'] == branch_id]\n    staffing_data = staffing_levels_df[staffing_levels_df['branch_id'] == branch_id]\n    \n    # Ensure there is data for the branch in both dataframes\n    if not customer_data.empty and not staffing_data.empty:\n        # Get the total number of customers and employees for the branch\n        total_customers = customer_data['number_of_customers'].sum()\n        total_employees = staffing_data['number_of_employees'].sum()\n        \n        # Avoid division by zero\n        if total_customers > 0:\n            return total_employees / total_customers\n    \n    # Return NaN if data is missing or total_customers is zero\n    return np.nan\n"
+        },
+        "0.03895049608725562": {
+            "name": "day_of_week",
+            "code": "import pandas as pd\n\ndef day_of_week(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure we are using the correct dataframe from aux_data\n    if 'customer_traffic_table.csv' in aux_data:\n        customer_traffic_df = aux_data['customer_traffic_table.csv']\n        \n        # Find the corresponding branch_id in the customer_traffic_table\n        branch_id = row['branch_id']\n        branch_data = customer_traffic_df[customer_traffic_df['branch_id'] == branch_id]\n        \n        if not branch_data.empty:\n            # Extract the first date for the branch and calculate the day of the week\n            date = branch_data.iloc[0]['date']\n            return pd.to_datetime(date).dayofweek  # 0 = Monday, ..., 6 = Sunday.\n    \n    # Return None if no matching data is found\n    return None\n"
+        },
+        "0.030396290975803684": {
+            "name": "experience_per_employee",
+            "code": "import numpy as np\n\ndef experience_per_employee(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Extract the staffing_levels_table dataframe from aux_data\n    staffing_df = aux_data.get('staffing_levels_table.csv')\n    \n    if staffing_df is None:\n        raise ValueError(\"The 'staffing_levels_table.csv' dataframe is missing from aux_data.\")\n    \n    # Find the row in staffing_df that matches the branch_id\n    branch_id = row['branch_id']\n    staffing_row = staffing_df[staffing_df['branch_id'] == branch_id]\n    \n    if staffing_row.empty:\n        # If no matching branch_id is found, return NaN\n        return np.nan\n    \n    # Extract number_of_employees and average_experience\n    number_of_employees = staffing_row['number_of_employees'].iloc[0]\n    average_experience = staffing_row['average_experience'].iloc[0]\n    \n    # Avoid division by zero\n    if number_of_employees > 0:\n        return average_experience / number_of_employees\n    \n    return np.nan\n"
+        },
+        "0.01629464141411242": {
+            "name": "efficiency_per_experience",
+            "code": "import numpy as np\n\ndef efficiency_per_experience(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Retrieve the staffing_levels_table.csv dataframe from aux_data\n    staffing_df = aux_data.get('staffing_levels_table.csv')\n    \n    if staffing_df is None:\n        raise ValueError(\"The 'staffing_levels_table.csv' dataframe is missing from aux_data.\")\n    \n    # Find the corresponding branch_id in the staffing dataframe\n    branch_id = row['branch_id']\n    branch_data = staffing_df[staffing_df['branch_id'] == branch_id]\n    \n    if branch_data.empty:\n        # If no matching branch_id is found, return NaN\n        return np.nan\n    \n    # Extract the average_experience for the branch\n    average_experience = branch_data['average_experience'].iloc[0]\n    \n    if average_experience > 0:  # Avoid division by zero\n        return row['employee_efficiency'] / average_experience\n    \n    return np.nan\n"
+        },
+        "0.006406571501682552": {
+            "name": "satisfaction_per_employee",
+            "code": "import numpy as np\n\ndef satisfaction_per_employee(row, aux_data: Dict[str, pd.DataFrame]):\n    # Retrieve the staffing_levels_table.csv dataframe from aux_data\n    staffing_df = aux_data.get('staffing_levels_table.csv')\n    \n    if staffing_df is None:\n        raise ValueError(\"The 'staffing_levels_table.csv' file is missing from aux_data.\")\n    \n    # Find the number of employees for the branch_id in the current row\n    branch_id = row['branch_id']\n    branch_staffing = staffing_df[staffing_df['branch_id'] == branch_id]\n    \n    if branch_staffing.empty:\n        # If no staffing data is found for the branch, return NaN\n        return np.nan\n    \n    # Extract the number of employees for the branch\n    number_of_employees = branch_staffing['number_of_employees'].iloc[0]\n    \n    if number_of_employees > 0:  # Avoid division by zero\n        return row['customer_satisfaction'] / number_of_employees\n    \n    return np.nan\n"
+        },
+        "0.005940521238766454": {
+            "name": "skill_level_encoded",
+            "code": "import numpy as np\n\ndef skill_level_encoded(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Ensure the 'staffing_levels_table.csv' exists in aux_data\n    if 'staffing_levels_table.csv' not in aux_data:\n        raise ValueError(\"The 'staffing_levels_table.csv' is missing from aux_data.\")\n    \n    # Get the staffing levels dataframe\n    staffing_df = aux_data['staffing_levels_table.csv']\n    \n    # Ensure the 'branch_id' column exists in both dataframes\n    if 'branch_id' not in staffing_df.columns or 'branch_id' not in row.index:\n        raise ValueError(\"The 'branch_id' column is missing in one of the dataframes.\")\n    \n    # Find the corresponding row in the staffing dataframe using branch_id\n    branch_id = row['branch_id']\n    staffing_row = staffing_df[staffing_df['branch_id'] == branch_id]\n    \n    # If no matching branch_id is found, return NaN\n    if staffing_row.empty:\n        return np.nan\n    \n    # Get the skill level from the staffing dataframe\n    skill_level = staffing_row.iloc[0]['skill_level']\n    \n    # Map the skill level to its encoded value\n    skill_mapping = {'Beginner': 1, 'Intermediate': 2, 'Advanced': 3}\n    return skill_mapping.get(skill_level, np.nan)\n"
+        },
+        "0.0016025494892495913": {
+            "name": "employee_load_factor",
+            "code": "import numpy as np\n\ndef employee_load_factor(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the branch_id from the row\n    branch_id = row['branch_id']\n    \n    # Get the staffing_levels_table dataframe from aux_data\n    staffing_df = aux_data['staffing_levels_table.csv']\n    \n    # Find the number_of_employees for the given branch_id\n    branch_staffing = staffing_df[staffing_df['branch_id'] == branch_id]\n    \n    if not branch_staffing.empty:\n        number_of_employees = branch_staffing.iloc[0]['number_of_employees']\n    else:\n        # If no matching branch_id is found, return NaN\n        return np.nan\n    \n    # Check if the required columns exist in the row\n    if 'employee_efficiency' not in row or 'performance_score' not in row:\n        return np.nan\n    \n    # Calculate the load factor using performance_score instead of number_of_customers\n    # (since number_of_customers is not present in the dataframe)\n    # Assuming performance_score is a proxy for customer load\n    if number_of_employees > 0:\n        return row['performance_score'] * row['employee_efficiency'] / number_of_employees\n    \n    return np.nan\n"
+        },
+        "0": {
+            "name": "month_of_year",
+            "code": "import pandas as pd\n\ndef month_of_year(row, aux_data: Dict[str, pd.DataFrame]):\n    # Check if the row contains a 'date' column\n    if 'date' in row:\n        # Extract the month from the 'date' column\n        return pd.to_datetime(row['date']).month\n    else:\n        # If the 'date' column is not in the row, check if aux_data contains the relevant data\n        if 'customer_traffic_table.csv' in aux_data:\n            # Extract the 'date' column from the relevant dataframe in aux_data\n            customer_traffic_df = aux_data['customer_traffic_table.csv']\n            if 'date' in customer_traffic_df.columns:\n                # Map the branch_id in the row to the corresponding date in the aux_data\n                branch_id = row.get('branch_id')\n                matching_row = customer_traffic_df[customer_traffic_df['branch_id'] == branch_id]\n                if not matching_row.empty:\n                    # Extract the first matching date and return its month\n                    date = matching_row.iloc[0]['date']\n                    return pd.to_datetime(date).month\n                else:\n                    raise ValueError(f\"No matching branch_id {branch_id} found in customer_traffic_table.csv.\")\n            else:\n                raise KeyError(\"The 'customer_traffic_table.csv' dataframe does not contain a 'date' column.\")\n        else:\n            raise KeyError(\"The input row does not contain a 'date' column, and 'customer_traffic_table.csv' is not in aux_data.\")\n"
+        }
+    },
+    "feature_descriptions": [
+        "profit efficiency",
+        "cost to revenue ratio",
+        "net profit margin",
+        "revenue per employee",
+        "customers to revenue ratio",
+        "service time per customer",
+        "customers per employee",
+        "employee to customer ratio",
+        "day of week",
+        "experience per employee",
+        "efficiency per experience",
+        "satisfaction per employee",
+        "skill level encoded",
+        "employee load factor",
+        "month of year"
+    ]
+}

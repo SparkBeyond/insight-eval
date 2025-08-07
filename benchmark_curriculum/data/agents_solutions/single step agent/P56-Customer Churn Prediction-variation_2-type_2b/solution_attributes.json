@@ -1,0 +1,53 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "signup_day_of_week",
+        "customer_age",
+        "call_rate_per_month",
+        "resolved_rate_adjusted",
+        "minutes_to_days_ratio",
+        "customer_tenure",
+        "signup_month"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.026800410390038814": {
+            "name": "signup_day_of_week",
+            "code": "import pandas as pd\n\ndef signup_day_of_week(row):\n    # Convert the 'signup_date' string to a datetime object\n    signup_date = pd.to_datetime(row['signup_date'])\n    # Return the day of the week (0=Monday, 6=Sunday)\n    return signup_date.weekday()\n"
+        },
+        "0.023456744557877707": {
+            "name": "customer_age",
+            "code": "import datetime\n\ndef customer_age(row):\n    # Ensure date_of_birth is converted to a datetime object\n    if isinstance(row['date_of_birth'], str):\n        row['date_of_birth'] = datetime.datetime.strptime(row['date_of_birth'], '%Y-%m-%d')\n    \n    # Get today's date\n    today = datetime.datetime.today()\n    \n    # Calculate age\n    return today.year - row['date_of_birth'].year - ((today.month, today.day) < (row['date_of_birth'].month, row['date_of_birth'].day))\n"
+        },
+        "0.015186039381600857": {
+            "name": "call_rate_per_month",
+            "code": "\n\ndef call_rate_per_month(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the support call logs table from aux_data\n    support_call_logs = aux_data.get('support_call_logs_table.csv')\n    \n    if support_call_logs is None:\n        raise ValueError(\"support_call_logs_table.csv is missing from aux_data\")\n    \n    # Filter the call logs for the specific customer\n    customer_id = row['customer_id']\n    customer_calls = support_call_logs[support_call_logs['customer_id'] == customer_id]\n    \n    # Calculate the total number of calls for the customer\n    total_calls = len(customer_calls)\n    \n    # Calculate the tenure in months\n    tenure_in_months = row['total_months_with_service']\n    \n    # Calculate the call rate per month\n    return total_calls / tenure_in_months if tenure_in_months > 0 else 0\n"
+        },
+        "0.013201063995299": {
+            "name": "resolved_rate_adjusted",
+            "code": "\n\ndef resolved_rate_adjusted(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the support call logs table from aux_data\n    support_call_logs = aux_data.get('support_call_logs_table.csv')\n    \n    if support_call_logs is None:\n        raise ValueError(\"The 'support_call_logs_table.csv' is missing from aux_data.\")\n    \n    # Filter the support call logs for the specific customer\n    customer_id = row['customer_id']\n    customer_calls = support_call_logs[support_call_logs['customer_id'] == customer_id]\n    \n    # Calculate total calls and resolved rate\n    total_calls = len(customer_calls)\n    if total_calls == 0:\n        return 0  # If no calls, resolved rate adjusted is 0\n    \n    resolved_calls = customer_calls['issue_resolved'].sum()  # Assuming 'issue_resolved' is a boolean column\n    resolved_rate = resolved_calls / total_calls\n    \n    # Rescale to actual number of resolved calls\n    return resolved_rate * total_calls\n"
+        },
+        "0.008152770125164908": {
+            "name": "minutes_to_days_ratio",
+            "code": "\n\ndef minutes_to_days_ratio(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer's total minutes from the usage_history_table\n    usage_history = aux_data['usage_history_table.csv']\n    customer_id = row['customer_id']\n    \n    # Filter usage history for the specific customer\n    customer_usage = usage_history[usage_history['customer_id'] == customer_id]\n    \n    # Calculate the total minutes used by the customer\n    total_minutes = customer_usage['total_minutes_used'].sum()\n    \n    # Calculate the tenure in days\n    tenure_in_days = row['total_months_with_service'] * 30  # Assuming 30 days per month\n    \n    # Return the ratio, handling division by zero\n    return total_minutes / tenure_in_days if tenure_in_days > 0 else 0\n"
+        },
+        "0.005488865750198537": {
+            "name": "customer_tenure",
+            "code": "import pandas as pd\nimport datetime\n\ndef customer_tenure(row):\n    # Ensure signup_date is converted to a datetime object\n    signup_date = pd.to_datetime(row['signup_date'])\n    today = datetime.datetime.today()\n    return (today - signup_date).days\n"
+        },
+        "0.003463925188340877": {
+            "name": "signup_month",
+            "code": "import pandas as pd\n\ndef signup_month(row):\n    # Convert the 'signup_date' string to a datetime object\n    signup_date = pd.to_datetime(row['signup_date'])\n    # Return the month from the datetime object\n    return signup_date.month\n"
+        }
+    },
+    "feature_descriptions": [
+        "signup day of week",
+        "customer age",
+        "call rate per month",
+        "resolved rate adjusted",
+        "minutes to days ratio",
+        "customer tenure",
+        "signup month"
+    ]
+}

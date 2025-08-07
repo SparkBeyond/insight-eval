@@ -1,0 +1,30 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "patient_age",
+        "hospital_bed_utilization_ratio",
+        "recent_medication_types",
+        "total_previous_admissions",
+        "days_since_last_admission",
+        "avg_length_of_stay",
+        "patient_previous_admission_count",
+        "current_bed_utilization",
+        "duration_of_stay",
+        "hospital_readmission_rate"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "patient age",
+        "hospital bed utilization ratio",
+        "recent medication types",
+        "total previous admissions",
+        "days since last admission",
+        "avg length of stay",
+        "patient previous admission count",
+        "current bed utilization",
+        "duration of stay",
+        "hospital readmission rate"
+    ]
+}

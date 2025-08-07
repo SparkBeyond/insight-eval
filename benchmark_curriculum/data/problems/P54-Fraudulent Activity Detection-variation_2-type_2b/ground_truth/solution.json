@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "support_requests_frequency_in_past_6_months",
+        "unexpected_spike_in_monthly_transaction_amounts",
+        "historical_chargebacks_or_returned_payments"
+    ],
+    "features_descriptions": [
+        "support requests frequency in past 6 months",
+        "unexpected spike in monthly transaction amounts",
+        "historical chargebacks or returned payments"
+    ]
+}

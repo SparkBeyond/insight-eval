@@ -1,0 +1,83 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "mean_pressure",
+        "age_since_last_maintenance",
+        "vibration_to_pressure_ratio",
+        "max_vibration",
+        "sensor_reading_frequency",
+        "failure_to_maintenance_ratio",
+        "average_resolution_length",
+        "total_maintenance_cost",
+        "total_downtime",
+        "temperature_variance",
+        "min_pressure",
+        "preventive_maintenance_count"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.26124952311226496": {
+            "name": "mean_pressure",
+            "code": "\n\ndef mean_pressure(row, aux_dataframes: dict):\n    sensor_data_df = aux_dataframes['sensor_data_table.csv']\n    mean_pressure = sensor_data_df.loc[\n        sensor_data_df['equipment_id'] == row['equipment_id'], \n        'pressure'\n    ].mean()\n    return mean_pressure\n"
+        },
+        "0.1723459369118489": {
+            "name": "age_since_last_maintenance",
+            "code": "import pandas as pd\n\ndef age_since_last_maintenance(row, aux_dataframes: dict):\n    # Access the maintenance records dataframe from the auxiliary data\n    maintenance_records_df = aux_dataframes['maintenance_records_table.csv']\n    \n    # Find the most recent maintenance record for the given equipment_id\n    last_maintenance = maintenance_records_df.loc[\n        maintenance_records_df['equipment_id'] == row['equipment_id'], \n        'record_date'\n    ].max()\n    \n    # If no maintenance record is found, return None\n    if pd.isna(last_maintenance):\n        return None\n    \n    # Convert the last maintenance date and the current record date to datetime\n    last_maintenance_date = pd.to_datetime(last_maintenance)\n    current_date = pd.to_datetime(row['maintenance_date'])\n    \n    # Calculate the difference in days between the current date and the last maintenance date\n    return (current_date - last_maintenance_date).days\n"
+        },
+        "0.14741570959339914": {
+            "name": "vibration_to_pressure_ratio",
+            "code": "\n\ndef vibration_to_pressure_ratio(row, aux_dataframes: dict):\n    sensor_data_df = aux_dataframes['sensor_data_table.csv']\n    vibrations = sensor_data_df.loc[sensor_data_df['equipment_id'] == row['equipment_id'], 'vibration']\n    pressures = sensor_data_df.loc[sensor_data_df['equipment_id'] == row['equipment_id'], 'pressure']\n    if not vibrations.empty and not pressures.empty:\n        avg_vibration = vibrations.mean()\n        avg_pressure = pressures.mean()\n        if avg_pressure > 0:\n            return avg_vibration / avg_pressure\n    return None\n"
+        },
+        "0.10333234123189344": {
+            "name": "max_vibration",
+            "code": "\n\ndef max_vibration(row, aux_dataframes: dict):\n    sensor_data_df = aux_dataframes['sensor_data_table.csv']\n    max_vibration = sensor_data_df.loc[\n        sensor_data_df['equipment_id'] == row['equipment_id'], \n        'vibration'\n    ].max()\n    return max_vibration\n"
+        },
+        "0.06707868851210606": {
+            "name": "sensor_reading_frequency",
+            "code": "import pandas as pd\n\ndef sensor_reading_frequency(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    sensor_data_df = aux_dataframes['sensor_data_table.csv']\n    \n    # Filter the sensor data for the specific equipment_id\n    equipment_sensor_readings = sensor_data_df[sensor_data_df['equipment_id'] == row['equipment_id']]\n    \n    if not equipment_sensor_readings.empty:\n        # Convert the 'timestamp' column to datetime if it's not already\n        equipment_sensor_readings['timestamp'] = pd.to_datetime(equipment_sensor_readings['timestamp'])\n        \n        # Calculate the number of unique days\n        unique_days = equipment_sensor_readings['timestamp'].dt.date.nunique()\n        \n        # Calculate the total number of readings\n        total_readings = equipment_sensor_readings.shape[0]\n        \n        # Return the frequency of readings per day\n        return total_readings / unique_days if unique_days > 0 else 0\n    \n    # Return 0 if there are no readings for the equipment\n    return 0\n"
+        },
+        "0.0436356325493377": {
+            "name": "failure_to_maintenance_ratio",
+            "code": "\n\ndef failure_to_maintenance_ratio(row, aux_dataframes: dict):\n    # Get the maintenance records dataframe from the auxiliary data\n    maintenance_records_df = aux_dataframes['maintenance_records_table.csv']\n    \n    # Filter the dataframe for the specific equipment_id\n    equipment_maintenance_records = maintenance_records_df[\n        maintenance_records_df['equipment_id'] == row['equipment_id']\n    ]\n    \n    # Count the number of failures (assuming 'issue_reported' indicates a failure if not null or empty)\n    failures = equipment_maintenance_records['issue_reported'].notnull().sum()\n    \n    # Count the total number of maintenance records for the equipment\n    total_maintenance = equipment_maintenance_records.shape[0]\n    \n    # Calculate and return the failure-to-maintenance ratio\n    return failures / total_maintenance if total_maintenance > 0 else 0\n"
+        },
+        "0.031113673562925926": {
+            "name": "average_resolution_length",
+            "code": "\n\ndef average_resolution_length(row, aux_dataframes: dict):\n    maintenance_records_df = aux_dataframes['maintenance_records_table.csv']\n    resolutions = maintenance_records_df.loc[\n        maintenance_records_df['equipment_id'] == row['equipment_id'], 'resolution'\n    ]\n    if not resolutions.empty:\n        return resolutions.str.len().mean()\n    return 0\n"
+        },
+        "0.017153855494301973": {
+            "name": "total_maintenance_cost",
+            "code": "\n\ndef total_maintenance_cost(row, aux_dataframes: dict):\n    # Check if the 'cost' column exists in the row's dataframe\n    if 'cost' not in row:\n        raise KeyError(\"'cost' column is missing in the row's dataframe\")\n    \n    # Filter the dataframe for the given equipment_id and sum the 'cost' column\n    total_cost = row['cost']\n    \n    return total_cost\n"
+        },
+        "0.015629034961989977": {
+            "name": "total_downtime",
+            "code": "\n\ndef total_downtime(row, aux_dataframes: dict):\n    # Extract the maintenance_records_table dataframe\n    maintenance_records_df = aux_dataframes['maintenance_records_table.csv']\n    \n    # Check if the required columns exist in the dataframe\n    if 'equipment_id' not in maintenance_records_df.columns or 'downtime_hours' not in row:\n        raise KeyError(\"The required columns are missing in the dataframes or row.\")\n    \n    # Calculate the total downtime for the given equipment_id\n    total_downtime = maintenance_records_df.loc[\n        maintenance_records_df['equipment_id'] == row['equipment_id']\n    ].shape[0]  # Count the number of maintenance records for the equipment_id\n    \n    return total_downtime\n"
+        },
+        "0.011695904814167648": {
+            "name": "temperature_variance",
+            "code": "\n\ndef temperature_variance(row, aux_dataframes: dict):\n    sensor_data_df = aux_dataframes['sensor_data_table.csv']\n    variance = sensor_data_df.loc[\n        sensor_data_df['equipment_id'] == row['equipment_id'], \n        'temperature'\n    ].var()\n    return variance\n"
+        },
+        "0.0021829785873585536": {
+            "name": "min_pressure",
+            "code": "\n\ndef min_pressure(row, aux_dataframes: dict):\n    sensor_data_df = aux_dataframes['sensor_data_table.csv']\n    min_pressure = sensor_data_df.loc[\n        sensor_data_df['equipment_id'] == row['equipment_id'], \n        'pressure'\n    ].min()\n    return min_pressure\n"
+        },
+        "0": {
+            "name": "preventive_maintenance_count",
+            "code": "\n\ndef preventive_maintenance_count(row, aux_dataframes: dict):\n    # Access the maintenance_records_table.csv dataframe\n    maintenance_records_df = aux_dataframes['maintenance_records_table.csv']\n    \n    # Check if the required columns exist in the dataframe\n    required_columns = {'equipment_id', 'issue_reported'}\n    if not required_columns.issubset(maintenance_records_df.columns):\n        raise KeyError(f\"Missing required columns in maintenance_records_table.csv: {required_columns - set(maintenance_records_df.columns)}\")\n    \n    # Count the number of preventive maintenance records\n    count = maintenance_records_df.loc[\n        (maintenance_records_df['equipment_id'] == row['equipment_id']) & \n        (maintenance_records_df['issue_reported'] == 'preventive')\n    ].shape[0]\n    \n    return count\n"
+        }
+    },
+    "feature_descriptions": [
+        "mean pressure",
+        "age since last maintenance",
+        "vibration to pressure ratio",
+        "max vibration",
+        "sensor reading frequency",
+        "failure to maintenance ratio",
+        "average resolution length",
+        "total maintenance cost",
+        "total downtime",
+        "temperature variance",
+        "min pressure",
+        "preventive maintenance count"
+    ]
+}

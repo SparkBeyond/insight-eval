@@ -1,0 +1,83 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "avg_billing_amount",
+        "avg_rating",
+        "max_warranty_age",
+        "total_reviews",
+        "account_age",
+        "unique_device_types",
+        "billing_frequency",
+        "total_device_value",
+        "avg_device_value",
+        "total_billing",
+        "most_common_payment_method",
+        "has_valid_warranty"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.10495915633280037": {
+            "name": "avg_billing_amount",
+            "code": "\n\ndef avg_billing_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    billing_data = aux_dataframes['billing_history_table.csv']\n    customer_bills = billing_data[billing_data['customer_id'] == customer_id]\n    if len(customer_bills) > 0:\n        return customer_bills['amount'].mean()\n    return 0\n"
+        },
+        "0.09054392701270039": {
+            "name": "avg_rating",
+            "code": "\n\ndef avg_rating(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    reviews_data = aux_dataframes['customer_reviews_table.csv']\n    customer_reviews = reviews_data[reviews_data['customer_id'] == customer_id]\n    if len(customer_reviews) > 0:\n        return customer_reviews['rating'].mean()\n    return 0\n"
+        },
+        "0.06879383137919298": {
+            "name": "max_warranty_age",
+            "code": "import datetime\n\ndef max_warranty_age(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    device_data = aux_dataframes['device_characteristics_table.csv']\n    customer_devices = device_data[device_data['customer_id'] == customer_id]\n    if len(customer_devices) > 0:\n        warranty_dates = customer_devices['warranty_expiry'].apply(parse_date)\n        max_warranty = max(warranty_dates, default=None)\n        if max_warranty:\n            return (datetime.now() - max_warranty).days\n    return None\n"
+        },
+        "0.06011323930084951": {
+            "name": "total_reviews",
+            "code": "\n\ndef total_reviews(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    reviews_data = aux_dataframes['customer_reviews_table.csv']\n    customer_reviews = reviews_data[reviews_data['customer_id'] == customer_id]\n    return len(customer_reviews)\n"
+        },
+        "0.03197973208769019": {
+            "name": "account_age",
+            "code": "import pandas as pd\nimport datetime\n\ndef account_age(row):\n    signup_date = parse_date(row['signup_date'])\n    if signup_date:\n        return (datetime.now() - signup_date).days\n    return None\n\ndef parse_date(date_str):\n    try:\n        return pd.to_datetime(date_str, format=\"%Y-%m-%d\", errors=\"coerce\")\n    except:\n        return None\n"
+        },
+        "0.020107753256781165": {
+            "name": "unique_device_types",
+            "code": "\n\ndef unique_device_types(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    device_data = aux_dataframes['device_characteristics_table.csv']\n    customer_devices = device_data[device_data['customer_id'] == customer_id]\n    return customer_devices['device_type'].nunique()\n"
+        },
+        "0.020067274057527996": {
+            "name": "billing_frequency",
+            "code": "import pandas as pd\n\ndef parse_date(date_str):\n    try:\n        return pd.to_datetime(date_str, format=\"%Y-%m-%d\", errors=\"coerce\")\n    except:\n        return None\n\ndef billing_frequency(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    billing_data = aux_dataframes['billing_history_table.csv']\n    customer_bills = billing_data[billing_data['customer_id'] == customer_id]\n    \n    if len(customer_bills) > 1:\n        first_date = parse_date(min(customer_bills['billing_date']))\n        last_date = parse_date(max(customer_bills['billing_date']))\n        if first_date and last_date:\n            months = (last_date.year - first_date.year) * 12 + last_date.month - first_date.month + 1\n            return len(customer_bills) / months\n    return 0\n"
+        },
+        "0.01719553728558189": {
+            "name": "total_device_value",
+            "code": "\n\ndef total_device_value(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    device_data = aux_dataframes['device_characteristics_table.csv']\n    customer_devices = device_data[device_data['customer_id'] == customer_id]\n    return customer_devices['device_value'].sum()\n"
+        },
+        "0.000986982250602122": {
+            "name": "avg_device_value",
+            "code": "\n\ndef avg_device_value(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    device_data = aux_dataframes['device_characteristics_table.csv']\n    customer_devices = device_data[device_data['customer_id'] == customer_id]\n    if len(customer_devices) > 0:\n        return customer_devices['device_value'].mean()\n    return None\n"
+        },
+        "0.0008140950106163372": {
+            "name": "total_billing",
+            "code": "\n\ndef total_billing(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    billing_data = aux_dataframes['billing_history_table.csv']\n    customer_bills = billing_data[billing_data['customer_id'] == customer_id]\n    return customer_bills['amount'].sum()\n"
+        },
+        "0.000807346043639301": {
+            "name": "most_common_payment_method",
+            "code": "\n\ndef most_common_payment_method(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    billing_data = aux_dataframes['billing_history_table.csv']\n    customer_bills = billing_data[billing_data['customer_id'] == customer_id]\n    if not customer_bills.empty:\n        return customer_bills['payment_method'].mode().iloc[0]\n    return 'Unknown'\n"
+        },
+        "0": {
+            "name": "has_valid_warranty",
+            "code": "import datetime\n\ndef has_valid_warranty(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    device_data = aux_dataframes['device_characteristics_table.csv']\n    customer_devices = device_data[device_data['customer_id'] == customer_id]\n    if len(customer_devices) > 0:\n        warranty_dates = customer_devices['warranty_expiry'].apply(parse_date)\n        now = datetime.now()\n        return any(warranty_date > now for warranty_date in warranty_dates if warranty_date)\n    return False\n"
+        }
+    },
+    "feature_descriptions": [
+        "avg billing amount",
+        "avg rating",
+        "max warranty age",
+        "total reviews",
+        "account age",
+        "unique device types",
+        "billing frequency",
+        "total device value",
+        "avg device value",
+        "total billing",
+        "most common payment method",
+        "has valid warranty"
+    ]
+}

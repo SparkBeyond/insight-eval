@@ -1,0 +1,24 @@
+{
+    "enriched_column_names": [
+        "average_daily_temperature_during_the_last_3_months_of_operation",
+        "total_reported_issues_in_the_last_operation_year",
+        "proportion_of_operating_time_under_high_load_conditions",
+        "average_resolution_time_of_issues_reported_about_the_battery",
+        "mean_time_between_two_consecutive_maintenance_activities",
+        "variance_in_load_capacity_over_the_past_year",
+        "number_of_unresolved_issues_reported_in_the_past_year",
+        "trend_in_temperature_fluctuation_frequency",
+        "frequency_of_maintenance_activities_over_the_last_6_months"
+    ],
+    "features_descriptions": [
+        "average daily temperature during the last 3 months of operation",
+        "total reported issues in the last operation year",
+        "proportion of operating time under high load conditions",
+        "average resolution time of issues reported about the battery",
+        "mean time between two consecutive maintenance activities",
+        "variance in load capacity over the past year",
+        "number of unresolved issues reported in the past year",
+        "trend in temperature fluctuation frequency",
+        "frequency of maintenance activities over the last 6 months"
+    ]
+}

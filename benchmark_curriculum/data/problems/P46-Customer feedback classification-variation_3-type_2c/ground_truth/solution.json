@@ -1,0 +1,16 @@
+{
+    "enriched_column_names": [
+        "satisfaction_levels_from_purchase_feedback_in_the_last_month",
+        "negative_feedback_repetition_rate_for_customers",
+        "response_time_to_support_tickets_flagged_as_negative",
+        "rate_of_feedback_mentioning_keywords_labeled_as_negative",
+        "average_session_duration_of_customers_who_provided_feedback"
+    ],
+    "features_descriptions": [
+        "satisfaction levels from purchase feedback in the last month",
+        "negative feedback repetition rate for customers",
+        "response time to support tickets flagged as negative",
+        "rate of feedback mentioning keywords labeled as negative",
+        "average session duration of customers who provided feedback"
+    ]
+}

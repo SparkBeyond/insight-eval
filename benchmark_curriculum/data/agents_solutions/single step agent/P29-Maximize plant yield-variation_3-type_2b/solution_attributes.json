@@ -1,0 +1,17 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "fertilizer_diversity"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0": {
+            "name": "fertilizer_diversity",
+            "code": "\n\ndef fertilizer_diversity(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the fertilizer usage dataframe\n    fertilizer_df = aux_dataframes['fertilizer_usage_table.csv']\n    \n    # Check if the input row contains a 'field_id' column\n    if 'field_id' not in row.index:\n        # If 'field_id' is not in the row, return 0 as we cannot calculate diversity\n        return 0\n    \n    # Extract the field_id from the row\n    field_id = row['field_id']\n    \n    # Ensure the field_id exists in the fertilizer dataframe\n    if field_id not in fertilizer_df['field_id'].values:\n        return 0  # Return 0 if the field_id is not found in the fertilizer dataframe\n    \n    # Filter the fertilizer dataframe by the field_id and count unique fertilizer types\n    unique_fertilizers = fertilizer_df[fertilizer_df['field_id'] == field_id]['fertilizer_type'].nunique()\n    \n    return unique_fertilizers\n"
+        }
+    },
+    "feature_descriptions": [
+        "fertilizer diversity"
+    ]
+}

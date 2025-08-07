@@ -1,0 +1,89 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "pending_payment_count",
+        "payment_success_rate",
+        "avg_data_usage",
+        "contact_count",
+        "avg_payment_amount",
+        "failed_payment_count",
+        "usage_intensity_ratio",
+        "signup_tenure",
+        "avg_minutes_usage",
+        "resolution_rate",
+        "avg_resolution_time",
+        "age_group",
+        "service_type_count"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.0737033524657441": {
+            "name": "pending_payment_count",
+            "code": "\n\ndef pending_payment_count(row, df_train, aux_dataframes):\n    payments_df = aux_dataframes[\"payment_history_table.csv\"]\n    customer_payments = payments_df[payments_df['customer_id'] == row['customer_id']]\n    return sum(customer_payments['payment_status'] == 'Pending')\n"
+        },
+        "0.06381384446279063": {
+            "name": "payment_success_rate",
+            "code": "\n\ndef payment_success_rate(row, df_train, aux_dataframes):\n    payments_df = aux_dataframes[\"payment_history_table.csv\"]\n    customer_payments = payments_df[payments_df['customer_id'] == row['customer_id']]\n    if not customer_payments.empty:\n        success_count = sum(customer_payments['payment_status'] == 'Completed')\n        return success_count / len(customer_payments)\n    return 0\n"
+        },
+        "0.06062301971564289": {
+            "name": "avg_data_usage",
+            "code": "\n\ndef avg_data_usage(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure we are using the correct dataframe from aux_data\n    service_usage_df = aux_data.get('service_usage_data_table.csv')\n    \n    # Check if the dataframe exists and is not None\n    if service_usage_df is None:\n        raise ValueError(\"The 'service_usage_data_table.csv' dataframe is missing from aux_data.\")\n    \n    # Filter the dataframe for the specific customer_id\n    usage_df = service_usage_df[service_usage_df['customer_id'] == row['customer_id']]\n    \n    # Calculate and return the average data usage, or 0 if no data is found\n    return usage_df['data_used_gb'].mean() if not usage_df.empty else 0\n"
+        },
+        "0.04753897338791385": {
+            "name": "contact_count",
+            "code": "\n\ndef contact_count(row, df_train, aux_dataframes):\n    support_df = aux_dataframes[\"customer_support_records_table.csv\"]\n    return len(support_df[support_df['customer_id'] == row['customer_id']])\n"
+        },
+        "0.045219206495275874": {
+            "name": "avg_payment_amount",
+            "code": "\n\ndef avg_payment_amount(row, df_train, aux_dataframes):\n    payments_df = aux_dataframes[\"payment_history_table.csv\"]\n    customer_payments = payments_df[payments_df['customer_id'] == row['customer_id']]\n    if not customer_payments.empty:\n        return customer_payments['amount'].mean()\n    return 0\n"
+        },
+        "0.03653887745520635": {
+            "name": "failed_payment_count",
+            "code": "\n\ndef failed_payment_count(row, df_train, aux_dataframes):\n    payments_df = aux_dataframes[\"payment_history_table.csv\"]\n    customer_payments = payments_df[payments_df['customer_id'] == row['customer_id']]\n    return sum(customer_payments['payment_status'] == 'Failed')\n"
+        },
+        "0.016819414271654204": {
+            "name": "usage_intensity_ratio",
+            "code": "\n\ndef avg_data_usage(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct DataFrame from aux_data\n    usage_df = aux_data['service_usage_data_table.csv']\n    # Filter the DataFrame for the specific customer_id\n    customer_usage = usage_df[usage_df['customer_id'] == row['customer_id']]\n    # Calculate and return the mean of 'data_used_gb', or 0 if no data exists\n    return customer_usage['data_used_gb'].mean() if not customer_usage.empty else 0\n\ndef avg_minutes_usage(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct DataFrame from aux_data\n    usage_df = aux_data['service_usage_data_table.csv']\n    # Filter the DataFrame for the specific customer_id\n    customer_usage = usage_df[usage_df['customer_id'] == row['customer_id']]\n    # Calculate and return the mean of 'minutes_used', or 0 if no data exists\n    return customer_usage['minutes_used'].mean() if not customer_usage.empty else 0\n\ndef usage_intensity_ratio(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Calculate the average data usage\n    avg_data = avg_data_usage(row, df_train, aux_data)\n    # Calculate the average minutes usage\n    avg_minutes = avg_minutes_usage(row, df_train, aux_data)\n    # Calculate and return the usage intensity ratio\n    if avg_minutes > 0:\n        return avg_data / avg_minutes\n    return 0\n"
+        },
+        "0.012407224001208075": {
+            "name": "signup_tenure",
+            "code": "import pandas as pd\nimport datetime\n\ndef signup_tenure(row, df_train, aux_dataframes):\n    if pd.notna(row['signup_date']):\n        return (datetime.now() - datetime.strptime(row['signup_date'], '%Y-%m-%d')).days\n    return None\n"
+        },
+        "0.011747724034172008": {
+            "name": "avg_minutes_usage",
+            "code": "\n\ndef avg_minutes_usage(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe from aux_data\n    service_usage_df = aux_data.get('service_usage_data_table.csv')\n    \n    # Check if the dataframe exists and is not None\n    if service_usage_df is None:\n        raise ValueError(\"The 'service_usage_data_table.csv' dataframe is missing from aux_data.\")\n    \n    # Filter the service usage data for the given customer_id\n    usage_df = service_usage_df[service_usage_df['customer_id'] == row['customer_id']]\n    \n    # Calculate and return the average minutes used, or 0 if no data is available\n    return usage_df['minutes_used'].mean() if not usage_df.empty else 0\n"
+        },
+        "0.003422655971335619": {
+            "name": "resolution_rate",
+            "code": "\n\ndef resolution_rate(row, df_train, aux_dataframes):\n    support_df = aux_dataframes[\"customer_support_records_table.csv\"]\n    customer_support = support_df[support_df['customer_id'] == row['customer_id']]\n    if not customer_support.empty:\n        resolved_count = sum(customer_support['resolved'])\n        return resolved_count / len(customer_support)\n    return 0\n"
+        },
+        "0.003416699558366595": {
+            "name": "avg_resolution_time",
+            "code": "\n\ndef avg_resolution_time(row, df_train, aux_dataframes):\n    support_df = aux_dataframes[\"customer_support_records_table.csv\"]\n    customer_support = support_df[support_df['customer_id'] == row['customer_id']]\n    return customer_support['resolution_time_hours'].mean() if not customer_support.empty else 0\n"
+        },
+        "0.0013271936091208136": {
+            "name": "age_group",
+            "code": "import pandas as pd\n\ndef age_group(row, df_train, aux_dataframes):\n    if pd.notna(row['age']):\n        if row['age'] < 30:\n            return 'Under_30'\n        elif row['age'] < 50:\n            return '30_to_49'\n        elif row['age'] < 70:\n            return '50_to_69'\n        else:\n            return '70_and_Above'\n    return None\n"
+        },
+        "0": {
+            "name": "service_type_count",
+            "code": "\n\ndef service_type_count(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the service usage data from aux_dataframes\n    service_usage_df = aux_dataframes.get('service_usage_data_table.csv')\n    \n    # Check if the service_usage_df exists and is not empty\n    if service_usage_df is not None and not service_usage_df.empty:\n        # Filter the service usage data for the given customer_id\n        usage_df = service_usage_df[service_usage_df['customer_id'] == row['customer_id']]\n        \n        # Return the value counts of the 'service_type' column as a dictionary\n        return usage_df['service_type'].value_counts().to_dict() if not usage_df.empty else {}\n    else:\n        # If the service_usage_df is missing or empty, return an empty dictionary\n        return {}\n"
+        }
+    },
+    "feature_descriptions": [
+        "pending payment count",
+        "payment success rate",
+        "avg data usage",
+        "contact count",
+        "avg payment amount",
+        "failed payment count",
+        "usage intensity ratio",
+        "signup tenure",
+        "avg minutes usage",
+        "resolution rate",
+        "avg resolution time",
+        "age group",
+        "service type count"
+    ]
+}

@@ -1,0 +1,7 @@
+{
+    "target_column": "failure_event",
+    "description": "Identify potential failures in energy equipment to prevent downtime",
+    "name": "Predictive maintenance for equipment failure",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Energy and utilities"
+}

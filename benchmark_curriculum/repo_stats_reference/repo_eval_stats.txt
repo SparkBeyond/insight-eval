@@ -1,0 +1,192 @@
+problem_difficulty_score by ['n_tables']:
+averages: n_tables
+2    0.147667
+3    0.360154
+4    0.438288
+5    0.457350
+6    0.497037
+dtype: float64
+counts: n_tables
+2      6.0
+3     13.0
+4    111.0
+5     40.0
+6     27.0
+dtype: float64
+
+problem_difficulty_score by ['problem_domain']:
+averages: problem_domain
+Banking                 0.130667
+Beverage sales          0.050000
+Energy and utilities    0.481867
+Financial services      0.513750
+Forestry                0.450000
+Healthcare              0.452100
+Power production        0.094667
+Retail                  0.455333
+Retail banking          0.044667
+Retail e-commerce       0.142667
+Retail supermarket      0.423000
+Telecommunications      0.426133
+dtype: float64
+counts: problem_domain
+Banking                  3.0
+Beverage sales           3.0
+Energy and utilities    30.0
+Financial services      40.0
+Forestry                 3.0
+Healthcare              20.0
+Power production         3.0
+Retail                  42.0
+Retail banking           3.0
+Retail e-commerce        3.0
+Retail supermarket       2.0
+Telecommunications      45.0
+dtype: float64
+
+problem_difficulty_score by ['n_primary_columns']:
+averages: n_primary_columns
+4     0.524000
+5     0.164667
+6     0.409520
+7     0.417000
+8     0.441667
+9     0.460714
+10    0.422261
+11    0.472235
+12    0.564000
+13    0.329333
+dtype: float64
+counts: n_primary_columns
+4     17.0
+5      3.0
+6     25.0
+7     50.0
+8     30.0
+9     28.0
+10    23.0
+11    17.0
+12     1.0
+13     3.0
+dtype: float64
+
+problem_difficulty_score by ['total_columns']:
+averages: total_columns
+10    0.164667
+13    0.142667
+17    0.130667
+18    0.188000
+19    0.568000
+20    0.305600
+22    0.470375
+23    0.569143
+24    0.473000
+25    0.558800
+26    0.422889
+27    0.428095
+28    0.419333
+29    0.509000
+30    0.198000
+31    0.461000
+32    0.516909
+33    0.365231
+34    0.535333
+35    0.279600
+36    0.397600
+37    0.410500
+38    0.293333
+40    0.311333
+41    0.595429
+dtype: float64
+counts: total_columns
+10     3.0
+13     3.0
+17     3.0
+18     3.0
+19     3.0
+20     5.0
+22    16.0
+23     7.0
+24    16.0
+25    15.0
+26     9.0
+27    21.0
+28     6.0
+29    12.0
+30     3.0
+31    18.0
+32    11.0
+33    13.0
+34     3.0
+35     5.0
+36     5.0
+37     4.0
+38     3.0
+40     3.0
+41     7.0
+dtype: float64
+
+problem_difficulty_score by ['n_gt_insights']:
+averages: n_gt_insights
+3     0.413250
+4     0.472263
+5     0.431702
+6     0.469333
+7     0.459455
+8     0.477500
+9     0.507333
+10    0.336000
+11    0.278000
+13    0.452000
+16    0.334000
+dtype: float64
+counts: n_gt_insights
+3     64.0
+4     38.0
+5     47.0
+6     21.0
+7     11.0
+8      4.0
+9      3.0
+10     3.0
+11     4.0
+13     1.0
+16     1.0
+dtype: float64
+
+problem_difficulty_score by ['problem_difficulty_level']:
+averages: problem_difficulty_level
+0 very easy    0.115116
+1 easy         0.305733
+2 medium       0.493458
+3 hard         0.691000
+4 very hard    0.888667
+n/a            0.000000
+dtype: float64
+counts: problem_difficulty_level
+0 very easy    43.0
+1 easy         45.0
+2 medium       48.0
+3 hard         36.0
+4 very hard    21.0
+n/a             4.0
+dtype: float64
+
+problem_difficulty_score by ['primary_target_type', 'secondary_target_type']:
+averages: primary_target_type  secondary_target_type
+Linear               Balanced                 0.427400
+                     Strongly Biased          0.414242
+                     Weakly Biased            0.425333
+Logistic             Balanced                 0.333429
+                     Strongly Biased          0.464514
+                     Weakly Biased            0.486923
+dtype: float64
+counts: primary_target_type  secondary_target_type
+Linear               Balanced                 10.0
+                     Strongly Biased          33.0
+                     Weakly Biased            66.0
+Logistic             Balanced                 14.0
+                     Strongly Biased          35.0
+                     Weakly Biased            39.0
+dtype: float64
+

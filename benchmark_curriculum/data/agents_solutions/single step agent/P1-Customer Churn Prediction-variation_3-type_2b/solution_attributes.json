@@ -1,0 +1,41 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "calculate_avg_resolution_time",
+        "calculate_total_minutes_used",
+        "calculate_resolved_fraction",
+        "calculate_days_since_signup",
+        "calculate_total_data_used"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.04046900249254102": {
+            "name": "calculate_avg_resolution_time",
+            "code": "\n\ndef calculate_avg_resolution_time(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    customer_support_data = aux_dataframes['customer_support_records_table.csv']\n    customer_issues = customer_support_data[customer_support_data['customer_id'] == customer_id]\n    if not customer_issues.empty:\n        return customer_issues['resolution_time_hours'].mean()\n    return None\n"
+        },
+        "0.012255438897488617": {
+            "name": "calculate_total_minutes_used",
+            "code": "\n\ndef calculate_total_minutes_used(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    service_usage_data = aux_dataframes['service_usage_data_table.csv']\n    customer_usage = service_usage_data[service_usage_data['customer_id'] == customer_id]\n    if not customer_usage.empty:\n        return customer_usage['minutes_used'].sum()\n    return None\n"
+        },
+        "0.00895976814401234": {
+            "name": "calculate_resolved_fraction",
+            "code": "\n\ndef calculate_resolved_fraction(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    customer_support_data = aux_dataframes['customer_support_records_table.csv']\n    customer_issues = customer_support_data[customer_support_data['customer_id'] == customer_id]\n    if not customer_issues.empty:\n        total_issues = customer_issues.shape[0]\n        resolved_issues = customer_issues[customer_issues['resolved']].shape[0]\n        return resolved_issues / total_issues if total_issues > 0 else 0\n    return None\n"
+        },
+        "0.004475194971965256": {
+            "name": "calculate_days_since_signup",
+            "code": "import pandas as pd\nimport datetime\n\ndef calculate_days_since_signup(row):\n    if pd.notnull(row['signup_date']):\n        signup_date = pd.to_datetime(row['signup_date'])\n        return (datetime.now() - signup_date).days\n    return None\n"
+        },
+        "0.0013585473807397504": {
+            "name": "calculate_total_data_used",
+            "code": "\n\ndef calculate_total_data_used(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    service_usage_data = aux_dataframes['service_usage_data_table.csv']\n    customer_usage = service_usage_data[service_usage_data['customer_id'] == customer_id]\n    if not customer_usage.empty:\n        return customer_usage['data_used_gb'].sum()\n    return None\n"
+        }
+    },
+    "feature_descriptions": [
+        "calculate avg resolution time",
+        "calculate total minutes used",
+        "calculate resolved fraction",
+        "calculate days since signup",
+        "calculate total data used"
+    ]
+}

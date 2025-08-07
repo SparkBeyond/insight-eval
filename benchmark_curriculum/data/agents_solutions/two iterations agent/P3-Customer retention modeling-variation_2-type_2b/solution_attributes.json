@@ -1,0 +1,28 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "last_billing_amount",
+        "late_payments_ratio",
+        "number_of_support_tickets",
+        "unresolved_ticket_ratio",
+        "frequency_of_support_tickets",
+        "days_since_last_billing",
+        "recency_of_last_ticket",
+        "avg_support_resolution_time",
+        "total_support_tickets"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "last billing amount",
+        "late payments ratio",
+        "number of support tickets",
+        "unresolved ticket ratio",
+        "frequency of support tickets",
+        "days since last billing",
+        "recency of last ticket",
+        "avg support resolution time",
+        "total support tickets"
+    ]
+}

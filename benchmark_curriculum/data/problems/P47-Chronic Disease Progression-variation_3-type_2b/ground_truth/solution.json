@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "presence_of_comorbid_conditions",
+        "trend_of_lab_test_results_over_the_last_5_years",
+        "frequency_of_hospital_visits_in_the_last_year"
+    ],
+    "features_descriptions": [
+        "presence of comorbid conditions",
+        "trend of lab test results over the last 5 years",
+        "frequency of hospital visits in the last year"
+    ]
+}

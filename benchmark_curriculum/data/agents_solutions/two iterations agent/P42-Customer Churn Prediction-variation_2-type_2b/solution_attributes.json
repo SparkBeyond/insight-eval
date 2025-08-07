@@ -1,0 +1,30 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "avg_resolution_time",
+        "mean_monthly_data_usage",
+        "calls_data_usage_ratio",
+        "call_drop_rate",
+        "unresolved_tickets",
+        "payment_std_dev",
+        "payment_frequency",
+        "failed_payment_ratio",
+        "recent_ticket_indicator",
+        "mean_monthly_sms_count"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "avg resolution time",
+        "mean monthly data usage",
+        "calls data usage ratio",
+        "call drop rate",
+        "unresolved tickets",
+        "payment std dev",
+        "payment frequency",
+        "failed payment ratio",
+        "recent ticket indicator",
+        "mean monthly sms count"
+    ]
+}

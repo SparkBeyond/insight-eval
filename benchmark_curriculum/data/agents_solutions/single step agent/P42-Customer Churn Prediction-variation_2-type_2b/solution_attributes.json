@@ -1,0 +1,125 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "total_tickets_count",
+        "high_ticket_volume_flag",
+        "support_to_usage_interaction",
+        "support_ticket_rate",
+        "avg_data_per_call",
+        "avg_monthly_income_percentile",
+        "days_since_last_usage",
+        "avg_daily_call_duration",
+        "usage_intensity",
+        "call_to_data_ratio",
+        "call_frequency",
+        "avg_monthly_income",
+        "recent_usage_intensity",
+        "total_data_usage",
+        "customer_age",
+        "recent_ticket_activity",
+        "customer_account_age",
+        "days_since_last_ticket",
+        "resolved_ticket_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.1101685841265118": {
+            "name": "total_tickets_count",
+            "code": "\n\ndef total_tickets_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_tickets = aux_dataframes[\"payment_history_table.csv\"]\n    customer_tickets = support_tickets[support_tickets[\"customer_id\"] == row[\"customer_id\"]]\n    return len(customer_tickets)\n"
+        },
+        "0.09859859627252883": {
+            "name": "high_ticket_volume_flag",
+            "code": "\n\ndef high_ticket_volume_flag(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the support tickets dataframe from aux_dataframes\n    support_tickets = aux_dataframes[\"support_tickets_table.csv\"]\n    \n    # Calculate the total number of tickets for each customer\n    customer_ticket_counts = support_tickets.groupby(\"customer_id\").size()\n    \n    # Calculate the global average ticket count\n    global_ticket_avg = customer_ticket_counts.mean()\n    \n    # Get the ticket count for the current customer\n    customer_id = row[\"customer_id\"]\n    ticket_count = customer_ticket_counts.get(customer_id, 0)  # Default to 0 if customer_id is not in the index\n    \n    # Return 1 if the customer's ticket count is greater than 1.5 times the global average, else 0\n    return 1 if ticket_count > 1.5 * global_ticket_avg else 0\n"
+        },
+        "0.07804154322750623": {
+            "name": "support_to_usage_interaction",
+            "code": "\n\ndef support_to_usage_interaction(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_tickets = aux_dataframes[\"payment_history_table.csv\"]\n    usage_data = aux_dataframes[\"usage_data_table.csv\"]\n\n    customer_tickets = support_tickets[support_tickets[\"customer_id\"] == row[\"customer_id\"]]\n    customer_usage = usage_data[usage_data[\"customer_id\"] == row[\"customer_id\"]]\n\n    ticket_count = len(customer_tickets)\n    total_usage = customer_usage[\"data_usage_gb\"].sum() if not customer_usage.empty else 0\n\n    return ticket_count / total_usage if total_usage > 0 else 0\n"
+        },
+        "0.056970902033404304": {
+            "name": "support_ticket_rate",
+            "code": "import pandas as pd\n\ndef support_ticket_rate(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_tickets = aux_dataframes[\"payment_history_table.csv\"]\n    customer_tickets = support_tickets[support_tickets[\"customer_id\"] == row[\"customer_id\"]]\n\n    if customer_tickets.empty:\n        return 0\n\n    account_age = customer_account_age(row)\n    return len(customer_tickets) / account_age if account_age > 0 else 0\n\ndef customer_account_age(row):\n    signup_date = pd.to_datetime(row['signup_date'])\n    today = pd.to_datetime(\"today\")\n    return (today - signup_date).days\n"
+        },
+        "0.04631551727165512": {
+            "name": "avg_data_per_call",
+            "code": "\n\ndef avg_data_per_call(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes[\"usage_data_table.csv\"]\n    customer_usage = usage_data[usage_data[\"customer_id\"] == row[\"customer_id\"]]\n    if customer_usage.empty:\n        return 0\n    total_data = customer_usage[\"data_usage_gb\"].sum()\n    total_calls = len(customer_usage)\n    return total_data / total_calls if total_calls > 0 else 0\n"
+        },
+        "0.03782244399933948": {
+            "name": "avg_monthly_income_percentile",
+            "code": "\n\ndef avg_monthly_income_percentile(row, df_train: pd.DataFrame):\n    # Percentile rank based on monthly income\n    income_percentile = (df_train['monthly_income'] < row['monthly_income']).mean()\n    return income_percentile * 100\n"
+        },
+        "0.036119460170461144": {
+            "name": "days_since_last_usage",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef days_since_last_usage(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes[\"usage_data_table.csv\"]\n    customer_usage = usage_data[usage_data[\"customer_id\"] == row[\"customer_id\"]]\n    if customer_usage.empty:\n        return np.nan\n    last_usage_date = pd.to_datetime(customer_usage[\"usage_date\"].max())\n    today = pd.to_datetime(\"today\")\n    return (today - last_usage_date).days\n"
+        },
+        "0.03536029987604088": {
+            "name": "avg_daily_call_duration",
+            "code": "import pandas as pd\n\ndef avg_daily_call_duration(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes[\"usage_data_table.csv\"]\n    customer_usage = usage_data[usage_data[\"customer_id\"] == row[\"customer_id\"]]\n    if customer_usage.empty:\n        return 0\n    total_call_duration = customer_usage[\"call_duration_minutes\"].sum()\n    account_age = customer_account_age(row)\n    return total_call_duration / account_age if account_age > 0 else 0\n\ndef customer_account_age(row):\n    signup_date = pd.to_datetime(row['signup_date'])\n    today = pd.to_datetime(\"today\")\n    return (today - signup_date).days\n"
+        },
+        "0.03305461386508923": {
+            "name": "usage_intensity",
+            "code": "import pandas as pd\n\ndef customer_account_age(row):\n    signup_date = pd.to_datetime(row['signup_date'])\n    today = pd.to_datetime(\"today\")\n    return (today - signup_date).days\n\ndef usage_intensity(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes[\"usage_data_table.csv\"]\n    customer_usage = usage_data[usage_data[\"customer_id\"] == row[\"customer_id\"]]\n\n    if customer_usage.empty:\n        return 0\n\n    total_data = customer_usage[\"data_usage_gb\"].sum()\n    account_age = customer_account_age(row)\n\n    return total_data / account_age if account_age > 0 else 0\n"
+        },
+        "0.03234579833450378": {
+            "name": "call_to_data_ratio",
+            "code": "import pandas as pd\n\ndef call_to_data_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    call_duration = avg_daily_call_duration(row, aux_dataframes)\n    total_data = total_data_usage(row, aux_dataframes)\n    return call_duration / total_data if total_data > 0 else 0\n\ndef total_data_usage(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes[\"usage_data_table.csv\"]\n    customer_usage = usage_data[usage_data[\"customer_id\"] == row[\"customer_id\"]]\n    return customer_usage[\"data_usage_gb\"].sum() if not customer_usage.empty else 0\n\ndef avg_daily_call_duration(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes[\"usage_data_table.csv\"]\n    customer_usage = usage_data[usage_data[\"customer_id\"] == row[\"customer_id\"]]\n    if customer_usage.empty:\n        return 0\n    total_call_duration = customer_usage[\"call_duration_minutes\"].sum()\n    account_age = customer_account_age(row)\n    return total_call_duration / account_age if account_age > 0 else 0\n\ndef customer_account_age(row):\n    signup_date = pd.to_datetime(row['signup_date'])\n    today = pd.to_datetime(\"today\")\n    return (today - signup_date).days\n"
+        },
+        "0.03233946544549954": {
+            "name": "call_frequency",
+            "code": "import pandas as pd\n\ndef customer_account_age(row):\n    signup_date = pd.to_datetime(row['signup_date'])\n    today = pd.to_datetime(\"today\")\n    return (today - signup_date).days\n\ndef call_frequency(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes[\"usage_data_table.csv\"]\n    customer_usage = usage_data[usage_data[\"customer_id\"] == row[\"customer_id\"]]\n\n    if customer_usage.empty:\n        return 0\n\n    total_calls = len(customer_usage)\n    account_age = customer_account_age(row)\n\n    return total_calls / account_age if account_age > 0 else 0\n"
+        },
+        "0.03150169074285822": {
+            "name": "avg_monthly_income",
+            "code": "\n\ndef avg_monthly_income(row):\n    return row['monthly_income']\n"
+        },
+        "0.029019319613553574": {
+            "name": "recent_usage_intensity",
+            "code": "import pandas as pd\n\ndef recent_usage_intensity(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes[\"usage_data_table.csv\"]\n    \n    # Ensure the 'usage_date' column is in datetime format\n    usage_data[\"usage_date\"] = pd.to_datetime(usage_data[\"usage_date\"], errors=\"coerce\")\n    \n    # Filter usage data for the specific customer\n    customer_usage = usage_data[usage_data[\"customer_id\"] == row[\"customer_id\"]]\n\n    # If no usage data exists for the customer, return 0\n    if customer_usage.empty:\n        return 0\n\n    # Define the cutoff date for recent usage (last 30 days)\n    today = pd.to_datetime(\"today\")\n    cutoff_date = today - pd.Timedelta(days=30)\n\n    # Split usage data into recent and past usage\n    recent_usage = customer_usage[customer_usage[\"usage_date\"] >= cutoff_date]\n    past_usage = customer_usage[customer_usage[\"usage_date\"] < cutoff_date]\n\n    # Calculate total usage for recent and past periods\n    total_recent = recent_usage[\"data_usage_gb\"].sum()\n    total_past = past_usage[\"data_usage_gb\"].sum()\n\n    # Return the ratio of recent usage to past usage (add 1 to prevent division by zero)\n    return total_recent / (total_past + 1)\n"
+        },
+        "0.01611927006017071": {
+            "name": "total_data_usage",
+            "code": "\n\ndef total_data_usage(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes[\"usage_data_table.csv\"]\n    customer_usage = usage_data[usage_data[\"customer_id\"] == row[\"customer_id\"]]\n    return customer_usage[\"data_usage_gb\"].sum() if not customer_usage.empty else 0\n"
+        },
+        "0.011498046189833274": {
+            "name": "customer_age",
+            "code": "import pandas as pd\n\ndef customer_age(row):\n    date_of_birth = pd.to_datetime(row['date_of_birth'])\n    today = pd.to_datetime(\"today\")\n    return (today - date_of_birth).days // 365\n"
+        },
+        "0.006880920292366706": {
+            "name": "recent_ticket_activity",
+            "code": "import pandas as pd\n\ndef recent_ticket_activity(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct dataframe for support tickets\n    support_tickets = aux_dataframes[\"support_tickets_table.csv\"]\n    \n    # Filter tickets for the specific customer\n    customer_tickets = support_tickets[support_tickets[\"customer_id\"] == row[\"customer_id\"]]\n\n    # If no tickets exist for the customer, return 0\n    if customer_tickets.empty:\n        return 0\n\n    # Calculate the cutoff date for recent tickets (last 30 days)\n    today = pd.to_datetime(\"today\")\n    cutoff_date = today - pd.Timedelta(days=30)\n\n    # Ensure 'ticket_date' is in datetime format\n    customer_tickets[\"ticket_date\"] = pd.to_datetime(customer_tickets[\"ticket_date\"])\n\n    # Count recent tickets and total tickets\n    recent_tickets = len(customer_tickets[customer_tickets[\"ticket_date\"] >= cutoff_date])\n    total_tickets = len(customer_tickets)\n\n    # Return the ratio of recent tickets to total tickets (add 1 to denominator to avoid division by zero)\n    return recent_tickets / (total_tickets + 1)\n"
+        },
+        "0.0033862161736906457": {
+            "name": "customer_account_age",
+            "code": "import pandas as pd\n\ndef customer_account_age(row):\n    signup_date = pd.to_datetime(row['signup_date'])\n    today = pd.to_datetime(\"today\")\n    return (today - signup_date).days\n"
+        },
+        "0.0007982118633518319": {
+            "name": "days_since_last_ticket",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef days_since_last_ticket(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe for support tickets\n    support_tickets = aux_dataframes[\"support_tickets_table.csv\"]\n    \n    # Filter tickets for the specific customer\n    customer_tickets = support_tickets[support_tickets[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # If no tickets exist for the customer, return NaN\n    if customer_tickets.empty:\n        return np.nan\n    \n    # Parse the last ticket date and calculate the difference in days\n    last_ticket_date = pd.to_datetime(customer_tickets[\"ticket_date\"].max())\n    today = pd.to_datetime(\"today\")\n    return (today - last_ticket_date).days\n"
+        },
+        "0": {
+            "name": "resolved_ticket_ratio",
+            "code": "\n\ndef resolved_ticket_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe for support tickets\n    support_tickets = aux_dataframes[\"support_tickets_table.csv\"]\n    \n    # Filter tickets for the specific customer\n    customer_tickets = support_tickets[support_tickets[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # If no tickets exist for the customer, return 0\n    if customer_tickets.empty:\n        return 0\n    \n    # Filter resolved tickets\n    resolved_tickets = customer_tickets[customer_tickets[\"resolution_status\"] == \"resolved\"]\n    \n    # Calculate and return the ratio of resolved tickets\n    return len(resolved_tickets) / len(customer_tickets)\n"
+        }
+    },
+    "feature_descriptions": [
+        "total tickets count",
+        "high ticket volume flag",
+        "support to usage interaction",
+        "support ticket rate",
+        "avg data per call",
+        "avg monthly income percentile",
+        "days since last usage",
+        "avg daily call duration",
+        "usage intensity",
+        "call to data ratio",
+        "call frequency",
+        "avg monthly income",
+        "recent usage intensity",
+        "total data usage",
+        "customer age",
+        "recent ticket activity",
+        "customer account age",
+        "days since last ticket",
+        "resolved ticket ratio"
+    ]
+}

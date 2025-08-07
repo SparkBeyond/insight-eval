@@ -1,0 +1,83 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "subscription_duration",
+        "num_feedbacks",
+        "days_since_last_transaction",
+        "total_spent",
+        "avg_transaction_amount",
+        "days_until_upgrade",
+        "premium_payment_ratio",
+        "avg_satisfaction_score",
+        "num_transactions",
+        "avg_spend_by_package",
+        "package_type",
+        "income_bracket"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.08096947430607347": {
+            "name": "subscription_duration",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef subscription_duration(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'customer_feedback_table.csv' exists in aux_dataframes\n    if 'customer_feedback_table.csv' not in aux_dataframes:\n        return np.nan\n\n    # Get the customer feedback table\n    feedback_data = aux_dataframes['customer_feedback_table.csv']\n\n    # Check if the required columns exist in the feedback_data\n    if 'customer_id' not in feedback_data.columns:\n        return np.nan\n\n    # Filter the feedback data for the specific customer_id\n    customer_feedback = feedback_data[feedback_data['customer_id'] == row['customer_id']]\n\n    # Check if the row contains 'subscription_start_date' and 'subscription_end_date'\n    if 'subscription_start_date' in row and 'subscription_end_date' in row:\n        try:\n            # Parse the start and end dates from the row\n            start_date = pd.to_datetime(row['subscription_start_date'])\n            end_date = pd.to_datetime(row['subscription_end_date'])\n            return (end_date - start_date).days\n        except Exception:\n            return np.nan\n\n    return np.nan\n"
+        },
+        "0.050329043807919915": {
+            "name": "num_feedbacks",
+            "code": "\n\ndef num_feedbacks(row, aux_dataframes: dict):\n    # Check if 'customer_feedback_table' exists in aux_dataframes\n    if 'customer_feedback_table.csv' not in aux_dataframes:\n        raise KeyError(\"'customer_feedback_table.csv' is missing from aux_dataframes\")\n    \n    # Retrieve the customer feedback table\n    feedback_data = aux_dataframes['customer_feedback_table.csv']\n    \n    # Ensure the required columns exist in the feedback_data dataframe\n    required_columns = {'customer_id', 'feedback_id'}\n    if not required_columns.issubset(feedback_data.columns):\n        raise ValueError(f\"The dataframe 'customer_feedback_table.csv' is missing required columns: {required_columns - set(feedback_data.columns)}\")\n    \n    # Filter feedback data for the given customer_id\n    customer_feedback = feedback_data[feedback_data['customer_id'] == row['customer_id']]\n    \n    # Return the number of feedback entries for the customer\n    return len(customer_feedback)\n"
+        },
+        "0.049260728870351926": {
+            "name": "days_since_last_transaction",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef days_since_last_transaction(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the payment history dataframe from aux_data\n    payment_history = aux_data.get('payment_history_table.csv')\n    \n    # Ensure the dataframe exists and is not empty\n    if payment_history is not None and not payment_history.empty:\n        # Filter the payment history for the specific customer\n        customer_data = payment_history[payment_history['customer_id'] == row['customer_id']]\n        \n        # Check if there are any transactions for the customer\n        if not customer_data.empty:\n            # Get the most recent payment date\n            last_payment_date = pd.to_datetime(customer_data['payment_date']).max()\n            # Define the reference date\n            current_date = pd.to_datetime('2025-01-01')  # Assuming dataset reference date\n            # Calculate the difference in days\n            return (current_date - last_payment_date).days\n    \n    # Return NaN if no transactions are found or if the dataframe is missing\n    return np.nan\n"
+        },
+        "0.04589063685258447": {
+            "name": "total_spent",
+            "code": "\n\ndef total_spent(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the payment history dataframe from aux_data\n    payment_history_df = aux_data['payment_history_table.csv']\n    \n    # Filter the payment history for the given customer_id\n    customer_data = payment_history_df[payment_history_df['customer_id'] == row['customer_id']]\n    \n    # Calculate and return the total amount spent by the customer\n    return customer_data['amount'].sum()\n"
+        },
+        "0.030965530209636195": {
+            "name": "avg_transaction_amount",
+            "code": "\n\ndef avg_transaction_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the payment history dataframe from aux_data\n    payment_history_df = aux_data['payment_history_table.csv']\n    \n    # Filter the payment history for the specific customer_id\n    customer_data = payment_history_df[payment_history_df['customer_id'] == row['customer_id']]\n    \n    # Calculate and return the mean of the 'amount' column\n    return customer_data['amount'].mean()\n"
+        },
+        "0.02667555675400922": {
+            "name": "days_until_upgrade",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef days_until_upgrade(row, aux_dataframes: dict):\n    # Check if 'upgrade_date' and 'subscription_start_date' exist in the row\n    if 'upgrade_date' in row and 'subscription_start_date' in row:\n        # Convert dates to datetime\n        start_date = pd.to_datetime(row['subscription_start_date'])\n        if pd.notnull(row['upgrade_date']):\n            upgrade_date = pd.to_datetime(row['upgrade_date'])\n            # Calculate the difference in days\n            return (upgrade_date - start_date).days\n    # Return NaN if no valid upgrade date or start date\n    return np.nan\n"
+        },
+        "0.014207586281162874": {
+            "name": "premium_payment_ratio",
+            "code": "\n\ndef premium_payment_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'payment_history_table' exists in aux_dataframes\n    if 'payment_history_table.csv' not in aux_dataframes:\n        raise KeyError(\"'payment_history_table.csv' is missing from aux_dataframes\")\n    \n    # Retrieve the payment history table\n    payment_data = aux_dataframes['payment_history_table.csv']\n    \n    # Ensure the required columns exist in the payment_data dataframe\n    required_columns = {'customer_id', 'payment_method'}\n    if not required_columns.issubset(payment_data.columns):\n        raise KeyError(f\"The payment history table is missing one or more required columns: {required_columns}\")\n    \n    # Filter payments for the specific customer\n    customer_payments = payment_data[payment_data['customer_id'] == row['customer_id']]\n    \n    # Define premium payment methods\n    premium_methods = ['Credit Card', 'PayPal']  # Example premium methods\n    \n    # Count premium payments and total payments\n    premium_count = customer_payments['payment_method'].isin(premium_methods).sum()\n    total_count = len(customer_payments)\n    \n    # Return the ratio of premium payments to total payments\n    return premium_count / total_count if total_count > 0 else 0\n"
+        },
+        "0.00991204538960714": {
+            "name": "avg_satisfaction_score",
+            "code": "\n\ndef avg_satisfaction_score(row, aux_dataframes: dict):\n    # Check if 'customer_feedback_table' exists in aux_dataframes\n    if 'customer_feedback_table.csv' not in aux_dataframes:\n        raise KeyError(\"'customer_feedback_table.csv' is missing from aux_dataframes.\")\n    \n    # Get the customer feedback table\n    feedback_data = aux_dataframes['customer_feedback_table.csv']\n    \n    # Ensure the required columns exist in the feedback_data\n    required_columns = {'customer_id', 'satisfaction_score'}\n    if not required_columns.issubset(feedback_data.columns):\n        raise ValueError(f\"The customer_feedback_table is missing required columns: {required_columns - set(feedback_data.columns)}\")\n    \n    # Filter feedback data for the given customer_id\n    customer_feedback = feedback_data[feedback_data['customer_id'] == row['customer_id']]\n    \n    # If no feedback exists for the customer, return NaN\n    if customer_feedback.empty:\n        return float('nan')\n    \n    # Return the mean satisfaction score\n    return customer_feedback['satisfaction_score'].mean()\n"
+        },
+        "0.009872110726650458": {
+            "name": "num_transactions",
+            "code": "\n\ndef num_transactions(row, df_train: pd.DataFrame):\n    return len(df_train[df_train['customer_id'] == row['customer_id']])\n"
+        },
+        "0.009041628435352401": {
+            "name": "avg_spend_by_package",
+            "code": "\n\ndef avg_spend_by_package(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in aux_dataframes\n    if 'customer_feedback_table.csv' not in aux_dataframes:\n        raise KeyError(\"'customer_feedback_table.csv' not found in aux_dataframes\")\n    if 'payment_history_table.csv' not in aux_dataframes:\n        raise KeyError(\"'payment_history_table.csv' not found in aux_dataframes\")\n    \n    # Load the customer feedback table and payment history table\n    feedback_data = aux_dataframes['customer_feedback_table.csv']\n    payment_data = aux_dataframes['payment_history_table.csv']\n    \n    # Ensure the required columns exist in feedback_data, payment_data, and df_train\n    required_feedback_columns = {'customer_id'}\n    required_payment_columns = {'customer_id', 'amount'}\n    required_train_columns = {'customer_id', 'current_package'}\n    \n    if not required_feedback_columns.issubset(feedback_data.columns):\n        raise ValueError(f\"Missing required columns in customer_feedback_table.csv: {required_feedback_columns - set(feedback_data.columns)}\")\n    if not required_payment_columns.issubset(payment_data.columns):\n        raise ValueError(f\"Missing required columns in payment_history_table.csv: {required_payment_columns - set(payment_data.columns)}\")\n    if not required_train_columns.issubset(df_train.columns):\n        raise ValueError(f\"Missing required columns in df_train: {required_train_columns - set(df_train.columns)}\")\n    \n    # Merge payment_data with df_train on 'customer_id'\n    package_spend = df_train.merge(payment_data, on='customer_id', how='inner')\n    \n    # Group by 'current_package' and calculate the mean spend\n    package_spend_group = package_spend.groupby('current_package')['amount'].mean()\n    \n    # Get the current package for the given row\n    current_package = row.get('current_package', None)\n    if current_package is not None:\n        # Return the average spend for the current package, or 0 if not found\n        return package_spend_group.get(current_package, 0)\n    \n    # If no current package is found, return 0\n    return 0\n"
+        },
+        "0.002593570790596982": {
+            "name": "package_type",
+            "code": "\n\ndef package_type(row, aux_dataframes: dict):\n    # Correct key to access the customer feedback table\n    feedback_data = aux_dataframes.get('customer_feedback_table.csv')\n    \n    # Check if the feedback_data exists and is not None\n    if feedback_data is not None:\n        # Filter the feedback data for the specific customer_id\n        customer_feedback = feedback_data[feedback_data['customer_id'] == row['customer_id']]\n        \n        # Check if the 'current_package' column exists in the row dataframe\n        if 'current_package' in row:\n            package_mapping = {'Basic': 1, 'Standard': 2, 'Premium': 3}\n            return package_mapping.get(row['current_package'], 0)\n    \n    # Default return value if no match or data issues\n    return 0\n"
+        },
+        "0": {
+            "name": "income_bracket",
+            "code": "\n\ndef income_bracket(row, aux_dataframes: dict):\n    # Check if 'customer_profiles_table' exists in aux_dataframes\n    if 'customer_profiles_table' not in aux_dataframes:\n        return 'Unknown'\n    \n    profiles_data = aux_dataframes['customer_profiles_table']\n    \n    # Check if 'customer_id' exists in profiles_data\n    if 'customer_id' not in profiles_data.columns:\n        return 'Unknown'\n    \n    # Filter the customer profile for the given customer_id\n    customer_profile = profiles_data[profiles_data['customer_id'] == row['customer_id']]\n    \n    # Check if the customer profile exists and if 'annual_income' is a valid column\n    if not customer_profile.empty and 'annual_income' in customer_profile.columns:\n        income = customer_profile['annual_income'].iloc[0]\n        if income < 50000:\n            return 'Low Income'\n        elif income < 100000:\n            return 'Middle Income'\n        else:\n            return 'High Income'\n    \n    # Return 'Unknown' if no valid income data is found\n    return 'Unknown'\n"
+        }
+    },
+    "feature_descriptions": [
+        "subscription duration",
+        "num feedbacks",
+        "days since last transaction",
+        "total spent",
+        "avg transaction amount",
+        "days until upgrade",
+        "premium payment ratio",
+        "avg satisfaction score",
+        "num transactions",
+        "avg spend by package",
+        "package type",
+        "income bracket"
+    ]
+}

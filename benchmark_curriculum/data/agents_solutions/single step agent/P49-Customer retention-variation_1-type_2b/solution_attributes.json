@@ -1,0 +1,53 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "days_since_last_order",
+        "avg_order_size_customer",
+        "customer_most_frequent_product",
+        "order_weekday_influence",
+        "avg_items_per_order_customer",
+        "last_bought_category",
+        "customer_order_frequency"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.10025986920601661": {
+            "name": "days_since_last_order",
+            "code": "import pandas as pd\n\ndef days_since_last_order(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe from aux_data\n    orders_table = aux_data['orders_table.csv']\n    \n    # Ensure 'order_date' is in datetime format\n    orders_table['order_date'] = pd.to_datetime(orders_table['order_date'])\n    row_order_date = pd.to_datetime(row['last_login_date'])  # Assuming 'last_login_date' is the reference date\n    \n    # Filter orders for the specific customer\n    customer_id = row['customer_id']\n    customer_orders = orders_table[orders_table['customer_id'] == customer_id]\n    \n    # Get the most recent order date for the customer\n    if not customer_orders.empty:\n        last_order_date = customer_orders['order_date'].max()\n        # Calculate the days since the last order\n        days_since_last = (row_order_date - last_order_date).days\n    else:\n        # If no orders exist for the customer, return a default value (e.g., -1)\n        days_since_last = -1\n    \n    return days_since_last\n"
+        },
+        "0.04567942435830953": {
+            "name": "avg_order_size_customer",
+            "code": "import pandas as pd\n\ndef avg_order_size_customer(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Load the relevant dataframes from aux_data\n    orders_table = aux_data['orders_table.csv']\n    products_in_orders_table = aux_data['products_in_orders_table.csv']\n    \n    # Filter orders for the given customer_id\n    customer_orders = orders_table[orders_table['customer_id'] == customer_id]\n    \n    # Join customer orders with products_in_orders_table to get quantities\n    customer_order_details = customer_orders.merge(\n        products_in_orders_table, \n        on='order_id', \n        how='inner'\n    )\n    \n    # Calculate the average order size (mean of the 'quantity' column)\n    avg_order_size = customer_order_details['quantity'].mean()\n    \n    # Return the average order size (or 0 if the customer has no orders)\n    return avg_order_size if not pd.isna(avg_order_size) else 0\n"
+        },
+        "0.013292424486245492": {
+            "name": "customer_most_frequent_product",
+            "code": "import pandas as pd\n\ndef customer_most_frequent_product(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Load the relevant dataframes from aux_data\n    orders_table = aux_data['orders_table.csv']\n    products_in_orders_table = aux_data['products_in_orders_table.csv']\n    \n    # Filter orders for the given customer_id\n    customer_orders = orders_table[orders_table['customer_id'] == customer_id]\n    \n    # Merge customer orders with products_in_orders_table to get product_id\n    customer_products = pd.merge(\n        customer_orders,\n        products_in_orders_table,\n        on='order_id',\n        how='inner'\n    )\n    \n    # Check if the customer has any products\n    if customer_products.empty:\n        return None  # Return None if no products are found for the customer\n    \n    # Find the most frequently purchased product_id\n    most_frequent = customer_products['product_id'].value_counts().idxmax()\n    return most_frequent\n"
+        },
+        "0.005281480286228973": {
+            "name": "order_weekday_influence",
+            "code": "import pandas as pd\n\ndef order_weekday_influence(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the 'orders_table.csv' dataframe is available in aux_data\n    if 'orders_table.csv' not in aux_data:\n        raise ValueError(\"The required 'orders_table.csv' is missing from aux_data.\")\n    \n    # Extract the orders table\n    orders_table = aux_data['orders_table.csv']\n    \n    # Ensure 'order_date' column exists in the orders table\n    if 'order_date' not in orders_table.columns:\n        raise ValueError(\"'order_date' column is missing in 'orders_table.csv'.\")\n    \n    # Convert 'order_date' to datetime if it's not already\n    if not pd.api.types.is_datetime64_any_dtype(orders_table['order_date']):\n        orders_table['order_date'] = pd.to_datetime(orders_table['order_date'])\n    \n    # Get the weekday of the current row's 'signup_date'\n    if 'signup_date' not in row:\n        raise ValueError(\"'signup_date' is missing in the input row.\")\n    \n    signup_date = pd.to_datetime(row['signup_date'])\n    weekday = signup_date.weekday()\n    \n    # Calculate total orders and orders on the same weekday\n    total_orders = orders_table.shape[0]\n    day_orders = orders_table[orders_table['order_date'].dt.weekday == weekday].shape[0]\n    \n    # Calculate weekday influence\n    weekday_influence = day_orders / total_orders if total_orders > 0 else 0\n    return weekday_influence\n"
+        },
+        "0.002265582590573333": {
+            "name": "avg_items_per_order_customer",
+            "code": "\n\ndef avg_items_per_order_customer(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Access the relevant dataframes from aux_data\n    orders_table = aux_data['orders_table.csv']\n    products_in_orders_table = aux_data['products_in_orders_table.csv']\n    \n    # Filter orders for the given customer_id\n    customer_orders = orders_table[orders_table['customer_id'] == customer_id]\n    \n    # Merge customer orders with products_in_orders_table to get quantities\n    merged_data = customer_orders.merge(\n        products_in_orders_table, \n        on='order_id', \n        how='inner'\n    )\n    \n    # Calculate total items per order\n    total_items_per_order = merged_data.groupby('order_id')['quantity'].sum()\n    \n    # Compute the average number of items per order\n    avg_items = total_items_per_order.mean() if not total_items_per_order.empty else 0\n    \n    return avg_items\n"
+        },
+        "0.0009394658588892657": {
+            "name": "last_bought_category",
+            "code": "\n\ndef last_bought_category(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant DataFrames from aux_data\n    orders_table = aux_data['orders_table.csv']\n    product_info_table = aux_data['product_info_table.csv']\n    products_in_orders_table = aux_data['products_in_orders_table.csv']\n    \n    # Merge the tables to get the category for each order\n    merged_data = (\n        orders_table\n        .merge(products_in_orders_table, on='order_id', how='inner')\n        .merge(product_info_table, on='product_id', how='inner')\n    )\n    \n    # Filter the data for the given customer_id\n    customer_id = row['customer_id']\n    customer_orders = merged_data[merged_data['customer_id'] == customer_id]\n    \n    # Check if the customer has any orders\n    if customer_orders.empty:\n        return None  # Return None if no orders are found\n    \n    # Sort the customer's orders by order_date in descending order\n    customer_orders = customer_orders.sort_values('order_date', ascending=False)\n    \n    # Get the category of the last purchased product\n    last_category = customer_orders.iloc[0]['category']\n    return last_category\n"
+        },
+        "0": {
+            "name": "customer_order_frequency",
+            "code": "import pandas as pd\n\ndef customer_order_frequency(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the orders table from aux_data\n    orders_table = aux_data['orders_table.csv']\n    \n    # Ensure 'order_date' is in datetime format\n    orders_table['order_date'] = pd.to_datetime(orders_table['order_date'])\n    \n    # Get the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter orders for the specific customer\n    customer_orders = orders_table[orders_table['customer_id'] == customer_id]\n    \n    # Extract the order dates\n    order_dates = customer_orders['order_date']\n    \n    # Calculate the frequency\n    freq = (\n        (order_dates.max() - order_dates.min()).days / customer_orders.shape[0]\n        if customer_orders.shape[0] > 1\n        else float('inf')\n    )\n    \n    return freq\n"
+        }
+    },
+    "feature_descriptions": [
+        "days since last order",
+        "avg order size customer",
+        "customer most frequent product",
+        "order weekday influence",
+        "avg items per order customer",
+        "last bought category",
+        "customer order frequency"
+    ]
+}

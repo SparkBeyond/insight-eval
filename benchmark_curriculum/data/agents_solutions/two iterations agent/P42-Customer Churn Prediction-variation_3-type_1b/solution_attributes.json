@@ -1,0 +1,42 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "total_payment_amount",
+        "avg_payment_amount",
+        "max_resolution_time",
+        "total_tickets",
+        "resolved_ticket_ratio",
+        "call_drop_rate",
+        "mean_monthly_sms_count",
+        "avg_call_duration",
+        "mean_monthly_data_usage",
+        "distinct_payment_methods",
+        "payment_frequency",
+        "call_duration_variance",
+        "ticket_frequency_per_year",
+        "payment_frequency_per_year",
+        "avg_payment_amount_repeated_colname1",
+        "payment_success_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "total payment amount",
+        "avg payment amount",
+        "max resolution time",
+        "total tickets",
+        "resolved ticket ratio",
+        "call drop rate",
+        "mean monthly sms count",
+        "avg call duration",
+        "mean monthly data usage",
+        "distinct payment methods",
+        "payment frequency",
+        "call duration variance",
+        "ticket frequency per year",
+        "payment frequency per year",
+        "avg payment amount repeated colname1",
+        "payment success ratio"
+    ]
+}

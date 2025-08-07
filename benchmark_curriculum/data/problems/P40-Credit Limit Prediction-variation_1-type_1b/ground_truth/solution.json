@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "monthly_credit_utilization_trend_over_the_past_year",
+        "impact_of_employment_status_on_credit_usage",
+        "average_transaction_amount_over_the_last_3_months"
+    ],
+    "features_descriptions": [
+        "monthly credit utilization trend over the past year",
+        "impact of employment status on credit usage",
+        "average transaction amount over the last 3 months"
+    ]
+}

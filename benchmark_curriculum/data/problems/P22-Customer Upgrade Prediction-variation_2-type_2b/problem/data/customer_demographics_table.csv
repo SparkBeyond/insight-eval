@@ -1,0 +1,3001 @@
+customer_id,age,gender,location,income_bracket
+customer_0,51,Female,Lake Andrewland,Medium
+customer_1,41,Female,Ericahaven,Low
+customer_2,67,Other,West Williamland,High
+customer_3,52,Other,North Lisaberg,Medium
+customer_4,25,Male,South Thomasmouth,Low
+customer_5,42,Other,Murphyfurt,Medium
+customer_6,34,Other,Meyerton,Medium
+customer_7,58,Other,North Charles,High
+customer_8,43,Male,Kellyfort,High
+customer_9,21,Male,Richardtown,Low
+customer_10,27,Other,Lake Michaelberg,High
+customer_11,53,Other,Lake Jacquelinetown,Low
+customer_12,39,Other,Port Rebeccatown,Low
+customer_13,63,Other,East Thomas,Low
+customer_14,37,Female,North Tammiemouth,Low
+customer_15,50,Female,Cherylbury,High
+customer_16,56,Male,Angelashire,High
+customer_17,69,Female,Stevenchester,High
+customer_18,39,Male,New Robertland,Medium
+customer_19,41,Other,North Ronald,Low
+customer_20,66,Other,Thomasside,Medium
+customer_21,21,Female,South Jenniferland,Medium
+customer_22,55,Male,Ortizmouth,Medium
+customer_23,33,Male,West Laura,High
+customer_24,31,Male,South Wendytown,High
+customer_25,41,Male,Ericmouth,Medium
+customer_26,22,Female,Nicholasfort,Low
+customer_27,65,Other,West Julieport,High
+customer_28,52,Other,Jessicaville,Low
+customer_29,34,Other,North Kylie,Medium
+customer_30,40,Female,Silvatown,Low
+customer_31,39,Male,Fordstad,High
+customer_32,55,Female,Chadshire,Medium
+customer_33,18,Male,New Richard,Medium
+customer_34,19,Female,Barbarachester,High
+customer_35,35,Female,Danielberg,High
+customer_36,21,Other,Lake Jacqueline,Low
+customer_37,37,Female,Thomasmouth,Low
+customer_38,65,Other,Thomasberg,Medium
+customer_39,19,Other,Fieldsport,High
+customer_40,51,Other,Rioshaven,Low
+customer_41,43,Female,East Danielstad,High
+customer_42,55,Female,Dickersonshire,Low
+customer_43,30,Female,West Matthew,Low
+customer_44,61,Male,Sarahmouth,Low
+customer_45,21,Other,Port Frankburgh,Medium
+customer_46,69,Female,Roseview,Medium
+customer_47,21,Male,New Josephfurt,Medium
+customer_48,23,Other,East Benjaminfurt,Medium
+customer_49,34,Other,North Bradview,Medium
+customer_50,48,Male,Tonyahaven,High
+customer_51,23,Other,North Stephenhaven,High
+customer_52,33,Male,North Julietown,High
+customer_53,34,Other,South Emilymouth,Low
+customer_54,69,Female,Fisherfurt,Low
+customer_55,64,Female,Davishaven,High
+customer_56,43,Female,Davidton,Low
+customer_57,53,Female,Port Danielleborough,High
+customer_58,58,Female,North Anthonyfurt,Low
+customer_59,47,Male,East Louismouth,Low
+customer_60,48,Female,Donaldfurt,Low
+customer_61,41,Other,Smithborough,Low
+customer_62,65,Other,Bobbyshire,High
+customer_63,51,Female,Angelaburgh,Low
+customer_64,39,Other,South Allison,Low
+customer_65,53,Male,Jonesville,High
+customer_66,38,Female,Weberside,Low
+customer_67,66,Male,East Kathrynview,Medium
+customer_68,45,Female,West Janicefort,Medium
+customer_69,55,Male,East Hunterburgh,High
+customer_70,24,Other,Lorettaton,Low
+customer_71,30,Other,Cherylchester,High
+customer_72,53,Male,West Hannahport,Medium
+customer_73,47,Female,East Jamesland,High
+customer_74,26,Other,Port Angela,High
+customer_75,48,Female,Collierfort,Low
+customer_76,36,Female,Lopezburgh,Low
+customer_77,18,Female,Lake Kathleen,Medium
+customer_78,66,Female,South Josephberg,Low
+customer_79,21,Female,Angelaberg,Low
+customer_80,51,Other,North Stephenhaven,High
+customer_81,18,Male,New Courtney,Low
+customer_82,48,Other,Brennanview,Medium
+customer_83,57,Male,East Leslieburgh,Low
+customer_84,67,Male,Geraldside,Medium
+customer_85,52,Male,North Zachary,High
+customer_86,19,Female,Smithbury,Low
+customer_87,45,Male,Lake Christineburgh,High
+customer_88,52,Male,West David,Low
+customer_89,52,Female,New Claytonshire,Medium
+customer_90,40,Female,Stoneville,High
+customer_91,55,Female,Lake Christopherview,Medium
+customer_92,18,Other,Lake Patriciaborough,Medium
+customer_93,23,Other,Lake William,Low
+customer_94,58,Other,Nancyview,Medium
+customer_95,38,Female,Gwendolynside,Low
+customer_96,39,Male,Martinezshire,High
+customer_97,33,Female,Robertshire,Medium
+customer_98,46,Male,Lake Marissa,Medium
+customer_99,33,Male,East Margaretview,High
+customer_100,44,Female,South Bradley,High
+customer_101,30,Female,West Jordan,Medium
+customer_102,26,Male,Jamesbury,High
+customer_103,68,Other,North Claudia,Low
+customer_104,68,Female,Staceyburgh,Low
+customer_105,45,Female,Danielview,High
+customer_106,42,Other,Welchchester,High
+customer_107,66,Male,Chadstad,High
+customer_108,53,Male,Wrightborough,Low
+customer_109,55,Other,Sarahborough,Medium
+customer_110,49,Female,Port Alexis,Medium
+customer_111,22,Other,Brittanyville,Low
+customer_112,28,Other,West Jennifer,Low
+customer_113,67,Male,Lake Bryanview,Medium
+customer_114,53,Female,South Wesley,High
+customer_115,66,Female,New Kyleville,High
+customer_116,69,Male,Sallychester,Medium
+customer_117,33,Female,Lake Jasonshire,Medium
+customer_118,50,Male,Davidstad,Medium
+customer_119,18,Other,Port Andrewport,Low
+customer_120,39,Female,Zimmermanmouth,Low
+customer_121,45,Male,Port Kevinstad,High
+customer_122,42,Male,Kingfurt,Low
+customer_123,22,Female,North Traceystad,Low
+customer_124,36,Female,New Rebecca,Medium
+customer_125,38,Male,Katrinaport,Low
+customer_126,65,Female,Gutierrezfort,Medium
+customer_127,42,Female,Amandafurt,High
+customer_128,50,Other,South Bradleyberg,Low
+customer_129,45,Male,South Morgan,High
+customer_130,58,Female,Dawnview,Low
+customer_131,31,Male,Bowenberg,High
+customer_132,41,Other,Victoriastad,Medium
+customer_133,42,Female,Katherinemouth,Low
+customer_134,37,Female,Lake Matthewfort,High
+customer_135,31,Female,Alyssachester,Low
+customer_136,20,Other,Contrerasville,High
+customer_137,21,Female,Lake Jonathan,High
+customer_138,59,Female,Kingmouth,Medium
+customer_139,45,Other,Ashleystad,Medium
+customer_140,62,Female,Travismouth,Medium
+customer_141,67,Male,Huntton,Medium
+customer_142,31,Male,Sosaton,Low
+customer_143,41,Other,Watkinsmouth,High
+customer_144,30,Male,South Trevorport,High
+customer_145,42,Male,Lindseyport,Medium
+customer_146,60,Male,Morganshire,Medium
+customer_147,64,Other,Port Christinechester,Low
+customer_148,55,Female,Amberville,High
+customer_149,46,Other,Lisaside,Low
+customer_150,26,Male,North Justin,Medium
+customer_151,67,Female,Christineville,Low
+customer_152,61,Female,Gregorybury,Medium
+customer_153,49,Female,Port Melanie,High
+customer_154,68,Male,New Travis,Medium
+customer_155,42,Male,South Christina,Low
+customer_156,49,Male,Port Daniel,Medium
+customer_157,24,Female,East Bruceside,High
+customer_158,48,Male,Phillipsmouth,Low
+customer_159,49,Male,New Rickeyview,Medium
+customer_160,48,Male,Jeremiahborough,Low
+customer_161,28,Female,New Sylviaborough,Low
+customer_162,20,Male,North Anthony,Medium
+customer_163,46,Male,Michelleborough,Low
+customer_164,36,Other,Brandonbury,High
+customer_165,34,Other,Danashire,Medium
+customer_166,59,Female,Lake Matthewmouth,High
+customer_167,34,Other,Alexismouth,Low
+customer_168,67,Other,New Brandy,Low
+customer_169,63,Other,Zunigamouth,Medium
+customer_170,52,Other,Port Donnaberg,Low
+customer_171,63,Male,New Carl,Medium
+customer_172,36,Other,Davishaven,Medium
+customer_173,48,Male,Danielfort,High
+customer_174,24,Male,Collinsview,Medium
+customer_175,41,Female,Port Sarahstad,Medium
+customer_176,39,Female,North John,Medium
+customer_177,32,Male,Walkerville,High
+customer_178,69,Male,West John,Medium
+customer_179,51,Male,Heatherborough,Medium
+customer_180,25,Other,Brandonton,High
+customer_181,23,Male,New Jennifertown,High
+customer_182,43,Male,South Kim,High
+customer_183,65,Female,North Williamfurt,Low
+customer_184,59,Male,Lake Michellemouth,High
+customer_185,69,Female,Perezshire,Low
+customer_186,61,Female,North Christine,Low
+customer_187,55,Male,Maryshire,Low
+customer_188,26,Female,Petersenborough,Low
+customer_189,37,Other,West Miguelton,Medium
+customer_190,37,Other,Donaldsonchester,Medium
+customer_191,53,Male,South Michael,Medium
+customer_192,23,Female,Dianeshire,Low
+customer_193,58,Female,Carolynstad,Low
+customer_194,38,Other,New Lucas,Medium
+customer_195,65,Female,Andrewsshire,Low
+customer_196,49,Male,Lake Kimberlyside,High
+customer_197,59,Female,West Debra,Medium
+customer_198,56,Male,Hernandezside,High
+customer_199,55,Other,Cooleyland,Low
+customer_200,66,Male,South Kyle,High
+customer_201,38,Other,Adamshire,Low
+customer_202,27,Other,Suarezborough,High
+customer_203,30,Female,Robinsonview,High
+customer_204,44,Male,North Samanthashire,Low
+customer_205,70,Female,East Nicholas,Low
+customer_206,49,Other,Fergusonbury,Medium
+customer_207,44,Other,Lake Amyland,Medium
+customer_208,54,Male,Wardfort,High
+customer_209,50,Other,Davisport,Medium
+customer_210,56,Male,Hawkinstown,High
+customer_211,32,Female,Morenoburgh,Low
+customer_212,60,Female,South Michelleborough,Medium
+customer_213,38,Male,West Derekton,High
+customer_214,24,Male,Shawton,High
+customer_215,47,Male,Noahshire,Medium
+customer_216,45,Female,Duarteside,Medium
+customer_217,57,Male,Brianbury,Low
+customer_218,25,Male,South Jamesland,Low
+customer_219,34,Male,New Kathleen,Medium
+customer_220,63,Female,Johnsonside,Medium
+customer_221,42,Other,New Wendy,Low
+customer_222,52,Other,West Steven,High
+customer_223,67,Male,North Eric,Low
+customer_224,58,Other,Ericfort,Medium
+customer_225,62,Other,Nancyhaven,Medium
+customer_226,69,Other,Smithland,Low
+customer_227,68,Female,Lindseychester,High
+customer_228,56,Other,Gibsonborough,Medium
+customer_229,56,Male,Mccallton,Medium
+customer_230,54,Female,Kristenhaven,Medium
+customer_231,25,Male,Perkinstown,Low
+customer_232,26,Female,Biancamouth,High
+customer_233,27,Other,Omartown,Medium
+customer_234,55,Male,East Stephenmouth,Low
+customer_235,29,Female,Jasonmouth,Medium
+customer_236,60,Other,Reginaldfort,Medium
+customer_237,24,Female,South Nicole,Low
+customer_238,30,Male,Lake Kristy,High
+customer_239,19,Other,Petersonside,Medium
+customer_240,38,Male,New Renee,Medium
+customer_241,32,Female,Herringhaven,High
+customer_242,41,Female,Douglasmouth,High
+customer_243,64,Female,Jamesview,Medium
+customer_244,23,Male,Ianbury,Low
+customer_245,33,Female,West Johnshire,Low
+customer_246,37,Male,Erinborough,Medium
+customer_247,51,Other,New Connorstad,High
+customer_248,34,Female,Donaldland,Medium
+customer_249,34,Other,New Sandratown,Medium
+customer_250,18,Female,Thomasmouth,Medium
+customer_251,65,Male,West Justinfurt,High
+customer_252,31,Male,Christineview,Low
+customer_253,20,Female,New William,Low
+customer_254,63,Male,Dianaberg,Low
+customer_255,40,Female,Lake Bryanfurt,Low
+customer_256,31,Other,Matthewmouth,Low
+customer_257,28,Other,Amandaland,High
+customer_258,57,Male,Duartefurt,Medium
+customer_259,20,Other,Matthewshire,High
+customer_260,47,Female,Goodmanfurt,Medium
+customer_261,39,Other,Port David,High
+customer_262,47,Other,South Christineshire,Low
+customer_263,19,Male,East Holly,Low
+customer_264,57,Male,Martinmouth,Medium
+customer_265,66,Other,Veronicahaven,Medium
+customer_266,59,Male,Bridgesmouth,Low
+customer_267,70,Female,Lake Thomasmouth,Low
+customer_268,69,Female,Port Alexisberg,High
+customer_269,28,Other,Port Crystalside,Medium
+customer_270,38,Female,Hendersonbury,Low
+customer_271,54,Female,Port Craigmouth,Medium
+customer_272,59,Other,East Rogerton,High
+customer_273,63,Female,East Danielchester,Low
+customer_274,28,Other,Lake Linda,High
+customer_275,45,Female,Burchtown,Medium
+customer_276,52,Female,Lyonsville,High
+customer_277,21,Other,New Nicole,High
+customer_278,65,Female,Finleyborough,Low
+customer_279,38,Male,Patricktown,Low
+customer_280,64,Female,Benjaminmouth,Low
+customer_281,23,Female,Port Thomasland,High
+customer_282,25,Other,Port Luisport,Low
+customer_283,23,Female,Kimberlyton,Low
+customer_284,49,Other,Port Anna,Medium
+customer_285,38,Male,North Lesliestad,Medium
+customer_286,70,Female,Martinshire,Low
+customer_287,56,Male,Lake Kellyville,Medium
+customer_288,19,Male,East Aliciashire,High
+customer_289,70,Male,East Aliciaside,High
+customer_290,59,Male,New John,Medium
+customer_291,55,Male,Port Loganton,Medium
+customer_292,35,Other,Lake Cody,Medium
+customer_293,52,Male,Irwinmouth,Medium
+customer_294,46,Male,Port Johnburgh,High
+customer_295,38,Female,South Barbaramouth,Medium
+customer_296,22,Other,Rogersville,Medium
+customer_297,34,Female,New Wendyhaven,Medium
+customer_298,69,Other,Stevenmouth,Low
+customer_299,51,Male,East Williamhaven,Medium
+customer_300,61,Female,Lake Kellymouth,Low
+customer_301,31,Other,Moniqueton,High
+customer_302,21,Female,Marymouth,Medium
+customer_303,25,Other,New David,High
+customer_304,58,Female,Lorettastad,Medium
+customer_305,50,Female,South Joseph,High
+customer_306,37,Other,Jenniferbury,Low
+customer_307,20,Male,New Beth,Low
+customer_308,49,Male,North Laurieton,Medium
+customer_309,70,Male,Lake Tracyton,Medium
+customer_310,59,Other,Dawnfort,Medium
+customer_311,57,Male,West Todd,High
+customer_312,59,Female,Whitneyland,Medium
+customer_313,50,Female,Dianeview,High
+customer_314,52,Male,Amberburgh,Low
+customer_315,34,Other,Port Jasonmouth,Medium
+customer_316,18,Other,Saramouth,High
+customer_317,64,Male,South Lauraborough,High
+customer_318,70,Male,Port Jameshaven,High
+customer_319,46,Male,Markchester,Medium
+customer_320,69,Male,Allenfurt,High
+customer_321,67,Other,East Jacob,Medium
+customer_322,20,Male,Harveystad,Medium
+customer_323,50,Female,Port Harold,High
+customer_324,64,Male,Port Danny,High
+customer_325,18,Female,Port Julieport,Medium
+customer_326,24,Female,Dianehaven,High
+customer_327,60,Other,Lake Lindaborough,High
+customer_328,35,Other,Williamsfurt,High
+customer_329,50,Other,Kathrynstad,Medium
+customer_330,52,Other,Lake Danielhaven,Low
+customer_331,57,Male,South Donaldville,Medium
+customer_332,21,Other,Mullinsbury,High
+customer_333,28,Female,Lake Brandon,High
+customer_334,59,Female,North Matthew,Low
+customer_335,28,Male,Gonzalezborough,Low
+customer_336,30,Male,West Scottview,Low
+customer_337,41,Other,Garystad,Medium
+customer_338,49,Male,South Tina,Low
+customer_339,45,Other,Port Bryanville,Medium
+customer_340,55,Other,North Davidview,High
+customer_341,61,Male,New Rachelfort,Low
+customer_342,59,Female,West Mariamouth,Medium
+customer_343,43,Other,Ortizborough,High
+customer_344,18,Other,Kevinborough,Medium
+customer_345,47,Male,Danielshaven,High
+customer_346,69,Male,Port Joshua,Low
+customer_347,19,Female,Margaretburgh,Medium
+customer_348,57,Male,Andersonview,Low
+customer_349,61,Other,Wilsonview,High
+customer_350,30,Female,Rodriguezberg,High
+customer_351,65,Male,Port Christineside,Medium
+customer_352,60,Male,Benitezfort,Low
+customer_353,34,Male,Bruceport,Medium
+customer_354,52,Other,Jamieside,Low
+customer_355,50,Female,Michaelberg,Low
+customer_356,23,Other,South Janechester,Medium
+customer_357,37,Other,West Jeremy,High
+customer_358,44,Female,Morrisonfort,Medium
+customer_359,55,Male,New Marthamouth,High
+customer_360,62,Male,South Michael,Low
+customer_361,37,Female,Cookview,Medium
+customer_362,37,Male,Millershire,Low
+customer_363,56,Female,Saraside,High
+customer_364,52,Female,Franceston,Low
+customer_365,35,Male,West Dylanside,Low
+customer_366,39,Other,East Jean,Medium
+customer_367,61,Female,Melissatown,Medium
+customer_368,41,Female,North Richard,High
+customer_369,43,Female,Barbaratown,High
+customer_370,28,Male,Blankenshiptown,Low
+customer_371,57,Female,New Steven,High
+customer_372,54,Female,Keithville,Medium
+customer_373,33,Male,North Martha,Medium
+customer_374,53,Female,Port Tiffanyview,Low
+customer_375,33,Male,North Albertmouth,Low
+customer_376,61,Male,East Amber,Low
+customer_377,25,Other,New Jasonfort,Medium
+customer_378,38,Other,Williamstad,High
+customer_379,21,Male,Shannonton,Low
+customer_380,50,Male,South Jim,Medium
+customer_381,34,Male,Lisaton,Low
+customer_382,40,Female,South Lauren,High
+customer_383,63,Other,Lake Michaelstad,Low
+customer_384,67,Other,Port David,Medium
+customer_385,38,Male,Jacobport,Medium
+customer_386,40,Female,Johnland,Low
+customer_387,31,Female,Kellymouth,Low
+customer_388,63,Female,Rebekahmouth,Medium
+customer_389,20,Male,Keithborough,Low
+customer_390,70,Female,Lake Kyleside,High
+customer_391,21,Male,Lake Timothy,High
+customer_392,22,Female,South John,High
+customer_393,69,Female,Timothyborough,High
+customer_394,28,Other,Norrismouth,High
+customer_395,41,Female,Thompsonbury,Medium
+customer_396,20,Male,Brittneyside,Medium
+customer_397,49,Other,South Carlbury,High
+customer_398,29,Male,Lake Kathryn,High
+customer_399,38,Male,West Connieberg,Low
+customer_400,57,Male,West Susan,Low
+customer_401,58,Other,West Virginiaview,Low
+customer_402,45,Female,New Bethany,High
+customer_403,33,Male,Lake Stanleyland,Medium
+customer_404,22,Male,Zacharychester,Low
+customer_405,19,Other,South Mallory,Low
+customer_406,55,Male,North Rogerborough,High
+customer_407,23,Female,Tiffanyborough,High
+customer_408,31,Female,Englishland,High
+customer_409,65,Male,Mckeemouth,Low
+customer_410,48,Other,Darrellville,Low
+customer_411,29,Male,Port Clayton,Medium
+customer_412,66,Male,Hallfort,High
+customer_413,21,Other,North Robertview,High
+customer_414,39,Male,North Sarahport,Medium
+customer_415,30,Female,Brianburgh,High
+customer_416,49,Other,North Juanchester,High
+customer_417,60,Other,North Donburgh,Low
+customer_418,53,Other,New Tinaburgh,Low
+customer_419,33,Female,Johnnyport,Low
+customer_420,26,Female,Vancemouth,Medium
+customer_421,49,Female,South Gina,Low
+customer_422,61,Other,South Danastad,Low
+customer_423,58,Female,New Justin,Low
+customer_424,63,Other,Lake Michaeltown,High
+customer_425,61,Female,Port Eric,Medium
+customer_426,25,Other,Fernandezfort,Low
+customer_427,30,Other,Ericbury,Low
+customer_428,51,Male,Lake Virginiaport,Medium
+customer_429,28,Male,New David,Low
+customer_430,67,Male,Aaronshire,Medium
+customer_431,40,Male,Wrightbury,Medium
+customer_432,42,Other,Amandaburgh,High
+customer_433,34,Male,Kellihaven,High
+customer_434,34,Other,Lake Cody,Medium
+customer_435,37,Other,Sanchezfort,Low
+customer_436,51,Other,Port Ashleyville,High
+customer_437,33,Other,Kimberlychester,Low
+customer_438,69,Male,Port Peter,High
+customer_439,54,Other,Lake Randy,Medium
+customer_440,40,Other,South Erica,Medium
+customer_441,45,Female,Jenniferville,Low
+customer_442,21,Male,Bellstad,Medium
+customer_443,66,Male,West Christina,Medium
+customer_444,34,Male,Jeremyfurt,Low
+customer_445,36,Other,South Jose,High
+customer_446,42,Male,Anthonybury,High
+customer_447,37,Male,Port Melissafurt,Low
+customer_448,52,Female,Glennton,Low
+customer_449,64,Male,Port Scott,High
+customer_450,51,Female,Kevinchester,Medium
+customer_451,38,Male,Lake William,Medium
+customer_452,40,Female,Smithmouth,High
+customer_453,52,Other,North Brianside,Low
+customer_454,69,Female,East Ryantown,Medium
+customer_455,42,Other,New Deanna,Medium
+customer_456,25,Male,Amandafurt,Medium
+customer_457,65,Other,Danielshire,Low
+customer_458,32,Female,Johnnyview,High
+customer_459,38,Male,Lake Laurenhaven,Low
+customer_460,38,Male,Walterstad,Low
+customer_461,39,Male,South Zachary,High
+customer_462,27,Female,East Stephanieborough,High
+customer_463,36,Female,Michelleburgh,High
+customer_464,61,Male,Jeffreymouth,High
+customer_465,31,Female,Port Gailchester,High
+customer_466,67,Other,East Valerie,Low
+customer_467,43,Male,Port Justinport,Medium
+customer_468,47,Other,North Matthewville,Medium
+customer_469,63,Female,Juliefort,Medium
+customer_470,27,Female,Chambersport,Medium
+customer_471,48,Female,Stephensonville,Low
+customer_472,37,Male,Port Heidiport,Low
+customer_473,59,Other,West Dannyville,High
+customer_474,54,Male,New Victoria,Low
+customer_475,44,Female,South Aaronton,Medium
+customer_476,35,Other,Stoneburgh,Low
+customer_477,67,Female,Adamsburgh,Medium
+customer_478,32,Female,New Joseph,Low
+customer_479,52,Male,Floresside,High
+customer_480,50,Other,West Brucechester,Medium
+customer_481,27,Other,Haasland,Medium
+customer_482,30,Male,Rojashaven,High
+customer_483,47,Male,Angelaport,Low
+customer_484,48,Other,Colemanfort,Medium
+customer_485,60,Male,Burkehaven,Medium
+customer_486,59,Female,West Cassandra,High
+customer_487,39,Male,New Brandon,Medium
+customer_488,60,Male,Port James,Low
+customer_489,54,Female,Lake George,Medium
+customer_490,67,Female,Hickmanberg,Low
+customer_491,32,Other,New Miguelmouth,Medium
+customer_492,49,Female,Madelineton,Low
+customer_493,18,Female,Amberland,High
+customer_494,42,Female,Riceborough,Low
+customer_495,44,Male,Sheilafurt,Medium
+customer_496,32,Other,Peckport,Medium
+customer_497,68,Male,West Josephville,Low
+customer_498,69,Other,Sabrinaborough,Medium
+customer_499,54,Other,West Jerry,Medium
+customer_500,36,Other,Jefferyshire,High
+customer_501,60,Other,West Thomasburgh,Low
+customer_502,50,Female,Lindamouth,Medium
+customer_503,19,Other,Michelleview,Medium
+customer_504,24,Female,Kimport,Low
+customer_505,19,Other,North Gary,High
+customer_506,26,Female,New Rebecca,Low
+customer_507,33,Female,Parkhaven,Medium
+customer_508,36,Other,East Michael,Medium
+customer_509,49,Female,Lake Kathrynmouth,Low
+customer_510,60,Male,New Christineland,Low
+customer_511,21,Male,East Kimberly,Low
+customer_512,69,Female,Wheelerfort,Medium
+customer_513,67,Female,Port Sara,Low
+customer_514,55,Female,Kurtfurt,Medium
+customer_515,47,Female,Justinville,High
+customer_516,56,Other,New Veronicaland,Medium
+customer_517,34,Female,Johnshire,Low
+customer_518,60,Female,South Alejandro,Medium
+customer_519,45,Female,South Crystal,Medium
+customer_520,38,Male,Port Heatherchester,Low
+customer_521,69,Other,East Joshuahaven,Medium
+customer_522,51,Other,East Sheri,Low
+customer_523,26,Female,Lake Natalie,Medium
+customer_524,52,Male,Lake Vincent,Medium
+customer_525,46,Male,Joelton,High
+customer_526,28,Other,West Austin,Low
+customer_527,32,Female,Lake Lisaton,High
+customer_528,34,Other,New Tony,High
+customer_529,68,Female,Murphychester,High
+customer_530,67,Other,North Wesleymouth,Low
+customer_531,48,Female,New Frances,Medium
+customer_532,38,Female,Port Sherriside,Low
+customer_533,36,Male,Beverlyville,High
+customer_534,52,Male,Ronaldview,Medium
+customer_535,49,Other,Youngberg,High
+customer_536,69,Female,East Tara,Medium
+customer_537,46,Other,New Robert,Low
+customer_538,43,Female,South Josephton,Medium
+customer_539,22,Female,Hurleyfort,Low
+customer_540,31,Female,New Johnborough,High
+customer_541,33,Male,Christophermouth,Medium
+customer_542,56,Other,North Robertberg,Medium
+customer_543,55,Other,Proctortown,Medium
+customer_544,24,Other,New Davidport,High
+customer_545,32,Other,Adamsfurt,Medium
+customer_546,21,Female,North Amberstad,Low
+customer_547,51,Other,West Gabriel,High
+customer_548,25,Female,Joshuaburgh,Low
+customer_549,41,Other,Juanmouth,Medium
+customer_550,55,Male,Kimberlyton,Low
+customer_551,32,Other,Lake Deborah,Medium
+customer_552,19,Female,Lake Tammy,Medium
+customer_553,45,Other,South Sydneyberg,High
+customer_554,58,Male,Walkerport,Medium
+customer_555,54,Female,East Crystal,High
+customer_556,48,Other,New Dianefort,Low
+customer_557,37,Male,Port Cindyview,High
+customer_558,33,Male,Kimberlyborough,Medium
+customer_559,26,Other,Rodriguezfort,High
+customer_560,41,Female,Michealtown,High
+customer_561,44,Other,Melissaview,High
+customer_562,66,Female,New Thomasview,Medium
+customer_563,21,Male,East Erika,High
+customer_564,57,Female,Camposmouth,Low
+customer_565,36,Male,South Angelica,Low
+customer_566,25,Male,Jessicatown,Low
+customer_567,70,Male,East Jacobberg,Low
+customer_568,21,Other,Charlesbury,Medium
+customer_569,44,Male,New Stephanieton,Medium
+customer_570,69,Female,Port Tanya,Medium
+customer_571,68,Male,Kendraview,Medium
+customer_572,36,Other,Colleenbury,Low
+customer_573,23,Other,East Ronald,High
+customer_574,31,Male,Lopeztown,Low
+customer_575,28,Male,Port David,Medium
+customer_576,29,Male,Jamesport,Medium
+customer_577,42,Female,Bullockside,Medium
+customer_578,66,Male,Reyesburgh,Low
+customer_579,70,Male,Oconnormouth,Medium
+customer_580,57,Other,Kaylaview,High
+customer_581,57,Other,Lake Richard,Low
+customer_582,53,Other,South Paul,Medium
+customer_583,68,Other,Port Kevin,Medium
+customer_584,32,Other,Hatfieldburgh,Low
+customer_585,31,Other,Julieberg,Medium
+customer_586,43,Male,East Meaganton,Medium
+customer_587,64,Other,Rhondaberg,High
+customer_588,52,Other,New Angelastad,Low
+customer_589,43,Male,Watersport,Medium
+customer_590,68,Male,East Robert,Low
+customer_591,41,Male,Sherrichester,Low
+customer_592,59,Other,Collinston,Medium
+customer_593,36,Other,Burchstad,High
+customer_594,20,Other,North Dana,Low
+customer_595,49,Other,Huynhville,Medium
+customer_596,70,Male,South David,Low
+customer_597,36,Female,Loristad,High
+customer_598,47,Female,East Debraland,Low
+customer_599,65,Male,North Danielle,High
+customer_600,69,Male,Alexandershire,High
+customer_601,58,Female,Bonniemouth,Low
+customer_602,54,Male,Weberborough,Low
+customer_603,27,Female,New Jonathanton,High
+customer_604,62,Male,Fullermouth,Medium
+customer_605,56,Female,Wilsonborough,High
+customer_606,27,Other,South Juliechester,Low
+customer_607,39,Male,Carrtown,Medium
+customer_608,33,Female,Jensenchester,High
+customer_609,52,Female,Cowanstad,Medium
+customer_610,70,Female,Port Tinaberg,High
+customer_611,60,Female,Kimberlyburgh,High
+customer_612,52,Male,New Jenniferview,High
+customer_613,53,Male,Taylorville,Medium
+customer_614,54,Male,New Michelleland,Low
+customer_615,42,Other,North Alex,High
+customer_616,49,Other,West Jaredshire,Medium
+customer_617,19,Male,Mackton,High
+customer_618,51,Male,Port Robertberg,Low
+customer_619,41,Other,Millerberg,High
+customer_620,50,Female,Josephberg,High
+customer_621,68,Female,West Robertton,Low
+customer_622,69,Male,Port Dianaton,Low
+customer_623,47,Female,Port Jeffreymouth,Medium
+customer_624,42,Male,North Samantha,Medium
+customer_625,40,Female,Julieburgh,Low
+customer_626,51,Female,West Cynthia,Low
+customer_627,55,Male,New Christinabury,Medium
+customer_628,40,Other,New Jason,Low
+customer_629,53,Male,New Taylorport,Medium
+customer_630,35,Other,New Cameronville,Medium
+customer_631,37,Other,Shannonmouth,Low
+customer_632,42,Male,New Adam,High
+customer_633,27,Male,Haasfurt,Medium
+customer_634,69,Male,Orrmouth,Low
+customer_635,57,Male,Port Maureenmouth,High
+customer_636,59,Other,Davidfurt,Low
+customer_637,49,Male,Michaeltown,Medium
+customer_638,41,Other,Stephaniefort,High
+customer_639,37,Other,Andersonshire,Medium
+customer_640,37,Other,West Juliehaven,High
+customer_641,43,Other,New Edwardtown,Low
+customer_642,58,Other,Austinland,Low
+customer_643,18,Female,Lake Michaelchester,Medium
+customer_644,60,Male,Wallburgh,Medium
+customer_645,44,Other,North Joseph,Medium
+customer_646,42,Male,South Joseph,Low
+customer_647,27,Other,Ashleyside,Low
+customer_648,35,Other,East Robin,High
+customer_649,23,Male,New Brian,Medium
+customer_650,67,Other,West Belinda,High
+customer_651,23,Female,Heatherchester,Medium
+customer_652,51,Male,Markbury,Medium
+customer_653,47,Female,Daveport,High
+customer_654,21,Female,West Ebonyside,High
+customer_655,66,Female,Danieltown,Low
+customer_656,41,Male,Port Tiffany,High
+customer_657,26,Female,Lake Benjamin,High
+customer_658,49,Female,East Timothyhaven,Low
+customer_659,31,Male,South Gary,Medium
+customer_660,61,Male,New Edwardbury,High
+customer_661,28,Other,Bushhaven,Medium
+customer_662,68,Male,Anthonyhaven,Low
+customer_663,50,Other,Rodriguezmouth,Medium
+customer_664,22,Female,East Judystad,Low
+customer_665,58,Other,North Erinhaven,Medium
+customer_666,20,Female,Lake Timothy,Low
+customer_667,57,Female,Sarahton,High
+customer_668,60,Female,Palmerberg,Medium
+customer_669,64,Other,Johnsonview,Medium
+customer_670,70,Other,New Candaceville,High
+customer_671,37,Female,Wattsport,Low
+customer_672,24,Other,East Melissafort,Low
+customer_673,59,Male,Walkerchester,Medium
+customer_674,35,Male,Parsonsmouth,Low
+customer_675,39,Other,South Joshua,Low
+customer_676,27,Female,Port Adrian,Low
+customer_677,35,Male,Perezfurt,High
+customer_678,69,Other,North Sonya,High
+customer_679,31,Female,Morrowview,Medium
+customer_680,19,Female,East Cynthiamouth,Low
+customer_681,27,Male,Donnatown,Medium
+customer_682,33,Male,Hesshaven,Medium
+customer_683,50,Male,Aguilarton,Low
+customer_684,56,Female,Joville,High
+customer_685,47,Other,South Jacobshire,Medium
+customer_686,43,Male,Wallerfort,Low
+customer_687,65,Other,North Wesleyport,Medium
+customer_688,32,Other,Lake Johnfort,Low
+customer_689,63,Other,East Chrisview,High
+customer_690,69,Other,Johnburgh,High
+customer_691,62,Male,West David,High
+customer_692,47,Female,New Victor,High
+customer_693,30,Other,South Annborough,High
+customer_694,20,Male,Port Paul,High
+customer_695,18,Other,West Jamesfort,Low
+customer_696,59,Female,Port Sarahside,Medium
+customer_697,34,Female,New Laurafort,High
+customer_698,51,Female,Stephenton,Low
+customer_699,40,Male,Laurenhaven,High
+customer_700,52,Other,East Stephaniechester,Low
+customer_701,53,Other,Port Dustin,Medium
+customer_702,49,Male,Desireefort,High
+customer_703,65,Other,New Sergiomouth,Low
+customer_704,29,Female,Curtischester,Low
+customer_705,61,Female,Port Nicole,Medium
+customer_706,58,Female,Port Randy,High
+customer_707,63,Male,New Chelseafort,Low
+customer_708,54,Other,Smithland,High
+customer_709,61,Male,North Johnfort,High
+customer_710,67,Male,Laurenside,Medium
+customer_711,20,Male,Riosborough,Low
+customer_712,58,Other,Lake Andrew,Low
+customer_713,28,Female,Connerhaven,High
+customer_714,67,Other,New Toddfort,Low
+customer_715,26,Female,North Perry,High
+customer_716,68,Male,Lake Summer,Medium
+customer_717,70,Other,New Karen,High
+customer_718,24,Female,West Alyssahaven,Medium
+customer_719,59,Female,South Laura,High
+customer_720,43,Female,Kelliton,Low
+customer_721,51,Female,Lake Chadborough,Low
+customer_722,37,Male,West Evanland,Medium
+customer_723,31,Other,South Carrie,Low
+customer_724,23,Female,North Joseph,Medium
+customer_725,45,Male,West Sheila,High
+customer_726,35,Male,Lake Jerry,High
+customer_727,64,Other,West Stephanieberg,Medium
+customer_728,55,Male,West Davidtown,Low
+customer_729,53,Other,South Shari,Low
+customer_730,63,Male,South Christopherchester,Medium
+customer_731,27,Male,Hartview,High
+customer_732,42,Other,Lake Robertville,Low
+customer_733,23,Other,Marshshire,Medium
+customer_734,31,Female,Robertmouth,Low
+customer_735,61,Female,South Robertmouth,High
+customer_736,65,Female,Sharimouth,Low
+customer_737,19,Other,Matthewfort,High
+customer_738,34,Female,Mirandahaven,High
+customer_739,54,Male,Oconnellmouth,Low
+customer_740,64,Male,East Dennishaven,Low
+customer_741,52,Other,Reynoldsfort,Low
+customer_742,33,Male,East Roseburgh,Low
+customer_743,70,Other,Matthewshaven,High
+customer_744,33,Other,Bethmouth,Low
+customer_745,20,Male,West Dustin,Medium
+customer_746,21,Male,North Denise,Low
+customer_747,63,Male,West Justin,Medium
+customer_748,33,Male,West Loriview,Medium
+customer_749,26,Other,Lake Megan,Low
+customer_750,65,Male,Derrickmouth,High
+customer_751,49,Other,South Alexis,Low
+customer_752,36,Male,North Bryanfort,Low
+customer_753,61,Female,Port Stephen,Medium
+customer_754,48,Other,Danielburgh,Low
+customer_755,37,Other,Torresville,Medium
+customer_756,32,Male,West Lynnport,Low
+customer_757,62,Female,Jeffreyfort,Low
+customer_758,62,Female,Rodriguezbury,Low
+customer_759,46,Other,Port Kevin,High
+customer_760,65,Female,Lake Georgeland,Medium
+customer_761,18,Female,West William,High
+customer_762,62,Other,West Melaniemouth,Low
+customer_763,49,Female,Emilyland,High
+customer_764,51,Female,South Josephview,Medium
+customer_765,55,Female,Williamberg,High
+customer_766,25,Other,Loganland,Medium
+customer_767,25,Female,New Mathew,Medium
+customer_768,20,Female,Madisonmouth,Low
+customer_769,22,Female,Andrewborough,Low
+customer_770,42,Male,Douglasside,High
+customer_771,57,Male,South Waltermouth,Low
+customer_772,57,Other,Chandlermouth,High
+customer_773,29,Female,Lake Davidton,Medium
+customer_774,48,Other,North Angelicaside,Medium
+customer_775,52,Female,Port Tiffany,High
+customer_776,24,Other,North Jessica,Low
+customer_777,29,Female,South Virginia,Low
+customer_778,25,Other,Stoneport,High
+customer_779,64,Female,Robbinsborough,Medium
+customer_780,60,Female,Harveystad,Low
+customer_781,60,Female,South Parkerborough,Low
+customer_782,62,Male,Lake Michelleborough,High
+customer_783,43,Male,Brownchester,Medium
+customer_784,27,Other,Hernandezview,High
+customer_785,53,Female,North Hollymouth,High
+customer_786,45,Male,Doughertyview,Low
+customer_787,39,Male,North Jacob,High
+customer_788,69,Male,South Carolinemouth,Low
+customer_789,31,Female,Lake Richard,Medium
+customer_790,65,Female,North Coleside,High
+customer_791,39,Male,New Williamchester,High
+customer_792,21,Male,Melendezchester,Medium
+customer_793,34,Other,Veronicastad,Low
+customer_794,24,Male,Port Erin,High
+customer_795,42,Female,South Melissa,Medium
+customer_796,41,Female,Lake Jacobmouth,Low
+customer_797,56,Other,South John,Medium
+customer_798,60,Female,West Mary,Medium
+customer_799,42,Other,Danielletown,Medium
+customer_800,63,Other,Melissaborough,High
+customer_801,32,Male,Lake Gabrielle,High
+customer_802,63,Other,Keyhaven,Low
+customer_803,41,Male,New Maryborough,Medium
+customer_804,63,Female,Danielshire,Low
+customer_805,35,Male,South Jenniferside,Low
+customer_806,64,Other,Cranechester,Low
+customer_807,56,Female,Yodermouth,High
+customer_808,21,Male,Kimborough,Medium
+customer_809,20,Other,South Shawn,Low
+customer_810,30,Male,Ashleyport,High
+customer_811,24,Male,Deniseton,High
+customer_812,53,Male,Lake Joseph,Low
+customer_813,54,Other,Jamesberg,Low
+customer_814,46,Other,Port Sophia,High
+customer_815,61,Male,Lake Charlene,Low
+customer_816,58,Other,Noahbury,Low
+customer_817,48,Male,North Alex,Low
+customer_818,40,Female,Paulport,Low
+customer_819,24,Male,Loganview,High
+customer_820,32,Male,Mckeeside,Medium
+customer_821,48,Other,Port Patrick,High
+customer_822,30,Female,Dylanchester,Low
+customer_823,69,Male,Brittanymouth,Low
+customer_824,59,Other,Anthonyshire,High
+customer_825,65,Male,Kimmouth,Low
+customer_826,19,Other,Port Christineborough,Medium
+customer_827,49,Other,Davistown,Medium
+customer_828,67,Male,Johnsonland,High
+customer_829,21,Other,North Jason,High
+customer_830,36,Male,Port Billychester,Medium
+customer_831,49,Male,Justinmouth,High
+customer_832,23,Female,Abbottview,High
+customer_833,42,Female,North Misty,Low
+customer_834,52,Female,Lake Jadeview,Low
+customer_835,24,Female,Smithberg,High
+customer_836,68,Other,North Dylan,Low
+customer_837,32,Male,Pattersonhaven,Medium
+customer_838,67,Male,Cooperport,Low
+customer_839,34,Male,Ericborough,Low
+customer_840,21,Male,Jamesland,Low
+customer_841,42,Female,South Cherylshire,Low
+customer_842,20,Female,South Andrewville,High
+customer_843,58,Male,Julietown,Medium
+customer_844,41,Female,Alanhaven,High
+customer_845,23,Female,East Terrance,Medium
+customer_846,31,Female,Jordanton,Medium
+customer_847,40,Female,New Vanessa,Low
+customer_848,32,Male,Port Steven,High
+customer_849,45,Male,Monicaberg,High
+customer_850,51,Female,New Melissaburgh,High
+customer_851,24,Other,Lake Kimberly,High
+customer_852,26,Other,West Patrickchester,Medium
+customer_853,37,Other,North Kathy,Medium
+customer_854,62,Other,Richardstad,Medium
+customer_855,56,Male,Wendymouth,Low
+customer_856,29,Female,Beltranton,High
+customer_857,70,Other,Lauraland,High
+customer_858,64,Male,Elizabethtown,Medium
+customer_859,35,Other,Lake Lisaburgh,Low
+customer_860,60,Male,Port Jennabury,High
+customer_861,55,Other,New Kevinburgh,High
+customer_862,55,Other,Timothymouth,Low
+customer_863,18,Other,Robertport,Medium
+customer_864,30,Female,Lake Damon,High
+customer_865,47,Other,East Johnnytown,Low
+customer_866,61,Other,North Emily,Medium
+customer_867,68,Male,South Kevin,Low
+customer_868,35,Female,South Catherinestad,High
+customer_869,27,Male,Vincentburgh,High
+customer_870,18,Male,South Donaldborough,Low
+customer_871,24,Other,Wilsonchester,Medium
+customer_872,59,Male,New Justinstad,Medium
+customer_873,52,Other,Harrellburgh,Low
+customer_874,43,Male,Hornland,Low
+customer_875,25,Other,Lake Maurice,High
+customer_876,19,Female,Kyleton,Low
+customer_877,49,Male,Wandaburgh,Medium
+customer_878,63,Male,West Samanthachester,Low
+customer_879,35,Other,Foleychester,High
+customer_880,55,Other,Edwinchester,Low
+customer_881,34,Male,Kingburgh,Low
+customer_882,21,Other,Bonillamouth,High
+customer_883,30,Other,Port Joshuamouth,High
+customer_884,65,Female,Reedfurt,Medium
+customer_885,62,Male,North Michael,Medium
+customer_886,34,Female,East Colleenview,High
+customer_887,58,Other,South Katrina,High
+customer_888,59,Female,East Andrewchester,Low
+customer_889,66,Male,Lake Deborah,Low
+customer_890,62,Other,Johnsonburgh,High
+customer_891,37,Female,Smithhaven,High
+customer_892,65,Other,Edwardton,Medium
+customer_893,49,Female,East Carrie,Low
+customer_894,70,Other,Thomasberg,Medium
+customer_895,69,Other,East Toddbury,Medium
+customer_896,53,Female,Markmouth,High
+customer_897,55,Female,Port Anthonyfort,Medium
+customer_898,41,Female,Chavezborough,High
+customer_899,38,Other,New Kristen,Low
+customer_900,50,Female,Janeborough,Low
+customer_901,64,Male,North Jessicaborough,Medium
+customer_902,61,Female,Cynthiaport,Low
+customer_903,43,Male,North Kevinfurt,Low
+customer_904,54,Female,West Briannaville,High
+customer_905,34,Male,West Michaelmouth,Medium
+customer_906,65,Female,Jeremyview,Low
+customer_907,52,Other,Kendraton,Medium
+customer_908,66,Male,Sarahburgh,Medium
+customer_909,30,Female,Thomaston,High
+customer_910,35,Male,Christinefurt,High
+customer_911,20,Male,Lake Emily,Low
+customer_912,68,Male,New Christopher,Medium
+customer_913,56,Male,Boydmouth,Low
+customer_914,55,Other,Lake Maria,Low
+customer_915,41,Other,South Jesseside,High
+customer_916,55,Female,New Jameston,High
+customer_917,24,Other,Nelsonshire,Medium
+customer_918,45,Female,Lake Katelyn,Medium
+customer_919,55,Other,Carterburgh,High
+customer_920,41,Male,Elizabethville,Low
+customer_921,20,Other,East Robert,Medium
+customer_922,70,Female,South Timothyhaven,Medium
+customer_923,28,Female,East Stevenport,High
+customer_924,30,Male,Judystad,Medium
+customer_925,57,Other,Estesshire,Medium
+customer_926,51,Male,Reynoldsfort,Medium
+customer_927,55,Female,Phillipsborough,Low
+customer_928,31,Female,Crosbymouth,Medium
+customer_929,35,Female,Brookshaven,Medium
+customer_930,52,Female,Christopherberg,High
+customer_931,34,Other,Jenkinsport,Low
+customer_932,55,Male,Lukestad,High
+customer_933,52,Other,Lake Dennis,Medium
+customer_934,24,Male,Lake Mallory,Medium
+customer_935,54,Female,Fordhaven,High
+customer_936,25,Other,Lake Jeffrey,Low
+customer_937,61,Male,Jonesberg,Medium
+customer_938,52,Male,Port Ryanmouth,High
+customer_939,25,Other,Port Brianfurt,Low
+customer_940,66,Male,Randallborough,High
+customer_941,62,Male,Brianfort,Medium
+customer_942,21,Other,Walkerstad,High
+customer_943,58,Female,North Ericstad,High
+customer_944,55,Female,New Martinfurt,Medium
+customer_945,45,Other,East Haleybury,Low
+customer_946,59,Other,New Angelaland,Medium
+customer_947,36,Female,South Paulton,Medium
+customer_948,61,Male,Robertshire,Medium
+customer_949,44,Female,Bensonton,Medium
+customer_950,69,Male,Georgehaven,High
+customer_951,52,Female,East Micheleburgh,High
+customer_952,31,Male,New Reneefort,Medium
+customer_953,40,Female,Bakerburgh,High
+customer_954,38,Female,Brianchester,High
+customer_955,35,Female,East Tomfurt,High
+customer_956,65,Male,North Elizabethburgh,Medium
+customer_957,55,Other,Franklinhaven,High
+customer_958,38,Female,West Maria,High
+customer_959,61,Other,South Hector,High
+customer_960,54,Male,Wrightville,Low
+customer_961,69,Male,Davisland,Low
+customer_962,38,Female,East Brookefort,High
+customer_963,60,Other,East Richardstad,High
+customer_964,20,Female,South Laurashire,High
+customer_965,32,Male,Wattsshire,Medium
+customer_966,64,Male,Taylorbury,High
+customer_967,64,Other,West Andrew,Low
+customer_968,29,Male,East Stacy,Low
+customer_969,40,Other,South Dennis,Low
+customer_970,39,Male,Jasminetown,Low
+customer_971,20,Male,Staceyhaven,Low
+customer_972,49,Female,Port Teresa,Low
+customer_973,64,Female,Johnton,Low
+customer_974,57,Male,Jillville,Low
+customer_975,69,Female,Henryport,Medium
+customer_976,24,Male,Danielview,Low
+customer_977,23,Female,Lake Travisfurt,Low
+customer_978,58,Other,Port David,High
+customer_979,60,Female,Martinezfort,High
+customer_980,52,Other,New Robert,Medium
+customer_981,18,Female,North Johnbury,High
+customer_982,55,Male,Peterport,High
+customer_983,20,Other,Lake Rhondastad,Medium
+customer_984,39,Male,Watkinsstad,Medium
+customer_985,65,Other,West Heathermouth,Medium
+customer_986,47,Male,Port Kevin,Low
+customer_987,56,Other,Brandishire,Medium
+customer_988,24,Male,Haleyhaven,High
+customer_989,33,Other,Reneemouth,Medium
+customer_990,66,Female,Sarahton,Medium
+customer_991,43,Male,Lake Jessicabury,Medium
+customer_992,26,Other,Gloriaborough,High
+customer_993,67,Female,Lisafort,Low
+customer_994,32,Male,New Amy,Medium
+customer_995,43,Female,West Steven,Medium
+customer_996,27,Male,West Sarah,Low
+customer_997,68,Male,Dustinshire,Low
+customer_998,18,Female,West Janetstad,High
+customer_999,34,Male,South Danielle,High
+customer_1000,56,Female,Stephaniebury,High
+customer_1001,20,Male,East Maryside,Low
+customer_1002,45,Male,New Benjamintown,Low
+customer_1003,65,Female,South Peter,Medium
+customer_1004,67,Other,Lake Travis,High
+customer_1005,39,Other,Pagehaven,High
+customer_1006,46,Other,South Shelley,Medium
+customer_1007,69,Female,Micheleland,Medium
+customer_1008,65,Other,West Seanhaven,High
+customer_1009,68,Female,Bradleyborough,Low
+customer_1010,22,Male,New Tiffanyton,High
+customer_1011,22,Female,Danielview,Low
+customer_1012,19,Other,Kennedymouth,High
+customer_1013,59,Other,Danaville,Medium
+customer_1014,42,Male,Kimberlymouth,Medium
+customer_1015,47,Male,East Michaelberg,Medium
+customer_1016,58,Female,West Deborah,Medium
+customer_1017,48,Male,Novakchester,High
+customer_1018,49,Female,Port Kristen,Medium
+customer_1019,35,Other,North Kristinhaven,Low
+customer_1020,41,Other,Karenton,Low
+customer_1021,52,Other,Davidmouth,Medium
+customer_1022,37,Male,Lake Jeremyborough,High
+customer_1023,41,Female,Port Joseph,Medium
+customer_1024,48,Male,East Dean,Low
+customer_1025,36,Female,Ethanfort,High
+customer_1026,46,Female,West Melissafort,Medium
+customer_1027,41,Female,New Stevenberg,High
+customer_1028,43,Female,Port Pamelamouth,Low
+customer_1029,60,Male,New Charles,High
+customer_1030,47,Male,East James,High
+customer_1031,24,Female,Port Jessicaton,Low
+customer_1032,44,Female,New Robertshire,High
+customer_1033,31,Male,Lauraville,Medium
+customer_1034,61,Male,North Jessetown,Low
+customer_1035,57,Other,Amandafurt,Medium
+customer_1036,31,Female,Taylorport,High
+customer_1037,48,Female,Hollychester,High
+customer_1038,42,Female,Lake Jessicaberg,Medium
+customer_1039,35,Male,Taylorhaven,Medium
+customer_1040,20,Other,Markland,High
+customer_1041,18,Female,North Daniel,Low
+customer_1042,42,Male,New Jacob,Low
+customer_1043,32,Other,North Shane,Medium
+customer_1044,29,Male,Kanebury,Medium
+customer_1045,62,Other,West Markfurt,Medium
+customer_1046,45,Other,Fishershire,Medium
+customer_1047,40,Other,Lake Edward,Medium
+customer_1048,56,Other,Lake Timothy,Medium
+customer_1049,50,Female,South Kristinebury,Medium
+customer_1050,61,Other,Jodyfort,Medium
+customer_1051,32,Female,Lake Jamesshire,High
+customer_1052,40,Other,Bradfordstad,Low
+customer_1053,25,Male,Lake Kim,High
+customer_1054,65,Female,Colemanland,Low
+customer_1055,48,Male,South Mary,Low
+customer_1056,44,Other,East Matthew,Low
+customer_1057,36,Male,Elizabethmouth,Low
+customer_1058,52,Male,West Melissa,Medium
+customer_1059,19,Other,Lisaton,High
+customer_1060,31,Other,Howebury,Low
+customer_1061,43,Other,Franciscoport,High
+customer_1062,18,Other,New Jessica,Medium
+customer_1063,46,Male,North Isaac,High
+customer_1064,52,Male,East Bethany,High
+customer_1065,25,Other,Grayshire,Low
+customer_1066,64,Other,South Edward,High
+customer_1067,55,Male,New Catherineburgh,Medium
+customer_1068,59,Other,Charlotteshire,High
+customer_1069,53,Female,Lake Brandy,Low
+customer_1070,60,Male,East Jonathanburgh,Medium
+customer_1071,20,Other,Vargasstad,High
+customer_1072,50,Other,Scottborough,Low
+customer_1073,50,Other,North Raymond,High
+customer_1074,30,Female,Jessicastad,Low
+customer_1075,40,Female,Mosstown,Low
+customer_1076,65,Male,Patrickstad,High
+customer_1077,30,Other,Allenchester,Low
+customer_1078,28,Other,Williamshaven,Medium
+customer_1079,31,Other,Jessicaville,Low
+customer_1080,55,Other,New Christopher,Medium
+customer_1081,56,Female,Nicholaston,Medium
+customer_1082,26,Female,Hannahmouth,Low
+customer_1083,32,Other,Smithmouth,High
+customer_1084,38,Male,East Davidbury,High
+customer_1085,47,Female,Port Sandy,Low
+customer_1086,21,Other,Lawrenceport,Low
+customer_1087,58,Other,Banksmouth,Low
+customer_1088,39,Other,Robinsonside,High
+customer_1089,21,Male,Karaton,High
+customer_1090,64,Female,Lake Scottchester,Low
+customer_1091,38,Male,New Lauren,Low
+customer_1092,43,Male,Rothtown,Medium
+customer_1093,47,Other,New Kylemouth,Medium
+customer_1094,34,Female,Rowefurt,High
+customer_1095,36,Female,Laurachester,High
+customer_1096,34,Female,Lake Iantown,High
+customer_1097,31,Other,Lake Stacybury,High
+customer_1098,26,Female,East Eric,High
+customer_1099,45,Male,South Mariaview,Low
+customer_1100,64,Male,Smithberg,Medium
+customer_1101,34,Male,Hoodhaven,Low
+customer_1102,65,Other,New Charles,High
+customer_1103,29,Male,New Christopher,Medium
+customer_1104,52,Female,New Michaeltown,Medium
+customer_1105,31,Male,Jonathanfort,Medium
+customer_1106,29,Female,East Markland,Medium
+customer_1107,65,Female,West Brandontown,Medium
+customer_1108,52,Other,East Jenniferchester,Medium
+customer_1109,53,Female,Robertfort,High
+customer_1110,64,Male,Heatherville,Medium
+customer_1111,39,Female,Port Joel,Medium
+customer_1112,20,Male,South Thomasbury,Medium
+customer_1113,46,Other,Paulaport,High
+customer_1114,32,Male,Port Angela,Low
+customer_1115,30,Female,Michelleville,High
+customer_1116,62,Male,West Peggy,Medium
+customer_1117,56,Female,New Elizabethburgh,High
+customer_1118,48,Female,South Brandyfort,High
+customer_1119,18,Other,West Danielmouth,High
+customer_1120,66,Male,Walshfurt,Low
+customer_1121,51,Other,South Johnathanburgh,Medium
+customer_1122,46,Female,Callahanton,Medium
+customer_1123,19,Other,Lake Edwinbury,Low
+customer_1124,33,Other,Alexshire,High
+customer_1125,44,Other,Smithbury,Medium
+customer_1126,57,Female,Hillfurt,High
+customer_1127,29,Other,South Mary,Low
+customer_1128,32,Male,Joelshire,Medium
+customer_1129,62,Male,Danielchester,Low
+customer_1130,35,Male,North John,Low
+customer_1131,57,Male,Robinview,High
+customer_1132,37,Female,Hahnville,Medium
+customer_1133,34,Other,West Tanner,Low
+customer_1134,32,Other,New Marthaton,High
+customer_1135,44,Male,West Meganberg,Medium
+customer_1136,63,Male,Jessicaborough,High
+customer_1137,47,Other,Port William,Low
+customer_1138,28,Other,Smithberg,Low
+customer_1139,32,Other,North Robertberg,High
+customer_1140,26,Other,North Amanda,Low
+customer_1141,46,Other,Reneeport,High
+customer_1142,35,Male,Port Dustinland,Low
+customer_1143,42,Male,Michaelchester,High
+customer_1144,37,Male,Williamview,High
+customer_1145,40,Female,New Tabithamouth,Medium
+customer_1146,61,Male,New Kristin,Medium
+customer_1147,69,Male,Port Tricia,Low
+customer_1148,49,Other,Sandovalview,High
+customer_1149,64,Female,South Jamesport,Medium
+customer_1150,36,Female,East Patriciachester,High
+customer_1151,37,Other,Laurenmouth,Medium
+customer_1152,22,Female,Harrisborough,Low
+customer_1153,64,Other,Perryhaven,Low
+customer_1154,64,Female,New Michael,Low
+customer_1155,38,Female,Ashleybury,Low
+customer_1156,23,Male,Leestad,Low
+customer_1157,62,Male,North Robertborough,Medium
+customer_1158,61,Male,Lake Melissaborough,Medium
+customer_1159,47,Other,West Kendraberg,Medium
+customer_1160,61,Other,Merrittmouth,Low
+customer_1161,59,Other,North Tracyton,Low
+customer_1162,59,Other,Mariaport,Low
+customer_1163,53,Other,Khanview,High
+customer_1164,64,Female,East Thomaschester,High
+customer_1165,49,Male,Porterstad,Low
+customer_1166,67,Male,North Jessica,Low
+customer_1167,48,Other,Lake Emilyview,Low
+customer_1168,52,Male,West Christinechester,Medium
+customer_1169,66,Male,North Samantha,Low
+customer_1170,43,Male,Ronaldland,High
+customer_1171,61,Male,North Jessicashire,Medium
+customer_1172,66,Female,Port Jacquelinechester,High
+customer_1173,62,Male,Bentleyborough,Low
+customer_1174,50,Female,Vickiland,High
+customer_1175,34,Female,West Matthewfurt,Low
+customer_1176,40,Other,Port Mary,High
+customer_1177,64,Male,Lake Brian,Medium
+customer_1178,58,Female,Port Jenna,High
+customer_1179,23,Male,East Chadville,Medium
+customer_1180,32,Other,Hutchinsonfort,Low
+customer_1181,23,Other,Port Robinburgh,Medium
+customer_1182,57,Male,Lake Eric,Low
+customer_1183,44,Male,East Janicetown,High
+customer_1184,29,Other,Catherinemouth,Medium
+customer_1185,22,Female,West Christineburgh,High
+customer_1186,27,Female,Lake Samantha,Medium
+customer_1187,40,Male,Jeremiahland,Low
+customer_1188,37,Female,East Marcustown,High
+customer_1189,69,Male,West Nicole,High
+customer_1190,35,Other,Port Joseph,Low
+customer_1191,24,Other,New Teresaland,Low
+customer_1192,34,Male,Smithberg,Medium
+customer_1193,39,Other,Chelseabury,Low
+customer_1194,64,Male,Christyborough,Medium
+customer_1195,69,Male,Port Bryan,High
+customer_1196,57,Other,Port Sarah,Medium
+customer_1197,69,Other,Lake Rodneyfort,High
+customer_1198,65,Female,Cohenborough,Medium
+customer_1199,22,Female,Jonesview,High
+customer_1200,52,Female,North Tiffany,High
+customer_1201,56,Male,Moorefurt,High
+customer_1202,51,Female,Jacobport,High
+customer_1203,70,Other,East Donnachester,High
+customer_1204,18,Other,Jordanborough,Medium
+customer_1205,53,Other,West Catherineland,High
+customer_1206,63,Other,Mollyview,Low
+customer_1207,64,Male,East Stephanieberg,Low
+customer_1208,63,Male,West Deniseshire,Medium
+customer_1209,54,Other,Lake Michelleview,Low
+customer_1210,54,Male,Elizabethside,Medium
+customer_1211,35,Other,Courtneyside,Medium
+customer_1212,62,Other,Lake Philipport,High
+customer_1213,41,Other,North Jesse,Medium
+customer_1214,56,Male,New Dustin,Medium
+customer_1215,63,Female,South Mary,Low
+customer_1216,62,Male,Bridgettown,Low
+customer_1217,26,Female,Reginaldville,Medium
+customer_1218,57,Male,Port Rebecca,Medium
+customer_1219,52,Male,South Emilyfurt,High
+customer_1220,36,Male,Wuside,Low
+customer_1221,23,Female,Thomastown,Medium
+customer_1222,18,Male,Alvarezmouth,High
+customer_1223,28,Female,Johnsonview,High
+customer_1224,19,Other,Latoyaside,High
+customer_1225,55,Male,South Monicachester,High
+customer_1226,58,Other,East Katie,Medium
+customer_1227,53,Other,East Jamesberg,Medium
+customer_1228,56,Male,Fosterton,High
+customer_1229,51,Male,Sierraside,Medium
+customer_1230,59,Other,Lake Davidview,Low
+customer_1231,44,Female,Ramirezberg,Low
+customer_1232,28,Female,New Alexview,High
+customer_1233,66,Other,Garzachester,High
+customer_1234,61,Female,North Christina,High
+customer_1235,56,Male,Ryanbury,Medium
+customer_1236,21,Other,East Davidtown,Medium
+customer_1237,58,Male,Lake Virginia,Medium
+customer_1238,65,Male,Lake William,Medium
+customer_1239,68,Other,Johnsonburgh,High
+customer_1240,50,Male,Port Barbara,Medium
+customer_1241,42,Other,Larsonton,Medium
+customer_1242,48,Male,South Belindafort,Low
+customer_1243,18,Female,Jordanbury,Low
+customer_1244,41,Female,New Morganchester,Low
+customer_1245,33,Female,West Hannahstad,Low
+customer_1246,45,Female,Haroldside,Medium
+customer_1247,55,Female,Albertfurt,Medium
+customer_1248,56,Female,Robbinsmouth,Low
+customer_1249,36,Male,Mitchellborough,High
+customer_1250,27,Other,Lake Jennifer,Low
+customer_1251,54,Male,New James,Low
+customer_1252,25,Male,Dunnmouth,Medium
+customer_1253,53,Female,Henryland,High
+customer_1254,48,Other,Henryhaven,Medium
+customer_1255,35,Male,Thomasborough,High
+customer_1256,19,Male,Perryview,Low
+customer_1257,29,Other,Lake Cheyenne,Low
+customer_1258,56,Male,West Juliashire,Low
+customer_1259,24,Male,West Nancy,High
+customer_1260,55,Female,Kennethshire,Low
+customer_1261,51,Female,Westberg,Medium
+customer_1262,47,Male,West Jacksonchester,High
+customer_1263,54,Other,Port Cynthia,Low
+customer_1264,42,Male,Goldenstad,Medium
+customer_1265,36,Male,Jenningsfort,Medium
+customer_1266,29,Male,West Taylorbury,Medium
+customer_1267,29,Other,Lake Joshua,Low
+customer_1268,35,Male,Lake April,Low
+customer_1269,70,Male,Shirleyfort,Medium
+customer_1270,42,Male,Stewartborough,Low
+customer_1271,69,Other,Simsland,Low
+customer_1272,18,Female,Ianmouth,High
+customer_1273,46,Other,Port Cynthia,Medium
+customer_1274,53,Male,West Michaeltown,Low
+customer_1275,39,Other,East Michele,High
+customer_1276,23,Male,Robertport,High
+customer_1277,53,Female,Coleview,High
+customer_1278,44,Other,Kristinafurt,Low
+customer_1279,62,Male,Alexaville,Low
+customer_1280,20,Female,West Annaside,Low
+customer_1281,69,Other,Georgeland,High
+customer_1282,58,Male,Jeffreyfort,Low
+customer_1283,19,Female,South Gary,High
+customer_1284,61,Other,Wilsonland,Low
+customer_1285,65,Male,Justinfurt,Medium
+customer_1286,55,Other,Port Jamesfort,Low
+customer_1287,51,Other,East Laura,Medium
+customer_1288,54,Male,Lopezton,Medium
+customer_1289,49,Other,South Scott,Low
+customer_1290,48,Other,Lake Michelleland,High
+customer_1291,69,Other,Bushburgh,Medium
+customer_1292,46,Other,Wendyshire,Medium
+customer_1293,50,Male,Lake Victoriaborough,High
+customer_1294,68,Male,Melanieborough,Medium
+customer_1295,70,Other,Port Cindy,Low
+customer_1296,41,Other,New David,High
+customer_1297,50,Other,Steventon,Medium
+customer_1298,28,Other,North Justintown,Low
+customer_1299,69,Other,Careyville,High
+customer_1300,43,Female,Reginaldborough,Medium
+customer_1301,69,Female,West Roy,Low
+customer_1302,20,Male,New Ashley,Medium
+customer_1303,65,Female,Lake Roberto,Low
+customer_1304,24,Female,East Sarahshire,High
+customer_1305,39,Male,Aaronborough,Medium
+customer_1306,58,Other,Lake Michaelstad,High
+customer_1307,56,Male,New Brian,High
+customer_1308,25,Female,Lake Teresahaven,High
+customer_1309,20,Male,Pedroton,Medium
+customer_1310,67,Male,New Rebecca,Medium
+customer_1311,63,Female,West Anthony,High
+customer_1312,31,Male,Mcconnellville,Low
+customer_1313,19,Female,Darlenemouth,High
+customer_1314,62,Male,West Mary,High
+customer_1315,44,Male,East Benjaminbury,High
+customer_1316,53,Male,South Amy,High
+customer_1317,44,Male,Robertston,High
+customer_1318,47,Female,Lake Hunter,Medium
+customer_1319,21,Other,East Saratown,Medium
+customer_1320,53,Other,New Davidstad,Medium
+customer_1321,52,Female,Port Sarah,Low
+customer_1322,34,Female,Lynnville,High
+customer_1323,40,Female,Smithshire,Low
+customer_1324,40,Other,Susanfort,Low
+customer_1325,30,Male,Jordanside,Medium
+customer_1326,58,Other,Nancyview,Medium
+customer_1327,22,Female,Kimberlyborough,Low
+customer_1328,18,Male,Port Maureen,Medium
+customer_1329,33,Male,Rileyville,Low
+customer_1330,62,Female,Nguyenbury,Medium
+customer_1331,34,Female,North Stacy,Medium
+customer_1332,47,Male,Stacymouth,Low
+customer_1333,33,Other,West Ronald,Medium
+customer_1334,63,Other,Lewisport,Low
+customer_1335,33,Other,South Lisaville,High
+customer_1336,46,Male,West Jacobborough,Low
+customer_1337,64,Female,Ashleyport,High
+customer_1338,66,Other,Thomasland,Low
+customer_1339,63,Female,West Brandonberg,Medium
+customer_1340,47,Male,Keithview,Medium
+customer_1341,29,Male,Michaelshire,Medium
+customer_1342,57,Other,South Jonathanside,High
+customer_1343,36,Other,Jenniferborough,Medium
+customer_1344,34,Female,Wandafurt,Medium
+customer_1345,28,Other,Robertfurt,Medium
+customer_1346,20,Other,Bryanmouth,Medium
+customer_1347,69,Other,West Nicole,Low
+customer_1348,70,Other,Yangmouth,Medium
+customer_1349,30,Male,South Travis,Medium
+customer_1350,43,Other,North Kevin,Low
+customer_1351,50,Female,East Julie,Low
+customer_1352,20,Female,South Ivanside,Low
+customer_1353,54,Female,Sarachester,High
+customer_1354,43,Male,Smithfort,Medium
+customer_1355,22,Female,Tamarastad,High
+customer_1356,19,Male,Wheelerland,Medium
+customer_1357,69,Other,Isaacstad,Medium
+customer_1358,50,Other,New Jared,Medium
+customer_1359,54,Male,Brownberg,Low
+customer_1360,59,Other,New Amandastad,High
+customer_1361,42,Other,Singhview,Medium
+customer_1362,24,Other,Danielfurt,High
+customer_1363,19,Other,Port Teresa,Low
+customer_1364,23,Other,Barreratown,High
+customer_1365,69,Male,Whiteborough,High
+customer_1366,63,Female,Lake Christopher,Medium
+customer_1367,24,Female,Moorestad,Low
+customer_1368,67,Male,North Micheletown,Low
+customer_1369,30,Other,Andersonbury,Medium
+customer_1370,51,Other,New Jamestown,Medium
+customer_1371,68,Male,Sherryton,Low
+customer_1372,49,Other,Welchchester,Low
+customer_1373,25,Male,Bernardmouth,Medium
+customer_1374,30,Other,Lake Kristinberg,Medium
+customer_1375,45,Male,Jenniferborough,Low
+customer_1376,58,Male,South Charles,Low
+customer_1377,61,Male,Collinsview,Medium
+customer_1378,39,Other,Wilsonmouth,High
+customer_1379,20,Other,Lake Danielton,Medium
+customer_1380,44,Male,New Terrymouth,Medium
+customer_1381,44,Female,Ruthhaven,High
+customer_1382,43,Female,South Christina,Medium
+customer_1383,50,Female,Jacobsshire,Low
+customer_1384,51,Female,Johnmouth,Low
+customer_1385,68,Male,Jacobland,Medium
+customer_1386,35,Male,Clarkemouth,Medium
+customer_1387,45,Male,Tatebury,Medium
+customer_1388,65,Male,North Denisemouth,High
+customer_1389,43,Male,North Alisonberg,Low
+customer_1390,40,Male,Lake Joshua,Low
+customer_1391,70,Male,East Frankborough,Medium
+customer_1392,67,Male,Lake George,High
+customer_1393,63,Other,Stevensland,Medium
+customer_1394,26,Female,Danielsfurt,Low
+customer_1395,30,Other,Lawsonland,Medium
+customer_1396,62,Female,North Amyville,Medium
+customer_1397,24,Female,Garrettmouth,Medium
+customer_1398,50,Female,Port David,Low
+customer_1399,42,Other,South Victoriaton,High
+customer_1400,61,Male,Ericatown,High
+customer_1401,36,Other,Port Georgeport,Low
+customer_1402,32,Other,North Whitney,Medium
+customer_1403,37,Female,Jeremiahchester,High
+customer_1404,63,Female,East Carol,Low
+customer_1405,70,Female,Port Glenn,Low
+customer_1406,37,Other,Kathystad,Medium
+customer_1407,66,Other,Paulstad,Medium
+customer_1408,25,Other,Port Susan,High
+customer_1409,58,Other,North Howard,Medium
+customer_1410,45,Male,Port Katie,High
+customer_1411,69,Female,Lake Marcia,Medium
+customer_1412,45,Male,East Zacharyside,High
+customer_1413,49,Male,Lake Larry,Low
+customer_1414,54,Male,Petersonport,Low
+customer_1415,42,Other,North Benjamin,Low
+customer_1416,68,Other,New Donald,High
+customer_1417,23,Female,New Joshuaberg,Low
+customer_1418,51,Female,Julialand,Low
+customer_1419,39,Female,New Monicatown,Low
+customer_1420,26,Female,Kennedyshire,Medium
+customer_1421,70,Male,Kentview,High
+customer_1422,62,Female,Annetteland,Medium
+customer_1423,69,Male,Lake Garyville,Medium
+customer_1424,38,Other,Boydchester,High
+customer_1425,59,Male,Alanside,Medium
+customer_1426,38,Other,East Tracy,Medium
+customer_1427,51,Other,Richardsonview,High
+customer_1428,41,Other,Lake Kenneth,Low
+customer_1429,40,Male,East Katherine,Low
+customer_1430,46,Male,Lake Calvinside,Medium
+customer_1431,35,Female,Wademouth,High
+customer_1432,50,Female,Lambertland,High
+customer_1433,65,Female,Nathanland,High
+customer_1434,44,Male,East Kennethfurt,Medium
+customer_1435,47,Female,South Molly,High
+customer_1436,51,Female,Port Samuelmouth,Medium
+customer_1437,48,Male,New Wandabury,High
+customer_1438,30,Other,New Maria,Medium
+customer_1439,49,Other,East Dawn,High
+customer_1440,65,Other,Port Craigville,Medium
+customer_1441,32,Other,New Scottbury,High
+customer_1442,64,Female,Haynesfurt,Medium
+customer_1443,23,Male,Kathleenbury,Medium
+customer_1444,47,Female,Davisburgh,Medium
+customer_1445,51,Other,Port Vanessa,Low
+customer_1446,29,Female,Kevinhaven,Low
+customer_1447,28,Male,Danaville,Medium
+customer_1448,48,Male,Kelleyberg,High
+customer_1449,22,Female,West Suzannechester,Low
+customer_1450,23,Male,Hallfurt,Low
+customer_1451,26,Female,Westborough,Low
+customer_1452,57,Female,West Ashleybury,Medium
+customer_1453,64,Male,Williamsburgh,Medium
+customer_1454,27,Other,Leemouth,High
+customer_1455,58,Male,Josephtown,Medium
+customer_1456,45,Female,Michaelville,Medium
+customer_1457,51,Male,Obrienberg,Medium
+customer_1458,27,Other,New Anthonyport,High
+customer_1459,26,Other,Perezport,Low
+customer_1460,43,Other,Davisland,Medium
+customer_1461,56,Other,New Michael,Low
+customer_1462,66,Female,Latashabury,Low
+customer_1463,24,Other,Port Susanbury,High
+customer_1464,40,Female,New Kevinville,High
+customer_1465,41,Male,Tatestad,Medium
+customer_1466,28,Male,Lake Anthonytown,Low
+customer_1467,27,Other,Armstrongton,Low
+customer_1468,23,Female,South Angelaport,Low
+customer_1469,27,Other,Robinchester,High
+customer_1470,47,Other,North Nathan,Medium
+customer_1471,49,Male,New Kelly,High
+customer_1472,59,Other,Lambberg,Low
+customer_1473,64,Female,Catherinebury,Medium
+customer_1474,52,Male,Catherinemouth,Medium
+customer_1475,42,Female,Kevinville,High
+customer_1476,37,Other,East Jocelyn,Low
+customer_1477,43,Male,Merrittton,High
+customer_1478,49,Other,Williamburgh,Low
+customer_1479,34,Female,East Anthonyland,Medium
+customer_1480,42,Other,Amberside,High
+customer_1481,21,Male,Lake Susanchester,Medium
+customer_1482,32,Female,New Hollymouth,Low
+customer_1483,33,Other,North Amberside,Low
+customer_1484,70,Other,Floresfort,Medium
+customer_1485,44,Male,West Amandafort,Medium
+customer_1486,21,Female,Ramirezton,Medium
+customer_1487,62,Female,Allenchester,Low
+customer_1488,29,Male,New Jamesmouth,High
+customer_1489,66,Other,West Jason,Medium
+customer_1490,64,Female,Odombury,Low
+customer_1491,38,Female,Katrinaview,Medium
+customer_1492,49,Female,Reyesmouth,Low
+customer_1493,58,Male,South Cory,Low
+customer_1494,65,Other,Marieburgh,High
+customer_1495,39,Other,Lake Garyside,Medium
+customer_1496,56,Female,East Kenneth,High
+customer_1497,47,Female,Michaelshire,Medium
+customer_1498,63,Male,Port Monicahaven,Medium
+customer_1499,58,Female,East Bethshire,Low
+customer_1500,51,Other,West Brad,Medium
+customer_1501,39,Male,Randychester,Medium
+customer_1502,54,Male,West Sarahland,High
+customer_1503,20,Male,East Donaldhaven,High
+customer_1504,49,Other,Patelmouth,Medium
+customer_1505,52,Female,Lake Manuel,Low
+customer_1506,69,Other,New Amystad,Low
+customer_1507,47,Other,North Erikborough,High
+customer_1508,26,Female,Whitefort,Low
+customer_1509,30,Other,Knappport,Medium
+customer_1510,21,Female,Conleyhaven,High
+customer_1511,60,Female,Samuelland,High
+customer_1512,59,Male,Scottland,Medium
+customer_1513,61,Male,North Darrylfurt,High
+customer_1514,53,Male,Hernandezborough,Low
+customer_1515,55,Male,Michellefort,Low
+customer_1516,62,Other,New Emmabury,Low
+customer_1517,55,Female,East Thomas,Low
+customer_1518,41,Other,East Jerome,Low
+customer_1519,32,Female,Beanburgh,Low
+customer_1520,32,Other,Samanthaville,High
+customer_1521,63,Female,Audreyburgh,High
+customer_1522,63,Female,Port Anthonyside,Medium
+customer_1523,24,Female,Gibbsburgh,Low
+customer_1524,57,Other,Waltonfort,Medium
+customer_1525,32,Other,Lake Pamela,High
+customer_1526,46,Male,Port Jesse,High
+customer_1527,70,Male,East Amyfurt,High
+customer_1528,23,Female,Campbellbury,Low
+customer_1529,66,Male,Lake Mirandaview,High
+customer_1530,27,Male,North Markside,Medium
+customer_1531,44,Other,Jessicaside,Low
+customer_1532,31,Other,West Alexandra,Medium
+customer_1533,49,Female,Peterton,High
+customer_1534,49,Female,West Sylviamouth,Low
+customer_1535,43,Female,Paulview,High
+customer_1536,27,Other,Lake Crystalmouth,High
+customer_1537,30,Other,South Billy,Medium
+customer_1538,47,Female,Alexisview,High
+customer_1539,43,Male,Watersmouth,Low
+customer_1540,68,Male,North Melissaburgh,Low
+customer_1541,62,Other,New Timothy,Low
+customer_1542,35,Female,Daniellebury,Low
+customer_1543,34,Female,Laurenville,Low
+customer_1544,22,Female,Lake Charlene,Low
+customer_1545,66,Other,Jamesshire,High
+customer_1546,21,Female,East Todd,High
+customer_1547,37,Female,Rachelfurt,Low
+customer_1548,42,Female,New Jessica,High
+customer_1549,47,Other,Perezborough,Low
+customer_1550,37,Other,Valerieburgh,High
+customer_1551,48,Other,Romeroton,High
+customer_1552,34,Male,Jefferyfort,Low
+customer_1553,54,Other,Smithport,Low
+customer_1554,52,Male,North Elizabeth,Low
+customer_1555,60,Male,South Christophertown,High
+customer_1556,38,Female,Michaelshire,Medium
+customer_1557,53,Male,New Elizabeth,High
+customer_1558,41,Female,Michaelport,Medium
+customer_1559,20,Other,Maldonadoton,Medium
+customer_1560,57,Male,North Brian,High
+customer_1561,55,Male,Bradleyberg,Medium
+customer_1562,56,Female,West Melissa,Medium
+customer_1563,52,Male,Port Douglas,High
+customer_1564,28,Female,Tanyastad,High
+customer_1565,68,Other,Russellborough,Medium
+customer_1566,25,Female,Alexanderborough,Low
+customer_1567,21,Male,New Carla,High
+customer_1568,37,Female,North Meghanland,Medium
+customer_1569,47,Other,South Jamie,Medium
+customer_1570,20,Female,Ericburgh,Medium
+customer_1571,64,Female,Penabury,Low
+customer_1572,39,Other,Lake John,Low
+customer_1573,58,Male,Shawnberg,High
+customer_1574,38,Male,Garymouth,High
+customer_1575,58,Female,Sarahhaven,Low
+customer_1576,67,Other,Hallshire,Low
+customer_1577,42,Male,South Christopherborough,High
+customer_1578,61,Other,Cookburgh,Medium
+customer_1579,41,Female,New Kim,Medium
+customer_1580,20,Male,East Rebeccamouth,Medium
+customer_1581,40,Other,Robertbury,High
+customer_1582,45,Other,Lake Sue,Medium
+customer_1583,32,Male,Lewisbury,Low
+customer_1584,50,Female,Leemouth,Low
+customer_1585,39,Other,Ericabury,Medium
+customer_1586,51,Female,West Brian,High
+customer_1587,45,Female,Lake Kevin,Medium
+customer_1588,62,Male,Meganport,Low
+customer_1589,61,Male,Lake Davidland,High
+customer_1590,64,Male,Kochville,Medium
+customer_1591,60,Male,Port Jacob,High
+customer_1592,21,Male,North Brittanyfort,High
+customer_1593,32,Female,South Joshuastad,High
+customer_1594,54,Male,Brandonland,Low
+customer_1595,60,Female,Lambertshire,Low
+customer_1596,21,Male,New Andreborough,Medium
+customer_1597,38,Other,Jeremiahmouth,High
+customer_1598,42,Male,East Stacy,Low
+customer_1599,30,Other,Colemanstad,High
+customer_1600,28,Male,East Christopher,Medium
+customer_1601,33,Other,South Jessica,High
+customer_1602,46,Female,Lozanoside,High
+customer_1603,18,Other,South Billyport,Medium
+customer_1604,61,Male,Port Kari,Low
+customer_1605,21,Female,North Arthur,Low
+customer_1606,25,Male,Wilkersonhaven,Low
+customer_1607,53,Male,Lake Jonathanton,High
+customer_1608,40,Male,Lake Kelseyfort,High
+customer_1609,48,Male,South Nicolechester,High
+customer_1610,31,Male,Port Franklin,Low
+customer_1611,45,Female,East Brittany,Medium
+customer_1612,65,Male,Cherylhaven,Low
+customer_1613,30,Female,North Sandra,Medium
+customer_1614,67,Female,West Madison,Low
+customer_1615,40,Female,Armstrongland,Low
+customer_1616,63,Other,West Sabrina,High
+customer_1617,66,Male,Matthewchester,Medium
+customer_1618,67,Female,Marialand,Low
+customer_1619,24,Female,Hughestown,Medium
+customer_1620,52,Male,Blairmouth,Low
+customer_1621,46,Female,Port Kevinborough,High
+customer_1622,62,Male,Banksport,Low
+customer_1623,65,Male,Jenniferborough,Low
+customer_1624,56,Other,North James,Low
+customer_1625,27,Male,Lake Maryberg,Low
+customer_1626,40,Female,Andersonfort,High
+customer_1627,52,Female,Port Jon,Low
+customer_1628,56,Other,Lake Lisa,High
+customer_1629,50,Female,Deborahmouth,High
+customer_1630,70,Female,Danieltown,High
+customer_1631,27,Male,Jenkinsside,High
+customer_1632,68,Female,Lake James,Medium
+customer_1633,57,Other,Rogershaven,Low
+customer_1634,67,Male,Ambermouth,Medium
+customer_1635,33,Female,Markland,High
+customer_1636,49,Female,Thompsonville,Medium
+customer_1637,51,Male,Baileyberg,Low
+customer_1638,65,Female,Brandonborough,Low
+customer_1639,60,Other,North Catherinestad,Medium
+customer_1640,31,Female,Ericaside,High
+customer_1641,43,Other,Martinhaven,Medium
+customer_1642,53,Other,East Lindafort,High
+customer_1643,29,Female,Dennisside,High
+customer_1644,35,Male,New Daniel,Medium
+customer_1645,58,Other,Carlyfort,High
+customer_1646,42,Female,Smithburgh,Medium
+customer_1647,37,Male,West Ronald,Medium
+customer_1648,45,Male,Helenbury,Low
+customer_1649,22,Female,North Sandrafurt,Low
+customer_1650,64,Other,East Stephen,High
+customer_1651,44,Other,Garciashire,High
+customer_1652,51,Other,West Vanessa,Low
+customer_1653,24,Male,East Amanda,Medium
+customer_1654,26,Other,West Bryanfort,Medium
+customer_1655,67,Male,Millerburgh,Low
+customer_1656,28,Female,Brookeland,High
+customer_1657,42,Male,Karenmouth,High
+customer_1658,65,Male,Lindamouth,Low
+customer_1659,28,Female,New Brianmouth,Medium
+customer_1660,61,Other,Pamelaburgh,Medium
+customer_1661,18,Male,Flynnborough,High
+customer_1662,31,Male,New Mary,Medium
+customer_1663,28,Female,Ashleyland,High
+customer_1664,50,Other,New Brenda,Low
+customer_1665,49,Female,Longshire,Medium
+customer_1666,31,Female,Connieview,Low
+customer_1667,61,Male,Butlerville,High
+customer_1668,44,Male,East Aaron,Low
+customer_1669,23,Female,Troybury,High
+customer_1670,59,Female,North Jonathan,High
+customer_1671,60,Female,Williamsshire,Low
+customer_1672,57,Male,South Kenneth,High
+customer_1673,54,Female,South Keithborough,Low
+customer_1674,57,Male,Jennifertown,Low
+customer_1675,40,Female,Parkermouth,High
+customer_1676,43,Other,Olsonside,High
+customer_1677,45,Other,Nicholasland,Medium
+customer_1678,20,Other,Port Michealhaven,High
+customer_1679,50,Female,West Victoria,High
+customer_1680,29,Male,Martinezshire,Medium
+customer_1681,65,Female,North Philip,Medium
+customer_1682,49,Male,Guzmanshire,High
+customer_1683,26,Male,Douglastown,Low
+customer_1684,29,Other,Henryfort,High
+customer_1685,46,Female,Joshuaton,Low
+customer_1686,67,Female,Lake Denise,Medium
+customer_1687,65,Male,Janicehaven,High
+customer_1688,70,Other,Santiagoland,Medium
+customer_1689,64,Other,North Lisachester,High
+customer_1690,69,Female,New Jessicatown,Low
+customer_1691,48,Male,Browningtown,Low
+customer_1692,59,Female,Wuport,Low
+customer_1693,53,Other,Rossville,High
+customer_1694,37,Other,New David,Low
+customer_1695,52,Male,Gilbertstad,High
+customer_1696,58,Female,Miguelburgh,Medium
+customer_1697,19,Female,East Robertland,Low
+customer_1698,21,Other,Port Andrew,Low
+customer_1699,25,Male,Angelaton,Low
+customer_1700,38,Female,West Cynthiaberg,Low
+customer_1701,41,Other,Coopertown,Medium
+customer_1702,64,Other,Port Kyleview,Medium
+customer_1703,33,Other,Samanthatown,High
+customer_1704,68,Male,Campbellland,Medium
+customer_1705,57,Female,Port Mikaylamouth,Medium
+customer_1706,29,Other,New Dana,Medium
+customer_1707,63,Other,North Cheryl,Low
+customer_1708,58,Other,Whitefort,Low
+customer_1709,34,Male,Wallland,High
+customer_1710,33,Male,Payneport,Low
+customer_1711,55,Female,Lake Rachelchester,Medium
+customer_1712,44,Male,Lorraineside,Low
+customer_1713,55,Other,East Justinville,Medium
+customer_1714,19,Other,Lynnland,Low
+customer_1715,47,Other,Lawrenceburgh,Low
+customer_1716,45,Other,Larsonborough,Medium
+customer_1717,42,Other,Donnaside,High
+customer_1718,52,Other,Nealmouth,Medium
+customer_1719,54,Male,East Vincent,Medium
+customer_1720,56,Other,Lake Rodney,Low
+customer_1721,37,Female,Port Paulstad,Medium
+customer_1722,38,Male,Stephensfurt,Low
+customer_1723,48,Other,Port Jeffburgh,Medium
+customer_1724,40,Female,East Lisaside,High
+customer_1725,40,Other,Gonzalesborough,Medium
+customer_1726,43,Male,Virginiashire,High
+customer_1727,18,Male,Lake Katherine,High
+customer_1728,69,Other,Washingtonport,Low
+customer_1729,41,Female,Sarahmouth,Low
+customer_1730,41,Male,Hallton,Medium
+customer_1731,33,Other,Jasminehaven,Medium
+customer_1732,33,Other,Christopherview,High
+customer_1733,65,Male,Manuelborough,High
+customer_1734,70,Male,Williamsmouth,High
+customer_1735,39,Male,Kyleshire,High
+customer_1736,30,Female,Bowenport,Low
+customer_1737,49,Other,South Robert,High
+customer_1738,62,Other,Mercerhaven,Low
+customer_1739,44,Male,Port Rileyshire,Medium
+customer_1740,58,Female,South Jamieborough,High
+customer_1741,22,Male,Kruegerland,Medium
+customer_1742,56,Female,Lake Melissamouth,High
+customer_1743,67,Other,New Lisaland,Low
+customer_1744,46,Female,New Amberchester,Medium
+customer_1745,42,Male,Rhodesview,Medium
+customer_1746,52,Female,South Adam,Low
+customer_1747,58,Female,Stokesfort,Medium
+customer_1748,18,Female,Alexland,High
+customer_1749,41,Male,Romeroshire,Low
+customer_1750,55,Other,Matthewview,Low
+customer_1751,41,Female,Port Luke,Low
+customer_1752,33,Female,Port Samuel,High
+customer_1753,28,Female,West Danielleburgh,High
+customer_1754,26,Male,Smithland,Medium
+customer_1755,62,Female,Watsonborough,Low
+customer_1756,33,Other,Parrishmouth,Medium
+customer_1757,39,Male,East Bryan,Low
+customer_1758,55,Other,East Erica,High
+customer_1759,69,Male,East Daniellefort,High
+customer_1760,56,Female,North Tylerton,High
+customer_1761,29,Female,Robertborough,High
+customer_1762,27,Male,North Cody,Medium
+customer_1763,58,Female,Craigville,Medium
+customer_1764,38,Female,Brianchester,Medium
+customer_1765,61,Other,Port Evelynborough,Medium
+customer_1766,29,Other,New Antonio,Low
+customer_1767,66,Other,Christinaburgh,High
+customer_1768,18,Male,Lake Christianberg,Low
+customer_1769,48,Male,Banksside,Medium
+customer_1770,28,Male,Carolynview,Medium
+customer_1771,22,Other,Scottville,Low
+customer_1772,60,Male,Johntown,Medium
+customer_1773,29,Male,Williamsbury,Low
+customer_1774,59,Other,Matthewfort,Medium
+customer_1775,64,Female,Taylorbury,Low
+customer_1776,25,Male,East Stephanie,Low
+customer_1777,61,Male,Port Daniel,Medium
+customer_1778,61,Male,Davidmouth,High
+customer_1779,50,Male,Port Manuelstad,Low
+customer_1780,22,Other,Elaineside,Low
+customer_1781,41,Female,Victorialand,Low
+customer_1782,32,Male,South Alfred,High
+customer_1783,20,Other,New Annaton,Medium
+customer_1784,67,Other,Johnsonburgh,Low
+customer_1785,28,Other,Caldwellburgh,Medium
+customer_1786,53,Other,South Benjamintown,High
+customer_1787,34,Male,Gonzaleston,High
+customer_1788,49,Female,South Christina,High
+customer_1789,52,Male,Lake Amanda,Medium
+customer_1790,68,Other,Lake Micheleland,Low
+customer_1791,57,Female,Liuview,Low
+customer_1792,44,Other,South Jorge,Low
+customer_1793,67,Other,East Alexandra,High
+customer_1794,28,Male,Bellland,Medium
+customer_1795,42,Other,Rickymouth,Medium
+customer_1796,31,Female,Lake Markfurt,Low
+customer_1797,20,Other,Smithburgh,Medium
+customer_1798,60,Other,New Amy,High
+customer_1799,61,Other,West Laura,Medium
+customer_1800,68,Other,East Kristinefurt,Medium
+customer_1801,54,Female,East Gregoryhaven,High
+customer_1802,31,Other,North Sarahtown,High
+customer_1803,61,Male,Bryanhaven,Medium
+customer_1804,31,Female,Nelsonmouth,High
+customer_1805,53,Other,Gonzalezmouth,Medium
+customer_1806,43,Male,Jaredberg,Low
+customer_1807,70,Male,Matthewberg,High
+customer_1808,37,Female,West Kathy,Low
+customer_1809,39,Male,Martinfurt,High
+customer_1810,48,Other,Thompsonside,High
+customer_1811,21,Other,West Crystal,Medium
+customer_1812,52,Female,East Joshua,Medium
+customer_1813,28,Other,Kevinburgh,High
+customer_1814,55,Other,Nelsonport,Low
+customer_1815,33,Female,New Melissaport,Low
+customer_1816,19,Other,Petersmouth,Medium
+customer_1817,40,Male,Port Gabrielland,Low
+customer_1818,49,Female,North Matthew,Low
+customer_1819,30,Male,South Jennifer,High
+customer_1820,42,Male,Smithport,High
+customer_1821,57,Male,Lake Alexander,Low
+customer_1822,33,Other,Reillymouth,High
+customer_1823,54,Male,North Francisco,Medium
+customer_1824,46,Female,West Troy,Medium
+customer_1825,67,Female,Barrytown,Low
+customer_1826,38,Male,Johnsonhaven,High
+customer_1827,19,Male,East Maryfurt,High
+customer_1828,29,Female,New Carol,High
+customer_1829,19,Male,Lisaview,Medium
+customer_1830,60,Male,Michellefurt,High
+customer_1831,70,Female,Amberhaven,High
+customer_1832,47,Other,Davidport,Medium
+customer_1833,41,Other,North Sheila,High
+customer_1834,50,Male,New Michael,Low
+customer_1835,26,Male,Larryton,Low
+customer_1836,41,Male,Mcdonaldmouth,Low
+customer_1837,30,Other,Snowshire,Low
+customer_1838,31,Female,North Lisa,Low
+customer_1839,28,Other,Richardsonfort,High
+customer_1840,20,Other,Joseburgh,Low
+customer_1841,23,Female,Angelahaven,Low
+customer_1842,63,Other,Crystalmouth,Medium
+customer_1843,33,Male,Robertstad,Low
+customer_1844,28,Other,Port Angelahaven,High
+customer_1845,64,Other,Wareview,High
+customer_1846,56,Other,South Mariefort,High
+customer_1847,26,Female,North Rogerfort,Medium
+customer_1848,26,Male,Grimesstad,Medium
+customer_1849,54,Other,West Alicia,Low
+customer_1850,18,Male,East Deborah,Low
+customer_1851,39,Female,Taylorburgh,High
+customer_1852,34,Male,North Kerri,Low
+customer_1853,39,Male,North Christopher,Medium
+customer_1854,55,Male,Lake Diane,High
+customer_1855,33,Male,South Samuel,Low
+customer_1856,37,Female,Mitchellburgh,Low
+customer_1857,49,Female,Port Ryan,Medium
+customer_1858,57,Other,New Shelbyborough,Medium
+customer_1859,62,Other,West Carla,Low
+customer_1860,18,Male,Jessicaside,Medium
+customer_1861,25,Female,Summerston,High
+customer_1862,36,Other,Nicholasfurt,Medium
+customer_1863,54,Female,Lake Douglas,Medium
+customer_1864,48,Female,Joelside,Medium
+customer_1865,57,Other,West Bryan,Medium
+customer_1866,22,Female,Marshallville,High
+customer_1867,64,Female,Harrisport,Low
+customer_1868,27,Female,Lake Ricardo,Low
+customer_1869,67,Female,South Bryan,High
+customer_1870,41,Female,West Erin,High
+customer_1871,21,Female,East Tina,Low
+customer_1872,34,Female,Joshuahaven,High
+customer_1873,67,Male,Dustinbury,High
+customer_1874,47,Other,Paulside,Low
+customer_1875,31,Female,Parsonshaven,Low
+customer_1876,69,Female,Port Lisa,Medium
+customer_1877,68,Male,Gillberg,Low
+customer_1878,45,Other,Kimberlymouth,Low
+customer_1879,53,Male,Toddfort,High
+customer_1880,46,Other,Ethanshire,Low
+customer_1881,22,Female,New Aliciamouth,Low
+customer_1882,27,Female,Moorefort,Low
+customer_1883,62,Other,New Kellyside,Medium
+customer_1884,52,Other,New Amber,High
+customer_1885,50,Other,Karamouth,Low
+customer_1886,66,Other,Caitlynbury,High
+customer_1887,45,Other,Jaredview,Low
+customer_1888,49,Other,West Nicole,High
+customer_1889,26,Female,North Manuel,Medium
+customer_1890,31,Female,North Carlos,High
+customer_1891,21,Female,Montgomeryshire,Low
+customer_1892,49,Female,Susanhaven,High
+customer_1893,38,Male,Lake Haleychester,Medium
+customer_1894,18,Female,Lake Jonathanhaven,Low
+customer_1895,20,Male,Lake Brandon,Medium
+customer_1896,60,Female,Crystalshire,High
+customer_1897,25,Other,New Theodore,High
+customer_1898,48,Male,East Brittany,Medium
+customer_1899,55,Female,South Jennifer,Low
+customer_1900,55,Male,Jaimemouth,Low
+customer_1901,19,Other,East Kevinland,Medium
+customer_1902,40,Other,Fosterstad,High
+customer_1903,21,Male,East Jacob,Low
+customer_1904,37,Male,Andrewmouth,High
+customer_1905,41,Other,Harriston,High
+customer_1906,55,Female,East Meganfort,Low
+customer_1907,45,Female,Lake Joseph,High
+customer_1908,44,Other,West Susanfort,Medium
+customer_1909,27,Other,Gregoryborough,High
+customer_1910,34,Other,Martinmouth,High
+customer_1911,39,Female,Jenkinsside,Low
+customer_1912,22,Female,New Jefffort,Medium
+customer_1913,62,Male,South Patricia,High
+customer_1914,19,Other,Port Dominiqueshire,Medium
+customer_1915,30,Female,Susanchester,High
+customer_1916,43,Other,Davisborough,Low
+customer_1917,67,Female,South Michelle,Medium
+customer_1918,47,Female,Barkerstad,Low
+customer_1919,39,Other,North Sarahville,High
+customer_1920,27,Other,North Toddhaven,Medium
+customer_1921,39,Female,Allenton,High
+customer_1922,21,Male,North Christopherland,High
+customer_1923,27,Female,Wallacefurt,Medium
+customer_1924,43,Male,Woodshire,Medium
+customer_1925,30,Other,Beckerville,Medium
+customer_1926,33,Other,Lake Jenny,Low
+customer_1927,22,Other,West Joelberg,Low
+customer_1928,57,Female,Kylefort,Medium
+customer_1929,45,Female,West William,Low
+customer_1930,21,Other,Lake Pam,High
+customer_1931,21,Male,Keithport,Low
+customer_1932,41,Female,Lisaside,Low
+customer_1933,31,Other,Lake Matthewside,High
+customer_1934,51,Male,Diazfurt,Medium
+customer_1935,36,Other,Danielton,Low
+customer_1936,57,Other,Vickiebury,Medium
+customer_1937,63,Other,Lesliemouth,Medium
+customer_1938,40,Female,West Rhondaton,Medium
+customer_1939,70,Male,Port Timothyberg,High
+customer_1940,47,Other,South Joshua,High
+customer_1941,18,Male,Mcclainburgh,Medium
+customer_1942,47,Male,New Isaacfurt,Medium
+customer_1943,40,Male,Donnabury,Medium
+customer_1944,34,Male,North Karenside,Medium
+customer_1945,67,Female,Katherineport,Medium
+customer_1946,32,Male,East Wesley,High
+customer_1947,20,Male,North Randyton,Low
+customer_1948,51,Other,Katherinefort,Low
+customer_1949,58,Female,Robertberg,Medium
+customer_1950,32,Other,Benjaminton,Low
+customer_1951,25,Other,New Robert,Medium
+customer_1952,45,Other,Annahaven,Medium
+customer_1953,28,Other,Bishopmouth,Medium
+customer_1954,21,Other,New Dustinshire,High
+customer_1955,69,Other,North Ashley,Low
+customer_1956,49,Male,Justinchester,High
+customer_1957,45,Female,West Patricia,High
+customer_1958,26,Female,South Frank,High
+customer_1959,63,Female,Robinsonmouth,Low
+customer_1960,32,Female,New Elizabethmouth,High
+customer_1961,61,Other,Benjaminchester,Medium
+customer_1962,42,Male,Jasonton,Low
+customer_1963,28,Other,Jonathanland,Low
+customer_1964,39,Other,Port Wesleyberg,High
+customer_1965,43,Female,Michaelhaven,Low
+customer_1966,51,Other,Powersport,High
+customer_1967,26,Other,Gonzalezside,High
+customer_1968,66,Male,Serranomouth,High
+customer_1969,49,Other,Alexanderburgh,Medium
+customer_1970,27,Male,West Tony,High
+customer_1971,42,Other,Wagnerborough,High
+customer_1972,26,Other,Cardenasmouth,Medium
+customer_1973,46,Male,Zacharystad,High
+customer_1974,49,Female,Delacruzstad,Medium
+customer_1975,29,Female,South Stephanie,Medium
+customer_1976,22,Female,North Brandonton,Medium
+customer_1977,46,Female,Martinezville,Low
+customer_1978,45,Male,Port Chadstad,High
+customer_1979,65,Male,Kathleenview,Medium
+customer_1980,55,Female,Simsville,High
+customer_1981,65,Other,Port Dennis,Low
+customer_1982,58,Female,Rogerbury,Medium
+customer_1983,48,Female,South Yolandaburgh,Low
+customer_1984,19,Other,Copelandmouth,Low
+customer_1985,60,Male,North Steven,Medium
+customer_1986,70,Other,Hamptonstad,High
+customer_1987,32,Female,Port Ryanland,High
+customer_1988,36,Female,East Lisaville,Medium
+customer_1989,62,Female,North Davidhaven,Medium
+customer_1990,52,Other,Tinamouth,Medium
+customer_1991,35,Male,West John,Low
+customer_1992,22,Female,New Jasonberg,Medium
+customer_1993,31,Female,Jonesfort,High
+customer_1994,58,Male,Jeffreyside,Low
+customer_1995,33,Other,Nealtown,Medium
+customer_1996,30,Male,Lake Jeremyville,Low
+customer_1997,57,Other,Carrollstad,High
+customer_1998,30,Other,Deckerburgh,Medium
+customer_1999,27,Other,West Brittneyside,Medium
+customer_2000,38,Female,Markstad,Low
+customer_2001,19,Male,Smithshire,Low
+customer_2002,46,Male,West Katherine,Low
+customer_2003,40,Male,North Kimberlyland,Medium
+customer_2004,24,Other,Sophiaport,High
+customer_2005,60,Female,South Jennifer,High
+customer_2006,18,Other,Johnsonfort,Low
+customer_2007,40,Female,Russellberg,Low
+customer_2008,35,Other,Sarastad,High
+customer_2009,48,Female,Robertside,High
+customer_2010,54,Other,East Hannahhaven,High
+customer_2011,41,Male,Jamesborough,Medium
+customer_2012,67,Male,Phillipsberg,Medium
+customer_2013,57,Other,East Jenna,Low
+customer_2014,34,Male,Cooperfurt,High
+customer_2015,56,Other,North Andrew,Medium
+customer_2016,54,Other,East Matthew,Medium
+customer_2017,48,Male,Jacobstown,High
+customer_2018,47,Female,East Trevorview,High
+customer_2019,34,Female,East Zacharystad,Medium
+customer_2020,35,Male,Larsontown,Medium
+customer_2021,70,Male,Jennifertown,Low
+customer_2022,39,Male,Woodstad,High
+customer_2023,66,Female,Lake Samantha,High
+customer_2024,32,Male,Raymondmouth,Low
+customer_2025,27,Male,East Latoyamouth,Medium
+customer_2026,29,Other,Leahbury,Low
+customer_2027,60,Male,North Paul,Medium
+customer_2028,42,Other,East Miranda,High
+customer_2029,61,Other,West Jeremy,High
+customer_2030,26,Female,Claudiastad,High
+customer_2031,49,Other,Robinsonchester,Medium
+customer_2032,18,Male,North Jamesberg,Medium
+customer_2033,60,Female,Williamsside,Low
+customer_2034,44,Female,Port Anthony,High
+customer_2035,22,Male,East Meganland,High
+customer_2036,51,Other,Port Matthewside,Low
+customer_2037,68,Other,Ayersside,Medium
+customer_2038,38,Other,Thomasmouth,Medium
+customer_2039,56,Female,North Kristen,Low
+customer_2040,46,Other,Taylorberg,Medium
+customer_2041,43,Female,West Lisamouth,High
+customer_2042,51,Other,Angelaland,Low
+customer_2043,19,Female,East Cindymouth,High
+customer_2044,18,Female,Samanthamouth,Medium
+customer_2045,36,Other,West Michael,High
+customer_2046,59,Male,New Victoria,Medium
+customer_2047,69,Female,New Kyle,Medium
+customer_2048,32,Female,Melissaburgh,Medium
+customer_2049,59,Other,Melissaport,Low
+customer_2050,68,Female,Davisbury,Medium
+customer_2051,30,Male,Martinezberg,High
+customer_2052,68,Other,Michaelmouth,Low
+customer_2053,67,Female,Grantberg,Medium
+customer_2054,70,Male,Nguyenbury,Low
+customer_2055,22,Male,New Crystalfurt,Medium
+customer_2056,56,Female,Aliciatown,Low
+customer_2057,45,Other,Kimtown,High
+customer_2058,54,Male,North Pamela,Medium
+customer_2059,33,Other,Lake Steve,Low
+customer_2060,52,Female,New Jonathanside,Medium
+customer_2061,34,Other,New Mistyport,High
+customer_2062,25,Male,Samuelburgh,Medium
+customer_2063,51,Other,Doylefort,Medium
+customer_2064,31,Male,East Tracymouth,Medium
+customer_2065,28,Male,Port Joel,High
+customer_2066,30,Male,Lake Jamie,Low
+customer_2067,49,Male,New Robert,Medium
+customer_2068,25,Male,Bennettmouth,Medium
+customer_2069,29,Male,Lake Laurie,High
+customer_2070,53,Other,East Ryanstad,Medium
+customer_2071,50,Male,East Sarah,Medium
+customer_2072,59,Male,North Katherine,Low
+customer_2073,69,Male,New Kristaton,Medium
+customer_2074,23,Male,Robertofurt,High
+customer_2075,46,Other,Johnsonhaven,Low
+customer_2076,63,Other,Adamview,Medium
+customer_2077,23,Other,South Colleenton,Low
+customer_2078,51,Other,East Amandaberg,Medium
+customer_2079,53,Male,East Karen,High
+customer_2080,55,Male,South Maryville,Medium
+customer_2081,42,Other,West Daniel,Medium
+customer_2082,58,Other,East Gregoryfurt,Medium
+customer_2083,51,Other,Theresatown,High
+customer_2084,37,Other,Wardmouth,Medium
+customer_2085,42,Other,New Antonio,Medium
+customer_2086,29,Male,New Michelleport,High
+customer_2087,67,Female,South Lori,High
+customer_2088,65,Other,New Anthony,Medium
+customer_2089,49,Other,New Michael,Medium
+customer_2090,26,Male,North Robert,Low
+customer_2091,41,Male,New Jonathanton,Medium
+customer_2092,61,Male,Lake Nicole,Medium
+customer_2093,59,Female,East Robert,High
+customer_2094,29,Male,Lake Christina,High
+customer_2095,57,Male,Brownport,Low
+customer_2096,20,Male,West Roberthaven,Medium
+customer_2097,38,Female,New Robin,High
+customer_2098,32,Female,North Rodney,Low
+customer_2099,40,Female,North Heather,Medium
+customer_2100,48,Female,Port Sean,High
+customer_2101,48,Other,West Tammy,Low
+customer_2102,44,Other,East Virginia,High
+customer_2103,68,Other,West Jessica,Medium
+customer_2104,20,Female,North Oscar,Low
+customer_2105,65,Other,Melissamouth,Low
+customer_2106,48,Other,Freemanborough,Medium
+customer_2107,51,Male,Jaimeview,High
+customer_2108,22,Male,South Marvinville,Medium
+customer_2109,45,Female,New David,High
+customer_2110,29,Female,West Tarabury,Medium
+customer_2111,33,Female,Jasonfurt,Medium
+customer_2112,26,Male,Lake Sarah,Low
+customer_2113,28,Male,Port Derekmouth,Medium
+customer_2114,27,Other,East Michael,High
+customer_2115,69,Other,North Amberview,High
+customer_2116,50,Other,Lake Courtneyshire,Medium
+customer_2117,20,Female,Melanieborough,Low
+customer_2118,50,Other,South Melissaton,Medium
+customer_2119,54,Male,New Peter,Medium
+customer_2120,70,Male,New Catherinechester,Low
+customer_2121,56,Other,North David,Low
+customer_2122,65,Other,Blackwellborough,High
+customer_2123,67,Female,Lake Melissachester,Low
+customer_2124,42,Other,South Catherine,Medium
+customer_2125,42,Female,Grayville,Medium
+customer_2126,66,Male,East Rebecca,High
+customer_2127,52,Male,Estradachester,Medium
+customer_2128,33,Other,Gutierrezville,High
+customer_2129,22,Female,New Richardview,Medium
+customer_2130,27,Other,East Victor,Low
+customer_2131,62,Male,East Justin,Medium
+customer_2132,51,Other,New Heather,High
+customer_2133,48,Other,East James,Low
+customer_2134,60,Female,Port Johnchester,Medium
+customer_2135,35,Male,West Jillian,Medium
+customer_2136,40,Other,East Maria,Medium
+customer_2137,67,Female,New Adamtown,Medium
+customer_2138,25,Female,Toddville,High
+customer_2139,56,Male,Port Jessica,High
+customer_2140,27,Other,Port Robertmouth,High
+customer_2141,24,Other,West Dana,High
+customer_2142,25,Other,Mullenburgh,Medium
+customer_2143,70,Female,Farleyborough,Medium
+customer_2144,30,Other,South Gregory,Low
+customer_2145,49,Other,East Darleneshire,Medium
+customer_2146,65,Other,Lake Patriciaport,High
+customer_2147,34,Male,Lake Stevenmouth,Medium
+customer_2148,57,Female,New Kaylaborough,Medium
+customer_2149,53,Female,Pruittfort,High
+customer_2150,30,Male,Edwardville,High
+customer_2151,69,Other,New Sheliachester,Low
+customer_2152,38,Other,Harrisonton,Medium
+customer_2153,48,Other,North Rachelborough,Medium
+customer_2154,35,Female,Coleburgh,Low
+customer_2155,70,Female,East Beth,Low
+customer_2156,56,Other,Batesfort,Low
+customer_2157,30,Female,Brianchester,Medium
+customer_2158,42,Male,Johnmouth,Medium
+customer_2159,48,Other,Jenniferberg,Medium
+customer_2160,49,Other,South Jeffreyton,High
+customer_2161,33,Other,South Barbarahaven,Low
+customer_2162,69,Male,West Ryan,Medium
+customer_2163,33,Female,West Jimmyborough,Medium
+customer_2164,54,Male,New Kellychester,Medium
+customer_2165,60,Other,Amyhaven,Low
+customer_2166,26,Female,Melissaport,High
+customer_2167,40,Male,Williambury,High
+customer_2168,52,Other,Christinamouth,High
+customer_2169,22,Other,North Jeffrey,Medium
+customer_2170,61,Other,Jefferyland,High
+customer_2171,35,Male,Reyesside,High
+customer_2172,54,Female,Michaelside,Low
+customer_2173,44,Other,New Tara,High
+customer_2174,34,Other,Tanyaport,High
+customer_2175,31,Female,Jenkinsville,Low
+customer_2176,35,Female,West Charles,Medium
+customer_2177,58,Other,Monicamouth,Medium
+customer_2178,61,Other,Martinezton,Medium
+customer_2179,65,Female,New Johnburgh,High
+customer_2180,64,Female,South Danielleberg,High
+customer_2181,46,Other,West Joe,High
+customer_2182,21,Male,Lowetown,Low
+customer_2183,27,Other,Dennisfort,High
+customer_2184,65,Other,Ginaburgh,Medium
+customer_2185,46,Other,East Kristamouth,Low
+customer_2186,62,Male,East Christinamouth,High
+customer_2187,32,Other,West Charles,Medium
+customer_2188,39,Other,Erichaven,Medium
+customer_2189,19,Male,Williamsonfurt,High
+customer_2190,32,Female,Johnathanmouth,Medium
+customer_2191,61,Male,South Barbarafurt,Low
+customer_2192,21,Male,South Gerald,High
+customer_2193,67,Male,Williamtown,Low
+customer_2194,28,Other,West Josephberg,High
+customer_2195,30,Male,South Ryan,Medium
+customer_2196,58,Female,North Shelly,High
+customer_2197,64,Female,Port Kathleen,High
+customer_2198,63,Other,Deborahfort,High
+customer_2199,70,Other,Lake Anthonyview,Medium
+customer_2200,39,Other,Joshuaville,Medium
+customer_2201,52,Other,Jenniferland,Low
+customer_2202,54,Female,Travisburgh,High
+customer_2203,27,Other,Huntview,Medium
+customer_2204,26,Male,Davishaven,Low
+customer_2205,41,Female,Port Corychester,Low
+customer_2206,66,Other,South Emilyberg,Medium
+customer_2207,64,Male,Port Dominicchester,Low
+customer_2208,51,Male,Michaelhaven,Medium
+customer_2209,20,Other,Michelleport,Medium
+customer_2210,44,Other,Lake David,Low
+customer_2211,43,Other,East Kevin,Medium
+customer_2212,69,Other,Cathyton,Low
+customer_2213,40,Other,South Cherylhaven,Medium
+customer_2214,41,Female,Jacksonshire,Low
+customer_2215,60,Other,Port Robertland,Medium
+customer_2216,58,Other,South Jessica,High
+customer_2217,27,Male,Davidhaven,Medium
+customer_2218,67,Male,Emilymouth,Low
+customer_2219,39,Male,Pattersonton,High
+customer_2220,42,Female,Thompsonberg,Medium
+customer_2221,35,Other,South Nicholas,Low
+customer_2222,44,Male,Kaylamouth,Low
+customer_2223,18,Other,Hollyville,Medium
+customer_2224,43,Female,Powersland,Medium
+customer_2225,58,Female,North Stacy,High
+customer_2226,66,Male,West Kimberlyhaven,Medium
+customer_2227,47,Female,Lake Anthony,Medium
+customer_2228,64,Other,West Allisonfurt,Medium
+customer_2229,60,Other,West Steven,High
+customer_2230,40,Female,South Rachelville,Medium
+customer_2231,34,Other,Davisside,Low
+customer_2232,25,Other,Shannontown,High
+customer_2233,66,Other,Donaldburgh,High
+customer_2234,66,Other,South Joel,Medium
+customer_2235,56,Other,Monicaburgh,Medium
+customer_2236,40,Male,Dustinland,High
+customer_2237,70,Other,Port Matthew,Medium
+customer_2238,34,Female,East Troy,High
+customer_2239,53,Female,Morrisville,Low
+customer_2240,47,Female,Armstrongport,High
+customer_2241,20,Female,Rhondabury,High
+customer_2242,57,Other,Christinaburgh,Low
+customer_2243,62,Male,Port Jennifer,Low
+customer_2244,59,Female,New James,Medium
+customer_2245,41,Other,New Katrinaport,Medium
+customer_2246,56,Male,Port Paula,Low
+customer_2247,64,Other,West Isabellamouth,Medium
+customer_2248,67,Other,New Garyside,High
+customer_2249,34,Female,Hollybury,Medium
+customer_2250,21,Male,Elizabethfort,High
+customer_2251,29,Male,Hensleychester,High
+customer_2252,29,Female,West Teresaberg,High
+customer_2253,53,Male,Baileyton,Low
+customer_2254,40,Male,New Bradley,Low
+customer_2255,66,Male,Claytonberg,Low
+customer_2256,43,Other,Johnsonhaven,Low
+customer_2257,37,Male,South Zachary,Low
+customer_2258,59,Other,Adamfurt,Medium
+customer_2259,69,Male,New Ericburgh,Low
+customer_2260,23,Female,Williamsland,High
+customer_2261,55,Other,Christineton,Low
+customer_2262,34,Male,South Michelemouth,Medium
+customer_2263,42,Male,South Cindy,Low
+customer_2264,53,Other,North Derekmouth,Medium
+customer_2265,29,Female,New Donald,High
+customer_2266,57,Other,New Christine,High
+customer_2267,45,Male,Barnesfurt,Medium
+customer_2268,56,Other,Greenstad,High
+customer_2269,24,Female,Gardnerberg,Low
+customer_2270,46,Female,Hectorview,Medium
+customer_2271,48,Male,North Allison,Medium
+customer_2272,51,Female,Dennisfurt,Medium
+customer_2273,36,Male,Port Mollyfurt,Low
+customer_2274,18,Female,North Jeremyfurt,Medium
+customer_2275,65,Female,Carrieside,High
+customer_2276,54,Female,Port Amanda,Medium
+customer_2277,48,Other,South Victoriafurt,High
+customer_2278,55,Male,New Jacquelinehaven,Medium
+customer_2279,66,Other,Grantport,Low
+customer_2280,48,Other,East Scottfurt,Low
+customer_2281,20,Female,North Brian,High
+customer_2282,67,Male,New Tammyberg,High
+customer_2283,26,Female,West Patricia,High
+customer_2284,35,Other,Burgessmouth,Medium
+customer_2285,50,Other,Lake Paulstad,Low
+customer_2286,23,Other,Austinhaven,Low
+customer_2287,42,Other,Wolfestad,Low
+customer_2288,38,Male,North Jasmine,Low
+customer_2289,65,Other,Bradyside,High
+customer_2290,59,Other,Gordontown,Medium
+customer_2291,58,Male,Hernandezton,High
+customer_2292,44,Other,Monicaland,High
+customer_2293,37,Other,New Jack,Low
+customer_2294,27,Male,Wattsbury,Medium
+customer_2295,35,Male,Mccannfurt,Medium
+customer_2296,51,Male,East Ryanfurt,Medium
+customer_2297,22,Other,Port Lisahaven,High
+customer_2298,21,Female,Jonesborough,Low
+customer_2299,61,Male,West Jose,Medium
+customer_2300,36,Female,Lake Benjamin,High
+customer_2301,24,Other,West Darren,Medium
+customer_2302,28,Male,Holdershire,High
+customer_2303,43,Female,Brittanyburgh,High
+customer_2304,69,Male,East Susan,Low
+customer_2305,57,Male,Castilloberg,High
+customer_2306,32,Male,New Rebeccamouth,High
+customer_2307,64,Male,Carlborough,Low
+customer_2308,23,Male,East Jasonhaven,Medium
+customer_2309,57,Other,Stricklandborough,High
+customer_2310,44,Other,Garzaville,Low
+customer_2311,24,Other,Murphyshire,Medium
+customer_2312,31,Female,Elainebury,Medium
+customer_2313,30,Male,Peterville,Medium
+customer_2314,46,Male,Victoriahaven,High
+customer_2315,51,Female,Yorkport,Medium
+customer_2316,68,Other,West Jaclyn,High
+customer_2317,30,Male,Darinside,Medium
+customer_2318,59,Female,Mariahfurt,Medium
+customer_2319,54,Female,New Timothychester,Low
+customer_2320,41,Other,Lake Darius,Low
+customer_2321,57,Male,Ortizside,High
+customer_2322,30,Female,Alyssaview,Medium
+customer_2323,45,Male,New Ashley,Medium
+customer_2324,31,Other,West Nichole,High
+customer_2325,44,Other,Tammyfort,High
+customer_2326,39,Male,Port Paul,Medium
+customer_2327,70,Male,Arroyostad,High
+customer_2328,33,Male,Rhondamouth,High
+customer_2329,51,Other,Kirbychester,Low
+customer_2330,39,Male,South Josephfurt,Medium
+customer_2331,31,Other,Shannonport,Medium
+customer_2332,26,Other,West Tara,Medium
+customer_2333,32,Male,Jamesborough,High
+customer_2334,56,Female,Stevenhaven,Medium
+customer_2335,58,Female,New Jessicashire,Medium
+customer_2336,40,Female,Karenchester,Low
+customer_2337,22,Other,East Amandahaven,High
+customer_2338,49,Male,Gilmoreville,High
+customer_2339,55,Female,Thomasside,Medium
+customer_2340,39,Male,Sierraland,Low
+customer_2341,37,Female,Boydfort,High
+customer_2342,69,Male,Gonzalesborough,Low
+customer_2343,26,Female,Cindymouth,Medium
+customer_2344,48,Female,Brandytown,High
+customer_2345,28,Male,Port Jennifer,Medium
+customer_2346,25,Other,Lake Nicole,High
+customer_2347,50,Female,Thomasborough,Low
+customer_2348,39,Male,South Jenniferhaven,High
+customer_2349,33,Male,Jesseport,Medium
+customer_2350,27,Male,Lake Kristastad,Medium
+customer_2351,26,Other,Mcconnellport,Low
+customer_2352,43,Other,New Michelleshire,High
+customer_2353,32,Male,Ruthport,Medium
+customer_2354,55,Other,South Rachel,Low
+customer_2355,32,Female,Christopherstad,Medium
+customer_2356,58,Male,Brooksshire,Medium
+customer_2357,59,Other,Courtneyport,Medium
+customer_2358,59,Female,West Roberttown,Medium
+customer_2359,42,Other,Lake Chelsea,Low
+customer_2360,51,Other,East Mark,Low
+customer_2361,45,Other,Lake Olivia,Low
+customer_2362,29,Other,North Caitlin,Medium
+customer_2363,18,Female,New Thomas,Low
+customer_2364,39,Male,Lake Kristina,Low
+customer_2365,58,Female,Andersonland,High
+customer_2366,34,Female,Port Thomas,High
+customer_2367,48,Male,South Richardborough,Medium
+customer_2368,70,Male,East Tylerton,Low
+customer_2369,30,Other,New Jeanmouth,High
+customer_2370,25,Other,East Robert,Low
+customer_2371,31,Male,Murphyfort,Medium
+customer_2372,70,Male,Matthewtown,Medium
+customer_2373,34,Other,Butlermouth,Medium
+customer_2374,38,Female,Bakerview,Low
+customer_2375,27,Other,Sarahton,High
+customer_2376,41,Female,East Nicholas,Medium
+customer_2377,21,Other,Carrollmouth,Low
+customer_2378,52,Other,New Teresa,High
+customer_2379,42,Female,Lewisfurt,High
+customer_2380,28,Male,Jacksonport,Medium
+customer_2381,46,Female,Lauriebury,Low
+customer_2382,45,Male,Watsonville,Low
+customer_2383,20,Female,Larryland,High
+customer_2384,55,Male,Billychester,Low
+customer_2385,35,Male,Brianhaven,High
+customer_2386,38,Female,Lake Angelafort,Medium
+customer_2387,28,Other,Diazborough,Medium
+customer_2388,27,Female,Elizabethbury,Low
+customer_2389,44,Male,Randallchester,High
+customer_2390,28,Male,South Dakotaville,Medium
+customer_2391,28,Male,Tracyport,Low
+customer_2392,60,Female,North Kelsey,Low
+customer_2393,64,Male,North Jonathan,Medium
+customer_2394,50,Female,West Kimberly,Medium
+customer_2395,46,Male,Jacquelinemouth,Low
+customer_2396,53,Male,Matthewsport,Medium
+customer_2397,37,Other,Jacksonstad,High
+customer_2398,29,Male,Mariahton,Low
+customer_2399,63,Female,New Antonioville,Medium
+customer_2400,44,Female,North Heatherbury,High
+customer_2401,39,Female,North Christopher,High
+customer_2402,37,Female,New James,Medium
+customer_2403,65,Female,East Brad,Medium
+customer_2404,34,Female,East Alexandertown,Low
+customer_2405,33,Male,East Christopherland,High
+customer_2406,52,Other,Hollyland,Medium
+customer_2407,32,Female,Strongberg,Medium
+customer_2408,69,Female,South Mikayla,Medium
+customer_2409,45,Female,Williamshaven,High
+customer_2410,55,Other,Jeffreyfort,Low
+customer_2411,59,Male,Carlsonton,High
+customer_2412,20,Female,Denniston,Low
+customer_2413,25,Other,Deleonchester,High
+customer_2414,28,Other,Roblesside,High
+customer_2415,65,Male,Raymondland,Low
+customer_2416,66,Other,South David,High
+customer_2417,38,Female,Warnermouth,Low
+customer_2418,26,Male,Lunamouth,High
+customer_2419,23,Male,East Karen,Low
+customer_2420,66,Female,Turnermouth,Low
+customer_2421,38,Other,Paulbury,Low
+customer_2422,51,Male,South Christopherville,High
+customer_2423,50,Male,South Sarah,Low
+customer_2424,28,Other,Morganport,High
+customer_2425,29,Other,Juliaview,Low
+customer_2426,52,Male,Joneston,High
+customer_2427,39,Female,Dawnhaven,High
+customer_2428,29,Other,Port Kristen,High
+customer_2429,65,Female,South Brittneytown,Low
+customer_2430,70,Female,Joshuaside,Low
+customer_2431,54,Other,West Reginald,Low
+customer_2432,31,Female,Matthewport,Low
+customer_2433,42,Male,North Jamesview,High
+customer_2434,60,Other,Joshuaside,Medium
+customer_2435,51,Other,West Glennport,High
+customer_2436,30,Other,Cassandrastad,Medium
+customer_2437,21,Male,Davidfurt,High
+customer_2438,42,Male,South Steven,High
+customer_2439,23,Male,Port Daniel,Low
+customer_2440,63,Female,Walshtown,Medium
+customer_2441,39,Female,Robertsville,High
+customer_2442,58,Female,East Sethchester,Medium
+customer_2443,39,Female,Joseside,High
+customer_2444,35,Male,East Allen,High
+customer_2445,40,Female,South Teresa,High
+customer_2446,61,Male,Mooreburgh,Low
+customer_2447,22,Female,North Charlesberg,High
+customer_2448,65,Male,Annashire,High
+customer_2449,70,Other,North Jasonchester,Low
+customer_2450,34,Other,North Meganside,Low
+customer_2451,53,Female,West Samanthachester,Low
+customer_2452,24,Other,Montoyashire,Medium
+customer_2453,61,Other,Spencerside,High
+customer_2454,46,Other,Littletown,High
+customer_2455,54,Female,South Kelly,Low
+customer_2456,49,Female,Jessicamouth,Medium
+customer_2457,26,Female,Stuartmouth,Low
+customer_2458,63,Female,Michaelstad,Medium
+customer_2459,59,Other,North Juanmouth,Low
+customer_2460,34,Male,Lake Williammouth,High
+customer_2461,30,Female,Littlemouth,Low
+customer_2462,69,Male,Joanntown,Medium
+customer_2463,20,Male,Ashleyview,High
+customer_2464,60,Male,Bowenshire,Low
+customer_2465,34,Male,New Lauren,Medium
+customer_2466,50,Male,East Josephburgh,High
+customer_2467,24,Other,Edwardsview,Medium
+customer_2468,61,Male,Harthaven,Medium
+customer_2469,67,Other,West Crystal,Low
+customer_2470,45,Female,Madelineborough,High
+customer_2471,61,Other,New Sonya,High
+customer_2472,24,Other,Josephstad,High
+customer_2473,62,Female,East Johnside,Medium
+customer_2474,32,Male,West Sabrina,Low
+customer_2475,62,Female,Richardsborough,Low
+customer_2476,64,Female,Port Marc,Low
+customer_2477,45,Male,Phillipville,Medium
+customer_2478,21,Male,Miguelhaven,Low
+customer_2479,56,Male,North Rachelton,High
+customer_2480,66,Other,New Samantha,Low
+customer_2481,55,Female,Lake Jenniferport,Low
+customer_2482,66,Male,Port Erictown,Medium
+customer_2483,68,Female,North Donna,Medium
+customer_2484,63,Other,Maryport,Medium
+customer_2485,57,Male,Jerryton,Medium
+customer_2486,37,Male,Elliottport,Low
+customer_2487,63,Male,Jeromeberg,High
+customer_2488,23,Male,East Travis,Medium
+customer_2489,60,Other,Smithville,Low
+customer_2490,62,Other,North Robert,High
+customer_2491,58,Other,West Patricialand,Medium
+customer_2492,67,Female,New Lindsey,High
+customer_2493,42,Male,Jameshaven,Low
+customer_2494,27,Male,North Logan,Low
+customer_2495,59,Other,North Jonmouth,Low
+customer_2496,29,Male,Williamshaven,High
+customer_2497,46,Male,West Mercedesborough,High
+customer_2498,23,Female,East Jennifer,Medium
+customer_2499,41,Male,Ambermouth,High
+customer_2500,57,Female,Johnville,Medium
+customer_2501,50,Female,Port Zacharyborough,Medium
+customer_2502,21,Female,Port Patrick,High
+customer_2503,21,Female,Lake Darryl,Medium
+customer_2504,31,Male,Colinton,Medium
+customer_2505,44,Other,New Vincentview,High
+customer_2506,60,Male,Alexandraside,High
+customer_2507,30,Male,Smithview,Low
+customer_2508,65,Female,Gabriellaport,High
+customer_2509,30,Female,Shahstad,High
+customer_2510,19,Female,New Aaron,Low
+customer_2511,59,Other,Port Victoriaport,High
+customer_2512,48,Other,Port Deanport,Medium
+customer_2513,26,Male,Port Jessicatown,High
+customer_2514,32,Male,Levineberg,Low
+customer_2515,65,Male,Williamfort,Medium
+customer_2516,60,Other,North Brenthaven,Low
+customer_2517,21,Other,Johnton,Low
+customer_2518,67,Male,Johnsonville,Medium
+customer_2519,35,Male,East Ericbury,High
+customer_2520,69,Other,Sanchezbury,Low
+customer_2521,31,Female,East Stephanieville,Medium
+customer_2522,67,Other,Rebeccaton,High
+customer_2523,21,Other,South Adam,Medium
+customer_2524,34,Female,Clarktown,Low
+customer_2525,53,Female,Jefferychester,High
+customer_2526,55,Female,New Yolandatown,Low
+customer_2527,65,Male,Brewerland,Medium
+customer_2528,46,Male,Mirandaland,High
+customer_2529,23,Other,New Lindsayfurt,High
+customer_2530,51,Male,North Garrettstad,High
+customer_2531,36,Other,South Michaelfurt,Low
+customer_2532,23,Female,Ericaburgh,High
+customer_2533,22,Other,Millerland,Low
+customer_2534,60,Male,West Leslie,Medium
+customer_2535,36,Other,Lake Taylor,Medium
+customer_2536,45,Other,North Catherinefort,High
+customer_2537,29,Female,South Jamesmouth,Low
+customer_2538,45,Male,Allenberg,High
+customer_2539,55,Male,Cameronport,High
+customer_2540,56,Male,Port Davidtown,High
+customer_2541,34,Female,South Aliciaport,Medium
+customer_2542,35,Male,West Meganchester,Low
+customer_2543,31,Other,Port Dustin,High
+customer_2544,54,Male,Tylerhaven,Low
+customer_2545,41,Female,Port Brittany,High
+customer_2546,56,Male,Port James,High
+customer_2547,23,Other,Port Brandi,Low
+customer_2548,65,Other,East Joseph,High
+customer_2549,63,Female,Fryehaven,Medium
+customer_2550,67,Male,Cindybury,Low
+customer_2551,42,Female,Markberg,High
+customer_2552,26,Other,Snyderburgh,High
+customer_2553,64,Male,Ramirezborough,High
+customer_2554,30,Female,East Melissahaven,Low
+customer_2555,62,Female,Jodishire,Medium
+customer_2556,65,Female,Michaeltown,Low
+customer_2557,28,Male,Lopezside,Low
+customer_2558,31,Female,North Yolanda,Medium
+customer_2559,28,Female,Leonardberg,High
+customer_2560,19,Female,New Thomasville,Low
+customer_2561,37,Female,South Jared,Low
+customer_2562,52,Male,Port Michael,Medium
+customer_2563,53,Female,Brianmouth,High
+customer_2564,32,Male,Lake Richard,Medium
+customer_2565,19,Female,Quinnview,Low
+customer_2566,21,Male,North Patrickmouth,Low
+customer_2567,49,Female,Blackside,High
+customer_2568,24,Other,Lindachester,High
+customer_2569,19,Female,North Lauren,Low
+customer_2570,58,Other,Port James,Medium
+customer_2571,45,Other,Lake Jon,Low
+customer_2572,31,Other,Johnburgh,High
+customer_2573,57,Female,Smithfurt,High
+customer_2574,18,Male,North Richard,Medium
+customer_2575,24,Male,Walshbury,High
+customer_2576,32,Male,East Alison,Medium
+customer_2577,70,Female,New Michael,Low
+customer_2578,28,Male,New Danielborough,Medium
+customer_2579,27,Male,Mitchellton,High
+customer_2580,43,Female,West Karastad,Medium
+customer_2581,45,Male,Randallmouth,Low
+customer_2582,25,Male,Port Samantha,Low
+customer_2583,56,Other,North Tiffany,Medium
+customer_2584,69,Other,South Madisonburgh,Low
+customer_2585,18,Other,West Philiptown,Medium
+customer_2586,49,Female,South Alexandra,High
+customer_2587,52,Male,Hendersonborough,Low
+customer_2588,23,Other,West Justin,Medium
+customer_2589,43,Male,Bowmanside,High
+customer_2590,39,Male,Owensmouth,Medium
+customer_2591,37,Female,Rodneychester,Low
+customer_2592,57,Male,Elizabethborough,High
+customer_2593,59,Other,Josephborough,High
+customer_2594,68,Male,Lake Monica,Medium
+customer_2595,23,Other,Jilltown,Medium
+customer_2596,33,Female,New Jenniferview,Medium
+customer_2597,55,Female,Lake Michael,High
+customer_2598,52,Male,West Jasonton,Low
+customer_2599,65,Other,East Jasonside,High
+customer_2600,56,Female,Lake Juliafort,Medium
+customer_2601,28,Other,West Lindaview,Medium
+customer_2602,63,Female,Megantown,High
+customer_2603,64,Male,Rachaelview,High
+customer_2604,34,Other,Diazburgh,Low
+customer_2605,56,Female,Lake Matthew,Low
+customer_2606,47,Male,South Sarahchester,Low
+customer_2607,32,Other,Smithbury,High
+customer_2608,65,Male,East Coreyhaven,Low
+customer_2609,37,Other,Cobbburgh,Medium
+customer_2610,45,Female,New Michellechester,Medium
+customer_2611,44,Other,Lake Kevinfurt,High
+customer_2612,50,Female,Port Joshuaton,Low
+customer_2613,51,Other,Meganbury,Low
+customer_2614,39,Male,Kelleyview,Medium
+customer_2615,47,Other,New Joshuafort,High
+customer_2616,68,Female,Caitlinport,Medium
+customer_2617,36,Female,Kellyville,High
+customer_2618,42,Other,Andreaburgh,Medium
+customer_2619,53,Other,New Yvette,Medium
+customer_2620,51,Male,Normanhaven,Medium
+customer_2621,42,Female,Markborough,Medium
+customer_2622,50,Male,Markfurt,Medium
+customer_2623,36,Other,Port Elizabeth,Medium
+customer_2624,49,Other,Port Derek,Medium
+customer_2625,68,Other,Brownport,Low
+customer_2626,70,Other,South Gina,Low
+customer_2627,66,Male,South Courtney,Medium
+customer_2628,67,Other,Edwardsville,Medium
+customer_2629,58,Male,Jenniferville,Medium
+customer_2630,36,Other,Oliverland,High
+customer_2631,29,Male,Valdezview,Medium
+customer_2632,35,Female,Samanthaville,Low
+customer_2633,29,Female,Wuview,High
+customer_2634,53,Other,Melissatown,Medium
+customer_2635,54,Male,Port Austinland,Medium
+customer_2636,61,Female,Waynehaven,Medium
+customer_2637,54,Male,Grayland,Medium
+customer_2638,24,Male,Stevensbury,Low
+customer_2639,62,Other,East Brendamouth,High
+customer_2640,54,Other,New Christina,High
+customer_2641,41,Male,South Tara,Low
+customer_2642,56,Other,Port Ashley,High
+customer_2643,31,Other,North Nathaniel,Medium
+customer_2644,49,Female,North Taylortown,Low
+customer_2645,68,Female,East Karen,Low
+customer_2646,38,Female,Walkerland,Low
+customer_2647,65,Other,New Elizabethbury,Medium
+customer_2648,47,Other,West Andrew,High
+customer_2649,54,Male,South Jonathanton,High
+customer_2650,25,Other,Kingport,High
+customer_2651,70,Male,West Traviston,High
+customer_2652,46,Other,Walkerhaven,High
+customer_2653,21,Male,Maldonadostad,Low
+customer_2654,49,Other,Torresberg,Medium
+customer_2655,54,Male,Smithburgh,High
+customer_2656,40,Male,Pamelaborough,Medium
+customer_2657,21,Other,New Henry,Low
+customer_2658,28,Other,North Janet,High
+customer_2659,44,Male,West Joshuaton,Medium
+customer_2660,38,Female,Blanchardfort,Low
+customer_2661,43,Male,Rodriguezview,High
+customer_2662,34,Male,Lindsayville,High
+customer_2663,43,Female,East Christine,High
+customer_2664,44,Female,Fordton,High
+customer_2665,66,Female,Susanfurt,Medium
+customer_2666,47,Male,New Alexandraside,Low
+customer_2667,59,Other,West Joshuaburgh,Medium
+customer_2668,48,Male,Gabrielleport,High
+customer_2669,52,Female,Jamesstad,Low
+customer_2670,63,Other,Rachaelton,High
+customer_2671,61,Female,Murphyton,Low
+customer_2672,18,Male,West Lee,Low
+customer_2673,37,Male,Jonesfort,Low
+customer_2674,43,Female,Brownshire,High
+customer_2675,28,Female,Taylorfort,High
+customer_2676,18,Male,East Belinda,Medium
+customer_2677,57,Female,Cassandraport,High
+customer_2678,29,Female,South Kevin,Medium
+customer_2679,45,Other,Jamestown,Low
+customer_2680,36,Male,Janetfurt,Low
+customer_2681,67,Other,North Susanmouth,Low
+customer_2682,21,Other,Levyport,Medium
+customer_2683,60,Female,Lake Oscar,Low
+customer_2684,40,Male,Kristamouth,Medium
+customer_2685,65,Other,Briannaport,High
+customer_2686,50,Male,East Leslie,High
+customer_2687,62,Male,Port Morgan,Low
+customer_2688,43,Male,East Darinfort,Medium
+customer_2689,60,Female,Port Elizabethborough,Low
+customer_2690,28,Other,New Angela,High
+customer_2691,59,Other,Bendermouth,High
+customer_2692,22,Female,Thompsonmouth,Medium
+customer_2693,67,Female,Hernandezfort,High
+customer_2694,63,Male,Kyleside,High
+customer_2695,37,Other,Lake Thomasbury,Low
+customer_2696,60,Male,Christopherbury,Low
+customer_2697,68,Male,South Victoriaberg,Medium
+customer_2698,25,Other,Port Cassandra,Medium
+customer_2699,51,Female,South Javiermouth,Low
+customer_2700,36,Female,Lucerochester,Medium
+customer_2701,63,Female,West Yolandaville,Low
+customer_2702,46,Other,Port Jackside,Medium
+customer_2703,18,Female,Shieldshaven,Low
+customer_2704,55,Male,Odonnellport,High
+customer_2705,24,Male,Lorifurt,Low
+customer_2706,59,Other,South Kevin,Low
+customer_2707,60,Male,New Oliviabury,High
+customer_2708,27,Female,Sarahhaven,Low
+customer_2709,42,Male,Michaelborough,High
+customer_2710,51,Male,New Richardberg,High
+customer_2711,69,Other,Latoyastad,Medium
+customer_2712,53,Female,East Jacobstad,Low
+customer_2713,66,Female,Kristinaburgh,Low
+customer_2714,42,Other,Amyville,High
+customer_2715,49,Male,Christopherhaven,Medium
+customer_2716,59,Female,Lake Michael,Low
+customer_2717,64,Female,South Paula,High
+customer_2718,63,Other,Stevenberg,Medium
+customer_2719,41,Female,East Holly,High
+customer_2720,48,Other,Tabithaton,High
+customer_2721,47,Female,East Mary,Low
+customer_2722,19,Other,Port Omarstad,High
+customer_2723,27,Female,Port Adam,Low
+customer_2724,27,Male,Lake Rachel,Medium
+customer_2725,47,Other,Port Veronicamouth,High
+customer_2726,23,Female,Thomasview,High
+customer_2727,51,Female,Fergusonside,Low
+customer_2728,52,Male,Tammyburgh,Medium
+customer_2729,40,Female,Lake Michael,Low
+customer_2730,57,Female,Patelview,High
+customer_2731,26,Male,Christopherport,Medium
+customer_2732,47,Female,North Jenniferside,Low
+customer_2733,51,Other,South Scott,Medium
+customer_2734,39,Male,West Ryanborough,Medium
+customer_2735,69,Male,East Kimberly,High
+customer_2736,59,Male,Hansenville,Low
+customer_2737,36,Male,Port Williamport,High
+customer_2738,23,Other,Dannyhaven,Low
+customer_2739,19,Female,New Donaldmouth,High
+customer_2740,31,Male,Port Hectorport,Medium
+customer_2741,65,Female,Simmonsberg,Medium
+customer_2742,45,Female,East Jacobberg,Medium
+customer_2743,51,Male,Wagnerfurt,Medium
+customer_2744,33,Female,North Deborahmouth,High
+customer_2745,32,Other,New Ginamouth,Low
+customer_2746,60,Other,North April,Medium
+customer_2747,50,Other,South Kristina,Medium
+customer_2748,27,Female,North Brian,High
+customer_2749,37,Female,New Kaitlyn,Medium
+customer_2750,34,Male,South Christinachester,High
+customer_2751,37,Female,West William,Medium
+customer_2752,28,Male,Chapmanton,Medium
+customer_2753,67,Female,Port Dennisport,Low
+customer_2754,40,Other,Lake Sheryl,Low
+customer_2755,33,Female,Craigfort,Medium
+customer_2756,42,Male,East Lauren,Low
+customer_2757,54,Other,Lake Jose,Low
+customer_2758,38,Male,West Rhonda,Medium
+customer_2759,20,Male,Port Robert,High
+customer_2760,58,Other,Chavezland,Low
+customer_2761,23,Male,Simmonsmouth,Low
+customer_2762,56,Male,Carterland,Medium
+customer_2763,46,Female,Kingchester,Low
+customer_2764,30,Other,West Kevin,Low
+customer_2765,18,Female,Port Dwaynestad,Medium
+customer_2766,25,Female,South Christinamouth,Medium
+customer_2767,24,Female,Alexandriabury,High
+customer_2768,58,Female,Kochland,Low
+customer_2769,54,Male,Lake Roger,Low
+customer_2770,20,Male,Port Barbaraburgh,High
+customer_2771,29,Female,East Kevin,High
+customer_2772,54,Female,Bennettport,High
+customer_2773,68,Other,Karenbury,High
+customer_2774,20,Other,New Lauraside,Low
+customer_2775,27,Male,East Kathleen,Medium
+customer_2776,53,Other,North Robert,Medium
+customer_2777,50,Other,Richardsonhaven,Medium
+customer_2778,24,Other,Bettyfurt,Medium
+customer_2779,40,Female,Gonzalezland,Medium
+customer_2780,43,Male,New Caroltown,High
+customer_2781,28,Other,Powellfurt,Medium
+customer_2782,40,Male,Port Douglasside,Low
+customer_2783,21,Other,Port Gary,High
+customer_2784,56,Other,Rosarioville,Medium
+customer_2785,51,Male,South Christophertown,High
+customer_2786,42,Other,West Michael,High
+customer_2787,70,Female,Port Colinhaven,Medium
+customer_2788,67,Male,Vasquezchester,Low
+customer_2789,48,Female,East Karaland,Medium
+customer_2790,61,Other,Brianberg,High
+customer_2791,60,Female,South Amandaberg,Low
+customer_2792,18,Other,East Trevortown,Low
+customer_2793,43,Female,Crystalview,Medium
+customer_2794,32,Male,West Shaneland,Low
+customer_2795,68,Male,Port Jason,Low
+customer_2796,32,Male,Wilkinstown,Medium
+customer_2797,61,Male,New Nicholas,Low
+customer_2798,47,Male,Ashleyborough,High
+customer_2799,35,Female,Lake Tammyside,Low
+customer_2800,54,Female,East Angelview,High
+customer_2801,29,Male,North Jodi,High
+customer_2802,32,Other,East Randy,High
+customer_2803,49,Other,Phillipsside,High
+customer_2804,37,Female,Port Jasonberg,High
+customer_2805,33,Other,Port Robertshire,Medium
+customer_2806,64,Female,Millershire,High
+customer_2807,21,Male,Staffordport,Medium
+customer_2808,47,Female,Rileyfurt,Medium
+customer_2809,21,Female,Lake Loganfurt,Low
+customer_2810,59,Female,Walshside,High
+customer_2811,21,Male,South Tiffany,High
+customer_2812,31,Other,Josephmouth,Low
+customer_2813,57,Male,Ashleyshire,High
+customer_2814,24,Other,North Sherryport,High
+customer_2815,69,Female,South Martin,Medium
+customer_2816,42,Female,North Emily,Medium
+customer_2817,46,Other,Robertburgh,High
+customer_2818,63,Male,North Gary,High
+customer_2819,27,Female,Ryanmouth,High
+customer_2820,29,Other,West Thomastown,Medium
+customer_2821,36,Other,New Tabithaborough,Medium
+customer_2822,39,Female,South Brian,Low
+customer_2823,52,Other,Port Kendrachester,Medium
+customer_2824,45,Male,West Derrick,High
+customer_2825,31,Male,Port Nathaniel,Medium
+customer_2826,21,Other,South Alicia,Low
+customer_2827,42,Male,Hatfieldport,Medium
+customer_2828,67,Male,Port Courtneystad,Medium
+customer_2829,43,Male,Colefurt,Low
+customer_2830,53,Other,Port Kimberlyfurt,Low
+customer_2831,58,Other,East Gerald,Medium
+customer_2832,40,Female,South Nataliemouth,Medium
+customer_2833,35,Female,Christopherfort,Low
+customer_2834,49,Male,East Veronicachester,Low
+customer_2835,66,Female,North Janicestad,High
+customer_2836,27,Male,West Robertchester,Medium
+customer_2837,44,Male,Benjaminshire,Medium
+customer_2838,65,Female,Edwardview,Medium
+customer_2839,66,Male,Mirandaland,High
+customer_2840,25,Female,New Tiffanyside,Low
+customer_2841,53,Male,Lake Andrewborough,High
+customer_2842,20,Other,West Derek,Low
+customer_2843,31,Female,Guzmanbury,High
+customer_2844,51,Other,North Virginiaside,High
+customer_2845,27,Male,South Alexis,Low
+customer_2846,35,Male,Lake Shawnburgh,Low
+customer_2847,66,Other,Guerreroside,Medium
+customer_2848,25,Female,South Julianburgh,Medium
+customer_2849,63,Other,Samanthaton,High
+customer_2850,20,Female,Meganbury,Low
+customer_2851,59,Male,South Phillip,High
+customer_2852,58,Female,Stevenstad,Low
+customer_2853,20,Female,East Lauriefurt,High
+customer_2854,20,Male,Foxville,Low
+customer_2855,64,Other,East Amandafurt,High
+customer_2856,45,Other,North Breannamouth,High
+customer_2857,69,Female,Jasonton,Low
+customer_2858,59,Other,Jacksonbury,Low
+customer_2859,35,Female,Michaelside,Low
+customer_2860,26,Female,Hernandezton,High
+customer_2861,38,Male,South Danielberg,Medium
+customer_2862,45,Female,Port Scott,High
+customer_2863,63,Female,Davidland,High
+customer_2864,61,Female,Daltonport,Low
+customer_2865,66,Female,Vincentmouth,Low
+customer_2866,61,Other,North Josephtown,Low
+customer_2867,41,Other,North Brianchester,Medium
+customer_2868,40,Female,South Luisbury,Medium
+customer_2869,30,Male,North Samuel,Medium
+customer_2870,50,Other,Lake Kristichester,Low
+customer_2871,22,Other,Robertstown,High
+customer_2872,54,Male,North Donaldtown,Medium
+customer_2873,66,Male,Pamelafurt,Medium
+customer_2874,52,Male,Roberttown,High
+customer_2875,65,Other,Ashleymouth,Low
+customer_2876,49,Female,Fishershire,Low
+customer_2877,56,Male,Robertbury,Low
+customer_2878,43,Female,Mitchellside,Medium
+customer_2879,67,Female,New Meganfort,Medium
+customer_2880,42,Female,South Tara,Medium
+customer_2881,44,Male,South Juliefort,High
+customer_2882,63,Male,South Danielbury,Medium
+customer_2883,37,Male,Lauriebury,Medium
+customer_2884,29,Male,South Jeffrey,Medium
+customer_2885,46,Female,Marciafurt,High
+customer_2886,69,Other,West Anna,Medium
+customer_2887,23,Female,Lake Shannon,Low
+customer_2888,70,Other,Martinezview,Low
+customer_2889,23,Male,Brewerchester,Low
+customer_2890,21,Male,South Amanda,High
+customer_2891,23,Female,New Raymond,High
+customer_2892,33,Male,Valencialand,Medium
+customer_2893,43,Other,Garciaberg,Low
+customer_2894,52,Male,East Charles,Low
+customer_2895,22,Female,Gordonborough,Medium
+customer_2896,19,Female,Garymouth,Low
+customer_2897,19,Other,Port Sydneyton,Low
+customer_2898,68,Other,South Danielleville,Low
+customer_2899,35,Other,Robinsonburgh,Low
+customer_2900,40,Female,North Ryan,High
+customer_2901,38,Female,South Samuelstad,High
+customer_2902,68,Male,Jennaton,High
+customer_2903,37,Female,East Ashleystad,Low
+customer_2904,40,Other,Paultown,Medium
+customer_2905,48,Female,Michaelborough,High
+customer_2906,65,Male,Shelbyberg,Low
+customer_2907,56,Female,Richardhaven,High
+customer_2908,32,Female,Lake Christophertown,Low
+customer_2909,30,Female,Adrianburgh,High
+customer_2910,27,Female,Port Scott,Low
+customer_2911,64,Male,New Phillipchester,Medium
+customer_2912,37,Other,New Melissa,Medium
+customer_2913,68,Female,North Laura,Medium
+customer_2914,31,Female,North Patrick,Medium
+customer_2915,57,Female,Perezview,Medium
+customer_2916,44,Female,South Pamela,Low
+customer_2917,66,Female,Port John,Medium
+customer_2918,26,Female,Saundersview,Low
+customer_2919,31,Male,New Patrickshire,Low
+customer_2920,30,Other,Jeremymouth,Low
+customer_2921,44,Female,South Cassieburgh,Low
+customer_2922,20,Female,West Maryborough,Low
+customer_2923,44,Other,East Karenside,Low
+customer_2924,25,Other,Mikeville,Medium
+customer_2925,46,Female,Lake Ashley,Medium
+customer_2926,39,Male,West Cassandra,High
+customer_2927,52,Male,Maureenmouth,Low
+customer_2928,30,Male,New Jenniferport,Medium
+customer_2929,41,Female,South Jamesview,Low
+customer_2930,58,Other,Port Malikchester,Medium
+customer_2931,46,Female,Kathleenmouth,Medium
+customer_2932,47,Female,Chadton,Medium
+customer_2933,24,Other,New Cindy,High
+customer_2934,46,Male,Brownmouth,Medium
+customer_2935,55,Other,West Alexandriaton,Low
+customer_2936,26,Male,Solomonville,Low
+customer_2937,55,Other,South Rickeyview,Low
+customer_2938,20,Female,Port Kevinfurt,Medium
+customer_2939,29,Other,Jacobstad,High
+customer_2940,50,Female,Edwardsmouth,Low
+customer_2941,20,Other,Dominiquemouth,Medium
+customer_2942,57,Female,Larrychester,Medium
+customer_2943,68,Other,Thompsonland,High
+customer_2944,43,Other,Port Samanthaport,Medium
+customer_2945,68,Male,North Michelle,High
+customer_2946,58,Male,New Lisa,Low
+customer_2947,47,Male,West Marvinton,Low
+customer_2948,56,Female,Jocelynmouth,High
+customer_2949,53,Male,Annatown,Medium
+customer_2950,18,Male,Jessicachester,Low
+customer_2951,55,Male,Maryview,Low
+customer_2952,49,Male,West Christy,High
+customer_2953,45,Female,South Kellyland,Medium
+customer_2954,47,Male,Christophertown,High
+customer_2955,43,Other,East Kaylamouth,Medium
+customer_2956,22,Male,Webbberg,Low
+customer_2957,65,Other,Buchananside,High
+customer_2958,33,Other,Jessicafort,Medium
+customer_2959,19,Other,West Williamland,Medium
+customer_2960,35,Other,East Stacieshire,Low
+customer_2961,30,Other,Lake James,High
+customer_2962,37,Male,North Jose,Low
+customer_2963,39,Other,Robertsonstad,Low
+customer_2964,58,Other,Wallburgh,High
+customer_2965,32,Female,New Stephaniefurt,High
+customer_2966,40,Male,Ashleystad,Medium
+customer_2967,18,Other,East Jacobside,Medium
+customer_2968,31,Male,East Tiffany,Low
+customer_2969,42,Other,Curtistown,High
+customer_2970,56,Other,South April,High
+customer_2971,31,Other,Velezberg,Medium
+customer_2972,32,Female,East Garyfort,Medium
+customer_2973,38,Male,Port Cameronmouth,Low
+customer_2974,34,Male,Whitneyfurt,Low
+customer_2975,30,Male,Lake Dennis,High
+customer_2976,58,Other,Jenningsview,Medium
+customer_2977,61,Other,Mossburgh,High
+customer_2978,30,Other,North Jessicachester,Low
+customer_2979,37,Male,Gardnerchester,Low
+customer_2980,33,Male,East Beckymouth,Low
+customer_2981,23,Female,Davidchester,Low
+customer_2982,65,Other,Lake Amy,Low
+customer_2983,30,Female,Port Scottstad,Low
+customer_2984,70,Female,Lake Robinton,Medium
+customer_2985,19,Male,Port William,High
+customer_2986,22,Other,Port Carlos,Low
+customer_2987,57,Female,Lisafort,Medium
+customer_2988,54,Female,Lake James,Low
+customer_2989,34,Other,South Kenneth,High
+customer_2990,29,Male,Seanchester,Medium
+customer_2991,60,Other,Lake Scott,Medium
+customer_2992,55,Female,Harveyside,Medium
+customer_2993,53,Other,West Amber,High
+customer_2994,70,Female,Lake Danielburgh,Low
+customer_2995,21,Other,Robertsonville,Low
+customer_2996,64,Other,East Kimberlymouth,Low
+customer_2997,19,Other,Hayesville,High
+customer_2998,65,Male,Hortonhaven,Low
+customer_2999,19,Female,North Katrina,High

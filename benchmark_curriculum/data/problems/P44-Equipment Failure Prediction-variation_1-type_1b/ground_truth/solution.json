@@ -1,0 +1,14 @@
+{
+    "enriched_column_names": [
+        "pressure_surge_occurrences_over_a_threshold_within_a_day",
+        "cumulative_usage_hours_since_last_maintenance",
+        "average_temperature_deviation_over_the_past_month",
+        "time_since_installation"
+    ],
+    "features_descriptions": [
+        "pressure surge occurrences over a threshold within a day",
+        "cumulative usage hours since last maintenance",
+        "average temperature deviation over the past month",
+        "time since installation"
+    ]
+}

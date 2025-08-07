@@ -1,0 +1,16 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "comorbidities_count",
+        "compute_average_adherence",
+        "compute_years_since_diagnosis"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "comorbidities count",
+        "compute average adherence",
+        "compute years since diagnosis"
+    ]
+}

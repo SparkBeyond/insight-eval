@@ -1,0 +1,95 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "interest_level_encoded",
+        "adjusted_incentive_effectiveness",
+        "renewable_usage_proportion",
+        "non_renewable_to_renewable_ratio",
+        "is_high_renewable_customer",
+        "low_income_non_renewable_reliance",
+        "is_detached_house",
+        "incentive_to_renewable_ratio",
+        "ownership_status_binary",
+        "income_level_encoded",
+        "is_high_incentive_recipient",
+        "incentive_threshold_proximity",
+        "incentive_per_person",
+        "high_adoption_likelihood"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.18842576499019978": {
+            "name": "interest_level_encoded",
+            "code": "\n\ndef interest_level_encoded(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the market_interest_table dataframe from aux_data\n    market_interest_table = aux_data.get('market_interest_table.csv')\n    \n    # Check if the customer_id exists in the market_interest_table\n    if market_interest_table is not None:\n        # Find the interest_level for the given customer_id\n        customer_id = row['customer_id']\n        interest_row = market_interest_table[market_interest_table['customer_id'] == customer_id]\n        \n        if not interest_row.empty:\n            # Get the interest_level value\n            interest_level = interest_row.iloc[0]['interest_level']\n            # Map the interest_level to the encoded value\n            mapping = {'low': 1, 'medium': 2, 'high': 3}\n            return mapping.get(interest_level, 0)\n    \n    # Return 0 if no match is found or if the table is missing\n    return 0\n"
+        },
+        "0.10130575484508662": {
+            "name": "adjusted_incentive_effectiveness",
+            "code": "import pandas as pd\n\ndef adjusted_incentive_effectiveness(row, aux_data: Dict[str, pd.DataFrame]):\n    import pandas as pd\n    \n    # Extract the household_attributes_table dataframe from aux_data\n    household_attributes = aux_data['household_attributes_table.csv']\n    \n    # Find the household_size for the given customer_id\n    household_size = household_attributes.loc[\n        household_attributes['customer_id'] == row['customer_id'], 'household_size'\n    ]\n    \n    # If household_size is found, use it; otherwise, default to 0\n    household_size = household_size.iloc[0] if not household_size.empty else 0\n    \n    # Check if 'percentage_decrease_in_non_renewable_energy_consumption_in_the_last_year' exists in the row\n    if 'percentage_decrease_in_non_renewable_energy_consumption_in_the_last_year' not in row:\n        raise KeyError(\"'percentage_decrease_in_non_renewable_energy_consumption_in_the_last_year' column is missing from the input row.\")\n    \n    # Use 'percentage_decrease_in_non_renewable_energy_consumption_in_the_last_year' as a proxy for incentive effectiveness\n    incentive_effectiveness = row['percentage_decrease_in_non_renewable_energy_consumption_in_the_last_year']\n    \n    # Calculate adjusted incentive effectiveness\n    return (incentive_effectiveness / household_size\n            if household_size > 0 else 0)\n"
+        },
+        "0.09067082756668281": {
+            "name": "renewable_usage_proportion",
+            "code": "\n\ndef renewable_usage_proportion(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the necessary dataframes from aux_data\n    energy_usage_data = aux_data['energy_usage_data_table.csv']\n    household_attributes = aux_data['household_attributes_table.csv']\n    \n    # Get the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Map customer_id to household_id using the household_attributes_table\n    household_row = household_attributes[household_attributes['customer_id'] == customer_id]\n    \n    # If no matching household_id is found, return 0\n    if household_row.empty:\n        return 0\n    \n    # Extract the household_id\n    household_id = household_row.iloc[0]['household_id']\n    \n    # Filter the energy usage data for the specific household_id\n    household_usage = energy_usage_data[energy_usage_data['household_id'] == household_id]\n    \n    # Calculate the total renewable and non-renewable usage for the household\n    r_usage_sum = household_usage['renewable_usage'].sum()\n    nr_usage_sum = household_usage['non_renewable_usage'].sum()\n    \n    # Calculate the total usage\n    total_usage = r_usage_sum + nr_usage_sum\n    \n    # Return the proportion of renewable usage\n    return r_usage_sum / total_usage if total_usage > 0 else 0\n"
+        },
+        "0.08652063158716913": {
+            "name": "non_renewable_to_renewable_ratio",
+            "code": "\n\ndef non_renewable_to_renewable_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the energy usage data\n    energy_usage_df = aux_data['energy_usage_data_table.csv']\n    \n    # Filter the energy usage data for the given customer_id\n    customer_id = row['customer_id']\n    customer_usage = energy_usage_df[energy_usage_df['household_id'] == customer_id]\n    \n    # Calculate the total non-renewable and renewable usage\n    nr_usage_sum = customer_usage['non_renewable_usage'].sum()\n    r_usage_sum = customer_usage['renewable_usage'].sum()\n    \n    # Return the ratio, handling the case where r_usage_sum is 0\n    return nr_usage_sum / r_usage_sum if r_usage_sum > 0 else 0\n"
+        },
+        "0.07413096820702339": {
+            "name": "is_high_renewable_customer",
+            "code": "\n\ndef is_high_renewable_customer(row, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Get the household_id corresponding to the customer_id in the row\n    household_attributes = aux_data['household_attributes_table.csv']\n    household_id = household_attributes.loc[\n        household_attributes['customer_id'] == row['customer_id'], 'household_id'\n    ].squeeze()\n    \n    # Get the energy usage data for the household\n    energy_usage_data = aux_data['energy_usage_data_table.csv']\n    household_usage = energy_usage_data[energy_usage_data['household_id'] == household_id]\n    \n    # Calculate the sum of renewable and non-renewable usage\n    r_usage_sum = household_usage['renewable_usage'].sum()\n    nr_usage_sum = household_usage['non_renewable_usage'].sum()\n    \n    # Determine if the household is a high renewable customer\n    return 1 if r_usage_sum > nr_usage_sum else 0\n"
+        },
+        "0.05218565389949542": {
+            "name": "low_income_non_renewable_reliance",
+            "code": "\n\ndef low_income_non_renewable_reliance(row, aux_data: Dict[str, pd.DataFrame]):\n    # Load the household attributes table\n    household_attributes = aux_data['household_attributes_table.csv']\n    \n    # Merge the row's customer_id with household attributes to get income_level\n    household_data = household_attributes[household_attributes['customer_id'] == row['customer_id']]\n    \n    # Check if household data exists for the given customer_id\n    if household_data.empty:\n        return 0  # Default to 0 if no matching household data is found\n    \n    # Extract income_level for the household\n    income_level = household_data.iloc[0]['income_level']\n    \n    # Encode income_level: Assuming low income is represented by 1\n    income_level_encoded = 1 if income_level == 'low' else 0\n    \n    # Calculate renewable usage proportion\n    energy_usage = aux_data['energy_usage_data_table.csv']\n    household_energy = energy_usage[energy_usage['household_id'] == household_data.iloc[0]['household_id']]\n    \n    if household_energy.empty:\n        return 0  # Default to 0 if no energy usage data is found\n    \n    # Calculate total energy usage\n    total_non_renewable = household_energy['non_renewable_usage'].sum()\n    total_renewable = household_energy['renewable_usage'].sum()\n    total_energy = total_non_renewable + total_renewable\n    \n    # Avoid division by zero\n    if total_energy == 0:\n        renewable_usage_proportion = 0\n    else:\n        renewable_usage_proportion = total_renewable / total_energy\n    \n    # Apply the condition\n    return 1 if income_level_encoded == 1 and renewable_usage_proportion <= 0.5 else 0\n"
+        },
+        "0.0516404786397296": {
+            "name": "is_detached_house",
+            "code": "\n\ndef is_detached_house(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the household_attributes_table dataframe from aux_data\n    household_attributes = aux_data['household_attributes_table.csv']\n    \n    # Find the household_id corresponding to the given customer_id\n    customer_id = row['customer_id']\n    household_row = household_attributes[household_attributes['customer_id'] == customer_id]\n    \n    # Check if the household exists and if the property_type is \"detached house\"\n    if not household_row.empty:\n        property_type = household_row.iloc[0]['property_type']\n        return 1 if property_type == \"detached house\" else 0\n    else:\n        # If no matching household is found, return 0\n        return 0\n"
+        },
+        "0.031619051336954265": {
+            "name": "incentive_to_renewable_ratio",
+            "code": "\n\ndef incentive_to_renewable_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Get the relevant dataframes from aux_data\n    energy_usage_df = aux_data['energy_usage_data_table.csv']\n    incentives_df = aux_data['green_incentives_table.csv']\n    household_attributes_df = aux_data['household_attributes_table.csv']\n    \n    # Map customer_id to household_id using household_attributes_table.csv\n    household_id = household_attributes_df.loc[\n        household_attributes_df['customer_id'] == customer_id, 'household_id'\n    ]\n    \n    # Ensure household_id exists and is not empty\n    if household_id.empty:\n        return 0  # Return 0 if no household_id is found for the customer_id\n    \n    # Extract the first (and likely only) household_id\n    household_id = household_id.iloc[0]\n    \n    # Calculate the total renewable usage for the household\n    renewable_usage_sum = energy_usage_df.loc[\n        energy_usage_df['household_id'] == household_id, 'renewable_usage'\n    ].sum()\n    \n    # Calculate the total incentives for the household\n    incentive_sum = incentives_df.loc[\n        incentives_df['household_id'] == household_id, 'incentive_value'\n    ].sum()\n    \n    # Avoid division by zero and calculate the ratio\n    return incentive_sum / renewable_usage_sum if renewable_usage_sum > 0 else 0\n"
+        },
+        "0.01672763897675255": {
+            "name": "ownership_status_binary",
+            "code": "\n\ndef ownership_status_binary(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the household_attributes_table dataframe from aux_data\n    household_attributes = aux_data['household_attributes_table.csv']\n    \n    # Find the ownership_status for the given customer_id\n    customer_id = row['customer_id']\n    ownership_status = household_attributes.loc[\n        household_attributes['customer_id'] == customer_id, 'ownership_status'\n    ]\n    \n    # Check if ownership_status exists and return the binary value\n    if not ownership_status.empty:\n        return 1 if ownership_status.iloc[0] == \"owned\" else 0\n    else:\n        # Handle cases where the customer_id is not found\n        raise ValueError(f\"Customer ID {customer_id} not found in household_attributes_table.csv\")\n"
+        },
+        "0.015846809094202104": {
+            "name": "income_level_encoded",
+            "code": "\n\ndef income_level_encoded(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the household_attributes_table dataframe from aux_data\n    household_attributes = aux_data['household_attributes_table.csv']\n    \n    # Find the income_level for the given customer_id\n    customer_id = row['customer_id']\n    income_level = household_attributes.loc[\n        household_attributes['customer_id'] == customer_id, 'income_level'\n    ].squeeze()  # Use squeeze to get a scalar value if there's only one match\n    \n    # Map the income_level to its encoded value\n    mapping = {'low': 1, 'medium': 2, 'high': 3}\n    return mapping.get(income_level, 0)  # Default to 0 if income_level is not found\n"
+        },
+        "0.011075664019083113": {
+            "name": "is_high_incentive_recipient",
+            "code": "import pandas as pd\n\ndef is_high_incentive_recipient(row, aux_data: Dict[str, pd.DataFrame]):\n    threshold = 500  # Example threshold\n    \n    # Extract the household_id for the current row\n    customer_id = row['customer_id']\n    \n    # Get the household_attributes_table to map customer_id to household_id\n    household_attributes = aux_data['household_attributes_table.csv']\n    household_id = household_attributes.loc[\n        household_attributes['customer_id'] == customer_id, 'household_id'\n    ].squeeze()\n    \n    # If household_id is not found, return 0\n    if pd.isna(household_id):\n        return 0\n    \n    # Get the green_incentives_table to calculate the total incentive sum for the household\n    green_incentives = aux_data['green_incentives_table.csv']\n    household_incentives = green_incentives[\n        green_incentives['household_id'] == household_id\n    ]\n    incentive_sum = household_incentives['incentive_value'].sum()\n    \n    # Return 1 if the incentive_sum exceeds the threshold, otherwise return 0\n    return 1 if incentive_sum > threshold else 0\n"
+        },
+        "0.0075279303668575395": {
+            "name": "incentive_threshold_proximity",
+            "code": "import pandas as pd\n\ndef incentive_threshold_proximity(row, aux_data: Dict[str, pd.DataFrame]):\n    import pandas as pd\n    \n    # Define the threshold\n    threshold = 500\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Get the household_attributes_table from aux_data\n    household_attributes_table = aux_data['household_attributes_table.csv']\n    \n    # Map customer_id to household_id\n    household_id = household_attributes_table[\n        household_attributes_table['customer_id'] == customer_id\n    ]['household_id']\n    \n    # Ensure household_id exists and is not empty\n    if household_id.empty:\n        raise ValueError(f\"No household_id found for customer_id {customer_id}\")\n    \n    # Extract the first (and expected only) household_id\n    household_id = household_id.iloc[0]\n    \n    # Get the green_incentives_table from aux_data\n    green_incentives_table = aux_data['green_incentives_table.csv']\n    \n    # Filter the incentives for the given household_id and calculate the sum of incentive_value\n    household_incentive_sum = green_incentives_table[\n        green_incentives_table['household_id'] == household_id\n    ]['incentive_value'].sum()\n    \n    # Calculate and return the proximity to the threshold\n    return abs(household_incentive_sum - threshold)\n"
+        },
+        "0.0045048197798723735": {
+            "name": "incentive_per_person",
+            "code": "\n\ndef incentive_per_person(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the household_id from the row using customer_id\n    customer_id = row.get('customer_id')\n    \n    # Get the household_attributes_table from aux_data\n    household_attributes = aux_data.get('household_attributes_table.csv')\n    green_incentives = aux_data.get('green_incentives_table.csv')\n    \n    if household_attributes is None or green_incentives is None:\n        # If required tables are missing, return 0\n        return 0\n    \n    # Find the household_id and household_size for the given customer_id\n    household_info = household_attributes[household_attributes['customer_id'] == customer_id]\n    if household_info.empty:\n        # If no household info is found, return 0\n        return 0\n    \n    household_id = household_info.iloc[0]['household_id']\n    household_size = household_info.iloc[0]['household_size']\n    \n    # Get the total incentive sum for the household_id\n    household_incentives = green_incentives[green_incentives['household_id'] == household_id]\n    incentive_sum = household_incentives['incentive_value'].sum()\n    \n    # Calculate incentive per person\n    return incentive_sum / household_size if household_size > 0 else 0\n"
+        },
+        "0": {
+            "name": "high_adoption_likelihood",
+            "code": "\n\ndef high_adoption_likelihood(row, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Extract household_id from the row using customer_id\n    household_attributes = aux_data['household_attributes_table.csv']\n    household_id = household_attributes.loc[\n        household_attributes['customer_id'] == row['customer_id'], 'household_id'\n    ].values\n    \n    if len(household_id) == 0:\n        # If no household_id is found, return 0\n        return 0\n    household_id = household_id[0]\n    \n    # Check if the household is a high incentive recipient\n    green_incentives = aux_data['green_incentives_table.csv']\n    high_incentive = green_incentives[\n        (green_incentives['household_id'] == household_id) & \n        (green_incentives['incentive_value'] > 1000)  # Assuming high incentive is > 1000\n    ]\n    is_high_incentive_recipient = 1 if not high_incentive.empty else 0\n    \n    # Check if the household is a high renewable customer\n    energy_usage = aux_data['energy_usage_data_table.csv']\n    renewable_usage = energy_usage[\n        energy_usage['household_id'] == household_id\n    ]['renewable_usage'].sum()\n    total_usage = energy_usage[\n        energy_usage['household_id'] == household_id\n    ][['renewable_usage', 'non_renewable_usage']].sum().sum()\n    \n    is_high_renewable_customer = 1 if total_usage > 0 and (renewable_usage / total_usage) > 0.5 else 0\n    \n    # Return 1 if both conditions are met, otherwise return 0\n    return 1 if is_high_incentive_recipient == 1 and is_high_renewable_customer == 1 else 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "interest level encoded",
+        "adjusted incentive effectiveness",
+        "renewable usage proportion",
+        "non renewable to renewable ratio",
+        "is high renewable customer",
+        "low income non renewable reliance",
+        "is detached house",
+        "incentive to renewable ratio",
+        "ownership status binary",
+        "income level encoded",
+        "is high incentive recipient",
+        "incentive threshold proximity",
+        "incentive per person",
+        "high adoption likelihood"
+    ]
+}

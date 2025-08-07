@@ -1,0 +1,16 @@
+{
+    "enriched_column_names": [
+        "shifting_investment_patterns_in_peer_portfolios",
+        "trend_in_portfolio_returns_relative_to_industry_benchmarks",
+        "impact_of_unexpected_events_on_portfolios_over_consistent_time_spans",
+        "average_volatility_of_assets_in_the_portfolio_over_the_last_six_months",
+        "age_of_portfolio_and_its_shift_from_inception"
+    ],
+    "features_descriptions": [
+        "shifting investment patterns in peer portfolios",
+        "trend in portfolio returns relative to industry benchmarks",
+        "impact of unexpected events on portfolios over consistent time spans",
+        "average volatility of assets in the portfolio over the last six months",
+        "age of portfolio and its shift from inception"
+    ]
+}

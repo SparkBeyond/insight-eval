@@ -1,0 +1,16 @@
+{
+    "enriched_column_names": [
+        "average_income_of_the_customer_over_the_last_year",
+        "total_loan_amount_in_the_past_year_compared_to_income",
+        "average_repayment_delay_period",
+        "percentage_of_payments_late_in_the_last_two_years",
+        "previous_loan_defaults_in_the_last_five_years"
+    ],
+    "features_descriptions": [
+        "average income of the customer over the last year",
+        "total loan amount in the past year compared to income",
+        "average repayment delay period",
+        "percentage of payments late in the last two years",
+        "previous loan defaults in the last five years"
+    ]
+}

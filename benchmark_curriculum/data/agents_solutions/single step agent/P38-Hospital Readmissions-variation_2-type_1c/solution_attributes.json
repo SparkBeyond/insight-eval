@@ -1,0 +1,53 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "readmission_rate_patient_historical",
+        "readmission_proportion_hospital",
+        "patient_followup_gap",
+        "telehealth_ratio",
+        "followup_visits_count",
+        "recent_stay_duration_variation",
+        "is_urban_area"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.34946367976525755": {
+            "name": "readmission_rate_patient_historical",
+            "code": "\n\ndef readmission_rate_patient_historical(row, df_train: pd.DataFrame):\n    # Extract the patient_id and admission_date for the current row\n    patient_id = row['patient_id']\n    admission_date = row['admission_date']\n    \n    # Filter the training data to include only rows for the same patient\n    # and where the admission_date is strictly before the current row's admission_date\n    patient_data = df_train[\n        (df_train['patient_id'] == patient_id) & \n        (df_train['admission_date'] < admission_date)\n    ]\n    \n    # Calculate and return the mean of the 'Readmitted' column for the filtered data\n    # If no historical data exists, return NaN or 0 (depending on your preference)\n    if not patient_data.empty:\n        return patient_data['Readmitted'].mean()\n    else:\n        return 0  # or np.nan, depending on how you want to handle missing historical data\n"
+        },
+        "0.06259783519620385": {
+            "name": "readmission_proportion_hospital",
+            "code": "\n\ndef readmission_proportion_hospital(row, df_train: pd.DataFrame):\n    hospital_id = row['hospital_id']\n    admission_date = row['admission_date']\n    admission_id = row['admission_id']\n    \n    # Filter data to include only rows from the same hospital\n    hospital_data = df_train[df_train['hospital_id'] == hospital_id]\n    \n    # Exclude the current row to prevent target leakage\n    hospital_data = hospital_data[hospital_data['admission_id'] != admission_id]\n    \n    # Ensure no future data is used by filtering rows with admission_date earlier than the current row's admission_date\n    hospital_data = hospital_data[hospital_data['admission_date'] <= admission_date]\n    \n    # Calculate the mean of the 'Readmitted' column\n    return hospital_data['Readmitted'].mean() if not hospital_data.empty else 0.0\n"
+        },
+        "0.0389733284605796": {
+            "name": "patient_followup_gap",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef patient_followup_gap(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    patient_id = row['patient_id']\n    followup_data = aux_dataframes['followup_visits_table.csv']\n    \n    # Filter followup data for the specific patient\n    patient_followups = followup_data[followup_data['patient_id'] == patient_id]\n    \n    # If the patient has 1 or fewer follow-up visits, return None\n    if patient_followups.shape[0] <= 1:\n        return None\n    \n    # Convert visit_date to datetime and sort the dates\n    followup_dates = pd.to_datetime(patient_followups['visit_date']).sort_values()\n    \n    # Calculate the differences between consecutive follow-up dates\n    followup_gaps = np.diff(followup_dates)  # This is a timedelta64 array\n    \n    # Convert the timedelta64 array to days\n    followup_gaps_in_days = followup_gaps / np.timedelta64(1, 'D')\n    \n    # Return the mean of the gaps\n    return np.mean(followup_gaps_in_days)\n"
+        },
+        "0.02791579482080842": {
+            "name": "telehealth_ratio",
+            "code": "\n\ndef telehealth_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    patient_id = row['patient_id']\n    followup_data = aux_dataframes['followup_visits_table.csv']\n    patient_followups = followup_data[followup_data['patient_id'] == patient_id]\n    if patient_followups.empty:\n        return 0\n    telehealth_count = sum(patient_followups['visit_type'] == 'Telehealth')\n    return telehealth_count / len(patient_followups)\n"
+        },
+        "0.02056432952006457": {
+            "name": "followup_visits_count",
+            "code": "\n\ndef followup_visits_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    patient_id = row['patient_id']\n    followup_data = aux_dataframes['followup_visits_table.csv']\n    return followup_data[followup_data['patient_id'] == patient_id].shape[0]\n"
+        },
+        "0.015000435061409351": {
+            "name": "recent_stay_duration_variation",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef recent_stay_duration_variation(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    patient_id = row['patient_id']\n    prev_admissions_data = aux_dataframes['previous_admissions_table.csv']\n    patient_admissions = prev_admissions_data[prev_admissions_data['patient_id'] == patient_id]\n    if patient_admissions.empty or patient_admissions.shape[0] < 2:\n        return None\n    stay_durations = (pd.to_datetime(patient_admissions['discharge_date']) - pd.to_datetime(patient_admissions['admission_date'])).dt.days\n    return np.std(stay_durations)\n"
+        },
+        "0": {
+            "name": "is_urban_area",
+            "code": "\n\ndef is_urban_area(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    hospital_id = row['hospital_id']\n    hospital_data = aux_dataframes['hospital_facility_data_table.csv']\n    hospital_row = hospital_data[hospital_data['hospital_id'] == hospital_id].iloc[0]\n    urban_zips = [30351, 52111, 53171]  # Example urban ZIP codes\n    return int(hospital_row['location'] in urban_zips)\n"
+        }
+    },
+    "feature_descriptions": [
+        "readmission rate patient historical",
+        "readmission proportion hospital",
+        "patient followup gap",
+        "telehealth ratio",
+        "followup visits count",
+        "recent stay duration variation",
+        "is urban area"
+    ]
+}

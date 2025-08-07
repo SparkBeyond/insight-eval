@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "frequency_of_purchases_involving_discount_codes_or_coupons_within_6_months",
+        "change_in_average_purchase_value_over_the_last_3_months_compared_to_previous_3_months",
+        "number_of_app_activities_related_to_customer_support_interactions"
+    ],
+    "features_descriptions": [
+        "frequency of purchases involving discount codes or coupons within 6 months",
+        "change in average purchase value over the last 3 months compared to previous 3 months",
+        "number of app activities related to customer support interactions"
+    ]
+}

@@ -1,0 +1,83 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "customer_lifetime_value",
+        "support_interaction_ratio",
+        "avg_transaction_gap",
+        "max_transaction_amount",
+        "min_transaction_amount",
+        "total_support_interactions",
+        "days_since_last_transaction",
+        "average_transaction_amount",
+        "loyalty_age",
+        "customer_tenure",
+        "loyalty_program_status",
+        "transactions_per_day"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.08063927075727936": {
+            "name": "customer_lifetime_value",
+            "code": "\n\ndef customer_lifetime_value(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    avg_transaction = average_transaction_amount(row, df_train, aux_dataframes)\n    total_trans = total_transactions(row, df_train, aux_dataframes)\n    return avg_transaction * total_trans\n\ndef total_transactions(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transaction_history = aux_dataframes['transaction_history_table.csv']\n    customer_id = row['customer_id']\n    \n    return transaction_history[transaction_history['customer_id'] == customer_id].shape[0]\n\ndef average_transaction_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transaction_history = aux_dataframes['transaction_history_table.csv']\n    customer_id = row['customer_id']\n    \n    customer_transactions = transaction_history[transaction_history['customer_id'] == customer_id]\n    if len(customer_transactions) == 0:\n        return 0\n    return customer_transactions['transaction_amount'].mean()\n"
+        },
+        "0.07213409753860976": {
+            "name": "support_interaction_ratio",
+            "code": "\n\ndef support_interaction_ratio(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    total_support = total_support_interactions(row, df_train, aux_dataframes)\n    total_trans = total_transactions(row, df_train, aux_dataframes)\n    if total_trans == 0:\n        return 0\n    return total_support / total_trans\n\ndef total_support_interactions(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_interactions = aux_dataframes['customer_support_interactions_table.csv']\n    customer_id = row['customer_id']\n    \n    return support_interactions[support_interactions['customer_id'] == customer_id].shape[0]\n\ndef total_transactions(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transaction_history = aux_dataframes['transaction_history_table.csv']\n    customer_id = row['customer_id']\n    \n    return transaction_history[transaction_history['customer_id'] == customer_id].shape[0]\n"
+        },
+        "0.05350781525367402": {
+            "name": "avg_transaction_gap",
+            "code": "import pandas as pd\n\ndef avg_transaction_gap(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transaction_history = aux_dataframes['transaction_history_table.csv']\n    customer_id = row['customer_id']\n    \n    # Filter transactions for the given customer\n    customer_transactions = transaction_history[transaction_history['customer_id'] == customer_id]\n    \n    # If the customer has 1 or fewer transactions, return None\n    if len(customer_transactions) <= 1:\n        return None\n    \n    # Ensure the 'transaction_date' column is in datetime format\n    if not pd.api.types.is_datetime64_any_dtype(customer_transactions['transaction_date']):\n        customer_transactions['transaction_date'] = pd.to_datetime(customer_transactions['transaction_date'], errors='coerce')\n    \n    # Drop rows with invalid or NaT transaction dates\n    customer_transactions = customer_transactions.dropna(subset=['transaction_date'])\n    \n    # Sort transactions by date\n    customer_transactions = customer_transactions.sort_values(by='transaction_date')\n    \n    # Calculate the gaps between consecutive transactions\n    gaps = customer_transactions['transaction_date'].diff().dt.days[1:]\n    \n    # Return the average gap\n    return gaps.mean()\n"
+        },
+        "0.04963507100431334": {
+            "name": "max_transaction_amount",
+            "code": "\n\ndef max_transaction_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transaction_history = aux_dataframes['transaction_history_table.csv']\n    customer_id = row['customer_id']\n    \n    customer_transactions = transaction_history[transaction_history['customer_id'] == customer_id]\n    if len(customer_transactions) == 0:\n        return 0\n    return customer_transactions['transaction_amount'].max()\n"
+        },
+        "0.03376387748551838": {
+            "name": "min_transaction_amount",
+            "code": "\n\ndef min_transaction_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transaction_history = aux_dataframes['transaction_history_table.csv']\n    customer_id = row['customer_id']\n    \n    customer_transactions = transaction_history[transaction_history['customer_id'] == customer_id]\n    if len(customer_transactions) == 0:\n        return 0\n    return customer_transactions['transaction_amount'].min()\n"
+        },
+        "0.03372156484853238": {
+            "name": "total_support_interactions",
+            "code": "\n\ndef total_support_interactions(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_interactions = aux_dataframes['customer_support_interactions_table.csv']\n    customer_id = row['customer_id']\n    \n    return support_interactions[support_interactions['customer_id'] == customer_id].shape[0]\n"
+        },
+        "0.02452543763293763": {
+            "name": "days_since_last_transaction",
+            "code": "import pandas as pd\n\ndef days_since_last_transaction(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transaction_history = aux_dataframes['transaction_history_table.csv']\n    customer_id = row['customer_id']\n    \n    # Filter transactions for the given customer_id\n    customer_transactions = transaction_history[transaction_history['customer_id'] == customer_id]\n    \n    # If no transactions exist for the customer, return None\n    if customer_transactions.empty:\n        return None\n    \n    # Parse the last transaction date\n    last_date = pd.to_datetime(customer_transactions['transaction_date'].max())\n    \n    # Parse the current date from the 'signup_date' column\n    current_date = pd.to_datetime(row['signup_date'])\n    \n    # Calculate the difference in days\n    return (current_date - last_date).days\n"
+        },
+        "0.014347379927974175": {
+            "name": "average_transaction_amount",
+            "code": "\n\ndef average_transaction_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transaction_history = aux_dataframes['transaction_history_table.csv']\n    customer_id = row['customer_id']\n    \n    customer_transactions = transaction_history[transaction_history['customer_id'] == customer_id]\n    if len(customer_transactions) == 0:\n        return 0\n    return customer_transactions['transaction_amount'].mean()\n"
+        },
+        "0.008671941321515888": {
+            "name": "loyalty_age",
+            "code": "import pandas as pd\n\ndef loyalty_age(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the loyalty program dataframe from aux_dataframes\n    loyalty_program = aux_dataframes['loyalty_program_table.csv']\n    customer_id = row['customer_id']\n    \n    # Filter the loyalty program dataframe for the given customer_id\n    program_info = loyalty_program[loyalty_program['customer_id'] == customer_id]\n    if program_info.empty:\n        return None  # Return None if the customer is not found in the loyalty program\n    \n    # Use the correct column name for the join date\n    join_date = pd.to_datetime(program_info.iloc[0]['enrollment_date'])\n    current_date = pd.to_datetime(row['signup_date'])  # Use 'signup_date' from the row as the current date\n    return (current_date - join_date).days\n"
+        },
+        "0.0035462857218893752": {
+            "name": "customer_tenure",
+            "code": "import pandas as pd\n\ndef customer_tenure(row, aux_data: Dict[str, pd.DataFrame] = None):\n    # Convert the 'signup_date' column to a datetime object\n    registration_date = pd.to_datetime(row['signup_date'])\n    \n    # Use the current date as the reference point\n    current_date = pd.Timestamp.now()\n    \n    # Calculate the difference in days between the current date and the signup date\n    return (current_date - registration_date).days\n"
+        },
+        "0.0004913645063101546": {
+            "name": "loyalty_program_status",
+            "code": "\n\ndef loyalty_program_status(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    loyalty_program = aux_dataframes['loyalty_program_table.csv']\n    customer_id = row['customer_id']\n    \n    # Filter the loyalty program dataframe for the given customer_id\n    program_info = loyalty_program[loyalty_program['customer_id'] == customer_id]\n    \n    # If no record is found, return -1\n    if program_info.empty:\n        return -1\n    \n    # Return the membership_tier as the loyalty status\n    return program_info.iloc[0]['membership_tier']\n"
+        },
+        "0": {
+            "name": "transactions_per_day",
+            "code": "import pandas as pd\n\ndef transactions_per_day(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    total_trans = total_transactions(row, df_train, aux_dataframes)\n    tenure = customer_tenure(row)\n    if tenure == 0:\n        return 0\n    return total_trans / tenure\n\ndef customer_tenure(row):\n    registration_date = pd.to_datetime(row['registration_date'])\n    current_date = pd.to_datetime(row['timestamp'])\n    return (current_date - registration_date).days\n\ndef total_transactions(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transaction_history = aux_dataframes['transaction_history_table.csv']\n    customer_id = row['customer_id']\n    \n    return transaction_history[transaction_history['customer_id'] == customer_id].shape[0]\n"
+        }
+    },
+    "feature_descriptions": [
+        "customer lifetime value",
+        "support interaction ratio",
+        "avg transaction gap",
+        "max transaction amount",
+        "min transaction amount",
+        "total support interactions",
+        "days since last transaction",
+        "average transaction amount",
+        "loyalty age",
+        "customer tenure",
+        "loyalty program status",
+        "transactions per day"
+    ]
+}

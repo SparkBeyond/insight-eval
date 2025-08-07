@@ -1,0 +1,95 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "high_stress_level",
+        "alcohol_high_ratio",
+        "missed_appointments_count",
+        "is_physically_active",
+        "alcohol_consumption_category",
+        "mental_health_appointment_ratio",
+        "appointment_attendance_ratio",
+        "chronic_condition_count",
+        "has_family_history",
+        "is_employment_status_high_risk",
+        "is_high_risk_marital_status",
+        "high_severity_diagnoses",
+        "last_diagnosis_type",
+        "total_diagnoses_count"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.371207205065887": {
+            "name": "high_stress_level",
+            "code": "\n\ndef high_stress_level(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Access the lifestyle_surveys_table.csv dataframe\n    lifestyle_surveys_df = aux_data['lifestyle_surveys_table.csv']\n    \n    # Filter the dataframe to get the rows for the given patient_id\n    patient_surveys = lifestyle_surveys_df[lifestyle_surveys_df['patient_id'] == patient_id]\n    \n    # Check if there are any surveys for the patient\n    if not patient_surveys.empty:\n        # Get the most recent survey (based on survey_date)\n        most_recent_survey = patient_surveys.sort_values(by='survey_date', ascending=False).iloc[0]\n        \n        # Check the stress_level in the most recent survey\n        return 1 if most_recent_survey['stress_level'] > 5 else 0\n    \n    # If no surveys are found, return 0 (default to low stress level)\n    return 0\n"
+        },
+        "0.2666885815611032": {
+            "name": "alcohol_high_ratio",
+            "code": "\n\ndef alcohol_high_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Check if 'patient_id' exists in the row\n    if 'patient_id' in row:\n        # Access the lifestyle surveys table from aux_data\n        lifestyle_surveys = aux_data.get('lifestyle_surveys_table.csv')\n        \n        # Ensure the lifestyle_surveys DataFrame is not None\n        if lifestyle_surveys is not None:\n            # Filter records for the given patient_id\n            patient_records = lifestyle_surveys[lifestyle_surveys['patient_id'] == row['patient_id']]\n            \n            # Check if there are any records for the patient\n            if len(patient_records) > 0:\n                # Count the number of records with alcohol consumption > 14\n                high_alcohol = patient_records[patient_records['alcohol_consumption'] > 14].shape[0]\n                \n                # Return the ratio of high alcohol consumption\n                return high_alcohol / len(patient_records)\n    \n    # Return 0 if no records are found or 'patient_id' is not in the row\n    return 0\n"
+        },
+        "0.24993807056499398": {
+            "name": "missed_appointments_count",
+            "code": "\n\ndef missed_appointments_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if the key 'appointments_records_table' exists in aux_dataframes\n    if 'appointments_records_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'appointments_records_table.csv' is missing from aux_dataframes.\")\n    \n    # Retrieve the appointments records table\n    appointment_records = aux_dataframes['appointments_records_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'patient_id', 'attended'}\n    if not required_columns.issubset(appointment_records.columns):\n        raise ValueError(f\"The dataframe 'appointments_records_table.csv' must contain the columns: {required_columns}\")\n    \n    # Check if 'patient_id' exists in the row\n    if 'patient_id' in row:\n        # Filter the records for the given patient_id\n        patient_records = appointment_records[appointment_records['patient_id'] == row['patient_id']]\n        \n        # Count the number of missed appointments (where 'attended' is False)\n        return len(patient_records[patient_records['attended'] == False])\n    \n    # If 'patient_id' is not in the row, return 0\n    return 0\n"
+        },
+        "0.20952361417419296": {
+            "name": "is_physically_active",
+            "code": "\n\ndef is_physically_active(row, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Extract the patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Get the lifestyle surveys dataframe from aux_data\n    lifestyle_surveys_df = aux_data['lifestyle_surveys_table.csv']\n    \n    # Filter the lifestyle surveys dataframe for the given patient_id\n    patient_surveys = lifestyle_surveys_df[lifestyle_surveys_df['patient_id'] == patient_id]\n    \n    # Check if there are any surveys for the patient\n    if not patient_surveys.empty:\n        # Get the most recent survey for the patient\n        most_recent_survey = patient_surveys.sort_values(by='survey_date', ascending=False).iloc[0]\n        \n        # Check the physical_activity_level in the most recent survey\n        if most_recent_survey['physical_activity_level'] in ['Moderate', 'High']:\n            return 1\n    \n    # Return 0 if no surveys exist or physical_activity_level is not Moderate/High\n    return 0\n"
+        },
+        "0.17389982272658622": {
+            "name": "alcohol_consumption_category",
+            "code": "\n\ndef alcohol_consumption_category(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Get the lifestyle_surveys_table dataframe from aux_data\n    lifestyle_surveys_df = aux_data.get('lifestyle_surveys_table.csv')\n    \n    # Check if the dataframe exists and is not empty\n    if lifestyle_surveys_df is not None and not lifestyle_surveys_df.empty:\n        # Filter the lifestyle_surveys_table for the given patient_id\n        patient_survey = lifestyle_surveys_df[lifestyle_surveys_df['patient_id'] == patient_id]\n        \n        # Check if there is at least one survey for the patient\n        if not patient_survey.empty:\n            # Get the most recent survey (based on survey_date)\n            most_recent_survey = patient_survey.sort_values(by='survey_date', ascending=False).iloc[0]\n            \n            # Get the alcohol_consumption value\n            alcohol_consumption = most_recent_survey['alcohol_consumption']\n            \n            # Categorize the alcohol consumption\n            if alcohol_consumption == 0:\n                return 'None'\n            elif alcohol_consumption <= 7:\n                return 'Low'\n            elif alcohol_consumption <= 14:\n                return 'Moderate'\n            else:\n                return 'High'\n    \n    # If no survey data is found for the patient, return 'Unknown'\n    return 'Unknown'\n"
+        },
+        "0.08404001944544572": {
+            "name": "mental_health_appointment_ratio",
+            "code": "\n\ndef mental_health_appointment_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the required dataframe is available in aux_data\n    if 'appointments_records_table.csv' not in aux_data:\n        raise ValueError(\"The required 'appointments_records_table.csv' is missing from aux_data.\")\n    \n    # Get the appointments dataframe\n    appointments_df = aux_data['appointments_records_table.csv']\n    \n    # Check if the row contains a 'patient_id'\n    if 'patient_id' in row:\n        # Filter the appointments dataframe for the given patient_id\n        patient_records = appointments_df[appointments_df['patient_id'] == row['patient_id']]\n        \n        # Calculate the total number of appointments\n        total_appointments = len(patient_records)\n        \n        if total_appointments > 0:\n            # Count the number of mental health appointments\n            mental_health_appointments = sum(patient_records['appointment_type'] == \"Mental Health Consultation\")\n            \n            # Return the ratio\n            return mental_health_appointments / total_appointments\n    \n    # Return 0 if no appointments are found or patient_id is missing\n    return 0\n"
+        },
+        "0.07378183984771326": {
+            "name": "appointment_attendance_ratio",
+            "code": "\n\ndef appointment_attendance_ratio(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the required table is available in aux_data\n    if 'appointments_records_table.csv' not in aux_data:\n        raise ValueError(\"The required 'appointments_records_table.csv' is missing from aux_data.\")\n    \n    # Get the appointments records table\n    appointments_df = aux_data['appointments_records_table.csv']\n    \n    # Check if the row contains 'patient_id'\n    if 'patient_id' in row:\n        patient_id = row['patient_id']\n        \n        # Filter the appointments for the given patient_id\n        patient_records = appointments_df[appointments_df['patient_id'] == patient_id]\n        \n        # Calculate the total number of appointments\n        total_appointments = len(patient_records)\n        \n        if total_appointments > 0:\n            # Calculate the number of attended appointments\n            attended_count = patient_records['attended'].sum()\n            \n            # Return the attendance ratio\n            return attended_count / total_appointments\n    \n    # Return 0 if no appointments are found or 'patient_id' is missing\n    return 0\n"
+        },
+        "0.03059299519963153": {
+            "name": "chronic_condition_count",
+            "code": "import pandas as pd\n\ndef chronic_condition_count(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Get the patient_history_table dataframe from aux_data\n    patient_history_df = aux_data.get('patient_history_table.csv')\n    \n    # Check if the dataframe exists and if the patient_id is in it\n    if patient_history_df is not None and patient_id in patient_history_df['patient_id'].values:\n        # Get the chronic_conditions for the patient\n        chronic_conditions = patient_history_df.loc[\n            patient_history_df['patient_id'] == patient_id, 'chronic_conditions'\n        ].values[0]\n        \n        # If chronic_conditions is not null, count the number of conditions\n        if pd.notnull(chronic_conditions):\n            return len(str(chronic_conditions).split(','))\n    \n    # Return 0 if no chronic conditions are found or patient_id is not in the table\n    return 0\n"
+        },
+        "0.029397630348594384": {
+            "name": "has_family_history",
+            "code": "import pandas as pd\n\ndef has_family_history(row, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Extract the patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Get the patient_history_table dataframe from aux_data\n    patient_history_df = aux_data.get('patient_history_table.csv')\n    \n    # Check if the patient_id exists in the patient_history_table\n    if patient_history_df is not None:\n        # Filter the patient_history_table for the given patient_id\n        patient_row = patient_history_df[patient_history_df['patient_id'] == patient_id]\n        \n        # If the patient exists and the family_history column is not null, return 1\n        if not patient_row.empty and pd.notnull(patient_row.iloc[0]['family_history']):\n            return 1\n    \n    # If no family history is found, return 0\n    return 0\n"
+        },
+        "0.022329322949582196": {
+            "name": "is_employment_status_high_risk",
+            "code": "\n\ndef is_employment_status_high_risk(row, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Extract the patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Get the patient history dataframe from aux_data\n    patient_history_df = aux_data['patient_history_table.csv']\n    \n    # Look up the employment_status for the given patient_id\n    employment_status = patient_history_df.loc[\n        patient_history_df['patient_id'] == patient_id, 'employment_status'\n    ].squeeze()\n    \n    # Check if the employment_status is high risk\n    return 1 if employment_status in ['Unemployed', 'Retired'] else 0\n"
+        },
+        "0.021331150161888274": {
+            "name": "is_high_risk_marital_status",
+            "code": "\n\ndef is_high_risk_marital_status(row, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Extract the patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Get the patient_history_table dataframe from aux_data\n    patient_history_df = aux_data.get('patient_history_table.csv')\n    \n    # Check if the dataframe exists and is not empty\n    if patient_history_df is not None and not patient_history_df.empty:\n        # Look up the marital_status for the given patient_id\n        patient_info = patient_history_df[patient_history_df['patient_id'] == patient_id]\n        \n        # If the patient exists in the patient history table\n        if not patient_info.empty:\n            marital_status = patient_info.iloc[0]['marital_status']\n            # Check if the marital_status is in the high-risk categories\n            return 1 if marital_status in ['Divorced', 'Widowed', 'Single'] else 0\n    \n    # If no information is found, return 0 (not high risk)\n    return 0\n"
+        },
+        "0.011502128778828974": {
+            "name": "high_severity_diagnoses",
+            "code": "\n\ndef high_severity_diagnoses(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'severity_level' exists in the row and is greater than 3\n    if 'severity_level' in row:\n        return int(row['severity_level'] > 3)\n    return 0\n"
+        },
+        "0.0021204448589714486": {
+            "name": "last_diagnosis_type",
+            "code": "\n\ndef last_diagnosis_type(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the correct key is used to access the patient history table\n    if 'patient_history_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'patient_history_table.csv' is missing in aux_dataframes.\")\n    \n    diagnosis_info = aux_dataframes['patient_history_table.csv']\n    \n    # Check if the required columns exist in the dataframe\n    required_columns = {'patient_id', 'chronic_conditions'}\n    if not required_columns.issubset(diagnosis_info.columns):\n        raise KeyError(f\"The dataframe 'patient_history_table.csv' is missing required columns: {required_columns - set(diagnosis_info.columns)}\")\n    \n    # Check if the row contains the 'patient_id' column\n    if 'patient_id' in row:\n        # Filter records for the given patient_id\n        patient_records = diagnosis_info[diagnosis_info['patient_id'] == row['patient_id']]\n        \n        # If there are records for the patient, return the most recent chronic condition\n        if not patient_records.empty:\n            # Assuming 'chronic_conditions' contains diagnosis information\n            # Return the chronic conditions as the \"diagnosis type\"\n            return patient_records['chronic_conditions'].iloc[-1]  # Return the last record's chronic condition\n    \n    # If no records are found or 'patient_id' is missing, return None\n    return None\n"
+        },
+        "0": {
+            "name": "total_diagnoses_count",
+            "code": "import pandas as pd\n\ndef total_diagnoses_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if 'patient_id' exists in the row\n    if 'patient_id' in row:\n        # Filter the main dataframe (diagnosis records) for the given patient_id\n        patient_id = row['patient_id']\n        # Assuming the main dataframe is passed as part of aux_dataframes with key 'diagnosis_records'\n        diagnosis_records = aux_dataframes.get('diagnosis_records', pd.DataFrame())\n        \n        # Ensure the dataframe is not empty and contains the required column\n        if not diagnosis_records.empty and 'patient_id' in diagnosis_records.columns:\n            patient_records = diagnosis_records[diagnosis_records['patient_id'] == patient_id]\n            return len(patient_records)\n    \n    # Return 0 if 'patient_id' is not in the row or no records are found\n    return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "high stress level",
+        "alcohol high ratio",
+        "missed appointments count",
+        "is physically active",
+        "alcohol consumption category",
+        "mental health appointment ratio",
+        "appointment attendance ratio",
+        "chronic condition count",
+        "has family history",
+        "is employment status high risk",
+        "is high risk marital status",
+        "high severity diagnoses",
+        "last diagnosis type",
+        "total diagnoses count"
+    ]
+}

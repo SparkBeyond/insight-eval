@@ -1,0 +1,89 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "total_purchase_amount",
+        "support_interaction_count",
+        "resolved_issues_count",
+        "frequent_support_day",
+        "issues_per_purchase_ratio",
+        "average_purchase_amount",
+        "average_response_time",
+        "is_mobile_device",
+        "most_frequent_purchase_category",
+        "preferred_payment_method",
+        "unresolved_issue_ratio",
+        "session_duration_bucket",
+        "feedback_channel_preference"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.11829400310048166": {
+            "name": "total_purchase_amount",
+            "code": "import pandas as pd\n\ndef total_purchase_amount(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_data\n    purchase_history_df = aux_data['purchase_history_table.csv']\n    customer_id = row['customer_id']\n    \n    # Check if customer_id is not NaN\n    if not pd.isna(customer_id):\n        # Filter the purchase history for the given customer_id and sum the purchase amounts\n        total = purchase_history_df[purchase_history_df['customer_id'] == customer_id]['purchase_amount'].sum()\n        return total\n    \n    # Return 0 if customer_id is NaN\n    return 0\n"
+        },
+        "0.11284115293732754": {
+            "name": "support_interaction_count",
+            "code": "import pandas as pd\n\ndef support_interaction_count(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Correct key for the support interactions table\n    support_interactions_df = aux_data['support_center_interactions_table.csv']\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Check if customer_id is not NaN\n    if not pd.isna(customer_id):\n        # Filter the support interactions dataframe for the given customer_id\n        return support_interactions_df[support_interactions_df['customer_id'] == customer_id].shape[0]\n    \n    # Return 0 if customer_id is NaN\n    return 0\n"
+        },
+        "0.08588789748659313": {
+            "name": "resolved_issues_count",
+            "code": "import pandas as pd\n\ndef resolved_issues_count(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Correct key for the support interactions dataframe\n    support_interactions_df = aux_data['support_center_interactions_table.csv']\n    customer_id = row['customer_id']\n    \n    # Check if customer_id is not NaN\n    if not pd.isna(customer_id):\n        # Filter the dataframe for resolved issues for the given customer_id\n        return support_interactions_df[\n            (support_interactions_df['customer_id'] == customer_id) & \n            (support_interactions_df['resolution_status'] == 'resolved')\n        ].shape[0]\n    \n    # Return 0 if customer_id is NaN\n    return 0\n"
+        },
+        "0.06296103557691858": {
+            "name": "frequent_support_day",
+            "code": "import pandas as pd\n\ndef frequent_support_day(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Correct key for the support interactions table\n    support_interactions_df = aux_data['support_center_interactions_table.csv']\n    \n    customer_id = row['customer_id']\n    if not pd.isna(customer_id):\n        # Filter interactions for the given customer_id\n        customer_interactions = support_interactions_df[support_interactions_df['customer_id'] == customer_id]\n        \n        # Convert interaction_date to datetime\n        dates = pd.to_datetime(customer_interactions['interaction_date'])\n        \n        # Return the most frequent day of the week (mode) or -1 if no interactions exist\n        return dates.dt.dayofweek.mode().iloc[0] if not dates.empty else -1\n    \n    # Return -1 if customer_id is NaN\n    return -1\n"
+        },
+        "0.052977928075565936": {
+            "name": "issues_per_purchase_ratio",
+            "code": "import pandas as pd\n\ndef issues_per_purchase_ratio(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Correcting the keys to match the aux_data dictionary\n    purchase_history_df = aux_data['purchase_history_table.csv']\n    support_interactions_df = aux_data['support_center_interactions_table.csv']\n    \n    customer_id = row['customer_id']\n    if not pd.isna(customer_id):\n        # Filter the dataframes for the given customer_id\n        total_purchases = purchase_history_df[purchase_history_df['customer_id'] == customer_id].shape[0]\n        total_interactions = support_interactions_df[support_interactions_df['customer_id'] == customer_id].shape[0]\n        \n        # Calculate the ratio if total_purchases is greater than 0\n        if total_purchases > 0:\n            return total_interactions / total_purchases\n    \n    # Return 0 if customer_id is NaN or total_purchases is 0\n    return 0\n"
+        },
+        "0.04442151517864024": {
+            "name": "average_purchase_amount",
+            "code": "import pandas as pd\n\ndef average_purchase_amount(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the purchase history dataframe using the correct key\n    purchase_history_df = aux_data['purchase_history_table.csv']\n    customer_id = row['customer_id']\n    \n    # Check if the customer_id is not NaN\n    if not pd.isna(customer_id):\n        # Filter the purchase history for the given customer_id\n        purchases = purchase_history_df[purchase_history_df['customer_id'] == customer_id]['purchase_amount']\n        \n        # If there are purchases, return the mean purchase amount\n        if len(purchases) > 0:\n            return purchases.mean()\n    \n    # Return 0 if no purchases are found or customer_id is NaN\n    return 0\n"
+        },
+        "0.011737242705675454": {
+            "name": "average_response_time",
+            "code": "import pandas as pd\n\ndef average_response_time(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in aux_dataframes\n    if 'support_center_interactions_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'support_center_interactions_table.csv' is missing in aux_dataframes.\")\n    \n    # Get the support interactions DataFrame\n    support_interactions_df = aux_dataframes['support_center_interactions_table.csv']\n    \n    # Ensure the DataFrame has the expected columns\n    required_columns = {'customer_id', 'response_time_minutes'}\n    if not required_columns.issubset(support_interactions_df.columns):\n        raise ValueError(f\"The DataFrame for 'support_center_interactions_table.csv' is missing required columns: {required_columns}\")\n    \n    # Extract the customer_id from the row\n    customer_id = row.get('customer_id')\n    \n    # Check if customer_id is valid\n    if not pd.isna(customer_id):\n        # Filter the DataFrame for the given customer_id\n        response_times = support_interactions_df[support_interactions_df['customer_id'] == customer_id]['response_time_minutes']\n        \n        # If there are response times, return the mean\n        if len(response_times) > 0:\n            return response_times.mean()\n    \n    # Default return value if no response times are found or customer_id is invalid\n    return 0\n"
+        },
+        "0.01119821606574949": {
+            "name": "is_mobile_device",
+            "code": "\n\ndef is_mobile_device(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure we are working with the correct dataframe that contains 'device_type'\n    website_usage_logs = aux_data.get('website_usage_logs_table.csv')\n    \n    if website_usage_logs is None:\n        raise ValueError(\"The 'website_usage_logs_table.csv' dataframe is missing from aux_data.\")\n    \n    # Find the corresponding row in the website_usage_logs_table.csv dataframe\n    customer_id = row['customer_id']\n    device_row = website_usage_logs[website_usage_logs['customer_id'] == customer_id]\n    \n    if device_row.empty:\n        # If no matching row is found, return 0 (not a mobile device)\n        return 0\n    \n    # Check if 'device_type' contains 'mobile'\n    device_type = device_row.iloc[0]['device_type']\n    return 1 if 'mobile' in device_type.lower() else 0\n"
+        },
+        "0.010925034153450697": {
+            "name": "most_frequent_purchase_category",
+            "code": "import pandas as pd\n\ndef most_frequent_purchase_category(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Correct the key to match the one in aux_data\n    purchase_history_df = aux_data['purchase_history_table.csv']\n    customer_id = row['customer_id']\n    \n    if not pd.isna(customer_id):\n        # Filter the purchase history for the given customer_id\n        categories = purchase_history_df[purchase_history_df['customer_id'] == customer_id]['product_category']\n        if len(categories) > 0:\n            # Return the most frequent category (mode)\n            return categories.mode().iloc[0]\n    \n    # Return \"unknown\" if no valid category is found\n    return \"unknown\"\n"
+        },
+        "0.00900610392932033": {
+            "name": "preferred_payment_method",
+            "code": "import pandas as pd\n\ndef preferred_payment_method(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Use the correct key to access the purchase history dataframe\n    purchase_history_df = aux_data['purchase_history_table.csv']\n    customer_id = row['customer_id']\n    \n    if not pd.isna(customer_id):\n        # Filter the purchase history dataframe for the given customer_id\n        methods = purchase_history_df[purchase_history_df['customer_id'] == customer_id]['payment_method']\n        # Return the most frequently used payment method, or \"unknown\" if no methods are found\n        return methods.value_counts().idxmax() if not methods.empty else \"unknown\"\n    \n    # Return \"unknown\" if customer_id is NaN\n    return \"unknown\"\n"
+        },
+        "0.003760823737348579": {
+            "name": "unresolved_issue_ratio",
+            "code": "import pandas as pd\n\ndef unresolved_issue_ratio(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Use the correct key for the support interactions table\n    support_interactions_df = aux_data['support_center_interactions_table.csv']\n    customer_id = row['customer_id']\n    \n    if not pd.isna(customer_id):\n        # Filter the dataframe for the given customer_id\n        total_issues = support_interactions_df[support_interactions_df['customer_id'] == customer_id].shape[0]\n        unresolved_issues = support_interactions_df[\n            (support_interactions_df['customer_id'] == customer_id) & \n            (support_interactions_df['resolution_status'] == 'unresolved')\n        ].shape[0]\n        \n        # Calculate the unresolved issue ratio if there are any issues\n        if total_issues > 0:\n            return unresolved_issues / total_issues\n    \n    # Return 0 if no issues are found or customer_id is NaN\n    return 0\n"
+        },
+        "-0.00025609471638188275": {
+            "name": "session_duration_bucket",
+            "code": "\n\ndef session_duration_bucket(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Access the website_usage_logs_table.csv dataframe from aux_data\n    website_usage_logs = aux_data.get('website_usage_logs_table.csv')\n    \n    # Check if the dataframe exists and is not empty\n    if website_usage_logs is not None and not website_usage_logs.empty:\n        # Filter the dataframe for the given customer_id\n        customer_sessions = website_usage_logs[website_usage_logs['customer_id'] == customer_id]\n        \n        # If there are sessions for the customer, get the session_duration_minutes of the first session\n        if not customer_sessions.empty:\n            session_duration = customer_sessions.iloc[0]['session_duration_minutes']\n            \n            # Determine the bucket based on session_duration\n            if session_duration < 10:\n                return 'short'\n            elif session_duration < 30:\n                return 'medium'\n            else:\n                return 'long'\n    \n    # If no session data is found, return None or a default value\n    return None\n"
+        },
+        "0": {
+            "name": "feedback_channel_preference",
+            "code": "import pandas as pd\n\ndef feedback_channel_preference(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Check if customer_id is not NaN\n    if not pd.isna(customer_id):\n        # Attempt to retrieve the website usage logs DataFrame\n        website_usage_logs_df = aux_data.get('website_usage_logs_table.csv', pd.DataFrame())\n        \n        # Check if the DataFrame is not empty\n        if not website_usage_logs_df.empty:\n            # Since 'feedback_channel' does not exist, we cannot proceed as intended\n            # Return \"unknown\" as a fallback\n            return \"unknown\"\n    \n    # Return \"unknown\" if customer_id is NaN or no valid feedback channel is found\n    return \"unknown\"\n"
+        }
+    },
+    "feature_descriptions": [
+        "total purchase amount",
+        "support interaction count",
+        "resolved issues count",
+        "frequent support day",
+        "issues per purchase ratio",
+        "average purchase amount",
+        "average response time",
+        "is mobile device",
+        "most frequent purchase category",
+        "preferred payment method",
+        "unresolved issue ratio",
+        "session duration bucket",
+        "feedback channel preference"
+    ]
+}

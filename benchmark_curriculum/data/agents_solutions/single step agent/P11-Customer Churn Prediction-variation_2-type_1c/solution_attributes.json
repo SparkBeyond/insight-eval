@@ -1,0 +1,125 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "recent_to_lifetime_billing_ratio",
+        "max_billing_last_year",
+        "total_feedback_count",
+        "total_billing_last_6_months",
+        "min_billing_last_6_months",
+        "topup_to_feedback_ratio",
+        "days_as_customer",
+        "topup_frequency_variance",
+        "positive_feedback_percentage",
+        "avg_monthly_billing",
+        "age_of_customer",
+        "feedback_sentiment_variance",
+        "max_topup_last_year",
+        "avg_feedback_score",
+        "median_feedback_score",
+        "avg_billing_last_3_months",
+        "avg_topup_last_3",
+        "recent_billing_trend",
+        "num_topups_last_30_days"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.14363557927119347": {
+            "name": "recent_to_lifetime_billing_ratio",
+            "code": "import pandas as pd\n\ndef recent_to_lifetime_billing_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_history = aux_dataframes['billing_history_table.csv']\n    filtered = billing_history[billing_history['customer_id'] == row['customer_id']]\n    \n    if filtered.empty:\n        return 0  # No billing data available\n    \n    # Calculate total lifetime billing using 'amount_paid'\n    total_lifetime_billing = filtered['amount_paid'].sum()\n\n    # Calculate recent billing (last 3 months)\n    last_3_months = pd.Timestamp.now() - pd.Timedelta(days=90)\n    recent_billing = filtered[pd.to_datetime(filtered['billing_date']) >= last_3_months]['amount_paid'].sum()\n\n    return recent_billing / total_lifetime_billing if total_lifetime_billing > 0 else 0\n"
+        },
+        "0.12243528739131816": {
+            "name": "max_billing_last_year",
+            "code": "import pandas as pd\n\ndef max_billing_last_year(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_history = aux_dataframes['billing_history_table.csv']\n    \n    # Filter the billing history for the specific customer\n    filtered = billing_history[billing_history['customer_id'] == row['customer_id']]\n    \n    # Calculate the date one year ago\n    last_year = pd.Timestamp.now() - pd.Timedelta(days=365)\n    \n    # Filter for billing records within the last year\n    recent_billing = filtered[pd.to_datetime(filtered['billing_date']) >= last_year]\n    \n    # Calculate the billing amount as the difference between amount_due and amount_paid\n    recent_billing['billing_amount'] = recent_billing['amount_due'] - recent_billing['amount_paid']\n    \n    # Return the maximum billing amount or 0 if no records exist\n    return recent_billing['billing_amount'].max() if not recent_billing.empty else 0\n"
+        },
+        "0.051571846551483246": {
+            "name": "total_feedback_count",
+            "code": "\n\ndef total_feedback_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    feedback_table = aux_dataframes['customer_feedback_table.csv']\n    return feedback_table[feedback_table['customer_id'] == row['customer_id']].shape[0]\n"
+        },
+        "0.029862445299641098": {
+            "name": "total_billing_last_6_months",
+            "code": "import pandas as pd\n\ndef total_billing_last_6_months(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_history = aux_dataframes['billing_history_table.csv']\n    \n    # Filter the billing history for the specific customer\n    filtered = billing_history[billing_history['customer_id'] == row['customer_id']]\n    \n    # Sort by billing_date in descending order and take the most recent 6 records\n    filtered['billing_date'] = pd.to_datetime(filtered['billing_date'])  # Ensure billing_date is a datetime object\n    recent_6_months = filtered.sort_values(by='billing_date', ascending=False).head(6)\n    \n    # Sum the 'amount_paid' column for the last 6 months\n    return recent_6_months['amount_paid'].sum() if not recent_6_months.empty else 0\n"
+        },
+        "0.028469767012045805": {
+            "name": "min_billing_last_6_months",
+            "code": "\n\ndef min_billing_last_6_months(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_history = aux_dataframes['billing_history_table.csv']\n    \n    # Filter the billing history for the specific customer\n    filtered = billing_history[billing_history['customer_id'] == row['customer_id']]\n    \n    # Sort by billing_date in descending order and take the most recent 6 records\n    recent_6_months = filtered.sort_values(by='billing_date', ascending=False).head(6)\n    \n    # Return the minimum of the 'amount_due' column if there are records, otherwise return 0\n    return recent_6_months['amount_due'].min() if not recent_6_months.empty else 0\n"
+        },
+        "0.028155725197282613": {
+            "name": "topup_to_feedback_ratio",
+            "code": "\n\ndef topup_to_feedback_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    topup_history = aux_dataframes['top_up_activation_history_table.csv']\n    feedback_table = aux_dataframes['customer_feedback_table.csv']\n    num_topups = len(topup_history[topup_history['customer_id'] == row['customer_id']])\n    num_feedback = len(feedback_table[feedback_table['customer_id'] == row['customer_id']])\n    return num_topups / num_feedback if num_feedback > 0 else 0\n"
+        },
+        "0.027057733562465495": {
+            "name": "days_as_customer",
+            "code": "import pandas as pd\n\ndef days_as_customer(row, aux_data: Dict[str, pd.DataFrame] = None):\n    signup_date = pd.to_datetime(row['signup_date'])  # Corrected column name\n    return (pd.Timestamp.now() - signup_date).days\n"
+        },
+        "0.023418407987648944": {
+            "name": "topup_frequency_variance",
+            "code": "import pandas as pd\n\ndef topup_frequency_variance(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the top-up activation history dataframe\n    topup_history = aux_dataframes['top_up_activation_history_table.csv']\n    \n    # Filter the dataframe for the specific customer_id\n    filtered = topup_history[topup_history['customer_id'] == row['customer_id']]\n    \n    # Check if there are at least two top-up records for the customer\n    if filtered.shape[0] >= 2:\n        # Convert the 'activation_date' column to datetime and sort the dates\n        topup_dates = pd.to_datetime(filtered['activation_date']).sort_values()\n        \n        # Calculate the differences between consecutive top-up dates in days\n        time_diffs = topup_dates.diff().dt.days.dropna()\n        \n        # Return the variance of the time differences if not empty, otherwise return 0\n        return time_diffs.var() if not time_diffs.empty else 0\n    \n    # Return 0 if there are fewer than two top-up records\n    return 0\n"
+        },
+        "0.023144415166949917": {
+            "name": "positive_feedback_percentage",
+            "code": "\n\ndef positive_feedback_percentage(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    feedback_table = aux_dataframes['customer_feedback_table.csv']\n    filtered = feedback_table[feedback_table['customer_id'] == row['customer_id']]\n    positive_feedback = filtered[filtered['feedback_score'] > 3]\n    return len(positive_feedback) / len(filtered) if not filtered.empty else 0\n"
+        },
+        "0.02028454853749567": {
+            "name": "avg_monthly_billing",
+            "code": "import pandas as pd\n\ndef avg_monthly_billing(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_history = aux_dataframes['billing_history_table.csv']\n    # Filter the billing history for the specific customer\n    filtered = billing_history[billing_history['customer_id'] == row['customer_id']]\n    if filtered.empty:\n        return 0\n    # Calculate the total billing using the 'amount_paid' column\n    total_billing = filtered['amount_paid'].sum()\n    # Count the number of unique months in the 'billing_date' column\n    num_months = pd.to_datetime(filtered['billing_date']).dt.to_period('M').nunique()\n    # Return the average monthly billing\n    return total_billing / num_months if num_months > 0 else 0\n"
+        },
+        "0.018432989200330246": {
+            "name": "age_of_customer",
+            "code": "import pandas as pd\n\ndef age_of_customer(row, aux_data: Dict[str, pd.DataFrame] = None):\n    # Check if 'age' column exists and return it if valid\n    if 'age' in row:\n        return row['age']\n    else:\n        # If 'age' is not available, calculate it based on other data (e.g., signup_date)\n        if 'signup_date' in row:\n            signup_date = pd.to_datetime(row['signup_date'])\n            # Assuming the age is calculated relative to the signup date\n            return (pd.Timestamp.now() - signup_date).days // 365\n        else:\n            raise KeyError(\"Neither 'age' nor 'signup_date' is available in the row to calculate age.\")\n"
+        },
+        "0.017136245275103903": {
+            "name": "feedback_sentiment_variance",
+            "code": "\n\ndef feedback_sentiment_variance(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    feedback_table = aux_dataframes['customer_feedback_table.csv']\n    filtered = feedback_table[feedback_table['customer_id'] == row['customer_id']]\n    return filtered['feedback_score'].var() if not filtered.empty else 0\n"
+        },
+        "0.015217889063874526": {
+            "name": "max_topup_last_year",
+            "code": "import pandas as pd\n\ndef max_topup_last_year(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the top-up activation history dataframe\n    topup_history = aux_dataframes['top_up_activation_history_table.csv']\n    \n    # Filter the dataframe for the specific customer\n    filtered = topup_history[topup_history['customer_id'] == row['customer_id']]\n    \n    # Calculate the date one year ago from today\n    last_year = pd.Timestamp.now() - pd.Timedelta(days=365)\n    \n    # Filter for top-ups within the last year using the correct column name 'activation_date'\n    recent_topups = filtered[pd.to_datetime(filtered['activation_date']) >= last_year]\n    \n    # Return the maximum top-up amount or 0 if no top-ups exist\n    return recent_topups['top_up_amount'].max() if not recent_topups.empty else 0\n"
+        },
+        "0.01258231127145205": {
+            "name": "avg_feedback_score",
+            "code": "\n\ndef avg_feedback_score(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    feedback_table = aux_dataframes['customer_feedback_table.csv']\n    filtered = feedback_table[feedback_table['customer_id'] == row['customer_id']]\n    return filtered['feedback_score'].mean() if not filtered.empty else 0\n"
+        },
+        "0.012360577369195217": {
+            "name": "median_feedback_score",
+            "code": "\n\ndef median_feedback_score(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    feedback_table = aux_dataframes['customer_feedback_table.csv']\n    filtered = feedback_table[feedback_table['customer_id'] == row['customer_id']]\n    return filtered['feedback_score'].median() if not filtered.empty else 0\n"
+        },
+        "0.011156305646415465": {
+            "name": "avg_billing_last_3_months",
+            "code": "\n\ndef avg_billing_last_3_months(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_history = aux_dataframes['billing_history_table.csv']\n    \n    # Filter the billing history for the specific customer\n    filtered = billing_history[billing_history['customer_id'] == row['customer_id']]\n    \n    # Sort by billing_date in descending order and take the most recent 3 months\n    recent_3_months = filtered.sort_values(by='billing_date', ascending=False).head(3)\n    \n    # Calculate the average billing amount (using 'amount_due' as the billing amount)\n    return recent_3_months['amount_due'].mean() if not recent_3_months.empty else 0\n"
+        },
+        "0.006176726082921984": {
+            "name": "avg_topup_last_3",
+            "code": "\n\ndef avg_topup_last_3(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the top-up activation history dataframe\n    topup_history = aux_dataframes['top_up_activation_history_table.csv']\n    \n    # Filter the dataframe for the specific customer_id\n    filtered = topup_history[topup_history['customer_id'] == row['customer_id']]\n    \n    # Sort by the correct date column ('activation_date') in descending order\n    recent_3_topups = filtered.sort_values(by='activation_date', ascending=False).head(3)\n    \n    # Calculate and return the mean of the top-up amounts, or 0 if no top-ups exist\n    return recent_3_topups['top_up_amount'].mean() if not recent_3_topups.empty else 0\n"
+        },
+        "0.00014417251952394839": {
+            "name": "recent_billing_trend",
+            "code": "\n\ndef recent_billing_trend(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_history = aux_dataframes['billing_history_table.csv']\n    # Filter the billing history for the specific customer\n    filtered = billing_history[billing_history['customer_id'] == row['customer_id']]\n    if filtered.shape[0] >= 2:\n        # Sort the filtered history by billing_date in descending order\n        sorted_history = filtered.sort_values(by='billing_date', ascending=False)\n        # Calculate the difference between the two most recent billing amounts (amount_due)\n        return sorted_history.iloc[0]['amount_due'] - sorted_history.iloc[1]['amount_due']\n    # Return 0 if there are fewer than 2 billing records\n    return 0\n"
+        },
+        "0": {
+            "name": "num_topups_last_30_days",
+            "code": "import pandas as pd\n\ndef num_topups_last_30_days(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the top-up activation history dataframe\n    topup_history = aux_dataframes['top_up_activation_history_table.csv']\n    \n    # Filter the dataframe for the specific customer_id\n    filtered = topup_history[topup_history['customer_id'] == row['customer_id']]\n    \n    # Convert 'activation_date' to datetime and filter for the last 30 days\n    recent_topups = filtered[pd.to_datetime(filtered['activation_date']) >= (pd.Timestamp.now() - pd.Timedelta(days=30))]\n    \n    # Return the count of recent top-ups\n    return len(recent_topups)\n"
+        }
+    },
+    "feature_descriptions": [
+        "recent to lifetime billing ratio",
+        "max billing last year",
+        "total feedback count",
+        "total billing last 6 months",
+        "min billing last 6 months",
+        "topup to feedback ratio",
+        "days as customer",
+        "topup frequency variance",
+        "positive feedback percentage",
+        "avg monthly billing",
+        "age of customer",
+        "feedback sentiment variance",
+        "max topup last year",
+        "avg feedback score",
+        "median feedback score",
+        "avg billing last 3 months",
+        "avg topup last 3",
+        "recent billing trend",
+        "num topups last 30 days"
+    ]
+}

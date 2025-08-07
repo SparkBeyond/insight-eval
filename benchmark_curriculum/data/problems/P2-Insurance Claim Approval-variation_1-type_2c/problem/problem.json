@@ -1,0 +1,7 @@
+{
+    "target_column": "claim_approved",
+    "description": "Determine if an insurance claim should be approved or denied.",
+    "name": "Insurance Claim Approval",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Financial services"
+}

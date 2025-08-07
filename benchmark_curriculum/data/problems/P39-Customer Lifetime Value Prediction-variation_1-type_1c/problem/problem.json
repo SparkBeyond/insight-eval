@@ -1,0 +1,7 @@
+{
+    "target_column": "lifetime_value",
+    "description": "Predicting the expected revenue from a customer over their entire relationship with the company.",
+    "name": "Customer Lifetime Value Prediction",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Telecommunications"
+}

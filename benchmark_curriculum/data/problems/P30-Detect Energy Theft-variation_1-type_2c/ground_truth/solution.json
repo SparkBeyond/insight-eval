@@ -1,0 +1,18 @@
+{
+    "enriched_column_names": [
+        "analysis_of_leading_and_lagging_consumption_patterns_during_significant_changes",
+        "ratio_of_power_outages_reported_to_actual_consumption_drops",
+        "frequency_of_irregular_consumptions_outliers_over_the_past_two_years",
+        "number_of_billing_issues_in_the_past_year",
+        "decrease_in_payment_amount_with_steady_or_increased_consumption",
+        "seasonality_inconsistency_in_usage_compared_to_cultural_and_weather_trends"
+    ],
+    "features_descriptions": [
+        "analysis of leading and lagging consumption patterns during significant changes",
+        "ratio of power outages reported to actual consumption drops",
+        "frequency of irregular consumptions outliers over the past two years",
+        "number of billing issues in the past year",
+        "decrease in payment amount with steady or increased consumption",
+        "seasonality inconsistency in usage compared to cultural and weather trends"
+    ]
+}

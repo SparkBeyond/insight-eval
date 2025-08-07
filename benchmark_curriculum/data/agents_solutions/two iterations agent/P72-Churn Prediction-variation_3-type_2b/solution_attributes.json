@@ -1,0 +1,42 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "transaction_recency_days",
+        "time_since_last_feedback",
+        "feedback_count",
+        "account_age_days",
+        "last_transaction_amount",
+        "last_campaign_recency_days",
+        "total_transactions",
+        "spending_rate_per_year",
+        "response_rate",
+        "time_since_last_transaction",
+        "active_status",
+        "campaign_count",
+        "transaction_type_count",
+        "account_age",
+        "total_campaigns_targeted",
+        "average_transaction_amount"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "transaction recency days",
+        "time since last feedback",
+        "feedback count",
+        "account age days",
+        "last transaction amount",
+        "last campaign recency days",
+        "total transactions",
+        "spending rate per year",
+        "response rate",
+        "time since last transaction",
+        "active status",
+        "campaign count",
+        "transaction type count",
+        "account age",
+        "total campaigns targeted",
+        "average transaction amount"
+    ]
+}

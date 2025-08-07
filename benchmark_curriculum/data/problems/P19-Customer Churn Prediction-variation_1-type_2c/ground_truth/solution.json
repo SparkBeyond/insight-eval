@@ -1,0 +1,14 @@
+{
+    "enriched_column_names": [
+        "decrease_in_loyalty_program_points_in_the_last_year",
+        "number_of_products_used_decrease_over_the_last_year",
+        "support_resolution_rate_in_the_last_6_months",
+        "number_of_customer_support_interactions_in_the_last_quarter"
+    ],
+    "features_descriptions": [
+        "decrease in loyalty program points in the last year",
+        "number of products used decrease over the last year",
+        "support resolution rate in the last 6 months",
+        "number of customer support interactions in the last quarter"
+    ]
+}

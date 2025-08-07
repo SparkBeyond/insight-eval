@@ -1,0 +1,47 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "mean_billing_amount",
+        "last_review_sentiment",
+        "average_review_rating",
+        "transaction_count",
+        "device_count",
+        "total_billing_amount"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.10495915633280013": {
+            "name": "mean_billing_amount",
+            "code": "\n\ndef mean_billing_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_data = aux_dataframes['billing_history_table.csv']\n    customer_id = row['customer_id']\n    transactions = billing_data[billing_data['customer_id'] == customer_id]['amount']\n    return transactions.mean() if not transactions.empty else 0\n"
+        },
+        "0.10075138600107315": {
+            "name": "last_review_sentiment",
+            "code": "\n\ndef last_review_sentiment(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    reviews_data = aux_dataframes['customer_reviews_table.csv']\n    customer_id = row['customer_id']\n    customer_reviews = reviews_data[reviews_data['customer_id'] == customer_id].sort_values(by='review_date', ascending=False)\n    return customer_reviews.iloc[0]['rating'] if not customer_reviews.empty else None\n"
+        },
+        "0.09054392701270014": {
+            "name": "average_review_rating",
+            "code": "\n\ndef average_review_rating(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    reviews_data = aux_dataframes['customer_reviews_table.csv']\n    customer_id = row['customer_id']\n    ratings = reviews_data[reviews_data['customer_id'] == customer_id]['rating']\n    return ratings.mean() if not ratings.empty else 0\n"
+        },
+        "0.03627629083358734": {
+            "name": "transaction_count",
+            "code": "\n\ndef transaction_count(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_data = aux_dataframes['billing_history_table.csv']\n    customer_id = row['customer_id']\n    return billing_data[billing_data['customer_id'] == customer_id].shape[0]\n"
+        },
+        "0.009861818589429559": {
+            "name": "device_count",
+            "code": "\n\ndef device_count(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    device_data = aux_dataframes['device_characteristics_table.csv']\n    customer_id = row['customer_id']\n    return device_data[device_data['customer_id'] == customer_id].shape[0]\n"
+        },
+        "0.0008140950106163168": {
+            "name": "total_billing_amount",
+            "code": "\n\ndef total_billing_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    billing_data = aux_dataframes['billing_history_table.csv']\n    customer_id = row['customer_id']\n    return billing_data[billing_data['customer_id'] == customer_id]['amount'].sum()\n"
+        }
+    },
+    "feature_descriptions": [
+        "mean billing amount",
+        "last review sentiment",
+        "average review rating",
+        "transaction count",
+        "device count",
+        "total billing amount"
+    ]
+}

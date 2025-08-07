@@ -1,0 +1,95 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "spending_vs_income_ratio",
+        "loyalty_score_based_on_demographics",
+        "customer_lifetime_value",
+        "income_bucket",
+        "discount_usage_rate",
+        "average_purchase_amount",
+        "category_popularity_score",
+        "is_premium_product",
+        "is_married",
+        "average_purchase_time_in_seconds",
+        "age_bucket",
+        "preferred_product_category",
+        "most_common_purchase_channel",
+        "purchase_during_peak_hours"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.20434766609942173": {
+            "name": "spending_vs_income_ratio",
+            "code": "import numpy as np\n\ndef total_spent_on_purchases(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Get the relevant dataframes from aux_data\n    purchase_patterns = aux_data[\"purchase_patterns_table.csv\"]\n    product_catalog = aux_data[\"product_catalog_table.csv\"]\n    \n    # Merge purchase patterns with product catalog to get the price for each purchase\n    purchases_with_prices = purchase_patterns.merge(\n        product_catalog, on=\"product_id\", how=\"left\"\n    )\n    \n    # Filter purchases for the given customer_id\n    customer_purchases = purchases_with_prices[purchases_with_prices[\"customer_id\"] == customer_id]\n    \n    # Calculate the total spent by summing the price column\n    total_spent = customer_purchases[\"price\"].sum()\n    return total_spent\n\ndef spending_vs_income_ratio(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Calculate the total spent by the customer\n    total_spent = total_spent_on_purchases(row, df_train, aux_data)\n    \n    # Get the customer's annual income\n    customer_id = row[\"customer_id\"]\n    customer_demographics = aux_data[\"customer_demographics_table.csv\"]\n    income = customer_demographics[customer_demographics[\"customer_id\"] == customer_id][\"income_level\"].values\n    \n    # Ensure income is properly extracted\n    if len(income) == 0:\n        return np.nan  # Return NaN if income is not found\n    income = income[0]\n    \n    # Calculate and return the spending-to-income ratio\n    return total_spent / income if income > 0 else np.nan\n"
+        },
+        "0.1863837892597063": {
+            "name": "loyalty_score_based_on_demographics",
+            "code": "import numpy as np\n\ndef loyalty_score_based_on_demographics(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_demographics = aux_dataframes[\"customer_demographics_table.csv\"]\n    \n    # Merge demographics data to find the attributes for the given customer_id\n    customer_id = row[\"customer_id\"]\n    demographics = customer_demographics[customer_demographics[\"customer_id\"] == customer_id]\n    \n    if demographics.empty:\n        return np.nan  # If no data for this customer, return NaN\n    \n    # Assign custom scores based on demographic factors\n    age = demographics[\"age\"].iloc[0]\n    income = demographics[\"income_level\"].iloc[0]  # Corrected column name\n    marital_status = demographics[\"marital_status\"].iloc[0]\n    \n    # Loyalty score factors\n    age_score = 1 if age > 40 else 0.5  # Higher age contributes to loyalty\n    income_score = 1 if income > 50000 else 0.5  # Higher income contributes more\n    marital_score = 1 if marital_status == \"Married\" else 0.5  # Married customers tend to be more loyal\n    \n    # Overall loyalty score (weighted sum)\n    loyalty_score = (0.4 * age_score) + (0.4 * income_score) + (0.2 * marital_score)\n    return loyalty_score\n"
+        },
+        "0.09889139280072587": {
+            "name": "customer_lifetime_value",
+            "code": "import numpy as np\n\ndef customer_lifetime_value(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    avg_spent = average_purchase_amount(row, df_train, aux_data)\n    purchase_freq = total_number_of_purchases(row, df_train, aux_data)\n    return avg_spent * purchase_freq\n\ndef total_number_of_purchases(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    customer_id = row[\"customer_id\"]\n    # Get the relevant dataframe\n    purchase_patterns = aux_data[\"purchase_patterns_table.csv\"]\n    \n    # Count the number of purchases for the specific customer\n    return len(purchase_patterns[purchase_patterns[\"customer_id\"] == customer_id])\n\ndef average_purchase_amount(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    customer_id = row[\"customer_id\"]\n    # Get the relevant dataframes\n    purchase_patterns = aux_data[\"purchase_patterns_table.csv\"]\n    product_catalog = aux_data[\"product_catalog_table.csv\"]\n    \n    # Merge purchase patterns with product catalog to get price information\n    merged_data = purchase_patterns.merge(product_catalog, on=\"product_id\", how=\"left\")\n    \n    # Filter purchases for the specific customer\n    customer_purchases = merged_data[merged_data[\"customer_id\"] == customer_id]\n    \n    # Calculate the average purchase amount\n    avg_spent = customer_purchases[\"price\"].mean()\n    return avg_spent if not np.isnan(avg_spent) else 0\n"
+        },
+        "0.09831144787063795": {
+            "name": "income_bucket",
+            "code": "\n\ndef income_bucket(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Retrieve the customer ID from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Access the customer demographics dataframe from aux_data\n    customer_demographics = aux_data.get(\"customer_demographics_table.csv\")\n    \n    # Ensure the dataframe exists and contains the required columns\n    if customer_demographics is not None and \"customer_id\" in customer_demographics.columns and \"income_level\" in customer_demographics.columns:\n        # Find the income level for the given customer ID\n        customer_info = customer_demographics[customer_demographics[\"customer_id\"] == customer_id]\n        \n        if not customer_info.empty:\n            # Extract the income level\n            income = customer_info.iloc[0][\"income_level\"]\n            \n            # Determine the income bucket\n            if income < 30000:\n                return \"low_income\"\n            elif 30000 <= income < 60000:\n                return \"mid_income\"\n            else:\n                return \"high_income\"\n    \n    # If income information is not found, return a default value\n    return \"unknown_income\"\n"
+        },
+        "0.042723288875710336": {
+            "name": "discount_usage_rate",
+            "code": "\n\ndef discount_usage_rate(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe from aux_data\n    purchase_patterns = aux_data[\"purchase_patterns_table.csv\"]\n    \n    # Get the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Filter the purchase patterns dataframe for the given customer_id\n    customer_purchases = purchase_patterns[purchase_patterns[\"customer_id\"] == customer_id]\n    \n    # Check if the customer has any purchases\n    if len(customer_purchases) == 0:\n        return 0  # If no purchases, return 0 as the discount usage rate\n    \n    # Calculate the discount usage rate\n    discount_usage = customer_purchases[\"discount_applied\"].sum() / len(customer_purchases)\n    return discount_usage\n"
+        },
+        "0.03519756666584662": {
+            "name": "average_purchase_amount",
+            "code": "import numpy as np\n\ndef average_purchase_amount(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant DataFrames from aux_data\n    product_catalog = aux_data['product_catalog_table.csv']\n    \n    # Merge df_train with product_catalog to include the 'price' column\n    df_train = df_train.merge(product_catalog[['product_id', 'price']], on='product_id', how='left')\n    \n    # Get the customer_id from the current row\n    customer_id = row[\"customer_id\"]\n    \n    # Filter purchases for the specific customer\n    customer_purchases = df_train[df_train[\"customer_id\"] == customer_id]\n    \n    # Calculate the average spent\n    avg_spent = customer_purchases[\"price\"].mean()\n    \n    # Return the average spent, or 0 if it's NaN\n    return avg_spent if not np.isnan(avg_spent) else 0\n"
+        },
+        "0.02411633876892969": {
+            "name": "category_popularity_score",
+            "code": "\n\ndef category_popularity_score(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the product catalog table from aux_data\n    product_catalog = aux_data[\"product_catalog_table.csv\"]\n    \n    # Ensure the product catalog has the necessary columns\n    if \"product_id\" not in product_catalog.columns or \"category\" not in product_catalog.columns:\n        raise ValueError(\"The product catalog table must contain 'product_id' and 'category' columns.\")\n    \n    # Merge df_train with the product catalog to get the category information\n    df_train_with_category = df_train.merge(\n        product_catalog[[\"product_id\", \"category\"]],\n        on=\"product_id\",\n        how=\"left\"\n    )\n    \n    # Calculate the category popularity scores\n    category_purchases = df_train_with_category[\"category\"].value_counts(normalize=True)\n    \n    # Get the category of the current row's product_id\n    product_id = row[\"product_id\"]\n    category = product_catalog.loc[product_catalog[\"product_id\"] == product_id, \"category\"]\n    \n    # If the category exists, return its popularity score; otherwise, return 0\n    if not category.empty:\n        return category_purchases.get(category.iloc[0], 0)\n    else:\n        return 0\n"
+        },
+        "0.015491448481793109": {
+            "name": "is_premium_product",
+            "code": "\n\ndef is_premium_product(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the product catalog dataframe from the auxiliary data\n    product_catalog = aux_dataframes[\"product_catalog_table.csv\"]\n    \n    # Use the correct column name for the premium indicator\n    premium_products = product_catalog[product_catalog[\"premium_indicator\"] == 1][\"product_id\"].unique()\n    \n    # Check if the product_id in the row is in the list of premium products\n    return 1 if row[\"product_id\"] in premium_products else 0\n"
+        },
+        "0.00833425276335356": {
+            "name": "is_married",
+            "code": "\n\ndef is_married(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_demographics_table dataframe from aux_data\n    customer_demographics = aux_data[\"customer_demographics_table.csv\"]\n    \n    # Find the marital_status for the given customer_id\n    customer_id = row[\"customer_id\"]\n    marital_status = customer_demographics.loc[\n        customer_demographics[\"customer_id\"] == customer_id, \"marital_status\"\n    ]\n    \n    # Check if marital_status is \"Married\" and return 1 if true, else 0\n    if not marital_status.empty and marital_status.iloc[0] == \"Married\":\n        return 1\n    else:\n        return 0\n"
+        },
+        "0.006751917488149961": {
+            "name": "average_purchase_time_in_seconds",
+            "code": "import pandas as pd\n\ndef average_purchase_time_in_seconds(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe from aux_data\n    purchase_patterns_df = aux_data['purchase_patterns_table.csv']\n    \n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Filter the dataframe for the specific customer_id\n    customer_purchases = purchase_patterns_df[purchase_patterns_df[\"customer_id\"] == customer_id]\n    \n    # Ensure the 'purchase_time' column is in datetime format\n    customer_purchases[\"purchase_time\"] = pd.to_datetime(customer_purchases[\"purchase_time\"])\n    \n    # Calculate the time deltas in seconds\n    time_deltas = customer_purchases[\"purchase_time\"].dt.hour * 3600 + \\\n                  customer_purchases[\"purchase_time\"].dt.minute * 60 + \\\n                  customer_purchases[\"purchase_time\"].dt.second\n    \n    # Return the mean of the time deltas\n    return time_deltas.mean()\n"
+        },
+        "0.0021429634139934484": {
+            "name": "age_bucket",
+            "code": "\n\ndef age_bucket(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Get the customer demographics dataframe from aux_data\n    customer_demographics_df = aux_data[\"customer_demographics_table.csv\"]\n    \n    # Look up the age for the given customer_id\n    customer_info = customer_demographics_df[customer_demographics_df[\"customer_id\"] == customer_id]\n    \n    # If the customer_id is not found, return None or a default value\n    if customer_info.empty:\n        return None\n    \n    # Extract the age value\n    age = customer_info.iloc[0][\"age\"]\n    \n    # Determine the age bucket\n    if age < 25:\n        return \"below_25\"\n    elif 25 <= age < 40:\n        return \"25-39\"\n    elif 40 <= age < 60:\n        return \"40-59\"\n    else:\n        return \"60_and_above\"\n"
+        },
+        "0.002095568831678163": {
+            "name": "preferred_product_category",
+            "code": "\n\ndef preferred_product_category(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Get the relevant dataframes from aux_data\n    purchase_patterns = aux_data[\"purchase_patterns_table.csv\"]\n    product_catalog = aux_data[\"product_catalog_table.csv\"]\n    \n    # Filter purchases for the given customer_id\n    customer_purchases = purchase_patterns[purchase_patterns[\"customer_id\"] == customer_id]\n    \n    # Merge customer purchases with product catalog to get category information\n    customer_purchases_with_category = customer_purchases.merge(\n        product_catalog, \n        on=\"product_id\", \n        how=\"left\"\n    )\n    \n    # Find the most frequently purchased category\n    if not customer_purchases_with_category.empty:\n        return customer_purchases_with_category[\"category\"].value_counts().idxmax()\n    else:\n        # Return None or a default value if the customer has no purchases\n        return None\n"
+        },
+        "9.417937132216725e-05": {
+            "name": "most_common_purchase_channel",
+            "code": "\n\ndef most_common_purchase_channel(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Use the correct dataframe from aux_data\n    purchase_patterns_df = aux_data[\"purchase_patterns_table.csv\"]\n    \n    # Filter the dataframe for the given customer_id\n    customer_purchases = purchase_patterns_df[purchase_patterns_df[\"customer_id\"] == customer_id]\n    \n    # Check if the customer has any purchases\n    if customer_purchases.empty:\n        return None  # Return None if no purchases are found\n    \n    # Return the most common purchase channel\n    return customer_purchases[\"purchase_channel\"].value_counts().idxmax()\n"
+        },
+        "0": {
+            "name": "purchase_during_peak_hours",
+            "code": "import pandas as pd\n\ndef hour_of_purchase(row):\n    # Check if 'purchase_time' exists in the row\n    if \"purchase_time\" in row:\n        purchase_time = pd.to_datetime(row[\"purchase_time\"])\n        return purchase_time.hour\n    else:\n        # If 'purchase_time' is not available, return None\n        return None\n\ndef purchase_during_peak_hours(row):\n    purchase_hour = hour_of_purchase(row)\n    # If purchase_hour is None, return 0 (not during peak hours)\n    if purchase_hour is None:\n        return 0\n    return 1 if 18 <= purchase_hour <= 20 else 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "spending vs income ratio",
+        "loyalty score based on demographics",
+        "customer lifetime value",
+        "income bucket",
+        "discount usage rate",
+        "average purchase amount",
+        "category popularity score",
+        "is premium product",
+        "is married",
+        "average purchase time in seconds",
+        "age bucket",
+        "preferred product category",
+        "most common purchase channel",
+        "purchase during peak hours"
+    ]
+}

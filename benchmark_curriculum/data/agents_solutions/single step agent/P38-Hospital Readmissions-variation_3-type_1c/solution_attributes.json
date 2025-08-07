@@ -1,0 +1,71 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "date_diff_in_days",
+        "bed_utilization_rate",
+        "avg_patient_medications",
+        "time_since_last_admission",
+        "prior_admissions_count",
+        "age_at_admission",
+        "visit_type_ratio",
+        "is_weekend_admission",
+        "patient_ethnicity",
+        "patient_gender"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.19157610168228653": {
+            "name": "date_diff_in_days",
+            "code": "import datetime\n\ndef date_diff_in_days(row: pd.Series) -> int:\n    \"\"\"\n    Calculate the difference in days between discharge_date and admission_date.\n\n    Args:\n        row (pd.Series): A row of a DataFrame containing 'discharge_date' and 'admission_date' columns.\n\n    Returns:\n        int: The difference in days between discharge_date and admission_date.\n\n    Raises:\n        ValueError: If the required columns are not present in the row.\n    \"\"\"\n    # Ensure the required columns exist in the row\n    if 'discharge_date' not in row or 'admission_date' not in row:\n        raise ValueError(\"Row must contain 'discharge_date' and 'admission_date' columns.\")\n    \n    # Convert the dates from string to datetime objects\n    discharge_date = datetime.datetime.strptime(row['discharge_date'], '%Y-%m-%d')\n    admission_date = datetime.datetime.strptime(row['admission_date'], '%Y-%m-%d')\n    \n    # Calculate the difference in days\n    return (discharge_date - admission_date).days\n"
+        },
+        "0.14917401258369725": {
+            "name": "bed_utilization_rate",
+            "code": "import pandas as pd\n\ndef bed_utilization_rate(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct key for hospital facility data\n    facilities_key = 'hospital_facility_data_table.csv'\n    \n    # Check if the key exists in aux_dataframes\n    if facilities_key not in aux_dataframes:\n        raise KeyError(f\"Key '{facilities_key}' not found in aux_dataframes.\")\n    \n    # Get the hospital facility data\n    facilities = aux_dataframes[facilities_key]\n    \n    # Ensure the required columns exist in the facilities dataframe\n    required_columns = {'hospital_id', 'current_bed_utilization', 'bed_capacity'}\n    if not required_columns.issubset(facilities.columns):\n        raise KeyError(f\"Missing required columns in '{facilities_key}'. Expected columns: {required_columns}\")\n    \n    # Filter the facilities dataframe for the given hospital_id\n    hospital_info = facilities[facilities['hospital_id'] == row['hospital_id']]\n    \n    # Check if hospital_info is not empty and has valid data\n    if not hospital_info.empty:\n        current_bed_utilization = hospital_info.iloc[0]['current_bed_utilization']\n        bed_capacity = hospital_info.iloc[0]['bed_capacity']\n        \n        # Ensure bed_capacity is not zero or NaN to avoid division errors\n        if pd.notna(bed_capacity) and bed_capacity > 0:\n            return current_bed_utilization / bed_capacity\n    \n    # Return None if no valid data is found\n    return None\n"
+        },
+        "0.14477124001602482": {
+            "name": "avg_patient_medications",
+            "code": "\n\ndef avg_patient_medications(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the medications table\n    medications = aux_dataframes['recent_medications_table.csv']\n    \n    # Filter the medications dataframe for the given patient_id\n    patient_medication_count = medications[medications['patient_id'] == row['patient_id']].shape[0]\n    \n    return patient_medication_count\n"
+        },
+        "0.09639027474224783": {
+            "name": "time_since_last_admission",
+            "code": "import datetime\n\ndef time_since_last_admission(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct key for the previous admissions table\n    prior_admissions = aux_dataframes['previous_admissions_table.csv']\n    \n    # Filter the dataframe for the specific patient\n    patient_admissions = prior_admissions[prior_admissions['patient_id'] == row['patient_id']]\n    \n    if not patient_admissions.empty:\n        # Ensure we use the correct column names for discharge_date\n        most_recent_date = max(patient_admissions['discharge_date'])\n        \n        # Convert dates to datetime objects for calculation\n        admission_date = datetime.datetime.strptime(row['admission_date'], '%Y-%m-%d')\n        most_recent_date = datetime.datetime.strptime(most_recent_date, '%Y-%m-%d')\n        \n        # Calculate the difference in days\n        return (admission_date - most_recent_date).days\n    \n    # Return None if there are no prior admissions\n    return None\n"
+        },
+        "0.06142655801283628": {
+            "name": "prior_admissions_count",
+            "code": "\n\ndef prior_admissions_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key to access the 'previous_admissions_table.csv' dataframe\n    prior_admissions = aux_dataframes['previous_admissions_table.csv']\n    \n    # Ensure the column names match the expected structure\n    if 'patient_id' not in prior_admissions.columns:\n        raise ValueError(\"The 'previous_admissions_table.csv' dataframe is missing the 'patient_id' column.\")\n    \n    # Filter the dataframe for the given patient_id and return the count of prior admissions\n    return prior_admissions[prior_admissions['patient_id'] == row['patient_id']].shape[0]\n"
+        },
+        "0.04827876105267571": {
+            "name": "age_at_admission",
+            "code": "\n\ndef age_at_admission(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the filename in aux_dataframes\n    demographics = aux_dataframes['patient_demographic_info_table.csv']\n    \n    # Filter the demographics dataframe for the specific patient_id\n    patient_info = demographics[demographics['patient_id'] == row['patient_id']]\n    \n    # Check if the filtered dataframe is not empty and return the age\n    if not patient_info.empty:\n        return int(patient_info.iloc[0]['age'])\n    \n    # Return None if no matching patient_id is found\n    return None\n"
+        },
+        "0.01734454226830315": {
+            "name": "visit_type_ratio",
+            "code": "\n\ndef visit_type_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the follow-up visits table\n    visits = aux_dataframes['followup_visits_table.csv']\n    \n    # Filter visits for the specific patient\n    patient_visits = visits[visits['patient_id'] == row['patient_id']]\n    \n    # Count the number of in-person and telehealth visits\n    in_person_count = patient_visits[patient_visits['visit_type'] == 'In-person'].shape[0]\n    telehealth_count = patient_visits[patient_visits['visit_type'] == 'Telehealth'].shape[0]\n    \n    # Calculate the ratio of telehealth visits to total visits\n    return telehealth_count / (in_person_count + telehealth_count + 1e-6)  # Avoid division by zero\n"
+        },
+        "0.001083670590514946": {
+            "name": "is_weekend_admission",
+            "code": "import datetime\n\ndef is_weekend_admission(row: Dict[str, any]) -> int:\n    # Parse the admission_date string into a datetime object\n    admission_day = datetime.datetime.strptime(row['admission_date'], '%Y-%m-%d').weekday()\n    # Return 1 if the day is Saturday (5) or Sunday (6), otherwise return 0\n    return 1 if admission_day >= 5 else 0\n"
+        },
+        "0.0008295255707404525": {
+            "name": "patient_ethnicity",
+            "code": "\n\ndef patient_ethnicity(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_dataframes\n    demographics = aux_dataframes['patient_demographic_info_table.csv']\n    \n    # Filter the demographics dataframe for the given patient_id\n    patient_info = demographics[demographics['patient_id'] == row['patient_id']]\n    \n    # Check if the filtered dataframe is not empty and return the ethnicity\n    if not patient_info.empty:\n        return patient_info.iloc[0]['ethnicity']\n    \n    # Return None if no matching patient_id is found\n    return None\n"
+        },
+        "-0.00043289009174141135": {
+            "name": "patient_gender",
+            "code": "\n\ndef patient_gender(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the patient demographics table\n    demographics = aux_dataframes['patient_demographic_info_table.csv']\n    \n    # Filter the demographics dataframe for the given patient_id\n    patient_info = demographics[demographics['patient_id'] == row['patient_id']]\n    \n    # Check if the filtered dataframe is not empty and return the gender\n    if not patient_info.empty:\n        return patient_info.iloc[0]['gender']\n    \n    # Return None if no matching patient_id is found\n    return None\n"
+        }
+    },
+    "feature_descriptions": [
+        "date diff in days",
+        "bed utilization rate",
+        "avg patient medications",
+        "time since last admission",
+        "prior admissions count",
+        "age at admission",
+        "visit type ratio",
+        "is weekend admission",
+        "patient ethnicity",
+        "patient gender"
+    ]
+}

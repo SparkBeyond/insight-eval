@@ -1,0 +1,65 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "time_since_last_maintenance",
+        "days_since_first_maintenance",
+        "days_since_installation",
+        "average_sensor_reading",
+        "equipment_downtime_hours",
+        "sensor_reading_std",
+        "equipment_maintenance_count",
+        "maintenance_frequency_per_day",
+        "sensor_reading_range"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.176405884757325": {
+            "name": "time_since_last_maintenance",
+            "code": "import numpy as np\nimport pandas as pd\n\ndef time_since_last_maintenance(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the key 'maintenance_records_table.csv'\n    maintenance_records = aux_dataframes['maintenance_records_table.csv']\n    \n    # Filter maintenance records for the specific equipment_id\n    maintenance_dates = maintenance_records[maintenance_records['equipment_id'] == row['equipment_id']]['record_date']\n    \n    # Check if there are any maintenance records for the equipment\n    if not maintenance_dates.empty:\n        # Convert the most recent maintenance date to datetime\n        last_maintenance_date = pd.to_datetime(maintenance_dates.max())\n        # Convert the current row's maintenance_date to datetime\n        current_date = pd.to_datetime(row['maintenance_date'])\n        # Calculate the difference in days\n        return (current_date - last_maintenance_date).days\n    \n    # If no maintenance records exist, return NaN\n    return np.nan\n"
+        },
+        "0.1735113423569458": {
+            "name": "days_since_first_maintenance",
+            "code": "import numpy as np\nimport pandas as pd\n\ndef days_since_first_maintenance(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct key for maintenance records table\n    maintenance_records = aux_dataframes['maintenance_records_table.csv']\n    \n    # Ensure the column names match the provided data\n    maintenance_dates = maintenance_records[maintenance_records['equipment_id'] == row['equipment_id']]['record_date']\n    \n    if not maintenance_dates.empty:\n        # Convert dates to datetime\n        first_maintenance_date = pd.to_datetime(maintenance_dates.min())\n        current_date = pd.to_datetime(row['maintenance_date'])  # Use 'maintenance_date' from the row\n        return (current_date - first_maintenance_date).days\n    \n    # Return NaN if no maintenance records are found\n    return np.nan\n"
+        },
+        "0.13877188246948627": {
+            "name": "days_since_installation",
+            "code": "import numpy as np\nimport pandas as pd\n\ndef days_since_installation(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculate the number of days between the current timestamp and the \n    equipment's installation date.\n\n    Arguments:\n    - row: The row of the main dataset (a dictionary-like object).\n    - aux_data: A dictionary of auxiliary datasets, \n                including \"equipment_info_table.csv\" providing installation information.\n\n    Returns:\n    - An integer value representing days since installation, or NaN if no data is available.\n    \"\"\"\n    # Access the correct auxiliary dataframe\n    equipment_info = aux_data['equipment_info_table.csv']\n    \n    # Grab the installation date for the corresponding equipment_id\n    installation_date = equipment_info.loc[\n        equipment_info['equipment_id'] == row['equipment_id'],\n        'installation_date'\n    ].values\n\n    if len(installation_date) > 0:\n        # Parse the dates\n        installation_date = pd.to_datetime(installation_date[0])\n        current_date = pd.to_datetime(row['maintenance_date'])  # Use 'maintenance_date' from the row\n        # Calculate and return the number of days since installation\n        return (current_date - installation_date).days\n    \n    # Return NaN if installation date not found\n    return np.nan\n"
+        },
+        "0.04036923053359748": {
+            "name": "average_sensor_reading",
+            "code": "\n\ndef average_sensor_reading(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the sensor data table from aux_data\n    sensor_data = aux_data['sensor_data_table.csv']\n    \n    # Filter the sensor data for the given equipment_id\n    equipment_readings = sensor_data[sensor_data['equipment_id'] == row['equipment_id']]\n    \n    # Calculate the mean of the relevant sensor readings (temperature, pressure, vibration)\n    if not equipment_readings.empty:\n        mean_reading = equipment_readings[['temperature', 'pressure', 'vibration']].mean().mean()\n    else:\n        mean_reading = None  # Return None if no readings are available for the equipment_id\n    \n    return mean_reading\n"
+        },
+        "0.015428820198348379": {
+            "name": "equipment_downtime_hours",
+            "code": "\n\ndef equipment_downtime_hours(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the maintenance records dataframe using the correct key\n    maintenance_records = aux_dataframes['maintenance_records_table.csv']\n    \n    # Filter the maintenance records for the given equipment_id\n    equipment_maintenance = maintenance_records[maintenance_records['equipment_id'] == row['equipment_id']]\n    \n    # Check if the 'downtime_hours' column exists in the row's dataframe\n    if 'downtime_hours' in row.index:\n        # Sum the 'downtime_hours' for the filtered records\n        return row['downtime_hours']\n    else:\n        # If 'downtime_hours' is missing, return 0 or handle appropriately\n        return 0\n"
+        },
+        "0.013790286918114554": {
+            "name": "sensor_reading_std",
+            "code": "\n\ndef sensor_reading_std(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the sensor data table from aux_data\n    sensor_data = aux_data['sensor_data_table.csv']\n    \n    # Filter the sensor data for the given equipment_id\n    equipment_readings = sensor_data[sensor_data['equipment_id'] == row['equipment_id']]['temperature']\n    \n    # Return the standard deviation of the temperature readings\n    return equipment_readings.std()\n"
+        },
+        "0.009482703119252927": {
+            "name": "equipment_maintenance_count",
+            "code": "\n\ndef equipment_maintenance_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the maintenance records dataframe using the correct key\n    maintenance_records = aux_dataframes['maintenance_records_table.csv']\n    \n    # Ensure the column names match the expected structure\n    if 'equipment_id' not in maintenance_records.columns:\n        raise KeyError(\"The 'maintenance_records_table.csv' dataframe does not contain the 'equipment_id' column.\")\n    \n    # Filter the maintenance records for the given equipment_id and return the count\n    return maintenance_records[maintenance_records['equipment_id'] == row['equipment_id']].shape[0]\n"
+        },
+        "0.00603340843162357": {
+            "name": "maintenance_frequency_per_day",
+            "code": "import numpy as np\nimport pandas as pd\n\ndef maintenance_frequency_per_day(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct key for maintenance records table\n    maintenance_records = aux_dataframes['maintenance_records_table.csv']\n    \n    # Filter maintenance records for the given equipment_id\n    maintenance_dates = maintenance_records[maintenance_records['equipment_id'] == row['equipment_id']]['record_date']\n    \n    if not maintenance_dates.empty:\n        # Convert dates to datetime\n        maintenance_dates = pd.to_datetime(maintenance_dates)\n        \n        # Calculate the total number of days between the earliest and latest maintenance dates\n        total_days = (maintenance_dates.max() - maintenance_dates.min()).days\n        \n        # Calculate and return the maintenance frequency per day\n        return len(maintenance_dates) / total_days if total_days else np.nan\n    \n    # Return NaN if no maintenance records are found\n    return np.nan\n"
+        },
+        "0": {
+            "name": "sensor_reading_range",
+            "code": "\n\ndef sensor_reading_range(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the sensor data table from aux_data\n    sensor_data = aux_data['sensor_data_table.csv']\n    \n    # Filter the sensor data for the given equipment_id\n    equipment_readings = sensor_data[sensor_data['equipment_id'] == row['equipment_id']]\n    \n    # Compute the range for each sensor reading column\n    ranges = {\n        'temperature_range': equipment_readings['temperature'].max() - equipment_readings['temperature'].min(),\n        'pressure_range': equipment_readings['pressure'].max() - equipment_readings['pressure'].min(),\n        'vibration_range': equipment_readings['vibration'].max() - equipment_readings['vibration'].min()\n    }\n    \n    return ranges\n"
+        }
+    },
+    "feature_descriptions": [
+        "time since last maintenance",
+        "days since first maintenance",
+        "days since installation",
+        "average sensor reading",
+        "equipment downtime hours",
+        "sensor reading std",
+        "equipment maintenance count",
+        "maintenance frequency per day",
+        "sensor reading range"
+    ]
+}

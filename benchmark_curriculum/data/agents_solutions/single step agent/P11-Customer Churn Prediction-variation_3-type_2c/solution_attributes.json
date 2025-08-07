@@ -1,0 +1,131 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "avg_payment_punctuality",
+        "billing_overdue_frequency",
+        "low_feedback_count",
+        "total_feedback_count",
+        "count_topups",
+        "total_topup_amount",
+        "max_topup_validity",
+        "payment_completion_ratio",
+        "total_amount_paid",
+        "avg_feedback_score",
+        "latest_topup_amount",
+        "avg_topup_validity",
+        "billing_punctuality_std",
+        "total_billing_due",
+        "customer_tenure",
+        "contract_type_indicator",
+        "gender_plan_interaction",
+        "most_common_topup_type",
+        "age_group",
+        "most_common_feedback_type"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.20438287888701046": {
+            "name": "avg_payment_punctuality",
+            "code": "import pandas as pd\n\ndef avg_payment_punctuality(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_dataframes\n    billing_data = aux_dataframes['billing_history_table.csv']\n    \n    # Filter the billing data for the specific customer\n    customer_bills = billing_data[billing_data['customer_id'] == row['customer_id']]\n    \n    # Calculate the days of punctuality\n    customer_bills['days_punctual'] = (\n        pd.to_datetime(customer_bills['payment_date']) - pd.to_datetime(customer_bills['billing_date'])\n    ).dt.days\n    \n    # Return the average days of punctuality, or 0 if no bills exist for the customer\n    return customer_bills['days_punctual'].mean() if not customer_bills.empty else 0\n"
+        },
+        "0.18384711635205278": {
+            "name": "billing_overdue_frequency",
+            "code": "import pandas as pd\n\ndef billing_overdue_frequency(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the one in aux_dataframes\n    billing_data = aux_dataframes['billing_history_table.csv']\n    \n    # Filter the billing data for the specific customer\n    customer_bills = billing_data[billing_data['customer_id'] == row['customer_id']]\n    \n    # Calculate the number of overdue bills\n    overdue_count = customer_bills[\n        pd.to_datetime(customer_bills['payment_date']) > pd.to_datetime(customer_bills['billing_date'])\n    ].shape[0]\n    \n    return overdue_count\n"
+        },
+        "0.1627220689929013": {
+            "name": "low_feedback_count",
+            "code": "\n\ndef low_feedback_count(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct key for the customer feedback data\n    feedback_data = aux_dataframes['customer_feedback_table.csv']\n    \n    # Filter the feedback data for the specific customer\n    customer_feedback = feedback_data[feedback_data['customer_id'] == row['customer_id']]\n    \n    # Count the number of feedback entries with a score less than 3\n    return customer_feedback[customer_feedback['feedback_score'] < 3].shape[0]\n"
+        },
+        "0.1351739667760299": {
+            "name": "total_feedback_count",
+            "code": "\n\ndef total_feedback_count(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct key for the customer feedback table\n    feedback_data = aux_dataframes['customer_feedback_table.csv']\n    \n    # Filter the feedback data for the specific customer_id in the current row\n    customer_feedback = feedback_data[feedback_data['customer_id'] == row['customer_id']]\n    \n    # Return the count of feedback entries for the customer\n    return customer_feedback.shape[0]\n"
+        },
+        "0.1303544242443742": {
+            "name": "count_topups",
+            "code": "\n\ndef count_topups(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the top-up activation data\n    topup_data = aux_dataframes['top_up_activation_history_table.csv']\n    \n    # Filter the top-up data for the specific customer_id in the current row\n    customer_topups = topup_data[topup_data['customer_id'] == row['customer_id']]\n    \n    # Return the count of top-ups for the customer\n    return customer_topups.shape[0]\n"
+        },
+        "0.10850042631760193": {
+            "name": "total_topup_amount",
+            "code": "\n\ndef total_topup_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the top-up data\n    topup_data = aux_dataframes['top_up_activation_history_table.csv']\n    \n    # Filter the top-up data for the specific customer\n    customer_topups = topup_data[topup_data['customer_id'] == row['customer_id']]\n    \n    # Return the sum of the 'top_up_amount' column, or 0 if no top-ups exist\n    return customer_topups['top_up_amount'].sum() if not customer_topups.empty else 0\n"
+        },
+        "0.04184365131588007": {
+            "name": "max_topup_validity",
+            "code": "\n\ndef max_topup_validity(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the top-up activation data\n    topup_data = aux_dataframes['top_up_activation_history_table.csv']\n    \n    # Filter the top-up data for the specific customer\n    customer_topups = topup_data[topup_data['customer_id'] == row['customer_id']]\n    \n    # Return the maximum validity period or 0 if no top-ups exist for the customer\n    return customer_topups['validity_period'].max() if not customer_topups.empty else 0\n"
+        },
+        "0.031247790069111332": {
+            "name": "payment_completion_ratio",
+            "code": "\n\ndef payment_completion_ratio(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct key for billing history dataframe\n    billing_data = aux_dataframes.get('billing_history_table.csv')\n    \n    # Check if billing_data exists and is a valid DataFrame\n    if billing_data is not None and not billing_data.empty:\n        # Filter billing data for the specific customer\n        customer_bills = billing_data[billing_data['customer_id'] == row['customer_id']]\n        \n        # Calculate the payment completion ratio if there are bills for the customer\n        if not customer_bills.empty:\n            total_amount_due = customer_bills['amount_due'].sum()\n            total_amount_paid = customer_bills['amount_paid'].sum()\n            \n            # Avoid division by zero\n            if total_amount_due > 0:\n                completion_ratio = total_amount_paid / total_amount_due\n                return completion_ratio\n        \n    # Return 0 if no billing data or no valid bills\n    return 0\n"
+        },
+        "0.02801369414838401": {
+            "name": "total_amount_paid",
+            "code": "\n\ndef total_amount_paid(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key to access the billing history dataframe\n    billing_data = aux_dataframes['billing_history_table.csv']\n    \n    # Filter the billing data for the specific customer\n    customer_bills = billing_data[billing_data['customer_id'] == row['customer_id']]\n    \n    # Return the sum of the 'amount_paid' column, or 0 if no records are found\n    return customer_bills['amount_paid'].sum() if not customer_bills.empty else 0\n"
+        },
+        "0.02407703374210691": {
+            "name": "avg_feedback_score",
+            "code": "\n\ndef avg_feedback_score(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct key for the customer feedback data\n    feedback_data = aux_dataframes['customer_feedback_table.csv']\n    \n    # Filter the feedback data for the specific customer_id in the current row\n    customer_feedback = feedback_data[feedback_data['customer_id'] == row['customer_id']]\n    \n    # Calculate and return the average feedback score, or 0 if no feedback exists\n    return customer_feedback['feedback_score'].mean() if not customer_feedback.empty else 0\n"
+        },
+        "0.019295119794910373": {
+            "name": "latest_topup_amount",
+            "code": "\n\ndef latest_topup_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the provided aux_dataframes structure\n    topup_data = aux_dataframes['top_up_activation_history_table.csv']\n    \n    # Filter the top-up data for the specific customer\n    customer_topups = topup_data[topup_data['customer_id'] == row['customer_id']]\n    \n    # Check if there are any top-ups for the customer\n    if not customer_topups.empty:\n        # Find the latest activation date\n        latest_activation_date = customer_topups['activation_date'].max()\n        \n        # Get the top-up record corresponding to the latest activation date\n        latest_topup = customer_topups[customer_topups['activation_date'] == latest_activation_date]\n        \n        # Return the top-up amount\n        return latest_topup['top_up_amount'].values[0]\n    \n    # Return 0 if no top-ups are found\n    return 0\n"
+        },
+        "0.016627308160703114": {
+            "name": "avg_topup_validity",
+            "code": "\n\ndef avg_topup_validity(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the provided aux_dataframes dictionary\n    topup_data = aux_dataframes['top_up_activation_history_table.csv']\n    \n    # Filter the top-up data for the specific customer\n    customer_topups = topup_data[topup_data['customer_id'] == row['customer_id']]\n    \n    # Return the mean validity period if there are top-ups, otherwise return 0\n    return customer_topups['validity_period'].mean() if not customer_topups.empty else 0\n"
+        },
+        "0.015526157417580408": {
+            "name": "billing_punctuality_std",
+            "code": "import pandas as pd\n\ndef billing_punctuality_std(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_dataframes\n    billing_data = aux_dataframes['billing_history_table.csv']\n    \n    # Filter the billing data for the specific customer\n    customer_bills = billing_data[billing_data['customer_id'] == row['customer_id']]\n    \n    # Calculate the number of days between billing_date and payment_date\n    customer_bills['days_punctual'] = (\n        pd.to_datetime(customer_bills['payment_date']) - pd.to_datetime(customer_bills['billing_date'])\n    ).dt.days\n    \n    # Return the standard deviation of days_punctual, or 0 if no bills exist\n    return customer_bills['days_punctual'].std() if not customer_bills.empty else 0\n"
+        },
+        "0.013148701086326403": {
+            "name": "total_billing_due",
+            "code": "\n\ndef total_billing_due(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_dataframes\n    billing_data = aux_dataframes['billing_history_table.csv']\n    \n    # Filter the billing data for the specific customer\n    customer_bills = billing_data[billing_data['customer_id'] == row['customer_id']]\n    \n    # Return the sum of 'amount_due' or 0 if no bills are found\n    return customer_bills['amount_due'].sum() if not customer_bills.empty else 0\n"
+        },
+        "0.011441076313018179": {
+            "name": "customer_tenure",
+            "code": "import pandas as pd\n\ndef customer_tenure(row):\n    signup_date = pd.to_datetime(row['signup_date'])\n    current_date = pd.to_datetime('2024-12-31')  # Assuming a fixed analysis date\n    tenure_days = (current_date - signup_date).days\n    return tenure_days\n"
+        },
+        "0.00492732608380527": {
+            "name": "contract_type_indicator",
+            "code": "\n\ndef contract_type_indicator(row):\n    return 1 if row['contract_type'] == 'Yearly' else 0\n"
+        },
+        "-0.0020810853130266427": {
+            "name": "gender_plan_interaction",
+            "code": "\n\ndef gender_plan_interaction(row):\n    return f\"{row['gender']}_{row['service_plan']}\"\n"
+        },
+        "-0.0007628399636694372": {
+            "name": "most_common_topup_type",
+            "code": "\n\ndef most_common_topup_type(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the top-up activation data\n    topup_data = aux_dataframes['top_up_activation_history_table.csv']\n    \n    # Filter the top-up data for the specific customer\n    customer_topups = topup_data[topup_data['customer_id'] == row['customer_id']]\n    \n    # Return the most common top-up type if data exists, otherwise return None\n    return customer_topups['top_up_type'].mode()[0] if not customer_topups.empty else None\n"
+        },
+        "0.0007559406997943441": {
+            "name": "age_group",
+            "code": "\n\ndef age_group(row):\n    age = row['age']\n    if age < 25:\n        return 'Youth'\n    elif age < 45:\n        return 'Adult'\n    elif age < 65:\n        return 'Mature Adult'\n    else:\n        return 'Senior'\n"
+        },
+        "-0.0004398481451779457": {
+            "name": "most_common_feedback_type",
+            "code": "\n\ndef most_common_feedback_type(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct key for the customer feedback table\n    feedback_data = aux_dataframes['customer_feedback_table.csv']\n    \n    # Filter the feedback data for the specific customer_id in the current row\n    customer_feedback = feedback_data[feedback_data['customer_id'] == row['customer_id']]\n    \n    # Return the most common feedback_type if there is feedback data for the customer\n    return customer_feedback['feedback_type'].mode()[0] if not customer_feedback.empty else None\n"
+        }
+    },
+    "feature_descriptions": [
+        "avg payment punctuality",
+        "billing overdue frequency",
+        "low feedback count",
+        "total feedback count",
+        "count topups",
+        "total topup amount",
+        "max topup validity",
+        "payment completion ratio",
+        "total amount paid",
+        "avg feedback score",
+        "latest topup amount",
+        "avg topup validity",
+        "billing punctuality std",
+        "total billing due",
+        "customer tenure",
+        "contract type indicator",
+        "gender plan interaction",
+        "most common topup type",
+        "age group",
+        "most common feedback type"
+    ]
+}

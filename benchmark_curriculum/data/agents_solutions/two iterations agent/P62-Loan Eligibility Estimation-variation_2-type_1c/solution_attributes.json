@@ -1,0 +1,36 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "employment_income_interaction",
+        "loan_to_income_ratio",
+        "avg_interest_rate",
+        "avg_loan_amount",
+        "applicant_age_repeated_colname1",
+        "total_paid_off_loans",
+        "applicant_age",
+        "log_debt_to_credit_ratio",
+        "credit_utilization_ratio",
+        "credit_utilization",
+        "num_dependents",
+        "credit_history_length",
+        "credit_history_length_repeated_colname1"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "employment income interaction",
+        "loan to income ratio",
+        "avg interest rate",
+        "avg loan amount",
+        "applicant age repeated colname1",
+        "total paid off loans",
+        "applicant age",
+        "log debt to credit ratio",
+        "credit utilization ratio",
+        "credit utilization",
+        "num dependents",
+        "credit history length",
+        "credit history length repeated colname1"
+    ]
+}

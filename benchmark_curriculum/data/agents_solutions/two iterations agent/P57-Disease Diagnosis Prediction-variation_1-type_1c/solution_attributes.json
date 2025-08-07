@@ -1,0 +1,40 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "count_distinct_test_types",
+        "time_since_last_test_days",
+        "test_frequency",
+        "time_to_first_test_from_registration",
+        "encode_income_level",
+        "mean_test_result_value",
+        "max_symptom_severity_for_patient",
+        "mean_symptom_severity_for_patient",
+        "std_symptom_severity_for_patient",
+        "age_at_symptom_onset",
+        "encode_employment_status",
+        "income_group_encoded",
+        "has_high_severity_symptom",
+        "time_since_symptom_onset_days",
+        "time_to_symptom_onset"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "count distinct test types",
+        "time since last test days",
+        "test frequency",
+        "time to first test from registration",
+        "encode income level",
+        "mean test result value",
+        "max symptom severity for patient",
+        "mean symptom severity for patient",
+        "std symptom severity for patient",
+        "age at symptom onset",
+        "encode employment status",
+        "income group encoded",
+        "has high severity symptom",
+        "time since symptom onset days",
+        "time to symptom onset"
+    ]
+}

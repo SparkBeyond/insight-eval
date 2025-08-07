@@ -1,0 +1,901 @@
+customer_id,signup_date,date_of_birth,state,zip_code,account_status,plan_type,signup_channel,total_months_with_service,churn_status
+3,2024-12-01,1947-07-19,Colorado,71677,Suspended,Premium,Referral,5,1
+2052,2023-07-31,1953-06-23,North Dakota,44074,Suspended,Standard,Online,22,0
+2053,2022-12-10,1973-09-02,Pennsylvania,63154,Inactive,Basic,Referral,29,0
+6,2024-12-11,1977-07-03,Delaware,33918,Suspended,Standard,In-store,5,1
+7,2021-03-15,1978-01-27,Delaware,44410,Suspended,Standard,Referral,50,0
+9,2024-11-05,2003-08-25,Florida,31391,Active,Premium,Online,6,0
+10,2022-11-12,1961-01-19,Maine,70590,Active,Basic,Online,30,1
+12,2024-01-23,2002-09-28,New York,67953,Suspended,Basic,In-store,16,0
+2061,2025-05-04,1962-07-09,Kentucky,54067,Active,Premium,Referral,0,0
+14,2024-07-05,1980-05-20,Connecticut,37180,Suspended,Basic,In-store,10,1
+2062,2024-11-22,1956-10-22,Delaware,44138,Active,Standard,Online,6,1
+17,2023-04-25,1975-11-22,Nebraska,4389,Active,Premium,In-store,25,0
+2065,2020-11-14,1962-01-06,Maryland,43220,Suspended,Basic,Referral,54,0
+19,2020-06-10,1981-01-22,Nevada,13019,Inactive,Standard,Referral,59,0
+2067,2021-02-09,1979-09-01,Mississippi,20894,Suspended,Premium,In-store,51,0
+2072,2022-11-10,1971-04-06,Louisiana,46395,Inactive,Basic,In-store,30,1
+26,2021-11-20,1955-10-15,New Mexico,35095,Active,Standard,Online,42,0
+27,2022-02-21,1975-04-27,Colorado,11514,Suspended,Premium,Referral,39,0
+28,2021-02-10,1968-03-20,Indiana,71208,Suspended,Premium,Online,51,0
+2076,2020-07-02,1956-05-13,California,96554,Suspended,Basic,Referral,58,0
+2077,2023-09-22,1968-10-20,Wisconsin,43261,Inactive,Standard,In-store,20,0
+2080,2025-04-10,1958-08-08,Utah,22284,Suspended,Premium,Referral,1,0
+2085,2021-04-05,1980-07-14,Idaho,94154,Suspended,Basic,In-store,49,0
+2087,2020-12-27,1987-01-01,Kansas,85504,Suspended,Standard,In-store,53,0
+41,2020-11-03,1965-09-28,Maine,76856,Inactive,Standard,Referral,54,0
+42,2024-12-09,2002-09-02,Alabama,89112,Suspended,Standard,Online,5,0
+2091,2023-08-03,1951-04-04,Kansas,76970,Inactive,Standard,Online,21,0
+47,2020-08-08,1997-03-26,Ohio,50416,Active,Standard,Online,57,1
+2095,2024-01-26,1999-08-03,Maine,44007,Active,Basic,In-store,16,0
+2096,2024-01-14,1946-11-09,New Hampshire,86523,Active,Standard,In-store,16,0
+2098,2023-04-30,1951-10-05,Mississippi,49857,Suspended,Premium,Online,25,0
+2100,2020-08-19,1990-02-26,Illinois,3696,Inactive,Basic,Referral,57,0
+53,2022-03-20,1985-01-04,Louisiana,74615,Suspended,Basic,In-store,38,1
+58,2020-07-04,1967-05-31,Hawaii,54805,Active,Standard,Online,58,0
+59,2022-03-07,1995-02-24,Massachusetts,30840,Active,Standard,In-store,38,1
+61,2021-06-05,1999-03-26,Arkansas,89131,Active,Premium,Referral,47,0
+62,2021-08-29,1971-07-20,Kentucky,97891,Suspended,Premium,In-store,45,0
+2109,2023-02-12,1949-03-29,Colorado,842,Inactive,Standard,In-store,27,1
+67,2024-12-17,1949-01-05,Rhode Island,32393,Inactive,Standard,In-store,5,1
+2115,2024-11-15,1973-05-07,Nevada,72588,Active,Basic,Online,6,0
+2116,2020-08-06,2007-04-20,Delaware,18399,Active,Premium,Referral,57,0
+70,2022-03-17,1986-06-18,Rhode Island,37717,Active,Premium,Referral,38,0
+71,2024-03-02,1976-07-13,Missouri,15448,Suspended,Basic,In-store,14,0
+2117,2024-12-06,1946-11-02,Missouri,69662,Suspended,Premium,In-store,5,1
+73,2022-11-22,1952-06-11,Kentucky,89692,Active,Premium,Referral,30,0
+2118,2021-07-16,1987-06-28,Hawaii,72972,Inactive,Premium,Online,46,1
+2123,2020-11-28,1961-09-16,Indiana,72630,Active,Standard,In-store,54,0
+78,2022-12-18,1951-12-01,Vermont,38174,Inactive,Basic,Referral,29,0
+80,2020-10-12,1969-04-29,Mississippi,97313,Active,Basic,In-store,55,0
+82,2021-02-03,1989-06-18,Minnesota,39836,Active,Basic,Online,51,0
+84,2023-05-11,1991-11-06,New Hampshire,21460,Suspended,Basic,In-store,24,0
+2133,2023-04-18,2003-09-01,South Dakota,50575,Inactive,Premium,Referral,25,0
+86,2020-07-25,1983-02-20,Illinois,52655,Suspended,Premium,Online,58,0
+87,2024-07-29,1953-02-25,Ohio,7894,Active,Premium,In-store,10,0
+2135,2024-12-23,1947-08-06,Connecticut,78629,Suspended,Basic,Referral,5,0
+2137,2024-12-08,2001-10-21,New Mexico,36394,Active,Standard,In-store,5,0
+94,2024-07-28,1956-10-03,Rhode Island,93470,Active,Standard,Online,10,0
+96,2020-06-10,1966-02-02,Missouri,67300,Inactive,Standard,Online,59,1
+97,2022-05-28,1956-08-31,South Dakota,45486,Inactive,Basic,Online,36,0
+2146,2023-10-04,1977-10-30,South Carolina,14971,Inactive,Basic,Referral,19,0
+101,2025-02-07,1994-11-07,West Virginia,97585,Suspended,Premium,Online,3,0
+105,2021-10-06,1983-02-13,Utah,61342,Suspended,Premium,Online,43,1
+107,2022-05-05,1965-09-09,South Dakota,86500,Inactive,Standard,In-store,36,0
+2155,2021-10-08,1982-01-06,Colorado,99306,Inactive,Standard,In-store,43,0
+2157,2025-02-02,1995-07-06,Kentucky,76565,Suspended,Basic,In-store,3,0
+110,2020-10-09,1971-04-18,Vermont,80977,Active,Basic,In-store,55,0
+2158,2021-02-28,1976-07-19,Oregon,66663,Inactive,Standard,In-store,51,0
+2160,2024-05-16,1945-07-27,Alabama,2283,Suspended,Premium,Referral,12,0
+2164,2023-10-29,1960-05-13,Arkansas,54237,Suspended,Premium,Referral,19,0
+118,2022-12-26,1989-06-15,North Carolina,71330,Suspended,Standard,Online,29,1
+2166,2023-04-29,2002-03-02,Alaska,75312,Inactive,Standard,Online,25,1
+2171,2023-12-13,1947-12-29,Ohio,62404,Active,Standard,Referral,17,1
+124,2022-05-13,1995-10-09,Nebraska,55943,Suspended,Premium,Referral,36,0
+2172,2021-09-24,2004-04-06,Georgia,73098,Suspended,Premium,Online,44,0
+2175,2022-06-23,1964-04-09,Alabama,16466,Inactive,Premium,In-store,35,0
+2176,2025-02-07,1949-05-20,New Jersey,78044,Suspended,Basic,Online,3,0
+129,2025-01-24,1985-09-29,Hawaii,32780,Inactive,Standard,In-store,4,0
+130,2023-07-09,1950-10-09,Iowa,49091,Active,Standard,In-store,22,0
+131,2020-10-01,1977-04-12,Kansas,10564,Suspended,Basic,In-store,55,0
+136,2020-11-18,1983-02-10,Vermont,80062,Inactive,Premium,In-store,54,0
+2190,2024-08-29,1955-09-16,Vermont,18596,Suspended,Premium,Online,9,0
+144,2021-09-25,1963-02-06,Wyoming,35892,Suspended,Standard,Referral,44,0
+2193,2023-09-14,2003-07-21,Wisconsin,52205,Suspended,Premium,In-store,20,0
+146,2023-12-04,2002-08-07,Arizona,28575,Active,Basic,In-store,17,1
+147,2021-11-12,1989-01-08,Wisconsin,4704,Inactive,Basic,Referral,42,0
+2194,2024-10-07,1982-07-31,Arizona,60455,Active,Standard,Referral,7,0
+149,2023-06-20,1966-05-03,New Jersey,60479,Inactive,Premium,Online,23,1
+150,2020-10-25,1993-10-23,Minnesota,7263,Inactive,Standard,Online,55,0
+2195,2022-11-27,1957-05-21,Ohio,97777,Suspended,Premium,Referral,30,0
+152,2022-04-15,1998-10-09,Oklahoma,61819,Inactive,Basic,In-store,37,0
+155,2020-07-19,1964-08-02,Delaware,34121,Inactive,Standard,Online,58,0
+2204,2021-12-18,1996-02-29,Pennsylvania,43912,Suspended,Standard,Referral,41,0
+161,2021-10-07,1949-04-02,Mississippi,97098,Inactive,Premium,In-store,43,0
+166,2020-11-19,2006-09-13,California,33088,Suspended,Basic,In-store,54,0
+2219,2021-05-24,1981-09-08,Alabama,99287,Inactive,Premium,Online,48,0
+175,2024-01-27,1961-10-17,Connecticut,47704,Suspended,Premium,Online,16,0
+176,2023-11-23,1995-05-19,Montana,81268,Active,Premium,In-store,18,0
+177,2020-08-25,1996-04-09,Oklahoma,83258,Active,Premium,Referral,57,0
+178,2022-06-09,1965-03-20,North Dakota,90149,Inactive,Basic,Referral,35,0
+2227,2021-11-21,1957-03-21,Ohio,19843,Active,Premium,Online,42,1
+180,2024-09-20,1979-11-18,Wisconsin,46231,Active,Premium,In-store,8,0
+2233,2023-07-20,2003-04-07,New York,83154,Suspended,Basic,Referral,22,0
+2235,2023-02-16,1966-01-14,Nevada,46810,Suspended,Basic,Online,27,0
+2238,2024-12-30,1995-09-01,Delaware,68126,Inactive,Premium,Online,5,1
+191,2020-06-08,1950-10-29,Rhode Island,99777,Suspended,Premium,In-store,59,0
+194,2024-09-19,2004-11-07,Mississippi,64821,Active,Basic,Referral,8,0
+195,2024-08-17,1991-12-08,West Virginia,52529,Inactive,Premium,Online,9,0
+197,2023-04-17,2007-01-07,Wisconsin,5703,Active,Standard,Referral,25,0
+199,2024-02-11,1955-11-13,California,59258,Inactive,Basic,In-store,15,0
+200,2022-06-21,1971-11-06,Ohio,71529,Suspended,Standard,In-store,35,0
+2247,2025-03-07,1975-03-12,Connecticut,21932,Inactive,Basic,In-store,2,0
+2249,2023-11-12,1980-12-02,Iowa,13809,Active,Premium,Online,18,0
+2250,2023-06-02,1990-09-01,Rhode Island,40770,Inactive,Standard,In-store,23,0
+204,2022-03-21,2003-08-01,Kentucky,80558,Active,Premium,Online,38,0
+2257,2024-01-14,1975-03-18,Nevada,36446,Active,Standard,Online,16,1
+2259,2024-01-30,1965-11-11,Alaska,86641,Inactive,Basic,Referral,16,0
+2260,2020-09-16,1963-02-02,Arizona,16372,Inactive,Basic,Online,56,1
+216,2023-06-21,1951-09-12,Texas,73021,Suspended,Premium,Online,23,0
+217,2024-10-31,1945-12-17,Rhode Island,77019,Active,Premium,Referral,7,0
+2266,2023-10-06,1960-11-06,Arizona,91557,Suspended,Premium,In-store,19,0
+2271,2022-10-08,1961-12-09,Tennessee,82926,Inactive,Standard,Referral,31,1
+224,2023-05-07,1961-05-22,Michigan,99947,Active,Basic,Online,24,0
+2273,2022-11-29,1998-11-15,Iowa,55968,Active,Premium,Referral,30,1
+227,2021-05-08,1986-02-17,Arizona,72602,Active,Basic,Online,48,0
+229,2023-09-01,1984-12-06,Maryland,43420,Suspended,Standard,Online,20,0
+230,2024-07-11,1983-06-16,New Mexico,19061,Inactive,Basic,Online,10,0
+234,2022-05-23,2004-12-20,Connecticut,7035,Inactive,Premium,In-store,36,0
+2282,2021-05-25,1945-07-07,Oregon,60559,Active,Standard,In-store,48,0
+2284,2024-11-30,2006-07-20,Minnesota,42447,Suspended,Premium,In-store,6,1
+2285,2025-01-05,1952-07-21,Michigan,93539,Suspended,Standard,In-store,4,0
+240,2021-09-09,1999-02-10,Wyoming,84049,Suspended,Premium,In-store,44,0
+242,2024-02-01,1995-07-05,Alabama,23021,Suspended,Standard,Online,15,1
+244,2024-11-08,1974-10-05,North Carolina,96376,Active,Premium,Online,6,0
+2292,2023-12-27,1967-11-07,Delaware,32520,Suspended,Standard,Referral,17,0
+2294,2024-06-27,2006-10-10,Michigan,39426,Inactive,Basic,In-store,11,0
+249,2021-05-23,1965-07-26,Michigan,59857,Suspended,Basic,Online,48,0
+250,2021-04-15,1953-03-03,Missouri,24901,Suspended,Premium,Referral,49,0
+251,2024-03-23,1960-07-23,Hawaii,11451,Active,Standard,Online,14,0
+2297,2024-07-22,1975-12-09,Indiana,12141,Suspended,Basic,Online,10,1
+2300,2020-10-30,1952-02-04,Virginia,3823,Inactive,Standard,In-store,55,0
+2301,2021-12-23,1998-11-06,Illinois,36752,Active,Basic,Referral,41,0
+257,2022-01-05,2003-05-27,New Mexico,13384,Active,Standard,Referral,40,0
+263,2022-03-21,1966-05-14,Connecticut,41615,Inactive,Standard,Referral,38,0
+2313,2020-12-14,1963-08-07,New Hampshire,44193,Inactive,Basic,Referral,53,0
+266,2023-10-06,1974-08-18,Washington,22884,Suspended,Premium,In-store,19,1
+267,2021-12-05,1954-04-23,Rhode Island,44575,Inactive,Standard,Referral,41,0
+2315,2025-04-04,1945-01-29,Rhode Island,64884,Active,Standard,Online,1,0
+269,2020-07-16,1979-01-10,Ohio,67414,Suspended,Premium,Referral,58,0
+271,2025-03-15,1985-06-16,Arkansas,1855,Active,Basic,Referral,2,0
+277,2022-11-10,1970-05-09,New Mexico,49244,Active,Standard,In-store,30,0
+281,2021-06-13,1969-10-23,New Jersey,82297,Suspended,Basic,In-store,47,0
+2329,2023-11-06,2000-01-15,Pennsylvania,64216,Inactive,Premium,In-store,18,0
+283,2020-11-08,1968-08-17,Mississippi,7520,Inactive,Premium,In-store,54,0
+2330,2024-09-01,1984-08-14,Florida,83878,Inactive,Standard,In-store,8,1
+2332,2022-06-17,1983-07-03,New Jersey,99260,Suspended,Premium,Referral,35,0
+286,2022-07-17,1947-01-14,Nebraska,32206,Inactive,Standard,In-store,34,0
+287,2022-09-12,1980-12-04,Colorado,17496,Active,Premium,In-store,32,0
+288,2022-07-20,1948-01-02,New Mexico,51835,Inactive,Standard,In-store,34,0
+2336,2021-09-23,1995-04-26,South Carolina,21870,Suspended,Premium,Online,44,0
+296,2024-02-21,1964-03-19,Montana,41021,Inactive,Premium,In-store,15,0
+297,2024-10-22,1974-08-14,Ohio,71100,Suspended,Basic,Online,7,0
+298,2020-07-28,1985-01-29,Oregon,11950,Active,Basic,In-store,58,0
+2346,2024-04-05,1947-03-19,Idaho,52371,Active,Standard,Referral,13,0
+301,2021-01-14,1968-01-01,California,2935,Inactive,Premium,Online,52,0
+304,2025-04-08,1974-03-13,Tennessee,85004,Suspended,Premium,Online,1,0
+305,2024-12-28,1969-02-16,Minnesota,11833,Active,Standard,Referral,5,0
+306,2024-12-07,1960-06-08,Michigan,5218,Inactive,Basic,Referral,5,1
+2354,2022-12-17,1945-10-11,Michigan,77353,Suspended,Premium,In-store,29,0
+2358,2021-10-16,1985-02-03,Connecticut,65821,Inactive,Basic,Referral,43,0
+314,2023-08-04,1998-12-11,Alaska,26499,Suspended,Basic,In-store,21,0
+2362,2022-04-19,1986-06-30,New Mexico,90234,Active,Basic,Referral,37,0
+319,2024-03-20,1987-12-27,Arkansas,69885,Inactive,Premium,Referral,14,1
+321,2022-10-24,1975-04-12,Utah,97528,Inactive,Basic,Referral,31,0
+322,2021-12-27,1965-07-03,Oklahoma,73936,Suspended,Basic,In-store,41,0
+2371,2020-07-03,1982-09-18,Virginia,92383,Suspended,Basic,Online,58,0
+328,2024-01-29,1974-04-25,Ohio,72549,Active,Standard,Referral,16,0
+2377,2020-06-07,2005-12-07,Iowa,92861,Suspended,Standard,Referral,59,0
+330,2021-02-17,1981-11-29,Nevada,70246,Suspended,Premium,Online,51,0
+2378,2024-02-09,1960-05-26,Florida,74994,Suspended,Premium,In-store,15,0
+333,2020-07-15,1946-03-31,North Dakota,17488,Suspended,Basic,Referral,58,0
+334,2023-07-31,1958-10-14,Iowa,40082,Inactive,Standard,Online,22,1
+2383,2023-01-23,1967-03-07,Illinois,54130,Inactive,Standard,Referral,28,1
+340,2025-03-19,2002-02-12,Tennessee,54227,Suspended,Basic,In-store,2,1
+2389,2020-06-04,1946-04-20,New York,81797,Active,Standard,Online,59,0
+342,2020-10-13,1982-07-07,West Virginia,76352,Inactive,Basic,In-store,55,0
+343,2021-09-27,1970-07-14,Arizona,77557,Suspended,Premium,Online,44,1
+2392,2022-12-12,1946-04-07,Vermont,12513,Inactive,Premium,Online,29,0
+345,2022-11-05,1964-07-28,South Dakota,81637,Active,Premium,In-store,30,0
+347,2023-07-11,1946-09-30,Iowa,5644,Inactive,Standard,In-store,22,1
+2399,2021-08-08,1964-11-10,Arkansas,36581,Suspended,Standard,Online,45,1
+353,2022-11-19,1988-08-23,Louisiana,54219,Suspended,Standard,Online,30,0
+354,2025-04-25,1958-09-25,Alaska,15699,Inactive,Basic,Online,1,0
+357,2021-08-26,1955-02-18,Virginia,22257,Inactive,Standard,Referral,45,0
+2407,2023-08-21,1957-06-25,Illinois,69332,Suspended,Premium,In-store,21,0
+2408,2021-05-22,1953-08-26,Connecticut,29501,Suspended,Basic,In-store,48,0
+362,2023-02-15,1980-01-23,Oklahoma,69262,Active,Basic,In-store,27,0
+364,2021-05-18,1959-07-30,Ohio,12190,Active,Basic,Online,48,0
+365,2024-08-09,1974-06-06,Wyoming,31444,Suspended,Basic,Online,9,0
+2412,2023-02-21,1959-11-25,New Jersey,32329,Suspended,Premium,Online,27,0
+367,2023-06-30,1985-07-27,Oklahoma,74498,Inactive,Premium,Referral,23,0
+2415,2021-08-09,1951-05-12,Utah,3535,Inactive,Premium,In-store,45,0
+370,2021-09-15,1969-12-11,Maryland,45877,Inactive,Basic,Online,44,0
+372,2020-07-16,1951-06-26,Minnesota,97297,Suspended,Premium,Online,58,1
+373,2023-08-30,2000-01-17,Oregon,59225,Suspended,Standard,In-store,21,0
+2422,2024-12-05,1971-09-22,Kansas,97815,Active,Premium,Referral,5,0
+376,2021-06-29,1953-09-24,Arkansas,77709,Inactive,Basic,Referral,47,1
+380,2020-05-27,1988-01-20,Tennessee,36035,Suspended,Basic,In-store,60,0
+2428,2022-08-30,2005-11-03,Louisiana,2919,Suspended,Premium,Referral,33,0
+385,2024-04-22,1949-01-30,South Dakota,31625,Inactive,Premium,Referral,13,0
+387,2023-12-30,1953-06-06,Ohio,54407,Inactive,Basic,Online,17,0
+2435,2020-12-27,1964-10-07,Pennsylvania,61941,Suspended,Standard,Online,53,0
+2436,2025-04-08,1949-03-09,Colorado,74313,Active,Premium,Online,1,0
+2437,2021-09-24,1969-12-21,Oregon,61533,Active,Basic,Referral,44,0
+2438,2022-03-23,1997-07-15,Pennsylvania,92739,Active,Standard,Referral,38,0
+393,2022-08-19,1945-12-25,Massachusetts,66368,Active,Premium,Online,33,0
+2441,2020-11-19,1988-07-17,Mississippi,80920,Inactive,Standard,Online,54,0
+395,2021-11-28,1949-08-08,California,12259,Active,Standard,Referral,42,0
+396,2021-04-12,1960-09-10,Rhode Island,27082,Active,Standard,Referral,49,0
+397,2023-12-31,1955-01-01,West Virginia,35612,Suspended,Basic,Online,17,1
+399,2021-01-05,1965-03-02,Nevada,77875,Active,Basic,In-store,52,0
+401,2024-06-17,2000-01-06,North Carolina,14765,Suspended,Premium,In-store,11,0
+2449,2024-12-21,1967-10-23,Nevada,33894,Active,Standard,In-store,5,0
+2450,2023-09-15,1998-11-13,Oklahoma,80425,Active,Premium,Online,20,0
+2453,2020-07-24,1962-09-30,Connecticut,39471,Suspended,Basic,Online,58,0
+2454,2021-11-13,1992-07-23,Mississippi,72127,Inactive,Premium,Online,42,0
+407,2021-06-08,1951-05-04,Pennsylvania,58550,Inactive,Basic,Online,47,0
+409,2021-11-22,1986-11-07,Maine,52775,Inactive,Basic,Referral,42,1
+411,2025-01-01,1984-07-18,Missouri,26310,Inactive,Basic,Referral,4,0
+413,2022-08-16,1971-06-16,Louisiana,74789,Inactive,Standard,Online,33,0
+2461,2020-08-19,1964-02-02,Ohio,39997,Active,Premium,Referral,57,1
+415,2020-06-17,2000-09-15,Arkansas,39124,Suspended,Basic,Referral,59,0
+2464,2023-02-12,1963-08-19,South Carolina,37329,Active,Basic,Online,27,0
+2465,2024-06-06,1961-03-09,Oklahoma,98994,Suspended,Premium,Referral,11,0
+2466,2020-06-17,1987-02-22,Kansas,18801,Active,Basic,In-store,59,0
+423,2020-10-15,1951-04-19,Kansas,29967,Active,Premium,Referral,55,0
+425,2021-08-03,1959-01-12,Oregon,86861,Active,Basic,Referral,45,0
+2473,2023-03-25,1959-02-13,Delaware,4031,Suspended,Basic,Referral,26,0
+429,2021-03-25,1946-08-29,West Virginia,13587,Active,Basic,In-store,50,0
+430,2023-06-27,1987-09-30,Delaware,22841,Active,Standard,In-store,23,0
+2478,2023-06-21,1973-02-28,Nebraska,21125,Active,Basic,Online,23,0
+432,2023-05-27,1963-11-24,Wyoming,37490,Suspended,Premium,In-store,24,0
+2481,2021-06-12,1979-02-15,Massachusetts,30902,Suspended,Basic,In-store,47,0
+434,2022-06-11,1976-06-20,Arkansas,70932,Active,Basic,Referral,35,0
+2484,2023-09-02,1946-02-05,West Virginia,47177,Inactive,Premium,In-store,20,0
+437,2023-03-18,1948-02-13,Rhode Island,90374,Inactive,Standard,In-store,26,0
+2485,2022-01-08,2001-02-10,South Carolina,50469,Suspended,Basic,Online,40,0
+439,2022-02-13,2005-02-16,Alabama,75970,Inactive,Premium,Referral,39,0
+440,2023-01-16,1959-02-15,Nebraska,50786,Suspended,Basic,In-store,28,0
+2489,2023-02-17,1971-06-20,Ohio,54439,Suspended,Basic,Referral,27,0
+445,2022-06-08,1948-09-10,Ohio,14983,Suspended,Standard,Online,35,0
+446,2022-06-21,1962-10-10,Nevada,69478,Active,Standard,Online,35,0
+447,2021-01-03,1989-08-13,New Hampshire,5391,Active,Standard,Online,52,0
+2493,2021-05-10,1995-09-12,Pennsylvania,19030,Active,Basic,Referral,48,0
+2495,2022-06-07,1987-10-21,Alaska,74883,Suspended,Basic,Online,35,0
+2497,2023-07-13,1949-03-19,Texas,73538,Suspended,Basic,Online,22,0
+2502,2024-04-05,1988-09-26,Iowa,75632,Inactive,Basic,Online,13,0
+456,2021-06-20,1969-06-03,Tennessee,16476,Active,Standard,In-store,47,0
+457,2022-09-23,1945-07-04,Arizona,30921,Inactive,Standard,Online,32,1
+458,2025-05-06,1948-09-09,Ohio,83870,Inactive,Basic,Online,0,0
+2505,2024-04-18,1972-07-15,Utah,41686,Suspended,Basic,Online,13,0
+2507,2021-05-28,2000-06-02,Utah,80512,Inactive,Premium,Referral,48,1
+461,2020-08-28,1988-08-07,Ohio,4263,Inactive,Standard,In-store,57,1
+2510,2020-10-18,1974-06-28,Wyoming,31352,Active,Premium,In-store,55,1
+464,2021-09-21,1964-06-12,Kentucky,64442,Inactive,Basic,Referral,44,0
+2515,2021-03-22,2006-02-24,Illinois,46768,Inactive,Basic,Referral,50,0
+469,2021-10-29,1992-09-14,Tennessee,93716,Active,Basic,In-store,43,1
+2518,2020-10-31,1981-02-18,North Dakota,7903,Suspended,Premium,Online,55,0
+471,2021-01-17,1996-02-10,Missouri,19353,Active,Standard,Referral,52,0
+2521,2021-04-22,1956-10-03,Oklahoma,28731,Inactive,Basic,Referral,49,0
+474,2023-10-14,1982-02-03,Arkansas,15731,Active,Basic,Referral,19,1
+475,2021-11-08,1977-03-13,Connecticut,95399,Inactive,Standard,In-store,42,0
+2522,2023-04-04,1968-07-26,Florida,72332,Inactive,Premium,In-store,25,0
+477,2021-03-18,1997-10-08,Colorado,24380,Inactive,Standard,In-store,50,0
+2528,2021-07-05,1998-05-08,Alabama,2771,Suspended,Premium,Online,46,0
+483,2024-06-05,2001-07-03,Missouri,75392,Suspended,Standard,Referral,11,0
+484,2021-09-05,1987-03-16,Rhode Island,80784,Suspended,Standard,In-store,44,1
+2531,2021-12-29,1967-06-27,Kansas,83738,Inactive,Standard,Referral,41,0
+2533,2021-06-26,1949-01-23,Rhode Island,15230,Active,Premium,Referral,47,1
+2537,2021-12-28,1980-11-05,Hawaii,68189,Inactive,Standard,Referral,41,1
+491,2024-06-07,1951-07-15,Colorado,15235,Inactive,Basic,Online,11,0
+492,2023-02-26,1972-07-19,Michigan,77121,Inactive,Standard,In-store,27,0
+493,2020-11-26,1993-03-03,Connecticut,31724,Suspended,Standard,In-store,54,0
+2540,2024-05-26,1989-06-19,Louisiana,46825,Suspended,Basic,In-store,12,0
+495,2020-07-12,1970-12-15,Delaware,58904,Active,Basic,Online,58,0
+496,2022-08-24,1994-01-12,Maine,69909,Active,Basic,In-store,33,0
+2546,2025-03-20,1998-07-21,Oklahoma,81862,Active,Basic,In-store,2,0
+499,2022-06-29,2006-05-12,Arizona,14346,Inactive,Standard,Referral,35,1
+2551,2024-11-03,1945-10-21,Washington,97050,Inactive,Basic,Online,6,1
+2556,2022-07-27,1947-08-11,Illinois,10253,Active,Standard,Online,34,1
+2558,2025-05-10,2005-03-27,Rhode Island,87088,Suspended,Premium,Referral,0,0
+2559,2020-11-27,1995-02-07,South Dakota,73060,Suspended,Premium,In-store,54,0
+512,2021-07-15,1949-08-28,Alabama,30581,Suspended,Premium,In-store,46,0
+2561,2022-09-13,1960-06-14,Minnesota,44753,Suspended,Premium,Online,32,0
+514,2024-03-22,1959-04-19,Virginia,71287,Inactive,Standard,In-store,14,1
+515,2023-06-29,1963-02-03,Delaware,3769,Inactive,Standard,Online,23,0
+2562,2020-09-21,1999-08-29,Georgia,88342,Suspended,Standard,In-store,56,0
+517,2021-10-25,2002-06-30,Tennessee,38965,Suspended,Basic,In-store,43,1
+518,2021-09-28,1987-05-23,Rhode Island,74214,Inactive,Premium,Referral,44,0
+2565,2023-03-07,2004-08-30,Kansas,68001,Active,Premium,Referral,26,1
+520,2023-06-19,1958-05-14,Utah,14086,Suspended,Basic,In-store,23,0
+521,2022-08-01,1975-05-14,California,20824,Inactive,Standard,Online,33,1
+2569,2022-10-16,1989-07-05,Illinois,61349,Suspended,Basic,Referral,31,0
+523,2023-06-06,1972-01-19,Montana,14506,Inactive,Premium,Online,23,0
+2572,2023-08-20,1990-07-15,New Jersey,52565,Inactive,Premium,In-store,21,1
+525,2023-07-19,1974-06-22,Indiana,59180,Suspended,Standard,Referral,22,0
+2573,2022-11-28,1989-11-07,Minnesota,57143,Suspended,Basic,Referral,30,0
+528,2023-02-11,1954-10-04,Pennsylvania,40649,Suspended,Standard,Online,27,1
+2577,2024-12-25,1944-12-29,Arizona,39141,Inactive,Basic,In-store,5,0
+2581,2024-12-08,2002-10-24,New Mexico,6359,Inactive,Standard,Referral,5,0
+534,2022-02-21,1979-03-04,Colorado,67643,Suspended,Standard,Online,39,0
+2582,2023-07-24,1952-07-24,Tennessee,80046,Inactive,Standard,Referral,22,0
+2583,2024-04-04,1960-03-17,Utah,10622,Inactive,Standard,In-store,13,0
+2584,2021-12-15,1978-12-02,South Dakota,51439,Active,Basic,Referral,41,0
+2585,2021-03-03,1967-10-13,Idaho,43980,Suspended,Standard,In-store,50,0
+2586,2023-04-03,1992-02-16,Illinois,78875,Active,Premium,Referral,25,0
+540,2021-09-01,1960-10-09,Colorado,53973,Active,Premium,Online,44,1
+2587,2020-10-27,1981-03-06,Louisiana,27142,Inactive,Basic,Referral,55,0
+542,2023-03-17,1956-04-29,Texas,4742,Suspended,Premium,In-store,26,0
+2589,2025-03-12,1998-03-12,Indiana,36873,Inactive,Basic,Online,2,0
+2591,2022-09-04,1974-03-30,Georgia,95782,Active,Basic,In-store,32,0
+545,2022-12-07,1973-04-28,Ohio,30009,Inactive,Basic,Online,29,0
+548,2024-07-16,1973-04-04,Louisiana,18048,Active,Basic,Online,10,0
+549,2023-10-20,1989-11-22,Kentucky,49411,Active,Basic,Online,19,1
+550,2023-08-19,1993-09-24,North Dakota,861,Active,Premium,In-store,21,0
+551,2025-01-03,2006-10-18,Connecticut,10664,Inactive,Basic,In-store,4,1
+552,2024-03-06,1962-02-19,Arizona,58673,Inactive,Standard,Online,14,0
+2600,2021-10-22,1950-01-08,Connecticut,92355,Inactive,Premium,In-store,43,0
+2601,2023-08-27,1981-06-07,Vermont,13920,Active,Standard,Online,21,0
+2604,2023-07-05,2000-10-17,Georgia,49154,Suspended,Premium,Online,22,0
+560,2021-07-29,1980-01-13,Oklahoma,98520,Active,Standard,Referral,46,1
+2610,2020-10-20,1992-03-26,Colorado,48661,Inactive,Standard,Referral,55,0
+2612,2021-06-16,1971-12-20,New Mexico,45178,Inactive,Premium,Online,47,0
+2618,2022-12-18,2002-11-02,New Hampshire,69654,Inactive,Basic,In-store,29,0
+2619,2022-11-11,1989-06-23,Arkansas,57024,Suspended,Standard,Online,30,1
+2620,2023-09-18,1980-09-04,Minnesota,98394,Inactive,Basic,Referral,20,0
+574,2021-11-28,1972-11-27,Delaware,88588,Active,Premium,Online,42,0
+2625,2023-05-31,1947-03-10,Alaska,6477,Inactive,Basic,In-store,24,0
+2626,2024-07-06,1978-09-03,Michigan,38233,Active,Premium,Referral,10,0
+580,2020-10-07,1950-01-25,Indiana,25758,Suspended,Premium,In-store,55,1
+582,2022-03-18,1980-05-06,Iowa,7657,Active,Basic,In-store,38,0
+2630,2023-04-13,1996-11-01,Maryland,55172,Inactive,Premium,Referral,25,1
+2632,2020-06-27,1978-05-04,Vermont,41047,Suspended,Standard,Online,59,1
+2633,2021-09-25,1970-09-24,Idaho,97066,Suspended,Standard,Referral,44,0
+2637,2024-03-29,1972-01-16,Nevada,73954,Inactive,Standard,Online,14,0
+590,2020-10-03,1998-08-19,Kansas,28942,Suspended,Standard,Referral,55,0
+2638,2022-01-15,2000-11-18,Iowa,72490,Active,Premium,Referral,40,0
+592,2025-01-18,2005-03-19,Arizona,61930,Suspended,Basic,In-store,4,1
+2641,2024-11-24,1962-01-29,Nevada,7543,Inactive,Premium,Referral,6,0
+2644,2023-04-26,1951-03-10,Alaska,21886,Suspended,Basic,In-store,25,0
+597,2021-09-28,2002-12-07,Alabama,29134,Suspended,Basic,Online,44,0
+2645,2024-01-29,1979-07-21,Washington,24172,Inactive,Standard,Online,16,0
+602,2022-07-17,1988-12-05,Maryland,5842,Inactive,Standard,Online,34,0
+603,2023-08-06,1961-12-13,Wisconsin,40946,Inactive,Standard,In-store,21,0
+604,2020-12-13,1951-03-16,South Carolina,80157,Active,Premium,In-store,53,1
+606,2021-09-09,2006-06-23,New Jersey,78512,Inactive,Standard,Referral,44,0
+608,2024-07-23,1998-12-31,Nebraska,69193,Inactive,Standard,Referral,10,0
+2656,2021-06-28,1952-03-13,Pennsylvania,53041,Active,Standard,Referral,47,0
+2658,2022-04-13,2003-11-28,Delaware,53175,Inactive,Standard,Referral,37,0
+611,2021-11-14,1991-07-09,Illinois,36405,Suspended,Basic,Online,42,0
+614,2020-05-30,1955-04-07,Alabama,26322,Suspended,Premium,Online,60,0
+616,2022-06-09,2000-10-22,Illinois,46304,Inactive,Premium,Referral,35,1
+2669,2024-05-09,1960-10-05,Mississippi,56466,Active,Standard,Referral,12,0
+624,2021-07-16,1947-10-08,Connecticut,62064,Inactive,Basic,Online,46,0
+626,2020-12-15,2004-07-26,Missouri,31355,Inactive,Premium,Referral,53,0
+2677,2022-03-02,1993-10-16,Nebraska,72015,Active,Premium,Online,38,0
+633,2024-08-21,1951-04-29,Texas,43527,Active,Standard,Online,9,0
+2682,2025-05-10,1989-07-13,Rhode Island,58985,Inactive,Basic,In-store,0,0
+635,2024-07-19,1946-05-07,Kansas,99054,Suspended,Standard,In-store,10,0
+2685,2020-08-31,1957-04-27,North Dakota,577,Active,Basic,Online,57,0
+2687,2024-10-17,1991-07-03,Connecticut,42505,Suspended,Premium,In-store,7,0
+640,2022-12-26,1948-03-27,Georgia,41578,Suspended,Premium,In-store,29,0
+641,2021-01-16,1989-11-21,South Dakota,44037,Active,Standard,Online,52,0
+642,2023-12-10,1966-05-28,Arkansas,84899,Suspended,Premium,In-store,17,1
+2689,2023-03-30,1990-06-23,Massachusetts,1501,Active,Premium,Online,26,0
+644,2022-11-25,1959-04-25,Montana,55979,Suspended,Standard,Referral,30,0
+2690,2020-11-25,1944-09-19,Arkansas,84009,Active,Basic,In-store,54,0
+2694,2023-10-25,1976-09-13,Georgia,62955,Inactive,Standard,In-store,19,0
+647,2023-08-26,1970-08-02,Texas,78258,Suspended,Premium,In-store,21,0
+2695,2021-02-13,1981-05-04,Michigan,72494,Inactive,Basic,Referral,51,0
+2697,2024-05-27,1954-01-04,Indiana,1496,Inactive,Basic,Online,12,0
+650,2024-03-03,2006-12-20,Washington,97202,Active,Standard,In-store,14,0
+2703,2024-03-15,2002-10-05,Colorado,66898,Active,Standard,In-store,14,0
+656,2023-10-31,1996-05-31,Florida,9555,Inactive,Basic,In-store,19,0
+657,2020-09-13,1991-02-21,North Carolina,61090,Active,Basic,Online,56,0
+658,2023-05-09,1978-09-29,Nebraska,55360,Inactive,Basic,Online,24,0
+2705,2022-12-14,1978-12-17,Ohio,48581,Suspended,Premium,In-store,29,0
+660,2021-11-15,1990-12-13,North Dakota,38939,Active,Premium,In-store,42,0
+2706,2020-08-30,1986-12-04,Michigan,50871,Active,Basic,Referral,57,1
+2709,2021-12-22,1974-09-16,Michigan,43719,Active,Basic,Online,41,0
+664,2025-04-23,1967-01-24,Virginia,82921,Inactive,Basic,Referral,1,0
+2714,2021-04-26,1968-01-24,Massachusetts,63716,Suspended,Standard,Referral,49,0
+2715,2022-06-05,1995-10-15,Iowa,84738,Active,Basic,Referral,35,0
+2716,2020-12-08,1978-07-27,Ohio,90188,Active,Premium,Referral,53,0
+2719,2020-07-16,1998-11-01,Nevada,73206,Active,Premium,In-store,58,0
+675,2021-07-25,1982-07-05,Missouri,16254,Inactive,Basic,Referral,46,0
+2724,2023-06-06,1950-12-19,Maine,65060,Suspended,Standard,Referral,23,0
+677,2021-03-13,1994-02-21,Kentucky,47498,Suspended,Premium,In-store,50,0
+678,2022-06-08,1970-12-05,North Dakota,70263,Inactive,Basic,Referral,35,0
+683,2024-03-29,1973-03-30,North Carolina,53022,Suspended,Basic,Online,14,1
+2731,2024-09-01,1988-07-01,Georgia,86295,Suspended,Premium,Referral,8,0
+2732,2020-10-16,1946-03-10,California,35842,Active,Premium,Online,55,0
+2734,2023-03-02,1983-07-31,Nebraska,83225,Suspended,Standard,In-store,26,1
+687,2020-10-21,2003-10-29,Connecticut,79654,Active,Basic,Referral,55,1
+2736,2022-12-03,1947-09-11,Arkansas,23643,Inactive,Basic,Referral,29,0
+2737,2025-01-30,2002-05-29,Minnesota,14753,Suspended,Standard,In-store,4,0
+690,2024-03-31,1986-12-10,South Dakota,51475,Active,Basic,In-store,14,0
+696,2024-03-15,1944-10-29,New Hampshire,99159,Inactive,Basic,In-store,14,0
+2747,2024-07-17,1980-04-13,California,63158,Active,Standard,Online,10,0
+2749,2023-08-09,1986-04-21,Virginia,20843,Active,Basic,In-store,21,0
+702,2022-10-18,1969-11-08,South Dakota,48896,Suspended,Standard,Referral,31,0
+703,2022-03-10,1986-03-04,Arkansas,11894,Active,Basic,Referral,38,0
+2750,2025-01-31,1998-07-24,South Dakota,45418,Inactive,Basic,In-store,4,0
+2751,2024-11-15,1976-03-17,Utah,84874,Suspended,Standard,In-store,6,1
+2752,2022-07-08,2006-05-15,New York,16094,Active,Premium,Online,34,0
+707,2025-01-11,1982-05-17,Oregon,58471,Suspended,Basic,Online,4,0
+2755,2024-06-12,2004-07-25,Kentucky,27660,Suspended,Basic,Online,11,0
+709,2021-11-16,1977-12-21,Connecticut,8621,Inactive,Basic,Referral,42,0
+2758,2025-05-07,1971-10-03,New Jersey,17336,Active,Basic,In-store,0,0
+712,2023-07-27,1991-09-06,Vermont,68399,Suspended,Premium,In-store,22,0
+713,2024-04-16,1987-09-12,Washington,72879,Inactive,Premium,Referral,13,0
+2760,2021-07-26,1962-01-25,Connecticut,35768,Inactive,Basic,In-store,46,0
+715,2020-07-08,1957-06-12,Nevada,16694,Active,Basic,Referral,58,0
+2761,2023-05-01,1996-09-15,Arizona,6755,Inactive,Premium,Referral,24,0
+2762,2022-03-04,1959-02-16,Washington,40331,Suspended,Basic,In-store,38,0
+2764,2020-06-24,1981-11-23,Ohio,85928,Suspended,Premium,In-store,59,0
+720,2020-06-13,1991-07-10,South Carolina,90843,Inactive,Basic,Online,59,1
+2770,2025-01-08,2005-07-20,New Mexico,19790,Suspended,Premium,Online,4,0
+2772,2024-10-16,1971-06-05,New York,87077,Active,Standard,Referral,7,0
+725,2023-05-08,1945-06-20,Maryland,17258,Suspended,Standard,Referral,24,0
+2773,2021-05-07,1990-06-25,Arizona,55008,Inactive,Basic,In-store,48,1
+2774,2023-12-01,1972-06-05,New Jersey,29595,Inactive,Standard,Referral,17,0
+728,2024-08-07,1970-01-04,Ohio,15890,Inactive,Standard,Referral,9,0
+729,2024-05-29,2006-02-18,Michigan,31188,Active,Standard,Referral,12,0
+2775,2020-11-10,1984-04-11,Connecticut,81810,Suspended,Standard,Referral,54,1
+731,2022-04-26,1949-03-02,Colorado,10920,Active,Premium,In-store,37,0
+732,2021-04-19,1953-09-28,Tennessee,41897,Active,Premium,In-store,49,1
+2777,2023-05-03,2002-09-11,Tennessee,2300,Inactive,Basic,Referral,24,0
+2781,2020-06-01,1954-06-04,California,11365,Active,Standard,Referral,59,0
+2784,2024-04-07,1957-04-10,Missouri,15468,Active,Standard,Online,13,0
+2785,2022-11-15,1944-12-22,Vermont,82218,Inactive,Premium,Online,30,0
+2786,2024-08-18,1999-05-13,Tennessee,63216,Suspended,Premium,Referral,9,0
+739,2022-12-03,1954-03-19,Illinois,21691,Inactive,Premium,In-store,29,0
+2789,2020-12-10,1966-10-22,Florida,21258,Active,Standard,In-store,53,0
+742,2025-04-07,1945-12-16,Nevada,39198,Inactive,Basic,In-store,1,0
+2794,2025-01-21,1981-09-02,Missouri,38868,Inactive,Basic,In-store,4,1
+2795,2020-05-23,2003-12-20,Alabama,53205,Active,Basic,In-store,60,0
+749,2024-11-20,1967-09-20,Kansas,72139,Inactive,Premium,In-store,6,0
+750,2023-11-17,1989-09-27,Texas,12258,Suspended,Basic,Referral,18,1
+2797,2020-08-18,1973-08-03,North Dakota,93252,Suspended,Standard,Online,57,0
+2798,2024-03-28,1979-06-20,Michigan,62522,Inactive,Basic,Referral,14,0
+753,2024-07-30,1947-04-17,Oklahoma,1030,Suspended,Premium,In-store,10,0
+755,2022-01-25,1975-09-30,Indiana,25277,Active,Premium,In-store,40,0
+2806,2024-01-26,2006-09-22,North Carolina,84625,Inactive,Basic,In-store,16,0
+2808,2022-05-12,1966-04-12,Nebraska,9976,Active,Premium,Online,36,0
+761,2023-11-30,1970-11-29,Alabama,9059,Active,Standard,Online,18,0
+762,2024-02-28,2006-05-20,Michigan,83731,Suspended,Basic,Online,15,1
+2809,2024-08-10,1953-10-23,Idaho,56260,Inactive,Premium,Online,9,0
+764,2021-09-26,1998-10-17,North Carolina,37643,Suspended,Standard,Referral,44,0
+765,2021-03-22,1950-09-07,Indiana,99101,Inactive,Basic,Referral,50,0
+2812,2021-12-27,1965-09-13,Nebraska,98542,Active,Premium,In-store,41,0
+767,2021-02-17,1948-12-22,Michigan,60758,Inactive,Premium,Online,51,0
+768,2020-10-21,1984-04-04,Hawaii,5310,Active,Basic,Referral,55,0
+2815,2024-03-08,1947-05-13,North Dakota,89480,Inactive,Premium,Referral,14,0
+770,2020-08-04,1954-10-16,Massachusetts,26638,Inactive,Standard,Online,57,0
+2817,2021-06-19,1981-07-06,South Dakota,55669,Inactive,Premium,Online,47,0
+2818,2021-11-17,1970-05-25,Maine,91028,Inactive,Basic,Online,42,0
+773,2023-08-02,1994-05-31,Alaska,46540,Inactive,Premium,In-store,21,0
+2821,2021-03-12,2004-05-25,Oklahoma,1486,Active,Standard,In-store,50,1
+2822,2023-06-21,1970-08-19,Florida,98541,Suspended,Standard,In-store,23,1
+2824,2024-12-29,1974-07-26,Rhode Island,67895,Inactive,Premium,In-store,5,1
+2825,2022-04-06,2006-08-26,Minnesota,7657,Inactive,Standard,In-store,37,0
+2827,2022-01-22,1994-10-01,Utah,67549,Active,Standard,Online,40,0
+780,2025-04-13,1948-05-31,Michigan,25042,Suspended,Premium,Online,1,0
+781,2024-09-25,1957-05-03,North Dakota,88534,Suspended,Standard,Referral,8,0
+782,2023-05-16,1953-01-04,Oklahoma,5236,Active,Basic,In-store,24,0
+2828,2021-07-17,1961-08-29,Delaware,37162,Active,Basic,Online,46,0
+2829,2022-08-18,1947-02-24,Illinois,92501,Active,Premium,Online,33,0
+2830,2024-06-12,1960-11-02,New Jersey,59763,Inactive,Standard,Online,11,0
+786,2023-11-04,1959-09-20,Florida,89634,Suspended,Basic,Online,18,1
+2833,2020-09-22,1980-04-18,Pennsylvania,18888,Active,Premium,In-store,56,0
+2835,2021-08-02,1977-04-08,New Mexico,44450,Inactive,Basic,Referral,45,0
+789,2024-05-19,1992-08-01,Arkansas,93088,Suspended,Basic,Online,12,0
+2836,2024-08-02,1997-11-02,Pennsylvania,57086,Suspended,Basic,Online,9,0
+2838,2021-03-07,1980-05-03,Maine,98756,Inactive,Standard,Online,50,0
+2841,2021-05-05,1997-07-24,Virginia,43848,Inactive,Standard,In-store,48,0
+794,2021-08-07,1992-03-18,Utah,36397,Active,Basic,In-store,45,0
+2844,2024-05-23,1954-01-31,Arkansas,45975,Suspended,Premium,Online,12,0
+797,2023-05-14,1950-09-05,New Jersey,93660,Active,Basic,Referral,24,1
+2848,2021-05-05,1960-11-13,Iowa,14332,Active,Premium,Referral,48,0
+801,2024-09-14,1945-05-12,Arkansas,80484,Suspended,Standard,Online,8,1
+2851,2020-07-03,1985-11-24,Rhode Island,31351,Suspended,Standard,In-store,58,0
+805,2023-03-07,1967-05-01,South Carolina,58446,Suspended,Basic,In-store,26,1
+2855,2024-01-29,1983-12-24,Minnesota,96510,Active,Standard,Online,16,1
+809,2021-10-24,2001-10-17,North Carolina,35386,Suspended,Premium,Online,43,1
+811,2021-04-16,1986-06-04,California,1555,Active,Basic,In-store,49,0
+2860,2023-03-18,1946-05-07,Oregon,10676,Active,Standard,Online,26,0
+2861,2023-05-14,1947-07-22,North Carolina,39551,Suspended,Standard,In-store,24,0
+818,2021-12-02,2000-10-01,New Jersey,73053,Inactive,Standard,Online,41,0
+2866,2025-01-29,1977-08-27,Delaware,81472,Suspended,Basic,Referral,4,0
+2867,2022-08-26,1972-11-21,Georgia,75381,Inactive,Basic,Referral,33,0
+2868,2022-07-15,1973-10-18,Maryland,53772,Inactive,Standard,Referral,34,1
+2869,2020-08-02,1988-11-01,Washington,91670,Active,Basic,Referral,57,1
+2870,2023-07-06,1986-11-05,Mississippi,40857,Suspended,Standard,Online,22,0
+824,2021-04-08,1960-08-13,Oklahoma,42040,Suspended,Premium,Online,49,0
+2871,2023-06-05,1970-11-09,Minnesota,641,Active,Standard,Referral,23,1
+826,2024-06-05,1951-03-08,Florida,37917,Suspended,Standard,Referral,11,1
+827,2023-07-03,1988-03-03,Delaware,93054,Suspended,Standard,Referral,22,0
+2875,2023-03-18,1977-06-17,Iowa,77155,Inactive,Basic,Referral,26,0
+2878,2020-12-24,1984-08-22,Mississippi,6018,Suspended,Premium,Referral,53,1
+2879,2021-05-21,1965-03-01,Georgia,13895,Suspended,Basic,Referral,48,0
+832,2024-05-19,1962-05-28,Rhode Island,69756,Active,Premium,Online,12,0
+835,2020-08-07,1962-12-06,Tennessee,15863,Active,Basic,Referral,57,1
+2884,2024-03-19,1986-04-22,Maine,735,Suspended,Premium,Referral,14,0
+837,2023-07-17,1998-03-31,West Virginia,78405,Suspended,Standard,Referral,22,1
+838,2020-09-17,1995-05-19,Minnesota,88360,Active,Premium,Referral,56,0
+2886,2022-05-23,1980-11-29,Kentucky,73833,Suspended,Basic,Referral,36,0
+2888,2025-03-13,1944-06-09,Utah,10517,Active,Basic,Online,2,0
+841,2023-02-27,1951-12-06,Maine,37534,Active,Basic,Referral,27,1
+2890,2022-12-27,1992-01-02,Virginia,82649,Active,Premium,Referral,29,0
+848,2024-06-10,1970-11-02,Nebraska,41031,Active,Standard,Online,11,0
+855,2022-02-05,1990-08-01,Hawaii,24793,Active,Premium,Referral,39,0
+2904,2021-02-03,1948-11-16,Wisconsin,17904,Suspended,Basic,Online,51,1
+858,2024-06-30,1974-12-22,Florida,56004,Inactive,Standard,Referral,11,0
+864,2023-09-04,1974-02-01,Tennessee,82832,Suspended,Standard,In-store,20,0
+2912,2024-03-14,1955-07-16,New Hampshire,79578,Active,Premium,Referral,14,0
+2914,2021-10-01,1962-01-22,Illinois,11263,Active,Basic,In-store,43,0
+2915,2025-03-06,1971-08-20,North Carolina,7852,Suspended,Standard,Referral,2,1
+868,2024-04-20,1952-10-16,South Carolina,90068,Suspended,Standard,In-store,13,0
+2916,2025-03-16,1980-09-21,Illinois,82629,Active,Premium,Online,2,0
+2917,2021-02-02,1974-09-18,Pennsylvania,96963,Active,Standard,In-store,51,0
+871,2021-07-25,1962-10-25,Texas,40504,Suspended,Standard,Online,46,0
+2919,2022-06-08,1952-06-06,Wyoming,96223,Inactive,Basic,In-store,35,0
+2920,2024-12-11,1960-09-05,North Carolina,89324,Active,Basic,Referral,5,0
+2923,2023-01-12,2006-09-04,Oklahoma,51525,Suspended,Standard,Online,28,0
+2925,2023-08-21,1986-08-21,Texas,41447,Suspended,Standard,Referral,21,0
+2926,2022-05-26,1979-04-09,New Mexico,75368,Suspended,Premium,In-store,36,0
+2930,2022-11-12,2005-01-10,Maryland,42784,Suspended,Standard,Referral,30,0
+883,2021-10-06,1954-09-22,Illinois,5301,Inactive,Premium,Online,43,1
+2931,2021-05-03,2002-09-02,Mississippi,45883,Active,Basic,Referral,48,0
+2934,2021-12-29,1952-05-19,Alabama,68516,Inactive,Premium,Online,41,0
+2935,2024-05-20,1969-06-12,Arkansas,54286,Inactive,Standard,Online,12,0
+893,2020-09-03,1987-03-05,Alaska,51023,Active,Standard,Referral,56,0
+2941,2025-03-13,1981-10-19,Pennsylvania,99422,Inactive,Basic,Online,2,0
+2944,2022-05-14,2001-10-31,Delaware,70863,Inactive,Premium,Online,36,0
+897,2025-03-25,1976-02-26,Montana,54713,Suspended,Standard,Online,2,1
+898,2025-04-01,1994-11-09,Wyoming,8690,Active,Standard,In-store,1,0
+899,2021-06-29,1948-11-27,Arizona,3247,Inactive,Standard,In-store,47,0
+2947,2021-04-13,1962-12-27,Arkansas,69882,Active,Premium,Online,49,0
+2949,2023-05-15,1972-11-16,California,82730,Suspended,Premium,Online,24,0
+902,2022-12-29,1998-08-14,Texas,68744,Suspended,Basic,Referral,29,0
+904,2023-01-18,1953-01-15,South Dakota,1752,Active,Basic,In-store,28,1
+905,2022-10-23,1975-03-27,Nevada,56322,Suspended,Standard,Referral,31,1
+907,2023-03-05,1982-03-02,Louisiana,12869,Suspended,Basic,In-store,26,0
+908,2020-11-10,1969-11-23,Vermont,61519,Suspended,Basic,Referral,54,0
+911,2021-06-12,1968-09-06,Nebraska,94909,Active,Standard,Online,47,0
+2960,2023-05-17,1971-12-26,South Carolina,85160,Active,Standard,Online,24,1
+917,2024-05-21,2005-12-29,Idaho,45360,Inactive,Standard,Referral,12,0
+2965,2022-07-17,1961-10-03,Colorado,94795,Active,Basic,Referral,34,0
+919,2022-05-06,1968-05-28,Alabama,34553,Inactive,Standard,Online,36,0
+920,2021-11-27,1958-01-18,Connecticut,29290,Suspended,Premium,In-store,42,0
+2970,2021-03-24,1947-09-19,Vermont,9427,Suspended,Premium,Online,50,0
+2973,2021-12-18,1999-05-04,Iowa,27268,Active,Premium,In-store,41,0
+926,2022-07-30,1958-09-05,Alabama,87504,Inactive,Premium,Referral,34,1
+927,2024-07-28,1975-08-19,Kentucky,95065,Suspended,Standard,In-store,10,0
+2974,2021-05-27,1979-05-29,South Dakota,82725,Inactive,Standard,Online,48,0
+929,2023-01-08,1949-12-19,Delaware,47057,Suspended,Premium,Online,28,0
+930,2021-11-01,1948-02-19,Vermont,78562,Active,Basic,Online,42,0
+2976,2023-01-23,1967-04-11,North Carolina,37530,Active,Premium,In-store,28,0
+936,2025-03-15,1948-06-25,Colorado,2962,Suspended,Premium,Online,2,0
+937,2022-05-06,1979-02-23,Hawaii,92154,Active,Basic,Online,36,0
+938,2021-07-24,1985-04-24,Utah,90656,Inactive,Premium,Online,46,0
+2984,2022-10-12,1982-07-24,South Dakota,79266,Suspended,Standard,Online,31,1
+2991,2020-05-23,1983-05-26,West Virginia,54883,Active,Premium,In-store,60,1
+944,2022-06-15,1980-02-05,South Dakota,87895,Inactive,Standard,Online,35,0
+2996,2021-11-28,1968-07-11,Arizona,24138,Suspended,Premium,Online,42,1
+952,2024-08-14,1972-03-10,California,73988,Suspended,Standard,In-store,9,0
+953,2025-03-20,1990-04-23,New York,74402,Active,Standard,Referral,2,0
+954,2022-11-14,2003-05-05,Hawaii,4964,Suspended,Standard,In-store,30,0
+961,2021-08-28,1956-04-22,Delaware,2373,Suspended,Standard,Online,45,0
+964,2024-09-30,1948-07-28,North Dakota,23149,Active,Basic,Online,8,0
+965,2023-03-14,1945-03-09,Vermont,67734,Active,Basic,Online,26,0
+971,2022-04-28,1946-09-12,Vermont,34495,Inactive,Standard,Referral,37,0
+974,2021-05-22,2002-06-14,Ohio,76944,Inactive,Standard,In-store,48,1
+981,2023-10-06,1962-05-19,Tennessee,82216,Active,Standard,In-store,19,0
+985,2021-10-20,1967-09-18,Virginia,85059,Inactive,Standard,In-store,43,0
+986,2025-02-28,1991-10-06,Ohio,23848,Suspended,Basic,In-store,3,0
+987,2020-11-05,2005-06-20,Arizona,33914,Suspended,Basic,Referral,54,0
+988,2022-06-11,1944-08-11,Connecticut,8476,Suspended,Standard,In-store,35,0
+992,2025-02-11,1974-10-10,Pennsylvania,44471,Inactive,Premium,In-store,3,0
+995,2022-09-07,1972-06-29,Virginia,59736,Inactive,Basic,Referral,32,0
+1000,2025-01-05,1950-08-29,Virginia,27124,Active,Standard,Referral,4,0
+1004,2024-04-18,1972-10-05,Minnesota,77970,Inactive,Premium,In-store,13,0
+1011,2023-07-31,1968-03-26,New Hampshire,82383,Active,Standard,Referral,22,0
+1026,2022-01-16,1954-04-24,Oklahoma,93277,Suspended,Premium,Online,40,0
+1028,2021-09-23,2000-11-24,Indiana,41070,Suspended,Premium,Online,44,0
+1035,2024-06-06,1979-07-02,Pennsylvania,75605,Suspended,Premium,Referral,11,0
+1038,2021-09-20,1971-01-08,Arkansas,64114,Suspended,Premium,Referral,44,0
+1039,2023-02-19,1971-09-16,Nevada,14551,Suspended,Basic,Referral,27,1
+1040,2020-09-15,1977-08-19,California,30509,Suspended,Premium,Online,56,0
+1041,2020-08-05,1954-07-20,Washington,19607,Inactive,Basic,In-store,57,0
+1043,2021-09-10,1981-01-07,Tennessee,64546,Active,Premium,Online,44,1
+1044,2024-08-26,1992-03-10,Kansas,37130,Suspended,Basic,Online,9,1
+1046,2020-11-23,1992-12-03,New Mexico,25418,Suspended,Basic,Referral,54,0
+1047,2021-05-03,1944-06-25,Utah,59407,Suspended,Standard,Referral,48,0
+1049,2020-10-23,1974-01-19,Virginia,38657,Inactive,Basic,Online,55,0
+1068,2024-07-02,1999-08-14,North Dakota,73705,Active,Basic,Referral,10,0
+1073,2022-09-25,2001-04-14,Missouri,55346,Inactive,Standard,Referral,32,0
+1077,2021-01-05,2005-11-25,Kentucky,12444,Active,Standard,In-store,52,0
+1082,2021-11-07,2005-08-13,Minnesota,28444,Inactive,Premium,Referral,42,1
+1085,2023-11-15,1986-10-31,Arkansas,2927,Inactive,Premium,Online,18,0
+1091,2022-05-22,1992-01-11,Maine,24139,Suspended,Standard,Referral,36,0
+1098,2023-02-22,1989-10-12,Hawaii,75870,Suspended,Standard,In-store,27,0
+1101,2021-07-04,1947-05-25,New Jersey,45864,Suspended,Standard,Online,46,0
+1109,2021-09-05,1968-04-27,Arizona,89769,Active,Standard,Online,44,0
+1110,2022-06-11,1952-03-03,Connecticut,61579,Suspended,Standard,Online,35,1
+1114,2022-01-29,1964-06-30,Maine,30430,Inactive,Premium,Referral,40,0
+1115,2025-03-03,1967-09-04,Minnesota,76067,Suspended,Standard,In-store,2,1
+1118,2022-01-25,1955-02-09,Pennsylvania,17913,Active,Standard,Online,40,0
+1120,2021-07-21,1955-09-04,Kansas,36063,Suspended,Standard,Online,46,0
+1121,2020-07-07,1971-02-07,New Mexico,30421,Inactive,Standard,Online,58,0
+1123,2022-03-11,1984-07-17,Arizona,74400,Suspended,Basic,In-store,38,0
+1127,2021-04-02,1968-07-18,Missouri,40840,Suspended,Premium,Online,49,0
+1131,2024-09-12,1988-01-14,Nevada,43183,Inactive,Basic,Online,8,0
+1135,2023-07-05,1950-06-17,North Dakota,66860,Active,Standard,Online,22,0
+1139,2022-07-08,1949-10-26,Georgia,14630,Suspended,Standard,Referral,34,0
+1141,2022-07-02,1981-03-22,New Jersey,55145,Inactive,Premium,Referral,34,0
+1143,2024-03-31,1975-05-26,Wyoming,77875,Suspended,Standard,Referral,14,0
+1152,2023-04-06,2000-08-28,Connecticut,85835,Inactive,Basic,Online,25,0
+1156,2020-10-03,1984-10-15,Rhode Island,60043,Suspended,Basic,In-store,55,0
+1159,2021-04-26,2000-12-20,South Carolina,71454,Active,Standard,Online,49,0
+1160,2023-10-21,1969-11-14,New Hampshire,65074,Suspended,Premium,Referral,19,0
+1165,2022-12-26,2003-10-12,Mississippi,16950,Suspended,Basic,Referral,29,0
+1166,2022-02-10,1975-06-16,New Jersey,27080,Suspended,Standard,Referral,39,0
+1170,2025-02-18,1962-06-21,Virginia,56049,Suspended,Basic,Referral,3,0
+1176,2020-10-15,1948-02-10,Wisconsin,34421,Suspended,Premium,In-store,55,0
+1179,2025-02-10,1968-06-11,Louisiana,60903,Inactive,Basic,Referral,3,1
+1185,2022-03-04,1951-05-26,New Mexico,3378,Inactive,Standard,Online,38,0
+1188,2022-08-27,1996-03-08,Missouri,3425,Suspended,Premium,Referral,33,0
+1189,2021-09-13,1993-09-10,South Carolina,38042,Active,Premium,Referral,44,1
+1192,2023-02-19,1977-10-12,Iowa,13541,Active,Premium,Referral,27,0
+1197,2024-12-23,1999-05-28,Alaska,25521,Suspended,Premium,In-store,5,0
+1211,2025-01-26,1996-02-28,New York,92370,Suspended,Standard,Online,4,0
+1212,2022-05-04,1973-05-25,New Hampshire,86104,Inactive,Basic,Referral,36,1
+1215,2021-10-28,2001-04-06,Colorado,72757,Active,Basic,In-store,43,0
+1220,2020-10-15,1946-10-17,New Hampshire,36568,Active,Premium,Online,55,0
+1221,2020-11-09,1984-03-09,Vermont,23095,Suspended,Basic,Online,54,0
+1222,2023-10-30,1951-07-18,Rhode Island,53069,Active,Basic,Referral,19,1
+1233,2022-10-18,1977-03-11,Nebraska,99596,Active,Basic,Referral,31,0
+1234,2021-08-02,1954-11-18,Maryland,19791,Active,Basic,In-store,45,0
+1236,2023-08-05,1990-04-12,Louisiana,14988,Inactive,Premium,Online,21,0
+1244,2021-03-01,1983-07-20,Maryland,98765,Suspended,Basic,Online,50,0
+1246,2023-04-12,1962-05-30,Massachusetts,88054,Suspended,Premium,Online,25,0
+1247,2021-11-03,1947-10-29,Wyoming,44738,Suspended,Basic,In-store,42,0
+1248,2023-04-06,1957-02-18,Massachusetts,55102,Suspended,Premium,Online,25,0
+1257,2021-04-21,1977-03-20,New Jersey,74814,Inactive,Premium,Referral,49,0
+1258,2021-10-05,1959-02-10,Mississippi,53850,Suspended,Premium,In-store,43,0
+1262,2021-06-08,1949-08-16,Washington,87983,Active,Basic,Online,47,1
+1265,2021-05-01,2002-01-22,Nevada,85498,Suspended,Standard,Online,48,0
+1270,2023-01-25,1956-04-04,Vermont,98140,Inactive,Basic,In-store,28,1
+1274,2024-03-08,1951-06-09,Kentucky,44710,Suspended,Basic,Referral,14,0
+1282,2021-09-11,1983-11-24,Kansas,66278,Inactive,Standard,Referral,44,0
+1289,2024-04-21,1991-06-14,Kentucky,64657,Active,Basic,Online,13,0
+1296,2020-06-12,1998-01-26,Rhode Island,85664,Inactive,Basic,Online,59,1
+1298,2021-10-07,1995-11-05,Virginia,38237,Suspended,Basic,Referral,43,1
+1308,2022-04-10,1990-01-17,Pennsylvania,37704,Active,Basic,In-store,37,0
+1315,2022-04-30,1974-05-04,Nevada,76056,Active,Basic,In-store,37,0
+1319,2022-07-11,1997-06-04,Delaware,47020,Suspended,Premium,In-store,34,0
+1323,2024-08-14,1994-03-10,Idaho,81770,Suspended,Premium,Online,9,0
+1326,2024-10-08,1969-01-03,New Mexico,90408,Active,Basic,Online,7,0
+1329,2021-08-02,2001-04-27,Rhode Island,74202,Active,Basic,In-store,45,0
+1331,2020-10-12,1985-03-07,Kansas,55582,Active,Standard,Online,55,1
+1341,2023-09-10,1996-06-06,Utah,42705,Inactive,Basic,Referral,20,0
+1342,2023-12-07,1985-11-20,Illinois,27758,Inactive,Basic,Online,17,0
+1343,2023-01-31,1951-10-31,Georgia,17658,Inactive,Standard,Online,28,0
+1345,2023-12-11,1997-05-30,New Mexico,35268,Inactive,Premium,Online,17,0
+1363,2023-06-05,1976-12-22,Maryland,35583,Inactive,Premium,In-store,23,0
+1364,2022-07-18,1955-06-02,Massachusetts,31490,Active,Premium,Referral,34,0
+1365,2022-05-29,2005-07-12,Wisconsin,58945,Suspended,Premium,In-store,36,0
+1376,2020-10-06,1992-04-05,Alaska,30816,Inactive,Basic,Referral,55,0
+1379,2022-10-23,1957-08-19,Pennsylvania,10467,Suspended,Premium,Referral,31,0
+1381,2020-05-25,1971-10-21,South Dakota,64295,Suspended,Standard,Referral,60,0
+1383,2020-11-15,1950-06-29,Kansas,43608,Suspended,Basic,In-store,54,0
+1384,2023-04-03,1959-05-10,Delaware,15382,Active,Basic,In-store,25,0
+1388,2024-12-24,1947-01-22,Mississippi,38722,Inactive,Premium,In-store,5,0
+1394,2024-03-05,1997-12-30,Oregon,30846,Suspended,Premium,Referral,14,0
+1396,2024-04-05,1966-10-25,Iowa,66096,Suspended,Premium,Referral,13,1
+1400,2020-12-08,1973-03-24,Hawaii,16678,Suspended,Basic,Online,53,0
+1401,2025-03-12,1969-12-28,Washington,21344,Inactive,Basic,Online,2,0
+1413,2020-11-01,1996-04-10,North Carolina,94474,Suspended,Premium,Online,54,0
+1414,2020-08-31,1987-01-06,Arizona,20667,Suspended,Basic,In-store,57,1
+1415,2020-09-19,1999-12-27,Illinois,39306,Suspended,Standard,Referral,56,0
+1416,2020-06-28,1950-08-20,Georgia,98847,Suspended,Basic,In-store,59,1
+1417,2024-04-16,1953-02-19,Colorado,19157,Active,Basic,Referral,13,0
+1419,2020-12-02,2005-10-05,California,21894,Suspended,Standard,Online,53,1
+1424,2024-02-22,1949-04-06,Kansas,7704,Suspended,Standard,Referral,15,0
+1428,2020-09-13,1974-09-12,New York,96333,Inactive,Premium,Online,56,0
+1429,2020-06-30,1974-01-28,Michigan,33184,Inactive,Standard,In-store,59,0
+1430,2022-03-26,1997-06-10,Kansas,47235,Suspended,Standard,Referral,38,0
+1431,2025-01-19,1986-06-27,Colorado,77130,Active,Standard,Online,4,0
+1432,2023-12-27,1967-01-28,Kentucky,40910,Suspended,Standard,Referral,17,0
+1434,2022-06-17,2003-09-05,Maryland,82317,Inactive,Standard,Referral,35,1
+1435,2023-12-10,1965-03-05,Louisiana,6147,Suspended,Basic,Online,17,0
+1439,2021-04-20,2002-01-17,Arizona,12140,Inactive,Basic,In-store,49,0
+1445,2021-01-17,1958-01-20,Alabama,57317,Inactive,Standard,In-store,52,0
+1447,2022-09-28,1957-02-24,Arizona,47605,Active,Basic,Referral,32,1
+1448,2022-12-29,1987-03-04,Iowa,30402,Suspended,Premium,In-store,29,0
+1449,2024-06-28,1999-01-14,Wisconsin,68346,Suspended,Standard,Referral,11,0
+1450,2023-08-02,1988-09-23,Louisiana,73659,Inactive,Premium,In-store,21,0
+1456,2020-09-09,1993-05-16,Maine,90790,Active,Premium,Online,56,0
+1459,2023-07-21,1955-04-09,Maryland,96291,Inactive,Basic,Referral,22,0
+1460,2021-04-22,1952-05-24,Kansas,87997,Active,Standard,Referral,49,0
+1464,2021-07-10,1991-12-27,Maryland,76852,Suspended,Premium,In-store,46,1
+1469,2020-05-31,1954-07-20,New Hampshire,77923,Active,Premium,Referral,60,0
+1470,2020-07-21,2002-08-28,Wyoming,4145,Active,Premium,In-store,58,0
+1471,2021-10-30,1980-06-10,Missouri,61929,Active,Standard,Referral,43,0
+1476,2024-05-28,2006-09-14,Delaware,42250,Inactive,Basic,In-store,12,0
+1477,2023-07-10,1946-03-20,Virginia,77407,Active,Premium,Referral,22,0
+1478,2023-06-23,1984-12-31,Vermont,92146,Inactive,Basic,Referral,23,0
+1483,2021-12-28,1955-03-09,Delaware,44209,Active,Standard,In-store,41,1
+1491,2023-01-16,2005-07-03,Wyoming,27199,Inactive,Premium,In-store,28,0
+1493,2022-09-13,1954-04-06,Mississippi,17384,Active,Premium,Referral,32,0
+1499,2021-07-24,1952-09-06,Kansas,69387,Inactive,Standard,Online,46,0
+1501,2023-10-13,1987-08-22,Virginia,38738,Inactive,Premium,Online,19,0
+1506,2022-09-16,1986-12-17,New Mexico,96527,Suspended,Basic,Online,32,1
+1509,2022-01-20,1956-02-07,Oklahoma,95959,Suspended,Basic,Referral,40,0
+1510,2021-07-24,2005-11-30,Wisconsin,95656,Inactive,Standard,In-store,46,0
+1511,2023-12-20,1977-11-30,Colorado,32034,Active,Premium,In-store,17,1
+1514,2025-05-18,1972-02-17,Alaska,57625,Suspended,Standard,In-store,0,0
+1515,2022-09-20,1963-10-22,Wisconsin,96356,Suspended,Basic,Referral,32,0
+1529,2024-04-20,1982-05-24,South Carolina,43428,Suspended,Premium,Referral,13,0
+1531,2021-05-29,1995-10-07,Iowa,59624,Inactive,Basic,Online,48,0
+1532,2021-12-21,1973-10-09,Maine,14112,Inactive,Standard,Referral,41,0
+1534,2024-05-06,1992-05-30,Oklahoma,28954,Inactive,Basic,Online,12,0
+1535,2022-01-15,1984-01-29,Indiana,85411,Active,Premium,In-store,40,1
+1541,2023-08-15,1969-10-22,Louisiana,22003,Suspended,Premium,Online,21,0
+1542,2023-12-17,2002-01-07,Colorado,89099,Inactive,Premium,Online,17,1
+1545,2021-10-07,1975-01-15,Kentucky,78456,Suspended,Premium,Online,43,0
+1548,2021-12-26,1975-06-26,California,70096,Inactive,Standard,Referral,41,0
+1552,2024-08-21,1975-08-12,Iowa,66044,Inactive,Basic,Referral,9,0
+1553,2020-09-06,1970-04-30,Arizona,80191,Suspended,Standard,In-store,56,0
+1554,2021-01-09,1949-12-23,Maine,18553,Suspended,Basic,Referral,52,1
+1555,2022-05-14,1967-02-21,Vermont,92818,Inactive,Premium,Online,36,0
+1563,2025-03-14,1976-10-24,Oregon,5346,Inactive,Premium,Online,2,0
+1565,2023-04-28,1991-11-19,Georgia,73636,Inactive,Standard,Online,25,0
+1575,2020-11-16,1996-03-19,New Jersey,46572,Active,Basic,Online,54,0
+1578,2023-01-27,1991-11-02,Idaho,26771,Active,Premium,Referral,28,0
+1589,2021-08-29,1977-02-23,Nebraska,41575,Inactive,Basic,In-store,45,0
+1595,2022-03-13,1968-07-14,Tennessee,47341,Suspended,Standard,In-store,38,1
+1598,2024-08-28,1966-06-24,Iowa,79801,Active,Basic,In-store,9,0
+1600,2020-06-10,1972-10-20,South Carolina,93742,Suspended,Standard,Referral,59,0
+1603,2023-03-10,1970-03-04,New Hampshire,44046,Inactive,Basic,Referral,26,0
+1608,2024-09-12,1969-08-04,Rhode Island,87578,Active,Standard,In-store,8,1
+1610,2023-06-05,1980-08-28,Idaho,72593,Active,Basic,Referral,23,1
+1611,2023-08-24,1996-12-16,Arkansas,25541,Active,Basic,In-store,21,0
+1612,2021-09-26,1961-06-11,Mississippi,89079,Active,Standard,Referral,44,1
+1618,2022-11-17,2000-08-08,Wisconsin,57650,Active,Standard,Referral,30,0
+1619,2023-10-15,1968-07-11,Mississippi,5846,Suspended,Standard,Referral,19,0
+1620,2020-11-16,1987-06-18,Oregon,61170,Suspended,Standard,Online,54,0
+1622,2020-06-16,1976-06-20,Alaska,48843,Suspended,Standard,Online,59,0
+1623,2021-08-17,1968-04-21,Michigan,76736,Suspended,Basic,Online,45,0
+1625,2025-04-16,1996-05-28,Massachusetts,70718,Inactive,Premium,Referral,1,1
+1628,2024-05-29,1984-03-12,Minnesota,36778,Suspended,Standard,Referral,12,0
+1632,2022-09-28,1969-07-30,Florida,85864,Active,Basic,Online,32,0
+1636,2024-07-23,1982-11-28,New York,19092,Active,Premium,Referral,10,0
+1642,2023-08-28,1981-09-07,Minnesota,53295,Inactive,Premium,Online,21,0
+1643,2023-02-02,1963-02-23,Texas,79426,Suspended,Basic,Referral,27,0
+1648,2024-12-01,1949-12-10,Minnesota,62266,Inactive,Standard,Online,5,1
+1660,2022-06-21,1980-05-03,Utah,54695,Active,Basic,Referral,35,0
+1664,2024-05-04,1970-04-28,South Dakota,2240,Suspended,Standard,In-store,12,0
+1669,2022-02-03,1948-06-09,Utah,87996,Inactive,Standard,In-store,39,0
+1672,2024-09-24,1969-08-28,Louisiana,39438,Inactive,Premium,In-store,8,0
+1673,2025-03-23,2000-02-15,Wisconsin,40434,Suspended,Standard,In-store,2,0
+1681,2023-04-29,1947-09-09,Alaska,82131,Suspended,Basic,Referral,25,0
+1683,2023-09-15,2003-12-10,Iowa,9682,Active,Standard,Online,20,1
+1688,2023-08-16,1977-06-12,Illinois,11421,Active,Basic,In-store,21,0
+1689,2023-09-26,1958-10-22,Maine,91221,Suspended,Standard,Referral,20,1
+1691,2025-01-16,1975-07-21,Tennessee,98750,Inactive,Standard,In-store,4,0
+1693,2020-07-07,1967-04-26,Connecticut,47944,Inactive,Basic,Referral,58,0
+1704,2025-01-24,1949-05-27,Rhode Island,70991,Active,Basic,Referral,4,0
+1705,2022-04-07,1988-02-24,Missouri,84180,Suspended,Premium,Online,37,0
+1708,2023-04-14,1959-04-19,Oklahoma,39484,Suspended,Basic,Online,25,0
+1710,2022-08-16,1991-05-08,California,59380,Inactive,Standard,In-store,33,0
+1711,2025-05-09,1949-06-24,Kentucky,66397,Inactive,Premium,Referral,0,0
+1712,2021-12-21,1958-01-28,New Jersey,9964,Inactive,Basic,Referral,41,0
+1713,2021-10-04,1944-10-27,Missouri,79700,Active,Premium,Referral,43,0
+1714,2020-07-16,1977-07-03,Wyoming,37288,Active,Basic,Online,58,1
+1716,2023-10-01,1999-02-22,Massachusetts,81100,Active,Basic,In-store,19,1
+1731,2022-12-13,1957-06-26,North Carolina,98649,Suspended,Standard,Referral,29,0
+1735,2023-11-16,1947-04-29,Texas,65153,Active,Standard,Referral,18,0
+1736,2020-10-30,1987-12-24,Ohio,2891,Active,Premium,In-store,55,0
+1737,2020-12-10,1971-05-19,Texas,26765,Active,Standard,Referral,53,0
+1739,2024-05-14,2000-07-15,Idaho,2999,Active,Basic,In-store,12,1
+1740,2023-02-07,1986-07-16,New Jersey,91094,Inactive,Premium,In-store,27,0
+1741,2023-06-13,1975-10-01,Kentucky,74830,Active,Standard,Online,23,0
+1747,2025-02-23,1991-07-21,Tennessee,10443,Suspended,Premium,Referral,3,1
+1752,2024-08-23,1979-07-04,North Dakota,3791,Suspended,Standard,In-store,9,0
+1758,2023-01-08,1980-10-06,New Jersey,11406,Suspended,Premium,Referral,28,0
+1760,2022-06-10,2005-05-22,South Dakota,52913,Active,Basic,Referral,35,0
+1766,2021-01-30,1994-03-04,Wisconsin,24407,Active,Basic,Referral,52,0
+1770,2020-09-25,1968-11-10,Idaho,3164,Inactive,Basic,Referral,56,0
+1771,2023-10-05,1959-12-22,Colorado,3164,Active,Basic,Referral,19,1
+1778,2021-08-04,1965-04-09,Wisconsin,50590,Active,Basic,Online,45,0
+1784,2022-11-23,1983-03-01,Idaho,14072,Suspended,Basic,Online,30,0
+1788,2020-08-26,1947-02-08,Tennessee,19078,Suspended,Premium,Referral,57,0
+1796,2025-05-10,1995-10-07,Colorado,25294,Active,Basic,In-store,0,0
+1797,2021-12-25,1951-06-04,Arkansas,36573,Active,Standard,Referral,41,0
+1798,2025-04-11,1966-10-05,Rhode Island,10752,Active,Premium,Online,1,0
+1800,2020-06-05,1994-11-18,Connecticut,26779,Inactive,Basic,In-store,59,0
+1801,2023-08-22,1981-06-19,New York,42728,Inactive,Standard,Referral,21,0
+1803,2022-06-28,1972-08-12,New Mexico,14258,Suspended,Basic,Online,35,0
+1804,2022-06-23,1968-08-07,Minnesota,1671,Active,Standard,Online,35,1
+1805,2023-04-26,1963-12-07,Wyoming,27305,Inactive,Premium,In-store,25,1
+1806,2023-10-02,1978-09-25,Connecticut,91541,Suspended,Standard,Referral,19,0
+1809,2024-11-06,1966-03-29,Washington,98737,Suspended,Standard,Online,6,0
+1811,2022-02-26,1969-03-26,Rhode Island,22270,Inactive,Basic,Online,39,0
+1812,2021-03-13,1967-04-13,Missouri,82108,Inactive,Basic,In-store,50,0
+1814,2021-09-22,1956-09-28,Maine,19822,Suspended,Basic,In-store,44,1
+1817,2024-01-05,2002-07-01,Connecticut,51611,Inactive,Premium,Online,16,0
+1819,2021-04-05,1949-06-17,Tennessee,22974,Inactive,Standard,Online,49,0
+1822,2023-10-25,1968-01-27,North Dakota,88951,Suspended,Standard,Referral,19,0
+1824,2024-07-04,1976-10-29,South Carolina,43775,Active,Basic,In-store,10,0
+1825,2023-01-03,1964-02-03,New York,82513,Active,Premium,Referral,28,0
+1827,2020-11-26,1982-07-29,Virginia,73370,Suspended,Premium,Referral,54,0
+1831,2020-05-20,2001-08-28,Minnesota,99312,Active,Standard,In-store,60,0
+1836,2022-01-03,1994-10-14,Maine,4418,Active,Standard,Online,40,0
+1837,2025-01-29,2004-02-04,Rhode Island,1812,Active,Basic,In-store,4,0
+1839,2025-01-23,1978-04-20,Hawaii,98914,Active,Premium,Referral,4,0
+1843,2024-12-22,1992-03-24,Utah,74794,Active,Premium,In-store,5,1
+1844,2020-09-06,1947-06-08,Minnesota,54829,Inactive,Premium,Referral,56,0
+1845,2021-08-05,1980-05-05,New Mexico,36471,Active,Basic,Online,45,1
+1853,2023-03-21,2000-12-12,Wyoming,36758,Inactive,Standard,Online,26,0
+1857,2020-09-19,1973-12-14,Iowa,42699,Active,Standard,Referral,56,0
+1858,2024-05-20,1990-11-09,Idaho,60781,Inactive,Premium,Online,12,0
+1862,2022-11-26,1952-09-16,Indiana,45874,Suspended,Standard,In-store,30,1
+1863,2021-05-21,1947-11-17,Colorado,8564,Inactive,Premium,Online,48,0
+1864,2021-03-26,2002-01-13,Vermont,8080,Active,Premium,Online,50,0
+1868,2023-02-16,1972-12-25,South Dakota,58932,Suspended,Basic,Online,27,0
+1870,2024-08-20,1963-10-06,Arizona,54376,Inactive,Standard,In-store,9,0
+1873,2024-02-25,1955-10-15,Florida,49257,Active,Basic,In-store,15,0
+1875,2022-04-06,1946-06-14,Utah,90653,Suspended,Premium,Referral,37,0
+1880,2023-01-07,1998-12-30,Arizona,58295,Inactive,Standard,Online,28,0
+1885,2022-09-12,2001-04-03,Virginia,7816,Inactive,Standard,Online,32,0
+1886,2025-05-04,1997-12-31,Vermont,30694,Inactive,Standard,In-store,0,0
+1888,2022-04-15,1984-11-30,Michigan,41382,Active,Basic,Online,37,0
+1892,2022-07-13,1960-09-01,Utah,38743,Active,Premium,In-store,34,0
+1893,2023-05-28,1970-10-27,Wisconsin,11260,Inactive,Premium,In-store,24,0
+1894,2021-11-15,1987-11-18,Arkansas,25956,Active,Premium,In-store,42,1
+1896,2022-03-11,1945-02-05,Maryland,32387,Suspended,Basic,In-store,38,0
+1897,2023-12-06,1948-02-15,Alaska,81086,Active,Premium,In-store,17,0
+1901,2021-08-15,1980-04-20,Massachusetts,41302,Inactive,Premium,Referral,45,0
+1902,2020-10-09,1973-12-16,Arkansas,8971,Suspended,Standard,In-store,55,0
+1904,2021-08-19,1967-04-22,Utah,60771,Suspended,Basic,In-store,45,0
+1912,2022-06-11,1960-12-01,North Dakota,42314,Suspended,Basic,Referral,35,0
+1913,2021-05-20,1985-04-21,North Dakota,55969,Inactive,Standard,Online,48,1
+1916,2023-03-16,1961-07-30,Kansas,6636,Inactive,Basic,In-store,26,1
+1919,2023-10-02,1983-05-17,Illinois,40599,Suspended,Premium,Online,19,0
+1920,2022-03-13,1960-09-17,Ohio,99159,Inactive,Premium,In-store,38,1
+1921,2025-02-07,1986-06-16,North Carolina,70436,Suspended,Premium,Referral,3,0
+1922,2024-04-10,1945-04-04,Iowa,10051,Active,Premium,In-store,13,0
+1924,2020-07-30,2006-06-10,Louisiana,29122,Active,Basic,Referral,58,0
+1925,2021-07-01,2006-12-08,Massachusetts,29707,Active,Premium,Online,46,1
+1926,2024-01-15,1999-08-02,Massachusetts,88541,Inactive,Premium,Referral,16,0
+1928,2024-09-23,1989-12-11,Minnesota,53195,Inactive,Standard,In-store,8,0
+1930,2023-05-10,1971-05-01,Wyoming,18445,Suspended,Premium,In-store,24,0
+1935,2023-07-28,1972-08-16,Rhode Island,31290,Active,Premium,In-store,22,0
+1948,2024-05-09,1968-01-08,Alaska,97203,Inactive,Premium,Referral,12,1
+1949,2021-12-27,1966-03-26,Washington,8400,Inactive,Standard,Referral,41,0
+1956,2020-10-28,1951-07-02,Missouri,44029,Suspended,Standard,In-store,55,0
+1960,2021-04-03,2000-12-04,Maryland,16728,Active,Standard,Online,49,0
+1966,2024-11-06,1962-04-28,Massachusetts,23839,Suspended,Basic,In-store,6,0
+1967,2020-10-22,1956-06-19,Colorado,79021,Inactive,Premium,Referral,55,0
+1971,2022-11-12,1958-05-05,Oregon,38728,Active,Basic,In-store,30,0
+1972,2020-10-21,1989-12-09,Alabama,49993,Suspended,Standard,Online,55,0
+1976,2020-11-11,1993-01-24,Vermont,78237,Suspended,Standard,In-store,54,1
+1977,2022-08-23,1991-12-13,Ohio,59225,Suspended,Standard,Referral,33,1
+1980,2023-03-28,1996-06-20,Kansas,57694,Inactive,Premium,Referral,26,0
+1981,2023-05-10,1964-02-10,Indiana,5338,Suspended,Basic,Online,24,0
+1988,2021-08-26,1956-10-31,New York,43925,Active,Standard,In-store,45,0
+1992,2021-02-23,1986-05-19,Tennessee,94750,Active,Basic,In-store,51,1
+1995,2021-02-21,1969-08-09,Hawaii,26237,Suspended,Basic,In-store,51,0
+1997,2022-12-03,1996-10-31,Iowa,86636,Suspended,Standard,In-store,29,0
+1999,2023-08-26,1946-06-22,North Carolina,58886,Active,Basic,In-store,21,0
+2000,2022-10-30,1995-01-11,Arkansas,70159,Suspended,Premium,In-store,31,0
+2002,2023-02-21,1970-06-27,Maryland,58237,Active,Basic,Referral,27,0
+2004,2025-05-19,1982-11-01,Vermont,49117,Inactive,Basic,In-store,0,0
+2008,2025-01-09,1989-06-06,Maine,65438,Suspended,Basic,In-store,4,0
+2010,2024-03-07,1995-11-15,South Carolina,36390,Active,Standard,Online,14,1
+2014,2021-05-17,1944-08-15,California,24349,Suspended,Basic,Referral,48,0
+2018,2022-04-20,1954-03-16,Connecticut,43376,Suspended,Standard,Referral,37,0
+2023,2021-04-25,1971-06-22,Colorado,93750,Active,Premium,In-store,49,0
+2027,2023-01-28,1970-03-03,Vermont,69980,Active,Standard,Online,28,1
+2029,2021-05-30,1950-11-09,Nebraska,99269,Inactive,Premium,In-store,48,0
+2034,2025-02-03,1981-03-30,New Mexico,19365,Suspended,Basic,In-store,3,1
+2039,2022-07-16,1954-12-20,Oregon,25501,Suspended,Premium,In-store,34,1
+2040,2023-08-08,1981-10-24,Mississippi,60483,Active,Standard,Online,21,1
+2044,2024-07-25,1993-09-08,Mississippi,47530,Active,Basic,In-store,10,1
+2045,2020-11-08,1973-04-27,Washington,41217,Inactive,Standard,Referral,54,0
+2046,2021-04-06,2007-02-06,Louisiana,77573,Active,Standard,In-store,49,1
+2047,2022-03-04,1997-02-26,Indiana,20970,Active,Standard,In-store,38,1
+2048,2022-12-27,1976-07-07,Connecticut,36741,Active,Basic,Online,29,0

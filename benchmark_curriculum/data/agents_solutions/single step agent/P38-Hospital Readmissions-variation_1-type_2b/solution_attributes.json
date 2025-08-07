@@ -1,0 +1,59 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "hospital_utilization_rate",
+        "num_medications_prescribed",
+        "diverse_admission_reason_count",
+        "time_since_last_medication",
+        "adm_density_per_zip",
+        "day_of_week_admission",
+        "season_of_admission",
+        "median_length_of_stay_hospital"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.16348840494721703": {
+            "name": "hospital_utilization_rate",
+            "code": "import numpy as np\n\ndef hospital_utilization_rate(row, aux_dataframes: Dict[str, pd.DataFrame]):\n        \"\"\"Calculate the utilization rate of the hospital where the patient was admitted.\"\"\"\n        hospital_id = row['hospital_id']\n        hospitals = aux_dataframes['hospital_facility_data_table.csv']\n        hospital_row = hospitals[hospitals['hospital_id'] == hospital_id]\n        if not hospital_row.empty:\n            capacity = hospital_row['bed_capacity'].values[0]\n            current_utilization = hospital_row['current_bed_utilization'].values[0]\n            return current_utilization / capacity if capacity else np.nan\n        return np.nan\n"
+        },
+        "0.10938949094127111": {
+            "name": "num_medications_prescribed",
+            "code": "\n\ndef num_medications_prescribed(row, aux_dataframes: Dict[str, pd.DataFrame]):\n        \"\"\"Count the number of medications prescribed to the patient.\"\"\"\n        patient_id = row['patient_id']\n        medications = aux_dataframes['recent_medications_table.csv']\n        return len(medications[medications['patient_id'] == patient_id])\n"
+        },
+        "0.013834848295111578": {
+            "name": "diverse_admission_reason_count",
+            "code": "\n\ndef diverse_admission_reason_count(row, df_train: pd.DataFrame):\n        \"\"\"Count the distinct admission reasons for a patient\"\"\"\n        patient_id = row['patient_id']\n        admission_reasons = df_train[df_train['patient_id'] == patient_id]['admission_reason']\n        return admission_reasons.nunique()\n"
+        },
+        "0.008977270432679936": {
+            "name": "time_since_last_medication",
+            "code": "import pandas as pd\nimport datetime\nimport numpy as np\n\ndef time_since_last_medication(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Calculate the days since the patient's last medication was prescribed.\"\"\"\n    patient_id = row['patient_id']\n    medications = aux_dataframes['recent_medications_table.csv']\n    \n    # Filter medications for the given patient_id\n    patient_medications = medications[medications['patient_id'] == patient_id]\n    \n    if not patient_medications.empty:\n        # Convert prescription_date to datetime and find the most recent date\n        patient_medications['prescription_date'] = pd.to_datetime(patient_medications['prescription_date'])\n        last_prescription_date = patient_medications['prescription_date'].max()\n        \n        # Get the current date\n        current_date = datetime.datetime.now()\n        \n        # Calculate the difference in days\n        return (current_date - last_prescription_date).days\n    \n    # Return NaN if no medications are found for the patient\n    return np.nan\n"
+        },
+        "0.0037666345703031836": {
+            "name": "adm_density_per_zip",
+            "code": "\n\ndef adm_density_per_zip(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"Calculate the density of admissions per zip code.\"\"\"\n    # Access the patient demographic info table to get zip codes\n    patient_info = aux_data['patient_demographic_info_table.csv']\n    \n    # Merge df_train with patient_info to get the zip_code column\n    df_train_with_zip = df_train.merge(patient_info[['patient_id', 'zip_code']], on='patient_id', how='left')\n    \n    # Get the zip_code for the current row\n    zip_code = df_train_with_zip.loc[row.name, 'zip_code']\n    \n    # Calculate the total admissions for the zip_code\n    total_admissions = len(df_train_with_zip[df_train_with_zip['zip_code'] == zip_code])\n    \n    return total_admissions\n"
+        },
+        "-0.00027008092650726567": {
+            "name": "day_of_week_admission",
+            "code": "import datetime\n\ndef day_of_week_admission(row):\n    \"\"\"Determine the day of the week the admission occurred.\"\"\"\n    admission_date = row['admission_date']\n    return datetime.datetime.strptime(admission_date, \"%Y-%m-%d\").strftime(\"%A\")\n"
+        },
+        "-0.00024030432957133918": {
+            "name": "season_of_admission",
+            "code": "import datetime\n\ndef season_of_admission(row):\n    \"\"\"Extract the season of admission based on admission date.\"\"\"\n    admission_date = row['admission_date']\n    # Use datetime.datetime.strptime instead of datetime.strptime\n    month = datetime.datetime.strptime(admission_date, \"%Y-%m-%d\").month\n    if month in [12, 1, 2]:\n        return 'Winter'\n    elif month in [3, 4, 5]:\n        return 'Spring'\n    elif month in [6, 7, 8]:\n        return 'Summer'\n    else:\n        return 'Autumn'\n"
+        },
+        "0": {
+            "name": "median_length_of_stay_hospital",
+            "code": "import pandas as pd\nimport datetime\nimport numpy as np\n\ndef median_length_of_stay_hospital(row, df_train: pd.DataFrame):\n        \"\"\"Calculate the median length of stay for the hospital where the patient was admitted.\"\"\"\n        hospital_id = row['hospital_id']\n        hospital_admissions = df_train[df_train['hospital_id'] == hospital_id]\n        lengths_of_stay = hospital_admissions.apply(lambda x: length_of_stay(x), axis=1)\n        return np.median(lengths_of_stay.dropna()) if not lengths_of_stay.empty else np.nan\n\ndef length_of_stay(row):\n        \"\"\"Calculate the length of stay in the hospital (discharge_date - admission_date).\"\"\"\n        if pd.isnull(row['admission_date']) or pd.isnull(row['discharge_date']):\n            return np.nan\n        admission_date = datetime.strptime(row['admission_date'], \"%Y-%m-%d\")\n        discharge_date = datetime.strptime(row['discharge_date'], \"%Y-%m-%d\")\n        return (discharge_date - admission_date).days\n"
+        }
+    },
+    "feature_descriptions": [
+        "hospital utilization rate",
+        "num medications prescribed",
+        "diverse admission reason count",
+        "time since last medication",
+        "adm density per zip",
+        "day of week admission",
+        "season of admission",
+        "median length of stay hospital"
+    ]
+}

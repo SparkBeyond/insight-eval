@@ -1,0 +1,89 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "campaigns_in_region",
+        "campaigns_per_capita",
+        "marketing_investment_per_capita",
+        "region_spending_avg",
+        "gdp_contribution_score",
+        "monthly_spend_trend",
+        "income_to_spend_ratio",
+        "regional_disposable_income",
+        "customer_loyalty",
+        "region_unemployment_rate",
+        "spending_to_income_ratio",
+        "savings_potential",
+        "spend_category"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5672416230386526": {
+            "name": "campaigns_in_region",
+            "code": "\n\ndef campaigns_in_region(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    campaigns_data = aux_dataframes['marketing_campaigns_table.csv']\n    return campaigns_data[campaigns_data['region_id'] == row['region_id']].shape[0]\n"
+        },
+        "0.4783641848522559": {
+            "name": "campaigns_per_capita",
+            "code": "\n\ndef campaigns_per_capita(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the relevant DataFrame from the auxiliary data\n    campaigns_data = aux_dataframes['marketing_campaigns_table.csv']\n    \n    # Extract the population for the region from the row\n    region_population = row['population']\n    \n    # Filter the campaigns data for the given region_id\n    region_campaigns = campaigns_data[campaigns_data['region_id'] == row['region_id']].shape[0]\n    \n    # Calculate and return campaigns per capita\n    return region_campaigns / region_population if region_population else None\n"
+        },
+        "0.4676117485374898": {
+            "name": "marketing_investment_per_capita",
+            "code": "\n\ndef marketing_investment_per_capita(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the relevant DataFrames from the aux_dataframes dictionary\n    campaigns_data = aux_dataframes['marketing_campaigns_table.csv']\n    \n    # Extract the population for the region from the row\n    population = row['population']\n    \n    # Filter the campaigns_data DataFrame for the given region_id\n    region_campaigns = campaigns_data[campaigns_data['region_id'] == row['region_id']]\n    \n    # Calculate the total exposure score for the region\n    total_exposure = region_campaigns['number_of_customers_reached'].sum()\n    \n    # Return the marketing investment per capita, or None if population is zero\n    return total_exposure / population if population else None\n"
+        },
+        "0.15626432808457946": {
+            "name": "region_spending_avg",
+            "code": "\n\ndef region_spending_avg(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe from aux_data\n    customer_behavior_df = aux_data['customer_behavior_table.csv']\n    \n    # Filter the customer_behavior_df for the same region_id as the row\n    region_group = customer_behavior_df[customer_behavior_df['region_id'] == row['region_id']]\n    \n    # Calculate and return the mean of 'average_monthly_spending' for the region\n    return region_group['average_monthly_spending'].mean()\n"
+        },
+        "0.06035608802080395": {
+            "name": "gdp_contribution_score",
+            "code": "\n\ndef gdp_contribution_score(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the regional economics data\n    regional_data = aux_dataframes['regional_economics_table.csv']\n    \n    # Filter the regional data for the matching region_id\n    matching_region = regional_data[regional_data['region_id'] == row['region_id']]\n    \n    # Check if a matching region exists\n    if matching_region.empty:\n        # If no matching region is found, return None or a default value (e.g., 0)\n        return None\n    \n    # Extract the GDP value for the matching region\n    region_gdp = matching_region.iloc[0]['gdp']\n    \n    # Calculate total_spent using population and average_spending_per_customer\n    total_spent = row['population'] * row['average_spending_per_customer']\n    \n    # Calculate and return the GDP contribution score\n    return total_spent / region_gdp\n"
+        },
+        "0.05915038598489143": {
+            "name": "monthly_spend_trend",
+            "code": "\n\ndef monthly_spend_trend(row):\n    # Ensure the required columns exist in the row\n    if 'average_spending_per_customer' in row and 'population' in row:\n        # Calculate total spending as average spending per customer multiplied by population\n        total_spent = row['average_spending_per_customer'] * row['population']\n        \n        # Assume the last 3 months' spending is a fraction of the total spending\n        # (e.g., 25% of the total spending for simplicity)\n        last_3_months_spent = total_spent * 0.25\n        \n        # Assume membership duration in months is derived from some logic\n        # For simplicity, let's assume a fixed value (e.g., 12 months)\n        membership_duration_in_months = 12\n        \n        # Calculate the spending difference\n        spend_diff = last_3_months_spent - (total_spent - last_3_months_spent) / max(1, (membership_duration_in_months - 3))\n        return spend_diff\n    else:\n        # Return None or a default value if required columns are missing\n        return None\n"
+        },
+        "0.03794467057966146": {
+            "name": "income_to_spend_ratio",
+            "code": "\n\ndef income_to_spend_ratio(row):\n    # Use 'average_income' for income and 'average_spending_per_customer' for spending\n    return row['average_income'] / max(1, row['average_spending_per_customer'])\n"
+        },
+        "0.03456155265134145": {
+            "name": "regional_disposable_income",
+            "code": "\n\ndef regional_disposable_income(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Computes the disposable income for a region by adjusting for unemployment.\n\n    Disposable income = GDP * (1 - unemployment rate)\n\n    Parameters:\n    - row: Single row of the dataset.\n    - aux_dataframes: Dictionary of auxiliary dataframes, must include 'regional_economics_table.csv'.\n\n    Returns:\n    - The disposable income for the given region_id or None if data is missing.\n    \"\"\"\n    regional_data = aux_dataframes['regional_economics_table.csv']\n\n    # Filter the auxiliary data for the corresponding region_id\n    region_data = regional_data[regional_data['region_id'] == row['region_id']]\n\n    # If data is unavailable for this region, return None\n    if region_data.empty:\n        return None\n\n    region_data = region_data.iloc[0]  # Get the first and only record for the region\n    gdp = region_data['gdp']\n    unemployment_rate = region_data['unemployment_rate']\n\n    # Compute disposable income\n    return gdp * (1 - unemployment_rate / 100)\n"
+        },
+        "0.027964233903371997": {
+            "name": "customer_loyalty",
+            "code": "\n\ndef customer_loyalty(row):\n    # Assuming customer loyalty is determined by average spending per customer\n    # Here, we consider customers loyal if their average spending is above a threshold (e.g., 500)\n    return int(row['average_spending_per_customer'] > 500)\n"
+        },
+        "0.021636106961206113": {
+            "name": "region_unemployment_rate",
+            "code": "\n\ndef region_unemployment_rate(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    regional_data = aux_dataframes['regional_economics_table.csv']\n    region_data = regional_data[regional_data['region_id'] == row['region_id']].iloc[0]\n    return region_data['unemployment_rate']\n"
+        },
+        "0.013959354841014114": {
+            "name": "spending_to_income_ratio",
+            "code": "\n\ndef spending_to_income_ratio(row):\n    \"\"\"\n    Calculate the spending-to-income ratio for a given row.\n\n    Args:\n        row (pd.Series): A row of a dataframe containing 'average_spending_per_customer' and 'average_income'.\n\n    Returns:\n        float: The spending-to-income ratio.\n    \"\"\"\n    return row['average_spending_per_customer'] / (row['average_income'] / 12)\n"
+        },
+        "0.004770874974427807": {
+            "name": "savings_potential",
+            "code": "\n\ndef savings_potential(row):\n    # Calculate savings potential using the correct column names\n    return row['average_income'] - row['average_spending_per_customer']\n"
+        },
+        "0.0003007810777617692": {
+            "name": "spend_category",
+            "code": "\n\ndef spend_category(row):\n    if row['average_spending_per_customer'] < 500:\n        return 'low'\n    elif row['average_spending_per_customer'] < 1000:\n        return 'medium'\n    else:\n        return 'high'\n"
+        }
+    },
+    "feature_descriptions": [
+        "campaigns in region",
+        "campaigns per capita",
+        "marketing investment per capita",
+        "region spending avg",
+        "gdp contribution score",
+        "monthly spend trend",
+        "income to spend ratio",
+        "regional disposable income",
+        "customer loyalty",
+        "region unemployment rate",
+        "spending to income ratio",
+        "savings potential",
+        "spend category"
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "enriched_column_names": [
+        "number_of_services_subscribed",
+        "tenure_longevity",
+        "complaint_resolution_rate",
+        "transactions_frequency",
+        "average_transaction_value"
+    ],
+    "features_descriptions": [
+        "number of services subscribed",
+        "tenure longevity",
+        "complaint resolution rate",
+        "transactions frequency",
+        "average transaction value"
+    ]
+}

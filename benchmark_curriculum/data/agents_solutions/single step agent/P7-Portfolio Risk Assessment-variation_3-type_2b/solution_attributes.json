@@ -1,0 +1,107 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "yearly_average_return",
+        "median_return_rate",
+        "average_return_by_client",
+        "max_return_rate",
+        "investment_diversification_score",
+        "high_risk_assets_proportion",
+        "net_worth_log",
+        "return_rate_stddev_by_client",
+        "sector_exposure_count",
+        "high_to_low_risk_asset_ratio",
+        "risk_appetite_numeric",
+        "age_to_experience_ratio",
+        "mean_sector_impact_score",
+        "average_trend_duration",
+        "investment_experience_bucket",
+        "age_bucket"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.44239527065674794": {
+            "name": "yearly_average_return",
+            "code": "import pandas as pd\n\ndef yearly_average_return(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the portfolio history table using the correct key\n    portfolio = aux_dataframes['portfolio_history_table.csv']\n    \n    # Filter the portfolio history for the given portfolio_id\n    client_portfolios = portfolio[portfolio['portfolio_id'] == row['portfolio_id']]\n    \n    # Extract the year from the 'date' column\n    client_portfolios['Year'] = pd.to_datetime(client_portfolios['date']).dt.year\n    \n    # Group by year and calculate the mean return rate, then take the overall mean\n    return client_portfolios.groupby('Year')['return_rate'].mean().mean()\n"
+        },
+        "0.4137488520416964": {
+            "name": "median_return_rate",
+            "code": "\n\ndef median_return_rate(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the client_id from the row\n    client_id = row['client_id']\n    \n    # Ensure the relevant DataFrame is used from aux_data\n    if 'portfolio_history_table.csv' not in aux_data:\n        raise ValueError(\"The required 'portfolio_history_table.csv' is missing in aux_data.\")\n    \n    # Get the portfolio history table\n    portfolio_history = aux_data['portfolio_history_table.csv']\n    \n    # Ensure the required columns exist in the portfolio history table\n    if 'portfolio_id' not in portfolio_history.columns or 'return_rate' not in portfolio_history.columns:\n        raise ValueError(\"The 'portfolio_history_table.csv' is missing required columns: 'portfolio_id' or 'return_rate'.\")\n    \n    # Filter the portfolio history for the given client's portfolio_id\n    portfolio_id = row['portfolio_id']\n    client_portfolio_history = portfolio_history[portfolio_history['portfolio_id'] == portfolio_id]\n    \n    # If no matching portfolio_id is found, return None\n    if client_portfolio_history.empty:\n        return None\n    \n    # Calculate and return the median return rate\n    return client_portfolio_history['return_rate'].median()\n"
+        },
+        "0.38479272019600547": {
+            "name": "average_return_by_client",
+            "code": "\n\ndef average_return_by_client(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    client_id = row['client_id']  # Extract the client_id from the row\n    # Access the portfolio history table from aux_data\n    portfolio_history = aux_data.get('portfolio_history_table.csv')\n    \n    if portfolio_history is None:\n        raise ValueError(\"The 'portfolio_history_table.csv' dataframe is missing from aux_data.\")\n    \n    # Ensure the required columns exist in the portfolio history table\n    if 'portfolio_id' not in portfolio_history.columns or 'return_rate' not in portfolio_history.columns:\n        raise ValueError(\"The required columns 'portfolio_id' or 'return_rate' are missing in 'portfolio_history_table.csv'.\")\n    \n    # Filter the portfolio history table for the client's portfolios\n    client_portfolios = df_train[df_train['client_id'] == client_id]['portfolio_id']\n    client_history = portfolio_history[portfolio_history['portfolio_id'].isin(client_portfolios)]\n    \n    # Calculate the average return rate for the client's portfolios\n    if not client_history.empty:\n        return client_history['return_rate'].mean()\n    else:\n        return None  # Return None if no portfolio history is found for the client\n"
+        },
+        "0.2669559749559704": {
+            "name": "max_return_rate",
+            "code": "\n\ndef max_return_rate(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the correct key is used to access the portfolio history table\n    if 'portfolio_history_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'portfolio_history_table.csv' is missing in aux_dataframes.\")\n    \n    portfolio = aux_dataframes['portfolio_history_table.csv']\n    \n    # Filter the portfolio history table for the given portfolio_id\n    client_portfolios = portfolio[portfolio['portfolio_id'] == row['portfolio_id']]\n    \n    # Return the maximum return_rate for the client's portfolio\n    if not client_portfolios.empty:\n        return client_portfolios['return_rate'].max()\n    else:\n        # Handle the case where no matching portfolio_id is found\n        return None\n"
+        },
+        "0.14366942750220274": {
+            "name": "investment_diversification_score",
+            "code": "import pandas as pd\n\ndef investment_diversification_score(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the correct key\n    portfolio = aux_dataframes['portfolio_history_table.csv']\n    \n    # Check if the 'portfolio_id' column exists in the portfolio dataframe\n    if 'portfolio_id' not in portfolio.columns:\n        raise KeyError(\"'portfolio_id' column is missing in the portfolio_history_table.csv dataframe.\")\n    \n    # Filter the dataframe for the specific portfolio using the 'portfolio_id' from the row\n    client_portfolios = portfolio[portfolio['portfolio_id'] == row['portfolio_id']]\n    \n    # Calculate the number of unique sectors and portfolios\n    # Since 'sector_focus' is not in the portfolio_history_table.csv, we use the row's 'sector_focus'\n    sectors = 1 if 'sector_focus' in row and pd.notna(row['sector_focus']) else 0\n    portfolios = client_portfolios['portfolio_id'].nunique()\n    \n    # Return the diversification score\n    return sectors + portfolios\n"
+        },
+        "0.12881304840623728": {
+            "name": "high_risk_assets_proportion",
+            "code": "\n\ndef high_risk_assets_proportion(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculate the proportion of high-risk assets compared to the total assets for a given client.\n\n    Parameters:\n    - row: Current row of the dataset (as a dictionary-like object)\n    - aux_dataframes: Dictionary of auxiliary dataframes, which must include 'portfolio_history_table'\n\n    Returns:\n    - Proportion of high-risk assets, or 0 if no assets are recorded\n    \"\"\"\n    # Ensure the correct dataframe is being accessed\n    portfolio = aux_dataframes.get('portfolio_history_table')\n    if portfolio is None:\n        # If the auxiliary dataframe is missing, return 0 as a fallback\n        return 0\n\n    # Check if the required columns exist in the dataframe\n    required_columns = {'history_id', 'portfolio_id', 'date', 'return_rate'}\n    if not required_columns.issubset(portfolio.columns):\n        # If the required columns are missing, return 0 as a fallback\n        return 0\n\n    # Validate that the required keys exist in the row\n    if 'high_risk_assets' not in row or 'total_assets' not in row:\n        # If the required keys are missing, return 0 as a fallback\n        return 0\n\n    # Extract high-risk assets and total assets from the row\n    high_risk_assets = row.get('high_risk_assets', 0)\n    total_assets = row.get('total_assets', 0)\n\n    # Ensure the values are numeric\n    if not isinstance(high_risk_assets, (int, float)) or not isinstance(total_assets, (int, float)):\n        # If the values are not numeric, raise a ValueError\n        raise ValueError(\"'high_risk_assets' and 'total_assets' must be numeric.\")\n\n    # Return the proportion of high-risk assets\n    return high_risk_assets / total_assets if total_assets > 0 else 0\n"
+        },
+        "0.07442067328401551": {
+            "name": "net_worth_log",
+            "code": "import numpy as np\n\ndef net_worth_log(row, aux_data: Dict[str, pd.DataFrame]):\n    # Use the correct column name for net worth\n    return np.log1p(row['total_assets'])\n"
+        },
+        "0.038672306802557545": {
+            "name": "return_rate_stddev_by_client",
+            "code": "\n\ndef return_rate_stddev_by_client(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe\n    df_train = aux_data['portfolio_history_table.csv']\n    \n    # Get the portfolio_id from the row\n    portfolio_id = row['portfolio_id']\n    \n    # Filter the dataframe by portfolio_id\n    portfolio_group = df_train[df_train['portfolio_id'] == portfolio_id]\n    \n    # Calculate and return the standard deviation of the return_rate column\n    return portfolio_group['return_rate'].std()\n"
+        },
+        "0.03306513978208585": {
+            "name": "sector_exposure_count",
+            "code": "\n\ndef sector_exposure_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframes\n    portfolio_history = aux_dataframes.get('portfolio_history_table.csv')\n    investment_trends = aux_dataframes.get('investment_trends_table.csv')\n    \n    # Ensure the required dataframes are available\n    if portfolio_history is None or investment_trends is None:\n        raise KeyError(\"Required dataframes are missing from aux_dataframes.\")\n    \n    # Filter the portfolio history for the given client_id\n    client_portfolios = portfolio_history[portfolio_history['portfolio_id'] == row['portfolio_id']]\n    \n    # Merge with investment trends to get sector information\n    merged_data = client_portfolios.merge(\n        investment_trends,\n        left_on='portfolio_id',\n        right_on='trend_id',  # Assuming 'trend_id' maps to 'portfolio_id'\n        how='left'\n    )\n    \n    # Count the unique sectors\n    return merged_data['sector'].nunique()\n"
+        },
+        "0.017828184784227052": {
+            "name": "high_to_low_risk_asset_ratio",
+            "code": "\n\ndef high_to_low_risk_asset_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the portfolio data using the correct key\n    portfolio = aux_dataframes['portfolio_history_table.csv']\n    \n    # Filter the portfolio data for the given client_id\n    client_portfolios = portfolio[portfolio['portfolio_id'] == row['portfolio_id']]\n    \n    # Calculate high and low risk asset values using the provided row data\n    high = row['high_risk_assets'] * row['total_assets']\n    low = row['low_risk_assets']\n    \n    # Return the ratio of high to low risk assets\n    return high / low if low > 0 else 0\n"
+        },
+        "0.009253635744689787": {
+            "name": "risk_appetite_numeric",
+            "code": "\n\ndef risk_appetite_numeric(row, aux_data: Dict[str, pd.DataFrame] = None):\n    # Corrected column name based on the provided dataframe\n    mapping = {'Conservative': 1, 'Moderate': 2, 'Aggressive': 3}\n    return mapping.get(row['client_s_risk_appetite_and_portfolio_categorization'], 0)\n"
+        },
+        "0.008295018799461394": {
+            "name": "age_to_experience_ratio",
+            "code": "\n\ndef age_to_experience_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Retrieve the client_profiles_table.csv dataframe from aux_data\n    client_profiles = aux_data['client_profiles_table.csv']\n    \n    # Find the client's profile using the client_id from the row\n    client_id = row['client_id']\n    client_profile = client_profiles[client_profiles['client_id'] == client_id]\n    \n    # Ensure the client profile exists\n    if client_profile.empty:\n        raise ValueError(f\"No client profile found for client_id {client_id}\")\n    \n    # Extract the age and investment experience\n    age = client_profile.iloc[0]['age']\n    investment_experience = client_profile.iloc[0]['investment_experience']\n    \n    # Calculate and return the age-to-experience ratio\n    return age / (investment_experience + 1)\n"
+        },
+        "0.002745196658122226": {
+            "name": "mean_sector_impact_score",
+            "code": "\n\ndef mean_sector_impact_score(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if 'investment_trends_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'investment_trends_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the investment trends table\n    trends = aux_dataframes['investment_trends_table.csv']\n    \n    # Ensure the required columns exist in the trends dataframe\n    required_columns = {'sector', 'impact_score'}\n    if not required_columns.issubset(trends.columns):\n        raise KeyError(f\"The required columns {required_columns} are missing from the investment trends table.\")\n    \n    # Filter the trends dataframe for the given sector_focus\n    sector_focus = row['sector_focus']\n    sector_trends = trends[trends['sector'] == sector_focus]\n    \n    # Return the mean of the 'impact_score' column\n    return sector_trends['impact_score'].mean()\n"
+        },
+        "0.000719668028110174": {
+            "name": "average_trend_duration",
+            "code": "import pandas as pd\n\ndef average_trend_duration(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if 'investment_trends_table.csv' not in aux_dataframes:\n        raise KeyError(\"'investment_trends_table.csv' not found in aux_dataframes\")\n    \n    # Get the investment trends table\n    trends = aux_dataframes['investment_trends_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'trend_id', 'sector', 'trend_description', 'start_date', 'impact_score', 'end_date'}\n    if not required_columns.issubset(trends.columns):\n        raise KeyError(f\"Missing required columns in 'investment_trends_table.csv'. Required columns: {required_columns}\")\n    \n    # Since 'client_id' is not in the investment_trends_table.csv, we cannot filter by it directly.\n    # Instead, we assume that the trends are related to the client indirectly through the row's 'sector_focus'.\n    # Filter trends for the specific sector\n    client_trends = trends[trends['sector'] == row['sector_focus']]\n    \n    # If no trends are found for the sector, return NaN\n    if client_trends.empty:\n        return float('nan')\n    \n    # Calculate the trend duration (end_date - start_date) in days\n    client_trends['Trend_Duration'] = (\n        pd.to_datetime(client_trends['end_date']) - pd.to_datetime(client_trends['start_date'])\n    ).dt.days\n    \n    # Return the average trend duration\n    return client_trends['Trend_Duration'].mean()\n"
+        },
+        "-0.0006701663237422828": {
+            "name": "investment_experience_bucket",
+            "code": "\n\ndef investment_experience_bucket(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the client ID from the row\n    client_id = row['client_id']\n    \n    # Access the client_profiles_table.csv dataframe\n    client_profiles_df = aux_data['client_profiles_table.csv']\n    \n    # Find the row in the client_profiles_table.csv corresponding to the client_id\n    client_row = client_profiles_df[client_profiles_df['client_id'] == client_id]\n    \n    # Ensure the client exists in the client_profiles_table.csv\n    if client_row.empty:\n        raise ValueError(f\"Client ID {client_id} not found in client_profiles_table.csv\")\n    \n    # Extract the investment experience for the client\n    experience = client_row.iloc[0]['investment_experience']\n    \n    # Categorize the investment experience\n    if experience < 2:\n        return \"Newbie\"\n    elif experience <= 8:\n        return \"Intermediate\"\n    else:\n        return \"Expert\"\n"
+        },
+        "7.38653395937483e-05": {
+            "name": "age_bucket",
+            "code": "\n\ndef age_bucket(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the client_id from the row\n    client_id = row['client_id']\n    \n    # Look up the client_profiles_table.csv dataframe in aux_data\n    client_profiles = aux_data['client_profiles_table.csv']\n    \n    # Find the age of the client using the client_id\n    client_row = client_profiles[client_profiles['client_id'] == client_id]\n    \n    # If the client_id is not found, return None or a default value\n    if client_row.empty:\n        return None\n    \n    # Extract the age of the client\n    age = client_row.iloc[0]['age']\n    \n    # Determine the age bucket\n    if age < 25:\n        return \"Under 25\"\n    elif age <= 40:\n        return \"25-40\"\n    elif age <= 60:\n        return \"40-60\"\n    else:\n        return \"Above 60\"\n"
+        }
+    },
+    "feature_descriptions": [
+        "yearly average return",
+        "median return rate",
+        "average return by client",
+        "max return rate",
+        "investment diversification score",
+        "high risk assets proportion",
+        "net worth log",
+        "return rate stddev by client",
+        "sector exposure count",
+        "high to low risk asset ratio",
+        "risk appetite numeric",
+        "age to experience ratio",
+        "mean sector impact score",
+        "average trend duration",
+        "investment experience bucket",
+        "age bucket"
+    ]
+}

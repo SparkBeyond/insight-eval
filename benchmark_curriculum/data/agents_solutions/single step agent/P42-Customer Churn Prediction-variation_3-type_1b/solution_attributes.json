@@ -1,0 +1,119 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "usage_to_payment_ratio",
+        "resolved_ticket_per_usage_ratio",
+        "total_support_tickets",
+        "average_resolution_time",
+        "payment_variability",
+        "high_ticket_to_payment_ratio",
+        "dropped_calls_vs_ticket_correlation",
+        "average_dropped_call_percentage",
+        "average_call_duration_per_day",
+        "average_sms_count_per_day",
+        "unresolved_ticket_ratio",
+        "average_payment_amount",
+        "high_dropped_call_days_percentage",
+        "customer_age",
+        "total_data_usage",
+        "customer_tenure",
+        "day_with_high_payment_vs_tickets",
+        "behavior_interaction_summary"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.1957797702718778": {
+            "name": "usage_to_payment_ratio",
+            "code": "\n\ndef total_data_usage(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes[\"usage_data_table.csv\"]\n    user_data = usage_data[usage_data[\"customer_id\"] == row[\"customer_id\"]]\n    if not user_data.empty:\n        # Convert 'data_usage_gb' to MB (1 GB = 1024 MB) and sum it\n        return (user_data[\"data_usage_gb\"] * 1024).sum()\n    return 0\n\ndef total_payments(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    payment_data = aux_dataframes[\"payment_history_table.csv\"]\n    user_data = payment_data[payment_data[\"customer_id\"] == row[\"customer_id\"]]\n    if not user_data.empty:\n        return user_data[\"amount_paid\"].sum()\n    return 0\n\ndef usage_to_payment_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    total_usage = total_data_usage(row, aux_dataframes)\n    total_payments_ = total_payments(row, aux_dataframes)\n    if total_payments_ > 0:\n        return total_usage / total_payments_\n    return 0\n"
+        },
+        "0.1565921345265607": {
+            "name": "resolved_ticket_per_usage_ratio",
+            "code": "\n\ndef resolved_ticket_per_usage_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Get the ratio of resolved tickets compared to total usage over time\"\"\"\n    ticket_data = aux_dataframes[\"support_tickets_table.csv\"]\n    usage_data = aux_dataframes[\"usage_data_table.csv\"]\n    \n    # Filter tickets for the current customer and resolved tickets\n    user_tickets = ticket_data[\n        (ticket_data[\"customer_id\"] == row[\"customer_id\"]) & ~ticket_data[\"resolution_time_days\"].isna()\n    ]\n    \n    # Filter usage data for the current customer\n    user_usage = usage_data[usage_data[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Calculate the ratio if both tickets and usage data are available\n    if not user_tickets.empty and not user_usage.empty:\n        return len(user_tickets) / len(user_usage)\n    \n    # Return 0 if no tickets or usage data are available\n    return 0\n"
+        },
+        "0.1508779346533207": {
+            "name": "total_support_tickets",
+            "code": "\n\ndef total_support_tickets(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the support tickets table from the aux_dataframes dictionary\n    ticket_data = aux_dataframes[\"support_tickets_table.csv\"]\n    \n    # Filter the ticket data for the current row's customer_id\n    user_data = ticket_data[ticket_data[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Return the count of support tickets for the customer\n    return len(user_data)\n"
+        },
+        "0.14611777451763344": {
+            "name": "average_resolution_time",
+            "code": "\n\ndef average_resolution_time(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the support tickets dataframe\n    ticket_data = aux_dataframes[\"support_tickets_table.csv\"]\n    \n    # Filter tickets for the current customer_id and where resolution_time_days is not null\n    user_data = ticket_data[(ticket_data[\"customer_id\"] == row[\"customer_id\"]) & ~ticket_data[\"resolution_time_days\"].isna()]\n    \n    # If there are resolved tickets, calculate the average resolution time in seconds\n    if not user_data.empty:\n        # Convert resolution_time_days to seconds (1 day = 86400 seconds)\n        return (user_data[\"resolution_time_days\"].mean()) * 86400\n    return 0\n"
+        },
+        "0.1374046953483793": {
+            "name": "payment_variability",
+            "code": "\n\ndef payment_variability(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    payment_data = aux_dataframes[\"payment_history_table.csv\"]\n    user_data = payment_data[payment_data[\"customer_id\"] == row[\"customer_id\"]]\n    if not user_data.empty and len(user_data) > 1:\n        return user_data[\"amount_paid\"].std()\n    return 0\n"
+        },
+        "0.11962344285478367": {
+            "name": "high_ticket_to_payment_ratio",
+            "code": "\n\ndef total_payments(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    payment_data = aux_dataframes[\"payment_history_table.csv\"]\n    user_data = payment_data[payment_data[\"customer_id\"] == row[\"customer_id\"]]\n    return user_data[\"amount_paid\"].sum()\n\ndef total_support_tickets(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    ticket_data = aux_dataframes[\"support_tickets_table.csv\"]\n    user_data = ticket_data[ticket_data[\"customer_id\"] == row[\"customer_id\"]]\n    return len(user_data)\n\ndef high_ticket_to_payment_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    ticket_count = total_support_tickets(row, aux_dataframes)\n    total_payments_ = total_payments(row, aux_dataframes)\n    if total_payments_ > 0:\n        return ticket_count / total_payments_\n    return 0\n"
+        },
+        "0.10702686548976437": {
+            "name": "dropped_calls_vs_ticket_correlation",
+            "code": "import pandas as pd\n\ndef dropped_calls_vs_ticket_correlation(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes[\"usage_data_table.csv\"]\n    ticket_data = aux_dataframes[\"support_tickets_table.csv\"]\n    \n    # Filter usage and ticket data for the specific customer\n    usage_user_data = usage_data[usage_data[\"customer_id\"] == row[\"customer_id\"]]\n    ticket_user_data = ticket_data[ticket_data[\"customer_id\"] == row[\"customer_id\"]]\n    \n    if not usage_user_data.empty and not ticket_user_data.empty:\n        # Convert ticket_date and usage_date to datetime if not already\n        ticket_user_data[\"ticket_date\"] = pd.to_datetime(ticket_user_data[\"ticket_date\"])\n        usage_user_data[\"usage_date\"] = pd.to_datetime(usage_user_data[\"usage_date\"])\n        \n        # Extract the dates of tickets\n        tickets_on_days = ticket_user_data[\"ticket_date\"].dt.date\n        \n        # Add a column to indicate if the usage date matches a ticket date\n        usage_user_data[\"ticket_day\"] = usage_user_data[\"usage_date\"].dt.date.isin(tickets_on_days)\n        \n        # Calculate the correlation between dropped calls and ticket_day\n        return usage_user_data[[\"call_dropped_count\", \"ticket_day\"]].corr().iloc[0, 1]\n    \n    # Return 0 if no data is available for the customer\n    return 0\n"
+        },
+        "0.07076917847371518": {
+            "name": "average_dropped_call_percentage",
+            "code": "\n\ndef average_dropped_call_percentage(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes[\"usage_data_table.csv\"]\n    # Filter usage data for the specific customer_id\n    user_data = usage_data[usage_data[\"customer_id\"] == row[\"customer_id\"]]\n    if not user_data.empty:\n        # Calculate total calls as the sum of dropped calls and successful calls\n        total_calls = user_data[\"call_dropped_count\"].sum() + user_data[\"call_duration_minutes\"].count()\n        if total_calls > 0:\n            return user_data[\"call_dropped_count\"].sum() / total_calls\n    return 0\n"
+        },
+        "0.0637350174474193": {
+            "name": "average_call_duration_per_day",
+            "code": "\n\ndef average_call_duration_per_day(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes[\"usage_data_table.csv\"]\n    # Filter the usage data for the specific customer_id\n    user_data = usage_data[usage_data[\"customer_id\"] == row[\"customer_id\"]]\n    if not user_data.empty:\n        # Calculate the average call duration per day\n        return user_data[\"call_duration_minutes\"].sum() / len(user_data)\n    return 0\n"
+        },
+        "0.04617550637903564": {
+            "name": "average_sms_count_per_day",
+            "code": "\n\ndef average_sms_count_per_day(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes[\"usage_data_table.csv\"]\n    # Filter usage data for the specific customer_id\n    user_data = usage_data[usage_data[\"customer_id\"] == row[\"customer_id\"]]\n    if not user_data.empty:\n        # Calculate the average SMS count per day\n        return user_data[\"sms_count\"].sum() / len(user_data)\n    return 0\n"
+        },
+        "0.03157492247188814": {
+            "name": "unresolved_ticket_ratio",
+            "code": "\n\ndef unresolved_ticket_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    ticket_data = aux_dataframes[\"support_tickets_table.csv\"]\n    # Filter tickets for the current customer_id\n    user_data = ticket_data[ticket_data[\"customer_id\"] == row[\"customer_id\"]]\n    if not user_data.empty:\n        # Count unresolved tickets where resolution_time_days is NaN\n        unresolved = user_data[\"resolution_time_days\"].isna().sum()\n        return unresolved / len(user_data)\n    return 0\n"
+        },
+        "0.02797107428970237": {
+            "name": "average_payment_amount",
+            "code": "\n\ndef average_payment_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    payment_data = aux_dataframes[\"payment_history_table.csv\"]\n    # Filter the payment data for the current customer_id\n    user_data = payment_data[payment_data[\"customer_id\"] == row[\"customer_id\"]]\n    if not user_data.empty:\n        # Use the correct column name 'amount_paid' for the payment amount\n        return user_data[\"amount_paid\"].mean()\n    return 0\n"
+        },
+        "0.027493735477739874": {
+            "name": "high_dropped_call_days_percentage",
+            "code": "\n\ndef high_dropped_call_days_percentage(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes[\"usage_data_table.csv\"]\n    # Filter usage data for the specific customer_id\n    user_data = usage_data[usage_data[\"customer_id\"] == row[\"customer_id\"]]\n    if not user_data.empty:\n        # Calculate the number of days with high dropped call rates\n        high_drop_days = (user_data[\"call_dropped_count\"] / user_data[\"call_duration_minutes\"] > 0.1).sum()\n        # Return the percentage of high dropped call days\n        return high_drop_days / len(user_data)\n    return 0\n"
+        },
+        "0.02054595524575571": {
+            "name": "customer_age",
+            "code": "import pandas as pd\n\ndef customer_age(row: pd.Series) -> float:\n    \"\"\"\n    Calculate the age of a customer based on their date of birth.\n\n    Args:\n        row (pd.Series): A row of a dataframe containing a 'date_of_birth' column.\n\n    Returns:\n        float: The age of the customer in years.\n    \"\"\"\n    current_date = pd.Timestamp.now()\n    return (current_date - pd.to_datetime(row[\"date_of_birth\"])).days / 365\n"
+        },
+        "0.018151754486357304": {
+            "name": "total_data_usage",
+            "code": "\n\ndef total_data_usage(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes[\"usage_data_table.csv\"]\n    user_data = usage_data[usage_data[\"customer_id\"] == row[\"customer_id\"]]\n    if not user_data.empty:\n        # Convert data_usage_gb to MB and sum\n        return (user_data[\"data_usage_gb\"] * 1024).sum()\n    return 0\n"
+        },
+        "0.01075923548486537": {
+            "name": "customer_tenure",
+            "code": "import pandas as pd\n\ndef customer_tenure(row):\n    current_date = pd.Timestamp.now()\n    return (current_date - pd.to_datetime(row[\"signup_date\"])).days\n"
+        },
+        "-0.0007137188208612422": {
+            "name": "day_with_high_payment_vs_tickets",
+            "code": "import pandas as pd\n\ndef day_with_high_payment_vs_tickets(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Check if there is a day with high payments matching with ticket creation\"\"\"\n    # Load the payment and ticket data from the auxiliary dataframes\n    payment_data = aux_dataframes[\"payment_history_table.csv\"]\n    ticket_data = aux_dataframes[\"support_tickets_table.csv\"]\n    \n    # Filter the payment and ticket data for the specific customer\n    user_payments = payment_data[payment_data[\"customer_id\"] == row[\"customer_id\"]]\n    user_tickets = ticket_data[ticket_data[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Check if there are any payments and tickets for the customer\n    if not user_payments.empty and not user_tickets.empty:\n        # Convert payment_date and ticket_date to datetime if not already\n        user_payments[\"payment_date\"] = pd.to_datetime(user_payments[\"payment_date\"])\n        user_tickets[\"ticket_date\"] = pd.to_datetime(user_tickets[\"ticket_date\"])\n        \n        # Identify days with high payments (above the mean payment amount)\n        high_payment_days = user_payments[user_payments[\"amount_paid\"] > user_payments[\"amount_paid\"].mean()][\"payment_date\"].dt.date\n        \n        # Extract the days when tickets were created\n        ticket_days = user_tickets[\"ticket_date\"].dt.date\n        \n        # Find the intersection of high payment days and ticket creation days\n        matches = set(high_payment_days).intersection(set(ticket_days))\n        \n        # Return True if there are any matches, otherwise return False\n        return len(matches) > 0\n    \n    # Return 0 if there are no payments or tickets for the customer\n    return 0\n"
+        },
+        "0": {
+            "name": "behavior_interaction_summary",
+            "code": "\n\ndef behavior_interaction_summary(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    payment = total_payments(row, aux_dataframes)\n    usage = total_data_usage(row, aux_dataframes)\n    tickets = total_support_tickets(row, aux_dataframes)\n    if payment > 0:\n        payment_usage_ratio = usage / payment\n        ticket_payment_ratio = tickets / payment\n        return payment_usage_ratio + ticket_payment_ratio\n    return 0\n\ndef total_support_tickets(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    ticket_data = aux_dataframes[\"support_tickets_table.csv\"]\n    user_data = ticket_data[ticket_data[\"user_id\"] == row[\"user_id\"]]\n    return len(user_data)\n\ndef total_data_usage(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    usage_data = aux_dataframes[\"usage_data_table.csv\"]\n    user_data = usage_data[usage_data[\"user_id\"] == row[\"user_id\"]]\n    if not user_data.empty:\n        return user_data[\"data_usage_MB\"].sum()\n    return 0\n\ndef total_payments(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    payment_data = aux_dataframes[\"payment_history_table.csv\"]\n    user_data = payment_data[payment_data[\"user_id\"] == row[\"user_id\"]]\n    return user_data[\"payment_amount\"].sum()\n"
+        }
+    },
+    "feature_descriptions": [
+        "usage to payment ratio",
+        "resolved ticket per usage ratio",
+        "total support tickets",
+        "average resolution time",
+        "payment variability",
+        "high ticket to payment ratio",
+        "dropped calls vs ticket correlation",
+        "average dropped call percentage",
+        "average call duration per day",
+        "average sms count per day",
+        "unresolved ticket ratio",
+        "average payment amount",
+        "high dropped call days percentage",
+        "customer age",
+        "total data usage",
+        "customer tenure",
+        "day with high payment vs tickets",
+        "behavior interaction summary"
+    ]
+}

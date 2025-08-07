@@ -1,0 +1,38 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "age_of_equipment",
+        "failure_rate",
+        "time_since_last_failure",
+        "time_since_last_maintenance",
+        "model_failure_rate",
+        "pressure_mean",
+        "sensor_pressure_std",
+        "time_since_last_maintenance_repeated_colname1",
+        "total_maintenance_actions",
+        "downtime_mean",
+        "time_since_installation",
+        "time_to_failure",
+        "avg_downtime_per_equipment",
+        "manufacturer_failure_count"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "age of equipment",
+        "failure rate",
+        "time since last failure",
+        "time since last maintenance",
+        "model failure rate",
+        "pressure mean",
+        "sensor pressure std",
+        "time since last maintenance repeated colname1",
+        "total maintenance actions",
+        "downtime mean",
+        "time since installation",
+        "time to failure",
+        "avg downtime per equipment",
+        "manufacturer failure count"
+    ]
+}

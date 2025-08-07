@@ -1,0 +1,83 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "planned_duration",
+        "route_distance",
+        "actual_duration",
+        "carrier_fleet_size",
+        "transit_hub_count",
+        "planned_departure_hour",
+        "planned_arrival_hour",
+        "day_of_week_departure",
+        "average_route_delay",
+        "delay_duration",
+        "departure_delay",
+        "weather_at_departure"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5698319118818593": {
+            "name": "planned_duration",
+            "code": "import datetime\n\ndef planned_duration(row):\n    \"\"\"Calculate the planned duration in hours.\"\"\"\n    start = datetime.fromisoformat(row['planned_departure_date'])\n    end = datetime.fromisoformat(row['planned_arrival_date'])\n    return (end - start).total_seconds() / 3600\n"
+        },
+        "0.5698315407855723": {
+            "name": "route_distance",
+            "code": "\n\ndef route_distance(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Get route distance (in km) from the route dataset.\"\"\"\n    route_data = aux_dataframes['route_table.csv']\n    match = route_data[route_data['route_id'] == row['route_id']]\n    if not match.empty:\n        return match['distance_km'].iloc[0]\n    return None\n"
+        },
+        "0.5670800907934431": {
+            "name": "actual_duration",
+            "code": "import datetime\n\ndef actual_duration(row):\n    \"\"\"Calculate the actual duration in hours.\"\"\"\n    start = datetime.fromisoformat(row['actual_departure_date'])\n    end = datetime.fromisoformat(row['actual_arrival_date'])\n    return (end - start).total_seconds() / 3600\n"
+        },
+        "0.1765900665290273": {
+            "name": "carrier_fleet_size",
+            "code": "\n\ndef carrier_fleet_size(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Get fleet size of the carrier from the carrier dataset.\"\"\"\n    carrier_data = aux_dataframes['carrier_table.csv']\n    match = carrier_data[carrier_data['carrier_id'] == row['carrier_id']]\n    if not match.empty:\n        return match['fleet_size'].iloc[0]\n    return None\n"
+        },
+        "0.09061472100753663": {
+            "name": "transit_hub_count",
+            "code": "\n\ndef transit_hub_count(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Get transit hub count from the route dataset.\"\"\"\n    route_data = aux_dataframes['route_table.csv']\n    match = route_data[route_data['route_id'] == row['route_id']]\n    if not match.empty:\n        return match['transit_hub_count'].iloc[0]\n    return None\n"
+        },
+        "0.024912501397655856": {
+            "name": "planned_departure_hour",
+            "code": "import datetime\n\ndef planned_departure_hour(row):\n    \"\"\"Extract the hour from the planned departure timestamp.\"\"\"\n    return datetime.fromisoformat(row['planned_departure_date']).hour\n"
+        },
+        "0.024066541262608217": {
+            "name": "planned_arrival_hour",
+            "code": "import datetime\n\ndef planned_arrival_hour(row):\n    \"\"\"Extract the hour from the planned arrival timestamp.\"\"\"\n    return datetime.fromisoformat(row['planned_arrival_date']).hour\n"
+        },
+        "0.017682125680950143": {
+            "name": "day_of_week_departure",
+            "code": "import datetime\n\ndef day_of_week_departure(row):\n    \"\"\"Extract the day of the week from the planned departure timestamp.\"\"\"\n    return datetime.fromisoformat(row['planned_departure_date']).weekday()\n"
+        },
+        "0.012899475657198694": {
+            "name": "average_route_delay",
+            "code": "\n\ndef average_route_delay(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Calculate the average delay for a specific route from the training data.\"\"\"\n    filtered = df_train[df_train['route_id'] == row['route_id']]\n    if not filtered.empty:\n        # Calculate the mean delay (hours)\n        filtered['delay_duration'] = filtered.apply(\n            lambda r: (datetime.fromisoformat(r['actual_arrival_date']) -\n                       datetime.fromisoformat(r['planned_arrival_date'])).total_seconds() / 3600,\n            axis=1\n        )\n        return filtered['delay_duration'].mean()\n    return None\n"
+        },
+        "0.0090316919158224": {
+            "name": "delay_duration",
+            "code": "import datetime\n\ndef actual_duration(row):\n    \"\"\"Calculate the actual duration in hours.\"\"\"\n    start = datetime.fromisoformat(row['actual_departure_date'])\n    end = datetime.fromisoformat(row['actual_arrival_date'])\n    return (end - start).total_seconds() / 3600\n\ndef planned_duration(row):\n    \"\"\"Calculate the planned duration in hours.\"\"\"\n    start = datetime.fromisoformat(row['planned_departure_date'])\n    end = datetime.fromisoformat(row['planned_arrival_date'])\n    return (end - start).total_seconds() / 3600\n\ndef delay_duration(row):\n    \"\"\"Calculate the delay duration in hours.\"\"\"\n    return actual_duration(row) - planned_duration(row)\n"
+        },
+        "0.006727749130245014": {
+            "name": "departure_delay",
+            "code": "import datetime\n\ndef departure_delay(row):\n    \"\"\"Calculate the departure delay in hours.\"\"\"\n    planned = datetime.fromisoformat(row['planned_departure_date'])\n    actual = datetime.fromisoformat(row['actual_departure_date'])\n    return (actual - planned).total_seconds() / 3600\n"
+        },
+        "0.003898791700002624": {
+            "name": "weather_at_departure",
+            "code": "import pandas as pd\nimport datetime\n\ndef weather_at_departure(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"Get the weather condition at departure (e.g., Stormy, Snowy).\"\"\"\n    # Extract the weather and route data from aux_dataframes\n    weather_data = aux_dataframes['weather_table.csv']\n    route_data = aux_dataframes['route_table.csv']\n    \n    # Ensure the 'date_time' column in weather_data is in datetime format\n    if weather_data['date_time'].dtype == 'object':  # Check if it's a string\n        weather_data['date_time'] = pd.to_datetime(weather_data['date_time'])\n    \n    # Ensure the 'planned_departure_date' in the row is in datetime format\n    planned_time = datetime.datetime.fromisoformat(row['planned_departure_date'])\n    \n    # Map the route_id in the row to the corresponding location using route_data\n    route_id = row['route_id']\n    location_match = route_data[route_data['route_id'] == route_id]\n    \n    if location_match.empty:\n        # If no matching route is found, return None\n        return None\n    \n    # Extract the location (origin) for the given route_id\n    location = location_match['origin'].iloc[0]\n    \n    # Filter the weather data for the relevant location and time\n    match = weather_data[\n        (weather_data['date_time'] <= planned_time) &\n        (weather_data['location'] == location)\n    ]\n    \n    if not match.empty:\n        # Get the latest weather condition before departure\n        return match.sort_values('date_time', ascending=False)['weather_condition'].iloc[0]\n    \n    # If no matching weather data is found, return None\n    return None\n"
+        }
+    },
+    "feature_descriptions": [
+        "planned duration",
+        "route distance",
+        "actual duration",
+        "carrier fleet size",
+        "transit hub count",
+        "planned departure hour",
+        "planned arrival hour",
+        "day of week departure",
+        "average route delay",
+        "delay duration",
+        "departure delay",
+        "weather at departure"
+    ]
+}

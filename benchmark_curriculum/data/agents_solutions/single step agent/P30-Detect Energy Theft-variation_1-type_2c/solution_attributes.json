@@ -1,0 +1,59 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "maximum_billing_amount",
+        "average_billing_amount",
+        "estimated_readings_ratio",
+        "average_reading_difference",
+        "customer_billing_frequency",
+        "daily_energy_consumption",
+        "time_of_day_reading",
+        "temperature_influence"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.1169644316166449": {
+            "name": "maximum_billing_amount",
+            "code": "\n\ndef maximum_billing_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'billing_information_table.csv' exists in aux_dataframes\n    if 'billing_information_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'billing_information_table.csv' is missing in aux_dataframes.\")\n    \n    # Retrieve the billing information dataframe\n    billing_info = aux_dataframes['billing_information_table.csv']\n    \n    # Filter records for the given customer_id\n    records = billing_info[billing_info['customer_id'] == row['customer_id']]\n    \n    # If no records are found, return 0\n    if records.empty:\n        return 0\n    \n    # Return the maximum billing amount\n    return records['billing_amount'].max()\n"
+        },
+        "0.03785077846709424": {
+            "name": "average_billing_amount",
+            "code": "\n\ndef average_billing_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if 'billing_information_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'billing_information_table.csv' is missing from aux_dataframes.\")\n    \n    # Get the billing information dataframe\n    billing_info = aux_dataframes['billing_information_table.csv']\n    \n    # Filter records for the specific customer_id\n    records = billing_info[billing_info['customer_id'] == row['customer_id']]\n    \n    # If no records are found, return 0\n    if records.empty:\n        return 0\n    \n    # Return the average billing amount\n    return records['billing_amount'].mean()\n"
+        },
+        "0.029276536299454772": {
+            "name": "estimated_readings_ratio",
+            "code": "\n\ndef estimated_readings_ratio(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'meter_readings_table.csv' is used to access the correct dataframe\n    if 'meter_readings_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'meter_readings_table.csv' is missing from aux_dataframes.\")\n    \n    meter_readings = aux_dataframes['meter_readings_table.csv']\n    \n    # Filter records for the given customer_id\n    records = meter_readings[meter_readings['customer_id'] == row['customer_id']]\n    \n    # If no records exist for the customer, return 0\n    if records.empty:\n        return 0\n    \n    # Calculate the ratio of estimated readings\n    # 'estimated_reading' is a boolean column, so we can directly calculate the mean\n    return records['estimated_reading'].mean()\n"
+        },
+        "0.012619942793247971": {
+            "name": "average_reading_difference",
+            "code": "\n\ndef average_reading_difference(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'meter_readings_table.csv' exists in aux_dataframes\n    if 'meter_readings_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'meter_readings_table.csv' is missing from aux_dataframes.\")\n    \n    # Get the meter readings table\n    meter_readings = aux_dataframes['meter_readings_table.csv']\n    \n    # Filter records for the specific customer_id\n    records = meter_readings[meter_readings['customer_id'] == row['customer_id']].sort_values(by='timestamp')\n    \n    # Check if there are fewer than 2 records\n    if records.empty or len(records) < 2:\n        return 0\n    \n    # Calculate the average difference in meter readings\n    return records['meter_reading_kwh'].diff().mean()\n"
+        },
+        "0.011676992104757165": {
+            "name": "customer_billing_frequency",
+            "code": "import pandas as pd\n\ndef customer_billing_frequency(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the provided aux_dataframes dictionary\n    billing_info_key = 'billing_information_table.csv'\n    \n    # Check if the key exists in aux_dataframes\n    if billing_info_key not in aux_dataframes:\n        raise KeyError(f\"Key '{billing_info_key}' not found in aux_dataframes.\")\n    \n    # Access the billing information table\n    billing_info = aux_dataframes[billing_info_key]\n    \n    # Filter records for the specific customer_id\n    records = billing_info[billing_info['customer_id'] == row['customer_id']]\n    \n    # If no records exist for the customer, return 0\n    if records.empty:\n        return 0  # When no data exists\n    \n    # Ensure 'billing_date' column is present in the billing_info table\n    if 'billing_date' not in records.columns:\n        raise KeyError(\"'billing_date' column is missing in the billing information table.\")\n    \n    # Convert 'billing_date' to datetime if it's not already\n    if not pd.api.types.is_datetime64_any_dtype(records['billing_date']):\n        records['billing_date'] = pd.to_datetime(records['billing_date'], errors='coerce')\n    \n    # Drop rows with invalid or NaT billing_date values\n    records = records.dropna(subset=['billing_date'])\n    \n    # If no valid billing dates remain, return 0\n    if records.empty:\n        return 0\n    \n    # Compute billing frequency\n    years = (records['billing_date'].max() - records['billing_date'].min()).days / 365.25\n    return len(records) / years if years > 0 else 0\n"
+        },
+        "0.00962766833681737": {
+            "name": "daily_energy_consumption",
+            "code": "import pandas as pd\n\ndef daily_energy_consumption(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in aux_dataframes\n    if 'meter_readings_table.csv' not in aux_dataframes:\n        raise KeyError(\"'meter_readings_table.csv' not found in aux_dataframes\")\n    \n    meter_readings = aux_dataframes['meter_readings_table.csv']\n    \n    # Filter this customer's records\n    customer_records = meter_readings[meter_readings['customer_id'] == row['customer_id']]\n    if customer_records.empty:\n        return 0  # When no data exists for the customer\n    \n    # Ensure the 'timestamp' column is in datetime format\n    customer_records['timestamp'] = pd.to_datetime(customer_records['timestamp'])\n    \n    # Sort records by timestamp\n    customer_records = customer_records.sort_values(by='timestamp')\n    \n    # Calculate the time difference in days between consecutive readings\n    customer_records['time_diff_days'] = customer_records['timestamp'].diff().dt.days\n    \n    # Calculate the energy consumption difference between consecutive readings\n    customer_records['energy_diff_kwh'] = customer_records['meter_reading_kwh'].diff()\n    \n    # Calculate daily consumption (energy difference divided by time difference)\n    # Avoid division by zero or negative time differences\n    customer_records['daily_consumption'] = customer_records.apply(\n        lambda x: x['energy_diff_kwh'] / x['time_diff_days'] if x['time_diff_days'] > 0 else None, axis=1\n    )\n    \n    # Drop rows with invalid or missing daily consumption values\n    valid_consumption = customer_records['daily_consumption'].dropna()\n    \n    # Return the mean daily consumption, or 0 if no valid data exists\n    return valid_consumption.mean() if not valid_consumption.empty else 0\n"
+        },
+        "-0.00022463374486281218": {
+            "name": "time_of_day_reading",
+            "code": "import pandas as pd\n\ndef time_of_day_reading(row):\n    # Convert the 'timestamp' column to a datetime object\n    timestamp = pd.to_datetime(row['timestamp'])\n    hour = timestamp.hour  # Extract the hour from the datetime object\n    \n    # Determine the time of day based on the hour\n    if 5 <= hour < 12:\n        return \"Morning\"\n    elif 12 <= hour < 17:\n        return \"Afternoon\"\n    elif 17 <= hour < 21:\n        return \"Evening\"\n    else:\n        return \"Night\"\n"
+        },
+        "0": {
+            "name": "temperature_influence",
+            "code": "import pandas as pd\n\ndef temperature_influence(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the required keys exist in aux_dataframes\n    if 'weather_data_table.csv' not in aux_dataframes or 'meter_readings_table.csv' not in aux_dataframes:\n        return 0\n\n    # Extract the relevant dataframes\n    weather_data = aux_dataframes['weather_data_table.csv']\n    meter_readings = aux_dataframes['meter_readings_table.csv']\n    \n    # Filter meter readings for the specific customer\n    customer_records = meter_readings[meter_readings['customer_id'] == row['customer_id']]\n    if customer_records.empty:\n        return 0\n    \n    # Merge customer records with weather data on the timestamp column\n    joined = pd.merge(customer_records, weather_data, on='timestamp', how='inner')\n    \n    # Check if the required columns exist in the joined dataframe\n    if 'meter_reading_kwh' not in joined.columns or 'temperature_celsius' not in joined.columns:\n        return 0\n    \n    # Calculate the correlation between meter readings and temperature\n    correlation = joined['meter_reading_kwh'].corr(joined['temperature_celsius'])\n    return correlation if not pd.isnull(correlation) else 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "maximum billing amount",
+        "average billing amount",
+        "estimated readings ratio",
+        "average reading difference",
+        "customer billing frequency",
+        "daily energy consumption",
+        "time of day reading",
+        "temperature influence"
+    ]
+}

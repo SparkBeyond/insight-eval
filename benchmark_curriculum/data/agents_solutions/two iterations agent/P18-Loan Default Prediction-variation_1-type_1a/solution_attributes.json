@@ -1,0 +1,42 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "avg_payment_delay",
+        "missed_payments_ratio",
+        "avg_monthly_transaction_amount",
+        "adjusted_debt_to_income",
+        "transaction_inconsistency",
+        "percent_deposit_transactions",
+        "withdrawal_to_deposit_ratio",
+        "avg_transaction_amount",
+        "loan_to_income_ratio",
+        "income_to_loan_ratio",
+        "loan_burden",
+        "loan_to_term_ratio",
+        "credit_utilization",
+        "credit_utilization_ratio",
+        "active_credit_inquiries",
+        "is_employed"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "avg payment delay",
+        "missed payments ratio",
+        "avg monthly transaction amount",
+        "adjusted debt to income",
+        "transaction inconsistency",
+        "percent deposit transactions",
+        "withdrawal to deposit ratio",
+        "avg transaction amount",
+        "loan to income ratio",
+        "income to loan ratio",
+        "loan burden",
+        "loan to term ratio",
+        "credit utilization",
+        "credit utilization ratio",
+        "active credit inquiries",
+        "is employed"
+    ]
+}

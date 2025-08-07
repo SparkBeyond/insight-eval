@@ -1,0 +1,131 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "inspection_age_days",
+        "product_weight",
+        "inspector_experience",
+        "days_since_last_defect",
+        "inspector_success_rate",
+        "total_defects_product",
+        "inspection_score_percentile",
+        "inspection_duration_score_ratio",
+        "product_age_days",
+        "score_weight_ratio",
+        "inspector_avg_score",
+        "max_severity_product",
+        "product_category_frequency",
+        "avg_severity_product",
+        "log_inspection_duration",
+        "inspector_certification_count",
+        "energy_efficiency_score",
+        "inspector_inspection_count",
+        "team_specialization_match",
+        "product_name_length"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.24642676472736663": {
+            "name": "inspection_age_days",
+            "code": "import pandas as pd\n\ndef inspection_age_days(row, df_train: pd.DataFrame):\n    start_date = pd.to_datetime(df_train[\"inspection_date\"]).min()\n    return (pd.to_datetime(row[\"inspection_date\"]) - start_date).days\n"
+        },
+        "0.16806399319827703": {
+            "name": "product_weight",
+            "code": "\n\ndef product_weight(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    products = aux_dataframes[\"product_features_table.csv\"]\n    product_row = products[products[\"product_id\"] == row[\"product_id\"]]\n    if product_row.empty:\n        return -1\n    return product_row[\"weight_kg\"].iloc[0]\n"
+        },
+        "0.14584101648372982": {
+            "name": "inspector_experience",
+            "code": "\n\ndef inspector_experience(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    inspectors = aux_dataframes['inspection_team_table.csv']\n    inspector_row = inspectors[inspectors['inspector_id'] == row['inspector_id']]\n    if inspector_row.empty:\n        return 0\n    return inspector_row[\"years_of_experience\"].iloc[0]\n"
+        },
+        "0.1250715727278847": {
+            "name": "days_since_last_defect",
+            "code": "import pandas as pd\n\ndef days_since_last_defect(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    defects = aux_dataframes[\"product_defect_history_table.csv\"]\n    product_df = defects[defects[\"product_id\"] == row[\"product_id\"]]\n    if product_df.empty:\n        return -1  # Use -1 if no prior defects\n    last_defect_date = pd.to_datetime(product_df[\"defect_date\"]).max()\n    return (pd.to_datetime(row[\"inspection_date\"]) - last_defect_date).days\n"
+        },
+        "0.12368351721333093": {
+            "name": "inspector_success_rate",
+            "code": "\n\ndef inspector_success_rate(row, df_train: pd.DataFrame):\n    # Filter inspections by the same inspector\n    inspector_inspections = df_train[\n        (df_train['inspector_id'] == row['inspector_id']) & \n        (df_train['inspection_date'] < row['inspection_date'])  # Exclude future data\n    ]\n    \n    # If no prior inspections exist, return a default success rate (e.g., 0.5 or another neutral value)\n    if inspector_inspections.empty:\n        return 0.5  # Neutral value, as no prior data is available\n    \n    # Calculate the success rate based on prior inspections\n    return 1 - inspector_inspections[\"defective_flag\"].mean()\n"
+        },
+        "0.12246549915018565": {
+            "name": "total_defects_product",
+            "code": "\n\ndef total_defects_product(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    defects = aux_dataframes[\"product_defect_history_table.csv\"]\n    return defects[defects[\"product_id\"] == row[\"product_id\"]].shape[0]\n"
+        },
+        "0.11167693068224553": {
+            "name": "inspection_score_percentile",
+            "code": "\n\ndef inspection_score_percentile(row, df_train: pd.DataFrame):\n    return (df_train[\"inspection_score\"] < row[\"inspection_score\"]).mean()\n"
+        },
+        "0.09751720644461055": {
+            "name": "inspection_duration_score_ratio",
+            "code": "\n\ndef inspection_duration_score_ratio(row):\n    if row[\"inspection_duration_minutes\"] == 0:\n        return 0\n    return row[\"inspection_score\"] / row[\"inspection_duration_minutes\"]\n"
+        },
+        "0.08493171478989722": {
+            "name": "product_age_days",
+            "code": "import pandas as pd\n\ndef product_age_days(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    products = aux_dataframes[\"product_features_table.csv\"]\n    product_row = products[products[\"product_id\"] == row[\"product_id\"]]\n    if product_row.empty:\n        return -1\n    release_date = pd.to_datetime(product_row[\"release_date\"].iloc[0])\n    return (pd.to_datetime(row[\"inspection_date\"]) - release_date).days\n"
+        },
+        "0.08310921603418196": {
+            "name": "score_weight_ratio",
+            "code": "\n\ndef score_weight_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    weight = product_weight(row, aux_dataframes)\n    if weight == 0:\n        return 0\n    return row[\"inspection_score\"] / weight\n\ndef product_weight(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    products = aux_dataframes[\"product_features_table.csv\"]\n    product_row = products[products[\"product_id\"] == row[\"product_id\"]]\n    if product_row.empty:\n        return -1\n    return product_row[\"weight_kg\"].iloc[0]\n"
+        },
+        "0.07042034655289452": {
+            "name": "inspector_avg_score",
+            "code": "\n\ndef inspector_avg_score(row, df_train: pd.DataFrame):\n    inspector_inspections = df_train[df_train[\"inspector_id\"] == row[\"inspector_id\"]]\n    if inspector_inspections.empty:\n        return 0\n    return inspector_inspections[\"inspection_score\"].mean()\n"
+        },
+        "0.06974147632129048": {
+            "name": "max_severity_product",
+            "code": "\n\ndef max_severity_product(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    defects = aux_dataframes[\"product_defect_history_table.csv\"]\n    product_df = defects[defects[\"product_id\"] == row[\"product_id\"]]\n    if product_df.empty:\n        return 0\n    return product_df[\"severity_level\"].max()\n"
+        },
+        "0.055738199800232695": {
+            "name": "product_category_frequency",
+            "code": "\n\ndef product_category_frequency(row, df_train: pd.DataFrame):\n    category_counts = df_train[\"product_category\"].value_counts()\n    return category_counts.get(row[\"product_category\"], 0)\n"
+        },
+        "0.0539319893887919": {
+            "name": "avg_severity_product",
+            "code": "\n\ndef avg_severity_product(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    defects = aux_dataframes[\"product_defect_history_table.csv\"]\n    product_df = defects[defects[\"product_id\"] == row[\"product_id\"]]\n    if product_df.empty:\n        return 0\n    return product_df[\"severity_level\"].mean()\n"
+        },
+        "0.03159367386122116": {
+            "name": "log_inspection_duration",
+            "code": "import numpy as np\n\ndef log_inspection_duration(row):\n    return np.log1p(row['inspection_duration_minutes'])\n"
+        },
+        "0.03149904931528834": {
+            "name": "inspector_certification_count",
+            "code": "\n\ndef inspector_certification_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    inspectors = aux_dataframes['inspection_team_table.csv']\n    inspector_row = inspectors[inspectors['inspector_id'] == row['inspector_id']]\n    if inspector_row.empty:\n        return 0\n    certifications = inspector_row[\"certifications\"].iloc[0]\n    return len(certifications.split(',')) if isinstance(certifications, str) else 0\n"
+        },
+        "0.030041596715403466": {
+            "name": "energy_efficiency_score",
+            "code": "\n\ndef energy_efficiency_score(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    products = aux_dataframes[\"product_features_table.csv\"]\n    product_row = products[products[\"product_id\"] == row[\"product_id\"]]\n    if product_row.empty:\n        return -1\n    rating = product_row[\"energy_efficiency_rating\"].iloc[0]\n    return ord(rating.upper()) - ord(\"A\") + 1\n"
+        },
+        "0.014151786899535945": {
+            "name": "inspector_inspection_count",
+            "code": "\n\ndef inspector_inspection_count(row, df_train: pd.DataFrame):\n    return df_train[df_train[\"inspector_id\"] == row[\"inspector_id\"]].shape[0]\n"
+        },
+        "0.008839083591221094": {
+            "name": "team_specialization_match",
+            "code": "\n\ndef team_specialization_match(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    inspectors = aux_dataframes[\"inspection_team_table.csv\"]\n    inspector_row = inspectors[inspectors[\"inspector_id\"] == row[\"inspector_id\"]]\n    if inspector_row.empty:\n        return 0\n    team_specialization = inspector_row[\"team_specialization\"].iloc[0]\n    return 1 if team_specialization == row[\"product_category\"] else 0\n"
+        },
+        "0.008104337092051266": {
+            "name": "product_name_length",
+            "code": "\n\ndef product_name_length(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    products = aux_dataframes[\"product_features_table.csv\"]\n    product_row = products[products[\"product_id\"] == row[\"product_id\"]]\n    if product_row.empty:\n        return 0\n    return len(product_row[\"product_name\"].iloc[0])\n"
+        }
+    },
+    "feature_descriptions": [
+        "inspection age days",
+        "product weight",
+        "inspector experience",
+        "days since last defect",
+        "inspector success rate",
+        "total defects product",
+        "inspection score percentile",
+        "inspection duration score ratio",
+        "product age days",
+        "score weight ratio",
+        "inspector avg score",
+        "max severity product",
+        "product category frequency",
+        "avg severity product",
+        "log inspection duration",
+        "inspector certification count",
+        "energy efficiency score",
+        "inspector inspection count",
+        "team specialization match",
+        "product name length"
+    ]
+}

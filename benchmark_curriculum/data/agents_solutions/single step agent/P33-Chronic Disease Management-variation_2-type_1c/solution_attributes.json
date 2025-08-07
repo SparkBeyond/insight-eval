@@ -1,0 +1,125 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "dietary_habit",
+        "most_severe_condition",
+        "family_condition_count",
+        "avg_family_condition_onset",
+        "severe_diagnoses_count",
+        "unique_conditions_diagnosed",
+        "abnormal_lab_tests",
+        "years_since_first_diagnosis",
+        "has_specific_condition",
+        "avg_lab_result_value",
+        "avg_family_onset_relative_to_patient",
+        "avg_time_gap_tests",
+        "time_since_first_lab_test",
+        "lab_test_type_count",
+        "patient_age",
+        "max_lab_test_result_value",
+        "most_frequent_treatment_plan",
+        "smoking_status",
+        "gender_x_physical_activity"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.14498001160904672": {
+            "name": "dietary_habit",
+            "code": "\n\ndef dietary_habit(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe that contains the 'dietary_habits' column\n    lifestyle_df = aux_dataframes['lifestyle_information_table.csv']\n    \n    # Filter the dataframe for the specific patient_id\n    patient_lifestyle = lifestyle_df[lifestyle_df['patient_id'] == row['patient_id']]\n    \n    # If no matching patient_id is found, return None\n    if patient_lifestyle.empty:\n        return None\n    \n    # Return the first value of the 'dietary_habits' column for the matching patient\n    return patient_lifestyle['dietary_habits'].iloc[0]\n"
+        },
+        "0.11623469708536979": {
+            "name": "most_severe_condition",
+            "code": "\n\ndef most_severe_condition(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    family_df = aux_dataframes['family_history_details_table.csv']\n    patient_family = family_df[family_df['patient_id'] == row['patient_id']]\n    if patient_family.empty:\n        return 0\n    return max(patient_family['severity'].map(severity_mapping).fillna(0))\n"
+        },
+        "0.11242469391217355": {
+            "name": "family_condition_count",
+            "code": "\n\ndef family_condition_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    family_df = aux_dataframes['family_history_details_table.csv']\n    return len(family_df[family_df['patient_id'] == row['patient_id']])\n"
+        },
+        "0.07020306054503643": {
+            "name": "avg_family_condition_onset",
+            "code": "\n\ndef avg_family_condition_onset(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    family_df = aux_dataframes['family_history_details_table.csv']\n    patient_family = family_df[family_df['patient_id'] == row['patient_id']]\n    if patient_family.empty:\n        return 0\n    return patient_family['age_of_onset'].mean()\n"
+        },
+        "0.06959455896727035": {
+            "name": "severe_diagnoses_count",
+            "code": "\n\ndef severe_diagnoses_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct dataframe: 'previous_diagnoses_table.csv'\n    diagnoses_df = aux_dataframes['previous_diagnoses_table.csv']\n    \n    # Filter the dataframe for the given patient_id\n    patient_conditions = diagnoses_df[diagnoses_df['patient_id'] == row['patient_id']]\n    \n    # Count the number of conditions where the treatment plan is \"Surgery\"\n    return len(patient_conditions[patient_conditions['treatment_plan'] == \"Surgery\"])\n"
+        },
+        "0.06376849732819286": {
+            "name": "unique_conditions_diagnosed",
+            "code": "\n\ndef unique_conditions_diagnosed(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe\n    diagnoses_df = aux_dataframes['previous_diagnoses_table.csv']\n    \n    # Filter the dataframe for the given patient_id\n    patient_conditions = diagnoses_df[diagnoses_df['patient_id'] == row['patient_id']]\n    \n    # Return the count of unique conditions diagnosed\n    return len(patient_conditions['condition_diagnosed'].unique())\n"
+        },
+        "0.04487625053434016": {
+            "name": "abnormal_lab_tests",
+            "code": "\n\ndef abnormal_lab_tests(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    lab_df = aux_dataframes['lab_results_table.csv']\n    patient_tests = lab_df[lab_df['patient_id'] == row['patient_id']]\n    return patient_tests['abnormal_flag'].sum()\n"
+        },
+        "0.02914717845943207": {
+            "name": "years_since_first_diagnosis",
+            "code": "import pandas as pd\nimport datetime\n\ndef years_since_first_diagnosis(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct dataframe for diagnosis information\n    diagnoses_df = aux_dataframes['previous_diagnoses_table.csv']\n    \n    # Filter the dataframe for the specific patient\n    patient_conditions = diagnoses_df[diagnoses_df['patient_id'] == row['patient_id']]\n    \n    # If no diagnoses are found, return None\n    if patient_conditions.empty:\n        return None\n    \n    # Convert the 'diagnosis_date' column to datetime and find the earliest date\n    first_diagnosis_date = pd.to_datetime(patient_conditions['diagnosis_date']).min()\n    \n    # Calculate the difference in years between the current year and the year of the first diagnosis\n    current_year = datetime.datetime.now().year\n    return current_year - first_diagnosis_date.year\n"
+        },
+        "0.020684365048513696": {
+            "name": "has_specific_condition",
+            "code": "\n\ndef has_specific_condition(row, aux_dataframes: Dict[str, pd.DataFrame], condition: str = \"Diabetes\"):\n    # Use the correct dataframe for condition diagnoses\n    diagnoses_df = aux_dataframes['previous_diagnoses_table.csv']\n    \n    # Filter the dataframe for the specific patient\n    patient_conditions = diagnoses_df[diagnoses_df['patient_id'] == row['patient_id']]\n    \n    # Check if the condition exists in the patient's diagnoses\n    return int(condition in patient_conditions['condition_diagnosed'].values)\n"
+        },
+        "0.01738712814640905": {
+            "name": "avg_lab_result_value",
+            "code": "\n\ndef avg_lab_result_value(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    lab_df = aux_dataframes['lab_results_table.csv']\n    patient_tests = lab_df[lab_df['patient_id'] == row['patient_id']]\n    if patient_tests.empty:\n        return 0\n    return patient_tests['result_value'].mean()\n"
+        },
+        "0.015752509415579694": {
+            "name": "avg_family_onset_relative_to_patient",
+            "code": "import datetime\n\ndef avg_family_onset_relative_to_patient(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Compute the average onset age of chronic conditions within the patient's family\n    and calculate the difference between this value and the patient's age.\n    \"\"\"\n    family_df = aux_dataframes['family_history_details_table.csv']\n    family_history = family_df[family_df['patient_id'] == row['patient_id']]\n    patient_age = calculate_age(row['date_of_birth'])\n\n    if family_history.empty:\n        return 0  # No family history\n    avg_family_onset = family_history['age_of_onset'].mean()\n    return patient_age - avg_family_onset\n\ndef calculate_age(birth_date: str, ref_date: str = None) -> int:\n    if ref_date is None:\n        ref_date = datetime.now().strftime('%Y-%m-%d')\n    birth_date = datetime.strptime(birth_date, '%Y-%m-%d')\n    ref_date = datetime.strptime(ref_date, '%Y-%m-%d')\n    return ref_date.year - birth_date.year - ((ref_date.month, ref_date.day) < (birth_date.month, birth_date.day))\n"
+        },
+        "0.013592253643231815": {
+            "name": "avg_time_gap_tests",
+            "code": "import pandas as pd\n\ndef avg_time_gap_tests(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    lab_df = aux_dataframes['lab_results_table.csv']\n    patient_tests = lab_df[lab_df['patient_id'] == row['patient_id']]\n    if patient_tests.empty or len(patient_tests) < 2:\n        return None\n    test_dates = pd.to_datetime(patient_tests['test_date']).sort_values()\n    return test_dates.diff().mean().days\n"
+        },
+        "0.01330096333186193": {
+            "name": "time_since_first_lab_test",
+            "code": "import pandas as pd\nimport datetime\n\ndef time_since_first_lab_test(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    lab_df = aux_dataframes['lab_results_table.csv']\n    patient_tests = lab_df[lab_df['patient_id'] == row['patient_id']]\n    if patient_tests.empty:\n        return None\n    first_test_date = pd.to_datetime(patient_tests['test_date']).min()\n    return (datetime.now() - first_test_date).days\n"
+        },
+        "0.013169529264674412": {
+            "name": "lab_test_type_count",
+            "code": "\n\ndef lab_test_type_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    lab_df = aux_dataframes['lab_results_table.csv']\n    patient_tests = lab_df[lab_df['patient_id'] == row['patient_id']]\n    return len(patient_tests['test_type'].unique())\n"
+        },
+        "0.004300914812326771": {
+            "name": "patient_age",
+            "code": "import datetime\n\ndef calculate_age(birth_date: str, ref_date: str = None) -> int:\n    if ref_date is None:\n        ref_date = datetime.now().strftime('%Y-%m-%d')\n    birth_date = datetime.strptime(birth_date, '%Y-%m-%d')\n    ref_date = datetime.strptime(ref_date, '%Y-%m-%d')\n    return ref_date.year - birth_date.year - ((ref_date.month, ref_date.day) < (birth_date.month, birth_date.day))\n\ndef patient_age(row):\n    return calculate_age(row['date_of_birth'])\n"
+        },
+        "0.0020784348745093366": {
+            "name": "max_lab_test_result_value",
+            "code": "\n\ndef max_lab_test_result_value(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    lab_df = aux_dataframes['lab_results_table.csv']\n    patient_tests = lab_df[lab_df['patient_id'] == row['patient_id']]\n    if patient_tests.empty:\n        return 0\n    return patient_tests['result_value'].max()\n"
+        },
+        "-0.0011372876750233019": {
+            "name": "most_frequent_treatment_plan",
+            "code": "\n\ndef most_frequent_treatment_plan(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct dataframe that contains the 'treatment_plan' column\n    diagnoses_df = aux_dataframes['previous_diagnoses_table.csv']\n    \n    # Filter the dataframe for the specific patient_id\n    patient_treatments = diagnoses_df[diagnoses_df['patient_id'] == row['patient_id']]\n    \n    # Return the most frequent treatment plan if the dataframe is not empty\n    return patient_treatments['treatment_plan'].mode().iloc[0] if not patient_treatments.empty else None\n"
+        },
+        "-0.00039582233147705814": {
+            "name": "smoking_status",
+            "code": "\n\ndef smoking_status(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct dataframe for lifestyle information\n    lifestyle_df = aux_dataframes['lifestyle_information_table.csv']\n    \n    # Filter the dataframe for the specific patient_id\n    patient_lifestyle = lifestyle_df[lifestyle_df['patient_id'] == row['patient_id']]\n    \n    # Check if the filtered dataframe is empty\n    if patient_lifestyle.empty:\n        return None\n    \n    # Return the smoking_status for the patient\n    return patient_lifestyle['smoking_status'].iloc[0]\n"
+        },
+        "0": {
+            "name": "gender_x_physical_activity",
+            "code": "\n\ndef gender_x_physical_activity(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    gender_mapping = {\"Male\": 1, \"Female\": 2, \"Other\": 0}\n    gender_value = gender_mapping.get(row['gender'], 0)\n    lifestyle_df = aux_dataframes['previous_diagnoses_table.csv']\n    patient_lifestyle = lifestyle_df[lifestyle_df['patient_id'] == row['patient_id']]\n    if patient_lifestyle.empty:\n        return 0\n    return gender_value * patient_lifestyle['physical_activity_level'].iloc[0]\n"
+        }
+    },
+    "feature_descriptions": [
+        "dietary habit",
+        "most severe condition",
+        "family condition count",
+        "avg family condition onset",
+        "severe diagnoses count",
+        "unique conditions diagnosed",
+        "abnormal lab tests",
+        "years since first diagnosis",
+        "has specific condition",
+        "avg lab result value",
+        "avg family onset relative to patient",
+        "avg time gap tests",
+        "time since first lab test",
+        "lab test type count",
+        "patient age",
+        "max lab test result value",
+        "most frequent treatment plan",
+        "smoking status",
+        "gender x physical activity"
+    ]
+}

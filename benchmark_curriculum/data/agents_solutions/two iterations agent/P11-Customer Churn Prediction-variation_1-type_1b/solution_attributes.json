@@ -1,0 +1,24 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "num_topups_last_six_months",
+        "avg_payment_timeliness",
+        "days_since_last_feedback",
+        "has_negative_feedback",
+        "total_feedback_count",
+        "avg_days_between_topups",
+        "days_since_last_payment"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "num topups last six months",
+        "avg payment timeliness",
+        "days since last feedback",
+        "has negative feedback",
+        "total feedback count",
+        "avg days between topups",
+        "days since last payment"
+    ]
+}

@@ -1,0 +1,113 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "total_payments_made",
+        "late_days_count",
+        "days_since_loan_issue",
+        "remaining_loan_term",
+        "days_to_repayment_date",
+        "early_payment_indicator",
+        "loan_to_collateral_ratio",
+        "customer_age",
+        "customer_annual_income",
+        "average_loan_interest_rate",
+        "average_payment_amount",
+        "median_payment_amount",
+        "total_interest_paid",
+        "total_amount_paid",
+        "payment_success_ratio",
+        "last_payment_date",
+        "most_frequent_payment_method"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.13179190629861887": {
+            "name": "total_payments_made",
+            "code": "\n\ndef total_payments_made(row, df_train):\n    return df_train[df_train['loan_id'] == row['loan_id']].shape[0]\n"
+        },
+        "0.12865606663833337": {
+            "name": "late_days_count",
+            "code": "import pandas as pd\n\ndef late_days_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure 'payment_table.csv' exists in aux_dataframes\n    if 'payment_table.csv' not in aux_dataframes:\n        raise KeyError(\"'payment_table.csv' is missing from aux_dataframes\")\n    \n    # Get the repayment table\n    repayment_table = aux_dataframes['payment_table.csv']\n    \n    # Ensure the required columns exist in the repayment table\n    required_columns = {'loan_id'}\n    if not required_columns.issubset(repayment_table.columns):\n        raise KeyError(f\"The repayment table is missing one or more required columns: {required_columns}\")\n    \n    # Ensure the row contains the required columns\n    if 'repayment_date' not in row or 'scheduled_repayment_date' not in row:\n        raise KeyError(\"The row is missing one or more required columns: 'repayment_date', 'scheduled_repayment_date'\")\n    \n    # Parse the repayment_date and scheduled_repayment_date as datetime\n    repayment_date = pd.to_datetime(row['repayment_date'])\n    scheduled_repayment_date = pd.to_datetime(row['scheduled_repayment_date'])\n    \n    # Calculate late days (difference in days, only if repayment_date is after scheduled_repayment_date)\n    late_days = (repayment_date - scheduled_repayment_date).days\n    late_days = late_days if late_days > 0 else 0  # Late days cannot be negative\n    \n    return late_days\n"
+        },
+        "0.12687866292665578": {
+            "name": "days_since_loan_issue",
+            "code": "import pandas as pd\n\ndef days_since_loan_issue(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the key 'loan_table.csv' exists in aux_data\n    if 'loan_table.csv' not in aux_data:\n        raise KeyError(\"The key 'loan_table.csv' is missing in aux_data.\")\n    \n    # Get the loan_table dataframe\n    loan_table = aux_data['loan_table.csv']\n    \n    # Filter the loan_table for the specific loan_id\n    loan = loan_table[loan_table['loan_id'] == row['loan_id']]\n    \n    # Check if the loan exists\n    if not loan.empty:\n        # Extract the loan issue date\n        issue_date = pd.to_datetime(loan.iloc[0]['loan_issue_date'])\n        # Calculate the difference in days between repayment_date and issue_date\n        return (pd.to_datetime(row['repayment_date']) - issue_date).days\n    \n    # Return None if the loan_id is not found\n    return None\n"
+        },
+        "0.10332256718816815": {
+            "name": "remaining_loan_term",
+            "code": "import pandas as pd\n\ndef remaining_loan_term(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Ensure 'loan_table.csv' exists in aux_data\n    if 'loan_table.csv' not in aux_data:\n        raise KeyError(\"'loan_table.csv' not found in aux_data\")\n    \n    # Get the loan_table dataframe\n    loan_table = aux_data['loan_table.csv']\n    \n    # Filter the loan_table for the specific loan_id\n    loan = loan_table[loan_table['loan_id'] == row['loan_id']]\n    \n    # If the loan exists, calculate the remaining loan term\n    if not loan.empty:\n        loan_issue_date = pd.to_datetime(loan.iloc[0]['loan_issue_date'])\n        payment_date = pd.to_datetime(row['repayment_date'])\n        \n        # Calculate elapsed months\n        elapsed_months = (payment_date - loan_issue_date).days // 30\n        \n        # Calculate remaining months\n        loan_term_months = loan.iloc[0]['loan_term_months']\n        remaining_months = loan_term_months - elapsed_months\n        \n        # Return the maximum of remaining months or 0\n        return max(remaining_months, 0)\n    \n    # If the loan_id is not found, return None\n    return None\n"
+        },
+        "0.07428890308760835": {
+            "name": "days_to_repayment_date",
+            "code": "import pandas as pd\n\ndef days_to_repayment_date(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure 'payment_table' exists in aux_dataframes\n    if 'payment_table.csv' not in aux_dataframes:\n        raise KeyError(\"'payment_table.csv' is missing from aux_dataframes\")\n    \n    payment_table = aux_dataframes['payment_table.csv']\n    \n    # Ensure the required columns exist in the payment_table\n    required_columns = {'loan_id', 'payment_date'}\n    if not required_columns.issubset(payment_table.columns):\n        raise KeyError(f\"Missing required columns in 'payment_table.csv': {required_columns - set(payment_table.columns)}\")\n    \n    # Ensure the required columns exist in the row\n    if 'scheduled_repayment_date' not in row or 'loan_id' not in row:\n        raise KeyError(\"The row is missing required columns: 'scheduled_repayment_date' or 'loan_id'\")\n    \n    # Filter payment_table for the current loan_id\n    repayment = payment_table[payment_table['loan_id'] == row['loan_id']]\n    \n    if len(repayment):\n        # Convert dates to datetime\n        scheduled_repayment_date = pd.to_datetime(row['scheduled_repayment_date'])\n        payment_date = pd.to_datetime(repayment.iloc[0]['payment_date'])\n        \n        # Calculate the difference in days\n        return (scheduled_repayment_date - payment_date).days\n    \n    # Return None if no matching repayment is found\n    return None\n"
+        },
+        "0.06179129430675223": {
+            "name": "early_payment_indicator",
+            "code": "import pandas as pd\n\ndef early_payment_indicator(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure 'payment_table' exists in aux_data\n    if 'payment_table.csv' not in aux_data:\n        raise KeyError(\"'payment_table.csv' is missing from aux_data\")\n    \n    # Get the payment_table dataframe\n    payment_table = aux_data['payment_table.csv']\n    \n    # Filter the payment_table for the specific loan_id\n    repayment = payment_table[payment_table['loan_id'] == row['loan_id']]\n    \n    # Check if there are any matching rows\n    if not repayment.empty:\n        # Convert dates to datetime for comparison\n        scheduled_repayment_date = pd.to_datetime(row['scheduled_repayment_date'])\n        payment_date = pd.to_datetime(repayment.iloc[0]['payment_date'])\n        \n        # Return 1 if payment_date is earlier than scheduled_repayment_date, else 0\n        return int(payment_date < scheduled_repayment_date)\n    \n    # Return None if no matching loan_id is found\n    return None\n"
+        },
+        "0.05888861797753173": {
+            "name": "loan_to_collateral_ratio",
+            "code": "\n\ndef loan_to_collateral_ratio(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Ensure 'loan_table.csv' exists in aux_data\n    if 'loan_table.csv' not in aux_data:\n        raise KeyError(\"'loan_table.csv' is missing from aux_data\")\n    \n    # Access the loan_table dataframe\n    loan_table = aux_data['loan_table.csv']\n    \n    # Ensure the required columns exist in the loan_table\n    required_columns = {'loan_id', 'loan_amount', 'collateral_value'}\n    if not required_columns.issubset(loan_table.columns):\n        raise KeyError(f\"Missing required columns in loan_table: {required_columns - set(loan_table.columns)}\")\n    \n    # Filter the loan_table for the specific loan_id\n    loan = loan_table[loan_table['loan_id'] == row['loan_id']]\n    \n    # If the loan exists, calculate the loan-to-collateral ratio\n    if not loan.empty:\n        loan_amount = loan.iloc[0]['loan_amount']\n        collateral_value = loan.iloc[0]['collateral_value']\n        return loan_amount / collateral_value if collateral_value > 0 else None\n    \n    # Return None if the loan_id is not found\n    return None\n"
+        },
+        "0.05321489502263307": {
+            "name": "customer_age",
+            "code": "import pandas as pd\n\ndef customer_age(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the customer_table and loan_table from aux_dataframes\n    customer_table = aux_dataframes.get('customer_table.csv')\n    loan_table = aux_dataframes.get('loan_table.csv')\n    \n    # Ensure both dataframes are available\n    if customer_table is None or loan_table is None:\n        raise KeyError(\"Required dataframes ('customer_table.csv' or 'loan_table.csv') are missing from aux_dataframes.\")\n    \n    # Retrieve the customer_id using the loan_id from the loan_table\n    loan_row = loan_table[loan_table['loan_id'] == row['loan_id']]\n    if loan_row.empty:\n        return None  # If no matching loan_id is found, return None\n    \n    customer_id = loan_row.iloc[0]['customer_id']\n    \n    # Retrieve the customer information using the customer_id\n    customer = customer_table[customer_table['customer_id'] == customer_id]\n    if customer.empty:\n        return None  # If no matching customer_id is found, return None\n    \n    # Calculate the age of the customer at the time of the payment\n    dob = pd.to_datetime(customer.iloc[0]['date_of_birth'])\n    payment_date = pd.to_datetime(row['repayment_date'])\n    age = (payment_date - dob).days // 365\n    \n    return age\n"
+        },
+        "0.04375697121228314": {
+            "name": "customer_annual_income",
+            "code": "\n\ndef customer_annual_income(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if required auxiliary dataframes exist\n    if 'customer_table.csv' not in aux_dataframes:\n        raise KeyError(\"'customer_table.csv' is missing from aux_dataframes\")\n    if 'loan_table.csv' not in aux_dataframes:\n        raise KeyError(\"'loan_table.csv' is missing from aux_dataframes\")\n    \n    # Retrieve the dataframes\n    customer_table = aux_dataframes['customer_table.csv']\n    loan_table = aux_dataframes['loan_table.csv']\n    \n    # Ensure the required columns exist in the dataframes\n    required_customer_columns = {'customer_id', 'annual_income'}\n    if not required_customer_columns.issubset(customer_table.columns):\n        raise KeyError(f\"customer_table is missing required columns: {required_customer_columns - set(customer_table.columns)}\")\n    \n    required_loan_columns = {'loan_id', 'customer_id'}\n    if not required_loan_columns.issubset(loan_table.columns):\n        raise KeyError(f\"loan_table is missing required columns: {required_loan_columns - set(loan_table.columns)}\")\n    \n    # Retrieve the customer_id using the loan_id from the row\n    loan = loan_table[loan_table['loan_id'] == row['loan_id']]\n    if loan.empty:\n        return None  # If the loan_id is not found, return None\n    \n    customer_id = loan.iloc[0]['customer_id']\n    \n    # Find the customer row in the customer_table\n    customer = customer_table[customer_table['customer_id'] == customer_id]\n    \n    # Return the annual income if the customer exists, otherwise return None\n    return customer.iloc[0]['annual_income'] if not customer.empty else None\n"
+        },
+        "0.032682081970384615": {
+            "name": "average_loan_interest_rate",
+            "code": "import pandas as pd\n\ndef average_loan_interest_rate(row, aux_data: Dict[str, pd.DataFrame]):\n    import pandas as pd\n    \n    # Check if 'loan_table.csv' exists in aux_data\n    if 'loan_table.csv' not in aux_data:\n        raise KeyError(\"'loan_table.csv' is missing from aux_data\")\n    \n    # Retrieve the loan_table dataframe\n    loan_table = aux_data['loan_table.csv']\n    \n    # Ensure the required columns exist in the loan_table\n    required_columns = {'customer_id', 'interest_rate', 'loan_id'}\n    if not required_columns.issubset(loan_table.columns):\n        raise KeyError(f\"Missing required columns in loan_table: {required_columns - set(loan_table.columns)}\")\n    \n    # Ensure the row contains the 'loan_id' column\n    if 'loan_id' not in row:\n        raise KeyError(\"'loan_id' is missing from the input row\")\n    \n    # Get the loan_id from the input row\n    loan_id = row['loan_id']\n    \n    # Find the customer_id corresponding to the loan_id\n    loan_entry = loan_table[loan_table['loan_id'] == loan_id]\n    if loan_entry.empty:\n        # If no matching loan_id is found, return None\n        return None\n    \n    customer_id = loan_entry.iloc[0]['customer_id']\n    \n    # Filter loans for the given customer_id\n    customer_loans = loan_table[loan_table['customer_id'] == customer_id]\n    \n    # Calculate and return the average interest rate if loans exist\n    if not customer_loans.empty:\n        return customer_loans['interest_rate'].mean()\n    \n    # Return None if no loans are found\n    return None\n"
+        },
+        "0.0294549528123077": {
+            "name": "average_payment_amount",
+            "code": "\n\ndef average_payment_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure we are using the correct dataframe from aux_data\n    payment_table = aux_data['payment_table.csv']\n    \n    # Filter payments for the given loan_id\n    payments = payment_table[payment_table['loan_id'] == row['loan_id']]\n    \n    # Return the mean of the 'payment_amount' column\n    return payments['payment_amount'].mean()\n"
+        },
+        "0.02898586084552766": {
+            "name": "median_payment_amount",
+            "code": "\n\ndef median_payment_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the payment_table dataframe from aux_data\n    payment_table = aux_data['payment_table.csv']\n    \n    # Filter the payment_table for the specific loan_id\n    payments = payment_table[payment_table['loan_id'] == row['loan_id']]\n    \n    # Return the median of the 'payment_amount' column\n    return payments['payment_amount'].median() if not payments.empty else None\n"
+        },
+        "0.02839953422444616": {
+            "name": "total_interest_paid",
+            "code": "\n\ndef total_interest_paid(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure 'loan_table' exists in aux_dataframes\n    if 'loan_table.csv' not in aux_dataframes:\n        raise KeyError(\"'loan_table.csv' not found in aux_dataframes\")\n    \n    # Access the loan_table dataframe\n    loan_table = aux_dataframes['loan_table.csv']\n    \n    # Ensure the required columns exist in the loan_table\n    required_columns = {'loan_id', 'loan_amount', 'interest_rate', 'loan_term_months'}\n    if not required_columns.issubset(loan_table.columns):\n        raise KeyError(f\"Missing required columns in loan_table: {required_columns - set(loan_table.columns)}\")\n    \n    # Filter the loan_table for the specific loan_id\n    loan = loan_table[loan_table['loan_id'] == row['loan_id']]\n    \n    # If the loan exists, calculate the total interest paid\n    if not loan.empty:\n        loan_amount = loan.iloc[0]['loan_amount']\n        interest_rate = loan.iloc[0]['interest_rate']\n        term_years = loan.iloc[0]['loan_term_months'] / 12\n        return loan_amount * (interest_rate / 100) * term_years\n    \n    # If the loan_id is not found, return None\n    return None\n"
+        },
+        "0.009807408776250595": {
+            "name": "total_amount_paid",
+            "code": "\n\ndef total_amount_paid(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the payment_table.csv dataframe from aux_data\n    payment_table = aux_data['payment_table.csv']\n    \n    # Filter the payment_table for rows matching the loan_id in the current row\n    payments = payment_table[payment_table['loan_id'] == row['loan_id']]\n    \n    # Return the sum of the 'payment_amount' column\n    return payments['payment_amount'].sum()\n"
+        },
+        "0.007145415771604352": {
+            "name": "payment_success_ratio",
+            "code": "\n\ndef payment_success_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the payment_table dataframe from aux_data\n    payment_table = aux_data['payment_table.csv']\n    \n    # Filter payments for the given loan_id\n    payments = payment_table[payment_table['loan_id'] == row['loan_id']]\n    \n    # Filter successful payments\n    successful = payments[payments['payment_status'] == 'Successful']\n    \n    # Calculate and return the success ratio\n    return len(successful) / len(payments) if len(payments) > 0 else None\n"
+        },
+        "0.006007726463754803": {
+            "name": "last_payment_date",
+            "code": "import pandas as pd\n\ndef last_payment_date(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> pd.Timestamp:\n    # Extract the payment dataframe from aux_data\n    payment_df = aux_data['payment_table.csv']\n    \n    # Filter payments for the specific loan_id\n    payments = payment_df[payment_df['loan_id'] == row['loan_id']]\n    \n    # Check if there are any payments and return the latest payment date\n    if not payments.empty:\n        return max(pd.to_datetime(payments['payment_date']))\n    \n    # Return None if no payments are found\n    return None\n"
+        },
+        "0.0016653489328144477": {
+            "name": "most_frequent_payment_method",
+            "code": "\n\ndef most_frequent_payment_method(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframes from aux_data\n    loan_table = aux_data['loan_table.csv']\n    payment_table = aux_data['payment_table.csv']\n    \n    # Get the customer_id using the loan_id from the current row\n    loan_row = loan_table[loan_table['loan_id'] == row['loan_id']]\n    if loan_row.empty:\n        return None  # If no matching loan_id is found, return None\n    \n    # Extract the customer_id from the loan_row\n    customer_id = loan_row.iloc[0]['customer_id']\n    \n    # Filter the payment_table for payments made by this customer\n    customer_payments = payment_table[payment_table['loan_id'].isin(\n        loan_table[loan_table['customer_id'] == customer_id]['loan_id']\n    )]\n    \n    if not customer_payments.empty:\n        # Return the most frequent payment method\n        return customer_payments['payment_method'].value_counts().idxmax()\n    \n    return None  # If no payments are found for the customer, return None\n"
+        }
+    },
+    "feature_descriptions": [
+        "total payments made",
+        "late days count",
+        "days since loan issue",
+        "remaining loan term",
+        "days to repayment date",
+        "early payment indicator",
+        "loan to collateral ratio",
+        "customer age",
+        "customer annual income",
+        "average loan interest rate",
+        "average payment amount",
+        "median payment amount",
+        "total interest paid",
+        "total amount paid",
+        "payment success ratio",
+        "last payment date",
+        "most frequent payment method"
+    ]
+}

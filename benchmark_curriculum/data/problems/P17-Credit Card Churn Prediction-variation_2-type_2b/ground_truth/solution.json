@@ -1,0 +1,18 @@
+{
+    "enriched_column_names": [
+        "change_in_monthly_payment_amounts_over_the_last_year",
+        "average_spending_per_transaction_in_the_past_year",
+        "frequency_of_customer_service_interactions_in_the_last_6_months",
+        "proportion_of_income_spent_using_credit_cards_monthly",
+        "change_in_transaction_amount_trend_over_the_last_24_months",
+        "number_of_marketing_campaigns_responded_to_in_the_last_quarter"
+    ],
+    "features_descriptions": [
+        "change in monthly payment amounts over the last year",
+        "average spending per transaction in the past year",
+        "frequency of customer service interactions in the last 6 months",
+        "proportion of income spent using credit cards monthly",
+        "change in transaction amount trend over the last 24 months",
+        "number of marketing campaigns responded to in the last quarter"
+    ]
+}

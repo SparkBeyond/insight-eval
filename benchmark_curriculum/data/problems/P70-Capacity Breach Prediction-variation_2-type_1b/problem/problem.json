@@ -1,0 +1,7 @@
+{
+    "target_column": "breach_flag",
+    "description": "Forecast breach events for energy production capacity.",
+    "name": "Capacity Breach Prediction",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Energy and utilities"
+}

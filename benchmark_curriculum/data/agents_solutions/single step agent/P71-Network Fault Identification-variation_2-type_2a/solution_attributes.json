@@ -1,0 +1,77 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "feature_days_since_last_fault",
+        "feature_time_since_first_recording",
+        "feature_device_fault_ratio",
+        "feature_maintenance_speed",
+        "feature_maintenance_density",
+        "feature_device_fault_count",
+        "feature_avg_device_health",
+        "feature_faults_last_30_days",
+        "feature_fault_seasonality",
+        "feature_event_count",
+        "feature_health_trend"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.26296813140716674": {
+            "name": "feature_days_since_last_fault",
+            "code": "import pandas as pd\n\ndef feature_days_since_last_fault(row, df_train):\n    device_id = row['device_id']\n    fault_dates = df_train[(df_train['device_id'] == device_id) & (df_train['fault_detected'] == 1)]['timestamp']\n    if fault_dates.empty:\n        return None\n    last_fault_date = pd.to_datetime(fault_dates).max()\n    days_since_fault = (pd.to_datetime(row['timestamp']) - last_fault_date).days\n    return days_since_fault\n"
+        },
+        "0.25813192375663496": {
+            "name": "feature_time_since_first_recording",
+            "code": "import pandas as pd\n\ndef feature_time_since_first_recording(row, df_train):\n    device_id = row['device_id']\n    first_record = df_train[df_train['device_id'] == device_id]['timestamp'].min()\n    return (pd.to_datetime(row['timestamp']) - pd.to_datetime(first_record)).days\n"
+        },
+        "0.1553686717059404": {
+            "name": "feature_device_fault_ratio",
+            "code": "\n\ndef feature_device_fault_ratio(row, df_train):\n    # Extract the current row's device_id and timestamp\n    device_id = row['device_id']\n    current_timestamp = row['timestamp']\n    \n    # Filter the training data to include only rows with the same device_id\n    # and timestamps earlier than the current row's timestamp\n    device_data = df_train[(df_train['device_id'] == device_id) & \n                           (df_train['timestamp'] < current_timestamp)]\n    \n    # If no valid data is available, return 0\n    if device_data.shape[0] == 0:\n        return 0\n    \n    # Calculate the fault ratio for the filtered data\n    fault_ratio = device_data['fault_detected'].mean()\n    return fault_ratio\n"
+        },
+        "0.11662440581769011": {
+            "name": "feature_maintenance_speed",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef feature_maintenance_speed(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'maintenance_records_table' exists in aux_dataframes\n    if 'maintenance_records_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'maintenance_records_table.csv' is missing from aux_dataframes.\")\n    \n    # Load the maintenance records table\n    maintenance_df = aux_dataframes['maintenance_records_table.csv']\n    \n    # Extract the device_id and timestamp from the current row\n    device_id = row['device_id']\n    current_timestamp = pd.to_datetime(row['timestamp'], errors='coerce')\n    \n    # Ensure the current timestamp is valid\n    if pd.isna(current_timestamp):\n        return None\n    \n    # Filter fault times for the current device_id where the timestamp is strictly in the past\n    fault_times = df_train[\n        (df_train['device_id'] == device_id) & \n        (pd.to_datetime(df_train['timestamp'], errors='coerce') < current_timestamp)\n    ]['timestamp']\n    \n    # Filter maintenance times for the current device_id where the maintenance date is strictly in the past\n    maintenance_times = maintenance_df[\n        (maintenance_df['device_id'] == device_id) & \n        (pd.to_datetime(maintenance_df['maintenance_date'], errors='coerce') < current_timestamp)\n    ]['maintenance_date']\n    \n    # Ensure timestamps are in datetime format\n    fault_times = pd.to_datetime(fault_times, errors='coerce')\n    maintenance_times = pd.to_datetime(maintenance_times, errors='coerce')\n    \n    # Drop any NaT values that may have resulted from invalid datetime parsing\n    fault_times = fault_times.dropna()\n    maintenance_times = maintenance_times.dropna()\n    \n    # If either fault_times or maintenance_times is empty, return None\n    if fault_times.empty or maintenance_times.empty:\n        return None\n    \n    # Calculate the time differences between fault times and the closest maintenance times\n    diffs = []\n    for fault_time in fault_times:\n        closest = maintenance_times.sub(fault_time).abs().min()\n        diffs.append(closest.total_seconds() / (60 * 60 * 24))  # Convert seconds to days\n    \n    # Return the mean of the differences\n    return np.mean(diffs) if diffs else None\n"
+        },
+        "0.08565895376995031": {
+            "name": "feature_maintenance_density",
+            "code": "import pandas as pd\n\ndef feature_maintenance_density(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> float:\n    \"\"\"\n    Calculate the maintenance density for a given device based on its maintenance records.\n\n    Parameters:\n    - row: A row from the main dataframe (as a pandas Series) containing the 'device_id'.\n    - aux_dataframes: A dictionary of auxiliary dataframes, where the key is the filename\n      and the value is the corresponding dataframe.\n\n    Returns:\n    - The maintenance density for the device, calculated as the number of maintenance\n      records divided by the time span (in years) between the earliest and latest maintenance dates.\n    \"\"\"\n    # Check if 'maintenance_records_table.csv' exists in aux_dataframes\n    if 'maintenance_records_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'maintenance_records_table.csv' is missing from aux_dataframes.\")\n    \n    # Get the maintenance records dataframe\n    maintenance_df = aux_dataframes['maintenance_records_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'device_id', 'maintenance_date'}\n    if not required_columns.issubset(maintenance_df.columns):\n        raise ValueError(f\"The dataframe 'maintenance_records_table.csv' must contain the columns: {required_columns}\")\n    \n    # Extract the device_id from the row\n    device_id = row['device_id']\n    \n    # Filter maintenance records for the given device_id\n    maintenances = maintenance_df[maintenance_df['device_id'] == device_id]\n    \n    # If no maintenance records exist for the device, return 0\n    if maintenances.empty:\n        return 0.0\n    \n    # Convert 'maintenance_date' to datetime if it is not already\n    if not pd.api.types.is_datetime64_any_dtype(maintenances['maintenance_date']):\n        maintenances['maintenance_date'] = pd.to_datetime(maintenances['maintenance_date'])\n    \n    # Calculate the time difference in years between the earliest and latest maintenance dates\n    maintenance_dates = maintenances['maintenance_date']\n    year_diff = (maintenance_dates.max() - maintenance_dates.min()).days / 365.0\n    \n    # Calculate and return the maintenance density\n    return maintenances.shape[0] / max(year_diff, 0.1)  # Prevent division by zero\n"
+        },
+        "0.08091924900123962": {
+            "name": "feature_device_fault_count",
+            "code": "\n\ndef feature_device_fault_count(row, df_train):\n    # Extract the current row's device_id and timestamp\n    device_id = row['device_id']\n    current_timestamp = row['timestamp']\n    \n    # Filter the dataframe to include only rows with the same device_id\n    # and timestamps strictly less than the current row's timestamp\n    past_data = df_train[\n        (df_train['device_id'] == device_id) & \n        (df_train['timestamp'] < current_timestamp)\n    ]\n    \n    # Calculate the fault count from the filtered data\n    fault_count = past_data['fault_detected'].sum()\n    \n    return fault_count\n"
+        },
+        "0.042520186477864215": {
+            "name": "feature_avg_device_health",
+            "code": "\n\ndef feature_avg_device_health(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the correct key is used to access the device health table\n    health_df = aux_dataframes['device_health_table.csv']\n    \n    # Extract the device_id from the row\n    device_id = row['device_id']\n    \n    # Check if the required column 'uptime_days' exists in the dataframe\n    if 'uptime_days' in health_df.columns:\n        # Calculate the average uptime_days for the given device_id\n        avg_health_score = health_df[health_df['device_id'] == device_id]['uptime_days'].mean()\n    else:\n        raise KeyError(\"The column 'uptime_days' is missing in the device_health_table.csv dataframe.\")\n    \n    return avg_health_score\n"
+        },
+        "0.027467909981290752": {
+            "name": "feature_faults_last_30_days",
+            "code": "import pandas as pd\n\ndef feature_faults_last_30_days(row, df_train):\n    # Extract the device_id and timestamp of the current row\n    device_id = row['device_id']\n    current_timestamp = pd.to_datetime(row['timestamp'])\n    \n    # Define the 30-day window\n    recent_date = current_timestamp - pd.Timedelta(days=30)\n    \n    # Filter the dataframe to exclude the current row and ensure no future data is used\n    filtered_df = df_train[\n        (df_train['device_id'] == device_id) &  # Same device\n        (pd.to_datetime(df_train['timestamp']) >= recent_date) &  # Within the last 30 days\n        (pd.to_datetime(df_train['timestamp']) < current_timestamp) &  # No future data\n        (df_train.index != row.name)  # Exclude the current row\n    ]\n    \n    # Count the number of faults detected in the filtered dataframe\n    return filtered_df['fault_detected'].sum()\n"
+        },
+        "0.02351254330124849": {
+            "name": "feature_fault_seasonality",
+            "code": "import pandas as pd\n\ndef feature_fault_seasonality(row):\n    month = pd.to_datetime(row['timestamp']).month\n    season = (month % 12 + 3) // 3  # 1=Winter, 2=Spring, 3=Summer, 4=Fall\n    return season\n"
+        },
+        "0.003941367965586112": {
+            "name": "feature_event_count",
+            "code": "\n\ndef feature_event_count(row, df_train):\n    device_id = row['device_id']\n    return df_train[df_train['device_id'] == device_id].shape[0]\n"
+        },
+        "0": {
+            "name": "feature_health_trend",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef feature_health_trend(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Ensure the correct key is used to access the device health table\n    health_df = aux_data['device_health_table.csv']\n    \n    # Extract the device_id from the row\n    device_id = row['device_id']\n    \n    # Filter the health dataframe for the specific device_id\n    scores = health_df[health_df['device_id'] == device_id]['health_status']\n    \n    # Convert the health_status column to numeric, coercing errors to NaN\n    scores = pd.to_numeric(scores, errors='coerce')\n    \n    # Drop any NaN values that may have resulted from the conversion\n    scores = scores.dropna()\n    \n    # Check if there are enough records to calculate a trend\n    if scores.shape[0] <= 1:\n        return 0  # No trend detected\n    \n    # Calculate the trend using the difference of consecutive health_status values\n    return int(np.sign(scores.diff().sum()))\n"
+        }
+    },
+    "feature_descriptions": [
+        "feature days since last fault",
+        "feature time since first recording",
+        "feature device fault ratio",
+        "feature maintenance speed",
+        "feature maintenance density",
+        "feature device fault count",
+        "feature avg device health",
+        "feature faults last 30 days",
+        "feature fault seasonality",
+        "feature event count",
+        "feature health trend"
+    ]
+}

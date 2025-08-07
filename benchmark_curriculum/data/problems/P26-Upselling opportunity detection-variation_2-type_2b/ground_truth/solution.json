@@ -1,0 +1,16 @@
+{
+    "enriched_column_names": [
+        "engagement_bright_spots",
+        "influence_of_seasonal_discounts",
+        "spending_growth_rate_over_the_last_year",
+        "proximity_of_income_level_to_premium_threshold",
+        "diversity_of_purchases_last_quarter"
+    ],
+    "features_descriptions": [
+        "engagement bright spots",
+        "influence of seasonal discounts",
+        "spending growth rate over the last year",
+        "proximity of income level to premium threshold",
+        "diversity of purchases last quarter"
+    ]
+}

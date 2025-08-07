@@ -1,0 +1,14 @@
+{
+    "enriched_column_names": [
+        "socioeconomic_status_derived_risk_score",
+        "average_length_of_stay_for_prior_admissions_in_the_past_2_years",
+        "number_of_prior_hospitalizations_within_the_last_year",
+        "number_of_prescribed_medications_in_the_prior_30_days"
+    ],
+    "features_descriptions": [
+        "socioeconomic status derived risk score",
+        "average length of stay for prior admissions in the past 2 years",
+        "number of prior hospitalizations within the last year",
+        "number of prescribed medications in the prior 30 days"
+    ]
+}

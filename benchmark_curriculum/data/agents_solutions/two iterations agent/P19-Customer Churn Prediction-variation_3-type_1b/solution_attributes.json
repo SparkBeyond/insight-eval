@@ -1,0 +1,95 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "recent_transaction_amount",
+        "support_interactions_count",
+        "loyalty_points",
+        "num_transactions",
+        "account_status_type",
+        "total_transaction_amount",
+        "loyalty_membership_tier",
+        "median_response_time",
+        "avg_transaction_amount",
+        "gender_encoding",
+        "age_bucket",
+        "support_resolution_rate",
+        "account_age",
+        "time_since_loyalty_enrollment"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.062181899189150056": {
+            "name": "recent_transaction_amount",
+            "code": "\n\ndef recent_transaction_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    transactions = aux_dataframes['transaction_history_table.csv']\n    customer_transactions = transactions[transactions['customer_id'] == row['customer_id']]\n    if not customer_transactions.empty:\n        return customer_transactions.sort_values('transaction_date', ascending=False).iloc[0]['transaction_amount']\n    return 0\n"
+        },
+        "0.03960665680737692": {
+            "name": "support_interactions_count",
+            "code": "\n\ndef support_interactions_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_data = aux_dataframes['customer_support_interactions_table.csv']\n    return support_data[support_data['customer_id'] == row['customer_id']].shape[0]\n"
+        },
+        "0.03322078909723301": {
+            "name": "loyalty_points",
+            "code": "\n\ndef loyalty_points(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    loyalty_data = aux_dataframes['loyalty_program_table.csv']\n    customer_loyalty = loyalty_data[loyalty_data['customer_id'] == row['customer_id']]\n    return customer_loyalty['points_earned'].sum()\n"
+        },
+        "0.029397596925185492": {
+            "name": "num_transactions",
+            "code": "\n\ndef num_transactions(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    transactions = aux_dataframes['transaction_history_table.csv']\n    return transactions[transactions['customer_id'] == row['customer_id']].shape[0]\n"
+        },
+        "0.021182990443767313": {
+            "name": "account_status_type",
+            "code": "\n\ndef account_status_type(row):\n    status_dict = {\"Active\": 1, \"Inactive\": 2, \"Suspended\": 3}\n    return status_dict.get(row['account_status'], 0)\n"
+        },
+        "0.01711299732350416": {
+            "name": "total_transaction_amount",
+            "code": "\n\ndef total_transaction_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    transactions = aux_dataframes['transaction_history_table.csv']\n    return transactions[transactions['customer_id'] == row['customer_id']]['transaction_amount'].sum()\n"
+        },
+        "0.009865533189621453": {
+            "name": "loyalty_membership_tier",
+            "code": "\n\ndef loyalty_membership_tier(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    loyalty_data = aux_dataframes['loyalty_program_table.csv']\n    customer_loyalty = loyalty_data[loyalty_data['customer_id'] == row['customer_id']]\n    tier_dict = {\"Silver\": 1, \"Gold\": 2, \"Platinum\": 3}\n    if not customer_loyalty.empty:\n        return tier_dict.get(customer_loyalty.iloc[0]['membership_tier'], 0)\n    return 0\n"
+        },
+        "0.007795766240380172": {
+            "name": "median_response_time",
+            "code": "\n\ndef median_response_time(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_data = aux_dataframes['customer_support_interactions_table.csv']\n    customer_supports = support_data[support_data['customer_id'] == row['customer_id']]\n    if not customer_supports.empty:\n        return customer_supports['response_time'].median()\n    return 0\n"
+        },
+        "0.0051319565704766815": {
+            "name": "avg_transaction_amount",
+            "code": "\n\ndef avg_transaction_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    transactions = aux_dataframes['transaction_history_table.csv']\n    customer_transactions = transactions[transactions['customer_id'] == row['customer_id']]\n    return customer_transactions['transaction_amount'].mean()\n"
+        },
+        "0.003364610352818544": {
+            "name": "gender_encoding",
+            "code": "\n\ndef gender_encoding(row):\n    return 1 if row['gender'].lower() == 'male' else 0\n"
+        },
+        "-0.0016859749024118464": {
+            "name": "age_bucket",
+            "code": "\n\ndef age_bucket(row):\n    if row['age'] < 25:\n        return '18-24'\n    elif row['age'] < 35:\n        return '25-34'\n    elif row['age'] < 45:\n        return '35-44'\n    elif row['age'] < 55:\n        return '45-54'\n    else:\n        return '55+'\n"
+        },
+        "0.001161857620317273": {
+            "name": "support_resolution_rate",
+            "code": "\n\ndef support_resolution_rate(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_data = aux_dataframes['customer_support_interactions_table.csv']\n    customer_supports = support_data[support_data['customer_id'] == row['customer_id']]\n    if customer_supports.shape[0] > 0:\n        return customer_supports[customer_supports['resolution_status'] == 'Resolved'].shape[0] / customer_supports.shape[0]\n    return 0.0\n"
+        },
+        "0.0009182642624134461": {
+            "name": "account_age",
+            "code": "import datetime\n\ndef account_age(row):\n    signup_date = datetime.strptime(row['signup_date'], \"%Y-%m-%d\")\n    return (datetime.now() - signup_date).days\n"
+        },
+        "0": {
+            "name": "time_since_loyalty_enrollment",
+            "code": "import pandas as pd\nimport datetime\n\ndef time_since_loyalty_enrollment(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    loyalty_data = aux_dataframes['loyalty_program_table.csv']\n    customer_loyalty = loyalty_data[loyalty_data['customer_id'] == row['customer_id']]\n    if not customer_loyalty.empty:\n        enrollment_date = pd.to_datetime(customer_loyalty.iloc[0]['enrollment_date'])\n        return (datetime.now() - enrollment_date).days\n    return float('inf')\n"
+        }
+    },
+    "feature_descriptions": [
+        "recent transaction amount",
+        "support interactions count",
+        "loyalty points",
+        "num transactions",
+        "account status type",
+        "total transaction amount",
+        "loyalty membership tier",
+        "median response time",
+        "avg transaction amount",
+        "gender encoding",
+        "age bucket",
+        "support resolution rate",
+        "account age",
+        "time since loyalty enrollment"
+    ]
+}

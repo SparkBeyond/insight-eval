@@ -1,0 +1,18 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "payment_year",
+        "payment_month",
+        "recent_energy_consumption",
+        "month_of_billing"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "payment year",
+        "payment month",
+        "recent energy consumption",
+        "month of billing"
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "enriched_column_names": [
+        "average_usage_hours_per_month_over_the_last_year",
+        "age_of_the_vehicle_in_operation",
+        "frequency_of_abnormal_wear_patterns",
+        "fuel_efficiency_trends_over_the_past_year",
+        "mean_temperature_during_operation_this_quarter",
+        "average_gap_between_successive_maintenance_tasks",
+        "number_of_maintenance_logs_in_the_last_6_months",
+        "instances_of_driver_complaints_per_vehicle",
+        "instances_of_overloading_beyond_recommended_capacity_recent_quarter",
+        "mean_precipitation_level_during_operation_days_this_year",
+        "average_daily_operating_time_in_peak_seasons",
+        "number_of_completed_preventive_maintenance_actions",
+        "number_of_severe_weather_driving_days_in_the_past_quarter",
+        "trend_in_maintenance_cost_over_past_two_years",
+        "delay_in_scheduled_maintenance_activities",
+        "frequency_of_dynamic_load_shifts_reported"
+    ],
+    "features_descriptions": [
+        "average usage hours per month over the last year",
+        "age of the vehicle in operation",
+        "frequency of abnormal wear patterns",
+        "fuel efficiency trends over the past year",
+        "mean temperature during operation this quarter",
+        "average gap between successive maintenance tasks",
+        "number of maintenance logs in the last 6 months",
+        "instances of driver complaints per vehicle",
+        "instances of overloading beyond recommended capacity recent quarter",
+        "mean precipitation level during operation days this year",
+        "average daily operating time in peak seasons",
+        "number of completed preventive maintenance actions",
+        "number of severe weather driving days in the past quarter",
+        "trend in maintenance cost over past two years",
+        "delay in scheduled maintenance activities",
+        "frequency of dynamic load shifts reported"
+    ]
+}

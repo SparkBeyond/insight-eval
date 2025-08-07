@@ -1,0 +1,32 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "num_distinct_products",
+        "discount_usage_frequency",
+        "discount_induced_purchases",
+        "days_since_last_purchase",
+        "avg_discount_per_purchase",
+        "is_premium_location",
+        "total_purchase_count",
+        "product_price",
+        "gender_flag",
+        "purchase_month",
+        "is_married"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "num distinct products",
+        "discount usage frequency",
+        "discount induced purchases",
+        "days since last purchase",
+        "avg discount per purchase",
+        "is premium location",
+        "total purchase count",
+        "product price",
+        "gender flag",
+        "purchase month",
+        "is married"
+    ]
+}

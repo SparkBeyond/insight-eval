@@ -1,0 +1,107 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "breach_likelihood_score",
+        "output_capacity_ratio",
+        "maint_cost_ratio_capacity",
+        "recent_demand_trend",
+        "facility_lifetime_days",
+        "season_mapping",
+        "day_of_week",
+        "cost_per_energy_unit",
+        "capacity_utilization_cost_efficiency",
+        "downtime_ratio",
+        "year",
+        "month",
+        "high_utilization_flag",
+        "downtime_to_maintenance",
+        "efficiency",
+        "is_peak_demand"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5453089406343733": {
+            "name": "breach_likelihood_score",
+            "code": "\n\ndef breach_likelihood_score(row, df_train: pd.DataFrame):\n    # Filter the training data to include only rows with a date earlier than the current row's date\n    past_data = df_train[df_train['date'] < row['date']]\n    \n    # Calculate the mean breach_flag for each facility_id using only past data\n    mean_breach = past_data.groupby('facility_id')['breach_flag'].mean()\n    \n    # Return the mean breach_flag for the current row's facility_id, or 0 if the facility_id is not found\n    return mean_breach.get(row['facility_id'], 0)\n"
+        },
+        "0.32312270507557334": {
+            "name": "output_capacity_ratio",
+            "code": "\n\ndef output_capacity_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Get the energy_facilities_table dataframe from aux_data\n    facilities_df = aux_data['energy_facilities_table.csv']\n    \n    # Find the capacity_mw for the given facility_id\n    facility_id = row['facility_id']\n    capacity_mw = facilities_df.loc[facilities_df['facility_id'] == facility_id, 'capacity_mw']\n    \n    # Ensure capacity_mw is found and handle cases where it might be missing\n    if capacity_mw.empty:\n        raise ValueError(f\"Facility ID {facility_id} not found in energy_facilities_table.csv\")\n    \n    # Extract the capacity_mw value (it will be a single value since facility_id is unique)\n    capacity_mw = capacity_mw.iloc[0]\n    \n    # Calculate and return the output capacity ratio\n    return row['energy_output'] / (capacity_mw + 1e-6)\n"
+        },
+        "0.2773522044895085": {
+            "name": "maint_cost_ratio_capacity",
+            "code": "\n\ndef maint_cost_ratio_capacity(row, aux_data: Dict[str, pd.DataFrame]):\n    # Get the energy facilities table from aux_data\n    facilities_df = aux_data['energy_facilities_table.csv']\n    \n    # Find the capacity_mw for the given facility_id\n    facility_id = row['facility_id']\n    capacity_mw = facilities_df.loc[facilities_df['facility_id'] == facility_id, 'capacity_mw']\n    \n    # Ensure capacity_mw is found and handle cases where it might be missing\n    if capacity_mw.empty:\n        raise ValueError(f\"Facility ID {facility_id} not found in energy_facilities_table.csv\")\n    \n    # Extract the capacity_mw value (it will be a single value)\n    capacity_mw = capacity_mw.iloc[0]\n    \n    # Calculate and return the maintenance cost ratio\n    return row['maintenance_cost'] / (capacity_mw + 1e-6)\n"
+        },
+        "0.12155241408014505": {
+            "name": "recent_demand_trend",
+            "code": "import pandas as pd\n\ndef recent_demand_trend(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe from aux_data\n    energy_demand_df = aux_data['energy_demand_table.csv']\n    \n    # Filter the dataframe for the specific facility_id\n    facility_demand = energy_demand_df[energy_demand_df['facility_id'] == row['facility_id']].sort_values('date')\n    \n    # Ensure the 'date' column is in datetime format for proper sorting\n    facility_demand['date'] = pd.to_datetime(facility_demand['date'])\n    \n    # Calculate the rolling average of demand_mwh with a window of 3\n    window_avg = facility_demand['demand_mwh'].rolling(window=3).mean()\n    \n    # Return the most recent rolling average value if there are enough rows, otherwise return None\n    return window_avg.iloc[-1] if len(window_avg) > 2 else None\n"
+        },
+        "0.0890136258184865": {
+            "name": "facility_lifetime_days",
+            "code": "import pandas as pd\n\ndef facility_lifetime_days(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the facility_id from the row\n    facility_id = row['facility_id']\n    \n    # Retrieve the energy facilities table from aux_data\n    facilities_df = aux_data['energy_facilities_table.csv']\n    \n    # Find the commission_date for the given facility_id\n    commission_date = facilities_df.loc[facilities_df['facility_id'] == facility_id, 'commission_date']\n    \n    # Ensure commission_date exists and is not empty\n    if commission_date.empty:\n        raise ValueError(f\"Commission date not found for facility_id {facility_id}\")\n    \n    # Convert commission_date to datetime (it will be a Series, so take the first value)\n    commission_date = pd.to_datetime(commission_date.iloc[0])\n    \n    # Convert the current date from the row to datetime\n    current_date = pd.to_datetime(row['date'])\n    \n    # Calculate the difference in days\n    return (current_date - commission_date).days\n"
+        },
+        "0.06343762844195192": {
+            "name": "season_mapping",
+            "code": "import pandas as pd\n\ndef season_mapping(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the date from the row\n    date = pd.to_datetime(row['date'])\n    \n    # Determine the season based on the month\n    if date.month in [3, 4, 5]:\n        return 1  # Spring\n    elif date.month in [6, 7, 8]:\n        return 2  # Summer\n    elif date.month in [9, 10, 11]:\n        return 3  # Autumn\n    elif date.month in [12, 1, 2]:\n        return 4  # Winter\n    else:\n        return 0  # Default case (shouldn't happen)\n"
+        },
+        "0.046617556155718554": {
+            "name": "day_of_week",
+            "code": "import pandas as pd\n\ndef day_of_week(row):\n    return pd.to_datetime(row['date']).weekday()\n"
+        },
+        "0.040530525423450786": {
+            "name": "cost_per_energy_unit",
+            "code": "\n\ndef cost_per_energy_unit(row):\n    return row['maintenance_cost'] / (row['energy_output'] + 1e-6)\n"
+        },
+        "0.027926227286461165": {
+            "name": "capacity_utilization_cost_efficiency",
+            "code": "\n\ndef capacity_utilization_cost_efficiency(row):\n    return row['capacity_utilization'] / (row['maintenance_cost'] + 1e-6)\n"
+        },
+        "0.023788015922739977": {
+            "name": "downtime_ratio",
+            "code": "\n\ndef downtime_ratio(row):\n    days_in_month = 30  # Approximate value for now\n    return row['downtime_hours'] / (24 * days_in_month)\n"
+        },
+        "0.02307965455862521": {
+            "name": "year",
+            "code": "import pandas as pd\n\ndef year(row):\n    return pd.to_datetime(row['date']).year\n"
+        },
+        "0.020972934575622732": {
+            "name": "month",
+            "code": "import pandas as pd\n\ndef month(row):\n    return pd.to_datetime(row['date']).month\n"
+        },
+        "0.020309059861498002": {
+            "name": "high_utilization_flag",
+            "code": "\n\ndef high_utilization_flag(row):\n    return int(row['capacity_utilization'] > 80)\n"
+        },
+        "0.014770934953592697": {
+            "name": "downtime_to_maintenance",
+            "code": "\n\ndef downtime_to_maintenance(row):\n    return row['downtime_hours'] / (row['maintenance_cost'] + 1e-6)\n"
+        },
+        "0.013674066894656304": {
+            "name": "efficiency",
+            "code": "\n\ndef efficiency(row):\n    return row['energy_output'] / (row['capacity_utilization'] + 1e-6)\n"
+        },
+        "0.012257258446136711": {
+            "name": "is_peak_demand",
+            "code": "\n\ndef is_peak_demand(row, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Extract the relevant dataframe from aux_data\n    energy_demand_df = aux_data['energy_demand_table.csv']\n    \n    # Find the matching row in the energy_demand_table based on facility_id and date\n    matching_row = energy_demand_df[\n        (energy_demand_df['facility_id'] == row['facility_id']) &\n        (energy_demand_df['date'] == row['date'])\n    ]\n    \n    # If a matching row is found, return the 'peak_demand' value as an integer\n    if not matching_row.empty:\n        return int(matching_row.iloc[0]['peak_demand'])\n    \n    # If no matching row is found, return a default value (e.g., 0)\n    return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "breach likelihood score",
+        "output capacity ratio",
+        "maint cost ratio capacity",
+        "recent demand trend",
+        "facility lifetime days",
+        "season mapping",
+        "day of week",
+        "cost per energy unit",
+        "capacity utilization cost efficiency",
+        "downtime ratio",
+        "year",
+        "month",
+        "high utilization flag",
+        "downtime to maintenance",
+        "efficiency",
+        "is peak demand"
+    ]
+}

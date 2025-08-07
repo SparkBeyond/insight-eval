@@ -1,0 +1,7 @@
+{
+    "target_column": "delay_flag",
+    "description": "Predict delayed payments by customers based on history.",
+    "name": "Delayed Payment Identification",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Telecommunications"
+}

@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "average_data_usage_in_the_last_three_months",
+        "monthly_change_in_call_minutes_usage_over_the_last_year",
+        "interactions_categorized_as_queries_about_upgrade_options_in_the_last_six_months"
+    ],
+    "features_descriptions": [
+        "average data usage in the last three months",
+        "monthly change in call minutes usage over the last year",
+        "interactions categorized as queries about upgrade options in the last six months"
+    ]
+}

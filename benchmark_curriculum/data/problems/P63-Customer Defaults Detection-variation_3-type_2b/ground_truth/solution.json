@@ -1,0 +1,14 @@
+{
+    "enriched_column_names": [
+        "count_of_missed_payments_within_the_last_year",
+        "ratio_of_income_to_utility_expenses_over_the_past_12_months",
+        "monthly_average_utility_usage_trend_for_the_past_6_months",
+        "total_outstanding_account_balance_as_of_last_month"
+    ],
+    "features_descriptions": [
+        "count of missed payments within the last year",
+        "ratio of income to utility expenses over the past 12 months",
+        "monthly average utility usage trend for the past 6 months",
+        "total outstanding account balance as of last month"
+    ]
+}

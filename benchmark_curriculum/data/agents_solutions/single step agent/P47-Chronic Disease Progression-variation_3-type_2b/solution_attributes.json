@@ -1,0 +1,35 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "stress_adherence_interaction",
+        "blood_pressure_difference",
+        "smoking_cholesterol_interaction",
+        "calculate_bmi"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.03621889656419286": {
+            "name": "stress_adherence_interaction",
+            "code": "\n\ndef stress_adherence_interaction(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Get the stress_level from the disease_risk_factors_table.csv\n    disease_risk_factors = aux_data['disease_risk_factors_table.csv']\n    stress_level = disease_risk_factors.loc[disease_risk_factors['patient_id'] == patient_id, 'stress_level']\n    \n    # Get the adherence_rate from the medication_adherence_table.csv\n    medication_adherence = aux_data['medication_adherence_table.csv']\n    adherence_rate = medication_adherence.loc[medication_adherence['patient_id'] == patient_id, 'adherence_rate']\n    \n    # Ensure we have valid values for stress_level and adherence_rate\n    if not stress_level.empty and not adherence_rate.empty:\n        # Use the first value if there are multiple rows for the same patient_id\n        return stress_level.iloc[0] * adherence_rate.iloc[0]\n    else:\n        # Return None if either value is missing\n        return None\n"
+        },
+        "0.012466795397851923": {
+            "name": "blood_pressure_difference",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef blood_pressure_difference(row):\n    if pd.notnull(row['blood_pressure']) and '/' in row['blood_pressure']:\n        systolic, diastolic = map(int, row['blood_pressure'].split('/'))\n        return systolic - diastolic\n    return np.nan\n"
+        },
+        "0.008924508252205735": {
+            "name": "smoking_cholesterol_interaction",
+            "code": "\n\ndef smoking_cholesterol_interaction(row):\n    if row['smoking_status'] == 'Current':\n        return row['cholesterol_level'] * 1.2\n    elif row['smoking_status'] == 'Former':\n        return row['cholesterol_level'] * 1.1\n    return row['cholesterol_level']\n"
+        },
+        "0.0034137323191717407": {
+            "name": "calculate_bmi",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef calculate_bmi(row):\n    if pd.notnull(row['weight']) and pd.notnull(row['height']):\n        height_m = row['height'] / 100\n        return row['weight'] / (height_m ** 2)\n    return np.nan\n"
+        }
+    },
+    "feature_descriptions": [
+        "stress adherence interaction",
+        "blood pressure difference",
+        "smoking cholesterol interaction",
+        "calculate bmi"
+    ]
+}

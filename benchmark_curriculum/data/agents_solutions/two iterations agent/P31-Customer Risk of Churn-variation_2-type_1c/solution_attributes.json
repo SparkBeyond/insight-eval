@@ -1,0 +1,83 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "num_complaints",
+        "normalized_satisfaction",
+        "num_campaign_engagements",
+        "avg_service_usage",
+        "avg_engagement_discount",
+        "usage_to_billing_ratio",
+        "high_usage_flag",
+        "discount_usage_ratio",
+        "avg_complaint_resolution_time",
+        "most_frequent_complaint_type",
+        "days_since_signup",
+        "complaints_per_campaign"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.15937238917007698": {
+            "name": "num_complaints",
+            "code": "\n\ndef num_complaints(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    complaints_data = aux_dataframes['customer_complaint_table.csv']\n    return complaints_data[complaints_data['customer_id'] == row['customer_id']].shape[0]\n"
+        },
+        "0.050438618687469905": {
+            "name": "normalized_satisfaction",
+            "code": "\n\ndef normalized_satisfaction(row):\n    return (row['satisfaction_rating'] - 1) / 4\n"
+        },
+        "0.049438635024827766": {
+            "name": "num_campaign_engagements",
+            "code": "\n\ndef num_campaign_engagements(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    marketing_data = aux_dataframes['marketing_engagement_table.csv']\n    return marketing_data[marketing_data['customer_id'] == row['customer_id']].shape[0]\n"
+        },
+        "0.038597550687696734": {
+            "name": "avg_service_usage",
+            "code": "\n\ndef avg_service_usage(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the service usage data\n    usage_data = aux_dataframes['service_usage_table.csv']\n    \n    # Filter the data for the specific customer\n    customer_usage = usage_data[usage_data['customer_id'] == row['customer_id']]['energy_consumed_kwh']\n    \n    # If no usage data is found for the customer, return 0\n    if len(customer_usage) == 0:\n        return 0\n    \n    # Return the mean of the energy consumed\n    return customer_usage.mean()\n"
+        },
+        "0.03489512875063868": {
+            "name": "avg_engagement_discount",
+            "code": "\n\ndef avg_engagement_discount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    marketing_data = aux_dataframes['marketing_engagement_table.csv']\n    customer_engagements = marketing_data[marketing_data['customer_id'] == row['customer_id']]\n    if customer_engagements.shape[0] == 0:\n        return 0\n    return customer_engagements['discount_offered'].mean()\n"
+        },
+        "0.031103745596308813": {
+            "name": "usage_to_billing_ratio",
+            "code": "\n\ndef usage_to_billing_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframes from the aux_dataframes dictionary\n    usage_data = aux_dataframes['service_usage_table.csv']\n    billing_data = aux_dataframes['billing_information_table.csv']\n    \n    # Calculate the total usage for the given customer\n    usage = usage_data[usage_data['customer_id'] == row['customer_id']]['energy_consumed_kwh'].sum()\n    \n    # Calculate the total billed amount for the given customer\n    billed = billing_data[billing_data['customer_id'] == row['customer_id']]['bill_amount'].sum()\n    \n    # Handle the case where billed amount is zero to avoid division by zero\n    if billed == 0:\n        return 0\n    \n    # Return the ratio of usage to billed amount\n    return usage / billed\n"
+        },
+        "0.029581863594337874": {
+            "name": "high_usage_flag",
+            "code": "\n\ndef high_usage_flag(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the service usage data\n    usage_data = aux_dataframes['service_usage_table.csv']\n    \n    # Calculate the threshold based on energy consumption\n    threshold = usage_data['energy_consumed_kwh'].mean() + usage_data['energy_consumed_kwh'].std()\n    \n    # Calculate the total energy consumption for the given customer\n    customer_usage = usage_data[usage_data['customer_id'] == row['customer_id']]['energy_consumed_kwh'].sum()\n    \n    # Return 1 if the customer's usage exceeds the threshold, otherwise 0\n    return int(customer_usage > threshold)\n"
+        },
+        "0.025506796536328282": {
+            "name": "discount_usage_ratio",
+            "code": "\n\ndef discount_usage_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    marketing_data = aux_dataframes['marketing_engagement_table.csv']\n    customer_engagements = marketing_data[marketing_data['customer_id'] == row['customer_id']]\n    if customer_engagements.shape[0] == 0:\n        return 0\n    return customer_engagements['discount_used'].sum() / (customer_engagements['discount_offered'].sum() + 1)\n"
+        },
+        "0.007597023971427665": {
+            "name": "avg_complaint_resolution_time",
+            "code": "import pandas as pd\n\ndef avg_complaint_resolution_time(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    complaints_data = aux_dataframes['customer_complaint_table.csv']\n    customer_complaints = complaints_data[complaints_data['customer_id'] == row['customer_id']]\n    if customer_complaints.shape[0] == 0:\n        return 0\n    return (pd.to_datetime(customer_complaints['resolution_date']) - pd.to_datetime(customer_complaints['complaint_date'])).dt.days.mean()\n"
+        },
+        "0.006551423337225248": {
+            "name": "most_frequent_complaint_type",
+            "code": "\n\ndef most_frequent_complaint_type(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    complaints_data = aux_dataframes['customer_complaint_table.csv']\n    customer_complaints = complaints_data[complaints_data['customer_id'] == row['customer_id']]\n    if customer_complaints.shape[0] == 0:\n        return \"none\"\n    return customer_complaints['complaint_type'].mode()[0]\n"
+        },
+        "0.003978695783055377": {
+            "name": "days_since_signup",
+            "code": "import pandas as pd\n\ndef days_since_signup(row):\n    return (pd.to_datetime(row['last_login_date']) - pd.to_datetime(row['signup_date'])).days\n"
+        },
+        "0": {
+            "name": "complaints_per_campaign",
+            "code": "\n\ndef complaints_per_campaign(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    num_complaints_count = num_complaints(row, aux_dataframes)\n    num_campaigns = num_campaign_engagements(row, aux_dataframes)\n    if num_campaigns == 0:\n        return 0\n    return num_complaints_count / num_campaigns\n\ndef num_complaints(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    complaints_data = aux_dataframes['customer_complaint_table.csv']\n    return complaints_data[complaints_data['customer_id'] == row['customer_id']].shape[0]\n\ndef num_campaign_engagements(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    marketing_data = aux_dataframes['marketing_engagement_table.csv']\n    return marketing_data[marketing_data['customer_id'] == row['customer_id']].shape[0]\n"
+        }
+    },
+    "feature_descriptions": [
+        "num complaints",
+        "normalized satisfaction",
+        "num campaign engagements",
+        "avg service usage",
+        "avg engagement discount",
+        "usage to billing ratio",
+        "high usage flag",
+        "discount usage ratio",
+        "avg complaint resolution time",
+        "most frequent complaint type",
+        "days since signup",
+        "complaints per campaign"
+    ]
+}

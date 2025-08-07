@@ -1,0 +1,22 @@
+{
+    "enriched_column_names": [
+        "percentage_of_monthly_income_paid_towards_similar_loans",
+        "income_growth_trend_over_the_last_five_years",
+        "average_monthly_income_to_loan_amount_ratio",
+        "previous_loan_approval_rate",
+        "employment_stability_indicator",
+        "number_of_dependents",
+        "frequency_of_residence_changes_in_the_last_decade",
+        "length_of_credit_history"
+    ],
+    "features_descriptions": [
+        "percentage of monthly income paid towards similar loans",
+        "income growth trend over the last five years",
+        "average monthly income to loan amount ratio",
+        "previous loan approval rate",
+        "employment stability indicator",
+        "number of dependents",
+        "frequency of residence changes in the last decade",
+        "length of credit history"
+    ]
+}

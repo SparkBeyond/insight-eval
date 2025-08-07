@@ -1,0 +1,30 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "latest_feedback_score",
+        "is_employed",
+        "avg_satisfaction_score_repeated_colname1",
+        "subscription_duration",
+        "days_until_upgrade",
+        "subscription_duration_now",
+        "feedback_count_per_customer",
+        "total_payments",
+        "subscription_duration_total",
+        "package_upgrade_indicator"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "latest feedback score",
+        "is employed",
+        "avg satisfaction score repeated colname1",
+        "subscription duration",
+        "days until upgrade",
+        "subscription duration now",
+        "feedback count per customer",
+        "total payments",
+        "subscription duration total",
+        "package upgrade indicator"
+    ]
+}

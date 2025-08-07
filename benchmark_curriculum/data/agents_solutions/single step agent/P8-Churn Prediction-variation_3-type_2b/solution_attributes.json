@@ -1,0 +1,125 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "feedback_count",
+        "average_feedback_rating",
+        "total_transactions",
+        "total_transaction_value",
+        "proportion_resolved_issues_feedback",
+        "number_of_clicks",
+        "total_marketing_interactions",
+        "recency_of_last_transaction",
+        "most_recent_transaction_amount",
+        "resolution_status_rate",
+        "average_transaction_value",
+        "average_resolution_time",
+        "response_rate_to_marketing",
+        "loyalty_points",
+        "high_priority_issue_proportion",
+        "age_of_customer",
+        "most_frequent_product_purchased",
+        "most_frequent_marketing_channel",
+        "number_of_support_tickets"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.20013087391668444": {
+            "name": "feedback_count",
+            "code": "\n\ndef feedback_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    feedback_df = aux_dataframes['customer_feedback_table.csv']\n    customer_id = row['customer_id']\n    return feedback_df[feedback_df['customer_id'] == customer_id].shape[0]\n"
+        },
+        "0.15166689397993563": {
+            "name": "average_feedback_rating",
+            "code": "import numpy as np\n\ndef average_feedback_rating(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    feedback_df = aux_dataframes['customer_feedback_table.csv']\n    customer_id = row['customer_id']\n    customer_feedback = feedback_df[feedback_df['customer_id'] == customer_id]\n    if customer_feedback.empty:\n        return np.nan\n    return customer_feedback['feedback_rating'].mean()\n"
+        },
+        "0.07830645095903474": {
+            "name": "total_transactions",
+            "code": "\n\ndef total_transactions(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    transactions_df = aux_dataframes['customer_transactions_table.csv']\n    customer_id = row['customer_id']\n    return transactions_df[transactions_df['customer_id'] == customer_id].shape[0]\n"
+        },
+        "0.06762461923221062": {
+            "name": "total_transaction_value",
+            "code": "\n\ndef total_transaction_value(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    transactions_df = aux_dataframes['customer_transactions_table.csv']\n    customer_id = row['customer_id']\n    customer_transactions = transactions_df[transactions_df['customer_id'] == customer_id]\n    return customer_transactions['transaction_amount'].sum()\n"
+        },
+        "0.06552083630033831": {
+            "name": "proportion_resolved_issues_feedback",
+            "code": "\n\ndef proportion_resolved_issues_feedback(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    feedback_df = aux_dataframes['customer_feedback_table.csv']\n    customer_id = row['customer_id']\n    customer_feedback = feedback_df[feedback_df['customer_id'] == customer_id]\n    if customer_feedback.empty:\n        return 0\n    resolved_feedback = customer_feedback[customer_feedback['resolved'] == True]\n    return len(resolved_feedback) / len(customer_feedback)\n"
+        },
+        "0.04804149172815628": {
+            "name": "number_of_clicks",
+            "code": "\n\ndef number_of_clicks(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    marketing_df = aux_dataframes['marketing_interactions_table.csv']\n    customer_id = row['customer_id']\n    customer_interactions = marketing_df[marketing_df['customer_id'] == customer_id]\n    return customer_interactions['clicks'].sum()\n"
+        },
+        "0.0384677715362664": {
+            "name": "total_marketing_interactions",
+            "code": "\n\ndef total_marketing_interactions(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    marketing_df = aux_dataframes['marketing_interactions_table.csv']\n    customer_id = row['customer_id']\n    return marketing_df[marketing_df['customer_id'] == customer_id].shape[0]\n"
+        },
+        "0.03551233342777889": {
+            "name": "recency_of_last_transaction",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef recency_of_last_transaction(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the transactions dataframe from the auxiliary data\n    transactions_df = aux_dataframes['customer_transactions_table.csv']\n    \n    # Extract the customer_id from the current row\n    customer_id = row['customer_id']\n    \n    # Filter transactions for the current customer\n    customer_transactions = transactions_df[transactions_df['customer_id'] == customer_id]\n    \n    # If no transactions exist for the customer, return NaN\n    if customer_transactions.empty:\n        return np.nan\n    \n    # Ensure the transaction_date column is in datetime format\n    customer_transactions['transaction_date'] = pd.to_datetime(customer_transactions['transaction_date'])\n    \n    # Find the most recent transaction date\n    most_recent_transaction_date = customer_transactions['transaction_date'].max()\n    \n    # Use the signup_date from the current row as the reference date\n    current_date = pd.to_datetime(row['signup_date'])\n    \n    # Calculate the recency in days\n    return (current_date - most_recent_transaction_date).days\n"
+        },
+        "0.024271604882755482": {
+            "name": "most_recent_transaction_amount",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef most_recent_transaction_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    transactions_df = aux_dataframes['customer_transactions_table.csv']\n    customer_id = row['customer_id']\n    customer_transactions = transactions_df[transactions_df['customer_id'] == customer_id]\n    if customer_transactions.empty:\n        return np.nan\n    customer_transactions['transaction_date'] = pd.to_datetime(customer_transactions['transaction_date'])\n    most_recent_transaction = customer_transactions.sort_values(by='transaction_date', ascending=False).iloc[0]\n    return most_recent_transaction['transaction_amount']\n"
+        },
+        "0.01927728113273721": {
+            "name": "resolution_status_rate",
+            "code": "\n\ndef resolution_status_rate(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculate the resolution status rate for a customer's support tickets.\n    - Proportion of 'Resolved' tickets to the total tickets raised.\n\n    aux_dataframes['customer_support_table.csv'] is used.\n    \n    Args:\n        row: One row of the main dataset.\n        aux_dataframes: Dictionary of auxiliary datasets.\n        \n    Returns:\n        float: Resolution rate (range 0 to 1).\n    \"\"\"\n    support_df = aux_dataframes['customer_support_table.csv']\n    customer_id = row['customer_id']\n    customer_tickets = support_df[support_df['customer_id'] == customer_id]\n    if customer_tickets.shape[0] == 0:\n        return 0  # Avoid division by zero if no tickets exist\n    resolved_tickets = customer_tickets[customer_tickets['issue_status'] == 'Resolved']\n    return len(resolved_tickets) / len(customer_tickets)\n"
+        },
+        "0.01809198086368469": {
+            "name": "average_transaction_value",
+            "code": "\n\ndef average_transaction_value(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    transactions_df = aux_dataframes['customer_transactions_table.csv']\n    customer_id = row['customer_id']\n    customer_transactions = transactions_df[transactions_df['customer_id'] == customer_id]\n    if customer_transactions.empty:\n        return 0  # Avoid division by zero\n    return customer_transactions['transaction_amount'].mean()\n"
+        },
+        "0.015606089112415109": {
+            "name": "average_resolution_time",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef average_resolution_time(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_df = aux_dataframes['customer_support_table.csv']\n    customer_id = row['customer_id']\n    customer_tickets = support_df[support_df['customer_id'] == customer_id].dropna(subset=['resolution_date'])\n    if customer_tickets.shape[0] == 0:\n        return np.nan  # No resolved tickets\n    customer_tickets['issue_date'] = pd.to_datetime(customer_tickets['issue_date'])\n    customer_tickets['resolution_date'] = pd.to_datetime(customer_tickets['resolution_date'])\n    resolution_times = (customer_tickets['resolution_date'] - customer_tickets['issue_date']).dt.days\n    return resolution_times.mean()\n"
+        },
+        "0.013631784849315218": {
+            "name": "response_rate_to_marketing",
+            "code": "\n\ndef response_rate_to_marketing(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    marketing_df = aux_dataframes['marketing_interactions_table.csv']\n    customer_id = row['customer_id']\n    customer_interactions = marketing_df[marketing_df['customer_id'] == customer_id]\n    if customer_interactions.empty:\n        return 0\n    return customer_interactions['response'].mean()\n"
+        },
+        "0.011981493284879383": {
+            "name": "loyalty_points",
+            "code": "\n\ndef loyalty_points(row):\n    return row['loyalty_points']\n"
+        },
+        "0.008835476762420419": {
+            "name": "high_priority_issue_proportion",
+            "code": "\n\ndef high_priority_issue_proportion(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_df = aux_dataframes['customer_support_table.csv']\n    customer_id = row['customer_id']\n    customer_tickets = support_df[support_df['customer_id'] == customer_id]\n    if customer_tickets.shape[0] == 0:\n        return 0  # Avoid division by zero\n    high_priority_tickets = customer_tickets[customer_tickets['issue_priority'] == 'High']\n    return len(high_priority_tickets) / len(customer_tickets)\n"
+        },
+        "0.005154250335988283": {
+            "name": "age_of_customer",
+            "code": "import pandas as pd\n\ndef age_of_customer(row, aux_data: Dict[str, pd.DataFrame]):\n    date_of_birth = pd.to_datetime(row['date_of_birth'])\n    current_date = pd.to_datetime(row['signup_date'])  # Use the signup_date from the current row\n    age = (current_date - date_of_birth).days // 365\n    return age\n"
+        },
+        "0.0034338238056064174": {
+            "name": "most_frequent_product_purchased",
+            "code": "\n\ndef most_frequent_product_purchased(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    transactions_df = aux_dataframes['customer_transactions_table.csv']\n    customer_id = row['customer_id']\n    customer_transactions = transactions_df[transactions_df['customer_id'] == customer_id]\n    if customer_transactions.empty:\n        return None\n    return customer_transactions['product_category'].mode().iloc[0]  # Return most frequent category\n"
+        },
+        "0.0019407133891463646": {
+            "name": "most_frequent_marketing_channel",
+            "code": "\n\ndef most_frequent_marketing_channel(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    marketing_df = aux_dataframes['marketing_interactions_table.csv']\n    customer_id = row['customer_id']\n    customer_interactions = marketing_df[marketing_df['customer_id'] == customer_id]\n    if customer_interactions.empty:\n        return None\n    return customer_interactions['interaction_channel'].mode().iloc[0]\n"
+        },
+        "0.0009157821744201897": {
+            "name": "number_of_support_tickets",
+            "code": "\n\ndef number_of_support_tickets(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_df = aux_dataframes['customer_support_table.csv']\n    customer_id = row['customer_id']\n    return support_df[support_df['customer_id'] == customer_id].shape[0]\n"
+        }
+    },
+    "feature_descriptions": [
+        "feedback count",
+        "average feedback rating",
+        "total transactions",
+        "total transaction value",
+        "proportion resolved issues feedback",
+        "number of clicks",
+        "total marketing interactions",
+        "recency of last transaction",
+        "most recent transaction amount",
+        "resolution status rate",
+        "average transaction value",
+        "average resolution time",
+        "response rate to marketing",
+        "loyalty points",
+        "high priority issue proportion",
+        "age of customer",
+        "most frequent product purchased",
+        "most frequent marketing channel",
+        "number of support tickets"
+    ]
+}

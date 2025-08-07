@@ -1,0 +1,89 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "physical_activity_level",
+        "diet_categorized",
+        "smoking_status_numeric",
+        "family_history_count",
+        "recent_diagnosis_days_ago",
+        "family_history_severity_avg",
+        "num_past_diagnoses",
+        "latest_lab_abnormality",
+        "abnormal_lab_count",
+        "alcohol_consumption_level",
+        "mean_test_result",
+        "gender_binary",
+        "age"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.3693606974074026": {
+            "name": "physical_activity_level",
+            "code": "import numpy as np\n\ndef physical_activity_level(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    lifestyle = aux_dataframes['lifestyle_information_table.csv']\n    patient_lifestyle = lifestyle[lifestyle['patient_id'] == row['patient_id']]\n    if patient_lifestyle.empty:\n        return np.nan\n    return patient_lifestyle.iloc[0]['physical_activity_level']\n"
+        },
+        "0.1783107897823315": {
+            "name": "diet_categorized",
+            "code": "\n\ndef diet_categorized(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    lifestyle = aux_dataframes['lifestyle_information_table.csv']\n    patient_lifestyle = lifestyle[lifestyle['patient_id'] == row['patient_id']]\n    if patient_lifestyle.empty:\n        return 'Unknown'\n    return patient_lifestyle.iloc[0]['dietary_habits']\n"
+        },
+        "0.12798640751687435": {
+            "name": "smoking_status_numeric",
+            "code": "\n\ndef smoking_status_numeric(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    lifestyle = aux_dataframes['lifestyle_information_table.csv']\n    patient_lifestyle = lifestyle[lifestyle['patient_id'] == row['patient_id']]\n    if patient_lifestyle.empty:\n        return -1\n    smoking_mapping = {'Never': 0, 'Former': 1, 'Current': 2}\n    return smoking_mapping.get(patient_lifestyle.iloc[0]['smoking_status'], -1)\n"
+        },
+        "0.11242469391217369": {
+            "name": "family_history_count",
+            "code": "\n\ndef family_history_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    family_history = aux_dataframes['family_history_details_table.csv']\n    return family_history[family_history['patient_id'] == row['patient_id']].shape[0]\n"
+        },
+        "0.11014286676245583": {
+            "name": "recent_diagnosis_days_ago",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef recent_diagnosis_days_ago(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    diagnoses = aux_dataframes['previous_diagnoses_table.csv']\n    patient_diagnoses = diagnoses[diagnoses['patient_id'] == row['patient_id']]\n    if patient_diagnoses.empty:\n        return np.nan\n    most_recent = pd.to_datetime(patient_diagnoses['diagnosis_date']).max()\n    return (pd.to_datetime('today') - most_recent).days\n"
+        },
+        "0.09823890161570577": {
+            "name": "family_history_severity_avg",
+            "code": "\n\ndef family_history_severity_avg(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    family_history = aux_dataframes['family_history_details_table.csv']\n    severity_mapping = {'Mild': 1, 'Moderate': 2, 'Severe': 3}\n    patient_family = family_history[family_history['patient_id'] == row['patient_id']]\n    if patient_family.empty:\n        return 0\n    severities = patient_family['severity'].map(severity_mapping)\n    return severities.mean()\n"
+        },
+        "0.07882161357783793": {
+            "name": "num_past_diagnoses",
+            "code": "\n\ndef num_past_diagnoses(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    diagnoses = aux_dataframes['previous_diagnoses_table.csv']\n    return diagnoses[diagnoses['patient_id'] == row['patient_id']].shape[0]\n"
+        },
+        "0.0688328792328379": {
+            "name": "latest_lab_abnormality",
+            "code": "\n\ndef latest_lab_abnormality(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    lab_results = aux_dataframes['lab_results_table.csv']\n    patient_labs = lab_results[lab_results['patient_id'] == row['patient_id']]\n    if patient_labs.empty:\n        return 0\n    patient_labs = patient_labs.sort_values(by='test_date', ascending=False)\n    return int(patient_labs.iloc[0]['abnormal_flag'])\n"
+        },
+        "0.04487625053434009": {
+            "name": "abnormal_lab_count",
+            "code": "\n\ndef abnormal_lab_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    lab_results = aux_dataframes['lab_results_table.csv']\n    patient_labs = lab_results[lab_results['patient_id'] == row['patient_id']]\n    return patient_labs[patient_labs['abnormal_flag']].shape[0]\n"
+        },
+        "0.0391547367626911": {
+            "name": "alcohol_consumption_level",
+            "code": "\n\ndef alcohol_consumption_level(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    lifestyle = aux_dataframes['lifestyle_information_table.csv']\n    patient_lifestyle = lifestyle[lifestyle['patient_id'] == row['patient_id']]\n    if patient_lifestyle.empty:\n        return -1\n    alcohol = patient_lifestyle.iloc[0]['alcohol_consumption']\n    if alcohol < 5:\n        return 'low'\n    elif alcohol < 10:\n        return 'medium'\n    else:\n        return 'high'\n"
+        },
+        "0.03323494948051523": {
+            "name": "mean_test_result",
+            "code": "import numpy as np\n\ndef mean_test_result(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    lab_results = aux_dataframes['lab_results_table.csv']\n    patient_labs = lab_results[lab_results['patient_id'] == row['patient_id']]\n    if patient_labs.empty:\n        return np.nan\n    return patient_labs['result_value'].mean()\n"
+        },
+        "0.01820679011473726": {
+            "name": "gender_binary",
+            "code": "\n\ndef gender_binary(row):\n    return 1 if row['gender'] == 'Male' else 0\n"
+        },
+        "0.004069955734921851": {
+            "name": "age",
+            "code": "import pandas as pd\n\ndef age(row):\n    birth_date = pd.to_datetime(row['date_of_birth'])\n    return (pd.to_datetime('today') - birth_date).days // 365\n"
+        }
+    },
+    "feature_descriptions": [
+        "physical activity level",
+        "diet categorized",
+        "smoking status numeric",
+        "family history count",
+        "recent diagnosis days ago",
+        "family history severity avg",
+        "num past diagnoses",
+        "latest lab abnormality",
+        "abnormal lab count",
+        "alcohol consumption level",
+        "mean test result",
+        "gender binary",
+        "age"
+    ]
+}

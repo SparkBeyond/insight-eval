@@ -1,0 +1,107 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "unresolved_ticket_ratio",
+        "total_tickets",
+        "overdue_payment_frequency",
+        "total_overdue_payments",
+        "distinct_action_types",
+        "customer_age",
+        "purchase_to_search_ratio",
+        "gender_churn_propensity",
+        "spending_variability",
+        "avg_purchase_amount",
+        "regional_churn_propensity",
+        "avg_billing_amount",
+        "max_purchase_spending",
+        "total_usage_duration",
+        "median_session_duration",
+        "avg_ticket_resolution_time"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.10935413878822324": {
+            "name": "unresolved_ticket_ratio",
+            "code": "\n\ndef unresolved_ticket_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the support tickets table\n    df_support = aux_dataframes['support_tickets_table.csv']\n    \n    # Filter tickets for the specific customer\n    customer_tickets = df_support[df_support['customer_id'] == row['customer_id']]\n    \n    # Filter unresolved tickets\n    unresolved_tickets = customer_tickets[customer_tickets['ticket_status'] != 'Resolved']\n    \n    # Calculate the ratio of unresolved tickets\n    return len(unresolved_tickets) / max(len(customer_tickets), 1)\n"
+        },
+        "0.10500762638754138": {
+            "name": "total_tickets",
+            "code": "\n\ndef total_tickets(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the correct key is used to access the support tickets dataframe\n    df_support = aux_dataframes.get('support_tickets_table.csv')\n    \n    # Check if the dataframe exists and is not None\n    if df_support is None:\n        raise KeyError(\"The key 'support_tickets_table.csv' is missing in aux_dataframes.\")\n    \n    # Filter the support tickets dataframe for the given customer_id\n    customer_tickets = df_support[df_support['customer_id'] == row['customer_id']]\n    \n    # Return the count of tickets for the customer\n    return len(customer_tickets)\n"
+        },
+        "0.09553838154333041": {
+            "name": "overdue_payment_frequency",
+            "code": "\n\ndef overdue_payment_frequency(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key to access the billing data\n    df_billing = aux_dataframes['billing_data_table.csv']\n    \n    # Filter the billing data for the specific customer\n    customer_billing = df_billing[df_billing['customer_id'] == row['customer_id']]\n    \n    # Count the number of overdue payments\n    overdue_count = customer_billing[customer_billing['payment_status'] == 'Overdue']\n    \n    # Calculate the overdue payment frequency\n    return len(overdue_count) / max(len(customer_billing), 1)\n"
+        },
+        "0.09019864924932822": {
+            "name": "total_overdue_payments",
+            "code": "\n\ndef total_overdue_payments(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key to access the billing data\n    df_billing = aux_dataframes['billing_data_table.csv']\n    \n    # Filter the billing data for the specific customer\n    customer_billing = df_billing[df_billing['customer_id'] == row['customer_id']]\n    \n    # Count the number of overdue payments\n    return len(customer_billing[customer_billing['payment_status'] == 'Overdue'])\n"
+        },
+        "0.04372920898356678": {
+            "name": "distinct_action_types",
+            "code": "\n\ndef distinct_action_types(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct key for the usage data\n    df_usage = aux_dataframes['usage_data_table.csv']\n    \n    # Filter the usage data for the specific customer_id\n    customer_usage = df_usage[df_usage['customer_id'] == row['customer_id']]\n    \n    # Return the number of distinct action types\n    return customer_usage['action_type'].nunique()\n"
+        },
+        "0.042229455363145534": {
+            "name": "customer_age",
+            "code": "import datetime\n\ndef calculate_age(birth_date: str, reference_date: str = None) -> int:\n    if reference_date is None:\n        reference_date = datetime.now().strftime('%Y-%m-%d')\n    birth_date = datetime.strptime(birth_date, '%Y-%m-%d')\n    reference_date = datetime.strptime(reference_date, '%Y-%m-%d')\n    return max(0, reference_date.year - birth_date.year - ((reference_date.month, reference_date.day) < (birth_date.month, birth_date.day)))\n\ndef customer_age(row):\n    return calculate_age(row['date_of_birth'])\n"
+        },
+        "0.03770135681276846": {
+            "name": "purchase_to_search_ratio",
+            "code": "\n\ndef purchase_to_search_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the correct key is used to access the usage data\n    df_usage = aux_dataframes['usage_data_table.csv']\n    \n    # Filter the usage data for the specific customer\n    customer_usage = df_usage[df_usage['customer_id'] == row['customer_id']]\n    \n    # Filter actions for searches and purchases\n    searches = customer_usage[customer_usage['action_type'] == 'Search']\n    purchases = customer_usage[customer_usage['action_type'] == 'Purchase']\n    \n    # Calculate the ratio, ensuring no division by zero\n    return len(purchases) / max(len(searches), 1)\n"
+        },
+        "0.03314747441037299": {
+            "name": "gender_churn_propensity",
+            "code": "\n\ndef gender_churn_propensity(row, df_train: pd.DataFrame):\n    # Exclude the current row from the calculation to prevent target leakage\n    df_train_excluded = df_train[df_train.index != row.name]\n    \n    # Calculate the gender-wise mean churn_flag excluding the current row\n    gender_mean = df_train_excluded.groupby('gender')['churn_flag'].mean()\n    \n    # Return the mean churn propensity for the row's gender, defaulting to 0.0 if the gender is not found\n    return gender_mean.get(row['gender'], 0.0)\n"
+        },
+        "0.031052910143544464": {
+            "name": "spending_variability",
+            "code": "\n\ndef spending_variability(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct key for the usage data\n    df_usage = aux_dataframes['usage_data_table.csv']\n    \n    # Filter the usage data for the specific customer\n    customer_usage = df_usage[df_usage['customer_id'] == row['customer_id']]\n    \n    # Check if there is any usage data for the customer\n    if customer_usage.empty:\n        return None  # Return None if no usage data is available\n    \n    # Calculate and return the standard deviation of the 'amount_spent' column\n    return customer_usage['amount_spent'].std()\n"
+        },
+        "0.026373069141780302": {
+            "name": "avg_purchase_amount",
+            "code": "\n\ndef avg_purchase_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the provided aux_dataframes dictionary\n    df_usage = aux_dataframes['usage_data_table.csv']\n    \n    # Filter the usage data for the specific customer\n    customer_usage = df_usage[df_usage['customer_id'] == row['customer_id']]\n    \n    # Further filter for rows where the action_type is 'Purchase'\n    purchases = customer_usage[customer_usage['action_type'] == 'Purchase']\n    \n    # Return the mean of the 'amount_spent' column, handling the case where there are no purchases\n    return purchases['amount_spent'].mean() if not purchases.empty else 0.0\n"
+        },
+        "0.02198163218984906": {
+            "name": "regional_churn_propensity",
+            "code": "\n\ndef regional_churn_propensity(row, df_train: pd.DataFrame):\n    \"\"\"\n    Calculate the regional churn propensity for a given row without target leakage.\n    \n    Args:\n        row (pd.Series): The row for which the regional churn propensity is calculated.\n        df_train (pd.DataFrame): The training dataset.\n        \n    Returns:\n        float: The regional churn propensity for the given row.\n    \"\"\"\n    # Filter out the current row to prevent target leakage\n    df_filtered = df_train[df_train['customer_id'] != row['customer_id']]\n    \n    # Optional: Prevent using data from the future by filtering rows with later signup dates\n    df_filtered = df_filtered[df_filtered['signup_date'] <= row['signup_date']]\n    \n    # Calculate the mean churn_flag for the region\n    region_mean = df_filtered.groupby('region')['churn_flag'].mean()\n    \n    # Return the regional mean for the row's region, defaulting to 0.0 if the region is not found\n    return region_mean.get(row['region'], 0.0)\n"
+        },
+        "0.015562290251920633": {
+            "name": "avg_billing_amount",
+            "code": "\n\ndef avg_billing_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_dataframes\n    df_billing = aux_dataframes['billing_data_table.csv']\n    \n    # Filter the billing data for the specific customer_id\n    customer_billing = df_billing[df_billing['customer_id'] == row['customer_id']]\n    \n    # Return the mean of the billing_amount column\n    return customer_billing['billing_amount'].mean()\n"
+        },
+        "0.013106612137287789": {
+            "name": "max_purchase_spending",
+            "code": "\n\ndef max_purchase_spending(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the provided aux_dataframes dictionary\n    df_usage = aux_dataframes['usage_data_table.csv']\n    \n    # Filter the usage data for the specific customer_id\n    customer_usage = df_usage[df_usage['customer_id'] == row['customer_id']]\n    \n    # Return the maximum amount spent by the customer, or None if no data is available\n    return customer_usage['amount_spent'].max() if not customer_usage.empty else None\n"
+        },
+        "0.00626892835076472": {
+            "name": "total_usage_duration",
+            "code": "\n\ndef total_usage_duration(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_dataframes\n    df_usage = aux_dataframes['usage_data_table.csv']\n    \n    # Filter the usage data for the specific customer_id\n    customer_usage = df_usage[df_usage['customer_id'] == row['customer_id']]\n    \n    # Return the sum of the 'duration_minutes' column\n    return customer_usage['duration_minutes'].sum()\n"
+        },
+        "0.005543669119833491": {
+            "name": "median_session_duration",
+            "code": "\n\ndef median_session_duration(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the one in aux_dataframes\n    df_usage = aux_dataframes['usage_data_table.csv']\n    \n    # Filter the usage data for the specific customer_id\n    customer_usage = df_usage[df_usage['customer_id'] == row['customer_id']]\n    \n    # Return the median of the 'duration_minutes' column\n    return customer_usage['duration_minutes'].median()\n"
+        },
+        "0.0006071465639252394": {
+            "name": "avg_ticket_resolution_time",
+            "code": "import datetime\nimport numpy as np\nimport pandas as pd\n\ndef avg_ticket_resolution_time(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the provided aux_dataframes dictionary\n    df_support = aux_dataframes['support_tickets_table.csv']\n    \n    # Filter tickets for the specific customer\n    customer_tickets = df_support[df_support['customer_id'] == row['customer_id']]\n    \n    # Calculate resolution times\n    resolution_times = customer_tickets.apply(\n        lambda x: days_difference(x['ticket_date'], x['resolution_date']), axis=1\n    )\n    \n    # Return the average resolution time, handling NaN values\n    return np.nanmean(resolution_times)\n\ndef days_difference(start_date: str, end_date: str) -> int:\n    if pd.isna(start_date) or pd.isna(end_date):\n        return None  # Handle missing dates gracefully\n    # Parse datetime strings with both date and time components\n    start_date = datetime.datetime.strptime(start_date, '%Y-%m-%d %H:%M:%S.%f')\n    end_date = datetime.datetime.strptime(end_date, '%Y-%m-%d %H:%M:%S.%f')\n    return (end_date - start_date).days\n"
+        }
+    },
+    "feature_descriptions": [
+        "unresolved ticket ratio",
+        "total tickets",
+        "overdue payment frequency",
+        "total overdue payments",
+        "distinct action types",
+        "customer age",
+        "purchase to search ratio",
+        "gender churn propensity",
+        "spending variability",
+        "avg purchase amount",
+        "regional churn propensity",
+        "avg billing amount",
+        "max purchase spending",
+        "total usage duration",
+        "median session duration",
+        "avg ticket resolution time"
+    ]
+}

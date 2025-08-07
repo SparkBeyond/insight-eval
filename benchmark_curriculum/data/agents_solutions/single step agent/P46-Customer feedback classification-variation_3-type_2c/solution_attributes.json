@@ -1,0 +1,107 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "avg_session_duration",
+        "unique_products_purchased",
+        "mobile_session_ratio",
+        "std_session_duration",
+        "uses_mobile_device",
+        "total_purchases",
+        "total_session_count",
+        "purchase_amount_ratio",
+        "days_since_first_session",
+        "avg_pages_visited",
+        "days_since_last_session",
+        "customer_feedback_count",
+        "is_weekend_session",
+        "feedback_to_session_ratio",
+        "distinct_feedback_channels",
+        "interacted_via_email"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.10894483436379337": {
+            "name": "avg_session_duration",
+            "code": "\n\ndef avg_session_duration(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe from aux_data\n    website_usage_logs = aux_data.get('website_usage_logs_table.csv')\n    \n    # Check if the dataframe exists and is not empty\n    if website_usage_logs is not None and not website_usage_logs.empty:\n        # Filter sessions for the given customer_id\n        customer_sessions = website_usage_logs[website_usage_logs['customer_id'] == row['customer_id']]\n        \n        # If there are sessions for the customer, calculate the average session duration\n        if not customer_sessions.empty:\n            return customer_sessions['session_duration_minutes'].mean()\n    \n    # If no sessions are found, return a default value (e.g., NaN or 0)\n    return None\n"
+        },
+        "0.06541115154539918": {
+            "name": "unique_products_purchased",
+            "code": "\n\ndef unique_products_purchased(row, df_train, aux_dataframes):\n    purchase_history = aux_dataframes[\"purchase_history_table.csv\"]\n    customer_purchases = purchase_history[purchase_history['customer_id'] == row['customer_id']]\n    return customer_purchases['product_category'].nunique()\n"
+        },
+        "0.06098546919234847": {
+            "name": "mobile_session_ratio",
+            "code": "\n\ndef mobile_session_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe from aux_data\n    website_usage_logs = aux_data.get('website_usage_logs_table.csv')\n    \n    # Check if the dataframe exists and is not empty\n    if website_usage_logs is not None and not website_usage_logs.empty:\n        # Filter sessions for the given customer_id\n        customer_sessions = website_usage_logs[website_usage_logs['customer_id'] == row['customer_id']]\n        \n        # If the customer has sessions, calculate the mobile session ratio\n        if not customer_sessions.empty:\n            mobile_sessions = customer_sessions[customer_sessions['device_type'].str.lower() == 'mobile']\n            return len(mobile_sessions) / len(customer_sessions)\n    \n    # Return 0.0 if no sessions or no mobile sessions are found\n    return 0.0\n"
+        },
+        "0.05053989453505593": {
+            "name": "std_session_duration",
+            "code": "\n\ndef std_session_duration(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe from aux_data\n    website_usage_logs = aux_data.get('website_usage_logs_table.csv')\n    \n    # Check if the dataframe exists and is not empty\n    if website_usage_logs is not None and not website_usage_logs.empty:\n        # Filter sessions for the given customer_id\n        customer_sessions = website_usage_logs[website_usage_logs['customer_id'] == row['customer_id']]\n        \n        # If there are sessions for the customer, calculate the standard deviation\n        if not customer_sessions.empty:\n            return customer_sessions['session_duration_minutes'].std()\n    \n    # Return 0.0 if no sessions are found or the dataframe is missing/empty\n    return 0.0\n"
+        },
+        "0.04495511689102766": {
+            "name": "uses_mobile_device",
+            "code": "\n\ndef uses_mobile_device(row, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Get the website usage logs dataframe from aux_data\n    website_usage_logs = aux_data.get('website_usage_logs_table.csv')\n    \n    # Check if the dataframe exists and is not empty\n    if website_usage_logs is not None and not website_usage_logs.empty:\n        # Filter the dataframe for the given customer_id\n        customer_logs = website_usage_logs[website_usage_logs['customer_id'] == customer_id]\n        \n        # Check if there are any logs for the customer\n        if not customer_logs.empty:\n            # Get the most recent session for the customer\n            most_recent_session = customer_logs.sort_values(by='session_start_time', ascending=False).iloc[0]\n            \n            # Check if the device_type is 'mobile'\n            return int(most_recent_session['device_type'].lower() == 'mobile')\n    \n    # Return 0 if no data is found or the device is not mobile\n    return 0\n"
+        },
+        "0.04340924871158477": {
+            "name": "total_purchases",
+            "code": "\n\ndef total_purchases(row, df_train, aux_dataframes):\n    purchase_history = aux_dataframes['purchase_history_table.csv']\n    customer_purchases = purchase_history[purchase_history['customer_id'] == row['customer_id']]\n    return len(customer_purchases)\n"
+        },
+        "0.04279948644509452": {
+            "name": "total_session_count",
+            "code": "\n\ndef total_session_count(row, df_train):\n    customer_sessions = df_train[df_train['customer_id'] == row['customer_id']]\n    return len(customer_sessions)\n"
+        },
+        "0.04189823515123742": {
+            "name": "purchase_amount_ratio",
+            "code": "\n\ndef purchase_amount_ratio(row, df_train, aux_dataframes):\n    purchase_history = aux_dataframes['purchase_history_table.csv']\n    customer_purchases = purchase_history[purchase_history['customer_id'] == row['customer_id']]['purchase_amount']\n    total_spending = purchase_history['purchase_amount'].sum()\n    if not customer_purchases.empty:\n        return customer_purchases.sum() / total_spending\n    return 0.0\n"
+        },
+        "0.04053765047668368": {
+            "name": "days_since_first_session",
+            "code": "import pandas as pd\nimport datetime\n\ndef days_since_first_session(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe from aux_data\n    website_usage_logs = aux_data.get('website_usage_logs_table.csv')\n    \n    # Check if the dataframe exists and is not empty\n    if website_usage_logs is not None and not website_usage_logs.empty:\n        # Filter sessions for the given customer_id\n        customer_sessions = website_usage_logs[website_usage_logs['customer_id'] == row['customer_id']]\n        \n        # Check if there are any sessions for the customer\n        if not customer_sessions.empty:\n            # Convert 'session_start_time' to datetime and find the earliest session\n            first_session = pd.to_datetime(customer_sessions['session_start_time']).min()\n            \n            # Calculate the number of days since the first session\n            return (datetime.datetime.now() - first_session).days\n    \n    # Return infinity if no sessions are found\n    return float('inf')\n"
+        },
+        "0.030171654040100936": {
+            "name": "avg_pages_visited",
+            "code": "\n\ndef avg_pages_visited(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe from aux_data\n    website_usage_logs = aux_data['website_usage_logs_table.csv']\n    \n    # Filter sessions for the given customer_id\n    customer_sessions = website_usage_logs[website_usage_logs['customer_id'] == row['customer_id']]\n    \n    # If there are sessions for the customer, calculate the mean pages visited\n    if not customer_sessions.empty:\n        return customer_sessions['pages_visited'].mean()\n    \n    # If no sessions exist, return the default value from the row\n    return 0  # Default to 0 if no data is available\n"
+        },
+        "0.022651463760907698": {
+            "name": "days_since_last_session",
+            "code": "import pandas as pd\nimport datetime\n\ndef days_since_last_session(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant DataFrame from aux_data\n    website_usage_logs = aux_data.get('website_usage_logs_table.csv')\n    \n    # Check if the DataFrame exists and is not empty\n    if website_usage_logs is not None and not website_usage_logs.empty:\n        # Filter sessions for the specific customer\n        customer_sessions = website_usage_logs[website_usage_logs['customer_id'] == row['customer_id']]\n        \n        # Check if the customer has any sessions\n        if not customer_sessions.empty:\n            # Convert 'session_start_time' to datetime and find the most recent session\n            customer_sessions['session_start_time'] = pd.to_datetime(customer_sessions['session_start_time'])\n            last_session = customer_sessions['session_start_time'].max()\n            \n            # Calculate the difference in days between now and the last session\n            return (datetime.datetime.now() - last_session).days\n    \n    # If no sessions are found, return infinity\n    return float('inf')\n"
+        },
+        "0.011271976817518865": {
+            "name": "customer_feedback_count",
+            "code": "\n\ndef customer_feedback_count(row, df_train, aux_dataframes):\n    feedback_data = aux_dataframes[\"support_center_interactions_table.csv\"]\n    customer_feedback = feedback_data[feedback_data['customer_id'] == row['customer_id']]\n    return len(customer_feedback)\n"
+        },
+        "0.007295200835506048": {
+            "name": "is_weekend_session",
+            "code": "import datetime\n\ndef is_weekend_session(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the correct dataframe is used\n    if 'website_usage_logs_table.csv' not in aux_data:\n        raise ValueError(\"The required 'website_usage_logs_table.csv' is missing from aux_data.\")\n    \n    # Extract the relevant dataframe\n    website_usage_logs = aux_data['website_usage_logs_table.csv']\n    \n    # Ensure the row contains the 'feedback_date' column\n    if 'feedback_date' not in row:\n        raise ValueError(\"The row does not contain the 'feedback_date' column.\")\n    \n    # Parse the feedback_date and check if it's a weekend\n    try:\n        session_time = datetime.datetime.strptime(row['feedback_date'], \"%Y-%m-%d %H:%M:%S.%f\")\n    except ValueError:\n        raise ValueError(\"The 'feedback_date' column does not have a valid datetime format.\")\n    \n    # Return 1 if the day is Saturday (5) or Sunday (6), otherwise return 0\n    return int(session_time.weekday() >= 5)\n"
+        },
+        "0.007154396623475909": {
+            "name": "feedback_to_session_ratio",
+            "code": "\n\ndef feedback_to_session_ratio(row, df_train, aux_dataframes):\n    customer_id = row['customer_id']\n    feedback_data = aux_dataframes[\"support_center_interactions_table.csv\"]\n    feedback_count = len(feedback_data[feedback_data['customer_id'] == customer_id])\n    session_count = len(df_train[df_train['customer_id'] == customer_id])\n    return feedback_count / session_count if session_count > 0 else 0\n"
+        },
+        "0.0063060151394520704": {
+            "name": "distinct_feedback_channels",
+            "code": "\n\ndef distinct_feedback_channels(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe from aux_data\n    feedback_data = aux_data[\"support_center_interactions_table.csv\"]\n    \n    # Filter the feedback data for the specific customer_id\n    customer_feedback = feedback_data[feedback_data['customer_id'] == row['customer_id']]\n    \n    # Check if the 'feedback_channel' column exists in the main dataframe (row)\n    if 'feedback_channel' in row:\n        # Use the 'feedback_channel' column from the main dataframe\n        return df_train[df_train['customer_id'] == row['customer_id']]['feedback_channel'].nunique()\n    else:\n        # If 'feedback_channel' is not available, return 0 or handle appropriately\n        return 0\n"
+        },
+        "0": {
+            "name": "interacted_via_email",
+            "code": "\n\ndef interacted_via_email(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the support center interactions table\n    feedback_data = aux_data[\"support_center_interactions_table.csv\"]\n    \n    # Filter the feedback data for the given customer_id and check if the interaction was via email\n    email_feedback = feedback_data[\n        (feedback_data['customer_id'] == row['customer_id']) &\n        (feedback_data['issue_type'] == 'email')  # Assuming 'issue_type' represents the feedback channel\n    ]\n    \n    # Return 1 if there is at least one interaction via email, otherwise 0\n    return int(len(email_feedback) > 0)\n"
+        }
+    },
+    "feature_descriptions": [
+        "avg session duration",
+        "unique products purchased",
+        "mobile session ratio",
+        "std session duration",
+        "uses mobile device",
+        "total purchases",
+        "total session count",
+        "purchase amount ratio",
+        "days since first session",
+        "avg pages visited",
+        "days since last session",
+        "customer feedback count",
+        "is weekend session",
+        "feedback to session ratio",
+        "distinct feedback channels",
+        "interacted via email"
+    ]
+}

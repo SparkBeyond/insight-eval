@@ -1,0 +1,20 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "negative_keyword_count",
+        "total_purchases",
+        "days_since_last_purchase",
+        "avg_purchase_amount",
+        "total_sessions"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "negative keyword count",
+        "total purchases",
+        "days since last purchase",
+        "avg purchase amount",
+        "total sessions"
+    ]
+}

@@ -1,0 +1,59 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "late_payment_count",
+        "total_number_of_loans",
+        "income_to_loan_ratio",
+        "loan_amount_per_term",
+        "on_time_payment_ratio",
+        "missed_payment_ratio",
+        "credit_score_normalized",
+        "age"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.6573331223241796": {
+            "name": "late_payment_count",
+            "code": "\n\ndef late_payment_count(row, df_train, aux_dataframes):\n    loans_table = aux_dataframes['loans_table.csv']\n    loan_rows = loans_table[loans_table['customer_id'] == row['customer_id']]\n    if loan_rows.empty:\n        return 0\n    return sum(\"Late\" in x for x in loan_rows['payment_history'].apply(eval).explode())\n"
+        },
+        "0.5763244367876488": {
+            "name": "total_number_of_loans",
+            "code": "\n\ndef total_number_of_loans(row, df_train, aux_dataframes):\n    loans_table = aux_dataframes['loans_table.csv']\n    return loans_table[loans_table['customer_id'] == row['customer_id']].shape[0]\n"
+        },
+        "0.1630958038501717": {
+            "name": "income_to_loan_ratio",
+            "code": "import numpy as np\n\ndef income_to_loan_ratio(row, df_train, aux_dataframes):\n    loans_table = aux_dataframes['loans_table.csv']\n    loans = loans_table[loans_table['customer_id'] == row['customer_id']]\n    if loans.empty:\n        return np.nan\n    total_loan_amount = loans['loan_amount'].sum()\n    return row['annual_income'] / total_loan_amount if total_loan_amount > 0 else np.nan\n"
+        },
+        "0.10619582673895991": {
+            "name": "loan_amount_per_term",
+            "code": "import numpy as np\n\ndef loan_amount_per_term(row, aux_dataframes):\n    loans_table = aux_dataframes['loans_table.csv']\n    loans = loans_table[loans_table['customer_id'] == row['customer_id']]\n    if loans.empty:\n        return np.nan\n    loans['amount_per_term'] = loans['loan_amount'] / loans['loan_term']\n    return loans['amount_per_term'].mean()\n"
+        },
+        "0.06671802385168576": {
+            "name": "on_time_payment_ratio",
+            "code": "import numpy as np\n\ndef on_time_payment_ratio(row, df_train, aux_dataframes):\n    loans_table = aux_dataframes['loans_table.csv']\n    loan_rows = loans_table[loans_table['customer_id'] == row['customer_id']]\n    if loan_rows.empty:\n        return np.nan\n    on_time_count = sum(\"On-time\" in x for x in loan_rows['payment_history'].apply(eval).explode())\n    total_count = sum(len(x) for x in loan_rows['payment_history'].apply(eval))\n    return on_time_count / total_count if total_count > 0 else np.nan\n"
+        },
+        "0.03855616810538332": {
+            "name": "missed_payment_ratio",
+            "code": "import numpy as np\n\ndef missed_payment_ratio(row, df_train, aux_dataframes):\n    loans_table = aux_dataframes['loans_table.csv']\n    loan_rows = loans_table[loans_table['customer_id'] == row['customer_id']]\n    if loan_rows.empty:\n        return np.nan\n    missed_count = sum(\"Missed\" in x for x in loan_rows['payment_history'].apply(eval).explode())\n    total_count = sum(len(x) for x in loan_rows['payment_history'].apply(eval))\n    return missed_count / total_count if total_count > 0 else np.nan\n"
+        },
+        "0.031845032138000086": {
+            "name": "credit_score_normalized",
+            "code": "import numpy as np\n\ndef credit_score_normalized(row, df_train):\n    emp_group = df_train[df_train['employment_status'] == row['employment_status']]\n    mean_score = emp_group['credit_score'].mean()\n    std_score = emp_group['credit_score'].std()\n    if std_score == 0 or np.isnan(std_score):\n        return 0\n    return (row['credit_score'] - mean_score) / std_score\n"
+        },
+        "0.0019224753413148957": {
+            "name": "age",
+            "code": "import pandas as pd\n\ndef age(row):\n    today = pd.Timestamp.now()\n    dob = pd.to_datetime(row['date_of_birth'])\n    return (today - dob).days // 365\n"
+        }
+    },
+    "feature_descriptions": [
+        "late payment count",
+        "total number of loans",
+        "income to loan ratio",
+        "loan amount per term",
+        "on time payment ratio",
+        "missed payment ratio",
+        "credit score normalized",
+        "age"
+    ]
+}

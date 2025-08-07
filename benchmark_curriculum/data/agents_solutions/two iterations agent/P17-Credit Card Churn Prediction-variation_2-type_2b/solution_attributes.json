@@ -1,0 +1,26 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "total_payment_last_6_months",
+        "avg_transaction_amount",
+        "days_since_last_payment",
+        "service_interaction_count",
+        "avg_resolution_time",
+        "accepted_offer_ratio",
+        "unresolved_issues_count",
+        "credit_utilization_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "total payment last 6 months",
+        "avg transaction amount",
+        "days since last payment",
+        "service interaction count",
+        "avg resolution time",
+        "accepted offer ratio",
+        "unresolved issues count",
+        "credit utilization ratio"
+    ]
+}

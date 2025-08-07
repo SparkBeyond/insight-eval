@@ -1,0 +1,101 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "count_default_flags",
+        "total_amount_paid",
+        "payment_completion_rate",
+        "max_payment_amount",
+        "avg_utility_cost_per_unit",
+        "utility_type_diversity",
+        "avg_payment_amount",
+        "account_longevity",
+        "avg_payment_interval",
+        "total_utility_cost",
+        "total_transaction_amount",
+        "credit_transaction_count",
+        "most_recent_usage",
+        "avg_transaction_amount",
+        "debit_transaction_count"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.8351775978040927": {
+            "name": "count_default_flags",
+            "code": "\n\ndef count_default_flags(row, df_train: pd.DataFrame):\n       defaults = df_train[(df_train['customer_id'] == row['customer_id']) & (df_train['default_flag'] == 1)]\n       return len(defaults)\n"
+        },
+        "0.16893502456526432": {
+            "name": "total_amount_paid",
+            "code": "\n\ndef total_amount_paid(row, df_train: pd.DataFrame):\n       payments = df_train.loc[df_train['customer_id'] == row['customer_id'], 'amount_paid']\n       return payments.sum() if not payments.empty else 0\n"
+        },
+        "0.1376880480356815": {
+            "name": "payment_completion_rate",
+            "code": "\n\ndef payment_completion_rate(row, df_train: pd.DataFrame):\n       payments = df_train[df_train['customer_id'] == row['customer_id']]\n       completed_count = len(payments[payments['payment_status'] == 'Completed'])\n       return completed_count / len(payments) if not payments.empty else 0\n"
+        },
+        "0.07206713258719094": {
+            "name": "max_payment_amount",
+            "code": "\n\ndef max_payment_amount(row, df_train: pd.DataFrame):\n        payments = df_train.loc[df_train['customer_id'] == row['customer_id'], 'amount_paid']\n        return payments.max() if not payments.empty else 0\n"
+        },
+        "0.060543265382263754": {
+            "name": "avg_utility_cost_per_unit",
+            "code": "\n\ndef avg_utility_cost_per_unit(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe from aux_data\n    utility_df = aux_data.get('utility_usage_table.csv')\n    \n    # Check if the dataframe exists and is not empty\n    if utility_df is not None and not utility_df.empty:\n        # Filter the dataframe for the given customer_id\n        utility = utility_df[utility_df['customer_id'] == row['customer_id']]\n        # Compute and return the mean of 'cost_per_unit' if there are matching rows\n        return utility['cost_per_unit'].mean() if not utility.empty else 0\n    else:\n        # Return 0 if the dataframe is missing or empty\n        return 0\n"
+        },
+        "0.05683946997460561": {
+            "name": "utility_type_diversity",
+            "code": "\n\ndef utility_type_diversity(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the correct dataframe from aux_data\n    utility_usage_df = aux_data['utility_usage_table.csv']\n    \n    # Filter the dataframe for the given customer_id\n    utility = utility_usage_df[utility_usage_df['customer_id'] == row['customer_id']]\n    \n    # Return the number of unique utility types or 0 if no data is found\n    return utility['utility_type'].nunique() if not utility.empty else 0\n"
+        },
+        "0.04008572289372105": {
+            "name": "avg_payment_amount",
+            "code": "\n\ndef avg_payment_amount(row, df_train: pd.DataFrame):\n       payments = df_train.loc[df_train['customer_id'] == row['customer_id'], 'amount_paid']\n       return payments.mean() if not payments.empty else 0\n"
+        },
+        "0.01829677796418446": {
+            "name": "account_longevity",
+            "code": "import datetime\n\ndef account_longevity(row, aux_data: Dict[str, pd.DataFrame]) -> int:\n    \"\"\"\n    Calculate the account longevity in days for a given row.\n    :param row: A row from a DataFrame containing a 'customer_id' column.\n    :param aux_data: A dictionary mapping filenames to DataFrames. \n                     The 'customer_profile_table.csv' DataFrame must contain 'customer_id' and 'account_creation_date'.\n    :return: The account longevity in days as an integer.\n    \"\"\"\n    # Get the current date\n    current_date = datetime.datetime.now().strftime(\"%Y-%m-%d\")\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Get the customer_profile_table DataFrame from aux_data\n    customer_profile_df = aux_data['customer_profile_table.csv']\n    \n    # Find the account_creation_date for the given customer_id\n    account_creation_date = customer_profile_df.loc[\n        customer_profile_df['customer_id'] == customer_id, 'account_creation_date'\n    ].values[0]\n    \n    # Calculate the difference in days\n    return days_diff(account_creation_date, current_date)\n\ndef days_diff(start_date: str, end_date: str) -> int:\n    \"\"\"\n    Calculate the difference in days between two dates.\n    :param start_date: The start date in the format 'YYYY-MM-DD'.\n    :param end_date: The end date in the format 'YYYY-MM-DD'.\n    :return: The difference in days as an integer.\n    \"\"\"\n    start = datetime.datetime.strptime(start_date, \"%Y-%m-%d\")\n    end = datetime.datetime.strptime(end_date, \"%Y-%m-%d\")\n    return (end - start).days\n"
+        },
+        "0.017545051946669155": {
+            "name": "avg_payment_interval",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef avg_payment_interval(row, df_train: pd.DataFrame):\n    # Filter payments for the given customer_id and sort by payment_date\n    payments = df_train[df_train['customer_id'] == row['customer_id']].sort_values('payment_date')\n    \n    # If there are fewer than 2 payments, return NaN\n    if len(payments) < 2:\n        return np.nan\n    \n    # Convert payment_date to datetime and calculate the differences in days\n    payments['payment_date'] = pd.to_datetime(payments['payment_date'], format=\"%Y-%m-%d\", errors='coerce')\n    intervals = payments['payment_date'].diff().dt.days\n    \n    # Return the mean of the intervals, skipping NaN values\n    return intervals.mean(skipna=True)\n"
+        },
+        "0.014356628444435197": {
+            "name": "total_utility_cost",
+            "code": "\n\ndef total_utility_cost(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe from aux_data\n    utility_usage_df = aux_data['utility_usage_table.csv']\n    \n    # Filter the dataframe for the given customer_id\n    utility = utility_usage_df[utility_usage_df['customer_id'] == row['customer_id']]\n    \n    # Calculate the total utility cost\n    return (utility['units_consumed'] * utility['cost_per_unit']).sum() if not utility.empty else 0\n"
+        },
+        "0.013320599201002878": {
+            "name": "total_transaction_amount",
+            "code": "\n\ndef total_transaction_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Get the account history DataFrame from aux_data\n    account_history_df = aux_data['account_history_table.csv']\n    \n    # Filter transactions for the given customer_id\n    transactions = account_history_df.loc[account_history_df['customer_id'] == row['customer_id'], 'transaction_amount']\n    \n    # Return the sum of transaction amounts or 0 if no transactions exist\n    return transactions.sum() if not transactions.empty else 0\n"
+        },
+        "0.010917979631733543": {
+            "name": "credit_transaction_count",
+            "code": "\n\ndef credit_transaction_count(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe from aux_data\n    account_history_df = aux_data['account_history_table.csv']\n    \n    # Filter transactions for the given customer_id and transaction_type == 'Credit'\n    transactions = account_history_df[\n        (account_history_df['customer_id'] == row['customer_id']) & \n        (account_history_df['transaction_type'] == 'Credit')\n    ]\n    \n    # Return the count of such transactions\n    return len(transactions)\n"
+        },
+        "0.0096976602116557": {
+            "name": "most_recent_usage",
+            "code": "import pandas as pd\nimport datetime\nimport numpy as np\n\ndef most_recent_usage(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculate the number of days since the most recent usage for a given customer.\n    :param row: A row from a DataFrame containing a 'customer_id' column.\n    :param aux_data: A dictionary mapping filenames to DataFrames. \n                     Must include 'utility_usage_table.csv' with columns \n                     ['usage_id', 'customer_id', 'usage_date', 'utility_type', 'units_consumed', 'cost_per_unit'].\n    :return: The number of days since the most recent usage, or NaN if no usage is found.\n    \"\"\"\n    # Ensure the required table is present in aux_data\n    if 'utility_usage_table.csv' not in aux_data:\n        raise KeyError(\"'utility_usage_table.csv' is missing from aux_data.\")\n    \n    # Extract the utility usage DataFrame\n    df_train = aux_data['utility_usage_table.csv']\n    \n    # Ensure 'usage_date' is in the DataFrame\n    if 'usage_date' not in df_train.columns:\n        raise KeyError(\"'usage_date' column is missing from the 'utility_usage_table.csv' DataFrame.\")\n    \n    # Ensure 'usage_date' is in datetime format\n    if not pd.api.types.is_datetime64_any_dtype(df_train['usage_date']):\n        df_train['usage_date'] = pd.to_datetime(df_train['usage_date'], errors='coerce')\n\n    # Get the current date\n    current_date = datetime.datetime.now()\n\n    # Filter usage data for the given customer_id\n    customer_usage = df_train[df_train['customer_id'] == row['customer_id']]\n\n    # If no usage data is found, return NaN\n    if customer_usage.empty:\n        return np.nan\n\n    # Find the most recent usage date\n    latest_usage = customer_usage['usage_date'].max()\n\n    # Calculate the difference in days\n    if pd.notnull(latest_usage):\n        return (current_date - latest_usage).days\n    else:\n        return np.nan\n"
+        },
+        "0.00869905966935715": {
+            "name": "avg_transaction_amount",
+            "code": "\n\ndef avg_transaction_amount(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure we are using the correct dataframe from aux_data\n    account_history_df = aux_data.get('account_history_table.csv')\n    \n    if account_history_df is None:\n        raise ValueError(\"The 'account_history_table.csv' dataframe is missing from aux_data.\")\n    \n    # Filter transactions for the given customer_id\n    transactions = account_history_df.loc[account_history_df['customer_id'] == row['customer_id'], 'transaction_amount']\n    \n    # Return the mean of the transaction amounts or 0 if no transactions exist\n    return transactions.mean() if not transactions.empty else 0\n"
+        },
+        "0.0026554190128051315": {
+            "name": "debit_transaction_count",
+            "code": "\n\ndef debit_transaction_count(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe from aux_data\n    account_history_df = aux_data['account_history_table.csv']\n    \n    # Filter the dataframe for the given customer_id and transaction_type == 'Debit'\n    transactions = account_history_df[\n        (account_history_df['customer_id'] == row['customer_id']) & \n        (account_history_df['transaction_type'] == 'Debit')\n    ]\n    \n    # Return the count of such transactions\n    return len(transactions)\n"
+        }
+    },
+    "feature_descriptions": [
+        "count default flags",
+        "total amount paid",
+        "payment completion rate",
+        "max payment amount",
+        "avg utility cost per unit",
+        "utility type diversity",
+        "avg payment amount",
+        "account longevity",
+        "avg payment interval",
+        "total utility cost",
+        "total transaction amount",
+        "credit transaction count",
+        "most recent usage",
+        "avg transaction amount",
+        "debit transaction count"
+    ]
+}

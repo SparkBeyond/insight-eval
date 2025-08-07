@@ -1,0 +1,131 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "last_feedback_score",
+        "days_since_last_feedback",
+        "recent_transaction_amount",
+        "recent_campaign_responses",
+        "account_age",
+        "positive_feedback_count",
+        "campaign_success_ratio",
+        "total_campaign_engagement",
+        "avg_transaction_amount",
+        "is_active_account",
+        "avg_feedback_score",
+        "lifetime_spending",
+        "region_indicator",
+        "in_app_feedback_percent",
+        "total_refund_amount",
+        "gender_indicator",
+        "refund_rate",
+        "subscription_frequency",
+        "loyalty_per_dollar",
+        "feedback_count_by_channel"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.11876357421047984": {
+            "name": "last_feedback_score",
+            "code": "\n\ndef last_feedback_score(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the customer feedback dataframe using the correct key\n    feedbacks = aux_data['customer_feedback_table.csv']\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the feedbacks for the given customer_id\n    customer_feedbacks = feedbacks[feedbacks['customer_id'] == customer_id]\n    \n    # Check if there are any feedbacks for the customer\n    if not customer_feedbacks.empty:\n        # Sort by feedback_date in descending order and return the latest feedback_score\n        return customer_feedbacks.sort_values('feedback_date', ascending=False)['feedback_score'].iloc[0]\n    \n    # Return None if no feedbacks are found\n    return None\n"
+        },
+        "0.11338315433755036": {
+            "name": "days_since_last_feedback",
+            "code": "import datetime\n\ndef days_since_last_feedback(row, aux_data: Dict[str, pd.DataFrame]):\n    from datetime import datetime\n    # Use the correct key for the customer feedback dataframe\n    feedbacks = aux_data['customer_feedback_table.csv']\n    customer_id = row['customer_id']\n    # Filter feedbacks for the specific customer\n    customer_feedbacks = feedbacks[feedbacks['customer_id'] == customer_id]\n    if not customer_feedbacks.empty:\n        # Parse the last feedback date\n        last_feedback_date = datetime.strptime(customer_feedbacks['feedback_date'].max(), \"%Y-%m-%d %H:%M:%S.%f\")\n        # Calculate the difference in days\n        return (datetime.now() - last_feedback_date).days\n    # Return None if no feedback exists for the customer\n    return None\n"
+        },
+        "0.0888413619390946": {
+            "name": "recent_transaction_amount",
+            "code": "\n\ndef recent_transaction_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Correct key for transaction history dataframe\n    transactions = aux_data['transaction_history_table.csv']\n    customer_id = row['customer_id']\n    \n    # Filter transactions for the given customer_id\n    customer_transactions = transactions[transactions['customer_id'] == customer_id]\n    \n    # Check if there are any transactions and return the most recent transaction amount\n    if not customer_transactions.empty:\n        return customer_transactions.sort_values('transaction_date', ascending=False)['transaction_amount'].iloc[0]\n    \n    # Return 0 if no transactions are found\n    return 0\n"
+        },
+        "0.06497030318602807": {
+            "name": "recent_campaign_responses",
+            "code": "\n\ndef recent_campaign_responses(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the filename key\n    campaigns = aux_data['marketing_campaigns_table.csv']\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the campaigns dataframe for the given customer_id and where response is True\n    return campaigns[(campaigns['customer_id'] == customer_id) & (campaigns['response'] == True)].shape[0]\n"
+        },
+        "0.05233213443898357": {
+            "name": "account_age",
+            "code": "import datetime\n\ndef account_age(row):\n    from datetime import datetime\n    creation_date = datetime.strptime(row['account_creation_date'], \"%Y-%m-%d %H:%M:%S.%f\")\n    current_date = datetime.now()\n    return (current_date - creation_date).days\n"
+        },
+        "0.04943711883347692": {
+            "name": "positive_feedback_count",
+            "code": "\n\ndef positive_feedback_count(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the key 'customer_feedback_table.csv'\n    feedbacks = aux_data['customer_feedback_table.csv']\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the feedbacks dataframe for the given customer_id and feedback_score > 3\n    positive_feedbacks = feedbacks[\n        (feedbacks['customer_id'] == customer_id) & \n        (feedbacks['feedback_score'] > 3)\n    ]\n    \n    # Return the count of positive feedbacks\n    return positive_feedbacks.shape[0]\n"
+        },
+        "0.045904611787822285": {
+            "name": "campaign_success_ratio",
+            "code": "\n\ndef campaign_success_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the key 'marketing_campaigns_table.csv'\n    campaigns = aux_data['marketing_campaigns_table.csv']\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the campaigns dataframe for the given customer_id\n    customer_campaigns = campaigns[campaigns['customer_id'] == customer_id]\n    \n    # Calculate the total number of campaigns for the customer\n    total_campaigns = customer_campaigns.shape[0]\n    \n    # Calculate the number of successful campaigns (where 'response' is True)\n    successful_campaigns = customer_campaigns[customer_campaigns['response'] == True].shape[0]\n    \n    # Return the success ratio if there are any campaigns, otherwise return 0\n    if total_campaigns > 0:\n        return successful_campaigns / total_campaigns\n    return 0\n"
+        },
+        "0.04087910960307754": {
+            "name": "total_campaign_engagement",
+            "code": "\n\ndef total_campaign_engagement(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Access the marketing campaigns dataframe using the correct key\n    campaigns = aux_data['marketing_campaigns_table.csv']\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the campaigns dataframe for the given customer_id and return the count\n    return campaigns[campaigns['customer_id'] == customer_id].shape[0]\n"
+        },
+        "0.03849412879924049": {
+            "name": "avg_transaction_amount",
+            "code": "\n\ndef avg_transaction_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct key for the transaction history dataframe\n    transactions = aux_data['transaction_history_table.csv']\n    customer_id = row['customer_id']\n    \n    # Filter transactions for the given customer_id\n    customer_transactions = transactions[transactions['customer_id'] == customer_id]\n    \n    # Calculate and return the average transaction amount\n    if not customer_transactions.empty:\n        return customer_transactions['transaction_amount'].mean()\n    return 0\n"
+        },
+        "0.03642763826478648": {
+            "name": "is_active_account",
+            "code": "\n\ndef is_active_account(row):\n    return 1 if row['account_status'].lower() == 'active' else 0\n"
+        },
+        "0.031818044584278476": {
+            "name": "avg_feedback_score",
+            "code": "\n\ndef avg_feedback_score(row, aux_data: Dict[str, pd.DataFrame]):\n    # Use the correct key for the customer feedback dataframe\n    feedbacks = aux_data['customer_feedback_table.csv']\n    customer_id = row['customer_id']\n    \n    # Filter feedbacks for the given customer_id\n    customer_feedbacks = feedbacks[feedbacks['customer_id'] == customer_id]\n    \n    # If there are feedbacks, calculate the mean feedback score\n    if not customer_feedbacks.empty:\n        return customer_feedbacks['feedback_score'].mean()\n    \n    # Return None if no feedbacks are found\n    return None\n"
+        },
+        "0.02252593960238555": {
+            "name": "lifetime_spending",
+            "code": "\n\ndef lifetime_spending(row, aux_data: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_dataframes\n    transactions = aux_data['transaction_history_table.csv']\n    customer_id = row['customer_id']\n    # Filter transactions for the given customer_id and sum the transaction amounts\n    return transactions[transactions['customer_id'] == customer_id]['transaction_amount'].sum()\n"
+        },
+        "0.01679689940115251": {
+            "name": "region_indicator",
+            "code": "\n\ndef region_indicator(row):\n    regions = {'North': 0, 'South': 1, 'East': 2, 'West': 3}\n    return regions.get(row['region'], -1)  # Encode unknown as -1\n"
+        },
+        "0.013154622038150453": {
+            "name": "in_app_feedback_percent",
+            "code": "\n\ndef in_app_feedback_percent(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_dataframes\n    feedbacks = aux_dataframes['customer_feedback_table.csv']\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter feedbacks for the specific customer\n    customer_feedbacks = feedbacks[feedbacks['customer_id'] == customer_id]\n    \n    # Further filter for 'In-App' feedbacks\n    in_app_feedbacks = customer_feedbacks[customer_feedbacks['feedback_channel'] == 'In-App']\n    \n    # Calculate the percentage of in-app feedbacks\n    if customer_feedbacks.shape[0] > 0:\n        return in_app_feedbacks.shape[0] / customer_feedbacks.shape[0]\n    \n    # Return 0 if there are no feedbacks for the customer\n    return 0\n"
+        },
+        "0.012877274651662416": {
+            "name": "total_refund_amount",
+            "code": "\n\ndef total_refund_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct key for the transaction history dataframe\n    transactions = aux_data['transaction_history_table.csv']\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter transactions for the given customer_id and transaction_type == 'Refund'\n    refunds = transactions[(transactions['customer_id'] == customer_id) & \n                           (transactions['transaction_type'] == 'Refund')]\n    \n    # Return the sum of the transaction_amount for refunds\n    return refunds['transaction_amount'].sum()\n"
+        },
+        "0.007208844283231247": {
+            "name": "gender_indicator",
+            "code": "\n\ndef gender_indicator(row):\n    return 1 if row['gender'].lower() == 'male' else 0\n"
+        },
+        "0.006273607894472821": {
+            "name": "refund_rate",
+            "code": "\n\ndef refund_rate(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_dataframes\n    transactions = aux_dataframes['transaction_history_table.csv']\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Calculate the total number of transactions for the customer\n    total_transactions = transactions[transactions['customer_id'] == customer_id].shape[0]\n    \n    # Calculate the number of refund transactions for the customer\n    refunds = transactions[\n        (transactions['customer_id'] == customer_id) & \n        (transactions['transaction_type'] == 'Refund')\n    ].shape[0]\n    \n    # Calculate and return the refund rate\n    if total_transactions > 0:\n        return refunds / total_transactions\n    return 0\n"
+        },
+        "0.0049318429911308515": {
+            "name": "subscription_frequency",
+            "code": "\n\ndef subscription_frequency(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the transaction history dataframe using the correct key\n    transactions = aux_data['transaction_history_table.csv']\n    customer_id = row['customer_id']\n    \n    # Filter transactions for the given customer_id and transaction_type 'Subscription'\n    return transactions[\n        (transactions['customer_id'] == customer_id) & \n        (transactions['transaction_type'] == 'Subscription')\n    ].shape[0]\n"
+        },
+        "1.3366850144645254e-05": {
+            "name": "loyalty_per_dollar",
+            "code": "\n\ndef loyalty_per_dollar(row):\n    return row['loyalty_score'] / (row['total_spent'] + 1e-5)  # Add epsilon to avoid division by zero\n"
+        },
+        "0": {
+            "name": "feedback_count_by_channel",
+            "code": "\n\ndef feedback_count_by_channel(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the key 'customer_feedback_table.csv'\n    feedbacks = aux_data['customer_feedback_table.csv']\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the feedbacks dataframe for the given customer_id\n    customer_feedbacks = feedbacks[feedbacks['customer_id'] == customer_id]\n    \n    # Count the occurrences of each feedback_channel and convert to a dictionary\n    channel_counts = customer_feedbacks['feedback_channel'].value_counts().to_dict()\n    \n    return channel_counts\n"
+        }
+    },
+    "feature_descriptions": [
+        "last feedback score",
+        "days since last feedback",
+        "recent transaction amount",
+        "recent campaign responses",
+        "account age",
+        "positive feedback count",
+        "campaign success ratio",
+        "total campaign engagement",
+        "avg transaction amount",
+        "is active account",
+        "avg feedback score",
+        "lifetime spending",
+        "region indicator",
+        "in app feedback percent",
+        "total refund amount",
+        "gender indicator",
+        "refund rate",
+        "subscription frequency",
+        "loyalty per dollar",
+        "feedback count by channel"
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "proportion_of_prior_claims_approved",
+        "longest_continuous_policy_active_period",
+        "count_of_resolved_customer_complaints_or_inquiries_in_the_last_two_years"
+    ],
+    "features_descriptions": [
+        "proportion of prior claims approved",
+        "longest continuous policy active period",
+        "count of resolved customer complaints or inquiries in the last two years"
+    ]
+}

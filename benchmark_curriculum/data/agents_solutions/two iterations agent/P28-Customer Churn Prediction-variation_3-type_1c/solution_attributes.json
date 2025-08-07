@@ -1,0 +1,38 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "energy_usage_variance",
+        "energy_consumption_volatility",
+        "interaction_frequency_last_year",
+        "num_complaints",
+        "total_complaints",
+        "recent_energy_consumption",
+        "unresolved_complaint_ratio",
+        "is_high_monthly_fee",
+        "mean_days_between_last_payments",
+        "payment_amount_variance",
+        "avg_resolution_time",
+        "mean_energy_consumption",
+        "payment_frequency_last_year",
+        "num_payments"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "energy usage variance",
+        "energy consumption volatility",
+        "interaction frequency last year",
+        "num complaints",
+        "total complaints",
+        "recent energy consumption",
+        "unresolved complaint ratio",
+        "is high monthly fee",
+        "mean days between last payments",
+        "payment amount variance",
+        "avg resolution time",
+        "mean energy consumption",
+        "payment frequency last year",
+        "num payments"
+    ]
+}

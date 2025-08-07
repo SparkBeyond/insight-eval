@@ -1,0 +1,901 @@
+claim_id,policyholder_id,incident_date,claim_amount,claim_status,incident_type,incident_location,policy_coverage_type,Fraudulent
+3,393,2023-02-09,12032,Approved,Fire,Garrettfurt,Comprehensive,0
+2052,446,2024-03-10,41876,Approved,Medical,Jamesmouth,Comprehensive,0
+2053,726,2021-05-09,31002,Pending,Fire,New Stephanieberg,Comprehensive,0
+6,596,2022-07-09,32002,Rejected,Car Accident,South Rachelton,Health,0
+7,422,2023-11-08,20327,Approved,Medical,Kelleyfort,Comprehensive,0
+9,58,2022-08-05,28166,Rejected,Theft,North Chelseahaven,Third-Party,0
+10,601,2022-09-09,19657,Approved,Medical,Kristophershire,Health,0
+12,932,2022-01-22,14230,Pending,Car Accident,West Bradley,Third-Party,0
+2061,633,2023-01-23,20684,Approved,Fire,Farmerborough,Comprehensive,0
+14,650,2023-01-01,7553,Pending,Theft,Port Danielmouth,Health,0
+2062,652,2023-07-23,21505,Rejected,Fire,Lake Elizabeth,Comprehensive,1
+17,384,2021-09-28,9902,Rejected,Fire,Ryanland,Third-Party,0
+2065,43,2021-03-24,5754,Rejected,Medical,Kimberlyport,Comprehensive,0
+19,998,2024-02-07,10701,Approved,Car Accident,Lindseymouth,Comprehensive,0
+2067,807,2023-07-05,11836,Rejected,Fire,South Brendahaven,Third-Party,0
+2072,622,2020-08-03,32639,Pending,Car Accident,Jeanport,Comprehensive,0
+26,248,2021-09-22,39440,Rejected,Fire,Lake Jane,Health,0
+27,979,2021-11-28,36397,Approved,Medical,Shannonmouth,Comprehensive,0
+28,640,2020-05-22,30625,Approved,Fire,Kevinmouth,Third-Party,0
+2076,50,2022-05-27,36705,Rejected,Fire,New Elizabethport,Health,0
+2077,759,2024-03-19,978,Rejected,Car Accident,New Michealburgh,Comprehensive,0
+2080,235,2022-09-07,39826,Rejected,Theft,Seanshire,Comprehensive,1
+2085,214,2021-03-07,49341,Approved,Car Accident,West Rebecca,Comprehensive,1
+2087,320,2025-05-06,7991,Rejected,Medical,Hansonfurt,Third-Party,0
+41,345,2022-03-19,41973,Pending,Medical,Natalietown,Third-Party,0
+42,300,2024-08-06,43560,Rejected,Theft,Port Patriciafort,Third-Party,1
+2091,834,2024-02-29,48006,Approved,Car Accident,Frankton,Comprehensive,0
+47,345,2022-05-05,40122,Approved,Theft,West Richardbury,Third-Party,1
+2095,4,2025-04-06,42990,Pending,Medical,Millerchester,Comprehensive,1
+2096,419,2023-05-10,34685,Approved,Medical,North Morganstad,Third-Party,0
+2098,501,2023-09-06,30483,Rejected,Medical,Mooreville,Third-Party,0
+2100,535,2021-09-02,9179,Pending,Car Accident,Lisafurt,Health,0
+53,197,2022-07-10,3169,Pending,Medical,Kimberlyshire,Comprehensive,0
+58,998,2024-11-11,45253,Approved,Theft,Lake Michael,Health,0
+59,642,2025-04-22,29038,Pending,Car Accident,North Meganland,Health,1
+61,600,2020-11-29,5535,Approved,Medical,North Greggfurt,Health,0
+62,283,2021-06-20,41572,Rejected,Medical,Susanhaven,Health,1
+2109,913,2021-11-18,7155,Approved,Car Accident,Marytown,Health,0
+67,370,2022-04-26,10191,Approved,Car Accident,South Elizabethberg,Third-Party,0
+2115,562,2024-11-19,12487,Pending,Car Accident,Parkermouth,Third-Party,1
+2116,985,2025-02-14,24717,Approved,Medical,Jennifermouth,Comprehensive,0
+70,844,2021-11-23,14439,Approved,Fire,Lake Calebside,Third-Party,0
+71,970,2022-09-25,46765,Pending,Medical,Emilychester,Comprehensive,1
+2117,699,2020-05-18,25559,Rejected,Medical,Lake Mariastad,Third-Party,0
+73,684,2022-11-12,31808,Rejected,Theft,South Matthew,Third-Party,0
+2118,577,2023-07-13,14689,Pending,Fire,Vanceberg,Health,0
+2123,549,2021-06-19,6923,Approved,Theft,New Maria,Comprehensive,0
+78,782,2020-06-23,42171,Pending,Fire,Nunezland,Third-Party,0
+80,125,2022-09-22,10751,Pending,Fire,North Ann,Comprehensive,0
+82,296,2024-02-11,12725,Rejected,Medical,Lake Anthony,Health,0
+84,765,2021-12-28,6181,Rejected,Fire,Heatherfort,Comprehensive,1
+2133,572,2022-01-22,22587,Rejected,Fire,North Robinberg,Third-Party,0
+86,279,2023-04-10,49654,Pending,Theft,East Sarah,Third-Party,1
+87,242,2024-09-12,40828,Rejected,Car Accident,North Johntown,Third-Party,1
+2135,742,2024-05-24,48368,Rejected,Theft,Parkerton,Health,1
+2137,135,2024-06-07,43008,Approved,Theft,Sergiomouth,Comprehensive,0
+94,557,2020-09-24,7153,Rejected,Car Accident,South Mark,Health,0
+96,9,2021-10-16,32843,Rejected,Medical,Elizabethside,Health,1
+97,775,2020-06-21,39057,Rejected,Fire,Natashafort,Comprehensive,0
+2146,101,2021-02-04,33319,Rejected,Fire,East Jose,Health,0
+101,316,2021-05-21,31586,Rejected,Fire,Lake Josephchester,Third-Party,1
+105,931,2021-05-16,34311,Approved,Medical,Port Kevin,Health,0
+107,392,2024-09-22,15920,Approved,Medical,Manningtown,Health,1
+2155,451,2021-01-29,13824,Approved,Car Accident,Smithbury,Third-Party,0
+2157,715,2023-11-21,11488,Approved,Theft,Mezaberg,Comprehensive,0
+110,554,2020-06-12,47825,Rejected,Car Accident,Reginaldfurt,Health,0
+2158,302,2022-12-20,31396,Approved,Fire,Matthewborough,Third-Party,0
+2160,593,2024-03-31,39540,Rejected,Theft,Holmesside,Third-Party,0
+2164,830,2023-01-21,28679,Rejected,Medical,Diazland,Third-Party,0
+118,996,2024-05-20,4235,Pending,Medical,East Paul,Third-Party,0
+2166,577,2024-10-28,36386,Rejected,Fire,Kimberlystad,Health,0
+2171,536,2024-12-13,18552,Approved,Car Accident,Port Ryan,Health,1
+124,653,2022-06-20,46815,Pending,Theft,Lake Yolandaville,Third-Party,0
+2172,318,2022-02-16,29430,Rejected,Car Accident,Smithmouth,Health,0
+2175,887,2020-12-13,26852,Approved,Car Accident,Port Lauren,Health,0
+2176,692,2021-05-21,15228,Pending,Theft,North Georgestad,Third-Party,0
+129,398,2024-10-28,8865,Pending,Car Accident,Donaldsonborough,Third-Party,0
+130,950,2021-08-28,32075,Pending,Fire,South Brandonhaven,Health,0
+131,139,2023-03-23,1459,Rejected,Car Accident,Port Michaelhaven,Third-Party,0
+136,515,2023-03-24,45942,Pending,Car Accident,Mcclurehaven,Third-Party,1
+2190,566,2024-10-17,2439,Approved,Medical,New Kevinville,Third-Party,0
+144,263,2023-08-09,45597,Pending,Car Accident,West Reneebury,Health,0
+2193,42,2022-01-13,37612,Approved,Car Accident,New Jamesborough,Health,0
+146,716,2021-10-12,18778,Approved,Theft,Edgarview,Health,0
+147,847,2022-04-28,49752,Rejected,Fire,North Franciscomouth,Third-Party,0
+2194,643,2023-05-27,18901,Approved,Medical,Johnsonborough,Third-Party,0
+149,478,2024-09-11,32724,Rejected,Car Accident,East Catherine,Third-Party,0
+150,700,2021-04-27,41421,Rejected,Car Accident,Briantown,Health,0
+2195,774,2022-05-29,49112,Pending,Car Accident,Spencerbury,Comprehensive,0
+152,380,2020-10-25,46891,Approved,Car Accident,East Jonathan,Comprehensive,0
+155,973,2024-10-18,11814,Pending,Theft,Allenton,Third-Party,0
+2204,908,2022-11-10,4437,Rejected,Fire,Petertown,Comprehensive,0
+161,215,2024-08-18,27156,Approved,Car Accident,Delacruzberg,Comprehensive,1
+166,239,2022-03-30,32104,Rejected,Medical,Sarahfurt,Third-Party,1
+2219,211,2025-02-02,25858,Rejected,Fire,Mcbridefurt,Comprehensive,1
+175,751,2024-12-02,11159,Approved,Theft,East Angela,Third-Party,0
+176,940,2023-06-20,5748,Pending,Medical,Stephensonfurt,Health,0
+177,160,2022-09-28,43527,Approved,Fire,Port Justinmouth,Health,1
+178,177,2022-03-07,10176,Pending,Fire,South Patriciabury,Third-Party,0
+2227,45,2025-03-28,11893,Pending,Theft,West Clinton,Comprehensive,0
+180,69,2021-06-09,48944,Rejected,Car Accident,Smithhaven,Third-Party,0
+2233,223,2025-01-25,10010,Rejected,Fire,Brandonport,Third-Party,0
+2235,752,2021-04-18,4763,Approved,Car Accident,Penningtonton,Comprehensive,0
+2238,287,2024-09-07,23157,Approved,Car Accident,North Cody,Health,1
+191,941,2023-01-07,17590,Rejected,Fire,Blackton,Third-Party,0
+194,457,2022-10-16,28988,Pending,Medical,East Nathanhaven,Comprehensive,0
+195,740,2022-05-15,35573,Approved,Fire,Millerville,Comprehensive,0
+197,662,2020-07-28,34723,Rejected,Theft,Scottville,Third-Party,0
+199,718,2024-05-09,30920,Pending,Theft,Lake Andrea,Health,0
+200,619,2021-03-02,32618,Approved,Fire,Port Johnmouth,Third-Party,1
+2247,35,2024-07-12,41345,Approved,Medical,Lake Lucasshire,Health,1
+2249,520,2024-08-18,35063,Pending,Fire,Douglasburgh,Third-Party,1
+2250,839,2023-02-27,2272,Approved,Medical,North Mauriceton,Health,1
+204,35,2021-02-07,20794,Approved,Car Accident,South Donnastad,Comprehensive,0
+2257,4,2025-01-27,27673,Rejected,Fire,Shelbyburgh,Comprehensive,1
+2259,9,2024-04-29,25578,Rejected,Medical,North Katherine,Health,1
+2260,636,2024-12-30,1558,Approved,Theft,South Rita,Health,0
+216,425,2023-07-22,11951,Approved,Car Accident,West Stacieton,Comprehensive,1
+217,872,2021-09-09,41998,Approved,Fire,West Rebeccamouth,Third-Party,0
+2266,483,2024-10-13,15850,Approved,Fire,New Melinda,Health,1
+2271,234,2023-08-06,34172,Approved,Fire,New Davidbury,Third-Party,1
+224,938,2020-08-15,22435,Pending,Car Accident,Sanderschester,Health,0
+2273,180,2022-11-03,29273,Pending,Medical,West Daniel,Third-Party,0
+227,837,2021-09-17,3294,Approved,Car Accident,Lake Kimberlystad,Comprehensive,0
+229,275,2020-06-25,1463,Rejected,Fire,Stephenside,Third-Party,0
+230,773,2020-10-01,32432,Pending,Fire,Lake Victoria,Comprehensive,0
+234,739,2022-09-06,6651,Approved,Medical,New Paul,Third-Party,0
+2282,261,2022-02-03,28367,Approved,Theft,North Jessica,Comprehensive,0
+2284,706,2022-01-31,26377,Rejected,Theft,Mckinneyville,Comprehensive,0
+2285,469,2022-10-25,5566,Approved,Car Accident,Angelafurt,Health,0
+240,868,2025-02-26,49494,Approved,Fire,Reynoldstown,Third-Party,0
+242,705,2023-02-22,35646,Rejected,Fire,East Juliebury,Comprehensive,0
+244,792,2021-06-19,32418,Rejected,Car Accident,South Michelefurt,Health,0
+2292,603,2023-01-03,4308,Pending,Fire,Jennifermouth,Third-Party,0
+2294,702,2022-01-29,12996,Pending,Fire,Port Darlene,Health,0
+249,129,2024-06-21,7248,Rejected,Car Accident,Joshuaview,Comprehensive,0
+250,892,2021-03-12,11095,Approved,Car Accident,New Debrahaven,Third-Party,0
+251,630,2022-10-19,4390,Rejected,Theft,South Jennifer,Health,0
+2297,33,2024-09-09,18772,Approved,Medical,Edwardborough,Comprehensive,0
+2300,71,2024-04-30,17319,Rejected,Medical,Wrightview,Comprehensive,0
+2301,203,2021-06-06,38885,Pending,Medical,Webbland,Third-Party,0
+257,502,2024-08-21,15707,Approved,Theft,Janetchester,Health,1
+263,609,2024-01-14,18021,Pending,Fire,Lake Taylor,Third-Party,0
+2313,848,2023-05-22,41073,Rejected,Medical,Lake Rachel,Health,1
+266,833,2022-06-02,36234,Pending,Fire,South Sandratown,Health,0
+267,144,2020-11-08,37231,Approved,Car Accident,Danielton,Comprehensive,0
+2315,668,2023-02-18,47855,Approved,Medical,Andersontown,Health,1
+269,721,2024-05-30,38001,Approved,Car Accident,Martinfurt,Third-Party,0
+271,733,2025-01-12,27560,Approved,Car Accident,South Shannon,Third-Party,0
+277,788,2021-09-27,36128,Pending,Medical,South Margaret,Third-Party,0
+281,739,2020-12-28,19108,Pending,Medical,Jessicastad,Comprehensive,0
+2329,289,2020-09-13,29682,Rejected,Car Accident,North Christopherbury,Comprehensive,1
+283,171,2024-03-17,39095,Rejected,Car Accident,North Albertport,Health,1
+2330,923,2023-01-22,30514,Pending,Theft,Stevenburgh,Comprehensive,0
+2332,455,2023-02-08,48992,Pending,Medical,Stephanieside,Health,0
+286,74,2022-11-22,30533,Approved,Car Accident,Woodshire,Comprehensive,0
+287,736,2024-02-17,647,Rejected,Car Accident,Port Danielmouth,Comprehensive,0
+288,848,2021-04-20,30335,Rejected,Car Accident,Lake Isaiah,Health,1
+2336,74,2022-11-16,7964,Approved,Medical,Kaylafurt,Health,0
+296,720,2022-12-10,4320,Approved,Medical,North Joyce,Comprehensive,0
+297,10,2023-07-04,30721,Approved,Theft,Nicoleland,Health,0
+298,204,2024-06-30,7712,Pending,Medical,Perezton,Health,0
+2346,56,2022-06-22,12972,Approved,Car Accident,Aprilhaven,Health,0
+301,455,2024-03-11,9097,Pending,Theft,Thompsonchester,Comprehensive,0
+304,477,2023-11-25,18112,Pending,Theft,Yolandachester,Comprehensive,0
+305,371,2021-04-28,31002,Rejected,Car Accident,North Andrea,Health,1
+306,910,2023-09-24,25260,Approved,Medical,Smithton,Comprehensive,0
+2354,290,2025-01-29,16029,Approved,Medical,South Mario,Comprehensive,0
+2358,640,2024-06-11,5611,Rejected,Car Accident,Manningstad,Health,0
+314,781,2024-11-18,10650,Approved,Theft,Lake Thomasville,Health,0
+2362,694,2024-03-23,18127,Pending,Medical,South Deniseton,Comprehensive,0
+319,96,2020-06-16,41379,Pending,Medical,South Bruce,Third-Party,0
+321,669,2023-05-01,9056,Rejected,Theft,Andreaview,Health,0
+322,197,2020-05-28,27257,Pending,Medical,Martinezville,Third-Party,0
+2371,348,2020-08-14,16532,Pending,Car Accident,Robertsborough,Health,0
+328,226,2024-10-06,11153,Approved,Car Accident,South Deannaside,Third-Party,1
+2377,56,2021-03-26,27231,Pending,Theft,North Jamesland,Comprehensive,0
+330,503,2024-09-14,26040,Rejected,Car Accident,Lake Cindyport,Health,0
+2378,513,2021-03-02,2634,Rejected,Fire,West Jason,Health,0
+333,533,2020-10-25,35159,Rejected,Medical,Garciashire,Health,0
+334,3,2023-01-31,10664,Approved,Car Accident,New Michaelbury,Comprehensive,0
+2383,348,2023-01-15,978,Approved,Car Accident,Schmidthaven,Health,0
+340,78,2023-06-28,1347,Rejected,Medical,South Rebeccahaven,Third-Party,0
+2389,379,2023-08-09,43924,Rejected,Fire,Hicksbury,Comprehensive,1
+342,92,2023-04-05,40849,Approved,Medical,New Jefferymouth,Comprehensive,0
+343,623,2025-01-10,22844,Pending,Medical,Friedmanberg,Third-Party,0
+2392,495,2025-03-20,2528,Pending,Medical,Maryland,Health,0
+345,670,2024-03-07,43769,Rejected,Car Accident,Jamesville,Third-Party,0
+347,851,2024-10-08,24246,Rejected,Fire,East Michellefurt,Health,0
+2399,122,2020-12-13,12248,Pending,Medical,Walkermouth,Third-Party,0
+353,851,2024-04-05,20913,Rejected,Fire,New Davidshire,Third-Party,0
+354,438,2022-12-31,19664,Approved,Medical,West Kenneth,Comprehensive,0
+357,304,2020-08-28,20362,Rejected,Medical,Lake Charlestown,Health,0
+2407,317,2021-01-08,4591,Rejected,Medical,Warrenfurt,Third-Party,0
+2408,355,2023-06-27,22288,Rejected,Medical,Brendaberg,Comprehensive,0
+362,146,2021-02-15,40750,Pending,Car Accident,East Destinyshire,Third-Party,0
+364,300,2023-10-30,34259,Rejected,Theft,Blairfurt,Comprehensive,0
+365,487,2021-01-22,18035,Approved,Theft,Zhangview,Comprehensive,0
+2412,587,2021-09-30,25621,Approved,Theft,West Erin,Health,0
+367,122,2023-06-27,19514,Rejected,Fire,Cooperburgh,Third-Party,0
+2415,261,2024-04-06,20362,Pending,Theft,West Derek,Health,1
+370,206,2021-12-09,39987,Rejected,Theft,Harrisfurt,Health,0
+372,237,2022-11-23,21143,Approved,Car Accident,West Elizabethburgh,Health,0
+373,749,2023-08-06,27075,Approved,Theft,Greenhaven,Health,0
+2422,977,2022-05-15,19336,Pending,Car Accident,Port Aliciatown,Third-Party,0
+376,45,2022-12-28,32917,Rejected,Fire,Lake Pamelaland,Health,0
+380,966,2025-03-10,28373,Pending,Medical,Port Paulfort,Comprehensive,0
+2428,665,2022-12-30,14691,Rejected,Medical,Tammybury,Third-Party,0
+385,857,2022-02-11,2743,Rejected,Medical,West Angela,Comprehensive,0
+387,15,2024-01-14,8791,Pending,Fire,Ricefort,Comprehensive,0
+2435,799,2025-05-03,36479,Approved,Medical,Carolinechester,Health,1
+2436,466,2021-10-08,32867,Rejected,Theft,North Heatherstad,Comprehensive,1
+2437,833,2024-01-07,39266,Approved,Fire,South Adrianfort,Comprehensive,0
+2438,503,2020-06-13,49868,Approved,Fire,Andrewside,Comprehensive,0
+393,956,2020-11-11,40826,Approved,Medical,Sanchezshire,Comprehensive,1
+2441,863,2023-10-17,18525,Approved,Car Accident,Wardmouth,Third-Party,1
+395,853,2020-11-13,45962,Pending,Theft,North Michaelville,Third-Party,0
+396,103,2022-05-30,49830,Approved,Fire,Hollandborough,Comprehensive,0
+397,165,2021-08-08,41555,Rejected,Car Accident,North Jeremyton,Third-Party,0
+399,318,2020-09-10,43118,Pending,Car Accident,North Sierra,Comprehensive,1
+401,486,2021-04-25,34782,Approved,Theft,Deborahfort,Third-Party,0
+2449,2,2023-06-21,46247,Rejected,Theft,Fryland,Health,1
+2450,673,2024-08-03,1745,Rejected,Theft,Duartemouth,Third-Party,0
+2453,907,2020-11-14,34887,Pending,Theft,North Samantha,Health,0
+2454,209,2022-05-29,16745,Approved,Fire,Port Amandabury,Health,0
+407,391,2025-01-21,11520,Rejected,Theft,Port Sarahberg,Health,0
+409,882,2022-10-21,21668,Pending,Medical,New Jasonview,Health,0
+411,660,2023-04-17,19525,Pending,Fire,New Haleytown,Health,1
+413,666,2022-02-19,31912,Rejected,Medical,Ericfurt,Third-Party,1
+2461,743,2021-01-03,20757,Pending,Medical,East Christopherchester,Health,0
+415,134,2024-10-02,10698,Pending,Fire,Dianaton,Third-Party,0
+2464,361,2021-08-24,18674,Rejected,Fire,East Angela,Comprehensive,0
+2465,225,2022-11-11,16843,Rejected,Fire,Lopezport,Third-Party,1
+2466,751,2020-11-09,37075,Approved,Car Accident,North Billyhaven,Health,1
+423,791,2021-10-29,48580,Pending,Theft,Lake Christopher,Comprehensive,0
+425,481,2022-10-06,48677,Approved,Medical,Port Joshua,Third-Party,1
+2473,774,2023-10-29,32753,Rejected,Car Accident,Markbury,Health,0
+429,622,2021-12-05,25329,Pending,Fire,East Austinchester,Health,0
+430,309,2022-01-15,29073,Approved,Fire,Port Jenna,Comprehensive,0
+2478,156,2020-10-27,24018,Pending,Car Accident,North Kimberly,Third-Party,0
+432,847,2023-11-10,7140,Approved,Medical,Lake Jessica,Comprehensive,0
+2481,871,2022-02-07,16901,Pending,Car Accident,West Benjaminchester,Health,0
+434,403,2021-12-05,25754,Pending,Theft,Matthewborough,Health,1
+2484,555,2021-01-16,37444,Approved,Theft,South Adrian,Health,0
+437,654,2021-02-01,40273,Pending,Car Accident,Joshuaville,Comprehensive,0
+2485,482,2023-07-11,13562,Pending,Theft,Robbinsside,Health,0
+439,296,2024-10-28,11271,Pending,Theft,Perkinston,Comprehensive,0
+440,496,2025-02-06,28028,Pending,Fire,Atkinsshire,Third-Party,0
+2489,308,2020-05-21,18199,Rejected,Car Accident,Smithport,Third-Party,0
+445,8,2025-01-26,10082,Pending,Medical,East Jessemouth,Health,0
+446,946,2022-06-07,46424,Approved,Medical,Alanmouth,Comprehensive,0
+447,856,2024-08-09,43393,Approved,Fire,Martinezbury,Third-Party,0
+2493,200,2021-03-10,12668,Approved,Theft,East Peter,Health,0
+2495,493,2024-10-31,24397,Pending,Theft,South Sharonside,Third-Party,0
+2497,318,2024-01-31,36578,Pending,Theft,East Brian,Health,1
+2502,855,2021-01-20,27434,Rejected,Car Accident,North Tonya,Third-Party,0
+456,200,2023-10-17,15677,Pending,Fire,West Davidhaven,Health,0
+457,950,2024-10-14,9052,Pending,Medical,Williamsbury,Comprehensive,0
+458,615,2024-03-22,18789,Approved,Theft,Jonesmouth,Health,0
+2505,12,2023-09-25,32358,Rejected,Medical,New Zacharyburgh,Comprehensive,1
+2507,878,2021-01-24,5751,Approved,Medical,New Ashleyfurt,Health,0
+461,633,2023-05-30,20764,Approved,Theft,Lewisbury,Health,0
+2510,667,2021-02-23,47994,Rejected,Car Accident,New Deborah,Third-Party,0
+464,861,2020-11-24,17812,Pending,Fire,Loribury,Health,0
+2515,553,2021-10-05,7425,Rejected,Fire,East Joshuachester,Health,0
+469,148,2021-07-06,31399,Rejected,Theft,South Nancyberg,Health,0
+2518,629,2021-11-07,20913,Pending,Car Accident,Perkinsmouth,Comprehensive,0
+471,427,2022-12-28,13248,Rejected,Medical,West Cynthia,Third-Party,0
+2521,247,2021-11-13,44297,Approved,Car Accident,Lisabury,Third-Party,0
+474,327,2024-09-18,14821,Approved,Medical,Juliaborough,Comprehensive,0
+475,246,2022-08-10,36712,Rejected,Theft,East Lucasville,Health,0
+2522,934,2024-05-24,37186,Pending,Car Accident,Phammouth,Third-Party,0
+477,859,2020-08-23,18229,Approved,Theft,Tannerfurt,Third-Party,0
+2528,305,2022-10-05,13204,Pending,Theft,Marioshire,Health,0
+483,34,2020-08-20,14673,Approved,Theft,Kimborough,Comprehensive,1
+484,212,2022-06-29,18777,Pending,Car Accident,Moyerburgh,Health,0
+2531,494,2025-01-17,38902,Rejected,Fire,South Kristastad,Third-Party,1
+2533,849,2025-01-02,3214,Pending,Medical,South Jasonberg,Comprehensive,0
+2537,150,2024-01-22,38096,Pending,Car Accident,Jameshaven,Health,0
+491,435,2023-12-28,5564,Pending,Fire,New Caitlinshire,Health,0
+492,335,2021-03-02,2044,Approved,Medical,West Michaelmouth,Third-Party,0
+493,762,2024-02-06,47039,Approved,Medical,Lake Christopherville,Comprehensive,1
+2540,210,2023-10-22,26319,Pending,Medical,Wilsonview,Comprehensive,0
+495,755,2022-07-09,21245,Approved,Medical,Kimberlyberg,Third-Party,0
+496,203,2023-10-18,5684,Approved,Theft,Port Anthonyfurt,Comprehensive,0
+2546,693,2023-07-07,9744,Approved,Fire,Justinberg,Health,0
+499,757,2023-08-24,49476,Pending,Medical,Devintown,Third-Party,0
+2551,500,2022-08-21,27309,Rejected,Medical,East Joeborough,Health,0
+2556,231,2024-07-21,3347,Approved,Car Accident,Masseyberg,Comprehensive,0
+2558,384,2021-04-19,22312,Approved,Medical,Erinshire,Health,0
+2559,695,2024-03-03,7717,Rejected,Theft,Dianemouth,Comprehensive,0
+512,13,2020-08-11,49321,Pending,Fire,Brownfort,Health,0
+2561,116,2023-12-09,25150,Rejected,Theft,Parkerchester,Third-Party,0
+514,545,2021-09-15,8212,Rejected,Fire,Douglasfurt,Third-Party,0
+515,74,2024-02-29,23656,Rejected,Fire,Robertaton,Third-Party,1
+2562,857,2024-11-01,44955,Approved,Theft,East Beverly,Comprehensive,0
+517,611,2025-03-18,30008,Rejected,Theft,West Sherry,Third-Party,0
+518,187,2021-11-15,12932,Approved,Theft,Angelastad,Third-Party,0
+2565,251,2024-03-13,46323,Pending,Car Accident,Smithland,Comprehensive,1
+520,515,2022-05-20,30377,Approved,Medical,Lake Kariborough,Comprehensive,1
+521,424,2023-03-28,30847,Rejected,Medical,Simsborough,Third-Party,0
+2569,653,2022-12-15,8951,Approved,Car Accident,Dukefort,Third-Party,0
+523,851,2024-02-19,9455,Approved,Theft,South Dennis,Comprehensive,0
+2572,128,2021-08-10,29611,Rejected,Medical,New Jeanne,Third-Party,1
+525,387,2021-05-14,8690,Pending,Medical,West Chadshire,Comprehensive,0
+2573,454,2024-12-22,10704,Pending,Car Accident,Chapmanmouth,Third-Party,0
+528,8,2025-04-23,35630,Rejected,Car Accident,Vaughnfort,Comprehensive,0
+2577,794,2020-09-14,32898,Pending,Fire,Kelleyshire,Third-Party,0
+2581,430,2022-06-28,12953,Rejected,Car Accident,Allenfurt,Comprehensive,1
+534,5,2023-11-02,5583,Rejected,Car Accident,Erichaven,Comprehensive,0
+2582,707,2023-09-09,34908,Approved,Theft,South Jason,Health,1
+2583,973,2021-12-26,13937,Approved,Fire,Bryantborough,Health,0
+2584,134,2024-09-24,48216,Rejected,Theft,East Shannon,Comprehensive,0
+2585,727,2024-01-19,28673,Approved,Medical,West Peggy,Comprehensive,0
+2586,71,2024-02-21,1668,Pending,Theft,Charlesside,Comprehensive,0
+540,470,2021-06-22,14699,Pending,Medical,Port Jacqueline,Health,1
+2587,345,2024-09-15,1098,Rejected,Medical,Port Jeffreyport,Health,0
+542,178,2022-06-02,39245,Pending,Theft,Howellmouth,Third-Party,1
+2589,506,2023-07-10,17647,Pending,Theft,West Timothyshire,Health,0
+2591,268,2022-10-22,47368,Rejected,Car Accident,Riveraside,Third-Party,1
+545,906,2020-07-12,20132,Pending,Theft,South Melissa,Comprehensive,0
+548,734,2025-03-07,12569,Pending,Fire,East Daniel,Comprehensive,0
+549,858,2025-02-05,15496,Approved,Car Accident,West Richard,Health,0
+550,841,2022-06-29,46352,Rejected,Theft,Port Sarah,Third-Party,1
+551,788,2022-09-30,42706,Approved,Car Accident,Lake Sandyside,Third-Party,0
+552,16,2020-08-09,35555,Approved,Theft,Johnstad,Comprehensive,0
+2600,225,2023-03-14,32148,Approved,Car Accident,Floresfort,Comprehensive,1
+2601,205,2023-06-26,20168,Pending,Medical,Hernandezchester,Comprehensive,0
+2604,866,2022-07-27,8762,Pending,Car Accident,Arthurville,Third-Party,0
+560,367,2023-08-09,15522,Approved,Medical,West Nathanstad,Comprehensive,0
+2610,428,2022-11-26,30074,Rejected,Fire,Whitetown,Comprehensive,0
+2612,190,2021-05-16,40764,Pending,Theft,Port Matthew,Health,0
+2618,158,2023-05-18,40971,Approved,Fire,New Christine,Comprehensive,0
+2619,232,2024-11-27,49357,Pending,Medical,Sarahchester,Third-Party,0
+2620,539,2020-11-15,3582,Pending,Medical,Louismouth,Third-Party,0
+574,309,2023-08-25,31730,Approved,Theft,Leonardburgh,Third-Party,0
+2625,162,2020-06-06,38467,Approved,Medical,Elliottbury,Health,0
+2626,512,2023-09-23,35089,Rejected,Car Accident,Brianton,Comprehensive,0
+580,964,2020-08-23,35651,Approved,Fire,New Robertchester,Health,0
+582,269,2021-10-04,40445,Rejected,Medical,Luceroburgh,Third-Party,1
+2630,387,2023-02-02,44043,Approved,Theft,North Sheila,Health,0
+2632,316,2023-03-06,23952,Pending,Theft,West Jessica,Health,1
+2633,897,2022-08-26,9428,Pending,Theft,Roseview,Comprehensive,0
+2637,532,2023-03-06,45930,Approved,Car Accident,Wrightport,Third-Party,0
+590,129,2023-03-05,14619,Pending,Theft,East Kyle,Comprehensive,0
+2638,641,2021-01-07,2675,Pending,Theft,East Christine,Health,0
+592,638,2021-04-21,16079,Pending,Car Accident,East Louisport,Third-Party,0
+2641,126,2025-01-30,12230,Approved,Car Accident,New Michaelview,Third-Party,0
+2644,975,2021-09-07,1829,Rejected,Medical,Ethanbury,Third-Party,0
+597,262,2022-04-16,45626,Pending,Theft,Debraborough,Third-Party,0
+2645,655,2023-10-20,42192,Approved,Theft,Murrayville,Health,1
+602,55,2023-06-08,17259,Pending,Medical,Lisastad,Health,0
+603,973,2022-01-18,33600,Approved,Car Accident,South Jeffreyberg,Health,0
+604,246,2022-10-30,33825,Rejected,Theft,Cooktown,Third-Party,1
+606,985,2021-02-24,1664,Rejected,Medical,Lake Lisa,Third-Party,0
+608,518,2021-01-01,29557,Pending,Theft,New Sandra,Comprehensive,0
+2656,540,2023-09-13,38379,Rejected,Theft,North Kevinville,Comprehensive,1
+2658,220,2020-12-13,17310,Rejected,Theft,East Calvin,Comprehensive,0
+611,165,2025-04-05,11374,Pending,Fire,Markview,Comprehensive,0
+614,575,2022-02-24,17903,Approved,Medical,South Melissa,Third-Party,0
+616,47,2024-06-11,10745,Pending,Fire,Deleonton,Comprehensive,0
+2669,439,2024-04-17,17121,Pending,Medical,Lake Lindsey,Health,0
+624,933,2022-01-02,43353,Pending,Medical,Thomasstad,Comprehensive,1
+626,728,2022-12-19,20266,Rejected,Car Accident,Priceburgh,Third-Party,0
+2677,106,2024-11-11,9719,Pending,Medical,South Johnhaven,Health,0
+633,555,2023-12-27,29859,Pending,Theft,South Kimberlyfurt,Health,0
+2682,635,2022-06-02,46107,Rejected,Theft,Charlesview,Comprehensive,0
+635,290,2020-07-20,9976,Rejected,Car Accident,Lake Alisonborough,Health,0
+2685,83,2020-07-10,13091,Pending,Fire,Evansport,Health,0
+2687,718,2021-06-14,20927,Approved,Car Accident,New Katherine,Comprehensive,1
+640,474,2022-05-03,4156,Rejected,Medical,Port Jeremyville,Health,0
+641,887,2020-09-18,33938,Approved,Fire,Jeffreyport,Health,0
+642,64,2020-12-10,14409,Pending,Medical,Emilystad,Comprehensive,0
+2689,880,2023-01-31,31199,Rejected,Theft,New Aprilchester,Third-Party,0
+644,860,2020-08-13,47363,Rejected,Fire,South Julie,Third-Party,0
+2690,653,2024-08-08,2226,Approved,Theft,Port Stanleyburgh,Third-Party,0
+2694,474,2023-02-12,47927,Rejected,Fire,East Suzanne,Comprehensive,0
+647,839,2023-08-15,16186,Approved,Car Accident,Stevensstad,Third-Party,0
+2695,537,2020-08-09,6446,Pending,Medical,Sonyafort,Third-Party,0
+2697,63,2022-11-18,39195,Approved,Medical,South Jessica,Third-Party,0
+650,698,2023-04-26,15766,Pending,Medical,Lake Daniellehaven,Comprehensive,1
+2703,963,2023-07-08,21929,Rejected,Fire,West Alan,Health,0
+656,695,2020-11-08,24460,Rejected,Car Accident,North Davidville,Health,0
+657,54,2020-11-02,6177,Rejected,Theft,Newtonland,Health,0
+658,283,2023-12-21,2835,Pending,Theft,Allenport,Comprehensive,0
+2705,682,2025-01-28,3042,Pending,Medical,West Greg,Health,0
+660,949,2023-05-08,44952,Rejected,Fire,South Brian,Health,1
+2706,20,2024-07-29,39493,Rejected,Theft,West Emilyville,Third-Party,0
+2709,302,2023-08-02,20309,Approved,Fire,Jasonbury,Health,0
+664,25,2023-01-12,43787,Approved,Medical,Kennethmouth,Third-Party,1
+2714,92,2024-03-21,26107,Approved,Fire,Port Chad,Third-Party,0
+2715,359,2021-09-11,36925,Pending,Fire,East Edwardside,Third-Party,0
+2716,962,2025-02-21,20585,Approved,Medical,Larsonland,Comprehensive,0
+2719,94,2024-09-02,2765,Pending,Theft,New Manuel,Comprehensive,0
+675,850,2023-08-22,9559,Pending,Medical,Port Wesleyview,Health,0
+2724,31,2022-10-19,12385,Rejected,Medical,Jenniferstad,Health,1
+677,395,2022-07-23,31267,Approved,Fire,West Patrickbury,Comprehensive,0
+678,578,2024-06-15,1372,Pending,Fire,Maystad,Health,0
+683,885,2021-01-19,26848,Pending,Medical,Maryfort,Comprehensive,0
+2731,550,2024-05-26,20527,Rejected,Medical,Bookershire,Comprehensive,1
+2732,112,2022-05-10,20612,Approved,Theft,Jamesfurt,Health,0
+2734,965,2022-08-22,24542,Pending,Fire,East Courtneyfurt,Health,1
+687,957,2023-11-14,30888,Pending,Theft,Curtisview,Comprehensive,0
+2736,29,2022-11-21,24859,Approved,Fire,East Gabrielle,Third-Party,0
+2737,791,2020-07-27,7625,Approved,Theft,Colleenhaven,Comprehensive,0
+690,234,2021-08-20,1328,Rejected,Medical,West Dawnbury,Comprehensive,0
+696,914,2022-07-22,13801,Approved,Car Accident,Dylanton,Third-Party,0
+2747,623,2021-01-06,3912,Pending,Medical,Pinedaland,Health,0
+2749,704,2021-02-27,37904,Pending,Medical,West Tamaraburgh,Comprehensive,0
+702,909,2022-09-22,24034,Pending,Fire,Port Sandrachester,Comprehensive,0
+703,624,2022-03-02,38341,Pending,Fire,West Lindseymouth,Third-Party,0
+2750,90,2021-06-30,47451,Pending,Medical,Campbellland,Health,0
+2751,522,2021-09-08,34360,Approved,Car Accident,Port Darinport,Health,0
+2752,299,2022-09-22,44491,Approved,Medical,Brandonberg,Third-Party,1
+707,482,2020-05-14,37187,Approved,Medical,Ericland,Third-Party,0
+2755,147,2020-12-28,19290,Rejected,Fire,Martinezmouth,Third-Party,0
+709,410,2023-12-27,25768,Pending,Theft,Amyberg,Third-Party,1
+2758,795,2020-05-21,46269,Rejected,Theft,North Raymond,Health,0
+712,274,2025-02-18,26610,Approved,Fire,South Daniel,Health,0
+713,425,2020-11-13,10610,Rejected,Medical,South Jason,Health,0
+2760,322,2024-06-11,30727,Rejected,Car Accident,West Deborah,Third-Party,0
+715,202,2022-01-27,48467,Approved,Theft,Nicoleborough,Health,0
+2761,924,2023-11-30,36051,Rejected,Car Accident,West Jose,Third-Party,0
+2762,96,2023-09-29,35905,Approved,Medical,Lucaston,Third-Party,0
+2764,903,2022-07-06,12380,Pending,Medical,Abbottborough,Comprehensive,1
+720,334,2025-04-12,32549,Rejected,Theft,Lake Valerie,Health,0
+2770,647,2023-09-11,46847,Rejected,Fire,Christophermouth,Health,0
+2772,692,2025-01-01,11449,Rejected,Theft,Victoriaburgh,Health,0
+725,350,2024-04-07,23302,Approved,Fire,Brownfort,Health,0
+2773,205,2024-09-08,3053,Rejected,Medical,Port Vickie,Third-Party,0
+2774,170,2021-11-05,21176,Pending,Fire,West James,Health,0
+728,711,2023-05-20,36639,Pending,Fire,Meganton,Comprehensive,0
+729,999,2020-12-20,44867,Pending,Car Accident,Port Hannah,Comprehensive,0
+2775,514,2022-12-28,22908,Pending,Theft,Port Autumn,Health,0
+731,230,2023-11-26,41482,Approved,Car Accident,Port Christopher,Third-Party,0
+732,172,2023-12-26,24286,Rejected,Fire,Lopezside,Comprehensive,1
+2777,96,2022-03-23,14900,Approved,Medical,Heathertown,Third-Party,0
+2781,157,2020-09-25,29641,Pending,Medical,South Seth,Health,0
+2784,171,2022-03-10,29323,Pending,Theft,Christinetown,Comprehensive,1
+2785,376,2025-02-04,40990,Pending,Car Accident,North Maryview,Comprehensive,0
+2786,453,2020-06-21,46525,Approved,Theft,Monicaton,Third-Party,1
+739,486,2020-05-11,43241,Rejected,Fire,Maryshire,Health,0
+2789,555,2022-04-14,9661,Approved,Theft,South Lisaland,Health,0
+742,879,2023-05-09,15351,Rejected,Car Accident,East Ashley,Comprehensive,0
+2794,542,2024-04-07,47299,Approved,Theft,Coleview,Comprehensive,0
+2795,401,2024-06-01,39877,Pending,Fire,Lake Mary,Third-Party,0
+749,99,2021-01-07,13089,Approved,Car Accident,South Brian,Health,1
+750,391,2020-11-10,17157,Pending,Car Accident,East Kristaton,Comprehensive,0
+2797,409,2021-04-27,47850,Approved,Theft,South Henrytown,Health,0
+2798,551,2025-04-19,12587,Rejected,Theft,Beasleyfort,Comprehensive,0
+753,468,2024-05-20,3327,Pending,Car Accident,Lake Jay,Health,0
+755,663,2022-05-31,14842,Rejected,Theft,Port Garyborough,Comprehensive,0
+2806,396,2021-12-19,11978,Approved,Fire,South Meredithtown,Comprehensive,0
+2808,530,2022-03-17,11652,Pending,Car Accident,Andrewsside,Health,0
+761,494,2021-03-03,34150,Approved,Fire,Angelland,Third-Party,1
+762,117,2023-01-30,8839,Approved,Theft,North Brett,Health,0
+2809,402,2021-09-08,49643,Rejected,Medical,Jillmouth,Health,0
+764,356,2021-05-23,37267,Pending,Medical,Lake Jacquelinechester,Health,0
+765,341,2021-06-27,22465,Pending,Fire,East Cherylside,Comprehensive,0
+2812,834,2021-01-15,6082,Pending,Theft,New Leebury,Third-Party,0
+767,87,2023-10-06,46988,Pending,Fire,South Staceyburgh,Comprehensive,0
+768,719,2024-10-07,43739,Pending,Theft,Port Stephen,Third-Party,0
+2815,70,2022-12-05,27117,Pending,Medical,Loganland,Comprehensive,1
+770,646,2023-07-02,45878,Approved,Theft,East Robert,Comprehensive,0
+2817,155,2024-03-13,39839,Pending,Car Accident,North Lindseybury,Third-Party,0
+2818,885,2021-07-19,11119,Approved,Car Accident,South Raymond,Comprehensive,1
+773,247,2023-02-20,37511,Approved,Medical,Lake Frank,Third-Party,0
+2821,981,2021-08-09,22123,Approved,Medical,Port Tinaport,Comprehensive,0
+2822,522,2021-08-04,42453,Rejected,Car Accident,Port Dustinland,Health,0
+2824,208,2023-05-19,4402,Pending,Theft,West Brian,Health,0
+2825,525,2023-12-09,35109,Approved,Theft,New Tracy,Third-Party,0
+2827,815,2023-08-26,38135,Approved,Car Accident,Lake Richard,Comprehensive,0
+780,499,2021-11-05,13397,Rejected,Medical,Davidfort,Third-Party,0
+781,652,2024-01-24,47826,Rejected,Car Accident,Powellberg,Third-Party,0
+782,497,2023-05-30,46523,Pending,Theft,Bonniebury,Comprehensive,0
+2828,852,2024-10-19,17718,Approved,Car Accident,East Rita,Third-Party,0
+2829,927,2022-02-25,34304,Approved,Fire,West Christopher,Health,0
+2830,919,2024-10-21,39658,Pending,Fire,Port Rachael,Health,0
+786,823,2024-09-22,4102,Rejected,Theft,Jordantown,Health,0
+2833,778,2020-10-14,28815,Rejected,Theft,South Susan,Health,0
+2835,373,2022-06-02,35260,Pending,Fire,North Tony,Health,0
+789,691,2023-04-11,33963,Rejected,Theft,East Peter,Third-Party,1
+2836,592,2021-05-18,42222,Pending,Theft,Jessicahaven,Third-Party,1
+2838,809,2021-08-11,12212,Approved,Medical,Davisshire,Comprehensive,1
+2841,976,2023-06-16,7632,Approved,Fire,Port Stephen,Comprehensive,0
+794,618,2025-04-16,6097,Pending,Fire,Stephanieberg,Health,0
+2844,995,2025-03-27,31314,Approved,Theft,Watkinsberg,Health,1
+797,531,2021-12-07,33491,Rejected,Car Accident,East Seth,Comprehensive,0
+2848,862,2021-10-21,8142,Pending,Medical,Melissafort,Health,0
+801,598,2022-06-16,18906,Approved,Theft,Port Todd,Comprehensive,0
+2851,78,2023-10-09,28972,Rejected,Medical,New Chadbury,Third-Party,0
+805,1,2022-03-16,45994,Rejected,Theft,Danielfort,Third-Party,0
+2855,783,2023-07-03,47372,Pending,Theft,East Stephaniechester,Health,0
+809,15,2021-10-18,48472,Approved,Car Accident,Lake Heathershire,Health,0
+811,641,2021-09-28,34004,Rejected,Theft,Jonathanmouth,Comprehensive,0
+2860,803,2024-09-15,42188,Approved,Medical,East Dakota,Comprehensive,1
+2861,291,2022-05-15,48319,Rejected,Car Accident,Port Samanthahaven,Health,1
+818,8,2023-10-30,11504,Pending,Fire,Loriport,Third-Party,0
+2866,582,2022-12-02,20927,Rejected,Medical,South Jacquelineport,Health,0
+2867,651,2024-12-07,19128,Pending,Fire,East Suzannetown,Third-Party,0
+2868,987,2024-05-07,1126,Pending,Medical,Gomezport,Health,0
+2869,254,2021-01-31,14878,Approved,Theft,Jimenezberg,Health,1
+2870,908,2025-02-19,17141,Pending,Car Accident,New Susanburgh,Health,0
+824,506,2020-08-24,48283,Pending,Medical,Andreabury,Comprehensive,0
+2871,452,2021-06-07,15939,Rejected,Medical,West Andrea,Third-Party,0
+826,149,2023-04-30,13282,Approved,Car Accident,Port Susanshire,Comprehensive,0
+827,620,2021-07-16,7561,Approved,Fire,North Pamela,Comprehensive,0
+2875,417,2024-06-17,7327,Pending,Car Accident,Port Laurenland,Comprehensive,0
+2878,656,2025-04-16,32082,Rejected,Fire,East Johnny,Third-Party,0
+2879,926,2025-03-10,1801,Rejected,Medical,Lake Rebecca,Third-Party,0
+832,204,2021-12-20,17299,Pending,Car Accident,New Andrea,Health,0
+835,146,2020-07-10,3401,Pending,Medical,Port Jenniferport,Comprehensive,0
+2884,625,2023-10-23,45759,Pending,Fire,South Carolyn,Third-Party,0
+837,884,2021-08-27,34540,Rejected,Theft,East Amy,Comprehensive,0
+838,948,2022-11-12,45143,Pending,Fire,New Charles,Third-Party,0
+2886,174,2022-04-26,20233,Approved,Theft,East Ashleytown,Third-Party,0
+2888,581,2021-08-25,23773,Approved,Theft,West Danny,Comprehensive,0
+841,441,2022-12-03,9818,Approved,Medical,Robertshire,Comprehensive,0
+2890,54,2021-12-17,21765,Rejected,Car Accident,West Robertville,Health,1
+848,965,2021-03-17,46797,Pending,Fire,Port Stephanie,Health,1
+855,585,2024-12-26,30030,Approved,Medical,Bryantbury,Health,0
+2904,713,2024-10-23,27252,Pending,Theft,Lorihaven,Comprehensive,0
+858,615,2024-02-10,15290,Approved,Fire,South Monicamouth,Comprehensive,0
+864,821,2022-02-16,33212,Rejected,Medical,Castillostad,Comprehensive,0
+2912,874,2024-03-13,25930,Pending,Fire,Lake Lawrence,Comprehensive,0
+2914,58,2021-07-30,20324,Pending,Car Accident,Gallaghershire,Third-Party,1
+2915,800,2022-01-06,40762,Approved,Medical,Robinsonton,Health,0
+868,336,2024-10-08,4057,Pending,Car Accident,Malikburgh,Health,0
+2916,748,2023-05-22,36233,Approved,Medical,East Jeffreyland,Comprehensive,0
+2917,77,2025-01-02,13864,Approved,Theft,New Brian,Third-Party,0
+871,740,2021-10-21,4791,Rejected,Car Accident,Tonyatown,Third-Party,0
+2919,746,2021-12-06,19212,Approved,Theft,Port Douglasland,Comprehensive,0
+2920,772,2021-03-29,30964,Approved,Fire,Lake Judyland,Third-Party,0
+2923,490,2023-04-26,11469,Approved,Fire,Davismouth,Comprehensive,0
+2925,74,2024-06-04,41950,Pending,Fire,Clarkmouth,Health,1
+2926,448,2024-09-26,39725,Rejected,Theft,Lawsonstad,Comprehensive,1
+2930,642,2021-05-11,19233,Rejected,Car Accident,Christyside,Comprehensive,0
+883,529,2022-08-28,48821,Approved,Fire,Port Stevenshire,Health,0
+2931,198,2021-01-22,47375,Approved,Fire,North Jeremiahside,Third-Party,0
+2934,764,2025-04-17,24715,Approved,Car Accident,Moranburgh,Third-Party,0
+2935,912,2021-03-07,25220,Pending,Medical,Larsenmouth,Third-Party,0
+893,23,2022-11-28,41565,Rejected,Medical,West Johnshire,Health,0
+2941,842,2022-03-18,43551,Approved,Theft,Randyview,Comprehensive,0
+2944,576,2021-07-27,38184,Rejected,Car Accident,West Michael,Comprehensive,0
+897,743,2021-02-28,32781,Rejected,Fire,New Rubenborough,Health,0
+898,118,2021-11-26,6288,Pending,Medical,New Joseph,Comprehensive,1
+899,409,2022-12-06,42756,Pending,Theft,Rosemouth,Health,0
+2947,446,2021-07-04,25240,Approved,Medical,New Ambermouth,Health,0
+2949,694,2024-11-02,1630,Pending,Medical,South Mark,Third-Party,0
+902,145,2025-04-23,37417,Rejected,Fire,Grahamburgh,Third-Party,1
+904,765,2021-12-28,14387,Rejected,Theft,West Andrea,Third-Party,0
+905,697,2023-11-11,17879,Pending,Fire,Jesseview,Third-Party,0
+907,158,2022-07-18,37075,Rejected,Car Accident,South Joyce,Health,0
+908,93,2025-03-08,16211,Approved,Fire,West Marisa,Comprehensive,0
+911,218,2025-03-12,6182,Approved,Medical,Justinburgh,Comprehensive,0
+2960,953,2021-07-14,18520,Approved,Car Accident,Lake Staceyville,Health,0
+917,81,2021-06-11,34220,Rejected,Car Accident,Lake Normaton,Comprehensive,0
+2965,939,2022-07-11,18295,Rejected,Medical,Port Rhonda,Health,0
+919,511,2023-07-17,31629,Approved,Medical,Wrightfurt,Third-Party,0
+920,320,2020-12-14,26508,Rejected,Medical,Rickybury,Health,0
+2970,733,2022-11-11,5947,Approved,Car Accident,New Eric,Comprehensive,0
+2973,236,2022-11-23,33298,Rejected,Car Accident,South Ronaldmouth,Health,0
+926,720,2022-11-24,16095,Rejected,Car Accident,East Kari,Comprehensive,0
+927,777,2020-06-28,10120,Pending,Theft,Port Jillside,Comprehensive,0
+2974,408,2021-11-19,37459,Rejected,Fire,New Brandi,Third-Party,1
+929,476,2023-06-04,17757,Rejected,Car Accident,Rebekahchester,Comprehensive,0
+930,700,2023-07-18,19651,Rejected,Car Accident,Frankton,Health,0
+2976,503,2025-03-28,26756,Approved,Car Accident,Port Brettville,Comprehensive,0
+936,728,2023-09-08,28982,Pending,Medical,Alvaradoland,Third-Party,1
+937,658,2021-08-28,30392,Rejected,Theft,Port Kevin,Third-Party,0
+938,815,2020-05-24,23846,Rejected,Car Accident,Lake Laura,Third-Party,0
+2984,878,2024-10-30,13485,Rejected,Theft,Thomastown,Comprehensive,0
+2991,512,2021-09-19,24342,Approved,Fire,South Jeffhaven,Health,0
+944,475,2024-01-06,38784,Rejected,Car Accident,Lake Karen,Third-Party,0
+2996,810,2023-05-04,9204,Approved,Car Accident,South Julietown,Health,0
+952,888,2022-01-19,34914,Pending,Theft,Lake Christopherborough,Comprehensive,0
+953,89,2023-09-21,23819,Rejected,Medical,Watkinsburgh,Health,0
+954,719,2021-06-16,38241,Pending,Fire,Monicaland,Third-Party,0
+961,66,2022-10-16,5929,Approved,Car Accident,West Veronica,Health,0
+964,432,2024-01-14,37258,Approved,Medical,Adamport,Comprehensive,0
+965,419,2024-02-16,34311,Rejected,Fire,Rhondaland,Comprehensive,0
+971,450,2021-09-13,39180,Approved,Theft,South Susan,Comprehensive,1
+974,29,2021-08-08,12751,Pending,Fire,New Markbury,Comprehensive,0
+981,853,2021-10-13,28799,Approved,Medical,Mcdonaldton,Comprehensive,0
+985,120,2022-01-26,30510,Approved,Theft,West John,Health,0
+986,643,2024-05-26,12612,Rejected,Medical,West Stephanieborough,Third-Party,0
+987,257,2022-05-12,40757,Pending,Theft,Lake Stephenchester,Third-Party,0
+988,949,2020-11-05,44108,Pending,Fire,Port Josephbury,Comprehensive,0
+992,370,2024-08-30,8944,Pending,Car Accident,Port Meganshire,Health,0
+995,712,2024-09-26,12148,Pending,Theft,Wilsonborough,Health,0
+1000,847,2024-01-21,18580,Pending,Medical,Christopherborough,Comprehensive,0
+1004,189,2022-11-01,21904,Pending,Theft,Timothyborough,Third-Party,0
+1011,263,2023-04-17,48923,Pending,Medical,Robinfurt,Health,0
+1026,740,2024-03-12,1798,Pending,Fire,Beanberg,Third-Party,0
+1028,344,2024-10-15,49764,Rejected,Medical,East Thomas,Health,0
+1035,525,2021-01-14,49333,Pending,Medical,New Jamesberg,Health,1
+1038,505,2022-08-30,19968,Approved,Car Accident,New Jenniferland,Third-Party,0
+1039,418,2022-01-20,22666,Pending,Car Accident,South Jennifermouth,Health,0
+1040,390,2025-02-23,27191,Approved,Car Accident,East Juan,Health,1
+1041,872,2021-05-07,39769,Rejected,Fire,New Lindafurt,Health,0
+1043,882,2023-07-21,19987,Rejected,Car Accident,North Nicholasmouth,Comprehensive,0
+1044,709,2020-12-16,49691,Approved,Theft,Lake Billyport,Comprehensive,0
+1046,504,2023-06-15,46758,Pending,Medical,Port Anthonyborough,Health,0
+1047,748,2020-06-22,48225,Pending,Car Accident,North Scott,Health,0
+1049,613,2020-08-23,35681,Rejected,Medical,Kristinchester,Third-Party,0
+1068,34,2021-06-06,13423,Rejected,Fire,New Christophermouth,Comprehensive,0
+1073,842,2024-03-01,38721,Pending,Car Accident,Crystalview,Health,0
+1077,926,2021-03-26,29190,Approved,Fire,Garciaborough,Health,0
+1082,797,2020-10-27,14000,Rejected,Theft,Liuview,Third-Party,1
+1085,891,2023-07-17,16089,Approved,Fire,Lindafurt,Health,1
+1091,656,2023-12-15,36215,Rejected,Car Accident,New Josephfurt,Third-Party,0
+1098,388,2020-08-24,37959,Approved,Theft,Paulville,Health,1
+1101,27,2024-01-24,19032,Rejected,Theft,Michaelport,Health,0
+1109,378,2022-06-05,579,Rejected,Medical,South Stephaniestad,Health,0
+1110,886,2021-03-15,41573,Rejected,Car Accident,Mullinsburgh,Health,1
+1114,470,2023-01-26,41628,Approved,Theft,Port Elizabethmouth,Third-Party,0
+1115,765,2024-08-06,48997,Approved,Medical,Gainesshire,Comprehensive,1
+1118,810,2020-05-25,5374,Approved,Fire,Lake Debra,Health,0
+1120,845,2022-02-07,19053,Pending,Medical,Bryantmouth,Health,0
+1121,981,2024-09-02,21952,Approved,Theft,Lake Annaland,Third-Party,0
+1123,261,2025-04-19,16476,Pending,Fire,New Michelemouth,Health,0
+1127,273,2022-01-20,31632,Approved,Car Accident,North Andrew,Third-Party,0
+1131,392,2021-11-12,45993,Approved,Fire,Lake Scottborough,Third-Party,1
+1135,635,2025-05-09,25316,Rejected,Theft,East Tammy,Comprehensive,1
+1139,827,2024-06-22,29626,Approved,Fire,East Danielborough,Health,0
+1141,324,2021-04-05,791,Pending,Car Accident,Danielletown,Comprehensive,0
+1143,399,2023-10-18,28166,Approved,Theft,Stephaniestad,Health,1
+1152,323,2024-05-22,47253,Approved,Car Accident,North Ronald,Third-Party,1
+1156,323,2023-07-04,29285,Approved,Medical,Aguirrehaven,Comprehensive,0
+1159,429,2023-08-03,41645,Rejected,Car Accident,Martinezside,Comprehensive,1
+1160,538,2020-07-17,43929,Rejected,Theft,Bellburgh,Health,0
+1165,591,2023-09-14,11359,Approved,Medical,East Brian,Third-Party,0
+1166,773,2022-12-20,41901,Pending,Car Accident,New Kevin,Health,0
+1170,302,2023-08-08,49055,Approved,Fire,Huertaton,Comprehensive,1
+1176,100,2022-09-29,5472,Rejected,Car Accident,Natalieburgh,Health,0
+1179,660,2024-06-30,32806,Rejected,Theft,Wilsontown,Third-Party,0
+1185,968,2023-01-25,33892,Approved,Fire,Port Theresa,Comprehensive,1
+1188,559,2022-08-30,23192,Pending,Theft,Andrewport,Health,0
+1189,788,2024-04-08,14131,Pending,Medical,Pughberg,Comprehensive,0
+1192,826,2024-12-03,9792,Pending,Medical,Craigfurt,Comprehensive,0
+1197,611,2024-10-18,39671,Pending,Theft,Port Michele,Health,0
+1211,908,2023-11-10,18736,Rejected,Medical,Lake Yeseniaton,Comprehensive,0
+1212,421,2022-06-07,10269,Pending,Theft,Perryside,Health,1
+1215,552,2025-01-01,22573,Approved,Theft,Port Philliptown,Health,0
+1220,397,2022-04-12,22281,Rejected,Fire,Port Jessica,Third-Party,0
+1221,85,2024-04-23,38768,Approved,Theft,South Barry,Health,0
+1222,281,2023-06-17,45297,Rejected,Car Accident,Lake Daniel,Comprehensive,0
+1233,150,2022-03-02,23075,Approved,Car Accident,Lake Jessica,Comprehensive,0
+1234,479,2021-05-11,15845,Rejected,Fire,West Jessica,Health,0
+1236,713,2020-10-12,23343,Rejected,Fire,New Sandraburgh,Comprehensive,0
+1244,935,2023-11-14,18041,Approved,Theft,Greenefort,Third-Party,0
+1246,178,2023-12-28,16819,Approved,Car Accident,West Courtneyport,Third-Party,1
+1247,68,2024-06-25,16008,Rejected,Theft,Evanstad,Health,0
+1248,781,2022-08-29,14986,Pending,Fire,Lake Tracy,Health,0
+1257,119,2022-06-28,39951,Pending,Theft,Port Michaelview,Comprehensive,0
+1258,388,2025-02-04,28879,Pending,Medical,North Christinaport,Health,1
+1262,22,2021-08-19,2419,Approved,Car Accident,West Alfred,Third-Party,0
+1265,33,2024-05-04,19043,Rejected,Medical,Smithfort,Comprehensive,0
+1270,617,2021-07-31,522,Rejected,Theft,Joshuaborough,Comprehensive,0
+1274,204,2024-01-05,41041,Pending,Medical,North Edwardborough,Third-Party,1
+1282,694,2020-09-17,22901,Rejected,Car Accident,Turnerstad,Third-Party,0
+1289,33,2024-07-29,48531,Pending,Medical,Aguirreland,Health,0
+1296,489,2023-06-28,26131,Rejected,Fire,West Jacobview,Comprehensive,0
+1298,267,2024-10-27,46737,Approved,Car Accident,South Jillian,Health,0
+1308,483,2021-09-08,27955,Rejected,Car Accident,Timothyland,Third-Party,1
+1315,288,2025-02-17,11969,Approved,Fire,Rebeccashire,Comprehensive,1
+1319,911,2023-06-01,27148,Approved,Car Accident,Lake Williamshire,Third-Party,1
+1323,673,2023-05-08,12851,Approved,Theft,Mcdanielside,Health,0
+1326,501,2020-10-04,9281,Rejected,Car Accident,Port Kaitlinside,Health,0
+1329,171,2025-03-09,6338,Approved,Theft,South Kimberlymouth,Third-Party,0
+1331,127,2021-12-13,18186,Approved,Fire,Port Cody,Comprehensive,1
+1341,361,2024-01-29,30400,Rejected,Car Accident,New Sharonfort,Health,0
+1342,781,2025-02-05,21582,Pending,Car Accident,New Kevinland,Health,0
+1343,136,2023-11-03,13183,Approved,Car Accident,North Gregoryhaven,Third-Party,1
+1345,315,2021-10-16,25563,Approved,Fire,North Shawnville,Comprehensive,0
+1363,279,2021-05-01,30198,Pending,Medical,New Kelly,Third-Party,0
+1364,18,2022-05-29,36843,Pending,Car Accident,Wilsonberg,Comprehensive,0
+1365,989,2024-06-08,23589,Pending,Medical,Port Lisa,Health,1
+1376,992,2023-10-01,19762,Rejected,Car Accident,Wendymouth,Third-Party,1
+1379,345,2022-09-11,34149,Pending,Fire,Mitchellshire,Third-Party,0
+1381,883,2022-10-10,13069,Approved,Car Accident,Lake Greg,Comprehensive,0
+1383,338,2022-10-26,30178,Approved,Car Accident,Mariafurt,Health,1
+1384,487,2021-06-15,17696,Rejected,Theft,New Tracymouth,Comprehensive,0
+1388,186,2021-07-05,9640,Approved,Car Accident,Smithview,Health,0
+1394,785,2020-06-26,1306,Pending,Theft,East Nicole,Third-Party,0
+1396,908,2024-12-08,44746,Rejected,Medical,South Richardfurt,Third-Party,1
+1400,398,2023-05-25,48719,Pending,Fire,Parkermouth,Comprehensive,0
+1401,646,2025-01-28,47213,Rejected,Medical,West Dannyborough,Comprehensive,0
+1413,381,2023-12-30,4469,Pending,Car Accident,North Nicole,Comprehensive,0
+1414,65,2020-11-25,42488,Pending,Medical,Lake Stephanieshire,Third-Party,0
+1415,724,2023-01-01,38149,Approved,Medical,New Nathantown,Third-Party,0
+1416,640,2022-04-07,34827,Pending,Car Accident,Georgemouth,Health,0
+1417,265,2020-06-28,40196,Pending,Medical,Sarahland,Health,0
+1419,273,2021-05-05,13594,Rejected,Car Accident,North Jason,Third-Party,0
+1424,480,2022-10-15,14349,Pending,Car Accident,Port Jessicaberg,Health,1
+1428,794,2020-08-19,27483,Rejected,Theft,Maddenburgh,Third-Party,0
+1429,81,2021-10-24,9213,Approved,Theft,North Paula,Health,0
+1430,115,2022-08-20,20357,Approved,Fire,North Tina,Comprehensive,0
+1431,626,2021-09-19,7546,Rejected,Car Accident,Jasonville,Health,0
+1432,759,2021-03-31,1183,Pending,Fire,East Stevenfort,Third-Party,0
+1434,857,2020-11-12,48501,Pending,Theft,Davisfort,Third-Party,0
+1435,652,2022-01-08,11660,Pending,Car Accident,Chelseastad,Comprehensive,0
+1439,67,2023-04-23,37323,Pending,Fire,North Alexis,Third-Party,0
+1445,854,2022-01-08,1719,Approved,Theft,New Dennistown,Third-Party,0
+1447,765,2022-08-17,8583,Rejected,Car Accident,Hallshire,Health,0
+1448,154,2022-08-28,1013,Rejected,Medical,Port Tara,Health,0
+1449,300,2022-09-24,6006,Pending,Fire,Christianfurt,Third-Party,0
+1450,439,2021-01-29,29904,Pending,Theft,Maldonadobury,Comprehensive,0
+1456,145,2023-07-22,15752,Approved,Car Accident,South Barbaraview,Comprehensive,1
+1459,837,2021-04-27,39540,Pending,Car Accident,Wardberg,Comprehensive,0
+1460,899,2022-12-01,6616,Pending,Medical,Lake Andrew,Comprehensive,0
+1464,722,2024-12-13,1831,Rejected,Fire,Port Jessicaton,Comprehensive,0
+1469,496,2023-10-25,31051,Rejected,Fire,North Christyfurt,Third-Party,0
+1470,50,2021-02-11,41884,Approved,Theft,West Amy,Third-Party,0
+1471,24,2022-05-07,27267,Approved,Car Accident,Lisabury,Health,1
+1476,134,2023-10-10,997,Pending,Medical,East Rebeccaport,Comprehensive,0
+1477,782,2024-09-24,25720,Rejected,Theft,North Catherinehaven,Comprehensive,0
+1478,969,2022-07-22,18226,Approved,Fire,New Andrea,Comprehensive,0
+1483,164,2022-06-07,6967,Rejected,Car Accident,Port Jefferyberg,Third-Party,1
+1491,511,2023-05-11,41319,Pending,Medical,East Jessica,Health,0
+1493,822,2021-05-12,39967,Pending,Fire,Jamesstad,Comprehensive,0
+1499,529,2023-09-24,29801,Rejected,Medical,Kimberlyside,Third-Party,0
+1501,144,2022-03-28,26515,Rejected,Car Accident,Harristown,Health,0
+1506,751,2021-05-27,35828,Rejected,Medical,East Tammyton,Health,0
+1509,497,2023-03-25,47003,Approved,Theft,Lake Josephborough,Comprehensive,0
+1510,399,2021-04-16,22676,Rejected,Theft,South Derrickmouth,Health,0
+1511,980,2022-09-21,29963,Pending,Car Accident,Ashleyshire,Third-Party,0
+1514,68,2023-05-03,45050,Pending,Theft,Port Shawn,Comprehensive,0
+1515,377,2020-07-30,11064,Approved,Car Accident,East Charlesport,Comprehensive,0
+1529,343,2024-02-15,7438,Approved,Medical,East Connie,Comprehensive,0
+1531,857,2022-03-12,2851,Pending,Theft,Debraport,Third-Party,0
+1532,529,2025-05-09,26760,Approved,Medical,Salinasport,Comprehensive,0
+1534,453,2024-11-02,39027,Rejected,Fire,Lewisview,Health,1
+1535,77,2023-09-01,30978,Rejected,Theft,Lake Toni,Third-Party,0
+1541,16,2021-09-14,25521,Pending,Car Accident,Port Samuel,Comprehensive,0
+1542,429,2020-09-12,32170,Pending,Medical,Chandlerborough,Health,0
+1545,294,2024-09-27,17299,Pending,Medical,West Rebeccastad,Third-Party,0
+1548,175,2020-10-05,46047,Pending,Theft,South Ashleyfurt,Third-Party,0
+1552,522,2024-08-07,10826,Pending,Fire,Port Kathleen,Third-Party,0
+1553,724,2023-06-29,6601,Pending,Fire,Gonzaleshaven,Third-Party,0
+1554,844,2023-12-15,39560,Approved,Fire,Port Julie,Comprehensive,0
+1555,395,2024-08-13,43096,Pending,Fire,Toddmouth,Comprehensive,0
+1563,735,2023-11-27,1812,Pending,Medical,East Miketown,Health,0
+1565,217,2020-11-26,8458,Rejected,Car Accident,West Angel,Comprehensive,0
+1575,428,2025-03-19,21377,Approved,Fire,South Brittanyview,Health,0
+1578,194,2023-04-01,30868,Pending,Medical,Port Ross,Comprehensive,0
+1589,738,2023-06-27,33511,Rejected,Theft,Sloanchester,Health,1
+1595,325,2021-02-15,31688,Approved,Medical,Stanleyview,Comprehensive,0
+1598,287,2025-04-02,28018,Approved,Fire,Port Rebecca,Health,1
+1600,602,2020-05-13,18052,Pending,Fire,Lake Gregoryside,Comprehensive,0
+1603,34,2023-09-16,46711,Pending,Theft,Lake Nicole,Comprehensive,0
+1608,905,2025-02-12,2798,Rejected,Fire,Melaniefort,Third-Party,0
+1610,152,2022-12-16,4901,Approved,Medical,Port Calvinshire,Health,0
+1611,659,2022-05-12,34557,Approved,Fire,Derekburgh,Third-Party,0
+1612,911,2020-09-05,19653,Approved,Theft,West Jamesland,Comprehensive,0
+1618,833,2023-08-27,29381,Approved,Car Accident,Port Christopher,Comprehensive,0
+1619,542,2020-08-06,6978,Rejected,Theft,Adamsberg,Third-Party,0
+1620,252,2024-10-01,23076,Approved,Theft,Lake Brandistad,Comprehensive,0
+1622,758,2022-06-05,39188,Pending,Fire,North Nicole,Third-Party,0
+1623,605,2024-11-02,27508,Rejected,Theft,North Haleytown,Comprehensive,1
+1625,160,2023-02-26,24003,Approved,Fire,West Victoriaside,Third-Party,0
+1628,927,2023-02-15,3932,Rejected,Theft,North Mary,Health,0
+1632,253,2023-08-10,47341,Pending,Car Accident,South Elijahhaven,Comprehensive,1
+1636,368,2021-05-19,41008,Approved,Theft,Samuelfurt,Comprehensive,0
+1642,269,2024-06-05,20728,Pending,Car Accident,Dawnville,Third-Party,0
+1643,836,2021-12-10,12735,Pending,Fire,West Deannamouth,Health,0
+1648,802,2025-03-04,21479,Rejected,Medical,Lake Lori,Third-Party,0
+1660,234,2024-06-12,33074,Rejected,Medical,Port Theresa,Third-Party,0
+1664,687,2024-09-25,42155,Approved,Car Accident,Fernandezside,Comprehensive,1
+1669,857,2023-08-14,21176,Pending,Car Accident,Lake Steven,Third-Party,0
+1672,396,2025-03-09,15221,Rejected,Theft,Watsonshire,Health,0
+1673,95,2023-03-09,37894,Approved,Fire,Lindseyville,Health,1
+1681,414,2024-08-27,38593,Pending,Medical,Garrisonton,Third-Party,1
+1683,925,2023-01-25,19692,Approved,Fire,South Kimburgh,Third-Party,0
+1688,146,2024-12-09,28506,Approved,Fire,East Richard,Health,1
+1689,631,2020-12-25,22806,Approved,Medical,New Graceside,Third-Party,0
+1691,198,2023-11-20,44981,Approved,Medical,Harperland,Health,1
+1693,225,2024-02-14,26555,Pending,Fire,Burnettshire,Comprehensive,1
+1704,915,2022-05-12,4056,Approved,Theft,Lake Jackbury,Third-Party,0
+1705,516,2022-01-15,8400,Pending,Theft,Myersbury,Health,0
+1708,293,2024-07-30,28952,Pending,Theft,Port Williamland,Third-Party,0
+1710,684,2024-08-25,12620,Rejected,Medical,Williamston,Health,0
+1711,544,2021-03-26,9767,Approved,Car Accident,Lake Katherine,Comprehensive,0
+1712,444,2024-10-18,12286,Pending,Medical,Moyermouth,Comprehensive,0
+1713,554,2024-05-17,7161,Approved,Car Accident,Port James,Third-Party,0
+1714,879,2024-09-10,5213,Pending,Theft,North Bradleymouth,Health,0
+1716,238,2025-01-30,26749,Approved,Fire,Jamesville,Comprehensive,0
+1731,18,2023-06-04,16511,Approved,Theft,East Jamesport,Third-Party,0
+1735,713,2025-04-09,35935,Approved,Theft,New Benjaminborough,Third-Party,1
+1736,393,2021-05-12,37721,Approved,Fire,New Miguelton,Health,0
+1737,592,2024-12-13,27199,Pending,Fire,East Sara,Health,0
+1739,60,2024-07-04,8313,Rejected,Theft,Port Richard,Third-Party,0
+1740,704,2021-09-10,5336,Pending,Fire,South Melanie,Comprehensive,0
+1741,976,2025-05-04,32536,Rejected,Theft,Port Kennethbury,Health,0
+1747,772,2021-09-18,5672,Pending,Medical,Lake Debbiemouth,Health,0
+1752,964,2020-06-13,4267,Approved,Car Accident,Lake Johnstad,Health,0
+1758,91,2022-06-13,8236,Rejected,Fire,East Linda,Comprehensive,0
+1760,134,2021-08-16,22601,Rejected,Fire,New Lisa,Third-Party,0
+1766,137,2020-06-09,44884,Rejected,Fire,West Spencerchester,Comprehensive,0
+1770,833,2020-08-26,46948,Approved,Theft,East Sherrystad,Health,0
+1771,79,2020-09-28,45526,Rejected,Theft,Port Hailey,Comprehensive,0
+1778,264,2020-10-19,27755,Rejected,Car Accident,Lake Julieberg,Health,0
+1784,441,2020-07-15,34347,Pending,Car Accident,Gilmoreberg,Third-Party,0
+1788,60,2022-12-18,25114,Pending,Fire,East Juanhaven,Health,0
+1796,451,2023-07-23,38360,Pending,Fire,Glenntown,Comprehensive,0
+1797,362,2023-06-13,20207,Pending,Theft,North Nicholas,Comprehensive,0
+1798,14,2020-09-01,12522,Approved,Theft,North Tracy,Comprehensive,0
+1800,735,2020-06-22,37760,Pending,Medical,Christopherview,Comprehensive,0
+1801,335,2021-08-10,7632,Rejected,Theft,South Kristina,Comprehensive,0
+1803,873,2023-01-10,14413,Rejected,Car Accident,East Michele,Comprehensive,1
+1804,261,2023-05-31,34400,Pending,Medical,Port Brittanystad,Health,0
+1805,249,2024-09-08,24426,Approved,Fire,Seanland,Comprehensive,0
+1806,883,2023-10-12,14161,Rejected,Theft,South Matthew,Comprehensive,0
+1809,17,2023-01-24,2318,Approved,Medical,Lauraside,Comprehensive,0
+1811,309,2023-07-12,28480,Approved,Car Accident,Brendaville,Comprehensive,0
+1812,793,2022-11-02,34510,Approved,Car Accident,Hortonland,Comprehensive,0
+1814,829,2020-08-25,3281,Approved,Medical,West Sarastad,Third-Party,0
+1817,604,2023-01-30,20490,Approved,Fire,West Heathermouth,Third-Party,0
+1819,614,2023-10-17,4040,Pending,Medical,Josephburgh,Comprehensive,0
+1822,318,2022-07-01,12605,Approved,Medical,West Brianborough,Third-Party,0
+1824,187,2023-01-01,28111,Pending,Car Accident,Michellemouth,Health,0
+1825,971,2025-02-12,16666,Rejected,Theft,Hollandland,Comprehensive,0
+1827,260,2024-01-20,33139,Pending,Theft,West Mariahborough,Comprehensive,0
+1831,288,2020-10-25,17309,Approved,Medical,Hudsonview,Health,0
+1836,891,2020-08-22,31352,Approved,Fire,East Javierburgh,Comprehensive,0
+1837,192,2023-03-19,15973,Rejected,Car Accident,Lake Jessicaland,Third-Party,0
+1839,968,2024-05-06,20760,Pending,Theft,East Justinburgh,Health,1
+1843,340,2020-12-07,7514,Rejected,Fire,West Gregory,Third-Party,0
+1844,653,2023-03-17,33821,Approved,Car Accident,Travishaven,Third-Party,0
+1845,258,2020-05-16,11292,Approved,Fire,East Lisa,Comprehensive,0
+1853,662,2025-03-16,18773,Rejected,Fire,West Amandaview,Health,0
+1857,863,2023-02-03,42272,Pending,Fire,Kathleenville,Health,0
+1858,410,2023-11-25,14118,Pending,Medical,North Jeffery,Comprehensive,0
+1862,859,2022-07-23,10020,Pending,Fire,Simmonsmouth,Third-Party,0
+1863,288,2022-08-03,28168,Approved,Fire,Hardybury,Comprehensive,1
+1864,516,2021-10-26,43770,Approved,Theft,South Erin,Health,1
+1868,915,2023-10-06,28933,Approved,Fire,Ruizstad,Third-Party,0
+1870,95,2023-06-19,33568,Rejected,Theft,North Kelsey,Health,1
+1873,16,2020-10-19,28093,Approved,Theft,Marytown,Comprehensive,0
+1875,792,2020-10-17,18307,Pending,Medical,West Dawn,Health,0
+1880,936,2024-06-07,24275,Pending,Car Accident,West Adamview,Health,0
+1885,684,2023-11-25,38927,Pending,Medical,East Kathrynhaven,Third-Party,0
+1886,963,2022-10-08,12215,Pending,Fire,Brianberg,Third-Party,0
+1888,309,2020-06-23,25398,Pending,Car Accident,Josephborough,Comprehensive,0
+1892,823,2024-03-06,1535,Pending,Theft,Lake Kristen,Health,0
+1893,192,2022-12-06,49048,Pending,Car Accident,Lake Leahstad,Comprehensive,0
+1894,723,2020-11-13,23802,Rejected,Car Accident,North David,Third-Party,0
+1896,633,2023-02-04,12260,Pending,Fire,Jillianmouth,Comprehensive,0
+1897,189,2022-09-29,6618,Rejected,Car Accident,Johnstonbury,Comprehensive,0
+1901,6,2024-04-25,43085,Rejected,Theft,East Amandastad,Third-Party,0
+1902,625,2025-04-14,47853,Pending,Fire,Kristinstad,Health,0
+1904,417,2021-10-13,16625,Approved,Car Accident,Lake Stacy,Health,0
+1912,531,2020-09-13,13800,Rejected,Car Accident,South Shellyberg,Third-Party,0
+1913,621,2024-10-26,34621,Pending,Fire,Port Victoriaberg,Third-Party,0
+1916,349,2021-09-19,43299,Approved,Car Accident,Thompsonberg,Health,0
+1919,788,2021-03-15,47726,Rejected,Car Accident,Paulchester,Health,0
+1920,403,2023-04-29,20107,Rejected,Theft,Patriciaside,Comprehensive,1
+1921,239,2023-02-26,32922,Pending,Theft,South Sarahtown,Health,1
+1922,986,2021-01-29,49776,Pending,Medical,Richmondview,Third-Party,1
+1924,131,2021-04-19,7958,Pending,Fire,New Brandiside,Comprehensive,0
+1925,480,2024-07-23,44699,Rejected,Medical,Crystalchester,Health,1
+1926,840,2022-02-04,32885,Rejected,Fire,Meaganville,Third-Party,0
+1928,737,2022-02-22,22565,Rejected,Medical,West Gregorytown,Comprehensive,1
+1930,893,2021-10-10,36085,Rejected,Car Accident,Tiffanyborough,Third-Party,0
+1935,124,2020-05-22,18519,Approved,Medical,Amberfort,Third-Party,0
+1948,266,2022-05-31,28575,Pending,Car Accident,Langton,Health,0
+1949,895,2021-06-11,35697,Approved,Car Accident,Tiffanymouth,Third-Party,0
+1956,867,2022-10-28,29240,Approved,Medical,Shellyton,Health,0
+1960,320,2024-02-15,49211,Approved,Theft,East Thomas,Third-Party,1
+1966,362,2021-09-22,30403,Rejected,Medical,Joneschester,Comprehensive,0
+1967,281,2024-09-21,31139,Approved,Theft,Cookefort,Comprehensive,1
+1971,987,2021-02-22,35610,Approved,Car Accident,Victoriamouth,Third-Party,0
+1972,187,2024-09-05,47179,Approved,Theft,Reynoldsview,Health,0
+1976,717,2021-04-17,17915,Rejected,Fire,New Reneeshire,Third-Party,0
+1977,407,2022-09-11,36406,Approved,Medical,Mcclainville,Comprehensive,1
+1980,228,2022-01-22,5292,Approved,Theft,South Timothyside,Third-Party,0
+1981,172,2024-02-25,35582,Approved,Car Accident,Lake Christopherborough,Health,1
+1988,272,2021-12-11,42748,Rejected,Car Accident,Boyershire,Health,0
+1992,607,2022-11-03,42392,Rejected,Car Accident,East Jeffreyview,Comprehensive,1
+1995,327,2021-07-27,28592,Approved,Theft,New Catherine,Health,1
+1997,227,2023-09-27,47957,Rejected,Fire,Saundersshire,Comprehensive,1
+1999,371,2023-02-06,24271,Rejected,Theft,Blackwellport,Health,1
+2000,60,2024-01-18,19517,Pending,Theft,West Brendanstad,Health,1
+2002,929,2021-04-23,42509,Pending,Fire,East Christopher,Comprehensive,0
+2004,658,2020-12-04,17878,Approved,Theft,Riddlehaven,Third-Party,0
+2008,870,2021-12-13,49133,Pending,Theft,South Jefferyview,Comprehensive,0
+2010,370,2023-06-02,12676,Approved,Fire,Angelamouth,Comprehensive,0
+2014,285,2025-03-27,24862,Approved,Theft,Rosariohaven,Health,0
+2018,972,2021-07-06,5965,Approved,Fire,Owensview,Third-Party,0
+2023,197,2021-06-10,22540,Rejected,Fire,Heathertown,Health,0
+2027,922,2022-07-02,46080,Rejected,Fire,West Jean,Third-Party,1
+2029,262,2024-05-07,2035,Rejected,Fire,North Shariville,Health,0
+2034,503,2021-11-03,12178,Pending,Car Accident,Jensenmouth,Third-Party,0
+2039,981,2021-07-21,23493,Rejected,Medical,Christinaburgh,Health,0
+2040,61,2021-10-17,44828,Pending,Fire,Port Meganchester,Comprehensive,0
+2044,758,2023-08-17,18564,Rejected,Medical,South Brandon,Health,0
+2045,935,2024-03-22,48619,Approved,Theft,Jonesview,Health,1
+2046,948,2022-10-20,25965,Pending,Medical,East Veronica,Comprehensive,0
+2047,889,2021-08-23,14183,Pending,Car Accident,Hernandezfurt,Comprehensive,0
+2048,423,2023-04-29,10932,Pending,Fire,Susanview,Comprehensive,0

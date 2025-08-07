@@ -1,0 +1,83 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "maintenance_frequency",
+        "mean_sensor_pressure",
+        "sensor_pressure_variance",
+        "avg_sensor_temperature",
+        "cumulative_maintenance_cost",
+        "unique_technicians_count",
+        "failure_rate_over_maintenance",
+        "max_downtime",
+        "sensor_vibration_variance",
+        "sensor_temp_variance",
+        "recent_maintenance_duration",
+        "most_frequent_maintenance_type"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.143666763245167": {
+            "name": "maintenance_frequency",
+            "code": "import pandas as pd\n\ndef maintenance_frequency(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the maintenance records dataframe\n    maintenance_records = aux_dataframes[\"maintenance_records_table.csv\"]\n    \n    # Access the equipment info dataframe\n    equipment_info = aux_dataframes[\"equipment_info_table.csv\"]\n    \n    # Get the equipment_id from the row\n    equipment_id = row['equipment_id']\n    \n    # Retrieve the installation_date for the given equipment_id\n    equipment_row = equipment_info[equipment_info['equipment_id'] == equipment_id]\n    \n    # If the equipment_id is not found in the equipment_info table, return 0\n    if equipment_row.empty:\n        return 0\n    \n    # Extract the installation_date\n    installation_date = pd.to_datetime(equipment_row.iloc[0]['installation_date'])\n    \n    # Filter the maintenance records for the specific equipment_id\n    equipment_maintenances = maintenance_records[maintenance_records['equipment_id'] == equipment_id]\n    \n    # If no maintenance records exist for the equipment, return 0\n    if equipment_maintenances.empty:\n        return 0\n    \n    # Calculate the age of the equipment in days\n    equipment_age_in_days = (pd.Timestamp.now() - installation_date).days\n    \n    # Calculate the maintenance rate (number of maintenances per day)\n    maintenance_rate = len(equipment_maintenances) / equipment_age_in_days if equipment_age_in_days > 0 else 0\n    \n    return maintenance_rate\n"
+        },
+        "0.05505550890446005": {
+            "name": "mean_sensor_pressure",
+            "code": "import pandas as pd\n\ndef mean_sensor_pressure(row, aux_data: Dict[str, pd.DataFrame]):\n    # Use the correct key for the sensor data\n    aux_data_sensor = aux_data[\"sensor_data_table.csv\"]\n    \n    # Filter the sensor data for the given equipment_id and calculate the mean pressure\n    mean_press = aux_data_sensor[aux_data_sensor['equipment_id'] == row['equipment_id']]['pressure'].mean()\n    \n    # Return the mean pressure, or 0 if the mean is NaN\n    return mean_press if not pd.isna(mean_press) else 0\n"
+        },
+        "0.04706207286129308": {
+            "name": "sensor_pressure_variance",
+            "code": "import pandas as pd\n\ndef sensor_pressure_variance(row, aux_data: Dict[str, pd.DataFrame]):\n    # Use the correct key for the sensor data\n    aux_data_sensor = aux_data[\"sensor_data_table.csv\"]\n    \n    # Filter the sensor data for the given equipment_id and calculate the variance of the pressure column\n    pressure_var = aux_data_sensor[aux_data_sensor['equipment_id'] == row['equipment_id']]['pressure'].var()\n    \n    # Return the variance or 0 if the variance is NaN\n    return pressure_var if not pd.isna(pressure_var) else 0\n"
+        },
+        "0.03718899383330787": {
+            "name": "avg_sensor_temperature",
+            "code": "import pandas as pd\n\ndef avg_sensor_temperature(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the sensor data\n    aux_data = aux_dataframes[\"sensor_data_table.csv\"]\n    \n    # Filter the sensor data for the given equipment_id and calculate the mean temperature\n    avg_temp = aux_data[aux_data['equipment_id'] == row['equipment_id']]['temperature'].mean()\n    \n    # Return the average temperature, or 0 if it is NaN\n    return avg_temp if not pd.isna(avg_temp) else 0\n"
+        },
+        "0.030358626067203517": {
+            "name": "cumulative_maintenance_cost",
+            "code": "import pandas as pd\n\ndef cumulative_maintenance_cost(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the correct key is used to access the maintenance records dataframe\n    if \"maintenance_records_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'maintenance_records_table.csv' is missing in aux_dataframes.\")\n    \n    aux_data = aux_dataframes[\"maintenance_records_table.csv\"]\n    \n    # Ensure the required columns exist in the dataframe\n    if 'equipment_id' not in aux_data.columns:\n        raise KeyError(\"The required column 'equipment_id' is missing in the maintenance records dataframe.\")\n    \n    # The 'cost' column is in the dataframe containing the row, not in the auxiliary dataframe.\n    # Calculate the cumulative cost for the given equipment_id from the dataframe containing the row.\n    equipment_id = row['equipment_id']\n    current_df = row.to_frame().T  # Convert the row to a dataframe for filtering\n    if 'cost' not in current_df.columns:\n        raise KeyError(\"The required column 'cost' is missing in the current dataframe.\")\n    \n    # Filter rows in the current dataframe where the equipment_id matches the current row's equipment_id\n    cumulative_cost = current_df[current_df['equipment_id'] == equipment_id]['cost'].sum()\n    \n    # Return the cumulative cost, or 0 if it is NaN\n    return cumulative_cost if not pd.isna(cumulative_cost) else 0\n"
+        },
+        "0.024248191547288286": {
+            "name": "unique_technicians_count",
+            "code": "\n\ndef unique_technicians_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct DataFrame using the appropriate key\n    aux_data = aux_dataframes[\"maintenance_records_table.csv\"]\n    \n    # Filter the DataFrame for the given equipment_id and count unique technician_id values\n    unique_technicians = aux_data[aux_data['equipment_id'] == row['equipment_id']]['technician_id'].nunique()\n    \n    return unique_technicians\n"
+        },
+        "0.019829435206503744": {
+            "name": "failure_rate_over_maintenance",
+            "code": "\n\ndef failure_rate_over_maintenance(row, aux_dataframes):\n    aux_data = aux_dataframes[\"maintenance_records_table.csv\"]\n    equipment_records = aux_data[aux_data['equipment_id'] == row['equipment_id']]\n    total_maintenance = len(equipment_records)\n    if total_maintenance == 0:\n        return 0\n    # Assuming 'issue_reported' indicates a failure if it's not null or empty\n    failures = len(equipment_records[equipment_records['issue_reported'].notnull()])\n    return failures / total_maintenance\n"
+        },
+        "0.01830947207620165": {
+            "name": "max_downtime",
+            "code": "import pandas as pd\n\ndef max_downtime(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the correct auxiliary dataframe\n    aux_data = aux_dataframes[\"maintenance_records_table.csv\"]\n    \n    # Ensure the required columns exist in the auxiliary dataframe\n    required_columns = {'equipment_id', 'record_id'}\n    if not required_columns.issubset(aux_data.columns):\n        raise KeyError(f\"One or more required columns {required_columns} are missing in the maintenance_records_table.csv dataframe.\")\n    \n    # Filter the auxiliary dataframe for the given equipment_id\n    equipment_data = aux_data[aux_data['equipment_id'] == row['equipment_id']]\n    \n    # Check if the 'downtime_hours' column exists in the input row\n    if 'downtime_hours' not in row:\n        raise KeyError(\"'downtime_hours' column is missing in the input row.\")\n    \n    # Compute the maximum downtime from the input row\n    max_downtime = row['downtime_hours']\n    \n    # Return the maximum downtime or 0 if no records are found\n    return max_downtime if not pd.isna(max_downtime) else 0\n"
+        },
+        "0.018003646501539912": {
+            "name": "sensor_vibration_variance",
+            "code": "import pandas as pd\n\ndef sensor_vibration_variance(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the key 'sensor_data_table.csv'\n    aux_data_sensor = aux_data[\"sensor_data_table.csv\"]\n    \n    # Filter the dataframe for the specific equipment_id and calculate the variance of the 'vibration' column\n    vib_var = aux_data_sensor[aux_data_sensor['equipment_id'] == row['equipment_id']]['vibration'].var()\n    \n    # Return the variance if it is not NaN, otherwise return 0\n    return vib_var if not pd.isna(vib_var) else 0\n"
+        },
+        "0.014867322880960404": {
+            "name": "sensor_temp_variance",
+            "code": "import pandas as pd\n\ndef sensor_temp_variance(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct key for the sensor data\n    aux_data = aux_dataframes[\"sensor_data_table.csv\"]\n    \n    # Filter the sensor data for the given equipment_id and calculate the variance of the temperature\n    temp_var = aux_data[aux_data['equipment_id'] == row['equipment_id']]['temperature'].var()\n    \n    # Return the variance, or 0 if the variance is NaN\n    return temp_var if not pd.isna(temp_var) else 0\n"
+        },
+        "0.010371901700487409": {
+            "name": "recent_maintenance_duration",
+            "code": "import datetime\n\ndef recent_maintenance_duration(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    from datetime import datetime\n    # Access the maintenance records dataframe using the correct key\n    aux_data = aux_dataframes[\"maintenance_records_table.csv\"]\n    \n    # Filter the maintenance records for the specific equipment_id\n    equip_records = aux_data[aux_data['equipment_id'] == row['equipment_id']]\n    \n    # If no records exist for the equipment, return 0\n    if equip_records.empty:\n        return 0\n    \n    # Get the most recent maintenance date\n    last_maintenance_date = equip_records['record_date'].max()\n    \n    # Parse the date string into a datetime object\n    last_date = datetime.strptime(last_maintenance_date, '%Y-%m-%d')\n    \n    # Calculate the number of days since the last maintenance\n    days_since = (datetime.now() - last_date).days\n    \n    return days_since\n"
+        },
+        "0.008661934210887678": {
+            "name": "most_frequent_maintenance_type",
+            "code": "\n\ndef most_frequent_maintenance_type(row, aux_dataframes):\n    aux_data = aux_dataframes[\"maintenance_records_table.csv\"]\n    # Filter the maintenance records for the given equipment_id\n    equip_maintenance = aux_data[aux_data['equipment_id'] == row['equipment_id']]\n    if equip_maintenance.empty:\n        return None\n    # Determine the most frequent issue reported (or resolution, depending on the requirement)\n    return equip_maintenance['issue_reported'].mode()[0] if not equip_maintenance['issue_reported'].empty else None\n"
+        }
+    },
+    "feature_descriptions": [
+        "maintenance frequency",
+        "mean sensor pressure",
+        "sensor pressure variance",
+        "avg sensor temperature",
+        "cumulative maintenance cost",
+        "unique technicians count",
+        "failure rate over maintenance",
+        "max downtime",
+        "sensor vibration variance",
+        "sensor temp variance",
+        "recent maintenance duration",
+        "most frequent maintenance type"
+    ]
+}

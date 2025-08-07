@@ -1,0 +1,14 @@
+{
+    "enriched_column_names": [
+        "roaming_charges",
+        "usage_of_services",
+        "data_usage",
+        "frequency_of_international_calls"
+    ],
+    "features_descriptions": [
+        "roaming charges",
+        "usage of services",
+        "data usage",
+        "frequency of international calls"
+    ]
+}

@@ -1,0 +1,119 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "competitor_price_premium",
+        "competitor_price_ratio",
+        "trend_impact",
+        "days_since_last_product_sale",
+        "product_performance",
+        "product_frequency",
+        "customer_product_avg_quantity",
+        "rolling_price_average",
+        "revenue_per_unit",
+        "day_of_week",
+        "total_customer_spending",
+        "revenue_per_transaction",
+        "customer_frequency",
+        "sale_month",
+        "customer_product_diversity",
+        "product_avg_revenue",
+        "total_sales_quantity",
+        "product_customer_revenue_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.2778760440454151": {
+            "name": "competitor_price_premium",
+            "code": "import pandas as pd\n\ndef competitor_price_premium(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the competitor pricing table from the auxiliary dataframes\n    competitor_prices = aux_dataframes['competitor_pricing_table.csv']\n    \n    # Extract the product_id and sale_price from the current row\n    product_id = row['product_id']\n    product_price = row['sale_price']  # Corrected to use 'sale_price' instead of 'price'\n    \n    # Filter the competitor pricing table for the same product_id and calculate the mean competitor price\n    competitor_price = competitor_prices[competitor_prices['product_id'] == product_id]['competitor_price'].mean()\n    \n    # Check if a valid competitor price exists (not NaN)\n    if pd.notna(competitor_price):\n        return product_price - competitor_price  # Return the price premium\n    return None  # Return None if no competitor price is available\n"
+        },
+        "0.2020200814012325": {
+            "name": "competitor_price_ratio",
+            "code": "import pandas as pd\n\ndef competitor_price_ratio(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the competitor pricing table from aux_dataframes\n    competitor_prices = aux_dataframes['competitor_pricing_table.csv']\n    \n    # Extract the product_id and sale_price from the current row\n    product_id = row['product_id']\n    product_price = row['sale_price']  # Corrected column name from 'price' to 'sale_price'\n    \n    # Filter the competitor pricing table for the same product_id and calculate the mean competitor price\n    comp_price = competitor_prices[competitor_prices['product_id'] == product_id]['competitor_price'].mean()\n    \n    # Check if both comp_price and product_price are valid (not NaN or None) and calculate the ratio\n    if pd.notna(comp_price) and pd.notna(product_price):\n        return comp_price / product_price\n    \n    # Return None if the ratio cannot be calculated\n    return None\n"
+        },
+        "0.11396580151902594": {
+            "name": "trend_impact",
+            "code": "import pandas as pd\n\ndef trend_impact(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    market_trends = aux_dataframes['market_trends_table.csv']\n    sale_date = pd.to_datetime(row['sale_date'])\n    applicable_trends = market_trends[\n        (pd.to_datetime(market_trends['start_date']) <= sale_date)\n        & (pd.to_datetime(market_trends['end_date']) >= sale_date)\n    ]\n    return applicable_trends['impact_factor'].sum()\n"
+        },
+        "0.09516497039103414": {
+            "name": "days_since_last_product_sale",
+            "code": "import pandas as pd\n\ndef days_since_last_product_sale(row, df_train: pd.DataFrame):\n    product_id = row['product_id']\n    sale_dates = df_train[df_train['product_id'] == product_id]['sale_date']\n    last_sale_date = pd.to_datetime(sale_dates).max()\n    current_date = pd.to_datetime(row['sale_date'])\n    return (current_date - last_sale_date).days if not pd.isnull(last_sale_date) else None\n"
+        },
+        "0.05586039105964434": {
+            "name": "product_performance",
+            "code": "\n\ndef product_performance(row, df_train: pd.DataFrame):\n    product_id = row['product_id']\n    avg_sales_volume = df_train[df_train['product_id'] == product_id]['quantity_sold'].mean()\n    return avg_sales_volume\n"
+        },
+        "0.055080796124182915": {
+            "name": "product_frequency",
+            "code": "\n\ndef product_frequency(row, df_train: pd.DataFrame):\n    product_id = row['product_id']\n    freq = df_train[df_train['product_id'] == product_id].shape[0]\n    return freq\n"
+        },
+        "0.05230926259879801": {
+            "name": "customer_product_avg_quantity",
+            "code": "\n\ndef customer_product_avg_quantity(row, df_train: pd.DataFrame):\n    customer_id = row['customer_id']\n    product_id = row['product_id']\n    avg_quantity = df_train[\n        (df_train['customer_id'] == customer_id) & (df_train['product_id'] == product_id)\n    ]['quantity_sold'].mean()\n    return avg_quantity\n"
+        },
+        "0.051420571337785013": {
+            "name": "rolling_price_average",
+            "code": "\n\ndef rolling_price_average(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    pricing_history = aux_dataframes['pricing_history_table.csv']\n    product_id = row['product_id']\n    product_history = pricing_history[pricing_history['product_id'] == product_id]\n    product_history = product_history.sort_values(by='effective_date')\n    if len(product_history) >= 3:\n        return product_history['price'].tail(3).mean()\n    return None\n"
+        },
+        "0.039374303757466436": {
+            "name": "revenue_per_unit",
+            "code": "\n\ndef revenue_per_unit(row):\n    # Check if 'quantity_sold' is not zero or None\n    if row['quantity_sold']:\n        # Use 'sale_price' instead of 'price' as per the dataframe column names\n        return row['sale_price'] * row['quantity_sold'] / row['quantity_sold']\n    return 0\n"
+        },
+        "0.025612980744116665": {
+            "name": "day_of_week",
+            "code": "import pandas as pd\n\ndef day_of_week(row):\n    sale_date = row['sale_date']\n    return pd.to_datetime(sale_date).dayofweek\n"
+        },
+        "0.016075824834419668": {
+            "name": "total_customer_spending",
+            "code": "\n\ndef total_customer_spending(row, df_train: pd.DataFrame):\n    customer_id = row['customer_id']\n    # Use the correct column name 'total_revenue' instead of 'revenue'\n    return df_train[df_train['customer_id'] == customer_id]['total_revenue'].sum()\n"
+        },
+        "0.012232735342071309": {
+            "name": "revenue_per_transaction",
+            "code": "\n\ndef revenue_per_transaction(row):\n    return row['sale_price'] * row['quantity_sold']\n"
+        },
+        "0.011078764711635521": {
+            "name": "customer_frequency",
+            "code": "\n\ndef customer_frequency(row, df_train: pd.DataFrame):\n    customer_id = row['customer_id']\n    return df_train[df_train['customer_id'] == customer_id].shape[0]\n"
+        },
+        "0.010222281118862624": {
+            "name": "sale_month",
+            "code": "import pandas as pd\n\ndef sale_month(row):\n    sale_date = row['sale_date']\n    return pd.to_datetime(sale_date).month\n"
+        },
+        "0.009949150724787886": {
+            "name": "customer_product_diversity",
+            "code": "\n\ndef customer_product_diversity(row, df_train: pd.DataFrame):\n    customer_id = row['customer_id']\n    unique_products = df_train[df_train['customer_id'] == customer_id]['product_id'].nunique()\n    return unique_products\n"
+        },
+        "0.008125077359553444": {
+            "name": "product_avg_revenue",
+            "code": "\n\ndef product_avg_revenue(row, df_train: pd.DataFrame):\n    product_id = row['product_id']\n    # Use the correct column name 'total_revenue' instead of 'revenue'\n    avg_revenue = df_train[df_train['product_id'] == product_id]['total_revenue'].mean()\n    return avg_revenue\n"
+        },
+        "0.005055176175528928": {
+            "name": "total_sales_quantity",
+            "code": "\n\ndef total_sales_quantity(row, df_train: pd.DataFrame):\n    product_id = row['product_id']\n    total_quantity = df_train[df_train['product_id'] == product_id]['quantity_sold'].sum()\n    return total_quantity\n"
+        },
+        "0.00010532437608774489": {
+            "name": "product_customer_revenue_ratio",
+            "code": "\n\ndef product_customer_revenue_ratio(row, df_train: pd.DataFrame):\n    customer_id = row['customer_id']\n    product_id = row['product_id']\n    \n    # Ensure the column name matches the dataframe\n    product_total_revenue = df_train[df_train['product_id'] == product_id]['total_revenue'].sum()\n    customer_product_revenue = df_train[\n        (df_train['customer_id'] == customer_id) & (df_train['product_id'] == product_id)\n    ]['total_revenue'].sum()\n    \n    if product_total_revenue:\n        return customer_product_revenue / product_total_revenue\n    return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "competitor price premium",
+        "competitor price ratio",
+        "trend impact",
+        "days since last product sale",
+        "product performance",
+        "product frequency",
+        "customer product avg quantity",
+        "rolling price average",
+        "revenue per unit",
+        "day of week",
+        "total customer spending",
+        "revenue per transaction",
+        "customer frequency",
+        "sale month",
+        "customer product diversity",
+        "product avg revenue",
+        "total sales quantity",
+        "product customer revenue ratio"
+    ]
+}

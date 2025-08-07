@@ -1,0 +1,28 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "failures_last_30_days",
+        "day_of_week",
+        "max_precipitation_nearby",
+        "rolling_avg_vibration_7_days",
+        "is_warranty_active",
+        "days_since_last_maintenance",
+        "equipment_age",
+        "hour_of_day",
+        "avg_humidity_nearby"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "failures last 30 days",
+        "day of week",
+        "max precipitation nearby",
+        "rolling avg vibration 7 days",
+        "is warranty active",
+        "days since last maintenance",
+        "equipment age",
+        "hour of day",
+        "avg humidity nearby"
+    ]
+}

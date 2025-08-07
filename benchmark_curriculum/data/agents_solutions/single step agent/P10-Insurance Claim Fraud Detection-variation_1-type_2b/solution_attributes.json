@@ -1,0 +1,47 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "policyholder_claim_percentage",
+        "large_claim_flag",
+        "current_to_previous_claim_ratio",
+        "claim_frequency_incident_type",
+        "payment_delay_rate",
+        "investigation_severity_score"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.2878679188927765": {
+            "name": "policyholder_claim_percentage",
+            "code": "\n\ndef policyholder_claim_percentage(row, df_train: pd.DataFrame):\n    # Filter out rows with the same policyholder_id but only include rows with incident_date before the current row's incident_date\n    policyholder_data = df_train[\n        (df_train['policyholder_id'] == row['policyholder_id']) & \n        (df_train['incident_date'] < row['incident_date'])\n    ]\n    \n    # Calculate the total number of claims for the policyholder up to the current row's incident_date\n    total = policyholder_data.shape[0]\n    \n    # Calculate the number of fraudulent claims for the policyholder up to the current row's incident_date\n    fraudulent = policyholder_data[policyholder_data['Fraudulent'] == 1].shape[0]\n    \n    # Return the percentage of fraudulent claims, avoiding division by zero\n    return fraudulent / total if total > 0 else 0\n"
+        },
+        "0.2678811332190808": {
+            "name": "large_claim_flag",
+            "code": "\n\ndef large_claim_flag(row, df_train: pd.DataFrame):\n    avg_claim = df_train['claim_amount'].mean()\n    return 1 if row['claim_amount'] > avg_claim else 0\n"
+        },
+        "0.012344308432309986": {
+            "name": "current_to_previous_claim_ratio",
+            "code": "\n\ndef current_to_previous_claim_ratio(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'claim_history_table.csv' is used correctly\n    if \"claim_history_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'claim_history_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the claim history table\n    claim_history = aux_dataframes[\"claim_history_table.csv\"]\n    \n    # Filter claims for the specific policyholder\n    policyholder_claims = claim_history[claim_history['policyholder_id'] == row['policyholder_id']].sort_values('claim_date')\n    \n    # Check if there are at least two claims for the policyholder\n    if policyholder_claims.shape[0] < 2:\n        return None\n    \n    # Get the current claim amount from the row\n    current_claim = row['claim_amount']\n    \n    # Get the previous claim amount (second to last claim in the sorted list)\n    previous_claim = policyholder_claims.iloc[-2]['claim_amount']\n    \n    # Return the ratio of current to previous claim, ensuring no division by zero\n    return current_claim / previous_claim if previous_claim > 0 else None\n"
+        },
+        "0.010264497960352222": {
+            "name": "claim_frequency_incident_type",
+            "code": "\n\ndef claim_frequency_incident_type(row, df_train: pd.DataFrame):\n    incident_data = df_train[df_train['incident_type'] == row['incident_type']]\n    return incident_data.shape[0]\n"
+        },
+        "0.009449543281013684": {
+            "name": "payment_delay_rate",
+            "code": "\n\ndef payment_delay_rate(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'payment_details_table.csv' is used correctly\n    if \"payment_details_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'payment_details_table.csv' is missing from aux_dataframes.\")\n    \n    # Access the payment details table\n    payments = aux_dataframes[\"payment_details_table.csv\"]\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'policyholder_id', 'payment_status'}\n    if not required_columns.issubset(payments.columns):\n        raise ValueError(f\"The dataframe 'payment_details_table.csv' is missing required columns: {required_columns - set(payments.columns)}\")\n    \n    # Filter payments for the specific policyholder\n    policyholder_payments = payments[payments['policyholder_id'] == row['policyholder_id']]\n    \n    # Calculate total payments and delayed payments\n    total_payments = policyholder_payments.shape[0]\n    delayed_payments = policyholder_payments[policyholder_payments['payment_status'] == 'Pending'].shape[0]\n    \n    # Return the payment delay rate\n    return delayed_payments / total_payments if total_payments > 0 else 0\n"
+        },
+        "0": {
+            "name": "investigation_severity_score",
+            "code": "import pandas as pd\n\ndef investigation_severity_score(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    import pandas as pd\n\n    # Ensure the key exists in the aux_dataframes dictionary\n    if \"fraud_investigation_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'fraud_investigation_table.csv' is missing from aux_dataframes.\")\n    if \"claim_history_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'claim_history_table.csv' is missing from aux_dataframes.\")\n    \n    # Load the fraud investigation table and claim history table\n    fraud_investigation = aux_dataframes[\"fraud_investigation_table.csv\"]\n    claim_history = aux_dataframes[\"claim_history_table.csv\"]\n    \n    # Check if the required columns exist in the fraud investigation table\n    required_fraud_columns = {'investigation_id', 'claim_id'}\n    if not required_fraud_columns.issubset(fraud_investigation.columns):\n        raise KeyError(f\"The fraud investigation table is missing one or more required columns: {required_fraud_columns}\")\n    \n    # Check if the required columns exist in the claim history table\n    required_claim_columns = {'claim_history_id', 'policyholder_id'}\n    if not required_claim_columns.issubset(claim_history.columns):\n        raise KeyError(f\"The claim history table is missing one or more required columns: {required_claim_columns}\")\n    \n    # Merge fraud investigation table with claim history table to get policyholder_id\n    merged_data = fraud_investigation.merge(\n        claim_history,\n        left_on=\"claim_id\",\n        right_on=\"claim_history_id\",\n        how=\"left\"\n    )\n    \n    # Check if severity_score column exists in the merged data\n    if 'severity_score' not in merged_data.columns:\n        # If severity_score is missing, add it with default value 0\n        merged_data['severity_score'] = 0\n    \n    # Filter investigations for the given policyholder_id\n    investigations = merged_data[merged_data['policyholder_id'] == row['policyholder_id']]\n    \n    # If no investigations exist, return 0\n    if investigations.shape[0] == 0:\n        return 0\n    \n    # Calculate the average severity score\n    total_severity = investigations['severity_score'].sum()\n    return total_severity / investigations.shape[0]  # Average severity score\n"
+        }
+    },
+    "feature_descriptions": [
+        "policyholder claim percentage",
+        "large claim flag",
+        "current to previous claim ratio",
+        "claim frequency incident type",
+        "payment delay rate",
+        "investigation severity score"
+    ]
+}

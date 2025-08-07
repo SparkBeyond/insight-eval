@@ -1,0 +1,59 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "renewable_energy_fraction",
+        "income_per_person",
+        "ownership_binary",
+        "avg_percentage_decrease",
+        "time_diff_between_incentive_and_survey",
+        "recent_survey_indicator",
+        "total_incentive_amount",
+        "incentive_count"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.06374988505725258": {
+            "name": "renewable_energy_fraction",
+            "code": "import pandas as pd\n\ndef renewable_energy_fraction(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"Calculate the fraction of renewable energy usage over total energy usage for a given customer.\"\"\"\n    # Extract the energy usage data table from aux_data\n    energy_usage_df = aux_data.get('energy_usage_data_table.csv')\n    \n    if energy_usage_df is None:\n        raise ValueError(\"The 'energy_usage_data_table.csv' is missing from aux_data.\")\n    \n    # Find the energy usage data for the given household_id\n    household_id = row['customer_id']\n    household_energy_data = energy_usage_df[energy_usage_df['household_id'] == household_id]\n    \n    if household_energy_data.empty:\n        return 0.0  # No energy usage data available for this household\n    \n    # Calculate the total renewable and non-renewable usage for the household\n    total_renewable_usage = household_energy_data['renewable_usage'].sum()\n    total_non_renewable_usage = household_energy_data['non_renewable_usage'].sum()\n    total_usage = total_renewable_usage + total_non_renewable_usage\n    \n    if total_usage == 0 or pd.isna(total_usage):\n        return 0.0  # Avoid division by zero\n    \n    return total_renewable_usage / total_usage\n"
+        },
+        "0.011884403692848211": {
+            "name": "income_per_person",
+            "code": "import numpy as np\nimport pandas as pd\n\ndef income_per_person(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"Calculate normalized income level per household member.\"\"\"\n    # Load the household attributes table\n    household_attributes = aux_data['household_attributes_table.csv']\n    \n    # Find the household_id for the given customer_id\n    household_info = household_attributes[household_attributes['customer_id'] == row['customer_id']]\n    \n    # If no matching household is found, return NaN\n    if household_info.empty:\n        return np.nan\n    \n    # Extract household_size and income_level\n    household_size = household_info.iloc[0]['household_size']\n    income_level = household_info.iloc[0]['income_level']\n    \n    # Handle cases where household_size is NaN or 0\n    if pd.isna(household_size) or household_size == 0:\n        return np.nan  # Avoid dividing by zero\n    \n    # Map income_level to numeric values\n    income_map = {'low': 1, 'medium': 2, 'high': 3}\n    return income_map.get(income_level, np.nan) / household_size\n"
+        },
+        "0.010862120149900243": {
+            "name": "ownership_binary",
+            "code": "\n\ndef ownership_binary(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"Convert ownership status to binary (1 = owned, 0 = rented).\n    \n    This function looks up the ownership status from the household_attributes_table.csv\n    using the customer_id in the row and converts it to binary.\n    \"\"\"\n    # Extract the household_attributes_table dataframe from aux_data\n    household_attributes = aux_data['household_attributes_table.csv']\n    \n    # Find the ownership_status for the given customer_id\n    customer_id = row['customer_id']\n    ownership_status = household_attributes.loc[\n        household_attributes['customer_id'] == customer_id, 'ownership_status'\n    ].squeeze()  # Use squeeze to get a scalar value\n    \n    # Convert ownership_status to binary\n    return 1 if ownership_status == 'owned' else 0\n"
+        },
+        "0.009217729972269894": {
+            "name": "avg_percentage_decrease",
+            "code": "\n\ndef avg_percentage_decrease(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculate the average percentage decrease in non-renewable energy consumption for similar customers.\n    \"\"\"\n    # Access the household attributes table to get income_level\n    household_attributes = aux_data['household_attributes_table.csv']\n    \n    # Merge df_train with household_attributes to get income_level\n    df_train = df_train.merge(household_attributes[['customer_id', 'income_level']], on='customer_id', how='left')\n    \n    # Get the income_level for the current row\n    income_level = df_train.loc[df_train['customer_id'] == row['customer_id'], 'income_level'].values[0]\n    \n    # Filter similar households based on income_level\n    similar_households = df_train[df_train['income_level'] == income_level]\n    \n    # Calculate and return the mean percentage decrease\n    return similar_households[\n        'percentage_decrease_in_non_renewable_energy_consumption_in_the_last_year'\n    ].mean()\n"
+        },
+        "0.007903737063058969": {
+            "name": "time_diff_between_incentive_and_survey",
+            "code": "import numpy as np\nimport pandas as pd\n\ndef time_diff_between_incentive_and_survey(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"Calculate the time (in days) between incentive received and last survey date.\"\"\"\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Ensure the key 'household_attributes_table.csv' exists in aux_data\n    if 'household_attributes_table.csv' not in aux_data:\n        raise KeyError(\"The key 'household_attributes_table.csv' is missing in aux_data.\")\n    \n    # Look up the household_id using the customer_id in household_attributes_table\n    household_attributes = aux_data['household_attributes_table.csv']\n    household_row = household_attributes[household_attributes['customer_id'] == customer_id]\n    \n    if household_row.empty:\n        return np.nan  # If no matching household_id is found, return NaN\n    \n    household_id = household_row.iloc[0]['household_id']\n    \n    # Ensure the key 'green_incentives_table.csv' exists in aux_data\n    if 'green_incentives_table.csv' not in aux_data:\n        raise KeyError(\"The key 'green_incentives_table.csv' is missing in aux_data.\")\n    \n    # Look up the date_received from green_incentives_table using household_id\n    green_incentives = aux_data['green_incentives_table.csv']\n    incentive_row = green_incentives[green_incentives['household_id'] == household_id]\n    \n    if incentive_row.empty:\n        return np.nan  # If no matching incentive is found, return NaN\n    \n    date_received = incentive_row.iloc[0]['date_received']\n    \n    # Ensure the key 'market_interest_table.csv' exists in aux_data\n    if 'market_interest_table.csv' not in aux_data:\n        raise KeyError(\"The key 'market_interest_table.csv' is missing in aux_data.\")\n    \n    # Look up the survey_date from market_interest_table using customer_id\n    market_interest = aux_data['market_interest_table.csv']\n    survey_row = market_interest[market_interest['customer_id'] == customer_id]\n    \n    if survey_row.empty:\n        return np.nan  # If no matching survey is found, return NaN\n    \n    survey_date = survey_row.iloc[0]['survey_date']\n    \n    # Convert dates to datetime and calculate the difference in days\n    if pd.isna(date_received) or pd.isna(survey_date):\n        return np.nan\n    \n    date_received = pd.to_datetime(date_received)\n    survey_date = pd.to_datetime(survey_date)\n    return abs((survey_date - date_received).days)\n"
+        },
+        "0.006741342882447843": {
+            "name": "recent_survey_indicator",
+            "code": "import pandas as pd\n\ndef recent_survey_indicator(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"Identify if the survey was recent based on the year (>= 2024).\"\"\"\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Get the market_interest_table from aux_data\n    market_interest_table = aux_data['market_interest_table.csv']\n    \n    # Find the survey_date for the given customer_id\n    survey_date_row = market_interest_table.loc[market_interest_table['customer_id'] == customer_id, 'survey_date']\n    \n    # If no survey_date is found, return 0\n    if survey_date_row.empty:\n        return 0\n    \n    # Convert the survey_date to datetime\n    survey_date = pd.to_datetime(survey_date_row.iloc[0])\n    \n    # Check if the survey_date year is >= 2024\n    return 1 if survey_date.year >= 2024 else 0\n"
+        },
+        "0.0031031446620115193": {
+            "name": "total_incentive_amount",
+            "code": "\n\ndef total_incentive_amount(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Sum the total incentive values received by households.\n    This requires aggregation across the green_incentives_table.csv and mapping customer_id to household_id.\n    \"\"\"\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Map customer_id to household_id using the household_attributes_table.csv\n    household_attributes = aux_data['household_attributes_table.csv']\n    household_id_row = household_attributes[household_attributes['customer_id'] == customer_id]\n    \n    # If no matching household_id is found, return 0\n    if household_id_row.empty:\n        return 0\n    \n    # Extract the household_id\n    household_id = household_id_row.iloc[0]['household_id']\n    \n    # Use the green_incentives_table.csv to calculate the total incentive amount\n    green_incentives = aux_data['green_incentives_table.csv']\n    incentives = green_incentives[green_incentives['household_id'] == household_id]['incentive_value']\n    \n    # Return the sum of incentive values\n    return incentives.sum() if not incentives.empty else 0\n"
+        },
+        "0": {
+            "name": "incentive_count",
+            "code": "\n\ndef incentive_count(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Count the number of incentives received by a specific household.\n    \"\"\"\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Map customer_id to household_id using the household_attributes_table\n    household_attributes = aux_data['household_attributes_table.csv']\n    household_row = household_attributes[household_attributes['customer_id'] == customer_id]\n    \n    # If no matching household_id is found, return 0\n    if household_row.empty:\n        return 0\n    \n    # Get the household_id\n    household_id = household_row.iloc[0]['household_id']\n    \n    # Count the number of incentives for the household_id in green_incentives_table\n    green_incentives = aux_data['green_incentives_table.csv']\n    incentive_count = green_incentives[green_incentives['household_id'] == household_id].shape[0]\n    \n    return incentive_count\n"
+        }
+    },
+    "feature_descriptions": [
+        "renewable energy fraction",
+        "income per person",
+        "ownership binary",
+        "avg percentage decrease",
+        "time diff between incentive and survey",
+        "recent survey indicator",
+        "total incentive amount",
+        "incentive count"
+    ]
+}

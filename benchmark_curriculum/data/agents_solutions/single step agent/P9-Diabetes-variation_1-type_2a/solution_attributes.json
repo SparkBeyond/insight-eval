@@ -1,0 +1,119 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "count_abnormal_tests",
+        "deviation_from_normal",
+        "percentage_abnormal_tests",
+        "mean_deviation_from_normal",
+        "patient_test_history_length",
+        "range_of_test_results",
+        "days_since_test",
+        "min_patient_test_result",
+        "std_dev_patient_test_results",
+        "max_patient_test_result",
+        "average_patient_test_result",
+        "encoded_gender",
+        "bmi_age",
+        "family_history_indicator",
+        "encoded_smoking_status",
+        "bmi_physical_activity",
+        "age_physical_activity",
+        "total_patient_tests"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.5090865822013346": {
+            "name": "count_abnormal_tests",
+            "code": "\n\ndef count_abnormal_tests(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]) -> int:\n    \"\"\"\n    Counts the number of abnormal tests for a given patient.\n    \"\"\"\n    patient_id = row['patient_id']\n    lab_tests_info = aux_data['lab_tests_info_table.csv']\n    lab_tests = aux_data['lab_tests_table.csv']\n    \n    # Filter tests for the specific patient\n    patient_tests = lab_tests[lab_tests['patient_id'] == patient_id]\n    \n    # Check for abnormal tests\n    abnormal_tests = patient_tests.apply(is_abnormal_test, axis=1, lab_tests_info=lab_tests_info)\n    return abnormal_tests.sum()\n"
+        },
+        "0.4388912241262294": {
+            "name": "deviation_from_normal",
+            "code": "\n\ndef deviation_from_normal(row: pd.Series, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframes from aux_data\n    lab_tests_info = aux_data['lab_tests_info_table.csv']\n    lab_tests = aux_data['lab_tests_table.csv']\n    \n    # Ensure the row contains a valid patient_id to look up the test details\n    if 'patient_id' not in row:\n        raise KeyError(\"The row must contain a 'patient_id' column to look up test details.\")\n    \n    # Get the patient_id from the current row\n    patient_id = row['patient_id']\n    \n    # Look up the test details for the patient in the lab_tests dataframe\n    patient_tests = lab_tests[lab_tests['patient_id'] == patient_id]\n    \n    if patient_tests.empty:\n        raise ValueError(f\"No test data found for patient_id '{patient_id}' in lab_tests_table.csv\")\n    \n    # Iterate over each test for the patient and calculate deviations\n    deviations = []\n    for _, test_details in patient_tests.iterrows():\n        test_type = test_details['test_type']\n        test_result = test_details['test_result']\n        \n        # Look up the normal range for the test type in the lab_tests_info dataframe\n        normal_range = lab_tests_info[lab_tests_info['test_type'] == test_type]\n        \n        if normal_range.empty:\n            raise ValueError(f\"Test type '{test_type}' not found in lab_tests_info_table.csv\")\n        \n        # Extract the normal range min and max\n        normal_min = normal_range['normal_range_min'].iloc[0]\n        normal_max = normal_range['normal_range_max'].iloc[0]\n        \n        # Calculate the deviation from normal\n        if test_result > normal_max:\n            deviations.append(max(0, test_result - normal_max))\n        else:\n            deviations.append(max(0, normal_min - test_result))\n    \n    # Return the sum of deviations for all tests for the patient\n    return sum(deviations)\n"
+        },
+        "0.30158793281644": {
+            "name": "percentage_abnormal_tests",
+            "code": "\n\ndef percentage_abnormal_tests(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]) -> float:\n    \"\"\"\n    Calculates the percentage of abnormal tests for a given patient.\n    \"\"\"\n    patient_id = row['patient_id']\n    \n    # Extract the relevant DataFrames from aux_data\n    lab_tests_table = aux_data['lab_tests_table.csv']\n    lab_tests_info = aux_data['lab_tests_info_table.csv']\n    \n    # Filter tests for the specific patient\n    patient_tests = lab_tests_table[lab_tests_table['patient_id'] == patient_id]\n    \n    if patient_tests.empty:\n        # If the patient has no tests, return 0\n        return 0.0\n    \n    # Determine if each test is abnormal\n    abnormal_tests = patient_tests.apply(is_abnormal_test, axis=1, lab_tests_info=lab_tests_info)\n    \n    # Calculate the percentage of abnormal tests\n    return 100 * abnormal_tests.sum() / len(patient_tests)\n"
+        },
+        "0.2209719532898172": {
+            "name": "mean_deviation_from_normal",
+            "code": "\n\ndef mean_deviation_from_normal(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculate the mean deviation from the normal range for a patient's lab tests.\n    \"\"\"\n    # Extract the lab tests info and lab tests data from aux_data\n    lab_tests_info = aux_data['lab_tests_info_table.csv']\n    lab_tests_data = aux_data['lab_tests_table.csv']\n    \n    # Get the patient ID\n    patient_id = row['patient_id']\n    \n    # Filter lab tests for the specific patient\n    patient_tests = lab_tests_data[lab_tests_data['patient_id'] == patient_id]\n    \n    # Calculate deviations for each test\n    deviations = patient_tests.apply(deviation_from_normal, axis=1, lab_tests_info=lab_tests_info)\n    \n    # Return the mean deviation\n    return deviations.mean()\n"
+        },
+        "0.14984203404610094": {
+            "name": "patient_test_history_length",
+            "code": "import pandas as pd\n\ndef patient_test_history_length(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe from aux_data\n    lab_tests_table = aux_data['lab_tests_table.csv']\n    \n    # Get the patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Filter the lab_tests_table for the given patient_id\n    patient_tests = lab_tests_table[lab_tests_table['patient_id'] == patient_id]\n    \n    # Ensure 'test_date' is in datetime format\n    dates = pd.to_datetime(patient_tests['test_date'], format=\"%Y-%m-%d\", errors='coerce')\n    \n    # Drop any NaT values (in case of invalid dates)\n    dates = dates.dropna()\n    \n    # Calculate the difference between the max and min dates\n    return (dates.max() - dates.min()).days if len(dates) > 1 else 0\n"
+        },
+        "0.14925291876261193": {
+            "name": "range_of_test_results",
+            "code": "\n\ndef range_of_test_results(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe from aux_data\n    lab_tests_table = aux_data['lab_tests_table.csv']\n    \n    # Get the patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Filter the lab_tests_table for the specific patient_id\n    patient_tests = lab_tests_table[lab_tests_table['patient_id'] == patient_id]\n    \n    # Check if there are any test results for the patient\n    if patient_tests.empty:\n        return None  # Return None if no test results are available\n    \n    # Calculate and return the range of test results\n    return patient_tests['test_result'].max() - patient_tests['test_result'].min()\n"
+        },
+        "0.13600558944329275": {
+            "name": "days_since_test",
+            "code": "import pandas as pd\nimport datetime\n\ndef days_since_test(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the reference date is a datetime object\n    reference_date = datetime.datetime(2025, 1, 1)\n    \n    # Extract the patient_id from the row\n    patient_id = row.get('patient_id')\n    if patient_id is None:\n        raise KeyError(\"The row does not contain a 'patient_id' column.\")\n    \n    # Get the lab_tests_table dataframe from aux_data\n    lab_tests_table = aux_data.get('lab_tests_table.csv')\n    if lab_tests_table is None:\n        raise KeyError(\"The 'lab_tests_table.csv' dataframe is missing from aux_data.\")\n    \n    # Filter the lab_tests_table for the given patient_id\n    patient_tests = lab_tests_table[lab_tests_table['patient_id'] == patient_id]\n    if patient_tests.empty:\n        raise ValueError(f\"No test records found for patient_id {patient_id}.\")\n    \n    # Get the most recent test_date for the patient\n    try:\n        most_recent_test_date = max(pd.to_datetime(patient_tests['test_date'], format=\"%Y-%m-%d\"))\n    except KeyError:\n        raise KeyError(\"The 'lab_tests_table.csv' dataframe does not contain a 'test_date' column.\")\n    except ValueError:\n        raise ValueError(\"One or more 'test_date' values are not in the correct format (YYYY-MM-DD).\")\n    \n    # Calculate the difference in days\n    return (reference_date - most_recent_test_date).days\n"
+        },
+        "0.11080984073436569": {
+            "name": "min_patient_test_result",
+            "code": "\n\ndef min_patient_test_result(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe from aux_data\n    lab_tests_table = aux_data['lab_tests_table.csv']\n    \n    # Extract the patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Filter the lab_tests_table for the given patient_id\n    patient_tests = lab_tests_table[lab_tests_table['patient_id'] == patient_id]\n    \n    # Return the minimum test_result for the patient, or None if no tests exist\n    return patient_tests['test_result'].min() if not patient_tests.empty else None\n"
+        },
+        "0.10930173013468251": {
+            "name": "std_dev_patient_test_results",
+            "code": "\n\ndef std_dev_patient_test_results(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the correct dataframe from aux_data\n    lab_tests_table = aux_data['lab_tests_table.csv']\n    \n    # Ensure the column names match the expected structure\n    if 'patient_id' not in lab_tests_table.columns or 'test_result' not in lab_tests_table.columns:\n        raise KeyError(\"The required columns 'patient_id' or 'test_result' are missing in 'lab_tests_table.csv'\")\n    \n    # Get the patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Filter the lab_tests_table for the specific patient_id\n    patient_tests = lab_tests_table[lab_tests_table['patient_id'] == patient_id]\n    \n    # Calculate and return the standard deviation of the test results\n    return patient_tests['test_result'].std()\n"
+        },
+        "0.09819605545892267": {
+            "name": "max_patient_test_result",
+            "code": "\n\ndef max_patient_test_result(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe from aux_data\n    lab_tests_df = aux_data['lab_tests_table.csv']\n    \n    # Extract the patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Filter the lab_tests_df for the given patient_id\n    patient_tests = lab_tests_df[lab_tests_df['patient_id'] == patient_id]\n    \n    # Return the maximum test_result for the patient\n    if not patient_tests.empty:\n        return patient_tests['test_result'].max()\n    else:\n        return None  # Return None if no tests are found for the patient\n"
+        },
+        "0.05102702399724426": {
+            "name": "average_patient_test_result",
+            "code": "\n\ndef average_patient_test_result(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Get the lab tests dataframe from aux_data\n    lab_tests_df = aux_data['lab_tests_table.csv']\n    \n    # Filter the lab tests dataframe for the given patient_id\n    patient_tests = lab_tests_df[lab_tests_df['patient_id'] == patient_id]\n    \n    # Calculate and return the mean of the 'test_result' column\n    return patient_tests['test_result'].mean()\n"
+        },
+        "0.027543904528182766": {
+            "name": "encoded_gender",
+            "code": "\n\ndef encoded_gender(row):\n    gender_map = {\"Male\": 0, \"Female\": 1, \"Other\": 2}\n    return gender_map.get(row['gender'], -1)\n"
+        },
+        "0.022592384620028348": {
+            "name": "bmi_age",
+            "code": "\n\ndef bmi_age(row):\n    return row['bmi'] * row['age']\n"
+        },
+        "0.020238801125707324": {
+            "name": "family_history_indicator",
+            "code": "\n\ndef family_history_indicator(row):\n    return 1 if row['family_history'] else 0\n"
+        },
+        "0.01799347359477179": {
+            "name": "encoded_smoking_status",
+            "code": "\n\ndef encoded_smoking_status(row):\n    smoking_map = {\"Never\": 0, \"Former\": 1, \"Current\": 2}\n    return smoking_map.get(row['smoking_status'], -1)\n"
+        },
+        "0.01532732437673237": {
+            "name": "bmi_physical_activity",
+            "code": "\n\ndef bmi_physical_activity(row):\n    activity_level_map = {\"Sedentary\": 0, \"Active\": 1}\n    return row['bmi'] * activity_level_map.get(row['physical_activity_level'], 0)\n"
+        },
+        "0.004430642941507414": {
+            "name": "age_physical_activity",
+            "code": "\n\ndef age_physical_activity(row):\n    activity_level_map = {\"Sedentary\": 0, \"Active\": 1}\n    return row['age'] * activity_level_map.get(row['physical_activity_level'], 0)\n"
+        },
+        "0": {
+            "name": "total_patient_tests",
+            "code": "\n\ndef total_patient_tests(row, df_train: pd.DataFrame):\n    patient_id = row['patient_id']\n    patient_tests = df_train[df_train['patient_id'] == patient_id]\n    return len(patient_tests)\n"
+        }
+    },
+    "feature_descriptions": [
+        "count abnormal tests",
+        "deviation from normal",
+        "percentage abnormal tests",
+        "mean deviation from normal",
+        "patient test history length",
+        "range of test results",
+        "days since test",
+        "min patient test result",
+        "std dev patient test results",
+        "max patient test result",
+        "average patient test result",
+        "encoded gender",
+        "bmi age",
+        "family history indicator",
+        "encoded smoking status",
+        "bmi physical activity",
+        "age physical activity",
+        "total patient tests"
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "customer_transaction_frequency",
+        "time_since_last_login",
+        "transaction_to_monthly_spend_ratio",
+        "total_transaction_amount",
+        "merchant_risk_level",
+        "high_risk_merchant_proportion",
+        "total_transaction_count",
+        "transaction_day_of_week"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "customer transaction frequency",
+        "time since last login",
+        "transaction to monthly spend ratio",
+        "total transaction amount",
+        "merchant risk level",
+        "high risk merchant proportion",
+        "total transaction count",
+        "transaction day of week"
+    ]
+}

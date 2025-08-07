@@ -1,0 +1,131 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "conditions_treated",
+        "avg_medication_adherence",
+        "time_since_last_diagnosis",
+        "hypertension_presence",
+        "total_hospital_visits",
+        "ethnicity_risk",
+        "physical_activity_score",
+        "stress_level",
+        "bmi",
+        "dietary_habit_risk",
+        "last_refill_interval",
+        "gender_risk_indicator",
+        "diversity_of_medications",
+        "side_effect_frequency",
+        "alcohol_consumption",
+        "smoking_risk",
+        "blood_pressure_category",
+        "cholesterol_risk",
+        "age_adjusted_risk",
+        "total_lab_test_results"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.2526729806340098": {
+            "name": "conditions_treated",
+            "code": "\n\ndef conditions_treated(row, aux_dataframes):\n    medical_history_data = aux_dataframes['medical_history_table.csv']\n    patient_data = medical_history_data[medical_history_data['patient_id'] == row['patient_id']]\n    return patient_data['condition'].nunique()\n"
+        },
+        "0.23716124141447234": {
+            "name": "avg_medication_adherence",
+            "code": "\n\ndef avg_medication_adherence(row, aux_dataframes):\n    adherence_data = aux_dataframes['medication_adherence_table.csv']\n    patient_data = adherence_data[adherence_data['patient_id'] == row['patient_id']]\n    return patient_data['adherence_rate'].mean() if not patient_data.empty else 0\n"
+        },
+        "0.18239931729754508": {
+            "name": "time_since_last_diagnosis",
+            "code": "import datetime\n\ndef time_since_last_diagnosis(row, aux_dataframes):\n    from datetime import datetime\n    medical_history_data = aux_dataframes['medical_history_table.csv']\n    patient_data = medical_history_data[medical_history_data['patient_id'] == row['patient_id']]\n    if patient_data.empty:\n        return None\n    latest_diagnosis = patient_data['diagnosis_date'].max()\n    return (datetime.now() - datetime.strptime(latest_diagnosis, \"%Y-%m-%d\")).days / 365.25\n"
+        },
+        "0.0944532189179614": {
+            "name": "hypertension_presence",
+            "code": "\n\ndef hypertension_presence(row, aux_dataframes):\n    medical_history_data = aux_dataframes['medical_history_table.csv']\n    patient_data = medical_history_data[medical_history_data['patient_id'] == row['patient_id']]\n    return 1 if \"Hypertension\" in patient_data['condition'].values else 0\n"
+        },
+        "0.09070167463640372": {
+            "name": "total_hospital_visits",
+            "code": "\n\ndef total_hospital_visits(row, aux_dataframes):\n    medical_history_data = aux_dataframes['medical_history_table.csv']\n    patient_data = medical_history_data[medical_history_data['patient_id'] == row['patient_id']]\n    return patient_data['hospital_visits'].sum()\n"
+        },
+        "0.047700973585335024": {
+            "name": "ethnicity_risk",
+            "code": "\n\ndef ethnicity_risk(row):\n    return 1 if row['ethnicity'] == \"African American\" else 0\n"
+        },
+        "0.030103340406162044": {
+            "name": "physical_activity_score",
+            "code": "\n\ndef physical_activity_score(row, aux_dataframes):\n    risk_factors_data = aux_dataframes['disease_risk_factors_table.csv']\n    patient_data = risk_factors_data[risk_factors_data['patient_id'] == row['patient_id']]\n    if not patient_data.empty:\n        activity = patient_data['physical_activity_level'].iloc[0]\n        return {\"Active\": 3, \"Moderate\": 2, \"Sedentary\": 1}.get(activity, 0)\n    return 0\n"
+        },
+        "0.029821370717934434": {
+            "name": "stress_level",
+            "code": "\n\ndef stress_level(row, aux_dataframes):\n    risk_factors_data = aux_dataframes['disease_risk_factors_table.csv']\n    patient_data = risk_factors_data[risk_factors_data['patient_id'] == row['patient_id']]\n    return patient_data['stress_level'].mean() if not patient_data.empty else None\n"
+        },
+        "0.024291382033399915": {
+            "name": "bmi",
+            "code": "\n\ndef bmi(row):\n    bmi_value = row['weight'] / ((row['height'] / 100) ** 2)\n    return bmi_value\n"
+        },
+        "0.0193085575494673": {
+            "name": "dietary_habit_risk",
+            "code": "\n\ndef dietary_habit_risk(row, aux_dataframes):\n    risk_factors_data = aux_dataframes['disease_risk_factors_table.csv']\n    patient_data = risk_factors_data[risk_factors_data['patient_id'] == row['patient_id']]\n    if not patient_data.empty:\n        return 1 if patient_data['dietary_habits'].iloc[0] == \"High-fat\" else 0\n    return 0\n"
+        },
+        "0.01435216509368172": {
+            "name": "last_refill_interval",
+            "code": "import datetime\n\ndef last_refill_interval(row, aux_dataframes):\n    from datetime import datetime\n    adherence_data = aux_dataframes['medication_adherence_table.csv']\n    patient_data = adherence_data[adherence_data['patient_id'] == row['patient_id']]\n    if not patient_data.empty:\n        latest_refill = patient_data['last_refill_date'].max()\n        return (datetime.now() - datetime.strptime(latest_refill, \"%Y-%m-%d\")).days\n    return None\n"
+        },
+        "0.00871018154436635": {
+            "name": "gender_risk_indicator",
+            "code": "\n\ndef gender_risk_indicator(row):\n    return 1 if row['gender'] == \"Male\" else 0\n"
+        },
+        "0.0057847827656428265": {
+            "name": "diversity_of_medications",
+            "code": "\n\ndef diversity_of_medications(row, aux_dataframes):\n    adherence_data = aux_dataframes['medication_adherence_table.csv']\n    patient_data = adherence_data[adherence_data['patient_id'] == row['patient_id']]\n    return patient_data['medication_name'].nunique()\n"
+        },
+        "0.005695869284308194": {
+            "name": "side_effect_frequency",
+            "code": "\n\ndef side_effect_frequency(row, aux_dataframes):\n    adherence_data = aux_dataframes['medication_adherence_table.csv']\n    patient_data = adherence_data[adherence_data['patient_id'] == row['patient_id']]\n    return patient_data['side_effects'].notnull().sum()\n"
+        },
+        "0.0028138823363735993": {
+            "name": "alcohol_consumption",
+            "code": "\n\ndef alcohol_consumption(row, aux_dataframes):\n    risk_factors_data = aux_dataframes['disease_risk_factors_table.csv']\n    patient_data = risk_factors_data[risk_factors_data['patient_id'] == row['patient_id']]\n    return patient_data['alcohol_consumption'].mean() if not patient_data.empty else 0\n"
+        },
+        "0.0025254414315616846": {
+            "name": "smoking_risk",
+            "code": "\n\ndef smoking_risk(row):\n    return 1 if row['smoking_status'] == \"Current\" else 0\n"
+        },
+        "-0.0009202942467467778": {
+            "name": "blood_pressure_category",
+            "code": "\n\ndef blood_pressure_category(row):\n    systolic, diastolic = map(int, row['blood_pressure'].split('/'))\n    if systolic >= 140 or diastolic >= 90:\n        return \"High\"\n    elif systolic >= 120:\n        return \"Pre-High\"\n    else:\n        return \"Normal\"\n"
+        },
+        "-0.0007277805139500604": {
+            "name": "cholesterol_risk",
+            "code": "\n\ndef cholesterol_risk(row):\n    if row['cholesterol_level'] >= 240:\n        return \"High\"\n    elif 200 <= row['cholesterol_level'] < 240:\n        return \"Moderate\"\n    else:\n        return \"Normal\"\n"
+        },
+        "-0.000704092737646711": {
+            "name": "age_adjusted_risk",
+            "code": "\n\ndef age_adjusted_risk(row):\n    if row['age'] >= 65:\n        return \"High\"\n    elif 45 <= row['age'] < 65:\n        return \"Moderate\"\n    else:\n        return \"Low\"\n"
+        },
+        "0.0004211611551907025": {
+            "name": "total_lab_test_results",
+            "code": "\n\ndef total_lab_test_results(row, aux_dataframes):\n    medical_history_data = aux_dataframes['medical_history_table.csv']\n    patient_data = medical_history_data[medical_history_data['patient_id'] == row['patient_id']]\n    return patient_data['lab_test_results'].sum()\n"
+        }
+    },
+    "feature_descriptions": [
+        "conditions treated",
+        "avg medication adherence",
+        "time since last diagnosis",
+        "hypertension presence",
+        "total hospital visits",
+        "ethnicity risk",
+        "physical activity score",
+        "stress level",
+        "bmi",
+        "dietary habit risk",
+        "last refill interval",
+        "gender risk indicator",
+        "diversity of medications",
+        "side effect frequency",
+        "alcohol consumption",
+        "smoking risk",
+        "blood pressure category",
+        "cholesterol risk",
+        "age adjusted risk",
+        "total lab test results"
+    ]
+}

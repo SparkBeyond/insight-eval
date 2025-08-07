@@ -1,0 +1,16 @@
+{
+    "enriched_column_names": [
+        "maintenance_frequency_increase_over_the_last_month",
+        "average_humidity_level_impact_in_the_last_15_days",
+        "exceedance_of_power_output_limits_over_the_last_30_days",
+        "vibration_level_variance_in_the_last_week",
+        "average_temperature_rise_rate_in_the_last_7_days"
+    ],
+    "features_descriptions": [
+        "maintenance frequency increase over the last month",
+        "average humidity level impact in the last 15 days",
+        "exceedance of power output limits over the last 30 days",
+        "vibration level variance in the last week",
+        "average temperature rise rate in the last 7 days"
+    ]
+}

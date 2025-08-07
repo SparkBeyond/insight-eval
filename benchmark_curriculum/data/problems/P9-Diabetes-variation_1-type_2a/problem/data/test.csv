@@ -1,0 +1,901 @@
+patient_id,age,gender,ethnicity,bmi,smoking_status,family_history,physical_activity_level,has_diabetes
+3,71,Female,Other,35.800000,Current,False,Sedentary,1
+2052,61,Other,Other,35.100000,Former,False,Sedentary,0
+2053,43,Female,Caucasian,23.200000,Never,False,Moderate,0
+6,70,Male,Other,38.700000,Former,True,Active,0
+7,70,Other,Asian,18.900000,Former,True,Active,0
+9,32,Other,African American,39.100000,Current,False,Sedentary,0
+10,52,Male,Asian,22.600000,Current,True,Moderate,1
+12,19,Male,Asian,18.900000,Current,False,Moderate,1
+2061,88,Other,Caucasian,38.400000,Never,False,Sedentary,0
+14,90,Other,African American,27.200000,Current,False,Sedentary,0
+2062,36,Male,Caucasian,31.900000,Former,True,Active,0
+17,57,Female,Hispanic,28.800000,Current,True,Active,0
+2065,49,Male,Other,31.000000,Never,True,Active,0
+19,24,Other,Hispanic,31.100000,Former,True,Active,0
+2067,84,Male,Asian,36.200000,Current,False,Active,0
+2072,70,Female,Other,32.300000,Current,False,Active,0
+26,88,Female,Hispanic,18.800000,Former,True,Sedentary,0
+27,77,Female,Asian,23.000000,Former,True,Active,0
+28,19,Male,Caucasian,28.600000,Former,True,Sedentary,0
+2076,55,Male,Other,18.900000,Former,True,Active,0
+2077,43,Other,Hispanic,25.700000,Current,False,Active,0
+2080,62,Male,African American,20.200000,Current,False,Active,0
+2085,72,Female,African American,23.700000,Current,True,Sedentary,0
+2087,43,Female,Hispanic,22.000000,Current,True,Moderate,0
+41,33,Female,Hispanic,20.200000,Never,False,Sedentary,0
+42,39,Male,Asian,20.100000,Former,False,Moderate,0
+2091,59,Female,Hispanic,22.000000,Current,False,Moderate,0
+47,80,Female,Hispanic,31.600000,Current,False,Moderate,0
+2095,36,Male,Caucasian,19.700000,Former,False,Active,0
+2096,46,Male,Caucasian,24.000000,Current,False,Sedentary,0
+2098,55,Female,African American,31.200000,Current,False,Active,0
+2100,87,Female,Hispanic,25.900000,Never,False,Sedentary,1
+53,78,Male,Hispanic,37.300000,Current,False,Sedentary,0
+58,86,Female,Other,31.700000,Never,True,Moderate,0
+59,55,Other,Asian,37.900000,Never,True,Sedentary,1
+61,19,Other,Caucasian,26.000000,Never,False,Sedentary,0
+62,89,Male,Caucasian,33.800000,Never,False,Sedentary,0
+2109,41,Female,Other,24.400000,Former,True,Sedentary,1
+67,80,Male,Other,32.400000,Former,True,Active,0
+2115,46,Male,Other,35.700000,Never,True,Moderate,1
+2116,74,Other,Caucasian,32.600000,Former,False,Active,1
+70,83,Female,Hispanic,35.700000,Current,False,Active,0
+71,48,Other,Other,34.300000,Current,True,Active,0
+2117,33,Other,Caucasian,39.100000,Former,False,Active,0
+73,30,Male,Other,28.600000,Former,False,Moderate,0
+2118,27,Male,Asian,20.000000,Former,False,Active,1
+2123,66,Other,Asian,26.600000,Never,True,Active,1
+78,58,Other,African American,36.300000,Current,False,Moderate,0
+80,74,Other,Caucasian,37.600000,Never,False,Moderate,0
+82,77,Female,African American,28.700000,Former,False,Moderate,1
+84,57,Male,Asian,29.600000,Current,False,Moderate,0
+2133,25,Other,Other,20.100000,Current,True,Moderate,0
+86,38,Other,African American,23.100000,Never,False,Sedentary,0
+87,23,Male,Asian,35.000000,Never,True,Active,1
+2135,62,Female,Asian,18.700000,Current,True,Moderate,0
+2137,35,Female,African American,35.800000,Never,False,Active,0
+94,39,Other,Other,27.700000,Former,False,Active,0
+96,59,Male,Caucasian,34.200000,Former,True,Sedentary,1
+97,64,Other,Caucasian,29.300000,Never,False,Sedentary,0
+2146,52,Other,Other,24.500000,Former,True,Moderate,0
+101,53,Other,Asian,29.900000,Former,False,Sedentary,0
+105,33,Other,Asian,38.000000,Current,False,Active,0
+107,72,Male,Hispanic,32.400000,Current,False,Active,0
+2155,23,Male,Hispanic,31.800000,Never,False,Sedentary,0
+2157,77,Female,Caucasian,22.400000,Current,False,Moderate,1
+110,46,Other,African American,33.000000,Never,False,Sedentary,0
+2158,27,Female,Hispanic,38.000000,Current,False,Sedentary,1
+2160,88,Other,Other,30.000000,Never,False,Active,0
+2164,44,Female,African American,25.800000,Never,True,Moderate,0
+118,60,Female,Hispanic,33.400000,Never,False,Moderate,1
+2166,36,Male,Asian,24.000000,Former,True,Sedentary,0
+2171,19,Female,Hispanic,23.700000,Never,True,Moderate,1
+124,56,Female,Hispanic,39.600000,Former,True,Sedentary,0
+2172,81,Male,Asian,19.300000,Current,True,Moderate,0
+2175,64,Other,Hispanic,31.100000,Former,False,Active,0
+2176,62,Male,Asian,33.300000,Never,True,Active,1
+129,88,Female,Caucasian,23.800000,Never,True,Sedentary,0
+130,33,Other,Hispanic,25.300000,Current,True,Sedentary,0
+131,34,Other,African American,25.900000,Never,True,Moderate,1
+136,65,Female,Asian,39.000000,Never,False,Moderate,0
+2190,35,Female,Other,32.300000,Current,True,Moderate,1
+144,80,Other,Other,32.700000,Never,True,Sedentary,0
+2193,69,Other,African American,27.700000,Current,True,Moderate,0
+146,30,Other,Hispanic,22.200000,Current,False,Moderate,0
+147,33,Other,Caucasian,22.800000,Never,True,Moderate,0
+2194,52,Male,African American,39.600000,Former,False,Active,0
+149,25,Female,Hispanic,32.000000,Former,True,Active,0
+150,51,Other,Hispanic,25.000000,Never,True,Active,0
+2195,90,Female,African American,23.200000,Current,False,Moderate,0
+152,81,Female,Hispanic,22.400000,Never,False,Sedentary,0
+155,29,Other,Other,27.900000,Former,False,Sedentary,1
+2204,83,Other,African American,19.800000,Former,False,Active,0
+161,30,Female,Caucasian,38.000000,Former,False,Active,0
+166,59,Male,African American,33.200000,Never,True,Moderate,0
+2219,33,Male,Caucasian,29.000000,Current,False,Sedentary,0
+175,27,Male,Hispanic,26.400000,Current,False,Moderate,0
+176,79,Male,Caucasian,21.900000,Never,True,Moderate,0
+177,70,Female,Caucasian,31.000000,Former,False,Moderate,1
+178,56,Other,Other,39.500000,Former,False,Moderate,0
+2227,84,Other,Hispanic,33.700000,Former,True,Sedentary,0
+180,31,Male,Asian,38.500000,Current,True,Sedentary,0
+2233,21,Male,Other,18.700000,Current,False,Active,0
+2235,68,Other,Caucasian,37.600000,Current,False,Sedentary,0
+2238,84,Female,Other,26.200000,Current,False,Active,0
+191,56,Male,Hispanic,29.100000,Current,True,Moderate,1
+194,71,Other,Other,34.700000,Former,True,Sedentary,1
+195,75,Male,Asian,23.500000,Never,True,Sedentary,0
+197,67,Female,Hispanic,35.600000,Former,False,Active,1
+199,28,Female,African American,22.600000,Former,False,Moderate,0
+200,20,Male,Caucasian,27.400000,Current,True,Active,0
+2247,73,Female,Asian,22.400000,Never,False,Moderate,0
+2249,66,Female,Asian,29.600000,Former,False,Moderate,0
+2250,63,Male,Hispanic,39.000000,Never,True,Sedentary,1
+204,51,Female,Other,19.200000,Never,False,Active,0
+2257,19,Male,African American,29.300000,Former,True,Moderate,0
+2259,45,Other,African American,27.400000,Former,False,Sedentary,0
+2260,89,Other,Hispanic,33.400000,Never,True,Active,0
+216,63,Other,African American,30.300000,Former,False,Active,0
+217,71,Female,African American,38.000000,Never,True,Sedentary,1
+2266,60,Female,African American,26.300000,Current,False,Moderate,0
+2271,35,Other,Caucasian,32.700000,Never,False,Moderate,1
+224,65,Other,African American,26.200000,Former,True,Moderate,0
+2273,51,Other,Other,37.200000,Former,False,Active,0
+227,18,Other,African American,33.200000,Never,True,Active,0
+229,64,Male,Other,25.500000,Current,False,Moderate,0
+230,62,Other,Other,24.900000,Never,True,Active,1
+234,49,Male,Hispanic,29.500000,Never,False,Active,0
+2282,28,Female,African American,19.400000,Never,False,Moderate,0
+2284,37,Male,Caucasian,23.200000,Former,False,Active,0
+2285,83,Other,Asian,38.300000,Former,True,Moderate,0
+240,87,Other,Caucasian,30.400000,Former,False,Sedentary,0
+242,72,Other,Caucasian,23.700000,Current,True,Active,1
+244,75,Other,Caucasian,21.200000,Current,True,Moderate,0
+2292,85,Male,Caucasian,27.000000,Former,True,Sedentary,1
+2294,87,Other,Caucasian,31.600000,Former,False,Moderate,0
+249,38,Male,Other,36.900000,Current,True,Active,0
+250,38,Female,African American,22.000000,Former,True,Sedentary,0
+251,71,Male,Hispanic,18.800000,Former,False,Sedentary,1
+2297,48,Other,African American,38.500000,Never,False,Moderate,0
+2300,48,Male,Other,35.300000,Never,False,Moderate,0
+2301,68,Other,Hispanic,35.600000,Former,True,Active,0
+257,80,Other,Caucasian,24.800000,Never,True,Active,0
+263,22,Female,African American,19.900000,Former,True,Moderate,0
+2313,82,Male,Other,38.100000,Never,True,Moderate,0
+266,30,Male,Hispanic,19.500000,Current,False,Moderate,0
+267,70,Male,Asian,22.300000,Never,False,Sedentary,0
+2315,75,Female,African American,24.000000,Current,True,Sedentary,0
+269,72,Male,African American,37.800000,Never,True,Sedentary,0
+271,61,Male,Caucasian,38.400000,Former,False,Active,0
+277,78,Male,Other,39.300000,Never,True,Active,0
+281,47,Male,Asian,38.800000,Current,True,Moderate,1
+2329,35,Male,Hispanic,21.200000,Never,False,Sedentary,0
+283,21,Other,Hispanic,29.100000,Former,True,Active,0
+2330,38,Male,African American,32.700000,Current,True,Moderate,0
+2332,54,Other,Caucasian,29.900000,Current,True,Active,1
+286,60,Male,Caucasian,24.700000,Current,True,Sedentary,0
+287,36,Female,Caucasian,19.400000,Former,True,Sedentary,0
+288,24,Male,African American,39.000000,Former,False,Sedentary,1
+2336,35,Other,Other,38.000000,Current,True,Active,0
+296,68,Male,Hispanic,33.900000,Former,True,Active,1
+297,56,Male,Caucasian,24.500000,Current,True,Sedentary,0
+298,88,Male,Caucasian,21.800000,Current,False,Active,1
+2346,48,Female,African American,30.600000,Current,False,Moderate,0
+301,69,Other,Caucasian,37.100000,Former,True,Moderate,0
+304,35,Male,Other,25.100000,Former,False,Moderate,0
+305,53,Male,Asian,35.800000,Former,False,Active,1
+306,77,Female,Asian,28.900000,Former,True,Active,0
+2354,29,Male,Caucasian,30.100000,Never,True,Sedentary,0
+2358,83,Male,African American,31.800000,Former,True,Moderate,0
+314,37,Male,Asian,36.000000,Former,True,Moderate,1
+2362,31,Female,Asian,33.900000,Current,True,Moderate,1
+319,20,Female,Other,25.400000,Never,True,Active,0
+321,28,Male,Other,33.600000,Former,True,Active,0
+322,83,Other,Asian,29.400000,Former,False,Moderate,0
+2371,50,Other,Caucasian,18.700000,Current,False,Active,0
+328,23,Male,Asian,28.200000,Current,True,Moderate,0
+2377,26,Female,Other,32.500000,Never,True,Sedentary,0
+330,32,Male,Asian,32.600000,Former,True,Sedentary,0
+2378,56,Other,Hispanic,37.700000,Never,False,Moderate,0
+333,81,Male,Hispanic,29.600000,Current,False,Sedentary,0
+334,62,Other,Other,22.800000,Never,False,Moderate,1
+2383,81,Female,Other,28.600000,Current,True,Moderate,0
+340,51,Male,Other,39.200000,Current,True,Sedentary,0
+2389,58,Other,Hispanic,29.000000,Former,True,Moderate,1
+342,90,Female,Hispanic,33.900000,Former,False,Active,0
+343,89,Other,Asian,23.900000,Never,True,Moderate,0
+2392,80,Other,African American,26.900000,Current,False,Sedentary,1
+345,24,Female,Hispanic,39.500000,Never,False,Active,0
+347,53,Other,African American,26.400000,Current,True,Active,0
+2399,41,Female,Other,29.800000,Never,True,Active,0
+353,73,Other,Caucasian,22.100000,Current,False,Sedentary,0
+354,60,Other,Hispanic,26.600000,Former,False,Moderate,0
+357,27,Female,Hispanic,27.600000,Current,False,Moderate,0
+2407,53,Female,Hispanic,28.500000,Current,True,Active,0
+2408,67,Male,Asian,34.300000,Never,False,Active,1
+362,20,Other,African American,39.900000,Current,True,Moderate,0
+364,33,Other,African American,34.200000,Current,True,Moderate,0
+365,84,Other,Other,26.200000,Current,True,Moderate,0
+2412,61,Female,Caucasian,23.600000,Never,False,Moderate,0
+367,47,Female,Asian,36.300000,Current,True,Active,0
+2415,78,Male,African American,39.600000,Former,False,Sedentary,0
+370,31,Male,Other,33.300000,Never,False,Moderate,1
+372,25,Male,Asian,22.400000,Never,True,Moderate,0
+373,47,Female,Hispanic,29.900000,Former,False,Active,0
+2422,64,Other,Caucasian,23.800000,Former,False,Active,0
+376,31,Other,Other,33.200000,Never,False,Active,0
+380,51,Female,African American,36.000000,Never,True,Moderate,0
+2428,90,Male,Asian,37.400000,Former,False,Moderate,0
+385,40,Other,African American,23.300000,Former,True,Sedentary,0
+387,62,Female,African American,37.800000,Current,False,Sedentary,0
+2435,72,Male,African American,29.900000,Current,False,Active,0
+2436,30,Female,African American,19.100000,Current,False,Sedentary,1
+2437,27,Female,Other,38.000000,Former,False,Active,1
+2438,42,Female,Other,23.000000,Current,False,Active,0
+393,54,Female,Other,37.400000,Current,False,Sedentary,0
+2441,74,Male,Caucasian,28.700000,Current,False,Sedentary,0
+395,59,Female,African American,20.500000,Never,True,Active,0
+396,26,Female,Caucasian,38.800000,Former,False,Active,0
+397,32,Other,Other,23.300000,Current,True,Active,0
+399,25,Other,Caucasian,25.000000,Never,True,Moderate,0
+401,83,Female,Other,24.100000,Never,False,Active,0
+2449,74,Male,Other,28.700000,Never,False,Sedentary,0
+2450,27,Male,Hispanic,27.800000,Current,True,Moderate,0
+2453,59,Other,Hispanic,35.600000,Former,False,Sedentary,0
+2454,73,Female,Asian,35.200000,Former,False,Moderate,1
+407,23,Female,African American,27.000000,Current,True,Active,0
+409,84,Other,Asian,27.100000,Never,False,Active,0
+411,19,Other,Asian,30.300000,Current,True,Active,0
+413,48,Female,Asian,37.200000,Former,False,Active,1
+2461,84,Male,Other,35.300000,Former,False,Moderate,0
+415,33,Male,African American,28.900000,Current,True,Moderate,0
+2464,56,Female,African American,25.100000,Never,True,Moderate,0
+2465,44,Male,Asian,27.200000,Never,False,Active,0
+2466,54,Other,Asian,38.500000,Former,False,Moderate,0
+423,54,Female,African American,38.900000,Never,False,Sedentary,0
+425,74,Female,Other,28.700000,Current,False,Sedentary,0
+2473,81,Female,Hispanic,19.600000,Current,False,Sedentary,0
+429,46,Male,Other,20.500000,Current,True,Sedentary,0
+430,30,Male,Other,31.100000,Former,True,Active,1
+2478,60,Female,Asian,28.100000,Never,True,Moderate,1
+432,32,Female,Asian,18.800000,Never,True,Moderate,0
+2481,22,Female,Asian,34.500000,Former,False,Sedentary,0
+434,57,Female,Caucasian,21.900000,Current,True,Sedentary,0
+2484,86,Other,African American,26.100000,Current,False,Moderate,0
+437,71,Other,African American,33.500000,Never,True,Moderate,0
+2485,54,Other,Caucasian,20.400000,Current,False,Moderate,0
+439,87,Other,Other,19.700000,Current,True,Moderate,0
+440,33,Other,Other,28.600000,Never,False,Moderate,0
+2489,80,Other,Caucasian,31.200000,Former,True,Active,0
+445,29,Female,Hispanic,20.200000,Never,False,Active,0
+446,60,Male,Asian,32.000000,Current,True,Active,0
+447,33,Female,Other,39.700000,Never,False,Sedentary,0
+2493,38,Other,Other,37.000000,Never,True,Sedentary,0
+2495,45,Female,Hispanic,19.500000,Current,True,Moderate,0
+2497,89,Other,Hispanic,32.200000,Never,True,Moderate,0
+2502,90,Other,Asian,26.800000,Current,True,Active,0
+456,49,Other,Asian,38.700000,Current,True,Sedentary,1
+457,86,Other,Hispanic,23.000000,Current,False,Active,1
+458,34,Other,Asian,28.700000,Never,False,Sedentary,0
+2505,58,Female,African American,21.700000,Current,False,Moderate,0
+2507,45,Female,Asian,34.200000,Current,True,Sedentary,0
+461,32,Other,Asian,22.900000,Former,False,Active,0
+2510,21,Other,Caucasian,25.000000,Never,True,Sedentary,0
+464,21,Male,Asian,35.700000,Current,False,Active,0
+2515,28,Male,Other,35.900000,Current,False,Sedentary,0
+469,24,Female,African American,20.900000,Former,True,Active,0
+2518,74,Other,Other,35.900000,Never,False,Sedentary,0
+471,43,Female,Asian,31.200000,Current,True,Active,1
+2521,42,Male,Hispanic,21.100000,Never,True,Sedentary,0
+474,75,Female,Caucasian,28.300000,Never,False,Active,0
+475,24,Other,Hispanic,21.700000,Former,True,Sedentary,0
+2522,85,Other,Asian,20.600000,Never,True,Active,0
+477,54,Male,African American,32.300000,Current,False,Moderate,0
+2528,24,Other,Asian,23.600000,Never,False,Sedentary,0
+483,80,Male,African American,30.600000,Never,False,Active,0
+484,40,Other,Other,20.300000,Former,True,Active,0
+2531,86,Other,Asian,38.000000,Never,True,Moderate,0
+2533,62,Other,Hispanic,35.600000,Current,True,Moderate,0
+2537,29,Male,Caucasian,32.600000,Former,False,Active,0
+491,78,Male,African American,32.200000,Former,False,Sedentary,0
+492,83,Other,Hispanic,24.300000,Never,False,Moderate,1
+493,76,Female,Other,30.300000,Never,True,Moderate,0
+2540,87,Male,Other,39.900000,Former,False,Active,0
+495,26,Male,African American,21.500000,Former,True,Active,1
+496,72,Female,Caucasian,35.200000,Former,True,Active,1
+2546,79,Female,Other,31.700000,Current,False,Sedentary,0
+499,24,Female,African American,20.600000,Current,False,Moderate,1
+2551,18,Other,Other,30.900000,Never,False,Moderate,0
+2556,67,Other,African American,30.100000,Former,True,Active,1
+2558,50,Female,Other,36.000000,Former,True,Active,0
+2559,38,Female,Caucasian,18.800000,Current,True,Sedentary,0
+512,34,Female,Hispanic,21.900000,Current,False,Moderate,0
+2561,85,Male,African American,29.400000,Never,True,Active,0
+514,88,Female,Other,36.900000,Current,False,Sedentary,0
+515,26,Female,Other,38.500000,Former,True,Sedentary,0
+2562,42,Female,Asian,20.200000,Current,True,Active,0
+517,29,Other,Other,19.400000,Current,True,Sedentary,0
+518,41,Other,Hispanic,20.800000,Current,True,Sedentary,0
+2565,39,Male,Asian,26.900000,Current,True,Sedentary,0
+520,54,Female,Caucasian,25.600000,Current,False,Sedentary,1
+521,89,Other,Hispanic,23.500000,Never,True,Moderate,1
+2569,52,Female,African American,22.600000,Current,False,Moderate,0
+523,45,Male,Asian,29.200000,Current,False,Moderate,1
+2572,28,Male,African American,39.800000,Never,False,Active,0
+525,72,Female,Asian,30.400000,Never,True,Sedentary,0
+2573,26,Female,Caucasian,24.500000,Current,False,Moderate,0
+528,57,Female,Caucasian,26.700000,Current,False,Active,0
+2577,49,Other,Hispanic,35.400000,Never,True,Active,1
+2581,51,Female,Other,23.900000,Never,False,Active,0
+534,51,Female,Other,21.800000,Never,False,Active,0
+2582,45,Other,African American,33.900000,Current,False,Sedentary,1
+2583,84,Other,Asian,25.500000,Current,True,Moderate,0
+2584,59,Female,African American,37.100000,Former,True,Sedentary,1
+2585,67,Female,Caucasian,29.000000,Never,False,Active,0
+2586,79,Male,Hispanic,32.000000,Former,False,Moderate,0
+540,67,Female,Caucasian,19.700000,Former,False,Active,0
+2587,32,Other,Asian,33.900000,Never,False,Active,0
+542,86,Female,Other,26.300000,Current,False,Moderate,0
+2589,69,Female,Asian,24.800000,Current,True,Sedentary,0
+2591,46,Other,Caucasian,28.400000,Never,True,Sedentary,0
+545,86,Other,African American,22.200000,Current,False,Sedentary,1
+548,74,Female,Other,18.800000,Former,True,Sedentary,0
+549,25,Female,African American,21.100000,Never,True,Active,0
+550,63,Male,Other,28.800000,Current,True,Sedentary,1
+551,24,Female,Asian,39.600000,Former,True,Sedentary,0
+552,43,Female,Hispanic,35.000000,Former,True,Moderate,1
+2600,41,Female,Other,22.800000,Never,True,Active,0
+2601,36,Male,Caucasian,32.800000,Former,False,Sedentary,0
+2604,83,Female,Hispanic,23.400000,Never,False,Moderate,0
+560,65,Male,Asian,36.100000,Former,False,Active,0
+2610,25,Other,Other,29.400000,Former,True,Moderate,0
+2612,70,Female,Hispanic,33.500000,Former,True,Moderate,0
+2618,89,Male,Other,30.400000,Former,False,Active,0
+2619,79,Male,Caucasian,37.900000,Former,False,Sedentary,0
+2620,80,Female,Other,33.100000,Former,True,Active,0
+574,61,Other,Hispanic,24.500000,Never,True,Sedentary,0
+2625,89,Female,African American,29.900000,Former,False,Moderate,0
+2626,69,Other,African American,27.800000,Never,True,Sedentary,0
+580,25,Other,African American,21.100000,Never,True,Moderate,0
+582,63,Male,Caucasian,28.700000,Former,False,Sedentary,0
+2630,88,Male,Other,25.900000,Current,True,Active,0
+2632,35,Male,African American,33.500000,Former,True,Active,1
+2633,88,Male,African American,36.500000,Never,False,Sedentary,1
+2637,28,Other,Asian,19.700000,Current,False,Active,0
+590,19,Male,Other,35.800000,Never,False,Moderate,0
+2638,86,Other,Other,37.100000,Never,False,Moderate,0
+592,82,Other,Caucasian,30.800000,Never,False,Sedentary,0
+2641,65,Male,Other,39.600000,Current,True,Active,0
+2644,20,Male,African American,31.100000,Never,False,Active,0
+597,19,Female,Asian,19.300000,Never,True,Moderate,0
+2645,49,Female,Caucasian,20.100000,Former,False,Sedentary,0
+602,65,Other,Asian,27.100000,Former,False,Active,0
+603,50,Male,African American,34.600000,Current,True,Sedentary,0
+604,23,Female,African American,25.200000,Never,False,Sedentary,0
+606,50,Other,Asian,39.900000,Never,True,Sedentary,0
+608,47,Female,Hispanic,20.800000,Never,True,Active,0
+2656,76,Female,Other,30.900000,Current,True,Moderate,0
+2658,60,Other,African American,32.600000,Never,False,Sedentary,1
+611,40,Other,Asian,19.600000,Current,True,Active,0
+614,68,Other,Hispanic,31.100000,Current,True,Moderate,0
+616,25,Other,Asian,25.100000,Former,True,Active,0
+2669,35,Male,Hispanic,30.100000,Current,True,Sedentary,0
+624,37,Other,Hispanic,31.100000,Current,False,Moderate,1
+626,39,Male,African American,23.100000,Never,True,Active,0
+2677,90,Female,Caucasian,28.500000,Current,False,Moderate,1
+633,87,Female,Other,35.500000,Never,True,Moderate,0
+2682,60,Other,African American,20.500000,Never,False,Moderate,0
+635,78,Female,Hispanic,31.700000,Current,False,Sedentary,0
+2685,29,Other,Asian,22.600000,Former,True,Active,0
+2687,37,Female,Asian,30.400000,Former,True,Moderate,1
+640,88,Male,Other,21.100000,Former,True,Sedentary,1
+641,54,Male,African American,38.500000,Never,False,Active,0
+642,82,Other,Caucasian,39.600000,Current,False,Active,1
+2689,75,Female,Caucasian,35.900000,Current,False,Sedentary,0
+644,25,Female,African American,29.100000,Current,False,Sedentary,0
+2690,41,Male,Caucasian,27.400000,Former,False,Moderate,0
+2694,52,Female,Caucasian,30.600000,Never,False,Active,0
+647,68,Other,Asian,19.000000,Never,True,Sedentary,0
+2695,32,Other,Caucasian,30.400000,Never,False,Sedentary,0
+2697,86,Other,African American,28.700000,Current,True,Active,0
+650,70,Other,Asian,21.700000,Current,False,Active,0
+2703,87,Female,Caucasian,18.600000,Never,False,Moderate,0
+656,42,Other,Asian,23.600000,Never,True,Active,0
+657,20,Other,Asian,27.100000,Former,False,Sedentary,0
+658,25,Other,Caucasian,34.900000,Never,False,Moderate,0
+2705,63,Other,Other,26.900000,Former,True,Sedentary,0
+660,30,Other,Asian,33.900000,Former,False,Moderate,1
+2706,79,Male,Caucasian,21.600000,Current,True,Moderate,0
+2709,19,Male,Caucasian,19.800000,Former,True,Moderate,0
+664,32,Other,Caucasian,19.800000,Current,True,Active,0
+2714,65,Male,Hispanic,24.600000,Current,True,Active,0
+2715,80,Other,Other,22.500000,Current,True,Moderate,0
+2716,78,Male,Hispanic,20.800000,Never,False,Moderate,0
+2719,33,Female,Asian,37.800000,Former,False,Sedentary,0
+675,79,Other,Caucasian,31.900000,Former,False,Moderate,1
+2724,24,Male,Hispanic,32.200000,Never,False,Sedentary,0
+677,55,Female,Hispanic,33.300000,Former,False,Moderate,0
+678,44,Male,Caucasian,35.400000,Former,False,Sedentary,0
+683,74,Other,Caucasian,31.200000,Former,False,Sedentary,0
+2731,23,Other,Hispanic,39.200000,Current,True,Active,0
+2732,49,Male,Caucasian,21.300000,Former,False,Active,0
+2734,41,Female,Hispanic,21.400000,Never,False,Moderate,1
+687,39,Other,Hispanic,37.500000,Current,False,Moderate,1
+2736,61,Other,Caucasian,39.900000,Current,True,Sedentary,0
+2737,64,Female,African American,21.000000,Never,False,Moderate,0
+690,37,Male,Asian,22.500000,Never,True,Moderate,1
+696,56,Other,Other,29.900000,Never,False,Active,0
+2747,57,Female,Other,25.400000,Current,False,Active,0
+2749,44,Male,Asian,30.800000,Never,True,Moderate,0
+702,24,Other,Asian,35.100000,Former,True,Sedentary,0
+703,54,Other,Asian,23.100000,Former,True,Sedentary,0
+2750,60,Other,Caucasian,26.400000,Never,False,Moderate,0
+2751,89,Male,Other,37.900000,Former,True,Active,1
+2752,70,Female,Asian,21.300000,Current,True,Moderate,0
+707,29,Other,Hispanic,31.000000,Current,False,Sedentary,0
+2755,81,Male,Hispanic,35.400000,Current,False,Active,1
+709,67,Other,Asian,32.000000,Former,False,Active,0
+2758,43,Male,Asian,25.200000,Current,False,Moderate,0
+712,42,Male,Asian,35.000000,Former,True,Moderate,1
+713,80,Other,African American,18.700000,Current,True,Sedentary,0
+2760,22,Other,Asian,32.600000,Never,True,Active,0
+715,24,Female,Hispanic,26.000000,Former,False,Active,1
+2761,86,Male,African American,39.600000,Former,True,Sedentary,0
+2762,34,Female,Other,19.500000,Former,False,Sedentary,1
+2764,60,Other,Hispanic,39.600000,Former,True,Active,0
+720,84,Other,Other,31.700000,Never,False,Sedentary,0
+2770,25,Other,Asian,19.500000,Never,True,Sedentary,0
+2772,49,Female,Asian,24.200000,Current,False,Moderate,1
+725,46,Female,Other,38.400000,Current,False,Active,0
+2773,77,Other,Hispanic,30.300000,Current,False,Active,0
+2774,71,Other,Caucasian,30.500000,Never,False,Active,0
+728,37,Other,Other,20.700000,Current,True,Active,0
+729,72,Female,Asian,22.600000,Never,False,Active,1
+2775,30,Other,Caucasian,20.700000,Never,False,Active,1
+731,77,Female,Other,25.300000,Current,True,Sedentary,0
+732,46,Female,Other,25.100000,Current,False,Moderate,0
+2777,81,Female,Asian,20.900000,Current,True,Active,0
+2781,53,Other,Hispanic,35.800000,Never,True,Active,0
+2784,46,Male,African American,26.400000,Never,True,Active,0
+2785,88,Other,African American,38.100000,Current,True,Sedentary,0
+2786,33,Other,Hispanic,19.300000,Former,False,Active,0
+739,70,Other,Asian,33.300000,Never,False,Sedentary,0
+2789,89,Male,Hispanic,20.300000,Never,True,Sedentary,0
+742,24,Male,Caucasian,21.800000,Current,False,Moderate,0
+2794,87,Male,Caucasian,32.500000,Never,True,Sedentary,0
+2795,73,Female,Hispanic,21.400000,Never,True,Moderate,0
+749,31,Male,Asian,38.400000,Never,False,Active,0
+750,35,Male,Other,19.100000,Former,True,Active,1
+2797,50,Male,Hispanic,29.900000,Never,False,Moderate,0
+2798,79,Male,Asian,26.700000,Never,False,Moderate,0
+753,82,Other,African American,37.900000,Former,True,Sedentary,0
+755,38,Male,Caucasian,35.400000,Former,False,Moderate,1
+2806,77,Female,Caucasian,29.900000,Never,False,Moderate,0
+2808,39,Female,African American,25.300000,Never,True,Active,0
+761,22,Female,Other,30.200000,Current,True,Sedentary,0
+762,78,Female,Asian,33.700000,Current,True,Sedentary,0
+2809,69,Female,Other,39.200000,Former,False,Sedentary,0
+764,40,Male,African American,38.700000,Current,True,Sedentary,0
+765,62,Male,African American,34.700000,Never,False,Active,1
+2812,18,Female,Hispanic,23.600000,Former,False,Active,0
+767,22,Male,Hispanic,36.500000,Current,True,Moderate,0
+768,44,Female,Hispanic,20.600000,Current,False,Sedentary,0
+2815,80,Male,Caucasian,20.000000,Current,True,Sedentary,0
+770,30,Female,Caucasian,28.000000,Former,False,Moderate,0
+2817,47,Female,Caucasian,22.200000,Never,True,Moderate,0
+2818,20,Male,Hispanic,26.200000,Never,True,Moderate,0
+773,50,Female,Hispanic,30.400000,Current,True,Moderate,1
+2821,56,Other,Hispanic,26.500000,Never,True,Sedentary,0
+2822,73,Male,Caucasian,26.200000,Current,True,Active,1
+2824,88,Female,African American,28.300000,Current,True,Moderate,0
+2825,54,Male,Other,19.700000,Former,True,Active,1
+2827,52,Male,Hispanic,33.000000,Former,False,Moderate,0
+780,31,Female,Caucasian,34.800000,Current,True,Moderate,1
+781,46,Other,African American,26.200000,Former,True,Active,0
+782,55,Male,African American,37.500000,Former,False,Active,0
+2828,35,Other,Asian,23.400000,Former,False,Sedentary,0
+2829,83,Male,Hispanic,39.500000,Former,False,Sedentary,0
+2830,81,Other,Caucasian,25.100000,Current,False,Sedentary,0
+786,42,Male,Hispanic,37.600000,Never,False,Moderate,0
+2833,30,Male,Asian,33.100000,Current,False,Moderate,0
+2835,71,Male,African American,31.300000,Never,False,Moderate,0
+789,42,Female,Hispanic,36.800000,Never,False,Sedentary,1
+2836,56,Female,Hispanic,24.000000,Former,False,Active,0
+2838,55,Male,Asian,20.600000,Former,False,Moderate,0
+2841,42,Female,Caucasian,37.700000,Current,False,Sedentary,1
+794,27,Other,Hispanic,35.300000,Current,False,Moderate,1
+2844,53,Male,Caucasian,25.300000,Former,False,Moderate,0
+797,50,Male,Other,31.400000,Current,False,Sedentary,1
+2848,50,Other,Asian,28.500000,Current,True,Active,0
+801,28,Female,Other,24.100000,Former,False,Moderate,0
+2851,44,Female,African American,39.000000,Former,False,Active,0
+805,73,Male,African American,22.600000,Current,True,Active,0
+2855,82,Female,Caucasian,24.100000,Current,True,Sedentary,0
+809,38,Male,Asian,28.200000,Never,False,Sedentary,0
+811,19,Other,Asian,35.400000,Former,False,Sedentary,0
+2860,74,Male,African American,29.000000,Current,False,Moderate,0
+2861,49,Female,Asian,33.600000,Current,True,Moderate,0
+818,72,Other,Asian,26.500000,Former,True,Sedentary,0
+2866,35,Female,Hispanic,28.300000,Never,False,Moderate,0
+2867,89,Female,Asian,31.500000,Current,True,Active,1
+2868,20,Male,African American,20.100000,Never,False,Moderate,0
+2869,86,Male,Asian,23.500000,Current,True,Active,0
+2870,31,Other,African American,33.700000,Former,False,Sedentary,0
+824,38,Female,Caucasian,25.200000,Never,True,Active,0
+2871,54,Other,Caucasian,23.700000,Former,False,Sedentary,0
+826,21,Other,African American,31.900000,Former,True,Active,0
+827,54,Male,Asian,23.800000,Current,True,Sedentary,1
+2875,51,Female,Caucasian,26.200000,Never,True,Moderate,0
+2878,28,Other,Hispanic,21.300000,Current,False,Sedentary,1
+2879,43,Female,Caucasian,26.300000,Former,False,Sedentary,0
+832,83,Female,Asian,34.300000,Current,True,Sedentary,0
+835,78,Other,Hispanic,33.100000,Current,False,Sedentary,1
+2884,35,Male,Other,19.900000,Never,False,Sedentary,0
+837,86,Male,Asian,22.500000,Never,False,Sedentary,1
+838,26,Female,Caucasian,20.200000,Current,True,Sedentary,0
+2886,23,Male,Hispanic,38.600000,Never,False,Active,1
+2888,56,Female,Hispanic,37.100000,Former,False,Active,1
+841,61,Other,Caucasian,34.000000,Current,False,Moderate,0
+2890,20,Other,Asian,22.000000,Never,True,Active,1
+848,66,Male,African American,39.500000,Never,True,Active,0
+855,74,Male,African American,30.700000,Never,True,Active,1
+2904,21,Male,Asian,36.100000,Never,True,Active,0
+858,64,Female,Other,19.600000,Former,False,Moderate,1
+864,38,Other,Other,38.200000,Current,False,Moderate,0
+2912,25,Other,Hispanic,30.100000,Former,True,Sedentary,0
+2914,51,Female,Asian,37.900000,Former,False,Moderate,0
+2915,80,Female,Asian,27.300000,Never,False,Moderate,0
+868,38,Female,Asian,32.500000,Never,True,Active,0
+2916,62,Male,Hispanic,28.600000,Former,True,Sedentary,0
+2917,86,Other,Caucasian,24.000000,Current,False,Active,0
+871,56,Male,Asian,33.100000,Never,False,Sedentary,0
+2919,66,Other,Asian,18.700000,Former,True,Active,1
+2920,49,Other,African American,38.800000,Former,True,Sedentary,0
+2923,73,Male,Other,35.800000,Never,False,Sedentary,0
+2925,22,Female,Other,29.600000,Never,False,Sedentary,0
+2926,76,Female,Hispanic,19.200000,Never,True,Moderate,0
+2930,65,Female,African American,25.300000,Former,True,Sedentary,0
+883,67,Female,Asian,22.300000,Current,True,Active,1
+2931,40,Female,Hispanic,25.400000,Former,True,Moderate,1
+2934,46,Male,Caucasian,34.000000,Current,True,Sedentary,0
+2935,63,Male,African American,37.700000,Current,True,Active,0
+893,45,Female,Hispanic,35.100000,Former,False,Active,0
+2941,90,Male,Asian,23.000000,Current,False,Sedentary,0
+2944,85,Female,African American,34.500000,Never,False,Active,0
+897,78,Female,Asian,22.400000,Former,False,Active,0
+898,33,Female,Asian,27.100000,Never,False,Sedentary,0
+899,46,Male,Other,30.600000,Current,False,Sedentary,0
+2947,62,Male,Hispanic,27.700000,Former,True,Moderate,0
+2949,51,Male,Asian,22.200000,Current,False,Moderate,1
+902,89,Other,Other,21.300000,Never,True,Active,0
+904,63,Other,Caucasian,31.800000,Former,True,Moderate,0
+905,24,Other,Caucasian,39.000000,Current,False,Sedentary,0
+907,68,Female,Hispanic,27.800000,Former,False,Moderate,0
+908,36,Male,Hispanic,28.600000,Never,False,Sedentary,0
+911,60,Other,Hispanic,30.800000,Former,False,Moderate,0
+2960,42,Other,Other,23.600000,Former,False,Sedentary,0
+917,24,Other,Caucasian,19.600000,Never,False,Sedentary,0
+2965,43,Male,Other,19.600000,Current,False,Sedentary,0
+919,53,Male,Hispanic,32.400000,Never,False,Sedentary,0
+920,25,Other,Caucasian,35.300000,Never,True,Active,0
+2970,82,Male,Other,38.400000,Never,True,Active,0
+2973,75,Male,Other,27.900000,Current,False,Moderate,1
+926,38,Male,Other,21.800000,Former,True,Sedentary,0
+927,36,Female,Hispanic,29.900000,Never,False,Active,0
+2974,61,Male,Other,33.200000,Current,False,Active,1
+929,52,Male,Other,24.100000,Never,True,Moderate,1
+930,77,Female,African American,37.700000,Current,False,Moderate,0
+2976,69,Other,Asian,22.300000,Current,False,Sedentary,0
+936,58,Other,Asian,27.900000,Former,True,Active,0
+937,57,Female,Hispanic,22.000000,Never,False,Moderate,0
+938,39,Female,Other,37.300000,Never,False,Moderate,0
+2984,48,Male,Asian,25.600000,Never,False,Sedentary,1
+2991,87,Male,Caucasian,30.200000,Never,True,Sedentary,0
+944,90,Male,African American,19.200000,Never,True,Moderate,1
+2996,42,Male,Other,21.200000,Current,True,Moderate,1
+952,21,Male,African American,23.500000,Former,True,Sedentary,0
+953,77,Male,Other,24.500000,Former,True,Active,1
+954,71,Other,African American,18.600000,Never,False,Active,1
+961,66,Female,Hispanic,37.700000,Current,False,Moderate,0
+964,35,Other,Other,25.100000,Former,False,Moderate,0
+965,76,Male,Hispanic,36.600000,Never,False,Active,0
+971,89,Other,Caucasian,36.200000,Former,True,Active,0
+974,82,Female,Caucasian,32.600000,Never,False,Moderate,1
+981,70,Female,Asian,26.200000,Former,False,Moderate,0
+985,82,Male,Hispanic,32.400000,Never,False,Moderate,0
+986,87,Male,Other,21.600000,Never,True,Moderate,0
+987,59,Male,Asian,22.400000,Current,True,Active,0
+988,34,Female,Other,21.400000,Former,False,Moderate,0
+992,36,Female,African American,34.100000,Former,False,Active,0
+995,57,Male,African American,22.300000,Never,True,Active,0
+1000,51,Female,Hispanic,26.400000,Never,False,Sedentary,1
+1004,90,Female,Other,28.600000,Never,True,Sedentary,0
+1011,18,Other,Other,36.700000,Former,False,Sedentary,0
+1026,68,Male,Caucasian,25.800000,Former,True,Active,0
+1028,35,Female,Caucasian,35.000000,Current,True,Active,0
+1035,65,Male,Caucasian,26.600000,Current,True,Sedentary,0
+1038,48,Male,Other,18.600000,Never,False,Active,0
+1039,64,Male,Caucasian,35.400000,Former,True,Moderate,1
+1040,28,Male,Asian,22.600000,Never,True,Active,0
+1041,50,Other,Caucasian,23.300000,Never,False,Moderate,0
+1043,18,Male,African American,30.400000,Never,True,Moderate,1
+1044,28,Female,Other,38.900000,Former,True,Active,0
+1046,83,Male,Other,38.400000,Former,False,Sedentary,0
+1047,75,Other,Caucasian,21.500000,Former,True,Sedentary,1
+1049,82,Female,Asian,22.500000,Never,True,Moderate,0
+1068,83,Female,Asian,34.200000,Never,True,Moderate,0
+1073,66,Male,Hispanic,21.400000,Former,True,Active,0
+1077,89,Other,African American,33.300000,Never,True,Active,0
+1082,63,Male,Asian,31.100000,Current,False,Sedentary,0
+1085,90,Male,African American,36.600000,Never,False,Active,0
+1091,43,Female,Caucasian,24.500000,Former,True,Moderate,0
+1098,64,Other,Asian,21.500000,Former,False,Sedentary,0
+1101,78,Female,Asian,26.300000,Never,False,Moderate,1
+1109,45,Female,African American,36.400000,Former,True,Active,0
+1110,57,Other,Hispanic,39.400000,Former,False,Moderate,0
+1114,34,Other,African American,19.300000,Never,True,Sedentary,0
+1115,72,Female,African American,24.400000,Current,True,Active,0
+1118,82,Other,Caucasian,19.500000,Never,False,Moderate,0
+1120,40,Other,Asian,31.300000,Never,False,Active,0
+1121,88,Male,Other,34.400000,Never,True,Sedentary,0
+1123,65,Other,Caucasian,25.100000,Former,False,Sedentary,0
+1127,89,Other,African American,30.600000,Current,False,Active,1
+1131,82,Female,Other,24.200000,Never,True,Sedentary,0
+1135,31,Female,Caucasian,39.000000,Current,True,Moderate,0
+1139,51,Other,African American,20.700000,Current,True,Moderate,0
+1141,52,Male,African American,27.500000,Current,True,Active,0
+1143,60,Female,Caucasian,24.500000,Never,False,Moderate,1
+1152,25,Female,Asian,19.800000,Former,True,Active,0
+1156,47,Other,Hispanic,32.000000,Never,True,Active,0
+1159,37,Female,Asian,22.000000,Never,False,Active,0
+1160,71,Female,Other,20.300000,Former,False,Moderate,0
+1165,27,Male,Asian,39.500000,Never,False,Sedentary,0
+1166,89,Male,Asian,37.400000,Current,True,Active,0
+1170,50,Male,Other,34.100000,Former,True,Active,0
+1176,18,Male,Caucasian,30.500000,Current,False,Moderate,0
+1179,60,Female,Hispanic,22.200000,Current,True,Moderate,0
+1185,32,Other,African American,25.800000,Former,False,Sedentary,0
+1188,84,Other,Other,38.600000,Never,True,Active,0
+1189,39,Female,Asian,36.100000,Never,True,Active,0
+1192,57,Male,Other,29.500000,Current,False,Sedentary,0
+1197,86,Male,Other,30.500000,Former,True,Sedentary,0
+1211,18,Other,Hispanic,21.400000,Former,False,Active,0
+1212,80,Female,Asian,26.000000,Former,False,Moderate,0
+1215,76,Other,Asian,39.100000,Never,False,Moderate,0
+1220,38,Male,Other,26.000000,Never,False,Sedentary,0
+1221,74,Male,African American,27.600000,Former,True,Active,0
+1222,73,Male,African American,33.500000,Current,True,Moderate,0
+1233,37,Other,Other,18.800000,Never,True,Moderate,0
+1234,64,Male,African American,20.500000,Never,False,Active,0
+1236,48,Female,African American,20.900000,Former,False,Moderate,0
+1244,19,Male,Asian,18.900000,Current,True,Active,0
+1246,36,Male,African American,22.200000,Current,True,Sedentary,0
+1247,50,Female,Asian,31.600000,Never,False,Active,0
+1248,32,Other,Asian,28.500000,Current,False,Active,0
+1257,40,Female,Other,35.300000,Never,True,Active,0
+1258,47,Other,Hispanic,32.100000,Former,False,Moderate,0
+1262,63,Other,Other,30.900000,Former,True,Moderate,0
+1265,51,Female,Caucasian,21.400000,Former,False,Sedentary,0
+1270,79,Male,Caucasian,35.000000,Never,True,Sedentary,0
+1274,72,Other,Other,30.800000,Never,True,Moderate,1
+1282,36,Male,Caucasian,28.300000,Current,True,Active,1
+1289,53,Female,Other,37.600000,Former,True,Active,1
+1296,61,Other,Asian,31.700000,Current,True,Moderate,0
+1298,82,Male,Other,25.100000,Never,False,Active,0
+1308,60,Female,Caucasian,34.300000,Current,False,Active,1
+1315,21,Other,Caucasian,37.200000,Former,False,Moderate,0
+1319,86,Male,Other,29.100000,Current,True,Moderate,0
+1323,46,Female,African American,20.900000,Never,True,Sedentary,0
+1326,61,Female,Asian,18.800000,Former,True,Active,0
+1329,80,Female,Asian,27.300000,Current,True,Moderate,0
+1331,31,Male,African American,25.800000,Current,False,Active,0
+1341,38,Female,Other,28.900000,Former,False,Moderate,0
+1342,27,Male,Hispanic,25.100000,Former,True,Active,1
+1343,70,Other,African American,31.100000,Never,True,Moderate,0
+1345,66,Other,Caucasian,33.800000,Never,True,Moderate,0
+1363,84,Female,Other,36.200000,Never,False,Active,1
+1364,59,Female,African American,39.000000,Former,True,Sedentary,0
+1365,46,Male,Asian,23.700000,Current,False,Active,0
+1376,31,Other,Hispanic,20.700000,Never,True,Sedentary,0
+1379,40,Male,African American,35.400000,Never,False,Moderate,1
+1381,42,Other,Asian,26.700000,Never,False,Sedentary,0
+1383,55,Male,Caucasian,36.600000,Never,False,Moderate,1
+1384,62,Male,African American,35.900000,Never,True,Sedentary,0
+1388,50,Male,Asian,36.000000,Never,True,Sedentary,0
+1394,58,Other,African American,38.900000,Never,False,Moderate,0
+1396,32,Male,African American,31.400000,Never,True,Sedentary,0
+1400,52,Female,Other,29.900000,Never,True,Active,0
+1401,61,Female,Asian,35.800000,Former,True,Active,0
+1413,19,Male,African American,36.100000,Former,True,Active,0
+1414,74,Female,Other,30.700000,Never,False,Active,0
+1415,76,Female,Hispanic,24.600000,Former,False,Sedentary,0
+1416,44,Female,Other,28.700000,Never,False,Active,1
+1417,63,Other,African American,27.300000,Current,False,Active,0
+1419,70,Male,Caucasian,35.800000,Never,False,Sedentary,0
+1424,35,Female,Asian,26.700000,Former,False,Active,0
+1428,59,Other,Caucasian,31.800000,Never,False,Sedentary,0
+1429,53,Other,Caucasian,27.100000,Never,True,Active,0
+1430,77,Female,Asian,24.700000,Current,True,Sedentary,0
+1431,18,Male,Caucasian,39.400000,Former,True,Sedentary,0
+1432,19,Male,Asian,22.800000,Current,True,Active,1
+1434,74,Male,African American,28.600000,Current,False,Active,0
+1435,24,Male,Hispanic,35.700000,Never,False,Active,0
+1439,57,Other,Other,30.600000,Current,False,Sedentary,0
+1445,26,Other,Hispanic,39.500000,Never,False,Active,0
+1447,72,Female,African American,32.500000,Former,True,Moderate,0
+1448,29,Other,Hispanic,37.900000,Former,False,Sedentary,0
+1449,32,Male,Caucasian,26.600000,Never,False,Active,0
+1450,29,Male,Hispanic,37.000000,Current,True,Sedentary,1
+1456,64,Male,Other,24.700000,Never,False,Sedentary,0
+1459,52,Female,African American,31.800000,Former,False,Sedentary,0
+1460,70,Other,Hispanic,23.900000,Never,False,Active,0
+1464,35,Female,Asian,34.000000,Never,False,Moderate,0
+1469,63,Female,Hispanic,35.000000,Never,False,Active,0
+1470,86,Female,Caucasian,30.100000,Current,True,Sedentary,0
+1471,25,Other,Other,20.800000,Former,False,Sedentary,0
+1476,61,Male,Asian,27.300000,Never,True,Moderate,0
+1477,29,Female,Asian,24.600000,Never,True,Moderate,0
+1478,31,Female,Hispanic,33.300000,Former,True,Moderate,1
+1483,18,Male,Other,22.000000,Former,False,Active,1
+1491,84,Other,Other,25.200000,Never,True,Moderate,0
+1493,57,Male,Asian,24.200000,Never,False,Sedentary,0
+1499,63,Female,Other,19.800000,Former,True,Active,0
+1501,32,Female,Other,38.000000,Never,False,Moderate,1
+1506,48,Other,African American,32.100000,Current,False,Sedentary,0
+1509,25,Male,Other,29.800000,Never,True,Active,0
+1510,86,Female,Other,34.800000,Never,False,Moderate,0
+1511,51,Other,Other,36.600000,Never,True,Sedentary,1
+1514,49,Male,African American,39.300000,Never,False,Active,1
+1515,32,Male,Hispanic,30.400000,Current,False,Active,1
+1529,88,Female,Caucasian,35.700000,Current,True,Sedentary,0
+1531,39,Female,Other,39.400000,Former,True,Active,1
+1532,19,Male,African American,38.400000,Never,False,Moderate,0
+1534,41,Female,Asian,35.000000,Former,True,Active,0
+1535,69,Other,Other,22.100000,Former,True,Moderate,0
+1541,57,Male,Hispanic,39.300000,Former,True,Sedentary,0
+1542,66,Other,Caucasian,23.400000,Never,False,Active,0
+1545,85,Male,Caucasian,30.000000,Current,True,Active,0
+1548,71,Female,Other,30.200000,Never,False,Active,0
+1552,20,Male,Asian,37.900000,Former,True,Active,0
+1553,79,Male,Caucasian,38.200000,Former,True,Moderate,0
+1554,28,Male,Hispanic,33.800000,Never,True,Moderate,1
+1555,71,Female,Caucasian,31.600000,Never,True,Active,0
+1563,59,Other,Asian,21.300000,Current,False,Moderate,1
+1565,39,Other,Caucasian,25.900000,Never,True,Active,0
+1575,39,Female,Caucasian,30.000000,Former,True,Moderate,1
+1578,30,Male,African American,39.500000,Never,False,Moderate,0
+1589,78,Other,Other,20.300000,Current,False,Sedentary,0
+1595,89,Male,Other,35.500000,Current,False,Moderate,0
+1598,88,Female,Caucasian,29.600000,Current,False,Moderate,0
+1600,30,Other,Other,30.900000,Current,False,Active,0
+1603,87,Other,Hispanic,32.600000,Never,True,Active,0
+1608,64,Male,Other,19.900000,Never,True,Sedentary,0
+1610,83,Male,Caucasian,24.200000,Current,True,Moderate,0
+1611,29,Other,Other,22.000000,Never,True,Moderate,0
+1612,37,Male,Asian,21.100000,Current,True,Active,0
+1618,84,Other,Hispanic,39.200000,Former,True,Sedentary,0
+1619,35,Female,Other,27.100000,Current,False,Sedentary,0
+1620,45,Other,African American,32.900000,Current,False,Active,0
+1622,60,Male,Asian,24.600000,Never,False,Moderate,0
+1623,50,Male,African American,24.900000,Former,False,Active,0
+1625,79,Male,Hispanic,30.700000,Former,True,Active,1
+1628,90,Male,Other,21.900000,Former,False,Active,0
+1632,38,Male,Other,25.400000,Current,True,Sedentary,0
+1636,33,Male,Caucasian,20.100000,Current,False,Active,1
+1642,53,Male,Caucasian,33.500000,Current,False,Moderate,0
+1643,52,Other,African American,18.600000,Former,True,Moderate,0
+1648,42,Female,African American,26.700000,Never,False,Moderate,0
+1660,78,Other,Other,32.800000,Former,True,Moderate,1
+1664,22,Other,Caucasian,21.200000,Never,True,Active,0
+1669,84,Female,Asian,28.800000,Former,False,Sedentary,1
+1672,21,Other,Caucasian,37.200000,Former,True,Sedentary,0
+1673,61,Male,African American,31.600000,Current,True,Sedentary,0
+1681,32,Other,African American,37.900000,Never,False,Sedentary,0
+1683,31,Other,Caucasian,23.600000,Never,True,Sedentary,0
+1688,39,Other,Other,29.600000,Former,True,Sedentary,0
+1689,62,Female,Asian,25.100000,Never,False,Sedentary,0
+1691,56,Male,Other,37.400000,Current,False,Moderate,0
+1693,53,Female,Other,29.100000,Current,False,Active,0
+1704,63,Female,Asian,38.600000,Former,False,Sedentary,0
+1705,27,Other,Asian,30.100000,Former,True,Active,0
+1708,87,Male,Other,20.500000,Former,False,Active,1
+1710,47,Male,Other,39.400000,Never,True,Sedentary,0
+1711,74,Female,Hispanic,39.500000,Never,False,Moderate,0
+1712,40,Other,Asian,32.800000,Never,True,Sedentary,1
+1713,70,Female,Other,20.100000,Former,True,Sedentary,1
+1714,77,Female,Asian,34.500000,Former,False,Active,1
+1716,78,Female,Hispanic,31.900000,Former,False,Sedentary,0
+1731,19,Male,Hispanic,22.400000,Current,False,Sedentary,0
+1735,32,Other,Hispanic,21.500000,Never,True,Moderate,0
+1736,20,Other,Other,33.500000,Never,True,Moderate,1
+1737,35,Male,Asian,33.700000,Never,False,Sedentary,1
+1739,33,Female,African American,20.400000,Former,False,Sedentary,1
+1740,74,Female,Caucasian,32.700000,Former,False,Active,0
+1741,46,Male,Hispanic,32.700000,Former,True,Active,0
+1747,59,Other,Asian,38.600000,Never,True,Active,1
+1752,87,Other,African American,34.200000,Never,True,Moderate,1
+1758,31,Female,Asian,39.100000,Current,False,Moderate,1
+1760,76,Male,African American,26.300000,Never,True,Moderate,0
+1766,57,Female,Hispanic,21.100000,Former,True,Sedentary,0
+1770,20,Male,Asian,18.800000,Current,False,Moderate,0
+1771,72,Male,African American,32.100000,Former,False,Moderate,0
+1778,42,Other,Hispanic,36.700000,Former,True,Active,0
+1784,41,Female,African American,22.800000,Current,False,Moderate,0
+1788,50,Male,African American,29.300000,Current,True,Sedentary,0
+1796,24,Male,Hispanic,19.800000,Current,True,Active,1
+1797,22,Female,African American,18.500000,Never,False,Sedentary,0
+1798,59,Other,Hispanic,35.200000,Former,False,Active,0
+1800,49,Male,African American,19.300000,Former,True,Moderate,0
+1801,81,Male,African American,21.300000,Former,True,Active,1
+1803,64,Male,Asian,24.000000,Former,True,Sedentary,1
+1804,59,Male,Caucasian,34.700000,Former,True,Sedentary,0
+1805,19,Male,African American,34.000000,Former,False,Moderate,0
+1806,47,Female,Asian,33.400000,Never,True,Sedentary,0
+1809,58,Female,Caucasian,31.800000,Current,True,Sedentary,0
+1811,31,Other,Asian,38.300000,Former,False,Sedentary,0
+1812,80,Female,African American,35.200000,Former,True,Active,0
+1814,66,Other,Other,30.100000,Current,False,Sedentary,0
+1817,22,Male,Asian,38.100000,Former,False,Active,0
+1819,42,Male,Other,39.200000,Former,True,Moderate,0
+1822,86,Female,Asian,38.100000,Former,True,Sedentary,0
+1824,82,Other,Hispanic,39.800000,Current,True,Active,0
+1825,76,Other,Asian,39.200000,Former,True,Moderate,1
+1827,59,Female,African American,19.600000,Never,False,Moderate,0
+1831,31,Female,Asian,21.600000,Current,False,Active,0
+1836,25,Female,Other,32.000000,Current,True,Sedentary,0
+1837,55,Female,Caucasian,20.000000,Current,True,Active,1
+1839,19,Female,Asian,25.000000,Former,True,Sedentary,0
+1843,30,Male,Asian,32.300000,Never,False,Active,0
+1844,26,Female,Caucasian,25.500000,Never,True,Active,1
+1845,61,Male,African American,20.500000,Current,True,Sedentary,0
+1853,54,Other,Caucasian,21.400000,Current,False,Active,0
+1857,22,Other,Asian,39.200000,Former,False,Active,1
+1858,28,Other,Other,39.000000,Current,False,Active,0
+1862,34,Male,African American,35.800000,Former,True,Moderate,0
+1863,89,Female,Other,36.100000,Current,False,Moderate,1
+1864,20,Other,Caucasian,28.100000,Current,False,Active,0
+1868,22,Other,Asian,38.800000,Current,True,Active,0
+1870,19,Female,Hispanic,31.200000,Former,True,Sedentary,0
+1873,31,Other,African American,32.300000,Never,False,Sedentary,0
+1875,22,Male,Hispanic,30.900000,Current,False,Moderate,0
+1880,42,Other,Other,30.800000,Current,False,Moderate,0
+1885,39,Male,Caucasian,26.000000,Current,False,Sedentary,0
+1886,72,Female,Asian,28.300000,Former,True,Moderate,0
+1888,45,Other,Other,19.300000,Former,False,Moderate,1
+1892,87,Female,Asian,20.600000,Current,False,Active,0
+1893,53,Female,Hispanic,30.300000,Current,False,Sedentary,0
+1894,29,Female,Other,26.300000,Former,True,Moderate,1
+1896,86,Female,Caucasian,29.500000,Former,False,Sedentary,0
+1897,68,Male,African American,27.600000,Never,True,Active,1
+1901,28,Other,Other,22.800000,Never,True,Sedentary,0
+1902,19,Other,African American,30.900000,Former,False,Moderate,1
+1904,21,Other,Hispanic,36.300000,Never,False,Moderate,0
+1912,23,Male,African American,27.100000,Former,False,Moderate,0
+1913,25,Other,African American,33.000000,Never,True,Sedentary,0
+1916,75,Other,Asian,39.200000,Former,False,Moderate,0
+1919,55,Other,Caucasian,33.200000,Former,False,Moderate,0
+1920,49,Other,Other,23.200000,Never,False,Moderate,0
+1921,77,Male,Asian,27.600000,Former,True,Sedentary,1
+1922,56,Other,Caucasian,26.900000,Former,True,Sedentary,0
+1924,55,Female,Hispanic,19.900000,Never,False,Sedentary,0
+1925,34,Other,Asian,24.700000,Former,False,Moderate,0
+1926,30,Female,Asian,19.000000,Current,False,Active,1
+1928,68,Other,Hispanic,36.200000,Former,True,Moderate,0
+1930,42,Male,Asian,29.200000,Never,True,Sedentary,1
+1935,79,Male,African American,39.200000,Current,False,Moderate,0
+1948,50,Male,Caucasian,26.900000,Never,False,Moderate,0
+1949,47,Male,Caucasian,32.500000,Former,True,Sedentary,0
+1956,33,Other,Caucasian,27.700000,Former,True,Active,0
+1960,39,Female,Asian,26.400000,Former,False,Sedentary,0
+1966,53,Male,Asian,34.500000,Never,True,Active,1
+1967,61,Male,Hispanic,28.700000,Current,False,Moderate,0
+1971,80,Female,Other,35.600000,Former,False,Moderate,1
+1972,36,Other,Asian,22.400000,Never,True,Sedentary,0
+1976,24,Female,Caucasian,30.400000,Former,True,Active,0
+1977,36,Other,Hispanic,38.100000,Never,True,Active,1
+1980,46,Female,Caucasian,20.400000,Never,True,Active,0
+1981,83,Female,Asian,37.100000,Former,True,Moderate,0
+1988,54,Female,Hispanic,20.600000,Never,True,Active,0
+1992,41,Male,Caucasian,29.200000,Former,False,Moderate,1
+1995,56,Other,African American,23.800000,Former,False,Moderate,1
+1997,59,Female,Caucasian,19.600000,Former,False,Active,0
+1999,66,Other,Other,20.200000,Former,False,Sedentary,0
+2000,82,Other,Asian,34.000000,Never,False,Moderate,0
+2002,53,Other,Caucasian,36.000000,Current,False,Sedentary,0
+2004,65,Male,Hispanic,39.700000,Never,False,Moderate,0
+2008,50,Other,Caucasian,35.000000,Former,True,Sedentary,0
+2010,71,Other,Caucasian,26.000000,Never,True,Sedentary,1
+2014,76,Other,Hispanic,31.200000,Former,False,Active,0
+2018,45,Female,Hispanic,29.100000,Current,True,Sedentary,0
+2023,88,Male,African American,30.300000,Former,False,Moderate,0
+2027,74,Female,Hispanic,27.400000,Former,True,Active,0
+2029,89,Other,Asian,39.400000,Former,False,Moderate,0
+2034,44,Other,Hispanic,23.400000,Never,False,Sedentary,0
+2039,24,Other,Asian,26.300000,Former,False,Active,0
+2040,25,Male,Caucasian,19.800000,Former,False,Active,0
+2044,28,Male,Hispanic,22.900000,Current,False,Sedentary,0
+2045,41,Other,Hispanic,32.600000,Never,True,Active,0
+2046,48,Female,Asian,28.200000,Never,False,Sedentary,0
+2047,57,Other,Hispanic,26.200000,Former,False,Sedentary,0
+2048,86,Other,Caucasian,27.400000,Never,True,Active,0

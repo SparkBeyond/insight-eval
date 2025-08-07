@@ -1,0 +1,20 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "registration_age_in_days",
+        "call_duration",
+        "percentage_flagged_spam_calls",
+        "spam_call_duration",
+        "spam_call_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "registration age in days",
+        "call duration",
+        "percentage flagged spam calls",
+        "spam call duration",
+        "spam call ratio"
+    ]
+}

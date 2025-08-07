@@ -1,0 +1,77 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "total_complaints_count",
+        "most_recent_complaint_days",
+        "max_energy_consumption",
+        "avg_resolution_time",
+        "interaction_channels_used",
+        "min_energy_consumption",
+        "complaint_duration_per_complaint",
+        "avg_energy_consumption",
+        "min_payment_amount",
+        "max_payment_amount",
+        "avg_payment_amount"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.7299986598502682": {
+            "name": "total_complaints_count",
+            "code": "import pandas as pd\n\ndef total_complaints_count(customer_id, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Ensure the correct dataframe is used from aux_data\n    complaints_df = aux_data.get('customer_complaints_table.csv')\n    \n    # Check if the dataframe exists and is not None\n    if complaints_df is None:\n        raise ValueError(\"The 'customer_complaints_table.csv' dataframe is missing in aux_data.\")\n    \n    # Ensure the customer_id column exists in the dataframe\n    if 'customer_id' not in complaints_df.columns:\n        raise ValueError(\"The 'customer_id' column is missing in the 'customer_complaints_table.csv' dataframe.\")\n    \n    # Handle the case where customer_id is a pandas Series\n    if isinstance(customer_id, pd.Series):\n        # Calculate the total complaints count for each customer_id in the Series\n        return customer_id.apply(lambda cid: len(complaints_df[complaints_df['customer_id'] == cid])).sum()\n    \n    # Ensure the customer_id is of the correct type (int)\n    customer_id = int(customer_id)  # Convert to int to match the expected type\n    \n    # Filter the dataframe and count the complaints for the given customer_id\n    return len(complaints_df[complaints_df['customer_id'] == customer_id])\n"
+        },
+        "0.14229623045079584": {
+            "name": "most_recent_complaint_days",
+            "code": "import pandas as pd\nimport datetime\n\ndef most_recent_complaint_days(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> float:\n    \"\"\"\n    Calculate the number of days since the most recent complaint for a given customer.\n\n    Args:\n        row (pd.Series): A row of the DataFrame containing customer data. Must include 'customer_id'.\n        aux_data (Dict[str, pd.DataFrame]): A dictionary mapping filenames to DataFrames.\n\n    Returns:\n        float: The number of days since the most recent complaint, or NaN if no complaints exist.\n    \"\"\"\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Extract the relevant DataFrame from aux_data\n    if 'customer_complaints_table.csv' not in aux_data:\n        raise ValueError(\"The required 'customer_complaints_table.csv' is missing from aux_data.\")\n    \n    df_train = aux_data['customer_complaints_table.csv']\n    \n    # Ensure the customer_id column is numeric\n    if 'customer_id' not in df_train.columns:\n        raise ValueError(\"The 'customer_id' column is missing from the complaints table.\")\n    df_train['customer_id'] = pd.to_numeric(df_train['customer_id'], errors='coerce')\n    \n    # Filter the DataFrame for the given customer_id\n    customer_complaints = df_train[df_train['customer_id'] == customer_id].copy()\n    \n    # Ensure the complaint_date column exists and is in datetime format\n    if 'complaint_date' not in customer_complaints.columns:\n        raise ValueError(\"The 'complaint_date' column is missing from the complaints table.\")\n    customer_complaints['complaint_date'] = pd.to_datetime(customer_complaints['complaint_date'], errors='coerce')\n    \n    # Get the most recent complaint date\n    most_recent_date = customer_complaints['complaint_date'].max()\n    \n    # If there are no complaints or the most recent date is NaT, return NaN\n    if pd.isna(most_recent_date):\n        return float('nan')\n    \n    # Calculate the difference in days between now and the most recent complaint date\n    current_date = datetime.datetime.now()\n    return (current_date - most_recent_date).days\n"
+        },
+        "0.06796414760144469": {
+            "name": "max_energy_consumption",
+            "code": "import pandas as pd\n\ndef max_energy_consumption(customer_id, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Load the energy usage history DataFrame\n    energy_usage_history = aux_dataframes['energy_usage_history_table.csv']\n    \n    # Ensure customer_id is a scalar value\n    if isinstance(customer_id, pd.Series):\n        customer_id = customer_id.iloc[0]\n    \n    # Ensure the customer_id column and the input customer_id are of the same type\n    energy_usage_history['customer_id'] = energy_usage_history['customer_id'].astype(type(customer_id))\n    \n    # Filter the DataFrame for the given customer_id\n    customer_usage = energy_usage_history[energy_usage_history['customer_id'] == customer_id]\n    \n    # Return the maximum energy consumed or 0.0 if no data is found\n    return customer_usage['energy_consumed_kwh'].max() if not customer_usage.empty else 0.0\n"
+        },
+        "0.05669734371693614": {
+            "name": "avg_resolution_time",
+            "code": "import pandas as pd\n\ndef avg_resolution_time(customer_id: int, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Extract the relevant dataframe from aux_data\n    if 'customer_complaints_table.csv' not in aux_data:\n        raise ValueError(\"The required 'customer_complaints_table.csv' is missing from aux_data.\")\n    \n    df_complaints = aux_data['customer_complaints_table.csv']\n    \n    # Ensure the customer_id column in df_complaints is of type int\n    df_complaints['customer_id'] = df_complaints['customer_id'].astype(int)\n    \n    # Convert customer_id to an integer if it's passed as a Series\n    if isinstance(customer_id, pd.Series):\n        customer_id = customer_id.iloc[0]\n    \n    # Filter the dataframe for the given customer_id\n    customer_complaints = df_complaints[df_complaints['customer_id'] == customer_id]\n    \n    # Calculate and return the mean resolution time, or 0.0 if no complaints exist\n    return customer_complaints['resolution_time_days'].mean() if not customer_complaints.empty else 0.0\n"
+        },
+        "0.04982329770931962": {
+            "name": "interaction_channels_used",
+            "code": "import pandas as pd\n\ndef interaction_channels_used(customer_id, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Load the relevant DataFrame\n    interactions = aux_dataframes['customer_interaction_table.csv']\n    \n    # Ensure the data types of customer_id in the DataFrame match\n    interactions['customer_id'] = interactions['customer_id'].astype(int)  # Ensure customer_id in DataFrame is an integer\n    \n    # Handle the case where customer_id is a Series (e.g., from a DataFrame row)\n    if isinstance(customer_id, pd.Series):\n        customer_id = customer_id.iloc[0]  # Extract the first value if it's a Series\n    \n    # Convert the input customer_id to an integer\n    customer_id = int(customer_id)\n    \n    # Filter interactions for the given customer_id\n    customer_interactions = interactions[interactions['customer_id'] == customer_id]\n    \n    # Return the number of unique interaction channels or 0 if no interactions exist\n    return customer_interactions['interaction_channel'].nunique() if not customer_interactions.empty else 0\n"
+        },
+        "0.04132918090573572": {
+            "name": "min_energy_consumption",
+            "code": "import pandas as pd\n\ndef min_energy_consumption(customer_id, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Load the energy usage history DataFrame\n    energy_usage_history = aux_dataframes['energy_usage_history_table.csv']\n    \n    # Ensure the customer_id is a scalar value (not a Series)\n    if isinstance(customer_id, pd.Series):\n        customer_id = customer_id.iloc[0]  # Extract the scalar value from the Series\n    \n    # Ensure the customer_id column and the input customer_id are of the same type\n    energy_usage_history['customer_id'] = energy_usage_history['customer_id'].astype(type(customer_id))\n    \n    # Filter the DataFrame for the given customer_id\n    customer_usage = energy_usage_history[energy_usage_history['customer_id'] == customer_id]\n    \n    # Return the minimum energy consumed or 0.0 if no data is found\n    return customer_usage['energy_consumed_kwh'].min() if not customer_usage.empty else 0.0\n"
+        },
+        "0.03588329528401463": {
+            "name": "complaint_duration_per_complaint",
+            "code": "\n\ndef complaint_duration_per_complaint(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_complaints_table dataframe from aux_data\n    complaints_df = aux_data['customer_complaints_table.csv']\n    \n    # Filter the complaints dataframe for the specific customer_id in the row\n    customer_complaints = complaints_df[complaints_df['customer_id'] == row['customer_id']]\n    \n    # If there are no complaints for the customer, return None\n    if customer_complaints.empty:\n        return None\n    \n    # Calculate the average resolution time for the customer's complaints\n    avg_resolution_time = customer_complaints['resolution_time_days'].mean()\n    \n    return avg_resolution_time\n"
+        },
+        "0.016944674160820915": {
+            "name": "avg_energy_consumption",
+            "code": "import pandas as pd\n\ndef avg_energy_consumption(customer_id, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Load the energy usage history dataframe\n    energy_usage_history = aux_dataframes['energy_usage_history_table.csv']\n    \n    # Ensure the data types of 'customer_id' in the dataframe and the input match\n    # Extract the scalar value from the Series if customer_id is a Series\n    if isinstance(customer_id, pd.Series):\n        customer_id = customer_id.iloc[0]\n    \n    energy_usage_history['customer_id'] = energy_usage_history['customer_id'].astype(type(customer_id))\n    \n    # Filter the dataframe for the given customer_id\n    customer_usage = energy_usage_history[energy_usage_history['customer_id'] == customer_id]\n    \n    # Calculate and return the average energy consumption, or 0.0 if no data is found\n    return customer_usage['energy_consumed_kwh'].mean() if not customer_usage.empty else 0.0\n"
+        },
+        "0.01095151127186086": {
+            "name": "min_payment_amount",
+            "code": "import pandas as pd\n\ndef min_payment_amount(customer_id, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Load the payment history DataFrame\n    payment_history = aux_dataframes['payment_history_table.csv']\n    \n    # Ensure the customer_id is a scalar value\n    if isinstance(customer_id, pd.Series):\n        customer_id = customer_id.iloc[0]\n    \n    # Ensure the customer_id column in payment_history is of the same type as the input customer_id\n    customer_id_type = type(customer_id)\n    if payment_history['customer_id'].dtype != customer_id_type:\n        payment_history['customer_id'] = payment_history['customer_id'].astype(customer_id_type)\n    \n    # Filter the payment history for the given customer_id\n    customer_payments = payment_history[payment_history['customer_id'] == customer_id]\n    \n    # Return the minimum payment amount or 0.0 if no payments exist\n    return customer_payments['amount_paid'].min() if not customer_payments.empty else 0.0\n"
+        },
+        "0.0010531376806606303": {
+            "name": "max_payment_amount",
+            "code": "import pandas as pd\n\ndef max_payment_amount(customer_id, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Load the payment history DataFrame\n    payment_history = aux_dataframes['payment_history_table.csv']\n    \n    # Ensure the data types of customer_id match\n    # Extract the scalar value from the Series if customer_id is a Series\n    if isinstance(customer_id, pd.Series):\n        customer_id = customer_id.iloc[0]\n    \n    # Convert the 'customer_id' column in payment_history to match the type of the input customer_id\n    payment_history['customer_id'] = payment_history['customer_id'].astype(type(customer_id))\n    \n    # Filter the payment history for the given customer_id\n    customer_payments = payment_history[payment_history['customer_id'] == customer_id]\n    \n    # Return the maximum payment amount or 0.0 if no payments exist\n    return customer_payments['amount_paid'].max() if not customer_payments.empty else 0.0\n"
+        },
+        "0": {
+            "name": "avg_payment_amount",
+            "code": "\n\ndef avg_payment_amount(customer_id, aux_dataframes: Dict[str, pd.DataFrame]):\n    payment_history = aux_dataframes['payment_history_table.csv']\n    \n    # Ensure both customer_id and the column in the DataFrame are of the same type\n    customer_id = str(customer_id)  # Convert the input customer_id to string\n    payment_history['customer_id'] = payment_history['customer_id'].astype(str)  # Ensure the column is also string\n    \n    # Filter the DataFrame for the given customer_id\n    customer_payments = payment_history[payment_history['customer_id'] == customer_id]\n    \n    # Calculate and return the average payment amount\n    return customer_payments['amount_paid'].mean() if not customer_payments.empty else 0.0\n"
+        }
+    },
+    "feature_descriptions": [
+        "total complaints count",
+        "most recent complaint days",
+        "max energy consumption",
+        "avg resolution time",
+        "interaction channels used",
+        "min energy consumption",
+        "complaint duration per complaint",
+        "avg energy consumption",
+        "min payment amount",
+        "max payment amount",
+        "avg payment amount"
+    ]
+}

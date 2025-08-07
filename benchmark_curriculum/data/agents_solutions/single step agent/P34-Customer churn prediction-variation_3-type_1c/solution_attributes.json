@@ -1,0 +1,125 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "support_interactions_count",
+        "issue_type_diversity",
+        "average_response_time",
+        "account_status_indicator",
+        "purchase_count",
+        "payment_method_diversity",
+        "pages_per_session",
+        "account_last_active",
+        "total_pages_visited",
+        "total_purchase_amount",
+        "account_tenure",
+        "average_session_duration",
+        "average_purchase_amount",
+        "engagement_count",
+        "weekly_engagement_frequency",
+        "preferred_product_category",
+        "preferred_marketing_channel",
+        "device_preference",
+        "positive_response_rate"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.27100423654020145": {
+            "name": "support_interactions_count",
+            "code": "\n\ndef support_interactions_count(row, aux_dataframes):\n    \"\"\"\n    Calculates the total number of customer support interactions for a given user.\n\n    Arguments:\n        row: A single row of data from the main dataset.\n        aux_dataframes: Dictionary of auxiliary dataframes where keys are filenames.\n\n    Returns:\n        Integer count of customer support interactions.\n    \"\"\"\n    support_df = aux_dataframes['customer_support_table.csv']  # Load customer support data.\n    \n    # Filter data relevant to the specific 'customer_id' in the row.\n    user_records = support_df[support_df['customer_id'] == row['customer_id']]\n    \n    # Return the count of interactions.\n    return len(user_records)\n"
+        },
+        "0.2328684397174807": {
+            "name": "issue_type_diversity",
+            "code": "\n\ndef issue_type_diversity(row, aux_data: Dict[str, pd.DataFrame]):\n    support_df = aux_data['customer_support_table.csv']\n    # Use 'customer_id' instead of 'user_id'\n    user_records = support_df[support_df['customer_id'] == row['customer_id']]\n    return user_records['issue_type'].nunique()\n"
+        },
+        "0.10151050435439064": {
+            "name": "average_response_time",
+            "code": "\n\ndef average_response_time(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the customer support dataframe\n    support_df = aux_data['customer_support_table.csv']\n    \n    # Filter the dataframe for records matching the customer_id\n    user_records = support_df[support_df['customer_id'] == row['customer_id']]\n    \n    # If there are matching records, calculate the mean response time\n    if len(user_records) > 0:\n        return user_records['response_time'].mean()\n    \n    # If no records are found, return 0\n    return 0\n"
+        },
+        "0.02778892487440671": {
+            "name": "account_status_indicator",
+            "code": "\n\ndef account_status_indicator(row):\n    return 1 if row['account_status'] == 'active' else 0\n"
+        },
+        "0.027539640187668468": {
+            "name": "purchase_count",
+            "code": "\n\ndef purchase_count(row, aux_data: Dict[str, pd.DataFrame]):\n    purchase_df = aux_data['purchase_history_table.csv']\n    # Use 'customer_id' instead of 'user_id'\n    user_purchases = purchase_df[purchase_df['customer_id'] == row['customer_id']]\n    return len(user_purchases)\n"
+        },
+        "0.02440035125504767": {
+            "name": "payment_method_diversity",
+            "code": "\n\ndef payment_method_diversity(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the purchase history dataframe\n    purchase_df = aux_data['purchase_history_table.csv']\n    \n    # Filter the dataframe for the specific customer_id\n    user_purchases = purchase_df[purchase_df['customer_id'] == row['customer_id']]\n    \n    # Return the number of unique payment methods used by the customer\n    return user_purchases['payment_method'].nunique()\n"
+        },
+        "0.023662490266383996": {
+            "name": "pages_per_session",
+            "code": "\n\ndef pages_per_session(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the website activity dataframe\n    activity_df = aux_data['website_activity_table.csv']\n    \n    # Filter the dataframe for the current customer's activity using 'customer_id'\n    user_sessions = activity_df[activity_df['customer_id'] == row['customer_id']]\n    \n    # If there are sessions, calculate the mean of 'pages_visited', otherwise return 0\n    if len(user_sessions) > 0:\n        return user_sessions['pages_visited'].mean()\n    return 0\n"
+        },
+        "0.022641109894354212": {
+            "name": "account_last_active",
+            "code": "import pandas as pd\n\ndef account_last_active(row, aux_data: Dict[str, pd.DataFrame] = None):\n    # Use the correct column name 'last_login' instead of 'last_login_date'\n    if pd.notnull(row['last_login']):\n        last_active = (pd.Timestamp.now() - pd.to_datetime(row['last_login'])).days\n        return max(last_active, 0)\n    return None\n"
+        },
+        "0.02005369813086679": {
+            "name": "total_pages_visited",
+            "code": "\n\ndef total_pages_visited(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the website activity dataframe\n    activity_df = aux_data['website_activity_table.csv']\n    \n    # Filter the dataframe for the specific customer_id\n    user_sessions = activity_df[activity_df['customer_id'] == row['customer_id']]\n    \n    # Sum the pages_visited for the filtered rows\n    return user_sessions['pages_visited'].sum()\n"
+        },
+        "0.019059295703968585": {
+            "name": "total_purchase_amount",
+            "code": "\n\ndef total_purchase_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the purchase history dataframe\n    purchase_df = aux_data['purchase_history_table.csv']\n    \n    # Filter the dataframe for the specific customer_id\n    user_purchases = purchase_df[purchase_df['customer_id'] == row['customer_id']]\n    \n    # Sum the 'amount' column for the filtered purchases\n    return user_purchases['amount'].sum()\n"
+        },
+        "0.017331339779196212": {
+            "name": "account_tenure",
+            "code": "import pandas as pd\n\ndef account_tenure(row):\n    # Ensure the column names match the dataframe\n    if pd.notnull(row['signup_date']) and pd.notnull(row['last_login']):\n        # Calculate tenure in days\n        tenure = (pd.to_datetime(row['last_login']) - pd.to_datetime(row['signup_date'])).days\n        # Return the tenure, ensuring it's non-negative\n        return max(tenure, 0)\n    # Return 0 if either date is null\n    return 0\n"
+        },
+        "0.01579219544412107": {
+            "name": "average_session_duration",
+            "code": "\n\ndef average_session_duration(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the website activity dataframe\n    activity_df = aux_data['website_activity_table.csv']\n    \n    # Filter the dataframe for the specific customer_id\n    user_sessions = activity_df[activity_df['customer_id'] == row['customer_id']]\n    \n    # Check if there are any sessions and calculate the mean session duration\n    if len(user_sessions) > 0:\n        return user_sessions['session_duration'].mean()\n    \n    # Return 0 if no sessions are found\n    return 0\n"
+        },
+        "0.01504498461607869": {
+            "name": "average_purchase_amount",
+            "code": "\n\ndef average_purchase_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the purchase history dataframe\n    purchase_df = aux_data['purchase_history_table.csv']\n    \n    # Filter the dataframe for the current customer's purchases\n    user_purchases = purchase_df[purchase_df['customer_id'] == row['customer_id']]\n    \n    # Check if there are any purchases and calculate the average purchase amount\n    if len(user_purchases) > 0:\n        return user_purchases['amount'].mean()\n    \n    # Return 0 if no purchases are found\n    return 0\n"
+        },
+        "0.01055912899847123": {
+            "name": "engagement_count",
+            "code": "\n\ndef engagement_count(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the marketing engagement dataframe\n    marketing_df = aux_data['marketing_engagement_table.csv']\n    \n    # Filter the dataframe for records matching the customer_id in the current row\n    user_records = marketing_df[marketing_df['customer_id'] == row['customer_id']]\n    \n    # Return the count of matching records\n    return len(user_records)\n"
+        },
+        "0.008979139494154978": {
+            "name": "weekly_engagement_frequency",
+            "code": "import pandas as pd\n\ndef weekly_engagement_frequency(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the marketing engagement dataframe\n    marketing_df = aux_data['marketing_engagement_table.csv']\n    \n    # Filter records for the specific customer_id\n    user_records = marketing_df[marketing_df['customer_id'] == row['customer_id']]\n    \n    # If there are engagement records for the customer\n    if len(user_records) > 0:\n        # Convert engagement_date to datetime\n        user_records['engagement_date'] = pd.to_datetime(user_records['engagement_date'])\n        \n        # Resample by week and calculate the mean engagement frequency\n        return user_records.set_index('engagement_date').resample('W').size().mean()\n    \n    # Return 0 if no engagement records are found\n    return 0\n"
+        },
+        "-0.0006743389102956687": {
+            "name": "preferred_product_category",
+            "code": "\n\ndef preferred_product_category(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the purchase history dataframe\n    purchase_df = aux_data['purchase_history_table.csv']\n    \n    # Filter the purchase history for the given customer_id\n    user_purchases = purchase_df[purchase_df['customer_id'] == row['customer_id']]\n    \n    # Check if the user has any purchase history\n    if len(user_purchases) > 0:\n        # Return the most frequently purchased product category\n        return user_purchases['product_category'].mode()[0]\n    \n    # Return None if no purchase history exists\n    return None\n"
+        },
+        "-0.0004614184370275165": {
+            "name": "preferred_marketing_channel",
+            "code": "\n\ndef preferred_marketing_channel(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the marketing engagement dataframe\n    marketing_df = aux_dataframes['marketing_engagement_table.csv']\n    \n    # Filter the dataframe for records matching the current row's customer_id\n    user_records = marketing_df[marketing_df['customer_id'] == row['customer_id']]\n    \n    # Check if there are any records for the user\n    if len(user_records) > 0:\n        # Return the most frequent engagement channel\n        return user_records['channel'].mode()[0]\n    \n    # Return None if no records are found\n    return None\n"
+        },
+        "-0.00043581399752690153": {
+            "name": "device_preference",
+            "code": "\n\ndef device_preference(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the website activity dataframe\n    activity_df = aux_data['website_activity_table.csv']\n    \n    # Filter the dataframe for the current customer's activity\n    user_sessions = activity_df[activity_df['customer_id'] == row['customer_id']]\n    \n    # Check if there are any sessions for the customer\n    if len(user_sessions) > 0:\n        # Return the most common device type used by the customer\n        return user_sessions['device_type'].mode()[0]\n    \n    # Return None if no sessions are found\n    return None\n"
+        },
+        "0": {
+            "name": "positive_response_rate",
+            "code": "\n\ndef positive_response_rate(row, aux_data: Dict[str, pd.DataFrame]):\n    marketing_df = aux_data['marketing_engagement_table.csv']\n    # Filter records for the given customer_id\n    user_records = marketing_df[marketing_df['customer_id'] == row['customer_id']]\n    if len(user_records) > 0:\n        # Calculate the mean of positive responses (assuming 'response' column indicates positive responses with 1)\n        return (user_records['response'] == 1).mean()\n    return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "support interactions count",
+        "issue type diversity",
+        "average response time",
+        "account status indicator",
+        "purchase count",
+        "payment method diversity",
+        "pages per session",
+        "account last active",
+        "total pages visited",
+        "total purchase amount",
+        "account tenure",
+        "average session duration",
+        "average purchase amount",
+        "engagement count",
+        "weekly engagement frequency",
+        "preferred product category",
+        "preferred marketing channel",
+        "device preference",
+        "positive response rate"
+    ]
+}

@@ -1,0 +1,95 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "transactions_over_500",
+        "avg_transaction_amount",
+        "sum_all_charges",
+        "transaction_count_6_months",
+        "max_transaction_value",
+        "days_since_last_transaction",
+        "total_customer_service_interactions",
+        "monthly_avg_transaction_adjusted_with_age",
+        "credit_utilization",
+        "avg_payment_amount",
+        "calculate_age",
+        "service_interaction_rate",
+        "account_age",
+        "resolved_issues"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.08352810155642454": {
+            "name": "transactions_over_500",
+            "code": "import pandas as pd\n\ndef transactions_over_500(row, aux_data: Dict[str, pd.DataFrame]):\n    # Get the transaction history dataframe\n    trans = aux_data.get('transaction_history_table.csv')\n    \n    if trans is not None:\n        # Filter transactions for the given account_id and within the last 3 months\n        recent_transactions = trans[\n            (trans['account_id'] == row['account_id']) & \n            (pd.to_datetime(trans['transaction_date']) > pd.Timestamp('today') - pd.DateOffset(months=3))\n        ]\n        \n        # Count transactions with an amount greater than 500\n        return (recent_transactions['transaction_amount'] > 500).sum()\n    \n    # Return 0 if the transaction history table is not available\n    return 0\n"
+        },
+        "0.06843349909340865": {
+            "name": "avg_transaction_amount",
+            "code": "\n\ndef avg_transaction_amount(row, aux_dataframes: dict):\n    # Get the transaction history dataframe from the aux_dataframes dictionary\n    trans = aux_dataframes.get('transaction_history_table.csv')\n    \n    if trans is not None:\n        # Filter transactions for the given account_id (not customer_id)\n        customer_trans = trans[trans['account_id'] == row['account_id']]\n        \n        # Return the mean of the transaction_amount column if there are transactions, otherwise return 0\n        return customer_trans['transaction_amount'].mean() if not customer_trans.empty else 0\n    \n    # If the transaction history table is not available, return 0\n    return 0\n"
+        },
+        "0.05423547991463597": {
+            "name": "sum_all_charges",
+            "code": "\n\ndef sum_all_charges(row, aux_data: Dict[str, pd.DataFrame]):\n    # Get the transaction history dataframe\n    trans = aux_data.get('transaction_history_table.csv')\n    \n    # Check if the dataframe exists\n    if trans is not None:\n        # Filter transactions for the given account_id (not customer_id)\n        customer_trans = trans[trans['account_id'] == row['account_id']]\n        \n        # Sum the transaction amounts (use the correct column name 'transaction_amount')\n        return customer_trans['transaction_amount'].sum()\n    \n    # Return 0 if the dataframe is not found\n    return 0\n"
+        },
+        "0.04159069980517833": {
+            "name": "transaction_count_6_months",
+            "code": "import pandas as pd\n\ndef transaction_count_6_months(row, aux_data: Dict[str, pd.DataFrame]):\n    # Get the transaction history dataframe\n    trans = aux_data.get('transaction_history_table.csv')\n    \n    # Check if the dataframe exists\n    if trans is not None:\n        # Filter transactions for the given account_id and within the last 6 months\n        recent_transactions = trans[\n            (trans['account_id'] == row['account_id']) & \n            (pd.to_datetime(trans['transaction_date']) > pd.Timestamp('today') - pd.DateOffset(months=6))\n        ]\n        # Return the count of recent transactions\n        return recent_transactions.shape[0]\n    \n    # If the dataframe is not found, return 0\n    return 0\n"
+        },
+        "0.040791517513740314": {
+            "name": "max_transaction_value",
+            "code": "\n\ndef max_transaction_value(row, aux_data: Dict[str, pd.DataFrame]):\n    # Get the transaction history dataframe\n    trans = aux_data.get('transaction_history_table.csv')\n    \n    # Check if the dataframe exists\n    if trans is not None:\n        # Filter transactions by account_id (since customer_id is not present in the transaction table)\n        customer_trans = trans[trans['account_id'] == row['account_id']]\n        \n        # Return the maximum transaction amount if there are transactions, otherwise return 0\n        return customer_trans['transaction_amount'].max() if not customer_trans.empty else 0\n    \n    # If the transaction history table is not available, return 0\n    return 0\n"
+        },
+        "0.03629557902747116": {
+            "name": "days_since_last_transaction",
+            "code": "import pandas as pd\n\ndef days_since_last_transaction(row, aux_data: Dict[str, pd.DataFrame]):\n    # Get the transaction history dataframe\n    trans = aux_data.get('transaction_history_table.csv')\n    \n    if trans is not None:\n        # Filter transactions by account_id instead of customer_id\n        account_trans = trans[trans['account_id'] == row['account_id']]\n        \n        if not account_trans.empty:\n            # Get the most recent transaction date\n            last_trans_date = pd.to_datetime(account_trans['transaction_date']).max()\n            # Calculate the number of days since the last transaction\n            return (pd.to_datetime('today') - last_trans_date).days\n    \n    # Return 0 if no transactions are found or if the dataframe is None\n    return 0\n"
+        },
+        "0.03583199336779041": {
+            "name": "total_customer_service_interactions",
+            "code": "\n\ndef total_customer_service_interactions(row, aux_dataframes: dict):\n    service = aux_dataframes.get('customer_service_interactions_table.csv')\n    if service is not None:\n        return service[service['customer_id'] == row['customer_id']].shape[0]\n    return 0\n"
+        },
+        "0.03334053914868343": {
+            "name": "monthly_avg_transaction_adjusted_with_age",
+            "code": "import pandas as pd\n\ndef monthly_avg_transaction_adjusted_with_age(row, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    For a given customer, compute the monthly average transaction amount\n    and normalize it based on the customer's age and account age.\n    \"\"\"\n    # Load the necessary DataFrames from aux_data\n    trans = aux_data.get('transaction_history_table.csv')\n    demog = aux_data.get('customer_demographics_table.csv')\n    \n    if trans is not None and demog is not None:\n        # Ensure the 'customer_id' column exists in the demographics DataFrame\n        if 'customer_id' not in demog.columns:\n            raise KeyError(\"'customer_id' column is missing in customer_demographics_table.csv\")\n        \n        # Ensure the 'account_id' column exists in the transaction DataFrame\n        if 'account_id' not in trans.columns:\n            raise KeyError(\"'account_id' column is missing in transaction_history_table.csv\")\n        \n        # Fetch transaction data for the specific account\n        customer_trans = trans[trans['account_id'] == row['account_id']]\n        \n        # Calculate monthly average transaction\n        if not customer_trans.empty:\n            customer_trans['transaction_date'] = pd.to_datetime(customer_trans['transaction_date'])\n            customer_trans['month'] = customer_trans['transaction_date'].dt.to_period('M')\n            monthly_avg = customer_trans.groupby('month')['transaction_amount'].sum().mean()\n        else:\n            monthly_avg = 0\n        \n        # Fetch customer demographics data\n        customer_demog = demog[demog['customer_id'] == row['customer_id']]\n        if customer_demog.empty:\n            raise ValueError(f\"No demographics data found for customer_id {row['customer_id']}\")\n        \n        # Compute customer age\n        date_of_birth = pd.to_datetime(customer_demog.iloc[0]['date_of_birth'])\n        today = pd.to_datetime('today')\n        age = (today - date_of_birth).days // 365\n        \n        # Compute account age using the 'account_open_date' from the input row\n        account_creation_date = pd.to_datetime(row['account_open_date'])\n        account_age = (today - account_creation_date).days // 365\n        \n        # Adjust monthly average transaction using age and account age\n        if age > 0 and account_age > 0:\n            adjusted_value = monthly_avg / (age + account_age)\n        else:\n            adjusted_value = monthly_avg\n        \n        return adjusted_value\n    \n    return 0\n"
+        },
+        "0.02476620668824269": {
+            "name": "credit_utilization",
+            "code": "\n\ndef credit_utilization(row, aux_dataframes: dict):\n    # Extract current_balance and credit_limit directly from the row\n    current_balance = row['current_balance']\n    credit_limit = row['credit_limit']\n    \n    # Calculate credit utilization\n    return current_balance / max(credit_limit, 1)\n"
+        },
+        "0.022783718377393916": {
+            "name": "avg_payment_amount",
+            "code": "\n\ndef avg_payment_amount(row, aux_dataframes: dict):\n    # Retrieve the payment history dataframe from the aux_dataframes dictionary\n    payments = aux_dataframes.get('payment_history_table.csv')\n    \n    if payments is not None:\n        # Filter the payments dataframe by matching the 'account_id' column with the row's 'account_id'\n        customer_payments = payments[payments['account_id'] == row['account_id']]\n        \n        # Calculate and return the mean of the 'payment_amount' column if there are matching payments\n        return customer_payments['payment_amount'].mean() if not customer_payments.empty else 0\n    \n    # Return 0 if the payments dataframe is not available\n    return 0\n"
+        },
+        "0.02250093493414357": {
+            "name": "calculate_age",
+            "code": "import pandas as pd\n\ndef calculate_age(row, aux_dataframes: dict):\n    demog = aux_dataframes.get('customer_demographics_table.csv')\n    if demog is not None:\n        date_of_birth = pd.to_datetime(demog.loc[row['customer_id'], 'date_of_birth'])\n        today = pd.to_datetime('today')\n        return (today - date_of_birth).days // 365\n    return None\n"
+        },
+        "0.02175062826904679": {
+            "name": "service_interaction_rate",
+            "code": "import pandas as pd\n\ndef service_interaction_rate(row, aux_dataframes: dict):\n    service = aux_dataframes.get('customer_service_interactions_table.csv')\n    if service is not None:\n        customer_service = service[service['customer_id'] == row['customer_id']]\n        total_interactions = customer_service.shape[0]\n        service_period_months = customer_service['interaction_date'].apply(pd.to_datetime).dt.to_period('M').nunique()\n        return total_interactions / max(service_period_months, 1)\n    return 0\n"
+        },
+        "0.014964730552691922": {
+            "name": "account_age",
+            "code": "import pandas as pd\n\ndef account_age(row, aux_data: Dict[str, pd.DataFrame]):\n    # Get the customer demographics dataframe\n    demog = aux_data.get('customer_demographics_table.csv')\n    \n    # Ensure the dataframe is not None and contains the required columns\n    if demog is not None and 'date_of_birth' in demog.columns:\n        try:\n            # Locate the row for the given customer_id\n            customer_row = demog[demog['customer_id'] == row['customer_id']]\n            \n            # If the customer_id exists in the demographics table\n            if not customer_row.empty:\n                # Parse the date_of_birth column\n                date_of_birth = pd.to_datetime(customer_row.iloc[0]['date_of_birth'], errors='coerce')\n                \n                # Ensure the date_of_birth is valid\n                if pd.notnull(date_of_birth):\n                    today = pd.to_datetime('today')\n                    # Calculate the age in years\n                    return (today - date_of_birth).days // 365\n        except Exception as e:\n            # Log or handle any unexpected errors\n            print(f\"Error processing customer_id {row['customer_id']}: {e}\")\n    \n    # Return 0 if the data is missing or invalid\n    return 0\n"
+        },
+        "0": {
+            "name": "resolved_issues",
+            "code": "\n\ndef resolved_issues(row, aux_data: dict):\n    service = aux_data.get('customer_service_interactions_table.csv')\n    if service is not None:\n        # Use the correct column name 'resolution_status' instead of 'status'\n        resolved = service[(service['customer_id'] == row['customer_id']) & (service['resolution_status'] == 'resolved')]\n        return resolved.shape[0]\n    return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "transactions over 500",
+        "avg transaction amount",
+        "sum all charges",
+        "transaction count 6 months",
+        "max transaction value",
+        "days since last transaction",
+        "total customer service interactions",
+        "monthly avg transaction adjusted with age",
+        "credit utilization",
+        "avg payment amount",
+        "calculate age",
+        "service interaction rate",
+        "account age",
+        "resolved issues"
+    ]
+}

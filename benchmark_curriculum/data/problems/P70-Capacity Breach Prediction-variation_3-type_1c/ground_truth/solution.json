@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "operational_status_change_frequency",
+        "temperature_extremes_and_their_duration",
+        "historical_breach_patterns_for_similar_facilities"
+    ],
+    "features_descriptions": [
+        "operational status change frequency",
+        "temperature extremes and their duration",
+        "historical breach patterns for similar facilities"
+    ]
+}

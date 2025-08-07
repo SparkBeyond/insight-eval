@@ -1,0 +1,113 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "revenue_cost_ratio",
+        "branch_operational_index",
+        "revenue_to_performance",
+        "revenue_per_employee",
+        "cost_efficiency_score",
+        "customer_traffic_intensity",
+        "operational_cost_per_employee",
+        "customer_per_employee",
+        "employee_efficiency_ratio",
+        "customer_experience_ratio",
+        "experience_per_employee",
+        "service_time_efficiency",
+        "performance_overload",
+        "skill_level_encoded",
+        "revenue_per_customer",
+        "customer_satisfaction_weighted",
+        "peak_hours_encoded"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.6387327729694272": {
+            "name": "revenue_cost_ratio",
+            "code": "\n\ndef revenue_cost_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the branch_id from the row\n    branch_id = row['branch_id']\n    \n    # Get the financial_metrics_table dataframe from aux_data\n    financial_metrics_df = aux_data['financial_metrics_table.csv']\n    \n    # Find the row in financial_metrics_df corresponding to the branch_id\n    financial_row = financial_metrics_df[financial_metrics_df['branch_id'] == branch_id]\n    \n    # Ensure the branch_id exists in the financial_metrics_table\n    if financial_row.empty:\n        raise ValueError(f\"Branch ID {branch_id} not found in financial_metrics_table.csv\")\n    \n    # Extract revenue and operational_cost (assuming branch_id is unique)\n    revenue = financial_row.iloc[0]['revenue']\n    operational_cost = financial_row.iloc[0]['operational_cost']\n    \n    # Calculate and return the revenue-cost ratio\n    return revenue / (operational_cost + 1e-6)\n"
+        },
+        "0.5651334709255679": {
+            "name": "branch_operational_index",
+            "code": "\n\ndef branch_operational_index(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the financial metrics table from aux_data\n    financial_metrics = aux_data['financial_metrics_table.csv']\n    \n    # Find the financial data for the branch_id in the current row\n    branch_id = row['branch_id']\n    branch_financial_data = financial_metrics[financial_metrics['branch_id'] == branch_id]\n    \n    # Ensure there is financial data for the branch\n    if branch_financial_data.empty:\n        raise ValueError(f\"No financial data found for branch_id {branch_id}\")\n    \n    # Extract revenue and operational_cost (assuming one row per branch_id in financial_metrics)\n    revenue = branch_financial_data.iloc[0]['revenue']\n    operational_cost = branch_financial_data.iloc[0]['operational_cost']\n    \n    # Calculate and return the branch operational index\n    return (revenue - operational_cost) / (revenue + operational_cost + 1e-6)\n"
+        },
+        "0.4766442311808901": {
+            "name": "revenue_to_performance",
+            "code": "\n\ndef revenue_to_performance(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the financial_metrics_table dataframe from aux_data\n    financial_metrics_df = aux_data['financial_metrics_table.csv']\n    \n    # Find the revenue for the given branch_id\n    branch_id = row['branch_id']\n    revenue_row = financial_metrics_df[financial_metrics_df['branch_id'] == branch_id]\n    \n    # Ensure we handle cases where the branch_id is not found\n    if revenue_row.empty:\n        raise ValueError(f\"Branch ID {branch_id} not found in financial_metrics_table.csv\")\n    \n    # Extract the revenue value (assuming branch_id is unique, so we take the first match)\n    revenue = revenue_row.iloc[0]['revenue']\n    \n    # Calculate and return the revenue to performance ratio\n    return revenue / (row['performance_score'] + 1e-6)\n"
+        },
+        "0.3177308114449759": {
+            "name": "revenue_per_employee",
+            "code": "import pandas as pd\n\ndef revenue_per_employee(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the branch_id from the row\n    branch_id = row['branch_id']\n    \n    # Get the financial metrics and staffing levels dataframes from aux_data\n    financial_metrics_df = aux_data['financial_metrics_table.csv']\n    staffing_levels_df = aux_data['staffing_levels_table.csv']\n    \n    # Look up the revenue and number_of_employees for the given branch_id\n    revenue = financial_metrics_df.loc[financial_metrics_df['branch_id'] == branch_id, 'revenue'].squeeze()\n    number_of_employees = staffing_levels_df.loc[staffing_levels_df['branch_id'] == branch_id, 'number_of_employees'].squeeze()\n    \n    # Handle cases where revenue or number_of_employees might not be found\n    if pd.isna(revenue) or pd.isna(number_of_employees):\n        raise ValueError(f\"Missing data for branch_id {branch_id}\")\n    \n    # Calculate and return revenue per employee\n    return revenue / (number_of_employees + 1e-6)\n"
+        },
+        "0.3047266922069613": {
+            "name": "cost_efficiency_score",
+            "code": "\n\ndef cost_efficiency_score(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the branch_id from the row\n    branch_id = row['branch_id']\n    \n    # Look up the operational_cost for the branch_id in the financial_metrics_table\n    financial_metrics_df = aux_data['financial_metrics_table.csv']\n    operational_cost_row = financial_metrics_df[financial_metrics_df['branch_id'] == branch_id]\n    \n    # Ensure the branch_id exists in the financial_metrics_table\n    if operational_cost_row.empty:\n        raise ValueError(f\"Branch ID {branch_id} not found in financial_metrics_table.csv\")\n    \n    # Extract the operational_cost value\n    operational_cost = operational_cost_row.iloc[0]['operational_cost']\n    \n    # Calculate and return the cost efficiency score\n    return operational_cost / (row['performance_score'] + 1e-6)\n"
+        },
+        "0.25721932001798503": {
+            "name": "customer_traffic_intensity",
+            "code": "\n\ndef customer_traffic_intensity(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure we are working with the correct dataframe\n    if 'customer_traffic_table.csv' not in aux_data:\n        raise ValueError(\"The required 'customer_traffic_table.csv' is missing from aux_data.\")\n    \n    customer_traffic_df = aux_data['customer_traffic_table.csv']\n    \n    # Match the row's branch_id with the corresponding data in customer_traffic_table.csv\n    branch_id = row['branch_id']\n    traffic_data = customer_traffic_df[customer_traffic_df['branch_id'] == branch_id]\n    \n    if traffic_data.empty:\n        # If no matching branch_id is found, return 0 or handle as needed\n        return 0\n    \n    # Assuming there is only one matching row for the branch_id\n    traffic_row = traffic_data.iloc[0]\n    \n    # Calculate traffic intensity\n    number_of_customers = traffic_row['number_of_customers']\n    peak_hours = traffic_row['peak_hours']\n    \n    # Handle cases where peak_hours might not be a string\n    if isinstance(peak_hours, str):\n        peak_hours_count = len(peak_hours.split('-'))\n    else:\n        peak_hours_count = 0\n    \n    return number_of_customers * peak_hours_count\n"
+        },
+        "0.21304209852191594": {
+            "name": "operational_cost_per_employee",
+            "code": "import pandas as pd\n\ndef operational_cost_per_employee(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the branch_id from the row\n    branch_id = row['branch_id']\n    \n    # Get the financial metrics and staffing levels dataframes from aux_data\n    financial_metrics_df = aux_data['financial_metrics_table.csv']\n    staffing_levels_df = aux_data['staffing_levels_table.csv']\n    \n    # Retrieve the operational_cost for the given branch_id\n    operational_cost = financial_metrics_df.loc[\n        financial_metrics_df['branch_id'] == branch_id, 'operational_cost'\n    ].squeeze()\n    \n    # Retrieve the number_of_employees for the given branch_id\n    number_of_employees = staffing_levels_df.loc[\n        staffing_levels_df['branch_id'] == branch_id, 'number_of_employees'\n    ].squeeze()\n    \n    # Handle cases where operational_cost or number_of_employees might be missing\n    if pd.isna(operational_cost) or pd.isna(number_of_employees):\n        return None  # Return None if data is missing\n    \n    # Calculate and return the operational cost per employee\n    return operational_cost / (number_of_employees + 1e-6)\n"
+        },
+        "0.16559209137483563": {
+            "name": "customer_per_employee",
+            "code": "\n\ndef customer_per_employee(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the branch_id from the row\n    branch_id = row['branch_id']\n    \n    # Get the relevant dataframes from aux_data\n    customer_traffic_df = aux_data['customer_traffic_table.csv']\n    staffing_levels_df = aux_data['staffing_levels_table.csv']\n    \n    # Filter the dataframes to get the data for the specific branch_id\n    customer_data = customer_traffic_df[customer_traffic_df['branch_id'] == branch_id]\n    staffing_data = staffing_levels_df[staffing_levels_df['branch_id'] == branch_id]\n    \n    # Ensure there is data for the branch_id in both dataframes\n    if customer_data.empty or staffing_data.empty:\n        return None  # Return None if data is missing for the branch_id\n    \n    # Extract the number of customers and number of employees\n    number_of_customers = customer_data['number_of_customers'].sum()  # Sum in case of multiple rows\n    number_of_employees = staffing_data['number_of_employees'].sum()  # Sum in case of multiple rows\n    \n    # Calculate and return the customers per employee\n    return number_of_customers / (number_of_employees + 1e-6)\n"
+        },
+        "0.15532958504065458": {
+            "name": "employee_efficiency_ratio",
+            "code": "\n\ndef employee_efficiency_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the branch_id from the row\n    branch_id = row['branch_id']\n    \n    # Get the customer_traffic_table dataframe from aux_data\n    customer_traffic_df = aux_data['customer_traffic_table.csv']\n    \n    # Find the number_of_customers for the given branch_id\n    # Assuming the latest date is relevant if there are multiple entries for the same branch_id\n    branch_data = customer_traffic_df[customer_traffic_df['branch_id'] == branch_id]\n    if branch_data.empty:\n        # If no data is found for the branch_id, return None or handle as needed\n        return None\n    \n    # Use the most recent entry (assuming 'date' column exists and is sortable)\n    branch_data = branch_data.sort_values(by='date', ascending=False).iloc[0]\n    number_of_customers = branch_data['number_of_customers']\n    \n    # Calculate and return the employee efficiency ratio\n    return row['employee_efficiency'] / (number_of_customers + 1e-6)\n"
+        },
+        "0.13139689282518077": {
+            "name": "customer_experience_ratio",
+            "code": "\n\ndef customer_experience_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the branch_id from the row\n    branch_id = row['branch_id']\n    \n    # Look up the number_of_customers from the customer_traffic_table.csv\n    customer_traffic_df = aux_data['customer_traffic_table.csv']\n    number_of_customers = customer_traffic_df.loc[\n        customer_traffic_df['branch_id'] == branch_id, 'number_of_customers'\n    ].sum()  # Use sum() in case there are multiple rows for the same branch_id\n    \n    # Look up the average_experience from the staffing_levels_table.csv\n    staffing_levels_df = aux_data['staffing_levels_table.csv']\n    average_experience = staffing_levels_df.loc[\n        staffing_levels_df['branch_id'] == branch_id, 'average_experience'\n    ].mean()  # Use mean() in case there are multiple rows for the same branch_id\n    \n    # Calculate the customer experience ratio\n    return number_of_customers / (average_experience + 1e-6)\n"
+        },
+        "0.03321323641865948": {
+            "name": "experience_per_employee",
+            "code": "\n\ndef experience_per_employee(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the staffing_levels_table dataframe from aux_data\n    staffing_df = aux_data['staffing_levels_table.csv']\n    \n    # Find the row in staffing_df that matches the branch_id in the input row\n    branch_id = row['branch_id']\n    staffing_row = staffing_df[staffing_df['branch_id'] == branch_id]\n    \n    # If no matching branch_id is found, return None or a default value\n    if staffing_row.empty:\n        return None\n    \n    # Extract the average_experience and number_of_employees for the branch\n    average_experience = staffing_row['average_experience'].iloc[0]\n    number_of_employees = staffing_row['number_of_employees'].iloc[0]\n    \n    # Calculate and return the experience per employee\n    return average_experience * number_of_employees\n"
+        },
+        "0.03191313808263246": {
+            "name": "service_time_efficiency",
+            "code": "\n\ndef service_time_efficiency(row):\n    return 1 / (row['average_service_time'] + 1e-6)\n"
+        },
+        "0.016970008635327438": {
+            "name": "performance_overload",
+            "code": "\n\ndef performance_overload(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the staffing_levels_table.csv dataframe from aux_data\n    staffing_df = aux_data['staffing_levels_table.csv']\n    \n    # Find the number_of_employees for the branch_id in the current row\n    branch_id = row['branch_id']\n    number_of_employees = staffing_df.loc[staffing_df['branch_id'] == branch_id, 'number_of_employees']\n    \n    # If the branch_id is not found in staffing_df, default to 0 employees\n    if number_of_employees.empty:\n        number_of_employees = 0\n    else:\n        number_of_employees = number_of_employees.iloc[0]\n    \n    # Calculate and return the performance overload\n    return row['performance_score'] / (number_of_employees + 1e-6)\n"
+        },
+        "0.016230994478325187": {
+            "name": "skill_level_encoded",
+            "code": "\n\ndef skill_level_encoded(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the staffing_levels_table dataframe from aux_data\n    staffing_df = aux_data.get('staffing_levels_table.csv')\n    \n    if staffing_df is None:\n        raise ValueError(\"The 'staffing_levels_table.csv' dataframe is missing from aux_data.\")\n    \n    # Find the skill_level for the given branch_id\n    branch_id = row['branch_id']\n    skill_level_row = staffing_df[staffing_df['branch_id'] == branch_id]\n    \n    if skill_level_row.empty:\n        # If no matching branch_id is found, return 0\n        return 0\n    \n    # Extract the skill_level value\n    skill_level = skill_level_row.iloc[0]['skill_level']\n    \n    # Map the skill_level to its encoded value\n    skill_mapping = {'Beginner': 1, 'Intermediate': 2, 'Advanced': 3}\n    return skill_mapping.get(skill_level, 0)\n"
+        },
+        "0.014383311771059622": {
+            "name": "revenue_per_customer",
+            "code": "\n\ndef revenue_per_customer(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the branch_id from the row\n    branch_id = row['branch_id']\n    \n    # Get the financial_metrics_table and customer_traffic_table from aux_data\n    financial_metrics_table = aux_data['financial_metrics_table.csv']\n    customer_traffic_table = aux_data['customer_traffic_table.csv']\n    \n    # Find the revenue for the given branch_id\n    revenue = financial_metrics_table.loc[financial_metrics_table['branch_id'] == branch_id, 'revenue']\n    if revenue.empty:\n        raise ValueError(f\"Revenue not found for branch_id {branch_id}\")\n    revenue = revenue.iloc[0]  # Extract the single value\n    \n    # Find the number_of_customers for the given branch_id\n    number_of_customers = customer_traffic_table.loc[customer_traffic_table['branch_id'] == branch_id, 'number_of_customers']\n    if number_of_customers.empty:\n        raise ValueError(f\"Number of customers not found for branch_id {branch_id}\")\n    number_of_customers = number_of_customers.iloc[0]  # Extract the single value\n    \n    # Calculate and return revenue per customer\n    return revenue / (number_of_customers + 1e-6)\n"
+        },
+        "0.003041863915593619": {
+            "name": "customer_satisfaction_weighted",
+            "code": "\n\ndef customer_satisfaction_weighted(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the staffing_levels_table dataframe from aux_data\n    staffing_df = aux_data['staffing_levels_table.csv']\n    \n    # Find the number_of_employees for the given branch_id\n    branch_id = row['branch_id']\n    number_of_employees = staffing_df.loc[staffing_df['branch_id'] == branch_id, 'number_of_employees']\n    \n    # Ensure we handle cases where the branch_id is not found\n    if number_of_employees.empty:\n        raise ValueError(f\"Branch ID {branch_id} not found in staffing_levels_table.csv\")\n    \n    # Get the first (and expected only) value from the result\n    number_of_employees = number_of_employees.iloc[0]\n    \n    # Calculate and return the weighted customer satisfaction\n    return row['customer_satisfaction'] * number_of_employees\n"
+        },
+        "0": {
+            "name": "peak_hours_encoded",
+            "code": "\n\ndef peak_hours_encoded(row, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Access the customer_traffic_table.csv dataframe from aux_data\n    customer_traffic_df = aux_data.get('customer_traffic_table.csv')\n    \n    if customer_traffic_df is None:\n        # If the dataframe is not found in aux_data, return 0\n        return 0\n    \n    # Find the corresponding row in the customer_traffic_table.csv dataframe using branch_id\n    branch_id = row['branch_id']\n    matching_row = customer_traffic_df[customer_traffic_df['branch_id'] == branch_id]\n    \n    if matching_row.empty:\n        # If no matching row is found, return 0\n        return 0\n    \n    # Extract the peak_hours value\n    peak_hours = matching_row.iloc[0]['peak_hours']\n    \n    # Check if peak_hours is a string and calculate the encoded value\n    return len(peak_hours.split('-')) if isinstance(peak_hours, str) else 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "revenue cost ratio",
+        "branch operational index",
+        "revenue to performance",
+        "revenue per employee",
+        "cost efficiency score",
+        "customer traffic intensity",
+        "operational cost per employee",
+        "customer per employee",
+        "employee efficiency ratio",
+        "customer experience ratio",
+        "experience per employee",
+        "service time efficiency",
+        "performance overload",
+        "skill level encoded",
+        "revenue per customer",
+        "customer satisfaction weighted",
+        "peak hours encoded"
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "average_claim_amount",
+        "time_since_last_claim",
+        "policy_tenure",
+        "incident_diversity",
+        "total_claims_amount",
+        "average_payment_amount",
+        "fraction_high_severity_incidents"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.16837730048072352": {
+            "name": "average_claim_amount",
+            "code": "\n\ndef average_claim_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the historical claims dataframe\n    historical_claims = aux_dataframes[\"historical_claim_records_table.csv\"]\n    \n    # Extract the policyholder_id from the current row\n    policyholder_id = row[\"policyholder_id\"]\n    \n    # Filter the historical claims dataframe for the given policyholder_id\n    claims = historical_claims[historical_claims[\"policyholder_id\"] == policyholder_id]\n    \n    # Calculate and return the average claim amount, or 0 if no claims exist\n    return claims[\"claim_amount\"].mean() if not claims.empty else 0\n"
+        },
+        "0.039210101527870724": {
+            "name": "time_since_last_claim",
+            "code": "import pandas as pd\n\ndef time_since_last_claim(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    historical_claims = aux_dataframes[\"historical_claim_records_table.csv\"]\n    policyholder_id = row[\"policyholder_id\"]  # Corrected column name\n    claims = historical_claims[historical_claims[\"policyholder_id\"] == policyholder_id]\n    if not claims.empty:\n        last_claim_date = pd.to_datetime(claims[\"claim_date\"].max())\n        current_date = pd.to_datetime(row[\"claim_date\"])  # Using 'claim_date' from the row as 'current_date'\n        return (current_date - last_claim_date).days\n    return -1\n"
+        },
+        "0.030517583194727384": {
+            "name": "policy_tenure",
+            "code": "import datetime\n\ndef policy_tenure(row, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Extract the policyholder_id from the row\n    policyholder_id = row[\"policyholder_id\"]\n    \n    # Get the policyholder details dataframe from aux_data\n    policyholder_details = aux_data[\"policyholder_details_table.csv\"]\n    \n    # Find the row in the policyholder details dataframe that matches the policyholder_id\n    policyholder_row = policyholder_details[policyholder_details[\"policyholder_id\"] == policyholder_id]\n    \n    # Ensure the policyholder exists in the policyholder details table\n    if policyholder_row.empty:\n        raise ValueError(f\"Policyholder ID {policyholder_id} not found in policyholder details table.\")\n    \n    # Extract the policy start and end dates\n    policy_start_date = policyholder_row[\"policy_start_date\"].iloc[0]\n    policy_end_date = policyholder_row[\"policy_end_date\"].iloc[0]\n    \n    # Convert the dates from strings to datetime objects\n    start_date = datetime.strptime(policy_start_date, \"%Y-%m-%d\")\n    end_date = datetime.strptime(policy_end_date, \"%Y-%m-%d\")\n    \n    # Calculate and return the policy tenure in days\n    return (end_date - start_date).days\n"
+        },
+        "0.03020106199638883": {
+            "name": "incident_diversity",
+            "code": "\n\ndef incident_diversity(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the incident details dataframe\n    incident_details = aux_dataframes[\"incident_details_table.csv\"]\n    \n    # Extract the policyholder_id from the row\n    policyholder_id = row[\"policyholder_id\"]\n    \n    # Filter the incident details dataframe for the given policyholder_id\n    incidents = incident_details[incident_details[\"policyholder_id\"] == policyholder_id]\n    \n    # Return the number of unique incident types, or 0 if no incidents are found\n    return incidents[\"incident_type\"].nunique() if not incidents.empty else 0\n"
+        },
+        "0.0076785478146397974": {
+            "name": "total_claims_amount",
+            "code": "\n\ndef total_claims_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the historical claims dataframe\n    historical_claims = aux_dataframes[\"historical_claim_records_table.csv\"]\n    \n    # Extract the policyholder_id from the current row\n    policyholder_id = row[\"policyholder_id\"]\n    \n    # Filter the historical claims dataframe for the given policyholder_id\n    claims = historical_claims[historical_claims[\"policyholder_id\"] == policyholder_id]\n    \n    # Sum the claim amounts if there are any claims, otherwise return 0\n    return claims[\"claim_amount\"].sum() if not claims.empty else 0\n"
+        },
+        "0.0030836907866250013": {
+            "name": "average_payment_amount",
+            "code": "\n\ndef average_payment_amount(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the payment history dataframe from the auxiliary data\n    payment_history = aux_dataframes[\"payment_history_table.csv\"]\n    \n    # Extract the policyholder_id from the row\n    policyholder_id = row[\"policyholder_id\"]\n    \n    # Filter the payment history dataframe for the given policyholder_id\n    payments = payment_history[payment_history[\"policyholder_id\"] == policyholder_id]\n    \n    # Calculate and return the average payment amount, or 0 if no payments exist\n    return payments[\"payment_amount\"].mean() if not payments.empty else 0\n"
+        },
+        "0": {
+            "name": "fraction_high_severity_incidents",
+            "code": "\n\ndef fraction_high_severity_incidents(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the incident details table from the auxiliary dataframes\n    incident_details = aux_dataframes[\"incident_details_table.csv\"]\n    \n    # Extract the policyholder_id from the row\n    policyholder_id = row[\"policyholder_id\"]\n    \n    # Filter the incidents for the given policyholder_id\n    incidents = incident_details[incident_details[\"policyholder_id\"] == policyholder_id]\n    \n    # Check if there are any incidents for the policyholder\n    if not incidents.empty:\n        # Since 'incident_severity' is not a valid column, we cannot calculate the fraction of high-severity incidents.\n        # If you have a way to determine severity, you can implement it here.\n        # For now, we will return 0 as a placeholder.\n        return 0\n    \n    # If no incidents exist, return 0\n    return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "average claim amount",
+        "time since last claim",
+        "policy tenure",
+        "incident diversity",
+        "total claims amount",
+        "average payment amount",
+        "fraction high severity incidents"
+    ]
+}

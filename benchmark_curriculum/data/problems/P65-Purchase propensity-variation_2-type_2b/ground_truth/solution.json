@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "page_interaction_intensity_focused_on_top_selling_items",
+        "engagement_ratio_based_on_weekly_page_visit_frequency",
+        "transaction_amount_frequency_above_average_in_the_past_year"
+    ],
+    "features_descriptions": [
+        "page interaction intensity focused on top selling items",
+        "engagement ratio based on weekly page visit frequency",
+        "transaction amount frequency above average in the past year"
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "total_number_of_tests",
+        "days_since_last_test",
+        "days_since_symptom_onset",
+        "symptom_test_correlation",
+        "mean_test_result_value",
+        "max_test_value",
+        "average_test_value",
+        "max_test_result",
+        "average_city_income",
+        "most_severe_symptom",
+        "days_since_registration",
+        "count_symptoms",
+        "income_level"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "total number of tests",
+        "days since last test",
+        "days since symptom onset",
+        "symptom test correlation",
+        "mean test result value",
+        "max test value",
+        "average test value",
+        "max test result",
+        "average city income",
+        "most severe symptom",
+        "days since registration",
+        "count symptoms",
+        "income level"
+    ]
+}

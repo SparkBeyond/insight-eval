@@ -1,0 +1,14 @@
+{
+    "enriched_column_names": [
+        "monthly_change_in_call_minutes_usage_over_the_last_year",
+        "average_data_usage_in_the_last_three_months",
+        "interactions_categorized_as_queries_about_upgrade_options_in_the_last_six_months",
+        "number_of_distinct_competitors_plans_the_customer_reviewed_in_the_last_three_months"
+    ],
+    "features_descriptions": [
+        "monthly change in call minutes usage over the last year",
+        "average data usage in the last three months",
+        "interactions categorized as queries about upgrade options in the last six months",
+        "number of distinct competitors plans the customer reviewed in the last three months"
+    ]
+}

@@ -1,0 +1,59 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "discount_price_interaction",
+        "calculate_days_difference",
+        "premium_income_interaction",
+        "income_category",
+        "total_spending_per_category",
+        "purchase_month",
+        "price_category",
+        "purchase_frequency_within_category"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.22229776162144047": {
+            "name": "discount_price_interaction",
+            "code": "\n\ndef discount_price_interaction(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframe from aux_data\n    purchase_patterns_df = aux_data['purchase_patterns_table.csv']\n    \n    # Find the matching row in the purchase_patterns_table based on customer_id and product_id\n    match = purchase_patterns_df[\n        (purchase_patterns_df['customer_id'] == row['customer_id']) &\n        (purchase_patterns_df['product_id'] == row['product_id'])\n    ]\n    \n    # Check if a match was found and if 'discount_applied' is True\n    if not match.empty and match.iloc[0]['discount_applied']:\n        # Return the price of the product\n        product_catalog_df = aux_data['product_catalog_table.csv']\n        product_match = product_catalog_df[product_catalog_df['product_id'] == row['product_id']]\n        if not product_match.empty:\n            return product_match.iloc[0]['price']\n    \n    # If no discount was applied or no match was found, return 0\n    return 0\n"
+        },
+        "0.15892690574011678": {
+            "name": "calculate_days_difference",
+            "code": "import datetime\nimport numpy as np\n\ndef calculate_days_difference(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> float:\n    \"\"\"\n    Calculate the difference in days between the last purchase date and the current purchase date.\n\n    Args:\n        row (pd.Series): A row of the dataframe containing 'last_purchase_date' and 'purchase_date'.\n        aux_data (Dict[str, pd.DataFrame]): Auxiliary data (not used in this function but included for compatibility).\n\n    Returns:\n        float: The difference in days, or NaN if the dates are invalid.\n    \"\"\"\n    try:\n        # Extract the dates from the row\n        last_date = row['last_purchase_date']\n        current_date = row['purchase_date']\n        \n        # Convert the dates to datetime objects\n        last_date = datetime.datetime.strptime(last_date, '%Y-%m-%d')\n        current_date = datetime.datetime.strptime(current_date, '%Y-%m-%d')\n        \n        # Calculate the difference in days\n        return (current_date - last_date).days\n    except Exception as e:\n        # Return NaN if there is an error (e.g., invalid date format)\n        return np.nan\n"
+        },
+        "0.08985907956417509": {
+            "name": "premium_income_interaction",
+            "code": "\n\ndef premium_income_interaction(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the relevant dataframes from aux_data\n    product_catalog = aux_data['product_catalog_table.csv']\n    customer_demographics = aux_data['customer_demographics_table.csv']\n    \n    # Get the premium_indicator for the product_id in the current row\n    product_info = product_catalog[product_catalog['product_id'] == row['product_id']]\n    if product_info.empty:\n        raise ValueError(f\"Product ID {row['product_id']} not found in product_catalog_table.csv\")\n    premium_indicator = product_info.iloc[0]['premium_indicator']\n    \n    # Get the income_level for the customer_id in the current row\n    customer_info = customer_demographics[customer_demographics['customer_id'] == row['customer_id']]\n    if customer_info.empty:\n        raise ValueError(f\"Customer ID {row['customer_id']} not found in customer_demographics_table.csv\")\n    income_level = customer_info.iloc[0]['income_level']\n    \n    # Calculate and return the interaction\n    return premium_indicator * income_level\n"
+        },
+        "0.06417516710060034": {
+            "name": "income_category",
+            "code": "\n\ndef income_category(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Get the customer demographics dataframe\n    customer_demographics = aux_data['customer_demographics_table.csv']\n    \n    # Look up the income_level for the given customer_id\n    income_level = customer_demographics.loc[\n        customer_demographics['customer_id'] == customer_id, 'income_level'\n    ]\n    \n    # Check if income_level exists for the customer_id\n    if income_level.empty:\n        raise ValueError(f\"Customer ID {customer_id} not found in customer demographics data.\")\n    \n    # Extract the income_level value (assuming it's a single value)\n    income_level = income_level.iloc[0]\n    \n    # Categorize the income level\n    if income_level < 50000:\n        return 'Low'\n    elif income_level < 100000:\n        return 'Medium'\n    else:\n        return 'High'\n"
+        },
+        "0.014899037612606294": {
+            "name": "total_spending_per_category",
+            "code": "\n\ndef total_spending_per_category(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract customer_id and product_id from the row\n    customer_id = row['customer_id']\n    product_id = row['product_id']\n    \n    # Get the product catalog dataframe from aux_data\n    product_catalog = aux_data['product_catalog_table.csv']\n    \n    # Look up the category for the given product_id\n    category_row = product_catalog[product_catalog['product_id'] == product_id]\n    if category_row.empty:\n        # If the product_id is not found in the catalog, return 0\n        return 0\n    category = category_row.iloc[0]['category']\n    \n    # Merge df_train with product_catalog to bring the 'category' column into df_train\n    df_train_with_category = df_train.merge(\n        product_catalog[['product_id', 'category']],\n        on='product_id',\n        how='left'\n    )\n    \n    # Filter df_train_with_category for the given customer_id and category\n    customer_data = df_train_with_category[\n        (df_train_with_category['customer_id'] == customer_id) & \n        (df_train_with_category['category'] == category)\n    ]\n    \n    # Calculate and return the total spending\n    return customer_data['purchase_amount'].sum()\n"
+        },
+        "0.012529134881102596": {
+            "name": "purchase_month",
+            "code": "import datetime\nimport numpy as np\n\ndef purchase_month(row):\n    try:\n        return datetime.datetime.strptime(row['purchase_date'], '%Y-%m-%d').month\n    except:\n        return np.nan\n"
+        },
+        "-0.000684432515133615": {
+            "name": "price_category",
+            "code": "\n\ndef price_category(row, aux_data: Dict[str, pd.DataFrame]):\n    # Use 'purchase_amount' instead of 'price' since the dataframe has 'purchase_amount' column\n    if row['purchase_amount'] < 200:\n        return 'Low'\n    elif row['purchase_amount'] < 400:\n        return 'Medium'\n    else:\n        return 'High'\n"
+        },
+        "0": {
+            "name": "purchase_frequency_within_category",
+            "code": "\n\ndef purchase_frequency_within_category(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the necessary data from the row\n    customer_id = row['customer_id']\n    product_id = row['product_id']\n    \n    # Get the product catalog dataframe from aux_data\n    product_catalog = aux_data['product_catalog_table.csv']\n    \n    # Look up the category for the given product_id\n    if product_id not in product_catalog['product_id'].values:\n        raise ValueError(f\"Product ID {product_id} not found in product catalog.\")\n    \n    category = product_catalog.loc[product_catalog['product_id'] == product_id, 'category'].values[0]\n    \n    # Filter the training dataframe for the same customer and category\n    customer_data = df_train[(df_train['customer_id'] == customer_id) & \n                             (df_train['product_id'].isin(\n                                 product_catalog[product_catalog['category'] == category]['product_id']\n                             ))]\n    \n    # Return the count of purchases within the same category\n    return len(customer_data)\n"
+        }
+    },
+    "feature_descriptions": [
+        "discount price interaction",
+        "calculate days difference",
+        "premium income interaction",
+        "income category",
+        "total spending per category",
+        "purchase month",
+        "price category",
+        "purchase frequency within category"
+    ]
+}

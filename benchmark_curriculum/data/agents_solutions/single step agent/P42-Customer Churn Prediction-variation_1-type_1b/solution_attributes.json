@@ -1,0 +1,83 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "churn_rate",
+        "unresolved_tickets_count",
+        "avg_ticket_resolution_time",
+        "total_payments_count",
+        "resolved_tickets_percentage",
+        "call_drop_rate",
+        "avg_monthly_payment",
+        "total_call_duration",
+        "customer_age",
+        "total_data_usage",
+        "customer_tenure",
+        "total_sms_count"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "1.0": {
+            "name": "churn_rate",
+            "code": "\n\ndef churn_rate(group_data):\n    # Calculate the churn rate as the ratio of churned customers to total customers\n    churn_count = group_data[\"churn_flag\"].sum()\n    customer_count = len(group_data)\n    return churn_count / customer_count if customer_count > 0 else 0\n"
+        },
+        "0.4405803112826602": {
+            "name": "unresolved_tickets_count",
+            "code": "\n\ndef unresolved_tickets_count(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the support tickets dataframe using the correct key\n    tickets = aux_data[\"support_tickets_table.csv\"]\n    \n    # Filter tickets for the specific customer\n    customer_tickets = tickets[tickets[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Count tickets with resolution_status as \"Unresolved\" or \"In Progress\"\n    return len(customer_tickets[customer_tickets[\"resolution_status\"].isin([\"Unresolved\", \"In Progress\"])])\n"
+        },
+        "0.27711966440247493": {
+            "name": "avg_ticket_resolution_time",
+            "code": "\n\ndef avg_ticket_resolution_time(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the support tickets dataframe using the correct key\n    tickets = aux_data[\"support_tickets_table.csv\"]\n    \n    # Filter tickets for the given customer_id and resolved tickets\n    customer_tickets = tickets[\n        (tickets[\"customer_id\"] == row[\"customer_id\"]) & \n        (tickets[\"resolution_status\"] == \"Resolved\")\n    ]\n    \n    # If no resolved tickets exist, return 0\n    if len(customer_tickets) == 0:\n        return 0\n    \n    # Return the mean resolution time for the resolved tickets\n    return customer_tickets[\"resolution_time_days\"].mean()\n"
+        },
+        "0.15287828250982916": {
+            "name": "total_payments_count",
+            "code": "\n\ndef total_payments_count(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key to access the payment history dataframe\n    payment_data = aux_dataframes[\"payment_history_table.csv\"]\n    # Filter the payment data for the specific customer_id\n    customer_payments = payment_data[payment_data[\"customer_id\"] == row[\"customer_id\"]]\n    # Return the count of payments for the customer\n    return len(customer_payments)\n"
+        },
+        "0.1292621966198163": {
+            "name": "resolved_tickets_percentage",
+            "code": "\n\ndef resolved_tickets_percentage(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the support tickets dataframe using the correct key\n    tickets = aux_data[\"support_tickets_table.csv\"]\n    \n    # Filter tickets for the specific customer\n    customer_tickets = tickets[tickets[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # If the customer has no tickets, return 0\n    if len(customer_tickets) == 0:\n        return 0\n    \n    # Count the number of resolved tickets\n    resolved_count = len(customer_tickets[customer_tickets[\"resolution_status\"] == \"Resolved\"])\n    \n    # Calculate and return the percentage of resolved tickets\n    return resolved_count / len(customer_tickets)\n"
+        },
+        "0.07136435122297849": {
+            "name": "call_drop_rate",
+            "code": "\n\ndef call_drop_rate(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    # Access the correct key for the usage data\n    usage = aux_data[\"usage_data_table.csv\"]\n    \n    # Filter the usage data for the specific customer\n    customer_usage = usage[usage[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Calculate the total number of calls\n    total_calls = len(customer_usage)\n    \n    # If there are no calls, return 0\n    if total_calls == 0:\n        return 0\n    \n    # Calculate the total number of dropped calls\n    dropped_calls = customer_usage[\"call_dropped_count\"].sum()\n    \n    # Return the call drop rate\n    return dropped_calls / total_calls\n"
+        },
+        "0.0545474899209342": {
+            "name": "avg_monthly_payment",
+            "code": "import pandas as pd\nimport datetime\n\ndef avg_monthly_payment(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the filename in aux_dataframes\n    payment_data = aux_dataframes[\"payment_history_table.csv\"]\n    \n    # Filter payment data for the specific customer\n    customer_payments = payment_data[payment_data[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Calculate total amount paid by the customer\n    total_paid = customer_payments[\"amount_paid\"].sum()\n    \n    # Calculate tenure in months (approximation)\n    tenure_months = customer_tenure(row) / 30.0  # Approximation\n    \n    # Return average monthly payment, handling division by zero\n    return total_paid / tenure_months if tenure_months > 0 else 0\n\ndef customer_tenure(row):\n    signup_date = pd.to_datetime(row[\"signup_date\"])\n    current_date = datetime.now()\n    tenure_days = (current_date - signup_date).days\n    return tenure_days\n"
+        },
+        "0.04124284473237942": {
+            "name": "total_call_duration",
+            "code": "\n\ndef total_call_duration(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the usage data using the correct key\n    usage = aux_dataframes[\"usage_data_table.csv\"]\n    \n    # Filter the usage data for the specific customer_id\n    customer_usage = usage[usage[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Return the sum of call_duration_minutes for the customer\n    return customer_usage[\"call_duration_minutes\"].sum()\n"
+        },
+        "0.022975505122313365": {
+            "name": "customer_age",
+            "code": "import pandas as pd\nimport datetime\n\ndef customer_age(row):\n    birth_date = pd.to_datetime(row[\"date_of_birth\"])\n    current_date = datetime.now()\n    age = current_date.year - birth_date.year - ((current_date.month, current_date.day) < (birth_date.month, birth_date.day))\n    return age\n"
+        },
+        "0.01250887871096535": {
+            "name": "total_data_usage",
+            "code": "\n\ndef total_data_usage(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct key for the usage data\n    usage = aux_dataframes[\"usage_data_table.csv\"]\n    \n    # Filter the usage data for the specific customer_id\n    customer_usage = usage[usage[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Return the sum of the 'data_usage_gb' column for the filtered data\n    return customer_usage[\"data_usage_gb\"].sum()\n"
+        },
+        "0.00744198537094481": {
+            "name": "customer_tenure",
+            "code": "import pandas as pd\nimport datetime\n\ndef customer_tenure(row):\n    signup_date = pd.to_datetime(row[\"signup_date\"])\n    current_date = datetime.now()\n    tenure_days = (current_date - signup_date).days\n    return tenure_days\n"
+        },
+        "0.003482890209859562": {
+            "name": "total_sms_count",
+            "code": "\n\ndef total_sms_count(row, df_train, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct key for the usage data\n    usage = aux_dataframes[\"usage_data_table.csv\"]\n    \n    # Filter the usage data for the specific customer_id\n    customer_usage = usage[usage[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Return the sum of the 'sms_count' column for the filtered data\n    return customer_usage[\"sms_count\"].sum()\n"
+        }
+    },
+    "feature_descriptions": [
+        "churn rate",
+        "unresolved tickets count",
+        "avg ticket resolution time",
+        "total payments count",
+        "resolved tickets percentage",
+        "call drop rate",
+        "avg monthly payment",
+        "total call duration",
+        "customer age",
+        "total data usage",
+        "customer tenure",
+        "total sms count"
+    ]
+}

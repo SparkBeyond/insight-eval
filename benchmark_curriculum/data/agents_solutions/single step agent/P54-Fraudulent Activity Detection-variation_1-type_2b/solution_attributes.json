@@ -1,0 +1,59 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "transaction_count",
+        "interaction_count",
+        "avg_transaction_amount",
+        "resolved_interaction_ratio",
+        "transaction_frequency",
+        "median_transaction_amount",
+        "avg_resolution_time",
+        "payment_defaults_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.26434238776392044": {
+            "name": "transaction_count",
+            "code": "\n\ndef transaction_count(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> int:\n    \"\"\"\n    This function calculates the number of transactions for a given customer.\n\n    Args:\n        row (pd.Series): A row from the dataframe containing the 'customer_id'.\n        aux_dataframes (Dict[str, pd.DataFrame]): A dictionary mapping filenames to dataframes.\n\n    Returns:\n        int: The number of transactions for the given customer.\n    \"\"\"\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Get the transactions dataframe from the aux_dataframes dictionary\n    transactions = aux_dataframes.get('customer_transactions_table.csv')\n    \n    # Ensure the transactions dataframe is not None and has the expected columns\n    if transactions is None or 'customer_id' not in transactions.columns:\n        raise ValueError(\"The transactions dataframe is missing or does not have the required columns.\")\n    \n    # Filter the transactions dataframe for the given customer_id and return the count\n    return len(transactions[transactions['customer_id'] == customer_id])\n"
+        },
+        "0.1512646429075798": {
+            "name": "interaction_count",
+            "code": "\n\ndef interaction_count(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> int:\n    \"\"\"\n    This function calculates the number of support interactions for a given customer.\n\n    Args:\n        row (pd.Series): A row from the dataframe containing the 'customer_id'.\n        aux_data (Dict[str, pd.DataFrame]): A dictionary mapping filenames to dataframes.\n\n    Returns:\n        int: The number of support interactions for the given customer.\n    \"\"\"\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Retrieve the support interactions dataframe from aux_data\n    interactions = aux_data.get('support_interactions_table.csv')\n    \n    # Check if the dataframe exists and is not None\n    if interactions is None:\n        raise ValueError(\"The 'support_interactions_table.csv' dataframe is missing in aux_data.\")\n    \n    # Ensure the column 'customer_id' exists in the interactions dataframe\n    if 'customer_id' not in interactions.columns:\n        raise ValueError(\"The 'customer_id' column is missing in the 'support_interactions_table.csv' dataframe.\")\n    \n    # Filter the interactions for the given customer_id and return the count\n    return len(interactions[interactions['customer_id'] == customer_id])\n"
+        },
+        "0.12361345001303281": {
+            "name": "avg_transaction_amount",
+            "code": "\n\ndef avg_transaction_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    transactions = aux_data['customer_transactions_table.csv']\n    # Filter transactions for the given customer_id\n    customer_trans = transactions[transactions['customer_id'] == customer_id]\n    # Return the mean of the 'transaction_amount' column\n    if not customer_trans.empty:\n        return customer_trans['transaction_amount'].mean()\n    else:\n        return 0  # Return 0 if there are no transactions for the customer\n"
+        },
+        "0.041981042544907886": {
+            "name": "resolved_interaction_ratio",
+            "code": "\n\ndef resolved_interaction_ratio(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> float:\n    \"\"\"\n    Calculate the resolved interaction ratio for a given customer.\n\n    Args:\n        row (pd.Series): A row from the dataframe containing the 'customer_id'.\n        aux_dataframes (Dict[str, pd.DataFrame]): A dictionary of auxiliary dataframes, \n                                                  including 'support_interactions_table.csv'.\n\n    Returns:\n        float: The ratio of resolved interactions to total interactions for the customer.\n    \"\"\"\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Get the support interactions dataframe from aux_dataframes\n    interactions = aux_dataframes['support_interactions_table.csv']\n    \n    # Filter interactions for the given customer_id\n    customer_interactions = interactions[interactions['customer_id'] == customer_id]\n    \n    # Calculate total interactions and resolved interactions\n    total_interactions = len(customer_interactions)\n    resolved_interactions = len(customer_interactions[customer_interactions['issue_resolved'] == 1])\n    \n    # Avoid division by zero\n    if total_interactions == 0:\n        return 0.0\n    \n    # Calculate and return the resolved interaction ratio\n    return resolved_interactions / total_interactions\n"
+        },
+        "0.023959777203293786": {
+            "name": "transaction_frequency",
+            "code": "import pandas as pd\n\ndef transaction_frequency(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> float:\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Get the transactions dataframe from aux_data\n    transactions = aux_data['customer_transactions_table.csv']\n    \n    # Ensure 'transaction_date' is in datetime format\n    transactions['transaction_date'] = pd.to_datetime(transactions['transaction_date'])\n    \n    # Filter transactions for the given customer_id\n    customer_trans = transactions[transactions['customer_id'] == customer_id]\n    \n    # If the customer has fewer than 2 transactions, return 0\n    if len(customer_trans) < 2:\n        return 0.0\n    \n    # Calculate the range of days between the earliest and latest transaction\n    days_range = (customer_trans['transaction_date'].max() - customer_trans['transaction_date'].min()).days\n    \n    # Calculate and return the transaction frequency\n    return len(customer_trans) / (days_range / 30) if days_range > 0 else 0.0\n"
+        },
+        "0.023167162543768088": {
+            "name": "median_transaction_amount",
+            "code": "\n\ndef median_transaction_amount(row, aux_data: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    # Access the transactions dataframe from aux_data\n    transactions = aux_data['customer_transactions_table.csv']\n    # Filter transactions for the given customer_id\n    customer_trans = transactions[transactions['customer_id'] == customer_id]\n    # Return the median of the 'transaction_amount' column\n    if not customer_trans.empty:\n        return customer_trans['transaction_amount'].median()\n    else:\n        return None  # Return None if there are no transactions for the customer\n"
+        },
+        "0.017086031096202058": {
+            "name": "avg_resolution_time",
+            "code": "\n\ndef avg_resolution_time(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    interactions = aux_dataframes['support_interactions_table.csv']\n    \n    # Ensure the required columns exist in the dataframe\n    required_columns = {'customer_id', 'issue_resolved', 'response_time'}\n    if not required_columns.issubset(interactions.columns):\n        raise ValueError(f\"The dataframe 'support_interactions_table.csv' must contain the columns: {required_columns}\")\n    \n    # Filter interactions for the given customer_id and resolved issues\n    resolved_interactions = interactions[\n        (interactions['customer_id'] == customer_id) & \n        (interactions['issue_resolved'] == 1)\n    ]\n    \n    # Calculate and return the mean resolution time\n    if not resolved_interactions.empty:\n        return resolved_interactions['response_time'].mean()\n    else:\n        return None  # Return None if there are no resolved interactions\n"
+        },
+        "0": {
+            "name": "payment_defaults_ratio",
+            "code": "\n\ndef payment_defaults_ratio(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> float:\n    \"\"\"\n    Calculate the ratio of defaulted payments for a given customer.\n\n    Args:\n        row (pd.Series): A row from the dataframe containing the 'customer_id'.\n        aux_dataframes (Dict[str, pd.DataFrame]): A dictionary mapping filenames to dataframes.\n\n    Returns:\n        float: The ratio of defaulted payments for the customer.\n    \"\"\"\n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Get the payment history dataframe from aux_dataframes\n    payments = aux_dataframes.get('payment_history_table.csv')\n    \n    # Check if the payment history dataframe exists\n    if payments is None:\n        raise ValueError(\"The 'payment_history_table.csv' dataframe is missing from aux_dataframes.\")\n    \n    # Filter payments for the given customer\n    customer_payments = payments[payments['customer_id'] == customer_id]\n    \n    # Check if there are any payments for the customer\n    if customer_payments.empty:\n        return 0.0  # Return 0 if no payments exist for the customer\n    \n    # Calculate the ratio of defaulted payments\n    defaulted_count = (customer_payments['status'] == 'defaulted').sum()\n    total_payments = len(customer_payments)\n    \n    return defaulted_count / total_payments\n"
+        }
+    },
+    "feature_descriptions": [
+        "transaction count",
+        "interaction count",
+        "avg transaction amount",
+        "resolved interaction ratio",
+        "transaction frequency",
+        "median transaction amount",
+        "avg resolution time",
+        "payment defaults ratio"
+    ]
+}

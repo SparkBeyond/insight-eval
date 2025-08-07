@@ -1,0 +1,47 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "extract_year",
+        "is_weekend",
+        "extract_day_of_week",
+        "normalize_energy",
+        "extract_month",
+        "energy_bins"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.045424750349130356": {
+            "name": "extract_year",
+            "code": "import datetime\n\ndef extract_year(row):\n       return datetime.datetime.strptime(row['billing_date'], '%Y-%m-%d').year\n"
+        },
+        "0.022941604221912226": {
+            "name": "is_weekend",
+            "code": "import datetime\n\ndef is_weekend(row):\n       return 1 if extract_day_of_week(row) in [5, 6] else 0\n\ndef extract_day_of_week(row):\n       return datetime.datetime.strptime(row['billing_date'], '%Y-%m-%d').weekday()\n"
+        },
+        "0.015777989529424285": {
+            "name": "extract_day_of_week",
+            "code": "import datetime\n\ndef extract_day_of_week(row):\n       return datetime.datetime.strptime(row['billing_date'], '%Y-%m-%d').weekday()\n"
+        },
+        "0.004606532474788222": {
+            "name": "normalize_energy",
+            "code": "\n\ndef normalize_energy(row, df_train):\n       mean_energy = df_train['energy_consumed_kwh'].mean()\n       std_energy = df_train['energy_consumed_kwh'].std()\n       return (row['energy_consumed_kwh'] - mean_energy) / std_energy\n"
+        },
+        "0.00399494613150558": {
+            "name": "extract_month",
+            "code": "import datetime\n\ndef extract_month(row):\n       return datetime.datetime.strptime(row['billing_date'], '%Y-%m-%d').month\n"
+        },
+        "-0.0005789866279806155": {
+            "name": "energy_bins",
+            "code": "\n\ndef energy_bins(row, df_train):\n       q1, q2, q3 = df_train['energy_consumed_kwh'].quantile([0.25, 0.5, 0.75])\n       if row['energy_consumed_kwh'] <= q1:\n           return 'Low'\n       elif q1 < row['energy_consumed_kwh'] <= q3:\n           return 'Medium'\n       else:\n           return 'High'\n"
+        }
+    },
+    "feature_descriptions": [
+        "extract year",
+        "is weekend",
+        "extract day of week",
+        "normalize energy",
+        "extract month",
+        "energy bins"
+    ]
+}

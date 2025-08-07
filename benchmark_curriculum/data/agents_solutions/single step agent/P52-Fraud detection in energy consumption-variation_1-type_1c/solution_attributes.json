@@ -1,0 +1,17 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "energy_slack"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0": {
+            "name": "energy_slack",
+            "code": "\n\ndef energy_slack(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the energy device data table\n    device_data = aux_dataframes['energy_device_data_table.csv']\n    \n    # Filter the data for the specific consumer_id\n    consumer_devices = device_data[device_data['consumer_id'] == row['consumer_id']]['reported_efficiency']\n    \n    # Check if there are any devices for the consumer\n    if consumer_devices.empty:\n        return 0  # Return 0 if no devices are found for the consumer\n    \n    # Calculate the energy slack\n    return consumer_devices.max() - consumer_devices.min()\n"
+        }
+    },
+    "feature_descriptions": [
+        "energy slack"
+    ]
+}

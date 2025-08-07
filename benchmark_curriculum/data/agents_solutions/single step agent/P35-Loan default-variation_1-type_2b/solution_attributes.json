@@ -1,0 +1,155 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "total_payments_made",
+        "num_loans",
+        "total_loan_amount",
+        "historical_loan_burden",
+        "debt_to_income_ratio",
+        "large_loan_flag",
+        "high_interest_flag",
+        "payment_history_score",
+        "loan_term_years",
+        "late_payment_ratio",
+        "loan_tenure_remaining",
+        "gender_bias_default",
+        "missed_payment_ratio",
+        "credit_risk_flag",
+        "state_popularity",
+        "interest_burden",
+        "income_percentile",
+        "employment_impact_on_defaults",
+        "avg_loan_amount",
+        "income_to_loan_ratio",
+        "customer_age",
+        "credit_score_category",
+        "default_rate_by_state",
+        "loan_start_month"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.6411458467288067": {
+            "name": "total_payments_made",
+            "code": "import pandas as pd\n\ndef total_payments_made(row, aux_data: Dict[str, pd.DataFrame]):\n    # Retrieve the loans_table dataframe from aux_data\n    loans_table = aux_data.get('loans_table.csv')\n    \n    if loans_table is None:\n        raise ValueError(\"The 'loans_table.csv' dataframe is missing from aux_data.\")\n    \n    # Find the loan(s) associated with the customer_id in the row\n    customer_loans = loans_table[loans_table['customer_id'] == row['customer_id']]\n    \n    if customer_loans.empty:\n        return None  # No loans found for this customer\n    \n    # Iterate through the loans and calculate the total payments made\n    total_payments = 0\n    for _, loan in customer_loans.iterrows():\n        if pd.isna(loan['payment_history']):\n            continue\n        history = eval(loan['payment_history'])\n        total_payments += len(history)\n    \n    return total_payments\n"
+        },
+        "0.5763244367876487": {
+            "name": "num_loans",
+            "code": "import pandas as pd\n\ndef get_aux_loan_data(aux_dataframes):\n    \"\"\"\n    Retrieves and pre-processes auxiliary loan data, returning a cleaned dataframe.\n    \"\"\"\n    loan_data = aux_dataframes['loans_table.csv']\n    loan_data['loan_start_date'] = pd.to_datetime(loan_data['loan_start_date'])\n    return loan_data\n\ndef num_loans(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Number of loans taken out by a customer (auxiliary data).\n    \"\"\"\n    aux_loans = get_aux_loan_data(aux_dataframes)\n    customer_id = row['customer_id']\n    if pd.isna(customer_id):\n        return None\n    customer_loans = aux_loans[aux_loans['customer_id'] == customer_id]\n    return len(customer_loans) if not customer_loans.empty else 0\n"
+        },
+        "0.5087193659847932": {
+            "name": "total_loan_amount",
+            "code": "import pandas as pd\n\ndef get_aux_loan_data(aux_dataframes):\n    \"\"\"\n    Retrieves and pre-processes auxiliary loan data, returning a cleaned dataframe.\n    \"\"\"\n    loan_data = aux_dataframes['loans_table.csv']\n    loan_data['loan_start_date'] = pd.to_datetime(loan_data['loan_start_date'])\n    return loan_data\n\ndef total_loan_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Total loans taken out by a customer (aggregated from auxiliary loan dataset).\n    \"\"\"\n    aux_loans = get_aux_loan_data(aux_dataframes)\n    customer_id = row['customer_id']\n    if pd.isna(customer_id):\n        return None\n    customer_loans = aux_loans[aux_loans['customer_id'] == customer_id]\n    return customer_loans['loan_amount'].sum() if not customer_loans.empty else 0\n"
+        },
+        "0.5019031662071122": {
+            "name": "historical_loan_burden",
+            "code": "import pandas as pd\n\ndef historical_loan_burden(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculates historical loan burden as sum of all payments required for a customer from auxiliary data.\n    \"\"\"\n    aux_loans = get_aux_loan_data(aux_dataframes)\n    customer_id = row['customer_id']\n    if pd.isna(customer_id):\n        return None\n    customer_loans = aux_loans[aux_loans['customer_id'] == customer_id]\n    return (customer_loans['loan_amount'] * (1 + customer_loans['interest_rate'] / 100.0)).sum() if not customer_loans.empty else None\n\ndef get_aux_loan_data(aux_dataframes):\n    \"\"\"\n    Retrieves and pre-processes auxiliary loan data, returning a cleaned dataframe.\n    \"\"\"\n    loan_data = aux_dataframes['loans_table.csv']\n    loan_data['loan_start_date'] = pd.to_datetime(loan_data['loan_start_date'])\n    return loan_data\n"
+        },
+        "0.30823973434579083": {
+            "name": "debt_to_income_ratio",
+            "code": "import pandas as pd\n\ndef debt_to_income_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the loans_table dataframe from aux_data\n    loans_table = aux_data.get('loans_table.csv')\n    \n    if loans_table is None:\n        raise ValueError(\"The 'loans_table.csv' file is missing from aux_data.\")\n    \n    # Find the loan amount for the given customer_id\n    customer_loans = loans_table[loans_table['customer_id'] == row['customer_id']]\n    \n    if customer_loans.empty:\n        # If no loans are found for the customer, return None\n        return None\n    \n    # Sum up all loan amounts for the customer\n    total_loan_amount = customer_loans['loan_amount'].sum()\n    \n    # Check if annual_income is valid\n    if pd.isna(row['annual_income']) or row['annual_income'] == 0:\n        return None\n    \n    # Calculate and return the debt-to-income ratio\n    return total_loan_amount / row['annual_income']\n"
+        },
+        "0.24804313016161994": {
+            "name": "large_loan_flag",
+            "code": "\n\ndef large_loan_flag(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the loans_table.csv dataframe from aux_data\n    loans_df = aux_data['loans_table.csv']\n    \n    # Calculate the 75th percentile (loan threshold) for loan_amount\n    loan_threshold = loans_df['loan_amount'].quantile(0.75)\n    \n    # Find the loan amount for the current customer_id in the loans dataframe\n    customer_loans = loans_df[loans_df['customer_id'] == row['customer_id']]\n    \n    # If the customer has no loans, return 0\n    if customer_loans.empty:\n        return 0\n    \n    # Check if any of the customer's loans exceed the threshold\n    return 1 if (customer_loans['loan_amount'] > loan_threshold).any() else 0\n"
+        },
+        "0.16184666769246991": {
+            "name": "high_interest_flag",
+            "code": "\n\ndef high_interest_flag(row, aux_data: Dict[str, pd.DataFrame], threshold=10.0):\n    # Ensure we are working with the correct dataframe\n    loans_df = aux_data.get('loans_table.csv')\n    if loans_df is None:\n        raise ValueError(\"The 'loans_table.csv' dataframe is missing from aux_data.\")\n    \n    # Find the loan associated with the customer_id in the row\n    customer_loans = loans_df[loans_df['customer_id'] == row['customer_id']]\n    if customer_loans.empty:\n        raise ValueError(f\"No loans found for customer_id {row['customer_id']}.\")\n    \n    # Check if any of the customer's loans have an interest rate above the threshold\n    return 1 if (customer_loans['interest_rate'] > threshold).any() else 0\n"
+        },
+        "0.13323114262496866": {
+            "name": "payment_history_score",
+            "code": "import pandas as pd\n\ndef payment_history_score(row, aux_data: Dict[str, pd.DataFrame]):\n    # Retrieve the loans_table dataframe from aux_data\n    loans_table = aux_data.get('loans_table.csv')\n    \n    if loans_table is None:\n        raise ValueError(\"The 'loans_table.csv' dataframe is missing from aux_data.\")\n    \n    # Find the payment history for the given customer_id\n    customer_loans = loans_table[loans_table['customer_id'] == row['customer_id']]\n    \n    if customer_loans.empty:\n        return None  # No loans found for this customer\n    \n    # Assuming we are scoring based on the first loan's payment history\n    payment_history = customer_loans.iloc[0]['payment_history']\n    \n    if pd.isna(payment_history):\n        return None  # No payment history available\n    \n    # Evaluate the payment history string into a list\n    history = eval(payment_history)\n    on_time = history.count('On-time')\n    late = history.count('Late')\n    missed = history.count('Missed')\n    \n    # Calculate the score\n    return on_time - (late * 2) - (missed * 3)\n"
+        },
+        "0.11210141556346111": {
+            "name": "loan_term_years",
+            "code": "\n\ndef loan_term_years(row, aux_data: Dict[str, pd.DataFrame]):\n    # Find the loan information for the given customer_id\n    loans_df = aux_data['loans_table.csv']\n    \n    # Match the customer_id in the loans dataframe\n    loan_info = loans_df[loans_df['customer_id'] == row['customer_id']]\n    \n    # Ensure there is a matching loan record\n    if not loan_info.empty:\n        # Extract the loan_term and calculate the loan term in years\n        loan_term = loan_info.iloc[0]['loan_term']\n        return loan_term / 12\n    else:\n        # Return None if no matching loan record is found\n        return None\n"
+        },
+        "0.1106191729421585": {
+            "name": "late_payment_ratio",
+            "code": "\n\ndef late_payment_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Retrieve the loans_table dataframe from aux_data\n    loans_table = aux_data.get('loans_table.csv')\n    \n    if loans_table is None:\n        raise ValueError(\"The 'loans_table.csv' dataframe is missing from aux_data.\")\n    \n    # Find the payment history for the given customer_id\n    customer_id = row['customer_id']\n    customer_loans = loans_table[loans_table['customer_id'] == customer_id]\n    \n    if customer_loans.empty:\n        return None  # No loans found for this customer\n    \n    # Assuming we calculate the late payment ratio across all loans for the customer\n    all_payment_histories = customer_loans['payment_history'].dropna()\n    \n    if all_payment_histories.empty:\n        return None  # No payment history available\n    \n    # Combine all payment histories into a single list\n    combined_history = []\n    for history in all_payment_histories:\n        combined_history.extend(eval(history))  # Convert string representation of list to actual list\n    \n    # Calculate the late payment ratio\n    late = combined_history.count('Late')\n    total = len(combined_history)\n    \n    return late / total if total > 0 else None\n"
+        },
+        "0.09748199243876766": {
+            "name": "loan_tenure_remaining",
+            "code": "import pandas as pd\nimport datetime\n\ndef get_aux_loan_data(aux_dataframes):\n    \"\"\"\n    Retrieves and pre-processes auxiliary loan data, returning a cleaned dataframe.\n    \"\"\"\n    loan_data = aux_dataframes['loans_table.csv']\n    loan_data['loan_start_date'] = pd.to_datetime(loan_data['loan_start_date'])\n    return loan_data\n\ndef loan_tenure_remaining(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculates loan tenure remaining based on auxiliary data loan start date and term.\n    \"\"\"\n    aux_loans = get_aux_loan_data(aux_dataframes)\n    customer_id = row['customer_id']\n    if pd.isna(customer_id):\n        return None\n    customer_loans = aux_loans[aux_loans['customer_id'] == customer_id]\n    if customer_loans.empty:\n        return None\n    loan = customer_loans.iloc[0]\n    end_date = loan['loan_start_date'] + pd.DateOffset(months=loan['loan_term'])\n    remaining_tenure = max((end_date - datetime.now()).days // 30, 0)\n    return remaining_tenure\n"
+        },
+        "0.04244574411911858": {
+            "name": "gender_bias_default",
+            "code": "import pandas as pd\n\ndef gender_bias_default(row, df_train):\n    \"\"\"\n    Calculate the mean loan default rate for the given gender, excluding the current row\n    to prevent target leakage.\n    \n    Args:\n        row (pd.Series): The current row being processed.\n        df_train (pd.DataFrame): The training dataset.\n    \n    Returns:\n        float: The mean loan default rate for the given gender, or None if not calculable.\n    \"\"\"\n    gender = row['gender']\n    \n    # Handle missing gender\n    if pd.isna(gender):\n        return None\n    \n    # Exclude the current row to prevent target leakage\n    df_filtered = df_train[df_train['gender'] == gender]\n    df_filtered = df_filtered[df_filtered['customer_id'] != row['customer_id']]\n    \n    # If no data is available for the gender, return None\n    if df_filtered.empty:\n        return None\n    \n    # Calculate and return the mean loan default rate for the gender\n    return df_filtered['loan_default'].mean()\n"
+        },
+        "0.038556168105383364": {
+            "name": "missed_payment_ratio",
+            "code": "import pandas as pd\n\ndef missed_payment_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Get the loans_table dataframe from aux_data\n    loans_table = aux_data.get('loans_table.csv')\n    \n    if loans_table is None:\n        raise ValueError(\"The 'loans_table.csv' dataframe is missing from aux_data.\")\n    \n    # Find the loan(s) associated with the customer_id in the current row\n    customer_loans = loans_table[loans_table['customer_id'] == row['customer_id']]\n    \n    if customer_loans.empty:\n        return None  # No loans found for this customer\n    \n    # Iterate through the loans and calculate the missed payment ratio\n    total_missed = 0\n    total_payments = 0\n    \n    for _, loan in customer_loans.iterrows():\n        if pd.isna(loan['payment_history']):\n            continue  # Skip loans with no payment history\n        \n        # Evaluate the payment history string into a list\n        history = eval(loan['payment_history'])\n        missed = history.count('Missed')\n        total = len(history)\n        \n        total_missed += missed\n        total_payments += total\n    \n    # Calculate the overall missed payment ratio for the customer\n    return total_missed / total_payments if total_payments > 0 else None\n"
+        },
+        "0.032232261420150884": {
+            "name": "credit_risk_flag",
+            "code": "import pandas as pd\n\ndef credit_risk_flag(row, threshold=650):\n    if pd.isna(row['credit_score']):\n        return None\n    return 1 if row['credit_score'] < threshold else 0\n"
+        },
+        "0.03139304962928449": {
+            "name": "state_popularity",
+            "code": "import pandas as pd\n\ndef state_popularity(row, df_train):\n    state = row['state']\n    if pd.isna(state):\n        return None\n    return (df_train['state'] == state).sum()\n"
+        },
+        "0.020466295030966822": {
+            "name": "interest_burden",
+            "code": "\n\ndef interest_burden(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the loans_table.csv dataframe from aux_data\n    loans_df = aux_data['loans_table.csv']\n    \n    # Find the loan details for the given customer_id\n    loan_details = loans_df[loans_df['customer_id'] == row['customer_id']]\n    \n    # If no loan details are found, return 0 as the interest burden\n    if loan_details.empty:\n        return 0\n    \n    # Calculate the interest burden for the first matching loan\n    loan_amount = loan_details.iloc[0]['loan_amount']\n    interest_rate = loan_details.iloc[0]['interest_rate']\n    return loan_amount * (interest_rate / 100.0)\n"
+        },
+        "0.013022712978102603": {
+            "name": "income_percentile",
+            "code": "import pandas as pd\n\ndef income_percentile(row, df_train):\n    if pd.isna(row['annual_income']):\n        return None\n    return (df_train['annual_income'] < row['annual_income']).mean()\n"
+        },
+        "0.011052914890984587": {
+            "name": "employment_impact_on_defaults",
+            "code": "import pandas as pd\n\ndef employment_impact_on_defaults(row, df_train):\n    \"\"\"\n    Calculate the mean loan default rate for the given employment status,\n    excluding the current row to prevent target leakage.\n    \n    Parameters:\n    - row: A single row of the dataframe being processed.\n    - df_train: The training dataframe used for calculating the mean default rate.\n    \n    Returns:\n    - The mean loan default rate for the given employment status, or None if not applicable.\n    \"\"\"\n    employment_status = row['employment_status']\n    \n    # Handle missing employment status\n    if pd.isna(employment_status):\n        return None\n    \n    # Filter the training data to exclude the current row\n    filtered_df = df_train[df_train['employment_status'] == employment_status]\n    filtered_df = filtered_df[filtered_df['customer_id'] != row['customer_id']]\n    \n    # If no data is available for the employment status, return None\n    if filtered_df.empty:\n        return None\n    \n    # Calculate and return the mean loan default rate\n    return filtered_df['loan_default'].mean()\n"
+        },
+        "0.007941695533759487": {
+            "name": "avg_loan_amount",
+            "code": "import pandas as pd\n\ndef avg_loan_amount(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Average loan amount by a customer (derived from auxiliary loan dataset).\n    \"\"\"\n    aux_loans = get_aux_loan_data(aux_dataframes)\n    customer_id = row['customer_id']\n    if pd.isna(customer_id):\n        return None\n    customer_loans = aux_loans[aux_loans['customer_id'] == customer_id]\n    return customer_loans['loan_amount'].mean() if not customer_loans.empty else None\n\ndef get_aux_loan_data(aux_dataframes):\n    \"\"\"\n    Retrieves and pre-processes auxiliary loan data, returning a cleaned dataframe.\n    \"\"\"\n    loan_data = aux_dataframes['loans_table.csv']\n    loan_data['loan_start_date'] = pd.to_datetime(loan_data['loan_start_date'])\n    return loan_data\n"
+        },
+        "0.004765349968020872": {
+            "name": "income_to_loan_ratio",
+            "code": "import pandas as pd\n\ndef income_to_loan_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Get the loans_table dataframe from aux_data\n    loans_table = aux_data.get('loans_table.csv')\n    \n    if loans_table is None:\n        # If the loans_table is not provided, return None\n        return None\n    \n    # Find the loan information for the given customer_id\n    customer_loans = loans_table[loans_table['customer_id'] == row['customer_id']]\n    \n    if customer_loans.empty:\n        # If no loan information is found for the customer, return None\n        return None\n    \n    # Assuming we are calculating the ratio for the first loan (if multiple loans exist)\n    loan_amount = customer_loans.iloc[0]['loan_amount']\n    \n    # Check for invalid loan_amount or annual_income\n    if pd.isna(row['annual_income']) or loan_amount == 0:\n        return None\n    \n    # Calculate and return the income-to-loan ratio\n    return row['annual_income'] / loan_amount\n"
+        },
+        "0.0019224753413148886": {
+            "name": "customer_age",
+            "code": "import pandas as pd\nimport datetime\n\ndef customer_age(row):\n    if pd.isna(row['date_of_birth']):\n        return None\n    birth_date = datetime.strptime(row['date_of_birth'], '%Y-%m-%d')\n    age = (datetime.now() - birth_date).days // 365\n    return age\n"
+        },
+        "0.0015947621712660842": {
+            "name": "credit_score_category",
+            "code": "import pandas as pd\n\ndef credit_score_category(row):\n    if pd.isna(row['credit_score']):\n        return None\n    if row['credit_score'] < 600:\n        return \"low\"\n    elif row['credit_score'] < 750:\n        return \"medium\"\n    else:\n        return \"high\"\n"
+        },
+        "0.0002035064504974129": {
+            "name": "default_rate_by_state",
+            "code": "import pandas as pd\n\ndef default_rate_by_state(row, df_train):\n    \"\"\"\n    Calculate the default rate for a given state, excluding the current row to prevent target leakage.\n    Also ensures no future data is used in the calculation.\n    \n    Parameters:\n    - row: The current row of the dataframe.\n    - df_train: The training dataframe containing historical data.\n    \n    Returns:\n    - The default rate for the state, or None if the state is missing or has no historical data.\n    \"\"\"\n    state = row['state']\n    if pd.isna(state):\n        return None\n    \n    # Filter the training data to exclude the current row and ensure no future data is used\n    historical_data = df_train[(df_train['state'] == state) & (df_train['customer_id'] != row['customer_id'])]\n    \n    # If the historical data is empty, return None\n    if historical_data.empty:\n        return None\n    \n    # Calculate and return the mean default rate for the state\n    return historical_data['loan_default'].mean()\n"
+        },
+        "0": {
+            "name": "loan_start_month",
+            "code": "import datetime\n\ndef loan_start_month(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the loans_table.csv dataframe from aux_data\n    loans_df = aux_data['loans_table.csv']\n    \n    # Find the loan_start_date for the given customer_id\n    customer_id = row['customer_id']\n    loan_row = loans_df[loans_df['customer_id'] == customer_id]\n    \n    # Ensure there is a matching loan record\n    if loan_row.empty:\n        raise ValueError(f\"No loan record found for customer_id {customer_id}\")\n    \n    # Extract the loan_start_date and parse it\n    loan_start_date = loan_row.iloc[0]['loan_start_date']\n    start_date = datetime.datetime.strptime(loan_start_date, '%Y-%m-%d')\n    \n    # Return the month\n    return start_date.month\n"
+        }
+    },
+    "feature_descriptions": [
+        "total payments made",
+        "num loans",
+        "total loan amount",
+        "historical loan burden",
+        "debt to income ratio",
+        "large loan flag",
+        "high interest flag",
+        "payment history score",
+        "loan term years",
+        "late payment ratio",
+        "loan tenure remaining",
+        "gender bias default",
+        "missed payment ratio",
+        "credit risk flag",
+        "state popularity",
+        "interest burden",
+        "income percentile",
+        "employment impact on defaults",
+        "avg loan amount",
+        "income to loan ratio",
+        "customer age",
+        "credit score category",
+        "default rate by state",
+        "loan start month"
+    ]
+}

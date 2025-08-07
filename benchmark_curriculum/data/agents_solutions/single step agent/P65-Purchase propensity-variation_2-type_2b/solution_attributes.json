@@ -1,0 +1,65 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "avg_time_spent_on_page",
+        "total_spending",
+        "high_demand_search_proportion",
+        "days_since_last_transaction_fixed",
+        "days_since_last_promotion_response_fixed",
+        "gender_promotion_count",
+        "logins_to_session_ratio",
+        "income_bracket_spending_avg",
+        "total_transactions"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.14782719040709227": {
+            "name": "avg_time_spent_on_page",
+            "code": "\n\ndef avg_time_spent_on_page(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    \n    # Correct key for the page activity dataframe\n    page_activity_df = aux_dataframes['page_activity_table.csv']\n    \n    # Filter the dataframe for the specific customer_id\n    customer_activity = page_activity_df[page_activity_df['customer_id'] == customer_id]\n    \n    # Return the average time spent on the page or 0 if no activity is found\n    return 0 if customer_activity.empty else customer_activity['time_spent_on_page'].mean()\n"
+        },
+        "0.13588117722972765": {
+            "name": "total_spending",
+            "code": "\n\ndef total_spending(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    # Use the correct dataframe for transaction data\n    transaction_history_df = aux_dataframes['transaction_history_table.csv']\n    # Calculate the total spending for the given customer_id\n    total_amount = transaction_history_df[transaction_history_df['customer_id'] == customer_id]['transaction_amount'].sum()\n    return total_amount\n"
+        },
+        "0.07708217803718496": {
+            "name": "high_demand_search_proportion",
+            "code": "\n\ndef high_demand_search_proportion(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the transaction history table\n    transaction_history_df = aux_dataframes['transaction_history_table.csv']\n    \n    # Extract the customer_id from the row\n    customer_id = row['customer_id']\n    \n    # Filter the transaction history for the specific customer\n    customer_data = transaction_history_df[transaction_history_df['customer_id'] == customer_id]\n    \n    # Check if the filtered data is empty and return 0 if it is\n    if customer_data.empty:\n        return 0\n    \n    # The column 'search_activity_in_high_demand_categories_compared_to_overall_categories'\n    # is not in the transaction history table. Instead, it is in the main dataframe (df_train).\n    # We will directly return the value from the row for this column.\n    if 'search_activity_in_high_demand_categories_compared_to_overall_categories' in row:\n        return float(row['search_activity_in_high_demand_categories_compared_to_overall_categories'])\n    \n    # If the column is not found in the row, return 0 as a fallback\n    return 0\n"
+        },
+        "0.04769549859585602": {
+            "name": "days_since_last_transaction_fixed",
+            "code": "import pandas as pd\n\ndef days_since_last_transaction_fixed(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    # Use 'last_login_date' instead of 'search_date' based on the provided dataframe\n    search_date = pd.to_datetime(row['last_login_date'])\n    \n    # Access the transaction history table from aux_dataframes\n    transaction_history_df = aux_dataframes['transaction_history_table.csv']\n    \n    # Filter transactions for the given customer_id\n    customer_trans = transaction_history_df[transaction_history_df['customer_id'] == customer_id]\n    \n    # If no transactions exist for the customer, return -1\n    if customer_trans.empty:\n        return -1\n    \n    # Get the most recent transaction date\n    last_trans_date = pd.to_datetime(customer_trans['transaction_date']).max()\n    \n    # Calculate the days since the last transaction\n    days_since_last = (search_date - last_trans_date).days if search_date >= last_trans_date else -1\n    return days_since_last\n"
+        },
+        "0.036519456363360146": {
+            "name": "days_since_last_promotion_response_fixed",
+            "code": "import pandas as pd\n\ndef days_since_last_promotion_response_fixed(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract customer_id and last_login_date from the row\n    customer_id = row['customer_id']\n    last_login_date = pd.to_datetime(row['last_login_date'])  # Use 'last_login_date' instead of 'search_date'\n    \n    # Get the promotion data from the auxiliary dataframes\n    promotion_data = aux_dataframes['promotion_data_table.csv']\n    \n    # Filter promotions for the given customer_id where promotion_response is True\n    promo_responses = promotion_data[\n        (promotion_data['customer_id'] == customer_id) & \n        (promotion_data['promotion_response'] == True)\n    ]\n    \n    # If no promotion responses exist, return -1\n    if promo_responses.empty:\n        return -1\n    \n    # Find the most recent promotion_date where the customer responded\n    last_response_date = pd.to_datetime(promo_responses['promotion_date']).max()\n    \n    # Calculate the number of days since the last promotion response\n    days_since_last_promo = (last_login_date - last_response_date).days if last_login_date >= last_response_date else -1\n    \n    return days_since_last_promo\n"
+        },
+        "0.035734306986388686": {
+            "name": "gender_promotion_count",
+            "code": "\n\ndef gender_promotion_count(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    \n    # Extract the relevant dataframes from aux_dataframes\n    promotion_data_df = aux_dataframes['promotion_data_table.csv']\n    search_history_df = aux_dataframes['search_history_table.csv']\n    \n    # Check if the customer exists in the promotion data\n    customer_promotion_data = promotion_data_df[promotion_data_df['customer_id'] == customer_id]\n    if customer_promotion_data.empty:\n        return 0  # If the customer is not found in the promotion data, return 0\n    \n    # Extract the gender of the customer\n    if 'gender' not in aux_dataframes['customer_demographics_table.csv'].columns:\n        raise KeyError(\"The 'gender' column is missing in the customer demographics table.\")\n    \n    demographics_df = aux_dataframes['customer_demographics_table.csv']\n    customer_gender_series = demographics_df[demographics_df['customer_id'] == customer_id]['gender']\n    if customer_gender_series.empty:\n        return 0  # If gender is not found, return 0\n    \n    gender = customer_gender_series.iloc[0]\n    \n    # Merge search history with promotion data on 'customer_id'\n    promo_counts = search_history_df.merge(promotion_data_df, on=\"customer_id\")\n    \n    # Filter by gender and sum the 'promotion_response' column\n    total_gender_promos = promo_counts[promo_counts['customer_id'].isin(\n        demographics_df[demographics_df['gender'] == gender]['customer_id']\n    )]['promotion_response'].sum()\n    \n    return total_gender_promos\n"
+        },
+        "0.01480013139987581": {
+            "name": "logins_to_session_ratio",
+            "code": "\n\ndef logins_to_session_ratio(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    \n    # Correcting the key to match the provided aux_dataframes dictionary\n    transaction_history_df = aux_dataframes['transaction_history_table.csv']\n    \n    # Filter the transaction history for the specific customer\n    customer_data = transaction_history_df[transaction_history_df['customer_id'] == customer_id]\n    \n    # If no data is found for the customer, return 0\n    if customer_data.empty:\n        return 0\n    \n    # Extract total_logins and average_session_duration from the row\n    total_logins = row['total_logins']\n    avg_session_duration = row['average_session_duration']\n    \n    # Calculate and return the ratio, ensuring no division by zero\n    return total_logins / avg_session_duration if avg_session_duration > 0 else 0\n"
+        },
+        "0.0037910624969474047": {
+            "name": "income_bracket_spending_avg",
+            "code": "\n\ndef income_bracket_spending_avg(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    \n    # Correcting the keys to match the provided aux_data dictionary\n    customer_demographics_df = aux_dataframes['customer_demographics_table.csv']\n    transaction_history_df = aux_dataframes['transaction_history_table.csv']\n    \n    # Fetch the income bracket for the given customer_id\n    income = customer_demographics_df[customer_demographics_df['customer_id'] == customer_id]['income_bracket']\n    if income.empty:\n        return 0  # Return 0 if no income bracket is found for the customer\n    \n    income = income.iloc[0]  # Extract the income bracket value\n    \n    # Filter customers in the same income bracket\n    income_group = customer_demographics_df[customer_demographics_df['income_bracket'] == income]\n    income_customer_ids = income_group['customer_id']\n    \n    # Get transactions for customers in the same income bracket\n    income_transactions = transaction_history_df[transaction_history_df['customer_id'].isin(income_customer_ids)]\n    \n    # Calculate the average spending\n    avg_spending = income_transactions['transaction_amount'].mean() if not income_transactions.empty else 0\n    return avg_spending\n"
+        },
+        "0": {
+            "name": "total_transactions",
+            "code": "\n\ndef total_transactions(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    customer_id = row['customer_id']\n    # Correct key for the customer demographics table\n    customer_demo_df = aux_dataframes['customer_demographics_table.csv']\n    # Filter the dataframe for the given customer_id and count the rows\n    total_trans = customer_demo_df[customer_demo_df['customer_id'] == customer_id].shape[0]\n    return total_trans\n"
+        }
+    },
+    "feature_descriptions": [
+        "avg time spent on page",
+        "total spending",
+        "high demand search proportion",
+        "days since last transaction fixed",
+        "days since last promotion response fixed",
+        "gender promotion count",
+        "logins to session ratio",
+        "income bracket spending avg",
+        "total transactions"
+    ]
+}

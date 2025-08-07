@@ -1,0 +1,17 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "anomaly_payment_ratio"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0": {
+            "name": "anomaly_payment_ratio",
+            "code": "\n\ndef payment_count(row, aux_data: Dict[str, pd.DataFrame]):\n    consumer_id = row['consumer_id']\n    payment_data = aux_data['payment_history_table.csv']\n    return payment_data[payment_data['consumer_id'] == consumer_id].shape[0]\n\ndef anomaly_payment_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    consumer_id = row['consumer_id']\n    payment_data = aux_data['payment_history_table.csv']\n    \n    # Check if the 'amount_paid' and 'amount_due' columns exist in the payment_data dataframe\n    if 'amount_paid' not in payment_data.columns or 'amount_due' not in payment_data.columns:\n        raise KeyError(\"Required columns 'amount_paid' or 'amount_due' are missing in the payment_history_table.csv dataframe.\")\n    \n    # Define an anomaly as a payment where the amount paid is less than the amount due\n    payment_data['anomaly_flag'] = payment_data['amount_paid'] < payment_data['amount_due']\n    \n    # Filter anomalies for the given consumer_id\n    anomalies = payment_data[(payment_data['consumer_id'] == consumer_id) & (payment_data['anomaly_flag'])]\n    \n    # Get the total number of payments for the consumer\n    total_payments = payment_count(row, aux_data)\n    \n    # Avoid division by zero\n    if total_payments == 0:\n        return 0\n    \n    # Calculate and return the anomaly payment ratio\n    return anomalies.shape[0] / total_payments\n"
+        }
+    },
+    "feature_descriptions": [
+        "anomaly payment ratio"
+    ]
+}

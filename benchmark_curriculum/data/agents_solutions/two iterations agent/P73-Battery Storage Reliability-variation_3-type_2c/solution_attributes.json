@@ -1,0 +1,83 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "maintenance_frequency",
+        "unique_technicians",
+        "total_maintenance_cost",
+        "avg_maintenance_cost",
+        "load_operating_time_ratio",
+        "repair_proportion",
+        "failure_spikes",
+        "avg_repair_duration",
+        "voltage_volatility",
+        "mean_environmental_stress",
+        "max_pressure",
+        "usage_duration_high_stress"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.34391173912807416": {
+            "name": "maintenance_frequency",
+            "code": "\n\ndef maintenance_frequency(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    maintenance_data = aux_dataframes['maintenance_records_table.csv']\n    battery_id = row['battery_id']\n    frequency = maintenance_data[maintenance_data['battery_id'] == battery_id].shape[0]\n    return frequency\n"
+        },
+        "0.3420081727896451": {
+            "name": "unique_technicians",
+            "code": "\n\ndef unique_technicians(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    maintenance_data = aux_dataframes['maintenance_records_table.csv']\n    battery_id = row['battery_id']\n    unique_tech_count = maintenance_data[maintenance_data['battery_id'] == battery_id]['technician_id'].nunique()\n    return unique_tech_count\n"
+        },
+        "0.3288980283805998": {
+            "name": "total_maintenance_cost",
+            "code": "\n\ndef total_maintenance_cost(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    maintenance_data = aux_dataframes['maintenance_records_table.csv']\n    battery_id = row['battery_id']\n    total_cost = maintenance_data[maintenance_data['battery_id'] == battery_id]['maintenance_cost'].sum()\n    return total_cost\n"
+        },
+        "0.10631627150258924": {
+            "name": "avg_maintenance_cost",
+            "code": "\n\ndef avg_maintenance_cost(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    maintenance_data = aux_dataframes['maintenance_records_table.csv']\n    battery_id = row['battery_id']\n    avg_cost = maintenance_data[maintenance_data['battery_id'] == battery_id]['maintenance_cost'].mean()\n    return avg_cost\n"
+        },
+        "0.06288518629065737": {
+            "name": "load_operating_time_ratio",
+            "code": "\n\ndef load_operating_time_ratio(row):\n    load_capacity = row['load_capacity']\n    operating_time = row['operating_time']\n    return load_capacity / operating_time if operating_time > 0 else 0\n"
+        },
+        "0.06132022678706158": {
+            "name": "repair_proportion",
+            "code": "\n\ndef repair_proportion(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the maintenance records dataframe from the auxiliary data\n    maintenance_data = aux_dataframes['maintenance_records_table.csv']\n    \n    # Extract the battery_id from the current row\n    battery_id = row['battery_id']\n    \n    # Filter the maintenance records for the given battery_id and where maintenance_type is 'Repair'\n    repairs = maintenance_data[(maintenance_data['battery_id'] == battery_id) & \n                               (maintenance_data['maintenance_type'] == 'Repair')].shape[0]\n    \n    # Filter the maintenance records for the given battery_id to get the total operations\n    total_operations = maintenance_data[maintenance_data['battery_id'] == battery_id].shape[0]\n    \n    # Calculate the repair proportion\n    repair_proportion = repairs / total_operations if total_operations > 0 else 0\n    \n    return repair_proportion\n"
+        },
+        "0.05926715407866738": {
+            "name": "failure_spikes",
+            "code": "\n\ndef failure_spikes(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Access the issue_resolution_logs_table.csv dataframe from aux_data\n    issue_logs = aux_data.get('issue_resolution_logs_table.csv')\n    \n    # Ensure the dataframe exists and has the required columns\n    if issue_logs is None or 'battery_id' not in issue_logs or 'failure_year' not in issue_logs:\n        raise ValueError(\"The required data or columns are missing in aux_data['issue_resolution_logs_table.csv']\")\n    \n    # Extract the battery_id from the row\n    battery_id = row['battery_id']\n    \n    # Filter the issue logs for the given battery_id\n    failures = issue_logs[issue_logs['battery_id'] == battery_id]['failure_year'].value_counts().values\n    \n    # Calculate the spike\n    spike = max(failures) if len(failures) > 0 else 0\n    return spike\n"
+        },
+        "0.024179880309880854": {
+            "name": "avg_repair_duration",
+            "code": "import numpy as np\nimport pandas as pd\n\ndef avg_repair_duration(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the issue resolution logs dataframe\n    issue_data = aux_dataframes['issue_resolution_logs_table.csv']\n    \n    # Extract the battery_id from the current row\n    battery_id = row['battery_id']\n    \n    # Filter the issue data for the given battery_id\n    battery_issues = issue_data[issue_data['battery_id'] == battery_id]\n    \n    # Calculate the repair duration in seconds\n    repair_duration = (\n        pd.to_datetime(battery_issues['issue_resolved_date']) - \n        pd.to_datetime(battery_issues['issue_reported_date'])\n    ).dt.total_seconds()\n    \n    # Calculate the average repair duration\n    avg_duration = repair_duration.mean() if not repair_duration.empty else np.nan\n    \n    return avg_duration\n"
+        },
+        "0.01223045411417386": {
+            "name": "voltage_volatility",
+            "code": "\n\ndef voltage_volatility(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the battery_id from the row\n    battery_id = row['battery_id']\n    \n    # Filter the main dataframe (df_train) for rows with the same battery_id\n    battery_data = df_train[df_train['battery_id'] == battery_id]\n    \n    # Check if the 'voltage' column exists in the filtered dataframe\n    if 'voltage' not in battery_data.columns:\n        raise KeyError(\"'voltage' column not found in the main dataframe\")\n    \n    # Calculate the standard deviation of the 'voltage' column for the specific battery_id\n    voltage_std = battery_data['voltage'].std()\n    \n    return voltage_std\n"
+        },
+        "0.0069005074631928315": {
+            "name": "mean_environmental_stress",
+            "code": "\n\ndef mean_environmental_stress(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the environmental data from the auxiliary dataframes\n    environmental_data = aux_dataframes['environmental_conditions_table.csv']\n    \n    # Extract the battery_id from the input row\n    battery_id = row['battery_id']\n    \n    # Check if the battery_id corresponds to the condition_id in the environmental data\n    # If this assumption is incorrect, additional clarification is needed\n    filtered_data = environmental_data[environmental_data['condition_id'] == battery_id]\n    \n    # Calculate the mean of temperature and pressure for the filtered data\n    if not filtered_data.empty:\n        stress = (filtered_data['temperature'] + filtered_data['pressure']).mean()\n    else:\n        # Handle the case where no matching data is found\n        stress = None  # or 0, or some other default value\n    \n    return stress\n"
+        },
+        "0.003982413655396637": {
+            "name": "max_pressure",
+            "code": "\n\ndef max_pressure(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the environmental data dataframe\n    environmental_data = aux_dataframes['environmental_conditions_table.csv']\n    \n    # Check if the 'pressure' column exists in the environmental data\n    if 'pressure' not in environmental_data.columns:\n        raise KeyError(\"The 'pressure' column is missing in the environmental_conditions_table.csv dataframe.\")\n    \n    # Check if the 'condition_id' column exists in the environmental data\n    if 'condition_id' not in environmental_data.columns:\n        raise KeyError(\"The 'condition_id' column is missing in the environmental_conditions_table.csv dataframe.\")\n    \n    # Extract the battery_id from the row\n    battery_id = row['battery_id']\n    \n    # Filter the environmental data for the given battery_id\n    # Assuming 'condition_id' is the column that corresponds to 'battery_id' in the environmental data\n    # If this assumption is incorrect, you need to clarify the mapping between the two datasets\n    filtered_data = environmental_data[environmental_data['condition_id'] == battery_id]\n    \n    # Calculate the maximum pressure\n    max_pressure = filtered_data['pressure'].max()\n    \n    return max_pressure\n"
+        },
+        "0": {
+            "name": "usage_duration_high_stress",
+            "code": "import pandas as pd\n\ndef usage_duration_high_stress(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculates the total usage duration of the battery when exposed to high environmental stress.\n    High environmental stress is defined as either:\n        - Temperature above 40\u00b0C\n        - Pressure above 120 PSI\n    \n    Args:\n        row: Single row of the main dataset.\n        df_train: Entire training dataframe for reference.\n        aux_dataframes: Dictionary of auxiliary dataframes.\n\n    Returns:\n        Total usage duration (hours) for high-stress conditions.\n    \"\"\"\n    # Extract the environmental conditions dataframe\n    environmental_data = aux_dataframes['environmental_conditions_table.csv']\n    \n    # Ensure the column names match the expected format\n    required_columns = {'condition_id', 'timestamp', 'temperature', 'humidity', 'pressure', 'location_id'}\n    if not required_columns.issubset(environmental_data.columns):\n        raise KeyError(f\"The 'environmental_conditions_table.csv' dataframe does not contain the required columns: {required_columns}\")\n    \n    # Extract the battery_id from the row\n    battery_id = row['battery_id']\n    \n    # Convert the 'timestamp' column to datetime if it's not already\n    if not pd.api.types.is_datetime64_any_dtype(environmental_data['timestamp']):\n        environmental_data['timestamp'] = pd.to_datetime(environmental_data['timestamp'])\n    \n    # Sort the environmental data by timestamp\n    environmental_data = environmental_data.sort_values(by='timestamp')\n    \n    # Define high-stress conditions\n    high_stress_conditions = (environmental_data['temperature'] > 40) | (environmental_data['pressure'] > 120)\n    \n    # Filter the data for high-stress conditions\n    high_stress_data = environmental_data[high_stress_conditions]\n    \n    # Calculate the usage duration in hours\n    # Assuming consecutive timestamps represent continuous usage\n    high_stress_data['time_diff'] = high_stress_data['timestamp'].diff().dt.total_seconds() / 3600.0\n    high_stress_data['time_diff'] = high_stress_data['time_diff'].fillna(0)  # Fill NaN for the first row\n    \n    # Sum up the time differences to get the total duration\n    high_stress_duration = high_stress_data['time_diff'].sum()\n    \n    return high_stress_duration\n"
+        }
+    },
+    "feature_descriptions": [
+        "maintenance frequency",
+        "unique technicians",
+        "total maintenance cost",
+        "avg maintenance cost",
+        "load operating time ratio",
+        "repair proportion",
+        "failure spikes",
+        "avg repair duration",
+        "voltage volatility",
+        "mean environmental stress",
+        "max pressure",
+        "usage duration high stress"
+    ]
+}

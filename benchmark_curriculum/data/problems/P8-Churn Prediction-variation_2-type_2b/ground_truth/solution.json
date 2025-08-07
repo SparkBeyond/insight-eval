@@ -1,0 +1,16 @@
+{
+    "enriched_column_names": [
+        "number_of_unresolved_customer_support_issues_in_the_last_3_months",
+        "number_of_times_a_user_clicked_on_advertisements_in_the_past_3_months",
+        "average_transaction_frequency_in_the_last_6_months",
+        "total_spending_variation_over_the_last_year",
+        "ratio_of_weekends_to_weekday_transactions_in_the_past_6_months"
+    ],
+    "features_descriptions": [
+        "number of unresolved customer support issues in the last 3 months",
+        "number of times a user clicked on advertisements in the past 3 months",
+        "average transaction frequency in the last 6 months",
+        "total spending variation over the last year",
+        "ratio of weekends to weekday transactions in the past 6 months"
+    ]
+}

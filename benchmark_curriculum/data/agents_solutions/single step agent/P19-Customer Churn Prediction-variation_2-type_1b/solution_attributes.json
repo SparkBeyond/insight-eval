@@ -1,0 +1,119 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "distinct_products_purchased",
+        "transaction_frequency",
+        "total_transaction_value",
+        "max_transaction_value",
+        "recency_of_last_transaction",
+        "total_support_interactions",
+        "avg_items_per_transaction",
+        "is_top_spender",
+        "recency_of_last_support",
+        "transaction_value_std",
+        "loyalty_membership_duration",
+        "loyalty_points_earned",
+        "avg_support_response_time",
+        "avg_transaction_value",
+        "support_issue_diversity",
+        "membership_tier_encoded",
+        "age_group",
+        "unresolved_issues_count"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.0864317232487888": {
+            "name": "distinct_products_purchased",
+            "code": "\n\ndef distinct_products_purchased(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transaction_df = aux_dataframes.get(\"transaction_history_table.csv\")\n    customer_transactions = transaction_df[transaction_df[\"customer_id\"] == row[\"customer_id\"]]\n    return customer_transactions[\"product_id\"].nunique()\n"
+        },
+        "0.08605113156854562": {
+            "name": "transaction_frequency",
+            "code": "\n\ndef transaction_frequency(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transaction_df = aux_dataframes.get(\"transaction_history_table.csv\")\n    customer_transactions = transaction_df[transaction_df[\"customer_id\"] == row[\"customer_id\"]]\n    return len(customer_transactions)\n"
+        },
+        "0.08063927075727924": {
+            "name": "total_transaction_value",
+            "code": "\n\ndef total_transaction_value(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the transaction history dataframe from the auxiliary dataframes\n    transaction_df = aux_dataframes.get(\"transaction_history_table.csv\")\n    \n    # Check if the dataframe exists and is not None\n    if transaction_df is None:\n        raise ValueError(\"The transaction_history_table.csv dataframe is missing from aux_dataframes.\")\n    \n    # Filter transactions for the specific customer_id\n    customer_transactions = transaction_df[transaction_df[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Sum the transaction_amount column if there are transactions, otherwise return 0\n    return customer_transactions[\"transaction_amount\"].sum() if not customer_transactions.empty else 0\n"
+        },
+        "0.049635071004313275": {
+            "name": "max_transaction_value",
+            "code": "\n\ndef max_transaction_value(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the transaction history dataframe from the auxiliary dataframes\n    transaction_df = aux_dataframes.get(\"transaction_history_table.csv\")\n    \n    # Check if the transaction dataframe exists\n    if transaction_df is None:\n        raise ValueError(\"The 'transaction_history_table.csv' dataframe is missing from aux_dataframes.\")\n    \n    # Filter transactions for the specific customer\n    customer_transactions = transaction_df[transaction_df[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Return the maximum transaction amount or 0 if no transactions exist\n    return customer_transactions[\"transaction_amount\"].max() if not customer_transactions.empty else 0\n"
+        },
+        "0.04721096498860524": {
+            "name": "recency_of_last_transaction",
+            "code": "import pandas as pd\nimport datetime\n\ndef recency_of_last_transaction(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transaction_df = aux_dataframes.get(\"transaction_history_table.csv\")\n    customer_transactions = transaction_df[transaction_df[\"customer_id\"] == row[\"customer_id\"]]\n    if not customer_transactions.empty:\n        last_transaction = customer_transactions[\"transaction_date\"].max()\n        return (datetime.now() - pd.to_datetime(last_transaction)).days\n    return -1\n"
+        },
+        "0.03372156484853237": {
+            "name": "total_support_interactions",
+            "code": "\n\ndef total_support_interactions(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_df = aux_dataframes.get(\"customer_support_interactions_table.csv\")\n    customer_support_info = support_df[support_df[\"customer_id\"] == row[\"customer_id\"]]\n    return len(customer_support_info)\n"
+        },
+        "0.03290186180604327": {
+            "name": "avg_items_per_transaction",
+            "code": "\n\ndef avg_items_per_transaction(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the transaction history dataframe from the auxiliary dataframes\n    transaction_df = aux_dataframes.get(\"transaction_history_table.csv\")\n    \n    # Filter transactions for the specific customer\n    customer_transactions = transaction_df[transaction_df[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Calculate the mean of the 'quantity' column (number of items per transaction)\n    return customer_transactions[\"quantity\"].mean() if not customer_transactions.empty else 0\n"
+        },
+        "0.031559022353387055": {
+            "name": "is_top_spender",
+            "code": "\n\ndef is_top_spender(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transaction_df = aux_dataframes.get(\"transaction_history_table.csv\")\n    overall_mean = transaction_df[\"transaction_amount\"].quantile(0.9)\n    customer_total_spent = total_transaction_value(row, df_train, aux_dataframes)\n    return int(customer_total_spent > overall_mean)\n\ndef total_transaction_value(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    transaction_df = aux_dataframes.get(\"transaction_history_table.csv\")\n    customer_transactions = transaction_df[transaction_df[\"customer_id\"] == row[\"customer_id\"]]\n    return customer_transactions[\"transaction_amount\"].sum() if not customer_transactions.empty else 0\n"
+        },
+        "0.028511196976303183": {
+            "name": "recency_of_last_support",
+            "code": "import pandas as pd\nimport datetime\n\ndef recency_of_last_support(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_df = aux_dataframes.get(\"customer_support_interactions_table.csv\")\n    customer_support_info = support_df[support_df[\"customer_id\"] == row[\"customer_id\"]]\n    if not customer_support_info.empty:\n        last_interaction = customer_support_info[\"interaction_date\"].max()\n        return (datetime.now() - pd.to_datetime(last_interaction)).days\n    return -1\n"
+        },
+        "0.025228402872515848": {
+            "name": "transaction_value_std",
+            "code": "\n\ndef transaction_value_std(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the transaction history dataframe from the auxiliary data\n    transaction_df = aux_dataframes.get(\"transaction_history_table.csv\")\n    \n    # Filter transactions for the specific customer\n    customer_transactions = transaction_df[transaction_df[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Calculate and return the standard deviation of the transaction amounts\n    return customer_transactions[\"transaction_amount\"].std() if not customer_transactions.empty else 0\n"
+        },
+        "0.022822947151348368": {
+            "name": "loyalty_membership_duration",
+            "code": "import pandas as pd\nimport datetime\n\ndef loyalty_membership_duration(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Retrieve the loyalty program dataframe from aux_dataframes\n    loyalty_df = aux_dataframes.get(\"loyalty_program_table.csv\")\n    \n    # Check if the dataframe exists and is not None\n    if loyalty_df is not None:\n        # Filter the loyalty dataframe for the specific customer_id\n        customer_loyalty = loyalty_df[loyalty_df[\"customer_id\"] == row[\"customer_id\"]]\n        \n        # Check if there are any records for the customer\n        if not customer_loyalty.empty:\n            # Get the earliest enrollment_date for the customer\n            start_date = customer_loyalty[\"enrollment_date\"].min()\n            \n            # Calculate the duration in days from the start_date to now\n            return (datetime.datetime.now() - pd.to_datetime(start_date)).days\n    \n    # Return -1 if no loyalty program data is found for the customer\n    return -1\n"
+        },
+        "0.02275034508061192": {
+            "name": "loyalty_points_earned",
+            "code": "\n\ndef loyalty_points_earned(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    loyalty_df = aux_dataframes.get(\"loyalty_program_table.csv\")\n    customer_loyalty = loyalty_df[loyalty_df[\"customer_id\"] == row[\"customer_id\"]]\n    return customer_loyalty[\"points_earned\"].sum() if not customer_loyalty.empty else 0\n"
+        },
+        "0.020804367814469354": {
+            "name": "avg_support_response_time",
+            "code": "\n\ndef avg_support_response_time(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_df = aux_dataframes.get(\"customer_support_interactions_table.csv\")\n    customer_support_info = support_df[support_df[\"customer_id\"] == row[\"customer_id\"]]\n    if not customer_support_info.empty:\n        return customer_support_info[\"response_time\"].mean()\n    return 0\n"
+        },
+        "0.014347379927974137": {
+            "name": "avg_transaction_value",
+            "code": "\n\ndef avg_transaction_value(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Retrieve the transaction history dataframe from aux_dataframes\n    transaction_df = aux_dataframes.get(\"transaction_history_table.csv\")\n    \n    # Check if the dataframe exists and is not None\n    if transaction_df is None:\n        raise ValueError(\"The transaction_history_table.csv dataframe is missing from aux_dataframes.\")\n    \n    # Filter transactions for the specific customer_id\n    customer_transactions = transaction_df[transaction_df[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Calculate and return the average transaction amount\n    return customer_transactions[\"transaction_amount\"].mean() if not customer_transactions.empty else 0\n"
+        },
+        "0.005435374322207328": {
+            "name": "support_issue_diversity",
+            "code": "\n\ndef support_issue_diversity(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    support_df = aux_dataframes.get(\"customer_support_interactions_table.csv\")\n    customer_support_info = support_df[support_df[\"customer_id\"] == row[\"customer_id\"]]\n    return customer_support_info[\"issue_type\"].nunique()\n"
+        },
+        "0.0004913645063101546": {
+            "name": "membership_tier_encoded",
+            "code": "\n\ndef membership_tier_encoded(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    loyalty_df = aux_dataframes.get(\"loyalty_program_table.csv\")\n    customer_loyalty = loyalty_df[loyalty_df[\"customer_id\"] == row[\"customer_id\"]]\n    if not customer_loyalty.empty:\n        return customer_loyalty[\"membership_tier\"].iloc[0]\n    return 0\n"
+        },
+        "-0.00041966771776813516": {
+            "name": "age_group",
+            "code": "\n\ndef age_group(row):\n    age = row[\"age\"]\n    if age < 20:\n        return \"under_20\"\n    elif age < 40:\n        return \"20_to_40\"\n    elif age < 60:\n        return \"40_to_60\"\n    return \"over_60\"\n"
+        },
+        "0": {
+            "name": "unresolved_issues_count",
+            "code": "\n\ndef unresolved_issues_count(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Get the customer support interactions dataframe\n    support_df = aux_dataframes.get(\"customer_support_interactions_table.csv\")\n    \n    # Ensure the dataframe exists and is not None\n    if support_df is None:\n        raise ValueError(\"The customer_support_interactions_table.csv dataframe is missing from aux_dataframes.\")\n    \n    # Filter the dataframe for unresolved issues for the given customer_id\n    customer_support_info = support_df[\n        (support_df[\"customer_id\"] == row[\"customer_id\"]) & \n        (support_df[\"resolution_status\"] == \"unresolved\")\n    ]\n    \n    # Return the count of unresolved issues\n    return len(customer_support_info)\n"
+        }
+    },
+    "feature_descriptions": [
+        "distinct products purchased",
+        "transaction frequency",
+        "total transaction value",
+        "max transaction value",
+        "recency of last transaction",
+        "total support interactions",
+        "avg items per transaction",
+        "is top spender",
+        "recency of last support",
+        "transaction value std",
+        "loyalty membership duration",
+        "loyalty points earned",
+        "avg support response time",
+        "avg transaction value",
+        "support issue diversity",
+        "membership tier encoded",
+        "age group",
+        "unresolved issues count"
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "change_in_monthly_spending_after_last_upsell_offer",
+        "average_number_of_service_inquiries_over_6_months",
+        "device_upgrade_tendencies_over_past_year"
+    ],
+    "features_descriptions": [
+        "change in monthly spending after last upsell offer",
+        "average number of service inquiries over 6 months",
+        "device upgrade tendencies over past year"
+    ]
+}

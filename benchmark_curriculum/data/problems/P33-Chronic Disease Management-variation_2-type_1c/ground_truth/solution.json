@@ -1,0 +1,12 @@
+{
+    "enriched_column_names": [
+        "dietary_quality_index_score_over_the_last_6_months",
+        "changes_in_physical_activity_level_over_the_last_year",
+        "family_history_impact_score_over_the_past_5_years"
+    ],
+    "features_descriptions": [
+        "dietary quality index score over the last 6 months",
+        "changes in physical activity level over the last year",
+        "family history impact score over the past 5 years"
+    ]
+}

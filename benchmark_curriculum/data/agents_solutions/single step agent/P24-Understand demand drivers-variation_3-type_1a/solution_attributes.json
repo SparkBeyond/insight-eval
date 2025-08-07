@@ -1,0 +1,71 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "feature_active_campaigns",
+        "feature_total_budget",
+        "feature_avg_impressions_per_budget",
+        "feature_high_temp",
+        "feature_avg_temperature",
+        "feature_avg_clicks_per_impression",
+        "feature_avg_humidity",
+        "feature_is_weekend",
+        "feature_avg_precipitation",
+        "feature_low_temp"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.39593473038078714": {
+            "name": "feature_active_campaigns",
+            "code": "import pandas as pd\n\ndef feature_active_campaigns(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Counts the number of active marketing campaigns on a given date.\n    \"\"\"\n    date = row['date']\n    # Use the correct key for the marketing data\n    marketing_data = aux_data[\"marketing_table.csv\"]\n    \n    # Ensure the date column is in datetime format for comparison\n    marketing_data['start_date'] = pd.to_datetime(marketing_data['start_date'])\n    marketing_data['end_date'] = pd.to_datetime(marketing_data['end_date'])\n    date = pd.to_datetime(date)\n    \n    # Filter active campaigns based on the date\n    active_campaigns = marketing_data[(marketing_data['start_date'] <= date) & (marketing_data['end_date'] >= date)]\n    return len(active_campaigns)\n"
+        },
+        "0.38391598219745104": {
+            "name": "feature_total_budget",
+            "code": "import pandas as pd\n\ndef feature_total_budget(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculates the total budget of active marketing campaigns on a given date.\n    \"\"\"\n    date = row['date']\n    # Access the marketing data using the correct key\n    marketing_data = aux_data[\"marketing_table.csv\"]\n    \n    # Ensure the date columns are in datetime format for comparison\n    marketing_data['start_date'] = pd.to_datetime(marketing_data['start_date'])\n    marketing_data['end_date'] = pd.to_datetime(marketing_data['end_date'])\n    date = pd.to_datetime(date)\n    \n    # Filter active campaigns based on the given date\n    active_campaigns = marketing_data[(marketing_data['start_date'] <= date) & (marketing_data['end_date'] >= date)]\n    \n    # Return the sum of the budgets of active campaigns, or 0 if no campaigns are active\n    return active_campaigns['budget'].sum() if not active_campaigns.empty else 0\n"
+        },
+        "0.25799741045149843": {
+            "name": "feature_avg_impressions_per_budget",
+            "code": "import pandas as pd\n\ndef feature_avg_impressions_per_budget(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Average impressions generated per unit of budget for active campaigns on a specific date.\n    \"\"\"\n    # Ensure 'marketing_data' exists in aux_data\n    if \"marketing_table.csv\" not in aux_data:\n        raise KeyError(\"'marketing_table.csv' not found in aux_data\")\n\n    # Extract the marketing data\n    marketing_data = aux_data[\"marketing_table.csv\"]\n\n    # Ensure required columns exist in the marketing data\n    required_columns = {'start_date', 'end_date', 'budget', 'impressions'}\n    if not required_columns.issubset(marketing_data.columns):\n        raise ValueError(f\"Missing required columns in marketing data: {required_columns - set(marketing_data.columns)}\")\n\n    # Parse the date from the row\n    date = pd.to_datetime(row['date'])\n\n    # Filter active campaigns based on the date\n    marketing_data['start_date'] = pd.to_datetime(marketing_data['start_date'])\n    marketing_data['end_date'] = pd.to_datetime(marketing_data['end_date'])\n    active_campaigns = marketing_data[(marketing_data['start_date'] <= date) & (marketing_data['end_date'] >= date)]\n\n    # Calculate the average impressions per unit of budget\n    if len(active_campaigns) > 0 and active_campaigns['budget'].sum() > 0:\n        return active_campaigns['impressions'].sum() / active_campaigns['budget'].sum()\n    \n    # Return 0 if no active campaigns or budget is 0\n    return 0\n"
+        },
+        "0.043508189376194974": {
+            "name": "feature_high_temp",
+            "code": "\n\ndef feature_high_temp(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculates the highest temperature for a given date.\n    \"\"\"\n    date = row['date']\n    # Access the weather data using the correct key\n    weather_data = aux_data[\"weather_table.csv\"]\n    \n    # Ensure the date column is used correctly\n    weather_on_date = weather_data[weather_data['date'] == date]\n    \n    # Return the maximum temperature for the date, or 0 if no data is available\n    return weather_on_date['temperature'].max() if not weather_on_date.empty else 0\n"
+        },
+        "0.028099348501603963": {
+            "name": "feature_avg_temperature",
+            "code": "\n\ndef feature_avg_temperature(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculates the average temperature for a given date.\n    \"\"\"\n    date = row['date']\n    # Use the correct key for the weather data\n    weather_data = aux_data[\"weather_table.csv\"]\n    # Filter the weather data for the given date\n    weather_on_date = weather_data[weather_data['date'] == date]\n    # Calculate and return the average temperature, or 0 if no data is available\n    return weather_on_date['temperature'].mean() if not weather_on_date.empty else 0\n"
+        },
+        "0.02796480661216385": {
+            "name": "feature_avg_clicks_per_impression",
+            "code": "import pandas as pd\n\ndef feature_avg_clicks_per_impression(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Average clicks per impression for active campaigns on a specific date.\n    \"\"\"\n    # Ensure the key 'marketing_table.csv' exists in aux_data\n    if \"marketing_table.csv\" not in aux_data:\n        raise KeyError(\"The key 'marketing_table.csv' is missing from aux_data.\")\n    \n    # Extract the marketing data\n    marketing_data = aux_data[\"marketing_table.csv\"]\n    \n    # Ensure the required columns exist in the marketing data\n    required_columns = {'start_date', 'end_date', 'impressions', 'clicks'}\n    if not required_columns.issubset(marketing_data.columns):\n        raise ValueError(f\"The marketing data is missing one or more required columns: {required_columns}\")\n    \n    # Parse the date from the row\n    date = pd.to_datetime(row['date'])\n    \n    # Filter active campaigns based on the date\n    marketing_data['start_date'] = pd.to_datetime(marketing_data['start_date'])\n    marketing_data['end_date'] = pd.to_datetime(marketing_data['end_date'])\n    active_campaigns = marketing_data[(marketing_data['start_date'] <= date) & (marketing_data['end_date'] >= date)]\n    \n    # Calculate the average clicks per impression\n    if len(active_campaigns) > 0 and active_campaigns['impressions'].sum() > 0:\n        return active_campaigns['clicks'].sum() / active_campaigns['impressions'].sum()\n    \n    # Return 0 if there are no active campaigns or no impressions\n    return 0\n"
+        },
+        "0.018205165003491387": {
+            "name": "feature_avg_humidity",
+            "code": "\n\ndef feature_avg_humidity(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculates the average humidity for a given date.\n    \"\"\"\n    date = row['date']\n    # Access the weather data using the correct key\n    weather_data = aux_data[\"weather_table.csv\"]\n    # Filter the weather data for the given date\n    weather_on_date = weather_data[weather_data['date'] == date]\n    # Return the mean humidity if data exists for the date, otherwise return 0\n    return weather_on_date['humidity'].mean() if not weather_on_date.empty else 0\n"
+        },
+        "0.010167672542466635": {
+            "name": "feature_is_weekend",
+            "code": "import pandas as pd\n\ndef feature_is_weekend(row, aux_data: Dict[str, pd.DataFrame] = None):\n    \"\"\"\n    Checks if the day is a weekend (Saturday or Sunday).\n    \"\"\"\n    # Convert the 'date' column to a datetime object\n    date = pd.to_datetime(row['date'])\n    \n    # Get the day of the week (0=Monday, 6=Sunday)\n    day_of_week = date.weekday()\n    \n    # Check if the day is a weekend (Saturday=5 or Sunday=6)\n    return int(day_of_week in [5, 6])\n"
+        },
+        "0.009490634798233484": {
+            "name": "feature_avg_precipitation",
+            "code": "\n\ndef feature_avg_precipitation(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculates the average precipitation for a given date.\n    \"\"\"\n    date = row['date']\n    # Access the weather data using the correct key\n    weather_data = aux_data[\"weather_table.csv\"]\n    # Filter the weather data for the given date\n    weather_on_date = weather_data[weather_data['date'] == date]\n    # Return the mean precipitation if data exists for the date, otherwise return 0\n    return weather_on_date['precipitation'].mean() if not weather_on_date.empty else 0\n"
+        },
+        "0.0066304834871519155": {
+            "name": "feature_low_temp",
+            "code": "\n\ndef feature_low_temp(row, df_train, aux_data: Dict[str, pd.DataFrame]):\n    \"\"\"\n    Calculates the lowest temperature for a given date.\n    \"\"\"\n    date = row['date']\n    # Access the weather data using the correct key\n    weather_data = aux_data[\"weather_table.csv\"]\n    \n    # Filter the weather data for the given date\n    weather_on_date = weather_data[weather_data['date'] == date]\n    \n    # Return the minimum temperature for the date, or 0 if no data is available\n    return weather_on_date['temperature'].min() if not weather_on_date.empty else 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "feature active campaigns",
+        "feature total budget",
+        "feature avg impressions per budget",
+        "feature high temp",
+        "feature avg temperature",
+        "feature avg clicks per impression",
+        "feature avg humidity",
+        "feature is weekend",
+        "feature avg precipitation",
+        "feature low temp"
+    ]
+}

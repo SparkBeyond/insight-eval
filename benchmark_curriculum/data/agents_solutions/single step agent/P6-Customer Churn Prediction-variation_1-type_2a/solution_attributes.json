@@ -1,0 +1,107 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "activity_count",
+        "total_lifetime_value",
+        "days_since_last_purchase",
+        "recent_discounted_purchase_flag",
+        "unique_product_categories",
+        "proportion_discounted_purchases",
+        "income_bracket_encoding",
+        "most_common_purchase_category",
+        "recent_activity_type",
+        "average_spend_per_transaction",
+        "purchase_frequency_per_month",
+        "account_duration",
+        "normalized_account_duration",
+        "gender_encoding",
+        "purchase_value_variance",
+        "total_purchases_in_discount_category"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.15774423307806135": {
+            "name": "activity_count",
+            "code": "\n\ndef activity_count(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Check if the key 'app_activity_table' exists in aux_dataframes\n    if \"app_activity_table.csv\" not in aux_dataframes:\n        raise KeyError(\"The key 'app_activity_table.csv' is missing from aux_dataframes.\")\n    \n    # Retrieve the app_activity_table DataFrame\n    app_data = aux_dataframes[\"app_activity_table.csv\"]\n    \n    # Ensure the required columns exist in the DataFrame\n    required_columns = {\"customer_id\"}\n    if not required_columns.issubset(app_data.columns):\n        raise ValueError(f\"The DataFrame 'app_activity_table.csv' is missing required columns: {required_columns - set(app_data.columns)}\")\n    \n    # Filter the DataFrame for the given customer_id and return the count of activities\n    return app_data[app_data[\"customer_id\"] == row[\"customer_id\"]].shape[0]\n"
+        },
+        "0.14460787389561316": {
+            "name": "total_lifetime_value",
+            "code": "\n\ndef total_lifetime_value(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the purchase history dataframe from aux_data\n    purchase_history_df = aux_data['purchase_history_table.csv']\n    \n    # Filter the purchase history dataframe for the given customer_id\n    customer_purchases = purchase_history_df[purchase_history_df[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Sum the purchase amounts for the customer\n    return customer_purchases[\"purchase_amount\"].sum()\n"
+        },
+        "0.11926053556931335": {
+            "name": "days_since_last_purchase",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef days_since_last_purchase(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the purchase history dataframe from aux_data\n    purchase_history = aux_data[\"purchase_history_table.csv\"]\n    \n    # Filter the purchase history for the given customer_id\n    customer_purchases = purchase_history[purchase_history[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Check if there are any purchases for the customer\n    if not customer_purchases.empty:\n        # Get the most recent purchase date\n        last_purchase_date = pd.to_datetime(customer_purchases[\"purchase_date\"].max())\n        # Use the 'signup_date' column as the reference date\n        reference_date = pd.Timestamp(row[\"signup_date\"])\n        # Calculate the difference in days between the reference date and the last purchase date\n        return (reference_date - last_purchase_date).days\n    else:\n        # Return NaN if no purchases are found\n        return np.nan\n"
+        },
+        "0.11561358670265942": {
+            "name": "recent_discounted_purchase_flag",
+            "code": "\n\ndef recent_discounted_purchase_flag(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the purchase history dataframe from aux_data\n    purchase_history_df = aux_data['purchase_history_table.csv']\n    \n    # Filter the purchase history for the specific customer\n    customer_data = purchase_history_df[purchase_history_df[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Check if the customer has any purchase records\n    if customer_data.empty:\n        return 0  # Return 0 if no purchase records exist for the customer\n    \n    # Sort the customer's purchase history by purchase_date in descending order\n    sorted_customer_data = customer_data.sort_values(\"purchase_date\", ascending=False)\n    \n    # Return the \"discount_applied\" value of the most recent purchase as an integer\n    return int(sorted_customer_data.iloc[0][\"discount_applied\"])\n"
+        },
+        "0.10031512184582064": {
+            "name": "unique_product_categories",
+            "code": "\n\ndef unique_product_categories(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Access the purchase history dataframe from aux_data\n    purchase_history_df = aux_data[\"purchase_history_table.csv\"]\n    \n    # Filter the purchase history dataframe for the given customer_id\n    customer_purchases = purchase_history_df[purchase_history_df[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Return the number of unique purchase categories\n    return customer_purchases[\"purchase_category\"].nunique()\n"
+        },
+        "0.048804657736408553": {
+            "name": "proportion_discounted_purchases",
+            "code": "\n\ndef proportion_discounted_purchases(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the purchase history dataframe from aux_data\n    purchase_history = aux_data['purchase_history_table.csv']\n    \n    # Filter the purchase history for the given customer_id\n    customer_purchases = purchase_history[purchase_history[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Calculate the number of discounted purchases\n    discounts = customer_purchases[customer_purchases[\"discount_applied\"] == True].shape[0]\n    \n    # Calculate the total number of purchases\n    total = customer_purchases.shape[0]\n    \n    # Return the proportion of discounted purchases\n    return discounts / total if total > 0 else 0\n"
+        },
+        "0.02258385274260561": {
+            "name": "income_bracket_encoding",
+            "code": "\n\ndef income_bracket_encoding(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_demographics_table dataframe from aux_data\n    demographics_df = aux_data.get(\"customer_demographics_table.csv\")\n    \n    if demographics_df is None:\n        raise ValueError(\"customer_demographics_table.csv is missing from aux_data\")\n    \n    # Get the customer_id from the input row\n    customer_id = row[\"customer_id\"]\n    \n    # Look up the income_bracket for the given customer_id\n    income_bracket = demographics_df.loc[\n        demographics_df[\"customer_id\"] == customer_id, \"income_bracket\"\n    ]\n    \n    # If the customer_id is not found, return -1\n    if income_bracket.empty:\n        return -1\n    \n    # Map the income_bracket to its encoded value\n    income_map = {\"Low\": 0, \"Medium\": 1, \"High\": 2}\n    return income_map.get(income_bracket.iloc[0], -1)\n"
+        },
+        "0.022409869020763695": {
+            "name": "most_common_purchase_category",
+            "code": "\n\ndef most_common_purchase_category(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the purchase history dataframe from aux_data\n    purchase_history_df = aux_data[\"purchase_history_table.csv\"]\n    \n    # Filter the purchase history for the given customer_id\n    customer_data = purchase_history_df[purchase_history_df[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Return the most common purchase category or \"Unknown\" if no data is found\n    return customer_data[\"purchase_category\"].mode()[0] if not customer_data.empty else \"Unknown\"\n"
+        },
+        "0.019705338465606737": {
+            "name": "recent_activity_type",
+            "code": "\n\ndef recent_activity_type(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key 'app_activity_table.csv' exists in aux_dataframes\n    if \"app_activity_table.csv\" not in aux_dataframes:\n        raise KeyError(\"'app_activity_table.csv' not found in aux_dataframes\")\n    \n    # Access the app_activity_table dataframe\n    app_data = aux_dataframes[\"app_activity_table.csv\"]\n    \n    # Filter the dataframe for the given customer_id\n    customer_data = app_data[app_data[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Check if the filtered dataframe is not empty\n    if not customer_data.empty:\n        # Sort by activity_date in descending order and return the most recent activity_type\n        return customer_data.sort_values(\"activity_date\", ascending=False).iloc[0][\"activity_type\"]\n    else:\n        # Return \"Unknown\" if no activity is found for the customer\n        return \"Unknown\"\n"
+        },
+        "0.017921087935946777": {
+            "name": "average_spend_per_transaction",
+            "code": "\n\ndef average_spend_per_transaction(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the purchase history dataframe from aux_data\n    purchase_history_df = aux_data['purchase_history_table.csv']\n    \n    # Filter the purchase history for the given customer_id\n    purchases = purchase_history_df[purchase_history_df[\"customer_id\"] == row[\"customer_id\"]][\"purchase_amount\"]\n    \n    # Calculate and return the mean purchase amount, or 0 if no purchases exist\n    return purchases.mean() if not purchases.empty else 0\n"
+        },
+        "0.017453642471074147": {
+            "name": "purchase_frequency_per_month",
+            "code": "import pandas as pd\n\ndef purchase_frequency_per_month(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the purchase history dataframe from aux_data\n    purchase_history = aux_data[\"purchase_history_table.csv\"]\n    \n    # Filter the purchase history for the specific customer\n    customer_data = purchase_history[purchase_history[\"customer_id\"] == row[\"customer_id\"]]\n    \n    # Calculate the number of unique months the customer made purchases\n    customer_data[\"purchase_month\"] = pd.to_datetime(customer_data[\"purchase_date\"]).dt.to_period(\"M\")\n    months_active = customer_data[\"purchase_month\"].nunique()\n    \n    # Calculate the purchase frequency per month\n    return len(customer_data) / months_active if months_active > 0 else 0\n"
+        },
+        "0.016937497777583684": {
+            "name": "account_duration",
+            "code": "import pandas as pd\n\ndef account_duration(row, aux_data: Dict[str, pd.DataFrame] = None):\n    # Ensure the correct column names are used\n    if \"signup_date\" in row and \"last_purchase_date\" in row:\n        # Calculate the duration in days between the signup_date and last_purchase_date\n        return (pd.Timestamp(row[\"last_purchase_date\"]) - pd.Timestamp(row[\"signup_date\"])).days\n    else:\n        raise KeyError(\"The required columns 'signup_date' and 'last_purchase_date' are missing from the row.\")\n"
+        },
+        "0.01693749777758368": {
+            "name": "normalized_account_duration",
+            "code": "import pandas as pd\n\ndef normalized_account_duration(row, df_train: pd.DataFrame):\n    # Ensure the date columns are in datetime format\n    df_train[\"signup_date\"] = pd.to_datetime(df_train[\"signup_date\"])\n    df_train[\"last_purchase_date\"] = pd.to_datetime(df_train[\"last_purchase_date\"])\n    \n    # Calculate account_duration as the difference in days between last_purchase_date and signup_date\n    df_train[\"account_duration\"] = (df_train[\"last_purchase_date\"] - df_train[\"signup_date\"]).dt.days\n    \n    # Calculate the mean and standard deviation of account_duration\n    durations = df_train[\"account_duration\"]\n    mean_duration = durations.mean()\n    std_duration = durations.std()\n    \n    # Calculate the account_duration for the current row\n    row_signup_date = pd.to_datetime(row[\"signup_date\"])\n    row_last_purchase_date = pd.to_datetime(row[\"last_purchase_date\"])\n    row_account_duration = (row_last_purchase_date - row_signup_date).days\n    \n    # Return the normalized account_duration\n    return (row_account_duration - mean_duration) / std_duration\n"
+        },
+        "0.01053184458337015": {
+            "name": "gender_encoding",
+            "code": "\n\ndef gender_encoding(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the customer_id from the row\n    customer_id = row[\"customer_id\"]\n    \n    # Get the customer demographics dataframe\n    demographics_df = aux_data.get(\"customer_demographics_table.csv\")\n    \n    # Check if the demographics dataframe exists\n    if demographics_df is None:\n        raise ValueError(\"customer_demographics_table.csv is missing from aux_data\")\n    \n    # Find the gender for the given customer_id\n    gender = demographics_df.loc[demographics_df[\"customer_id\"] == customer_id, \"gender\"]\n    \n    # If the customer_id is not found, return -1\n    if gender.empty:\n        return -1\n    \n    # Map the gender to its encoded value\n    gender_map = {\"Male\": 0, \"Female\": 1, \"Other\": 2}\n    return gender_map.get(gender.iloc[0], -1)\n"
+        },
+        "0.002282767670076281": {
+            "name": "purchase_value_variance",
+            "code": "import numpy as np\n\ndef purchase_value_variance(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    # Access the purchase history table from aux_data\n    purchase_history = aux_data['purchase_history_table.csv']\n    \n    # Filter the purchase history for the given customer_id\n    values = purchase_history[purchase_history[\"customer_id\"] == row[\"customer_id\"]][\"purchase_amount\"]\n    \n    # Return the variance if there is more than one purchase, otherwise return NaN\n    return values.var() if len(values) > 1 else np.nan\n"
+        },
+        "0": {
+            "name": "total_purchases_in_discount_category",
+            "code": "\n\ndef total_purchases_in_discount_category(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the purchase history dataframe from aux_data\n    purchase_history_df = aux_data['purchase_history_table.csv']\n    \n    # Filter the dataframe for the given customer_id and purchases in the \"discount\" category\n    discount_purchases = purchase_history_df[\n        (purchase_history_df[\"customer_id\"] == row[\"customer_id\"]) & \n        (purchase_history_df[\"purchase_category\"] == \"discount\")\n    ]\n    \n    # Return the count of such purchases\n    return int(discount_purchases.shape[0])\n"
+        }
+    },
+    "feature_descriptions": [
+        "activity count",
+        "total lifetime value",
+        "days since last purchase",
+        "recent discounted purchase flag",
+        "unique product categories",
+        "proportion discounted purchases",
+        "income bracket encoding",
+        "most common purchase category",
+        "recent activity type",
+        "average spend per transaction",
+        "purchase frequency per month",
+        "account duration",
+        "normalized account duration",
+        "gender encoding",
+        "purchase value variance",
+        "total purchases in discount category"
+    ]
+}

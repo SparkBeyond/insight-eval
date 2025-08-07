@@ -1,0 +1,7 @@
+{
+    "target_column": "resolution_flag",
+    "description": "Predict occurrence of faulty reporting in devices data.",
+    "name": "Device Reported Faults Analysis",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Telecommunications"
+}

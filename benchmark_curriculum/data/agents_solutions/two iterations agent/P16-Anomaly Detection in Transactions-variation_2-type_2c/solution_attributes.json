@@ -1,0 +1,20 @@
+{
+    "solved_by": "two iterations agent",
+    "enriched_column_names": [
+        "transaction_recency",
+        "location_risk_score",
+        "account_status_flag",
+        "day_of_week",
+        "hour_of_transaction"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {},
+    "feature_descriptions": [
+        "transaction recency",
+        "location risk score",
+        "account status flag",
+        "day of week",
+        "hour of transaction"
+    ]
+}

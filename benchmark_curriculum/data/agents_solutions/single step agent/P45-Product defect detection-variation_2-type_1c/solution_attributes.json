@@ -1,0 +1,71 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "defect_count_prior_to_inspection",
+        "max_defect_severity_prior_inspection",
+        "mean_defect_severity_prior_inspection",
+        "inspector_defect_recognition_rate",
+        "total_defect_resolution_time",
+        "inspection_duration_per_weight",
+        "time_since_last_defect",
+        "time_since_release",
+        "product_mean_inspection_score",
+        "inspector_six_sigma_certified"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.22979174738243896": {
+            "name": "defect_count_prior_to_inspection",
+            "code": "\n\ndef defect_count_prior_to_inspection(row, aux_dataframes: Dict[str, pd.DataFrame]):\n        defect_data = aux_dataframes['product_defect_history_table.csv']\n        defects_prior = defect_data[(defect_data['product_id'] == row['product_id']) &\n                                      (defect_data['defect_date'] < row['inspection_date'])]\n        return defects_prior.shape[0]\n"
+        },
+        "0.16963230195185344": {
+            "name": "max_defect_severity_prior_inspection",
+            "code": "\n\ndef max_defect_severity_prior_inspection(row, aux_dataframes: Dict[str, pd.DataFrame]):\n        defect_data = aux_dataframes['product_defect_history_table.csv']\n        defects_prior = defect_data[(defect_data['product_id'] == row['product_id']) &\n                                      (defect_data['defect_date'] < row['inspection_date'])]\n        if not defects_prior.empty:\n            return defects_prior['severity_level'].max()\n        return 0\n"
+        },
+        "0.15288816536580888": {
+            "name": "mean_defect_severity_prior_inspection",
+            "code": "\n\ndef mean_defect_severity_prior_inspection(row, aux_dataframes: Dict[str, pd.DataFrame]):\n        defect_data = aux_dataframes['product_defect_history_table.csv']\n        defects_prior = defect_data[(defect_data['product_id'] == row['product_id']) &\n                                      (defect_data['defect_date'] < row['inspection_date'])]\n        if not defects_prior.empty:\n            return defects_prior['severity_level'].mean()\n        return 0\n"
+        },
+        "0.12235890503029383": {
+            "name": "inspector_defect_recognition_rate",
+            "code": "\n\ndef inspector_defect_recognition_rate(row, df_train: pd.DataFrame):\n    # Filter records for the same inspector\n    inspector_records = df_train[df_train['inspector_id'] == row['inspector_id']]\n    \n    # Exclude the current row by ensuring inspection_id is not the same\n    inspector_records = inspector_records[inspector_records['inspection_id'] != row['inspection_id']]\n    \n    # Exclude records with inspection dates in the future relative to the current row\n    inspector_records = inspector_records[inspector_records['inspection_date'] <= row['inspection_date']]\n    \n    # Calculate the mean defective_flag for the remaining records\n    if not inspector_records.empty:\n        return inspector_records['defective_flag'].mean()\n    \n    # Return 0 if no valid records are found\n    return 0\n"
+        },
+        "0.110337603053241": {
+            "name": "total_defect_resolution_time",
+            "code": "\n\ndef total_defect_resolution_time(row, aux_dataframes: Dict[str, pd.DataFrame]):\n        defect_data = aux_dataframes['product_defect_history_table.csv']\n        product_defects = defect_data[(defect_data['product_id'] == row['product_id'])]\n        if not product_defects.empty:\n            return product_defects['resolution_time_days'].sum()\n        return 0\n"
+        },
+        "0.09899652326075487": {
+            "name": "inspection_duration_per_weight",
+            "code": "import numpy as np\n\ndef inspection_duration_per_weight(row, aux_dataframes: Dict[str, pd.DataFrame]):\n        product_info = aux_dataframes['product_features_table.csv']\n        product_weight = product_info.loc[product_info['product_id'] == row['product_id'], 'weight_kg']\n        if not product_weight.empty and product_weight.values[0] != 0:\n            return row['inspection_duration_minutes'] / product_weight.values[0]\n        return np.nan\n"
+        },
+        "0.08913285800378974": {
+            "name": "time_since_last_defect",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef time_since_last_defect(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Load the defect history table\n    defect_data = aux_dataframes['product_defect_history_table.csv']\n    \n    # Ensure 'defect_date' and 'inspection_date' are in datetime format\n    defect_data['defect_date'] = pd.to_datetime(defect_data['defect_date'])\n    row_inspection_date = pd.to_datetime(row['inspection_date'])\n    \n    # Filter defects for the same product and before the inspection date\n    product_defects = defect_data[\n        (defect_data['product_id'] == row['product_id']) &\n        (defect_data['defect_date'] < row_inspection_date)\n    ]\n    \n    # If there are defects, calculate the time since the last defect\n    if not product_defects.empty:\n        last_defect_date = product_defects['defect_date'].max()\n        return (row_inspection_date - last_defect_date).days\n    \n    # If no defects are found, return NaN\n    return np.nan\n"
+        },
+        "0.08493171478989707": {
+            "name": "time_since_release",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef time_since_release(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    product_info = aux_dataframes['product_features_table.csv']\n    \n    # Ensure release_date is in datetime format\n    product_info['release_date'] = pd.to_datetime(product_info['release_date'])\n    \n    # Ensure inspection_date is in datetime format\n    inspection_date = pd.to_datetime(row['inspection_date'])\n    \n    # Get the release_date for the product_id\n    release_date = product_info.loc[product_info['product_id'] == row['product_id'], 'release_date']\n    \n    if not release_date.empty:\n        # Calculate the difference in days\n        return (inspection_date - release_date.values[0]).days\n    \n    return np.nan\n"
+        },
+        "0.03449720041692939": {
+            "name": "product_mean_inspection_score",
+            "code": "\n\ndef product_mean_inspection_score(row, df_train: pd.DataFrame):\n        product_records = df_train[df_train['product_id'] == row['product_id']]\n        if not product_records.empty:\n            return product_records['inspection_score'].mean()\n        return 0\n"
+        },
+        "0.014971162020266843": {
+            "name": "inspector_six_sigma_certified",
+            "code": "\n\ndef inspector_six_sigma_certified(row, aux_data: Dict[str, pd.DataFrame]):\n    # Get the inspector_id from the row\n    inspector_id = row['inspector_id']\n    \n    # Access the inspection_team_table.csv dataframe from aux_data\n    inspection_team_df = aux_data['inspection_team_table.csv']\n    \n    # Find the row in the inspection_team_table.csv where inspector_id matches\n    inspector_row = inspection_team_df[inspection_team_df['inspector_id'] == inspector_id]\n    \n    # Check if the inspector has the 'Six Sigma' certification\n    if not inspector_row.empty:\n        certifications = inspector_row.iloc[0]['certifications']\n        return int('Six Sigma' in certifications)\n    \n    # If no matching inspector_id is found, return 0\n    return 0\n"
+        }
+    },
+    "feature_descriptions": [
+        "defect count prior to inspection",
+        "max defect severity prior inspection",
+        "mean defect severity prior inspection",
+        "inspector defect recognition rate",
+        "total defect resolution time",
+        "inspection duration per weight",
+        "time since last defect",
+        "time since release",
+        "product mean inspection score",
+        "inspector six sigma certified"
+    ]
+}

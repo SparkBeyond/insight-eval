@@ -1,0 +1,14 @@
+{
+    "enriched_column_names": [
+        "frequency_of_purchases_in_the_last_6_months",
+        "number_of_unresolved_support_requests_in_the_last_quarter",
+        "decline_in_monthly_website_activity_time_over_the_last_3_months",
+        "response_rate_to_marketing_campaigns_over_the_last_year"
+    ],
+    "features_descriptions": [
+        "frequency of purchases in the last 6 months",
+        "number of unresolved support requests in the last quarter",
+        "decline in monthly website activity time over the last 3 months",
+        "response rate to marketing campaigns over the last year"
+    ]
+}

@@ -1,0 +1,89 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "group_adherence_rate",
+        "hospital_visit_frequency",
+        "days_since_diagnosis",
+        "severity_lab_tests",
+        "has_family_history",
+        "physical_activity_score",
+        "calculate_bmi",
+        "alcohol_stress_risk",
+        "medication_gap_risk",
+        "days_since_last_refill",
+        "medication_diversity",
+        "average_blood_pressure",
+        "smoking_score"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.2373619353130356": {
+            "name": "group_adherence_rate",
+            "code": "\n\ndef group_adherence_rate(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the correct key is used to access the medication adherence dataframe\n    medication_adherence = aux_dataframes.get('medication_adherence_table.csv')\n    \n    # Check if the medication adherence dataframe exists\n    if medication_adherence is None:\n        raise KeyError(\"The key 'medication_adherence_table.csv' is not found in aux_dataframes.\")\n    \n    # Filter the medication adherence dataframe for the given patient_id\n    adherence_rates = medication_adherence[medication_adherence['patient_id'] == row['patient_id']]['adherence_rate']\n    \n    # Return the mean adherence rate, or a default value (e.g., 0.0) if no data is found\n    return adherence_rates.mean() if not adherence_rates.empty else 0.0\n"
+        },
+        "0.08135098953579364": {
+            "name": "hospital_visit_frequency",
+            "code": "\n\ndef hospital_visit_frequency(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Get the medical_history_table dataframe from aux_data\n    medical_history_df = aux_data['medical_history_table.csv']\n    \n    # Filter the dataframe to find the row corresponding to the patient_id\n    patient_data = medical_history_df[medical_history_df['patient_id'] == patient_id]\n    \n    # Check if the patient exists in the medical history table\n    if not patient_data.empty:\n        # Return the hospital_visits value for the patient\n        return patient_data.iloc[0]['hospital_visits']\n    else:\n        # If the patient_id is not found, return a default value (e.g., 0 or None)\n        return 0\n"
+        },
+        "0.06964538633433524": {
+            "name": "days_since_diagnosis",
+            "code": "import datetime\n\ndef days_since_diagnosis(row: pd.Series, aux_data: Dict[str, pd.DataFrame]) -> int:\n    # Extract the patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Get the medical history dataframe from aux_data\n    medical_history_df = aux_data['medical_history_table.csv']\n    \n    # Find the diagnosis_date for the given patient_id\n    patient_history = medical_history_df[medical_history_df['patient_id'] == patient_id]\n    \n    # If no diagnosis_date is found, return a default value (e.g., -1)\n    if patient_history.empty:\n        return -1\n    \n    # Extract the diagnosis_date (assuming the first match is used)\n    diagnosis_date_str = patient_history.iloc[0]['diagnosis_date']\n    \n    # Convert the diagnosis_date to a datetime object\n    diagnosis_date = datetime.strptime(diagnosis_date_str, '%Y-%m-%d')\n    \n    # Get today's date\n    today = datetime.today()\n    \n    # Calculate the number of days since diagnosis\n    return (today - diagnosis_date).days\n"
+        },
+        "0.06762197756002464": {
+            "name": "severity_lab_tests",
+            "code": "\n\ndef severity_lab_tests(row, aux_data: Dict[str, pd.DataFrame]):\n    # Extract the patient_id from the row\n    patient_id = row['patient_id']\n    \n    # Get the medical_history_table dataframe from aux_data\n    medical_history_df = aux_data['medical_history_table.csv']\n    \n    # Filter the medical_history_table to find the row corresponding to the patient_id\n    patient_history = medical_history_df[medical_history_df['patient_id'] == patient_id]\n    \n    # Check if there is a matching row for the patient_id\n    if not patient_history.empty:\n        # Extract the 'lab_test_results' value for the patient\n        lab_test_results = patient_history.iloc[0]['lab_test_results']\n        \n        # Return the square of the lab_test_results\n        return lab_test_results ** 2\n    else:\n        # If no matching row is found, return None or handle the case appropriately\n        return None\n"
+        },
+        "0.042327345588549475": {
+            "name": "has_family_history",
+            "code": "\n\ndef has_family_history(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the correct key is used to access the disease_risk_factors dataframe\n    disease_risk_factors = aux_dataframes.get('disease_risk_factors_table.csv')\n    \n    # Check if the dataframe exists\n    if disease_risk_factors is None:\n        raise KeyError(\"The key 'disease_risk_factors_table.csv' is not found in aux_dataframes.\")\n    \n    # Set the index to 'patient_id' for efficient lookup\n    disease_risk_factors = disease_risk_factors.set_index('patient_id')\n    \n    # Safely retrieve the 'family_history' value for the given patient_id\n    patient_id = row['patient_id']\n    if patient_id in disease_risk_factors.index:\n        family_history = disease_risk_factors.at[patient_id, 'family_history']\n        return 1 if family_history else 0\n    else:\n        # Return 0 if the patient_id is not found in the dataframe\n        return 0\n"
+        },
+        "0.033013888285222066": {
+            "name": "physical_activity_score",
+            "code": "\n\ndef physical_activity_score(row, df_train: pd.DataFrame, aux_dataframes: dict):\n    # Ensure the key exists in aux_dataframes\n    if 'disease_risk_factors_table.csv' not in aux_dataframes:\n        raise KeyError(\"The key 'disease_risk_factors_table.csv' is missing from aux_dataframes.\")\n    \n    # Load the disease_risk_factors dataframe\n    disease_risk_factors = aux_dataframes['disease_risk_factors_table.csv']\n    \n    # Ensure the required column exists in the dataframe\n    if 'physical_activity_level' not in disease_risk_factors.columns:\n        raise KeyError(\"The column 'physical_activity_level' is missing from the disease_risk_factors dataframe.\")\n    \n    # Ensure the patient_id exists in the dataframe\n    if row['patient_id'] not in disease_risk_factors['patient_id'].values:\n        return -1  # Return -1 if the patient_id is not found\n    \n    # Map activity levels to scores\n    mappings = {'Sedentary': 0, 'Moderate': 1, 'Active': 2}\n    \n    # Retrieve the activity level for the given patient_id\n    activity_level = disease_risk_factors.set_index('patient_id').at[row['patient_id'], 'physical_activity_level']\n    \n    # Return the mapped score, or -1 if the activity level is not in the mappings\n    return mappings.get(activity_level, -1)\n"
+        },
+        "0.026853887007613795": {
+            "name": "calculate_bmi",
+            "code": "\n\ndef calculate_bmi(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Retrieve the patient's height and weight from the row\n    try:\n        height_meters = row['height'] / 100  # Convert height from cm to meters\n        weight_kg = row['weight']  # Weight in kilograms\n    except KeyError:\n        # Handle missing height or weight columns\n        raise ValueError(f\"Missing height or weight information for patient_id {row['patient_id']}\")\n    \n    # Ensure height is not zero to avoid division by zero\n    if height_meters <= 0:\n        raise ValueError(f\"Invalid height value for patient_id {row['patient_id']}\")\n    \n    # Calculate BMI\n    return weight_kg / (height_meters ** 2)\n"
+        },
+        "0.02091305809831778": {
+            "name": "alcohol_stress_risk",
+            "code": "\n\ndef alcohol_stress_risk(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Ensure the key exists in the aux_dataframes dictionary\n    if 'disease_risk_factors_table.csv' not in aux_dataframes:\n        raise KeyError(\"'disease_risk_factors_table.csv' not found in aux_dataframes\")\n    \n    # Load the disease_risk_factors dataframe\n    disease_risk_factors = aux_dataframes['disease_risk_factors_table.csv']\n    \n    # Ensure the dataframe contains the required columns\n    required_columns = {'patient_id', 'alcohol_consumption', 'stress_level'}\n    if not required_columns.issubset(disease_risk_factors.columns):\n        raise ValueError(f\"The dataframe 'disease_risk_factors_table.csv' must contain the columns: {required_columns}\")\n    \n    # Set the index to 'patient_id' for efficient lookup\n    disease_risk_factors = disease_risk_factors.set_index('patient_id')\n    \n    # Check if the patient_id exists in the disease_risk_factors dataframe\n    patient_id = row['patient_id']\n    if patient_id not in disease_risk_factors.index:\n        raise KeyError(f\"Patient ID {patient_id} not found in 'disease_risk_factors_table.csv'\")\n    \n    # Retrieve the risk factors for the given patient_id\n    risk_factors = disease_risk_factors.loc[patient_id]\n    \n    # Calculate and return the alcohol_stress_risk\n    return risk_factors['alcohol_consumption'] * risk_factors['stress_level']\n"
+        },
+        "0.019249629114558225": {
+            "name": "medication_gap_risk",
+            "code": "import pandas as pd\nimport datetime\n\ndef medication_gap_risk(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    from datetime import datetime\n    \n    # Access the medication adherence dataframe\n    medication_adherence = aux_data['medication_adherence_table.csv']\n    \n    # Filter the medication adherence data for the specific patient\n    patient_data = medication_adherence[medication_adherence['patient_id'] == row['patient_id']]\n    \n    # Extract and sort the refill dates\n    refill_dates = sorted(\n        [datetime.strptime(date, '%Y-%m-%d') for date in patient_data['last_refill_date'] if pd.notnull(date)]\n    )\n    \n    # If there are fewer than 2 refill dates, assume no gaps\n    if len(refill_dates) < 2:\n        return 0\n    \n    # Calculate the total gap days between consecutive refill dates\n    total_gap_days = sum(\n        (next_date - prev_date).days for prev_date, next_date in zip(refill_dates[:-1], refill_dates[1:])\n    )\n    \n    # Return the average gap days\n    return total_gap_days / (len(refill_dates) - 1)\n"
+        },
+        "0.013525520016447627": {
+            "name": "days_since_last_refill",
+            "code": "import datetime\n\ndef days_since_last_refill(row, df_train: pd.DataFrame, aux_data: Dict[str, pd.DataFrame]):\n    from datetime import datetime\n    \n    # Ensure the correct key is used to access the medication adherence table\n    medication_adherence = aux_data['medication_adherence_table.csv']\n    \n    # Check if the patient_id exists in the medication adherence table\n    if row['patient_id'] not in medication_adherence['patient_id'].values:\n        # If patient_id is not found, return a default value (e.g., None or -1)\n        return None\n    \n    # Filter the medication adherence table for the specific patient_id\n    patient_data = medication_adherence[medication_adherence['patient_id'] == row['patient_id']]\n    \n    # Check if there is a valid last_refill_date for the patient\n    if 'last_refill_date' not in patient_data.columns or patient_data['last_refill_date'].isnull().all():\n        return None\n    \n    # Get the last refill date for the patient (assuming the most recent one if there are duplicates)\n    last_refill_date = patient_data['last_refill_date'].iloc[0]\n    \n    # Parse the last refill date\n    try:\n        last_refill_date = datetime.strptime(last_refill_date, '%Y-%m-%d')\n    except (ValueError, TypeError):\n        # Handle invalid date format or type\n        return None\n    \n    # Calculate the number of days since the last refill\n    today = datetime.today()\n    return (today - last_refill_date).days\n"
+        },
+        "0.010828296138904027": {
+            "name": "medication_diversity",
+            "code": "\n\ndef medication_diversity(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key to access the medication adherence dataframe\n    medication_adherence = aux_dataframes['medication_adherence_table.csv']\n    \n    # Filter the medication adherence dataframe for the given patient_id\n    unique_meds = medication_adherence[medication_adherence['patient_id'] == row['patient_id']]['medication_name'].nunique()\n    \n    return unique_meds\n"
+        },
+        "0.005544423732205715": {
+            "name": "average_blood_pressure",
+            "code": "\n\ndef average_blood_pressure(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Extract the blood pressure value from the row\n    blood_pressure = row['blood_pressure']\n    \n    # Split the blood pressure into systolic and diastolic values\n    systolic, diastolic = map(int, blood_pressure.split('/'))\n    \n    # Calculate and return the average blood pressure\n    return (systolic + diastolic) / 2\n"
+        },
+        "0": {
+            "name": "smoking_score",
+            "code": "\n\ndef smoking_score(row, df_train: pd.DataFrame, aux_dataframes: dict):\n    mappings = {'Never': 0, 'Former': 1, 'Current': 2}\n    \n    # Ensure the key exists in aux_dataframes\n    if 'medical_history_table.csv' not in aux_dataframes:\n        return -1  # Return -1 if the medical history table is missing\n    \n    medical_history = aux_dataframes['medical_history_table.csv']\n    \n    # Ensure the required column exists in the medical history dataframe\n    if 'smoking_status' not in medical_history.columns:\n        return -1  # Return -1 if the smoking_status column is missing\n    \n    # Ensure the patient_id exists in the medical history dataframe\n    if row['patient_id'] not in medical_history['patient_id'].values:\n        return -1  # Return -1 if the patient_id is not found\n    \n    # Retrieve the smoking status for the given patient_id\n    smoking_status = medical_history.set_index('patient_id').at[row['patient_id'], 'smoking_status']\n    \n    # Map the smoking status to the corresponding score\n    return mappings.get(smoking_status, -1)\n"
+        }
+    },
+    "feature_descriptions": [
+        "group adherence rate",
+        "hospital visit frequency",
+        "days since diagnosis",
+        "severity lab tests",
+        "has family history",
+        "physical activity score",
+        "calculate bmi",
+        "alcohol stress risk",
+        "medication gap risk",
+        "days since last refill",
+        "medication diversity",
+        "average blood pressure",
+        "smoking score"
+    ]
+}

@@ -1,0 +1,7 @@
+{
+    "target_column": "anomalous",
+    "description": "Identify abnormal transaction behavior to flag for review.",
+    "name": "Anomaly Detection in Transactions",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Financial services"
+}

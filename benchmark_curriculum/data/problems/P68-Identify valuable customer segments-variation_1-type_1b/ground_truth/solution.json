@@ -1,0 +1,16 @@
+{
+    "enriched_column_names": [
+        "loyalty_program",
+        "purchase_frequency",
+        "customer_lifetime",
+        "average_transaction_value",
+        "product_preferences"
+    ],
+    "features_descriptions": [
+        "loyalty program",
+        "purchase frequency",
+        "customer lifetime",
+        "average transaction value",
+        "product preferences"
+    ]
+}

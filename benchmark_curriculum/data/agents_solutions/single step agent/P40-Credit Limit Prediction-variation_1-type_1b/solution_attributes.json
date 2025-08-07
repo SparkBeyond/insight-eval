@@ -1,0 +1,41 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "days_since_largest_transaction",
+        "spending_to_income_ratio",
+        "pct_delayed_repayments",
+        "cumulative_spending_above_threshold",
+        "repayment_regularities"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.08912782992520951": {
+            "name": "days_since_largest_transaction",
+            "code": "import pandas as pd\nimport datetime\n\ndef days_since_largest_transaction(row: pd.Series, aux_dataframes: Dict[str, pd.DataFrame]) -> int:\n    # Check if 'transaction_history_table' exists in aux_dataframes\n    if \"transaction_history_table.csv\" not in aux_dataframes:\n        raise KeyError(\"'transaction_history_table.csv' not found in aux_dataframes\")\n\n    # Get the transaction history table\n    transactions = aux_dataframes[\"transaction_history_table.csv\"]\n\n    # Ensure the required columns exist in the transaction history table\n    required_columns = {\"cardholder_id\", \"transaction_date\", \"transaction_amount\"}\n    if not required_columns.issubset(transactions.columns):\n        raise ValueError(f\"Missing required columns in transaction_history_table.csv: {required_columns - set(transactions.columns)}\")\n\n    # Get the cardholder_id from the row\n    cardholder_id = row[\"cardholder_id\"]\n\n    # Filter transactions for the given cardholder_id\n    relevant_transactions = transactions[transactions[\"cardholder_id\"] == cardholder_id]\n\n    # If no transactions are found, return -1\n    if relevant_transactions.empty:\n        return -1\n\n    # Find the largest transaction\n    largest_transaction = relevant_transactions.loc[relevant_transactions[\"transaction_amount\"].idxmax()]\n\n    # Parse the transaction date\n    largest_transaction_date = pd.to_datetime(largest_transaction[\"transaction_date\"])\n\n    # Get today's date\n    today = datetime.datetime.today()\n\n    # Calculate the number of days since the largest transaction\n    return (today - largest_transaction_date).days\n"
+        },
+        "0.02550002328646596": {
+            "name": "spending_to_income_ratio",
+            "code": "import pandas as pd\n\ndef spending_to_income_ratio(row, aux_data: Dict[str, pd.DataFrame]):\n    # Ensure the required tables exist in aux_data\n    if \"transaction_history_table.csv\" not in aux_data or \"personal_demographics_table.csv\" not in aux_data:\n        return -1\n\n    # Load the required dataframes\n    transactions = aux_data[\"transaction_history_table.csv\"]\n    demographics = aux_data[\"personal_demographics_table.csv\"]\n    cardholder_id = row[\"cardholder_id\"]\n\n    # Fetch income details\n    person_info = demographics[demographics[\"cardholder_id\"] == cardholder_id]\n    if person_info.empty:\n        return -1\n    annual_income = person_info[\"annual_income\"].iloc[0]\n\n    # Total spending over the past 6 months\n    relevant_transactions = transactions[transactions[\"cardholder_id\"] == cardholder_id]\n    try:\n        recent_transactions = relevant_transactions[\n            pd.to_datetime(relevant_transactions[\"transaction_date\"]) >= (pd.Timestamp.today() - pd.Timedelta(days=180))\n        ]\n    except Exception as e:\n        # Handle potential errors in date parsing\n        return -1\n\n    total_spent = recent_transactions[\"transaction_amount\"].sum() if not recent_transactions.empty else 0\n    return total_spent / annual_income if annual_income > 0 else -1\n"
+        },
+        "0.02010637604540197": {
+            "name": "pct_delayed_repayments",
+            "code": "\n\ndef pct_delayed_repayments(row, aux_data: Dict[str, pd.DataFrame]):\n    # Access the credit repayment table from aux_data\n    df_repayments = aux_data['credit_repayment_table.csv']\n    \n    # Get the cardholder_id from the row\n    cardholder_id = row[\"cardholder_id\"]\n    \n    # Filter the dataframe for the specific cardholder_id\n    repayments = df_repayments[df_repayments[\"cardholder_id\"] == cardholder_id]\n    \n    # If no repayments exist for the cardholder, return 0\n    if repayments.empty:\n        return 0\n    \n    # Calculate delays: remaining_balance > 0.5 * repayment_amount\n    delays = repayments[\"remaining_balance\"] > (0.5 * repayments[\"repayment_amount\"])\n    \n    # Return the mean of the delays (percentage of delayed repayments)\n    return delays.mean()\n"
+        },
+        "0.012977690078643045": {
+            "name": "cumulative_spending_above_threshold",
+            "code": "\n\ndef cumulative_spending_above_threshold(row, aux_data: Dict[str, pd.DataFrame], threshold=500):\n    # Check if 'transaction_history_table.csv' exists in aux_data\n    if \"transaction_history_table.csv\" not in aux_data:\n        raise KeyError(\"'transaction_history_table.csv' is missing from aux_data\")\n\n    # Get the transaction history dataframe\n    transactions = aux_data[\"transaction_history_table.csv\"]\n\n    # Ensure the dataframe has the expected columns\n    expected_columns = {'transaction_id', 'cardholder_id', 'transaction_date', 'transaction_amount', 'merchant_category', 'is_over_limit'}\n    if not expected_columns.issubset(transactions.columns):\n        raise ValueError(f\"'transaction_history_table.csv' is missing required columns. Expected columns: {expected_columns}\")\n\n    # Extract the cardholder_id from the row\n    cardholder_id = row[\"cardholder_id\"]\n\n    # Filter transactions for the given cardholder_id\n    relevant_transactions = transactions[transactions[\"cardholder_id\"] == cardholder_id]\n\n    # If there are no relevant transactions, return 0\n    if relevant_transactions.empty:\n        return 0\n\n    # Calculate the cumulative spending above the threshold\n    return relevant_transactions.loc[relevant_transactions[\"transaction_amount\"] > threshold, \"transaction_amount\"].sum()\n"
+        },
+        "0": {
+            "name": "repayment_regularities",
+            "code": "import pandas as pd\n\ndef repayment_regularities(row, df_train):\n    cardholder_id = row[\"cardholder_id\"]\n    repayments = df_train[df_train[\"cardholder_id\"] == cardholder_id]\n\n    if repayments.empty or repayments.shape[0] < 2:\n        return -1\n\n    repayment_dates = pd.to_datetime(repayments[\"repayment_date\"]).sort_values()\n    regularity = repayment_dates.diff().dt.days.mean()\n    return regularity if regularity > 0 else -1\n"
+        }
+    },
+    "feature_descriptions": [
+        "days since largest transaction",
+        "spending to income ratio",
+        "pct delayed repayments",
+        "cumulative spending above threshold",
+        "repayment regularities"
+    ]
+}

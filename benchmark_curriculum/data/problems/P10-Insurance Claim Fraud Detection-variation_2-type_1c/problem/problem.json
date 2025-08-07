@@ -1,0 +1,7 @@
+{
+    "target_column": "Fraudulent",
+    "description": "Identify fraudulent claims submitted by policyholders.",
+    "name": "Insurance Claim Fraud Detection",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Financial services"
+}

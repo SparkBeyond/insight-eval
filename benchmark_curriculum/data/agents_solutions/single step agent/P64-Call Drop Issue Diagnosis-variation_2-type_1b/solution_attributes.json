@@ -1,0 +1,131 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "concurrent_outages",
+        "call_duration",
+        "network_type_impact",
+        "location_call_drop_ratio",
+        "call_status_encoding",
+        "hours_since_recent_outage",
+        "recent_drop_flag",
+        "previous_issues_reported",
+        "device_call_drop_ratio",
+        "user_device_type_mapping",
+        "avg_signal_strength_location",
+        "feedback_rating_average",
+        "weather_signal_interaction",
+        "signal_strength_level",
+        "local_avg_temperature",
+        "day_of_week",
+        "wind_speed_binned",
+        "weather_condition_type",
+        "hour_of_day_binned",
+        "device_model_interaction"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.42878640048405325": {
+            "name": "concurrent_outages",
+            "code": "import pandas as pd\n\ndef concurrent_outages(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    network_outages = aux_dataframes['network_outages_table.csv']\n    start_time = pd.to_datetime(row['start_time'])\n    end_time = pd.to_datetime(row['end_time'])\n    outages = network_outages[\n        (pd.to_datetime(network_outages['start_time']) <= end_time) &\n        (pd.to_datetime(network_outages['end_time']) >= start_time)\n    ]\n    return len(outages)\n"
+        },
+        "0.40181931163690116": {
+            "name": "call_duration",
+            "code": "import pandas as pd\n\ndef call_duration(row):\n    start = pd.to_datetime(row['start_time'])\n    end = pd.to_datetime(row['end_time'])\n    return (end - start).total_seconds()\n"
+        },
+        "0.2400977934769097": {
+            "name": "network_type_impact",
+            "code": "\n\ndef network_type_impact(row, df_train: pd.DataFrame):\n    # Filter the training data to exclude rows with start_time >= the current row's start_time\n    past_data = df_train[df_train['start_time'] < row['start_time']]\n    \n    # Further filter the data to include only rows with the same network_type\n    network_drops = past_data[past_data['network_type'] == row['network_type']]\n    \n    # Calculate the mean drop_flag for the filtered data\n    return network_drops['drop_flag'].mean() if not network_drops.empty else 0\n"
+        },
+        "0.09344089517466445": {
+            "name": "location_call_drop_ratio",
+            "code": "\n\ndef location_call_drop_ratio(row, df_train: pd.DataFrame):\n    # Filter the dataframe to include only rows with the same location_id\n    # and with start_time less than the current row's start_time\n    location_drops = df_train[\n        (df_train['location_id'] == row['location_id']) & \n        (df_train['start_time'] < row['start_time'])\n    ]\n    \n    # Calculate the mean of drop_flag, excluding the current row's drop_flag\n    return location_drops['drop_flag'].mean() if not location_drops.empty else 0\n"
+        },
+        "0.0709825791131459": {
+            "name": "call_status_encoding",
+            "code": "\n\ndef call_status_encoding(row):\n    return {'completed': 0, 'dropped': 1, 'failed': 2}[row['call_status']]\n"
+        },
+        "0.06400881519617233": {
+            "name": "hours_since_recent_outage",
+            "code": "import pandas as pd\n\ndef hours_since_recent_outage(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    network_outages = aux_dataframes['network_outages_table.csv']\n    start_time = pd.to_datetime(row['start_time'])\n    outages = network_outages[pd.to_datetime(network_outages['end_time']) <= start_time]\n    if not outages.empty:\n        last_outage_time = pd.to_datetime(outages.iloc[-1]['end_time'])\n        return (start_time - last_outage_time).total_seconds() / 3600\n    return None\n"
+        },
+        "0.05658218999615635": {
+            "name": "recent_drop_flag",
+            "code": "\n\ndef recent_drop_flag(row, df_train: pd.DataFrame):\n    # Filter sessions for the same user\n    user_sessions = df_train[df_train['user_id'] == row['user_id']]\n    \n    # Exclude the current session (to avoid target leakage)\n    user_sessions = user_sessions[user_sessions['session_id'] != row['session_id']]\n    \n    # Ensure only past sessions are considered (to avoid using future data)\n    user_sessions = user_sessions[user_sessions['start_time'] < row['start_time']]\n    \n    # Sort by start_time in descending order and take the 5 most recent sessions\n    recent_sessions = user_sessions.sort_values(by='start_time', ascending=False).head(5)\n    \n    # Return the sum of the drop_flag for the recent sessions\n    return recent_sessions['drop_flag'].sum()\n"
+        },
+        "0.038251918452281104": {
+            "name": "previous_issues_reported",
+            "code": "\n\ndef previous_issues_reported(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    feedback = aux_dataframes['user_feedback_table.csv']\n    issues = feedback[feedback['user_id'] == row['user_id']]['issue_reported'].sum()\n    return issues\n"
+        },
+        "0.030007719752715": {
+            "name": "device_call_drop_ratio",
+            "code": "\n\ndef device_call_drop_ratio(row, df_train: pd.DataFrame):\n    # Filter rows with the same device_id\n    device_drops = df_train[df_train['device_id'] == row['device_id']]\n    \n    # Exclude the current row by filtering out rows with the same session_id\n    device_drops = device_drops[device_drops['session_id'] != row['session_id']]\n    \n    # Ensure only past data is used by filtering rows where end_time is earlier than the current row's start_time\n    device_drops = device_drops[device_drops['end_time'] < row['start_time']]\n    \n    # Calculate the mean drop_flag for the filtered rows\n    return device_drops['drop_flag'].mean() if not device_drops.empty else 0\n"
+        },
+        "0.018943218119885134": {
+            "name": "user_device_type_mapping",
+            "code": "\n\ndef user_device_type_mapping(row):\n    return {'feature phone': 0, 'smartphone': 1}.get(row['device_type'], -1)\n"
+        },
+        "0.014617593738673556": {
+            "name": "avg_signal_strength_location",
+            "code": "\n\ndef avg_signal_strength_location(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    signal_strength = aux_dataframes['signal_strength_table.csv']\n    signals = signal_strength[signal_strength['location_id'] == row['location_id']]\n    return signals['signal_strength'].mean() if not signals.empty else None\n"
+        },
+        "0.013727329547618471": {
+            "name": "feedback_rating_average",
+            "code": "\n\ndef feedback_rating_average(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    feedback = aux_dataframes['user_feedback_table.csv']\n    user_feedback = feedback[feedback['user_id'] == row['user_id']]\n    return user_feedback['rating'].mean() if not user_feedback.empty else None\n"
+        },
+        "0.007821927436019394": {
+            "name": "weather_signal_interaction",
+            "code": "\n\ndef weather_condition_type(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    environmental_conditions = aux_dataframes['environmental_conditions_table.csv']\n    weather = environmental_conditions[\n        environmental_conditions['location_id'] == row['location_id']\n    ]\n    if not weather.empty:\n        return weather.iloc[0]['weather']\n    return None\n\ndef signal_strength_level(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    signal_strength = aux_dataframes['signal_strength_table.csv']\n    signal = signal_strength[\n        (signal_strength['location_id'] == row['location_id']) &\n        (signal_strength['device_id'] == row['device_id'])\n    ]\n    if not signal.empty:\n        strength = signal['signal_strength'].values[0]\n        if strength < -100:\n            return \"weak\"\n        elif -100 <= strength < -50:\n            return \"moderate\"\n        else:\n            return \"strong\"\n    return \"unknown\"\n\ndef weather_signal_interaction(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    weather_type = weather_condition_type(row, aux_dataframes)\n    signal_strength = signal_strength_level(row, aux_dataframes)\n    return f\"{weather_type}_{signal_strength}\"\n"
+        },
+        "0.00733365299526112": {
+            "name": "signal_strength_level",
+            "code": "\n\ndef signal_strength_level(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    signal_strength = aux_dataframes['signal_strength_table.csv']\n    signal = signal_strength[\n        (signal_strength['location_id'] == row['location_id']) &\n        (signal_strength['device_id'] == row['device_id'])\n    ]\n    if not signal.empty:\n        strength = signal['signal_strength'].values[0]\n        if strength < -100:\n            return \"weak\"\n        elif -100 <= strength < -50:\n            return \"moderate\"\n        else:\n            return \"strong\"\n    return \"unknown\"\n"
+        },
+        "0.005476758090788974": {
+            "name": "local_avg_temperature",
+            "code": "\n\ndef local_avg_temperature(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    environmental_conditions = aux_dataframes['environmental_conditions_table.csv']\n    weather = environmental_conditions[\n        environmental_conditions['location_id'] == row['location_id']\n    ]\n    return weather['temperature'].mean() if not weather.empty else None\n"
+        },
+        "0.0010925277044823148": {
+            "name": "day_of_week",
+            "code": "import pandas as pd\n\ndef day_of_week(row):\n    return pd.to_datetime(row['start_time']).dayofweek\n"
+        },
+        "0.0007636235959677107": {
+            "name": "wind_speed_binned",
+            "code": "\n\ndef wind_speed_binned(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    environmental_conditions = aux_dataframes['environmental_conditions_table.csv']\n    weather = environmental_conditions[\n        environmental_conditions['location_id'] == row['location_id']\n    ]\n    if not weather.empty:\n        wind_speed = weather.iloc[0]['wind_speed']\n        if wind_speed < 20:\n            return \"low\"\n        elif 20 <= wind_speed < 50:\n            return \"medium\"\n        else:\n            return \"high\"\n    return None\n"
+        },
+        "0.00015505602104259886": {
+            "name": "weather_condition_type",
+            "code": "\n\ndef weather_condition_type(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    environmental_conditions = aux_dataframes['environmental_conditions_table.csv']\n    weather = environmental_conditions[\n        environmental_conditions['location_id'] == row['location_id']\n    ]\n    if not weather.empty:\n        return weather.iloc[0]['weather']\n    return None\n"
+        },
+        "-0.0001288152303122736": {
+            "name": "hour_of_day_binned",
+            "code": "\n\ndef hour_of_day_binned(row):\n    hour = row['start_hour']\n    if 6 <= hour < 12:\n        return \"morning\"\n    elif 12 <= hour < 18:\n        return \"afternoon\"\n    elif 18 <= hour < 24:\n        return \"evening\"\n    else:\n        return \"night\"\n"
+        },
+        "4.24080282195316e-05": {
+            "name": "device_model_interaction",
+            "code": "\n\ndef device_model_interaction(row):\n    return f\"{row['device_id']}_{row['network_type']}\"\n"
+        }
+    },
+    "feature_descriptions": [
+        "concurrent outages",
+        "call duration",
+        "network type impact",
+        "location call drop ratio",
+        "call status encoding",
+        "hours since recent outage",
+        "recent drop flag",
+        "previous issues reported",
+        "device call drop ratio",
+        "user device type mapping",
+        "avg signal strength location",
+        "feedback rating average",
+        "weather signal interaction",
+        "signal strength level",
+        "local avg temperature",
+        "day of week",
+        "wind speed binned",
+        "weather condition type",
+        "hour of day binned",
+        "device model interaction"
+    ]
+}

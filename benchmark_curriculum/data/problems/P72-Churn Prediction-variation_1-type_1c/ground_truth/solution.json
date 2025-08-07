@@ -1,0 +1,22 @@
+{
+    "enriched_column_names": [
+        "count_of_negative_feedback_instances_from_a_customer_during_the_last_year",
+        "average_customer_feedback_score_over_the_past_year",
+        "changes_in_feedback_sentiment_from_first_to_last_recorded_feedback",
+        "decline_or_improvement_in_feedback_score_trend_over_the_last_6_months",
+        "customer_inactivity_period_in_days",
+        "proportion_of_marketing_campaigns_responded_to_by_the_customer_in_the_past_6_months",
+        "average_time_between_consecutive_transactions_over_the_past_year",
+        "median_campaign_response_time_for_a_customer"
+    ],
+    "features_descriptions": [
+        "count of negative feedback instances from a customer during the last year",
+        "average customer feedback score over the past year",
+        "changes in feedback sentiment from first to last recorded feedback",
+        "decline or improvement in feedback score trend over the last 6 months",
+        "customer inactivity period in days",
+        "proportion of marketing campaigns responded to by the customer in the past 6 months",
+        "average time between consecutive transactions over the past year",
+        "median campaign response time for a customer"
+    ]
+}

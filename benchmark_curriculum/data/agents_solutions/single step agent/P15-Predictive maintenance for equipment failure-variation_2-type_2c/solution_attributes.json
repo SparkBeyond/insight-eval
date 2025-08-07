@@ -1,0 +1,83 @@
+{
+    "solved_by": "single step agent",
+    "enriched_column_names": [
+        "days_since_last_maintenance",
+        "relative_power_output",
+        "operational_downtime_ratio",
+        "equipment_age_in_days",
+        "power_fluctuation_rate",
+        "avg_power_output",
+        "total_maintenance_cost",
+        "avg_maintenance_downtime",
+        "avg_temperature",
+        "max_vibration_level",
+        "max_temperature_deviation",
+        "manufacturer_failure_rate"
+    ],
+    "solution_type": "SolutionType.FeatureEngineering",
+    "new_feature_functions": [],
+    "sorted_feature_functions": {
+        "0.06095636259724994": {
+            "name": "days_since_last_maintenance",
+            "code": "import pandas as pd\nimport numpy as np\n\ndef days_since_last_maintenance(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the maintenance logs dataframe\n    logs_df = aux_dataframes['maintenance_logs_table.csv']\n    \n    # Ensure the maintenance_date column is parsed as datetime\n    logs_df['maintenance_date'] = pd.to_datetime(logs_df['maintenance_date'])\n    \n    # Filter the logs for the specific equipment_id\n    equipment_logs = logs_df[logs_df['equipment_id'] == row['equipment_id']]\n    \n    # Get the most recent maintenance date\n    last_date = equipment_logs['maintenance_date'].max()\n    \n    # Parse the current timestamp from the row\n    current_date = pd.to_datetime(row['timestamp'])\n    \n    # Calculate the number of days since the last maintenance\n    days_since_last = (current_date - last_date).days if pd.notnull(last_date) else np.nan\n    \n    return days_since_last\n"
+        },
+        "0.050477387801937695": {
+            "name": "relative_power_output",
+            "code": "\n\ndef relative_power_output(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Correct the key to match the actual key in aux_dataframes\n    specs_df = aux_dataframes['equipment_specs_table.csv']\n    \n    # Ensure the 'equipment_id' exists in the specs_df\n    if row['equipment_id'] in specs_df['equipment_id'].values:\n        # Retrieve the power capacity for the given equipment_id\n        capacity = specs_df.loc[specs_df['equipment_id'] == row['equipment_id'], 'power_capacity'].values[0]\n        # Calculate and return the relative power output\n        return row['power_output'] / capacity if capacity > 0 else 0\n    else:\n        # If the equipment_id is not found, return 0 or handle as needed\n        return 0\n"
+        },
+        "0.024089169008933514": {
+            "name": "operational_downtime_ratio",
+            "code": "\n\ndef operational_downtime_ratio(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the maintenance logs dataframe using the correct key\n    logs_df = aux_dataframes['maintenance_logs_table.csv']\n    \n    # Calculate the total downtime for the specific equipment_id\n    downtime = logs_df[logs_df['equipment_id'] == row['equipment_id']]['downtime_duration'].sum()\n    \n    # Calculate total operational hours based on the 'operational_status' column\n    # Assuming 'running' status indicates operational time\n    operational_rows = df_train[(df_train['equipment_id'] == row['equipment_id']) & (df_train['operational_status'] == 'running')]\n    total_time = len(operational_rows)  # Assuming each row represents a fixed time interval\n    \n    # Calculate and return the operational downtime ratio\n    if total_time > 0:\n        return downtime / total_time\n    else:\n        return 0\n"
+        },
+        "0.02281516193453734": {
+            "name": "equipment_age_in_days",
+            "code": "import pandas as pd\n\ndef equipment_age_in_days(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the equipment specs table\n    specs_df = aux_dataframes['equipment_specs_table.csv']\n    \n    # Ensure the equipment_id exists in the specs_df\n    if row['equipment_id'] not in specs_df['equipment_id'].values:\n        raise ValueError(f\"Equipment ID {row['equipment_id']} not found in equipment_specs_table.csv\")\n    \n    # Parse installation_date and calculate age in days\n    installation_date = pd.to_datetime(\n        specs_df.loc[specs_df['equipment_id'] == row['equipment_id'], 'installation_date'].values[0]\n    )\n    current_date = pd.to_datetime(row['timestamp'])\n    return (current_date - installation_date).days\n"
+        },
+        "0.01948358841026848": {
+            "name": "power_fluctuation_rate",
+            "code": "\n\ndef power_fluctuation_rate(row, df_train: pd.DataFrame):\n    power_series = df_train[df_train['equipment_id'] == row['equipment_id']]['power_output']\n    power_diff = power_series.diff().abs()\n    return power_diff.mean()\n"
+        },
+        "0.01771607571466341": {
+            "name": "avg_power_output",
+            "code": "\n\ndef avg_power_output(row, df_train: pd.DataFrame):\n    avg_output = df_train[df_train['equipment_id'] == row['equipment_id']]['power_output'].mean()\n    return avg_output\n"
+        },
+        "0.011135268047636938": {
+            "name": "total_maintenance_cost",
+            "code": "\n\ndef total_maintenance_cost(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the correct key\n    logs_df = aux_dataframes['maintenance_logs_table.csv']\n    \n    # Ensure the column name for maintenance cost is correct\n    total_cost = logs_df[logs_df['equipment_id'] == row['equipment_id']]['maintenance_cost'].sum()\n    \n    return total_cost\n"
+        },
+        "0.010661942520960005": {
+            "name": "avg_maintenance_downtime",
+            "code": "\n\ndef avg_maintenance_downtime(row, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Access the correct dataframe using the correct key\n    logs_df = aux_dataframes['maintenance_logs_table.csv']\n    \n    # Calculate the average downtime for the given equipment_id\n    avg_downtime = logs_df[logs_df['equipment_id'] == row['equipment_id']]['downtime_duration'].mean()\n    \n    return avg_downtime\n"
+        },
+        "0.008783415487756545": {
+            "name": "avg_temperature",
+            "code": "\n\ndef avg_temperature(row, df_train: pd.DataFrame):\n    avg_temp = df_train[df_train['equipment_id'] == row['equipment_id']]['temperature'].mean()\n    return avg_temp\n"
+        },
+        "0.008026989032116334": {
+            "name": "max_vibration_level",
+            "code": "\n\ndef max_vibration_level(row, df_train: pd.DataFrame):\n    max_vibration = df_train[df_train['equipment_id'] == row['equipment_id']]['vibration_level'].max()\n    return max_vibration\n"
+        },
+        "0.0023377820341390397": {
+            "name": "max_temperature_deviation",
+            "code": "\n\ndef max_temperature_deviation(row, df_train: pd.DataFrame):\n    temperatures = df_train[df_train['equipment_id'] == row['equipment_id']]['temperature']\n    max_deviation = temperatures.max() - temperatures.min()\n    return max_deviation\n"
+        },
+        "0": {
+            "name": "manufacturer_failure_rate",
+            "code": "import pandas as pd\n\ndef manufacturer_failure_rate(row, df_train: pd.DataFrame, aux_dataframes: Dict[str, pd.DataFrame]):\n    # Use the correct key for the equipment specifications table\n    specs_df = aux_dataframes['equipment_specs_table.csv']\n    \n    # Get the manufacturer for the given equipment_id\n    manufacturer_row = specs_df.loc[specs_df['equipment_id'] == row['equipment_id']]\n    if manufacturer_row.empty:\n        # If no matching equipment_id is found, return NaN\n        return float('nan')\n    \n    manufacturer = manufacturer_row['manufacturer'].values[0]\n    \n    # Filter df_train to exclude the current row and any future data\n    # Ensure the timestamp column is in datetime format\n    df_train['timestamp'] = pd.to_datetime(df_train['timestamp'])\n    current_timestamp = pd.to_datetime(row['timestamp'])\n    \n    # Exclude the current row and any rows with timestamps >= the current row's timestamp\n    past_data = df_train[(df_train['timestamp'] < current_timestamp) & \n                         (df_train['equipment_id'] != row['equipment_id'])]\n    \n    # Merge past_data with specs_df to associate manufacturers with failure events\n    manufacturer_failures = past_data.merge(specs_df, on='equipment_id', how='inner')\n    \n    # Calculate the failure rate for the specific manufacturer\n    mf_rate = manufacturer_failures[manufacturer_failures['manufacturer'] == manufacturer]['failure_event'].mean()\n    \n    return mf_rate\n"
+        }
+    },
+    "feature_descriptions": [
+        "days since last maintenance",
+        "relative power output",
+        "operational downtime ratio",
+        "equipment age in days",
+        "power fluctuation rate",
+        "avg power output",
+        "total maintenance cost",
+        "avg maintenance downtime",
+        "avg temperature",
+        "max vibration level",
+        "max temperature deviation",
+        "manufacturer failure rate"
+    ]
+}

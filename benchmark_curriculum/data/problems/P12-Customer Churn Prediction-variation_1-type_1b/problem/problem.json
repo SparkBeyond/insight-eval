@@ -1,0 +1,7 @@
+{
+    "target_column": "churned",
+    "description": "Predict which customers are likely to churn services.",
+    "name": "Customer Churn Prediction",
+    "comments": "target_comments=; data_comments=; schema_comments=",
+    "problem_domain": "Financial services"
+}
