@@ -22,7 +22,6 @@ class Loggers:
             ]
         )
 
-
     class FlowForwardingHandler(logging.Handler):
         forward_to_logger: logging.Logger
 
@@ -35,20 +34,19 @@ class Loggers:
             if record.levelno == logging.INFO or record.levelno >= logging.ERROR:
                 self.forward_to_logger.handle(record)
 
-    def set_logging_directory(self, loggers_dir: Path, delete_existing_results: bool = False) -> None:
+    def set_logging_directory(self, loggers_dir: Path, delete_existing_logs: bool = False) -> None:
         """Set the directory for loggers and set their handling logic."""
         loggers.flow_logger.info(f'*** logging_config.set_logging_directory: Deleted existing logs before starting')
 
-        if delete_existing_results:
+        if delete_existing_logs:
             shutil.rmtree(loggers_dir, ignore_errors=True)  # remove previous loggers if exist
 
-        Loggers.setup_logger(self.flow_logger, loggers_dir / 'flow.log', console_level=logging.INFO, propagate=False, delete_existing_logs= False)
-        Loggers.setup_logger(self.readers_logger, loggers_dir / 'readers.log', level=logging.DEBUG, forward_logger=self.flow_logger, delete_existing_logs= False)
-        Loggers.setup_logger(self.eval_logger, loggers_dir / 'eval.log', level=logging.DEBUG, forward_logger=self.flow_logger, delete_existing_logs= False)
-        Loggers.setup_logger(self.reports_logger, loggers_dir / 'reports.log', level=logging.DEBUG, forward_logger=self.flow_logger, delete_existing_logs= False)
+        Loggers.setup_logger(self.flow_logger, loggers_dir / 'flow.log', console_level=logging.INFO, propagate=False, delete_existing_logs=False)
+        Loggers.setup_logger(self.readers_logger, loggers_dir / 'readers.log', level=logging.DEBUG, forward_logger=self.flow_logger, delete_existing_logs=False)
+        Loggers.setup_logger(self.eval_logger, loggers_dir / 'eval.log', level=logging.DEBUG, forward_logger=self.flow_logger, delete_existing_logs=False)
+        Loggers.setup_logger(self.reports_logger, loggers_dir / 'reports.log', level=logging.DEBUG, forward_logger=self.flow_logger, delete_existing_logs=False)
 
         loggers.flow_logger.info(f'*** logging_config.set_logging_directory: Setup completed, logging to {loggers_dir} ***')
-
 
     @staticmethod
     def setup_logger(

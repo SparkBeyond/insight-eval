@@ -222,15 +222,12 @@ def test_e2e_multiple_agents():
     agents_for_combined_report = ['agent1', 'agent2']
 
     try:
-        agent_averages_df, detailed_eval_df = evaluate_multiple_agents(
-            agents_for_combined_report,
-            problems_path,
-            solutions_path,
-            evaluations_path,
-            delete_existing_evaluations=True,
-            problem_sets_hierarchy=False,
-            combined_reports_output_path=combined_reports_path
-        )
+        agent_averages_df, detailed_eval_df = evaluate_multiple_agents(agents_for_combined_report, problems_path,
+                                                                       solutions_path, evaluations_path,
+                                                                       delete_existing_evaluations=True,
+                                                                       only_common_problems=True,
+                                                                       problem_sets_hierarchy=False,
+                                                                       combined_reports_output_path=combined_reports_path)
 
         if len(detailed_eval_df) == 0:
             assert False, 'test_e2e_multiple_agents: No evaluation results were generated'
@@ -253,12 +250,12 @@ def test_e2e_multiple_agents():
 
 @pytest.fixture(scope="session", autouse=True)
 def setup_logging():
-    loggers.set_logging_directory(Path(__file__).parent / 'loggers', delete_existing_results=True)
+    loggers.set_logging_directory(Path(__file__).parent / 'loggers', delete_existing_logs=True)
     loggers.eval_logger.info('*** starting end-to-end tests ***')
 
 
 if __name__ == '__main__':
-    loggers.set_logging_directory(Path(__file__).parent / 'loggers', delete_existing_results=True)
+    loggers.set_logging_directory(Path(__file__).parent / 'loggers', delete_existing_logs=True)
     eval_logger.info('*** starting end-to-end tests ***')
 
     test_e2e_solution1()

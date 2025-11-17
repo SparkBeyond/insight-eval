@@ -5,26 +5,26 @@ from insight_eval.logging_config import loggers
 from natsort import natsort_keygen
 from pathlib import Path
 import pandas as pd
+import numpy as np
 import shutil
 
 
-def evaluate_multiple_agents(
-        agent_names: list[str],
-        problems_folder_path: Path,
-        solutions_folder_path: Path,
-        evaluations_folder_path: Path,
-        delete_existing_evaluations: bool,
-        problem_sets_hierarchy: bool,
-        combined_reports_output_path: Path
-        ) -> tuple[pd.DataFrame, pd.DataFrame]:
+def evaluate_multiple_agents(agent_names: list[str], problems_folder_path: Path, solutions_folder_path: Path,
+                             evaluations_folder_path: Path, delete_existing_evaluations: bool,
+                             only_common_problems: bool, problem_sets_hierarchy: bool,
+                             combined_reports_output_path: Path) -> tuple[pd.DataFrame, pd.DataFrame]:
     #
+    assert (not only_common_problems) or (not problem_sets_hierarchy), 'only_common_problems=True is not supported when problem_sets_hierarchy=True'
+
     if delete_existing_evaluations:
         shutil.rmtree(evaluations_folder_path, ignore_errors=True)  # remove existing evaluations if exist
 
     combined_reports_output_path.mkdir(parents=True, exist_ok=True)
 
     averages = []
+    problems_per_agent = {}
     detailed_eval_df = pd.DataFrame()
+    average_row_agent_keys = {}
     for agent_name in agent_names:
         solutions_folder = solutions_folder_path / agent_name
         if not Path.exists(solutions_folder):
@@ -46,11 +46,14 @@ def evaluate_multiple_agents(
             # remove average row from stats_df
             stats_df = stats_df[stats_df[f'problem_name_{agent_name}'] != 'average']
 
+            problems_per_agent[agent_name] = stats_df[f'problem_name_{agent_name}'].unique().tolist()
+
+            average_row_agent_keys[agent_name] = [key for key in average_row.keys() if key.endswith('_' + agent_name)]
             average_row = {key.removesuffix(f'_{agent_name}'): value for key, value in average_row.items()}
             average_row = {
+                'agent': agent_name,
                 'n_problems': evaluation_summary.n_problems,
                 'n_solutions': evaluation_summary.n_solutions,
-                'agent': agent_name,
                 'n_evaluations': evaluation_summary.n_evaluations,
                 'n_valid_evaluations': len(stats_df)
             } | average_row
@@ -93,6 +96,32 @@ def evaluate_multiple_agents(
     if len(averages) == 0:
         loggers.flow_logger.error('Unable to read/process any of the agents solutions. Aborting.')
         return pd.DataFrame(), pd.DataFrame()
+
+    common_problems = set.intersection(*[set(problems) for problems in problems_per_agent.values()])
+
+    if only_common_problems and not problem_sets_hierarchy:
+        if len(common_problems) == 0:
+            loggers.eval_logger.error('No common problems found across agents. Aborting')
+            return pd.DataFrame(), pd.DataFrame()
+
+        common_eval_df = detailed_eval_df[detailed_eval_df[f'problem_name'].isin(common_problems)]
+        new_averages = []
+        for agent_name in agent_names:
+            agent_stats = common_eval_df[common_eval_df['agent'] == agent_name]
+            n_common_evaluations = len(agent_stats)
+            assert n_common_evaluations > 0 # should not happen, as we filtered by common problems
+            agent_average_row = next((avg_row for avg_row in averages if avg_row['agent'] == agent_name), None)
+            average_cols = [c.removesuffix(f'_{agent_name}') for c in average_row_agent_keys[agent_name] if c != f'agent_{agent_name}']
+            # agent_stats.select_dtypes(include=[np.number]).columns.tolist()
+            # if 'target_leak_indicator' not in numeric_cols:
+            #     numeric_cols.append('target_leak_indicator')  # ensure this column is included (sometimes identified as dtype 'object'
+            numeric_averages = agent_stats[average_cols].sum() / n_common_evaluations
+            new_average_row = (
+                {k: agent_average_row[k] for k in ['agent', 'n_problems', 'n_solutions', 'n_evaluations', 'n_valid_evaluations']} |
+                {'n_common_evaluations': n_common_evaluations} | numeric_averages.to_dict()
+            )
+            new_averages.append(new_average_row)
+        averages = new_averages
 
     agent_averages_df = pd.DataFrame(averages)
     if 'problem_set' in agent_averages_df.columns:

@@ -8,7 +8,7 @@ import shutil
 
 
 if __name__ == '__main__':
-    loggers.set_logging_directory(Path('__file__').parent / 'loggers', delete_existing_results=True)
+    loggers.set_logging_directory(Path('__file__').parent / 'loggers', delete_existing_logs=True)
 
     delete_existing_evaluations = True  # if True, will delete existing evaluations before running new ones
     batch_data_path = Path(__file__).parent / 'data'

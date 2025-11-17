@@ -1,17 +1,11 @@
-[project.urls]
-"Homepage" = "https://www.sparkbeyond.ai/"
-"Repository" = "https://github.com/SparkBeyond/insight-eval"
-"Bug Tracker" = "https://github.com/SparkBeyond/insight-eval/issues"
-
-[project]
+[tool.poetry]
 name = "insight_eval"
-version = "0.1.1"
+version = "0.1.2"
 description = "Open source repo for the insight-discovery benchmarking evaluation framework"
-authors = [{ name = "Sparkbeyond", email = "support@sparkbeyond.com" }]
+authors = ["Sparkbeyond <support@sparkbeyond.com>"]
 homepage = "https://www.sparkbeyond.ai/"
 repository = "https://github.com/SparkBeyond/insight-eval"
-license = { text = "Apache-2.0" }
-license-files = ["LICENSE"]
+license = "Apache-2.0"
 readme = "README.md"
 
 include = [
@@ -55,6 +49,10 @@ python_version = 3.12
 strict = true
 ignore_missing_imports = false
 mypy_path = ["./stubs"]
+
+[tools.poetry.urls]
+"Bug Tracker" = "https://github.com/SparkBeyond/insight-eval/issues"
+
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

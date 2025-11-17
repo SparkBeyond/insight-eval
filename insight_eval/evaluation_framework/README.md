@@ -109,7 +109,11 @@ max SpearmanCorr(c,s), for s∈S
 
 ### Combined Coverage Score
 
-The Combined Coverage Score provides a unified per-problem metric that balances different aspects of semantic alignment.
+Analyzing the overlap and signal dominance across the above metrics, we identified the following two metrics as the most effective:
+- Incremental Performance Coverage
+- Single-Column Predictive Coverage
+
+In addition to these two metrics, we introduce a Combined Coverage Score, defined as a weighted average of these two metrics, with respective weights of 0.3 and 0.7. The Combined Coverage Score provides a unified per-problem metric that balances different aspects of semantic alignment.
 
 **Formula:**
 ```
