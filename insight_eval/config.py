@@ -25,15 +25,19 @@ COVERAGE_METRIC_WEIGHTS: dict[str, float | int] = {
         'single_column_predictive_coverage': 0.7
 }
 
+
 def create_local_curriculum(lc_path: Path) -> None:
     if not lc_path.exists():
         lc_path.mkdir(parents=True, exist_ok=True)
 
+
 class JsonFileNames:
+    Prefix_for_problem_and_solution_json_files = ''
+
     @classmethod
     def problem_json_file_name(cls) -> str:
-        return 'problem.json'
+        return f'{cls.Prefix_for_problem_and_solution_json_files}problem.json'
 
     @classmethod
     def solution_json_file_name(cls) -> str:
-        return 'solution.json'
+        return f'{cls.Prefix_for_problem_and_solution_json_files}solution.json'

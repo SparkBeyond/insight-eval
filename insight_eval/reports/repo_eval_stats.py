@@ -2,7 +2,6 @@ from insight_eval.reports.repo_stats import construct_problem_file_name
 from insight_eval.logging_config import loggers
 from typing import cast, Any
 import numpy.typing as npt
-from pandas import Series
 from pathlib import Path
 import pandas as pd
 import numpy as np
@@ -102,8 +101,8 @@ def combined_repo_eval_stats(df_repo_stats: pd.DataFrame, df_eval_stats: pd.Data
         problem_identifier = construct_problem_file_name(row.problem_id, row.problem_name, row.variation, row.primary_target_type, row.secondary_target_type)
         flow_logger.debug(f'Processing problem: {problem_identifier}')
 
-        eval_rows: dict[str, Series | dict[Any, Any]] = {}
-        new_eval_rows: dict[str, Series | dict[Any, Any]] = {}
+        eval_rows: dict[str, pd.Series | dict[Any, Any]] = {}
+        new_eval_rows: dict[str, pd.Series | dict[Any, Any]] = {}
         for agent_name in agent_names_for_difficulty:
             eval_rows[agent_name] = cast(pd.Series, df_evaluation_stats.loc[(agent_name, problem_identifier)]) if (agent_name, problem_identifier) in df_evaluation_stats.index else {}
 
@@ -119,9 +118,9 @@ def combined_repo_eval_stats(df_repo_stats: pd.DataFrame, df_eval_stats: pd.Data
         aggregates_row_dict = {}
 
         for field_name in fields_to_process:
-            field_values = [new_eval_row.get(agent_name + '_' + field_name, np.nan) if field_name != 'target_leak_indicator' else 'False'
+            field_values = [new_eval_row.get(agent_name + '_' + field_name, np.nan) if field_name != 'target_leak_indicator' else False
                             for agent_name, new_eval_row in new_eval_rows.items()]
-            field_values = [v for v in field_values if not pd.isna(v) and v != '']
+            field_values = [float(v) for v in field_values if not pd.isna(v) and isinstance(v, (float, int))]
             if len(field_values) > 0:
                 aggregates_row_dict[f'min_{field_name}'] = min(field_values)
                 aggregates_row_dict[f'max_{field_name}'] = max(field_values)
@@ -144,15 +143,18 @@ def combined_repo_eval_stats(df_repo_stats: pd.DataFrame, df_eval_stats: pd.Data
 
     new_df = pd.DataFrame(new_rows)
     output_path.mkdir(parents=True, exist_ok=True)
-    new_df.to_csv(output_path / 'repo_eval_stats_with_difficulty.csv', index=False)
+    new_df.to_csv(output_path / 'repo_eval_stats_by_difficulty.csv', index=False)
 
-    stats_df = pd.DataFrame(columns=['dimension', 'count', 'average problem difficulty'])
+    stats_df = pd.DataFrame(columns=['dimension', 'secondary dimension', 'count', 'average problem difficulty'])
     with open(output_path / 'repo_eval_stats.txt', 'w') as f:
-        stat_rows = []
         for field_names in [['n_tables'], ['problem_domain'], ['n_primary_columns'], ['total_columns'], ['n_gt_insights'], ['problem_difficulty_level'], ['primary_target_type', 'secondary_target_type']]:
+            if len(field_names) > 2:
+                flow_logger.warning(f'combined_repo_eval_stats: field_names ({field_names}) longer than 2 elements are not supported for repo_eval_stats.csv - trimming to 2 elements')
+                field_names = field_names[:2]
             flow_logger.info(f'problem_difficulty_score by {field_names}:')
             f.write(f'problem_difficulty_score by {field_names}:\n')
-            hdr_dict = {'dimension': field_names[0], 'count': 'count', 'average problem difficulty': 'average problem difficulty'}
+            hdr_dict = {'dimension': field_names[0], 'secondary dimension': field_names[1] if len(field_names) == 2 else "", 'count': 'count', 'average problem difficulty': 'average problem difficulty'}
+
             stats_df = pd.concat([stats_df, pd.DataFrame(hdr_dict, index=[0])])
             dict_xy = average_of_x_by_y(new_df, x='problem_difficulty_score', y=field_names)
 
@@ -162,7 +164,12 @@ def combined_repo_eval_stats(df_repo_stats: pd.DataFrame, df_eval_stats: pd.Data
             f.write('\n')
 
             crnt_stats_df = pd.DataFrame(dict_xy)[['counts', 'averages']].reset_index().rename(columns={field_names[0]: 'dimension', 'counts': 'count', 'averages': 'average problem difficulty'})
+            if len(field_names) == 2:  # pair of fields
+                crnt_stats_df = crnt_stats_df.rename(columns={field_names[1]: 'secondary dimension'})
+
             stats_df = pd.concat([stats_df, crnt_stats_df])
+            # add empty row
+            stats_df = pd.concat([stats_df, pd.DataFrame([{}], columns=stats_df.columns)], ignore_index=True)
             pass
 
     stats_df.to_csv(output_path / 'repo_eval_stats.csv', index=False)
@@ -199,7 +206,7 @@ def agent_performance_by_difficulty_level(detailed_eval_stats_df: pd.DataFrame, 
     )
     # detailed_eval_w_difficulty = detailed_eval_w_difficulty.sort_values(['agent', 'problem_identifier'])
 
-    sorted_detailed_eval_w_difficulty.to_csv(output_path / 'detailed_eval_with_difficulty.csv', index=False)
+    sorted_detailed_eval_w_difficulty.to_csv(output_path / 'detailed_eval_by_difficulty.csv', index=False)
 
     # Choose columns to average (adjust as needed)
     coverage_cols = [
@@ -234,7 +241,7 @@ def agent_performance_by_difficulty_level(detailed_eval_stats_df: pd.DataFrame, 
     averages_df = averages_df[['agent', 'problem_difficulty_level', 'group_count'] + coverage_cols]
 
     # Save or print the result
-    averages_df.to_csv(output_path / 'agent_averages_with_difficulty.csv', index=False)
+    averages_df.to_csv(output_path / 'agent_averages_by_difficulty.csv', index=False)
     print(averages_df)
     print(f'number of evaluations: {len(sorted_detailed_eval_w_difficulty)}')
 

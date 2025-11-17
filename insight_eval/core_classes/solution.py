@@ -116,7 +116,7 @@ class Solution:
         problem_train_columns = self.problem.train.columns.to_list()
         problem_test_columns = self.problem.test.columns.to_list()
         if problem_train_columns != problem_test_columns:
-            readers_logger.error(f'Solution-{self.name()}: problem train and test columns are not the same, train={problem_train_columns}, test={problem_test_columns}')
+            readers_logger.error(f'Solution-{self.name()}: problem train and test columns are not the same, train ^ test={set(problem_train_columns) ^ set(problem_test_columns)}')
             readers_logger.error(f'{self.enriched_column_names} after adjustment attempts={self.enriched_column_names}, original={orig_enriched_column_names}')
             raise ValueError(f'Problem train and test columns are not the same, train={problem_train_columns}, test={problem_test_columns}')
 

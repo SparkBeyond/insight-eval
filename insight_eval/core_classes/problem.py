@@ -24,9 +24,9 @@ class Problem:
     problem_domain: str = attrs.field(default="")
     problem_type: ProblemType = attrs.field(init=False)
 
-
     def __attrs_post_init__(self) -> None:
         self.problem_type: ProblemType = get_problem_type(self.train, self.target_column, self.test)
+
 
 def get_problem_type(df: pd.DataFrame, target: str, df2: pd.DataFrame | None = None) -> ProblemType:
     # Note that the problems in this benchmark version are all classification problems.
